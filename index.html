@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Signet7 transforms consequential email into independently verifiable, tamper-evident records with managed sender trust through the Verifiable Sender Network.">
+  <meta name="description" content="Signet7 is the trust layer for consequential email—used by organizations, professionals, and the individuals who rely on their messages.">
   <meta name="theme-color" content="#030609">
-  <meta property="og:title" content="Signet7 | Verifiable email trust">
-  <meta property="og:description" content="Signet7 transforms consequential email into independently verifiable, tamper-evident records with managed sender trust through the Verifiable Sender Network.">
-  <title>Signet7 | Verifiable Email Trust</title>
+  <meta property="og:title" content="Signet7 | Trust consequential email before you act">
+  <meta property="og:description" content="Independent proof of who sealed an important email and whether its protected content changed.">
+  <title>Signet7 | The Trust Layer for Consequential Email</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="assets/site.css">
@@ -16,17 +16,10 @@
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <nav class="nav container" aria-label="Primary">
-      <a class="brand" href="index.html">
-        <img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision">
-        <span>SIGNET<strong>7</strong></span>
-      </a>
+      <a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a>
       <div class="nav-links">
-        <a href="product.html">Product</a>
-        <a href="trust.html">Trust</a>
-        <a href="integrations.html">Integrations</a>
-        <a href="about.html">Team</a>
-        <a href="docs.html">Docs</a>
-        <a class="nav-cta" href="docs.html#candidate-status">Candidate status</a>
+        <a href="product.html">Product</a><a href="programs.html">Programs</a><a href="trust.html">Trust</a><a href="integrations.html">Integrations</a><a href="pilot.html">Pilot</a><a href="about.html">Team</a><a href="docs.html">Docs</a>
+        <a class="nav-cta" href="programs.html">View programs</a>
       </div>
     </nav>
   </header>
@@ -35,169 +28,83 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">Sender provenance · protected-content integrity · portable evidence</div>
-          <div class="badge-row">
-            <span class="badge cyan">Email-first product direction</span>
-            <span class="badge gold">0.2.0rc1 foundation</span>
-            <span class="badge">No production claim</span>
-          </div>
-          <h1>Make consequential email <span class="gradient-text">self-proving.</span></h1>
-          <p class="hero-copy"><strong>Email is where the world's most consequential decisions happen, yet it still cannot be trusted on its own. Signet7 fixes that.</strong> Signet7 seals important messages with cryptographic proof of their sender and protected contents, transforming ordinary email into independently verifiable, tamper-evident records. No other platform combines sender and key provenance, protected-content integrity, durable evidence preservation, and verification outside any single email provider in this way.</p>
-          <div class="actions">
-            <a class="button primary" href="product.html">See the product model</a>
-            <a class="button secondary" href="docs.html#candidate-status">Inspect current status</a>
-          </div>
+          <div class="eyebrow">The trust layer for consequential email</div>
+          <div class="badge-row"><span class="badge cyan">Early-alpha local candidate</span><span class="badge gold">Free recipient verification direction</span><span class="badge">No production claim</span></div>
+          <h1>Trust the email <span class="gradient-text">before you act.</span></h1>
+          <p class="hero-copy"><strong>Signet7 is the trust layer for consequential email—used by organizations, professionals, and the individuals who rely on their messages.</strong> Before you act on an important email, Signet7 is designed to help you check who sealed it, identify which components were protected, detect changes to those components, and preserve a portable verification receipt.</p>
+          <div class="actions"><a class="button primary" href="programs.html">View the program ladder</a><a class="button secondary" href="product.html#current">See what exists now</a></div>
         </div>
-        <aside class="evidence-card" aria-label="Illustrative email verification path">
-          <div class="terminal-head"><span>verification path</span><span class="dots"><i></i><i></i><i></i></span></div>
-          <div class="signal"><code>01</code><div><b>Sender trust</b><span>Resolve the authorized key and its status.</span></div></div>
-          <div class="signal"><code>02</code><div><b>Coverage</b><span>Declare which message components are protected.</span></div></div>
-          <div class="signal"><code>03</code><div><b>Integrity</b><span>Detect changes to the covered content.</span></div></div>
-          <div class="signal"><code>04</code><div><b class="ok">Evidence</b><span>Preserve a portable, independently checkable record.</span></div></div>
-          <div class="signal"><code>05</code><div><b>Lifecycle</b><span>Use VSN for managed enrollment, status, rotation, and revocation.</span></div></div>
-        </aside>
+        <figure class="visual-stage hero-visual">
+          <img src="assets/handoff-visual.png" alt="Illustrated professional sender passing a protected invoice to a recipient who checks a factual Signet7 verifier response">
+          <figcaption class="visual-caption"><span>The handoff</span><strong>Seal supported parts. Check the evidence free.</strong></figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="page-band" aria-label="Product hierarchy">
-      <div class="container proof-rail">
-        <div class="proof-item"><b>Signet7</b><span>The secure email trust platform.</span></div>
-        <div class="proof-item"><b>Evidence</b><span>Portable proof of provenance and protected-content integrity.</span></div>
-        <div class="proof-item"><b>VSN</b><span>Managed trust infrastructure for enterprise scale.</span></div>
-        <div class="proof-item"><b>Agents</b><span>A supporting downstream extension for AI, automation, ERP/CRM, and enterprise records systems.</span></div>
+    <section class="page-band" aria-label="Who Signet7 is for">
+      <div class="container proof-rail three">
+        <div class="proof-item"><b>Organizations</b><span>Managed sender identity, lifecycle, administration, integrations, support, and retention.</span></div>
+        <div class="proof-item"><b>Professionals</b><span>Protect recurring consequential messages and preserve evidence clients can inspect.</span></div>
+        <div class="proof-item"><b>Individuals</b><span>Verify protected messages without being forced into a sender subscription.</span></div>
       </div>
     </section>
 
     <section class="section section-line">
       <div class="container">
-        <div class="eyebrow">The product center</div>
-        <h2>Trust that travels with the evidence.</h2>
-        <p class="section-intro">Signet7 is intended to complement provider, transport, gateway, reputation, and user controls with explicit sender/key trust and portable integrity evidence.</p>
+        <div class="eyebrow">The moment Signet7 owns</div>
+        <h2>Appearance is not proof.</h2>
+        <p class="section-intro">Display names, familiar branding, writing style, apparent addresses, and old conversation threads can all look convincing. When an email could cost money, change rights, expose sensitive information, or become evidence later, recipients need a calm way to inspect stronger proof before acting.</p>
         <div class="grid-3">
-          <article class="card">
-            <div class="icon">01</div>
-            <h3>Establish provenance</h3>
-            <p>Connect the covered email to a signing key and a separately governed sender or organization trust relationship.</p>
-          </article>
-          <article class="card">
-            <div class="icon">02</div>
-            <h3>Detect covered changes</h3>
-            <p>Verify the message components the coverage profile explicitly protects—without pretending unspecified content is included.</p>
-          </article>
-          <article class="card">
-            <div class="icon">03</div>
-            <h3>Preserve evidence</h3>
-            <p>Export signed, tamper-evident records for later validation with independently controlled trust and completeness inputs.</p>
-          </article>
+          <article class="card hot"><div class="icon">01</div><h3>Invoices and payment instructions</h3><p>Freelancers, bookkeepers, contractors, and microbusinesses can protect the content clients are expected to rely on. Signet7 does not approve payment or prove bank details are prudent.</p></article>
+          <article class="card"><div class="icon">02</div><h3>Contracts and consequential changes</h3><p>Protect covered clauses, scope changes, notices, and attachments so a recipient can detect later changes and retain a result.</p></article>
+          <article class="card"><div class="icon">03</div><h3>Institutional instructions</h3><p>Title, legal, financial, medical, employment, and insurance workflows can sponsor free recipient checks through bounded B2B2C pilots.</p></article>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="eyebrow">Why now</div>
-        <h2>The regulatory need is already taking shape.</h2>
-        <p class="section-intro">SEC recordkeeping rules require certain regulated firms to preserve and produce electronic records with integrity controls. SOX-related audit rules require covered audit and review records to be retained for seven years. HIPAA requires specified documentation to be retained for six years, while the EU AI Act introduces logging and retention obligations for covered high-risk AI systems as its requirements take effect.</p>
-        <div class="notice gold"><strong>The boundary:</strong> these regimes do not mandate Signet7 or make every email a regulated record. They expose a recurring business requirement: organizations must preserve important records, demonstrate their integrity, and produce credible evidence when regulators, auditors, courts, insurers, or counterparties demand it.</div>
-      </div>
-    </section>
-
-    <section class="section section-line">
-      <div class="container split">
-        <div>
-          <div class="eyebrow">The name</div>
-          <h2>The name defines the mission.</h2>
-          <p class="section-intro">A <strong>signet</strong> is a seal of authenticity and proof. The <strong>7</strong> represents the seven-year audit-retention benchmark that shaped Signet7's long-term evidence standard.</p>
-        </div>
-        <article class="card">
-          <h3>Built for consequential records</h3>
-          <p>Wire approvals, contracts, account changes, tax records, compliance notices, and executive directives can be examined or challenged years after they were sent.</p>
-        </article>
       </div>
     </section>
 
     <section class="section">
       <div class="container split">
         <div>
-          <div class="eyebrow">Verifiable Sender Network</div>
-          <h2>Managed trust is where the network earns its value.</h2>
-          <p class="section-intro">VSN is the managed trust infrastructure within Signet7. It establishes and maintains verified relationships among organizations, senders, and cryptographic keys while providing the lifecycle and administration needed at scale.</p>
-          <div class="actions">
-            <a class="button primary" href="product.html#vsn">Explore VSN's role</a>
-            <a class="button secondary" href="trust.html">Review the trust model</a>
-          </div>
+          <div class="eyebrow">Free recipient verification</div>
+          <h2>Verification should not require a purchase decision.</h2>
+          <p class="section-intro">The approved direction keeps recipient verification free wherever operationally viable. Trusted senders, professionals, businesses, and enterprises fund signing, managed identity, lifecycle, administration, integrations, support, and retention.</p>
         </div>
         <div class="scope-list">
-          <div class="scope-row"><b>Enroll</b><span>Establish authorized senders, organizations, keys, and administrators.</span></div>
-          <div class="scope-row"><b>Discover</b><span>Resolve key and trust status through managed verification services.</span></div>
-          <div class="scope-row"><b>Maintain</b><span>Rotate, revoke, recover, and audit the sender trust lifecycle.</span></div>
-          <div class="scope-row"><b>Scale</b><span>Provide enterprise administration, support, and verification operations.</span></div>
+          <div class="scope-row"><b>Check</b><span>Upload or forward a supported protected message to a compatible verifier.</span></div>
+          <div class="scope-row"><b>Understand</b><span>See integrity, sender/key binding, status, coverage, and warnings separately.</span></div>
+          <div class="scope-row"><b>Keep</b><span>Download a versioned receipt of the verifier response where supported.</span></div>
+          <div class="scope-row"><b>Decide</b><span>Use ordinary safety checks as well; verified content can still be mistaken or malicious.</span></div>
         </div>
-      </div>
-      <div class="container">
-        <div class="notice gold"><strong>Roadmap boundary:</strong> the repository contains signature, trust-binding, enrollment, and optional DNS-discovery foundations. It does not yet establish the complete managed VSN service or its operating controls.</div>
       </div>
     </section>
 
-    <section class="section section-line">
+    <section class="section section-line" id="current">
       <div class="container">
-        <div class="eyebrow">Current candidate</div>
-        <h2>A real foundation. An unfinished email product.</h2>
+        <div class="eyebrow">Current candidate truth</div>
+        <h2>A working email evidence profile. Not a live managed service.</h2>
         <div class="truth-grid">
-          <div class="truth yes">
-            <h3>Implemented foundation</h3>
-            <ul>
-              <li>Sender, message identifier, and body-bound signatures.</li>
-              <li>Explicit or enrolled key trust and optional DNS discovery.</li>
-              <li>Signed, hash-chained, tenant-scoped evidence records.</li>
-              <li>Export, detached verification, API, CLI, and supporting MCP surfaces.</li>
-            </ul>
-          </div>
-          <div class="truth no">
-            <h3>Not established yet</h3>
-            <ul>
-              <li>Complete MIME canonicalization or comprehensive attachment coverage.</li>
-              <li>Production provider/mailbox integration or recipient inbox indicators.</li>
-              <li>A complete managed VSN service, production deployment, SLA, or customer pilot.</li>
-              <li>Certification, universal legal identity, or universal retention.</li>
-            </ul>
-          </div>
+          <div class="truth yes"><h3>Implemented in the local product candidate</h3><ul><li>Versioned <code>s7-email-1</code> signing and verification for supported MIME messages.</li><li>Protected text and HTML alternatives plus attachment bytes and declared metadata.</li><li>Explicit coverage manifests, sender/key binding outcomes, lifecycle checks, and optional evidence recording.</li><li>Five-program catalog, Stripe-test entitlement control plane, account/pricing UI, and paid-operation gates.</li><li>Local Gmail, Outlook, and browser-extension packages with free verification and program-aware sender paths.</li></ul></div>
+          <div class="truth no"><h3>Not established as complete</h3><ul><li>Production provider compatibility, recipient inbox indicators, mobile distribution, or a customer deployment.</li><li>Durable managed sender custody through the current browser compose demonstration.</li><li>The complete managed VSN enrollment, directory, recovery, revocation, administration, support, and operating service.</li><li>Universal identity, truthful-content, malware-safety, fraud-prevention, confidentiality, or legal-admissibility guarantees.</li></ul></div>
         </div>
-        <div class="notice"><strong>Language matters.</strong> “Tamper-evident” means covered changes can be detected. It does not mean every copy is impossible to delete, every history is complete, or every real-world fact is proven.</div>
+        <div class="notice gold"><strong>Interpretation rule:</strong> “unverified” means the required evidence was not established. It does not mean “fraudulent.” “Verified” applies only to the stated cryptographic and trust facts; it does not mean “safe to act.”</div>
       </div>
     </section>
 
     <section class="section">
       <div class="container split">
-        <div>
-          <div class="eyebrow">Supporting extension</div>
-          <h2>Verified email can inform automated action.</h2>
-          <p class="section-intro">AI agents and other systems may consume Signet7 evidence before acting. The current action-bound profile and MCP tooling explore that path, but the integrating caller remains responsible for enforcement.</p>
-        </div>
-        <article class="card">
-          <h3>Email first</h3>
-          <p>The trust result begins with the email. Automation is one possible consumer—not the definition of the platform.</p>
-          <p><a href="integrations.html">Review integration boundaries →</a></p>
-        </article>
+        <div><div class="eyebrow">Verifiable Sender Network</div><h2>Keep the enterprise-grade trust infrastructure.</h2><p class="section-intro">VSN remains Signet7’s managed trust layer for enrollment, discovery, key status, rotation, revocation, recovery, administration, scale, support, and abuse controls. The pivot broadens who benefits; it does not demote the infrastructure required to make trust dependable.</p></div>
+        <article class="card"><h3>Roadmap, not current-service claim</h3><p>The source contains trust-binding, enrollment, local lifecycle, and DNS-discovery foundations. The complete managed VSN service and its operating controls remain planned.</p><p><a href="product.html#vsn">Review the staged product model →</a></p></article>
+      </div>
+    </section>
+
+    <section class="section section-line">
+      <div class="container split">
+        <div><div class="eyebrow">Founding design partners</div><h2>Free access buys learning—not vanity adoption.</h2><p class="section-intro">The first proposed cohort is freelancers and microbusinesses testing invoices, bank-detail changes, contracts, scope changes, and payment approvals in a bounded four-week pilot. Higher-risk institutional workflows begin with simulations or lower-risk communications.</p></div>
+        <div class="actions"><a class="button primary" href="pilot.html">Read the pilot contract</a><a class="button secondary" href="trust.html#claim-boundary">Read the claim boundary</a></div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div>
-        <a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a>
-        <div class="legal-note">Internal replacement draft. Product direction is broader than the current candidate implementation. No production, customer, certification, or final-pricing claim.</div>
-      </div>
-      <div class="footer-links">
-        <a href="product.html">Product</a>
-        <a href="trust.html">Trust</a>
-        <a href="integrations.html">Integrations</a>
-        <a href="about.html">Team</a>
-        <a href="privacy.html">Privacy status</a>
-        <a href="docs.html">Docs</a>
-      </div>
-    </div>
-  </footer>
+  <footer class="footer"><div class="container footer-grid"><div><a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a><div class="candidate-stamp">Local candidate - not a live service</div><div class="legal-note">Unpublished local commercial candidate. No live billing, approved public amount, production, customer, certification, partnership, deployment, store listing, or crowdfunding claim.</div></div><div class="footer-links"><a href="product.html">Product</a><a href="programs.html">Programs</a><a href="trust.html">Trust</a><a href="integrations.html">Integrations</a><a href="pilot.html">Pilot</a><a href="about.html">Team</a><a href="privacy.html">Privacy</a><a href="docs.html">Docs</a></div></div></footer>
 </body>
 </html>

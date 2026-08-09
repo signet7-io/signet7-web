@@ -17,11 +17,13 @@
       <a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a>
       <div class="nav-links">
         <a href="product.html">Product</a>
+        <a href="programs.html">Programs</a>
         <a href="trust.html">Trust</a>
         <a href="integrations.html">Integrations</a>
+        <a href="pilot.html">Pilot</a>
         <a href="about.html">Team</a>
         <a href="docs.html" aria-current="page">Docs</a>
-        <a class="nav-cta" href="docs.html#candidate-status">Candidate status</a>
+        <a class="nav-cta" href="product.html#current">Candidate status</a>
       </div>
     </nav>
   </header>
@@ -42,22 +44,27 @@
     <section class="section" id="candidate-status">
       <div class="container">
         <div class="eyebrow">First read</div>
-        <h2>Four documents establish the hierarchy.</h2>
+        <h2>Five documents establish the hierarchy.</h2>
         <div class="grid-2">
           <article class="card hot">
             <h3>Canonical product definition</h3>
             <p>The authoritative identity of Signet7: verifiable email at the center, VSN as the managed trust infrastructure, and automation as a supporting extension.</p>
-            <p><a href="product.html">Read the public product model →</a></p>
+            <p><a href="product.html">Read the public product definition →</a></p>
           </article>
           <article class="card">
             <h3>Product status</h3>
             <p>The current candidate's implemented, partial, absent, and unverified capabilities. Use this source for “does it exist now?” questions.</p>
-            <p><a href="docs.html#candidate-status">Read current status →</a></p>
+            <p><a href="product.html#current">Read public current status →</a></p>
+          </article>
+          <article class="card">
+            <h3>Commercial program</h3>
+            <p>The implemented program IDs, entitlement boundaries, Stripe-test architecture, integration packages, and protected external activation gates.</p>
+            <p><a href="programs.html">Read the public program summary →</a></p>
           </article>
           <article class="card">
             <h3>Architecture</h3>
             <p>The technical boundaries, trust inputs, data flow, evidence model, and separation between the current foundation and intended email product.</p>
-            <p><a href="product.html">Read the public architecture model →</a></p>
+            <p><a href="trust.html">Read the public trust architecture →</a></p>
           </article>
           <article class="card">
             <h3>Trust and compliance</h3>
@@ -76,12 +83,12 @@
           <article class="card">
             <h3>VSN specification</h3>
             <p>The Signet7-specific sender/key discovery and trust profile. It is not an IETF standard and does not by itself prove a legal identity.</p>
-            <p><a href="integrations.html">Review the public integration boundary →</a></p>
+            <p><a href="product.html#vsn">Read the public VSN status →</a></p>
           </article>
           <article class="card">
             <h3>VSN email sender</h3>
             <p>The limited sender helper and its exact assumptions. Treat it as evaluation tooling, not evidence of a complete provider integration.</p>
-            <p><a href="integrations.html">Review the public sender boundary →</a></p>
+            <p><a href="integrations.html">Review public sender integration status →</a></p>
           </article>
           <article class="card">
             <h3>Integration index</h3>
@@ -89,7 +96,7 @@
             <p><a href="integrations.html">Open the public integration map →</a></p>
           </article>
         </div>
-        <div class="notice gold"><strong>Email-MVP gap:</strong> complete MIME canonicalization, comprehensive attachment coverage, supported provider/mailbox workflows, and recipient-facing verification UX remain roadmap work until implemented and accepted.</div>
+        <div class="notice gold"><strong>Current candidate:</strong> <code>s7-email-1</code> implements supported MIME coverage, protected alternatives, attachment manifests, lifecycle/status checks, and recipient verification. Production provider interoperability, durable managed sender custody, hosted operations, and the complete VSN service remain unestablished.</div>
       </div>
     </section>
 
@@ -97,17 +104,17 @@
       <div class="container">
         <div class="eyebrow">Implement and operate</div>
         <h2>Configuration is not deployment evidence.</h2>
-        <table class="data-table">
+        <table class="data-table" tabindex="0" aria-label="Scrollable data table">
           <thead>
             <tr><th>Need</th><th>Source</th><th>Use it for</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>Documentation index</strong></td><td><code>docs/README.md</code></td><td>Private-repository orientation and source routing</td></tr>
-            <tr><td><strong>Configuration</strong></td><td><code>docs/CONFIGURATION.md</code></td><td>Candidate settings, modes, and validation</td></tr>
-            <tr><td><strong>Operations</strong></td><td><code>docs/OPERATIONS.md</code></td><td>Runbooks, evidence, recovery, and promotion gates</td></tr>
-            <tr><td><strong>Serialization</strong></td><td><code>docs/specs/CANONICAL-SERIALIZATION.md</code></td><td>Current versioned signing input—not a complete MIME profile</td></tr>
-            <tr><td><strong>Module manual</strong></td><td><code>docs/MODULE-MANUAL.md</code></td><td>Implementation modules and interfaces</td></tr>
-            <tr><td><strong>Runbooks</strong></td><td><code>docs/runbooks/README.md</code></td><td>Qualification, recovery, lifecycle, and records controls</td></tr>
+            <tr><td><strong>Documentation index</strong></td><td><a href="#private-sources">Internal controlled source</a></td><td>Orientation and source routing</td></tr>
+            <tr><td><strong>Configuration</strong></td><td><a href="#private-sources">Internal controlled source</a></td><td>Candidate settings, modes, and validation</td></tr>
+            <tr><td><strong>Operations</strong></td><td><a href="#private-sources">Internal controlled source</a></td><td>Runbooks, evidence, recovery, and promotion gates</td></tr>
+            <tr><td><strong>Serialization</strong></td><td><a href="#private-sources">Internal controlled source</a></td><td>Current versioned signing input—not a complete MIME profile</td></tr>
+            <tr><td><strong>Module manual</strong></td><td><a href="#private-sources">Internal controlled source</a></td><td>Implementation modules and interfaces</td></tr>
+            <tr><td><strong>Runbooks</strong></td><td><a href="#private-sources">Internal controlled source</a></td><td>Qualification, recovery, lifecycle, and records controls</td></tr>
           </tbody>
         </table>
       </div>
@@ -152,7 +159,7 @@
         <article class="card">
           <h3>Source order</h3>
           <p>Canonical definition → current status → architecture/trust → exact specification → tests and operating evidence → audience-approved claim.</p>
-          <p><a href="trust.html#claim-boundary">Review the public claim boundary →</a></p>
+          <p><a href="trust.html#claim-boundary">Open the public claim boundary →</a></p>
         </article>
       </div>
     </section>
@@ -160,7 +167,7 @@
 
   <footer class="footer">
     <div class="container footer-grid">
-      <div><a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a><div class="legal-note">Documentation links describe a release candidate and product direction. They do not establish production readiness, customer use, certification, an SLA, or a final commercial offer.</div></div>
+      <div><a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a><div class="candidate-stamp">Local candidate - not a live service</div><div class="legal-note">Documentation links describe a release candidate and product direction. They do not establish production readiness, customer use, certification, an SLA, or a final commercial offer.</div></div>
       <div class="footer-links"><a href="index.html">Overview</a><a href="product.html">Product</a><a href="trust.html">Trust</a><a href="integrations.html">Integrations</a><a href="about.html">Team</a><a href="privacy.html">Privacy status</a></div>
     </div>
   </footer>

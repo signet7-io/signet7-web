@@ -17,11 +17,13 @@
       <a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a>
       <div class="nav-links">
         <a href="product.html">Product</a>
+        <a href="programs.html">Programs</a>
         <a href="trust.html">Trust</a>
         <a href="integrations.html">Integrations</a>
+        <a href="pilot.html">Pilot</a>
         <a href="about.html">Team</a>
         <a href="docs.html">Docs</a>
-        <a class="nav-cta" href="docs.html#candidate-status">Candidate status</a>
+        <a class="nav-cta" href="product.html#current">Candidate status</a>
       </div>
     </nav>
   </header>
@@ -48,7 +50,7 @@
             <h3>What the repository page shows</h3>
             <ul>
               <li>Static HTML, CSS, images, and links.</li>
-              <li>No contact, signup, account, payment, or message-upload form.</li>
+              <li>No contact, signup, account, payment, checkout, or message-upload form in this static website source.</li>
               <li>No analytics or advertising script declared by these page sources.</li>
               <li>No instruction to send email content or personal information through this site.</li>
             </ul>
@@ -70,7 +72,7 @@
       <div class="container">
         <div class="eyebrow">Product data categories</div>
         <h2>Email trust requires explicit handling decisions.</h2>
-        <table class="data-table">
+        <table class="data-table" tabindex="0" aria-label="Scrollable data table">
           <thead>
             <tr><th>Category</th><th>Why it may be processed</th><th>Decision still required</th></tr>
           </thead>
@@ -81,6 +83,7 @@
             <tr><td><strong>Keys and trust status</strong></td><td>Signing, discovery, rotation, revocation, expiry, and recovery</td><td>Custody model, hardware boundaries, public disclosure, recovery, and administrator access</td></tr>
             <tr><td><strong>Verification and evidence records</strong></td><td>Result explanation, audit, export, incident response, and later validation</td><td>Field-level minimization, completeness, legal hold, access, retention, deletion, and export</td></tr>
             <tr><td><strong>Operational metadata</strong></td><td>Security, reliability, rate limiting, abuse prevention, support, and diagnostics</td><td>Final telemetry, purpose, access, retention, subprocessor, and notice controls</td></tr>
+            <tr><td><strong>Commercial account and subscription metadata</strong></td><td>Program entitlement, checkout, billing-portal routing, webhook reconciliation, and support</td><td>Customer identity/recovery, lawful basis, notice, retention, Stripe configuration, subprocessors, disputes, tax, refunds, and closure</td></tr>
           </tbody>
         </table>
       </div>
@@ -99,7 +102,8 @@
         </article>
       </div>
       <div class="container">
-        <div class="notice"><strong>Email-product status:</strong> complete MIME and attachment processing is not implemented. The final architecture must specify whether protected content remains local, is transmitted to a verifier, is retained, or is represented only by derived values at each boundary.</div>
+        <div class="notice"><strong>Email-product status:</strong> the current sign and verify routes receive supported raw message bytes to parse, canonicalize, hash, sign, or verify them. Optional evidence recording stores derived verification metadata; the deployed operator must still prove request logging, temporary-file, backup, access, deletion, regional, and retention behavior before making a privacy commitment.</div>
+        <div class="notice gold"><strong>Commercial candidate status:</strong> the local product branch includes Stripe-test checkout/portal adapters and stores a minimized tenant subscription projection plus event identifiers. It does not store raw webhook payloads or payment methods. No live Stripe deployment, public customer identity/recovery system, final privacy notice, or customer processing authorization is established.</div>
       </div>
     </section>
 
@@ -141,7 +145,7 @@
           <p class="section-intro">This static project site does not provide an authorized production intake channel. Do not use it to submit messages, attachments, credentials, personal information, or regulated data.</p>
         </div>
         <div class="actions">
-          <a class="button primary" href="docs.html#candidate-status">Review current status</a>
+          <a class="button primary" href="product.html#current">Review current status</a>
           <a class="button secondary" href="trust.html">Review trust boundaries</a>
         </div>
       </div>
@@ -150,7 +154,7 @@
 
   <footer class="footer">
     <div class="container footer-grid">
-      <div><a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a><div class="legal-note">Draft transparency page only. Legal and privacy review is required before any public privacy policy, production data collection, retention promise, or customer processing commitment.</div></div>
+      <div><a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a><div class="candidate-stamp">Local candidate - not a live service</div><div class="legal-note">Draft transparency page only. Legal and privacy review is required before any public privacy policy, production data collection, retention promise, or customer processing commitment.</div></div>
       <div class="footer-links"><a href="index.html">Overview</a><a href="product.html">Product</a><a href="trust.html">Trust</a><a href="integrations.html">Integrations</a><a href="about.html">Team</a><a href="docs.html">Docs</a></div>
     </div>
   </footer>

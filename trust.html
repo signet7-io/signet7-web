@@ -17,11 +17,13 @@
       <a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a>
       <div class="nav-links">
         <a href="product.html">Product</a>
+        <a href="programs.html">Programs</a>
         <a href="trust.html" aria-current="page">Trust</a>
         <a href="integrations.html">Integrations</a>
+        <a href="pilot.html">Pilot</a>
         <a href="about.html">Team</a>
         <a href="docs.html">Docs</a>
-        <a class="nav-cta" href="trust.html#claim-boundary">Claim boundary</a>
+        <a class="nav-cta" href="#claim-boundary">Claim boundary</a>
       </div>
     </nav>
   </header>
@@ -70,16 +72,16 @@
       <div class="container">
         <div class="eyebrow">Coverage</div>
         <h2>Integrity is only as broad as the signed representation.</h2>
-        <p class="section-intro">The current sender/message/body input is a foundation. A complete email profile needs deterministic MIME and attachment rules that survive legitimate transformations without concealing meaningful alteration.</p>
+        <p class="section-intro">The current <code>s7-email-1</code> profile implements deterministic rules for supported MIME structures, protected text and HTML alternatives, and attachment bytes plus declared metadata. Unsupported structures and provider transformations still require explicit negative outcomes and broader interoperability testing.</p>
         <div class="truth-grid">
           <div class="truth yes">
-            <h3>Required email-MVP properties</h3>
+            <h3>Implemented profile properties</h3>
             <ul>
               <li>Versioned canonicalization and declared component coverage.</li>
               <li>Attachment and nested-part manifest rules.</li>
               <li>Clear unsupported/indeterminate outcomes.</li>
               <li>Replay, expiry, rotation, and revocation behavior.</li>
-              <li>Cross-implementation test vectors and negative fixtures.</li>
+              <li>Positive and negative fixtures in the current product test suite.</li>
             </ul>
           </div>
           <div class="truth no">
@@ -115,7 +117,7 @@
       <div class="container">
         <div class="eyebrow">Evidence and anchoring</div>
         <h2>Tamper evidence has layers.</h2>
-        <table class="data-table">
+        <table class="data-table" tabindex="0" aria-label="Scrollable data table">
           <thead><tr><th>Layer</th><th>Supported conclusion</th><th>Remaining boundary</th></tr></thead>
           <tbody>
             <tr><td><strong>Signature</strong></td><td>Covered input verifies under a key</td><td>Binding, status, custody, and real-world truth remain external</td></tr>
@@ -172,8 +174,8 @@
           </div>
         </div>
         <div class="actions">
-          <a class="button primary" href="trust.html#claim-boundary">Review the claim boundary</a>
-          <a class="button secondary" href="docs.html#candidate-status">Current status</a>
+          <a class="button primary" href="#claim-boundary">Read the claim boundary</a>
+          <a class="button secondary" href="product.html#current">Current status</a>
         </div>
       </div>
     </section>
@@ -181,7 +183,7 @@
 
   <footer class="footer">
     <div class="container footer-grid">
-      <div><a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a><div class="legal-note">Technical verification is not a legal conclusion, certification, customer acceptance, or proof of deployment.</div></div>
+      <div><a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a><div class="candidate-stamp">Local candidate - not a live service</div><div class="legal-note">Technical verification is not a safety verdict, legal conclusion, certification, customer acceptance, or proof of deployment.</div></div>
       <div class="footer-links"><a href="index.html">Overview</a><a href="product.html">Product</a><a href="integrations.html">Integrations</a><a href="docs.html">Docs</a><a href="privacy.html">Privacy status</a></div>
     </div>
   </footer>

@@ -17,11 +17,13 @@
       <a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a>
       <div class="nav-links">
         <a href="product.html">Product</a>
+        <a href="programs.html">Programs</a>
         <a href="trust.html">Trust</a>
         <a href="integrations.html" aria-current="page">Integrations</a>
+        <a href="pilot.html">Pilot</a>
         <a href="about.html">Team</a>
         <a href="docs.html">Docs</a>
-        <a class="nav-cta" href="docs.html#candidate-status">Candidate status</a>
+        <a class="nav-cta" href="product.html#current">Candidate status</a>
       </div>
     </nav>
   </header>
@@ -32,10 +34,19 @@
         <div class="eyebrow">Sender systems · gateways · recipient systems · evidence tools</div>
         <div class="badge-row">
           <span class="badge cyan">Email-first integration model</span>
-          <span class="badge gold">Provider connectors are roadmap work</span>
+          <span class="badge gold">Provider pilots are not production integrations</span>
         </div>
         <h1>Put verification into the <span class="gradient-text">email path.</span></h1>
         <p class="hero-copy">Signet7 is intended to connect the systems that prepare important email, the controls that inspect it, the recipients that need a clear result, and the archives or investigators that need portable evidence later.</p>
+      </div>
+    </section>
+
+    <section class="visual-section" aria-label="Illustrated Signet7 integration lanes">
+      <div class="container">
+        <figure class="visual-stage">
+          <img src="assets/integration-map.png" alt="Browser, Gmail, and Outlook local candidate workflows converging on a server-owned catalog and entitlement boundary">
+          <figcaption class="visual-caption"><span>Familiar inboxes</span><strong>The UI explains. The server authorizes.</strong></figcaption>
+        </figure>
       </div>
     </section>
 
@@ -81,20 +92,24 @@
     <section class="section section-line">
       <div class="container">
         <div class="eyebrow">What can be evaluated now</div>
-        <h2>Existing interfaces are foundations—not finished email connectors.</h2>
-        <table class="data-table">
+        <h2>Local add-on packages exist. Production compatibility does not.</h2>
+        <table class="data-table" tabindex="0" aria-label="Scrollable data table">
           <thead>
             <tr><th>Surface</th><th>Current candidate</th><th>Email-product boundary</th></tr>
           </thead>
           <tbody>
             <tr><td><strong>HTTP API</strong></td><td>Tenant-scoped decision, trust, ledger, export, and operational routes</td><td>Current request contracts are not a complete MIME or provider integration contract</td></tr>
-            <tr><td><strong>CLI and sender helper</strong></td><td>Local signing, evaluation, verification, export, and a limited email-sender flow</td><td>Useful for controlled evaluation; not a production mailbox plug-in</td></tr>
+            <tr><td><strong>Recipient verifier</strong></td><td>HTTP and browser verifier for supported <code>s7-email-1</code> messages, coverage, status, evidence, and receipts</td><td>Useful for controlled evaluation; not a hosted production service or universal mailbox indicator</td></tr>
+            <tr><td><strong>Browser extension</strong></td><td>Manifest V3 package for free selected-<code>.eml</code> verification and Individual sender sealing</td><td>Unpacked/ZIP local candidate; exact-origin permission and session-only credential; no browser-store publication</td></tr>
+            <tr><td><strong>Gmail add-on</strong></td><td>Free received-message verification; Professional sender sealing; optional Enterprise SES dispatch</td><td>Apps Script test-install candidate; no Marketplace publication, production compatibility, or endorsement</td></tr>
+            <tr><td><strong>Outlook add-in</strong></td><td>Free read-message verification; Business draft sealing and sealed-<code>.eml</code> download</td><td>Sideload candidate; no AppSource publication, production compatibility, or endorsement</td></tr>
+            <tr><td><strong>CLI and sender helper</strong></td><td>Local signing, evaluation, verification, export, and an SES-oriented sender flow</td><td>Useful for controlled evaluation; not a production mailbox plug-in</td></tr>
             <tr><td><strong>Detached verifier</strong></td><td>Evidence verification with independently supplied trust and completeness inputs</td><td>Does not prove the source history was complete or the real-world sender identity by itself</td></tr>
             <tr><td><strong>DNS discovery</strong></td><td>Optional Signet7 key-discovery path</td><td>Not the complete managed VSN service and not a substitute for enrollment governance</td></tr>
             <tr><td><strong>MCP / agent tooling</strong></td><td>Supporting action-bound decision and demonstration surfaces</td><td>The caller must enforce the result; this is not the product center</td></tr>
           </tbody>
         </table>
-        <div class="notice"><strong>Current coverage:</strong> the candidate binds a normalized sender, message identifier, and body string, with an optional exact action in the extension profile. Complete MIME canonicalization and comprehensive attachment coverage are not yet implemented.</div>
+        <div class="notice"><strong>Current coverage:</strong> the candidate supports the versioned <code>s7-email-1</code> profile for selected headers, text and HTML alternatives, attachments, declared metadata, lifecycle, expiry, replay, and optional evidence recording. Unsupported MIME and provider transformations remain explicit boundaries.</div>
       </div>
     </section>
 
@@ -162,7 +177,7 @@
 
   <footer class="footer">
     <div class="container footer-grid">
-      <div><a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a><div class="legal-note">No provider partnership, connector compatibility, production deployment, customer, certification, SLA, or final-pricing claim is made here.</div></div>
+      <div><a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a><div class="candidate-stamp">Local candidate - not a live service</div><div class="legal-note">No provider partnership, production compatibility, deployment, customer, certification, SLA, or final-pricing claim is made here.</div></div>
       <div class="footer-links"><a href="index.html">Overview</a><a href="product.html">Product</a><a href="trust.html">Trust</a><a href="about.html">Team</a><a href="privacy.html">Privacy status</a><a href="docs.html">Docs</a></div>
     </div>
   </footer>
