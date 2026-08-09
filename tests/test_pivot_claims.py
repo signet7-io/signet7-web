@@ -49,7 +49,7 @@ class ConsequentialEmailPivotTests(unittest.TestCase):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, product)
 
-    def test_program_page_spans_free_verification_through_enterprise_without_amounts(self) -> None:
+    def test_program_page_shows_approved_launch_prices_without_live_offer(self) -> None:
         programs = self.pages["programs.html"]
         for phrase in (
             "Verify Free",
@@ -57,13 +57,18 @@ class ConsequentialEmailPivotTests(unittest.TestCase):
             "Professional",
             "Business",
             "Enterprise",
-            "No live checkout or approved public amount",
+            "Approved launch prices · no live offer",
             "Recipient verification stays free",
+            "$0",
+            "$12/month",
+            "$29/month",
+            "$99/month",
+            "From $1,000/month · annual agreement",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, programs)
-        self.assertNotRegex(programs, r"\$\s*\d+")
         self.assertNotIn("subscribe now", programs.lower())
+        self.assertIn("No self-serve checkout", programs)
 
     def test_pilot_is_bounded_and_not_a_commercial_or_production_offer(self) -> None:
         pilot = self.pages["pilot.html"]
@@ -78,7 +83,8 @@ class ConsequentialEmailPivotTests(unittest.TestCase):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, pilot)
         self.assertNotRegex(pilot, r"<form\b")
-        self.assertNotRegex(pilot, r"\$\s*\d+")
+        self.assertEqual(re.findall(r"\$\s*\d+", pilot), ["$0"])
+        self.assertIn("bounded, non-renewing, and never converts automatically", pilot)
 
     def test_every_page_keeps_local_candidate_boundary(self) -> None:
         required = "Local candidate - not a live service"
