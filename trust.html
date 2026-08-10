@@ -1,193 +1,23 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="canonical" href="https://signet7.io/trust.html">
-  <meta property="og:url" content="https://signet7.io/trust.html">
-  <meta name="description" content="Review Signet7 sender provenance, protected-content integrity, VSN key lifecycle, portable evidence, and explicit trust limits.">
-  <meta name="theme-color" content="#030609">
-  <title>Email Trust Model | Signet7</title>
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/site.css">
-</head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Trust &amp; Evidence | Signet7</title><meta name="description" content="Understand Signet7 signature-bound sender identity, trust states, decision evidence, compliance boundaries, and planned Verifiable Sender Network."><link rel="canonical" href="https://signet7.io/trust.html"><meta property="og:url" content="https://signet7.io/trust.html"><link rel="icon" type="image/png" href="assets/favicon.png"><link rel="stylesheet" href="assets/site.css"></head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
-  <header class="site-header">
-    <nav class="nav container" aria-label="Primary">
-      <a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a>
-      <div class="nav-links">
-        <a href="product.html">Product</a>
-        <a href="programs.html">Programs</a>
-        <a href="trust.html" aria-current="page">Trust</a>
-        <a href="integrations.html">Integrations</a>
-        <a href="pilot.html">Pilot</a>
-        <a href="about.html">Team</a>
-        <a href="docs.html">Docs</a>
-        <a class="nav-cta" href="#claim-boundary">Claim boundary</a>
-      </div>
-    </nav>
-  </header>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="container nav-wrap"><a class="brand" href="index.html"><img src="assets/signet7-logo.png" width="44" height="44" alt=""><span>Signet7</span></a><nav class="site-nav" aria-label="Primary navigation"><a href="product.html">Product</a><a aria-current="page" href="trust.html">Trust &amp; evidence</a><a href="integrations.html">Integrations</a><a href="programs.html">Programs</a><a href="pilot.html">Pilot</a><a href="docs.html">Docs</a><a href="about.html">About</a></nav></div></header>
+  <main id="main">
+    <section class="page-hero"><div class="container"><p class="eyebrow">Trust &amp; evidence</p><h1>Cryptographic facts, without magical conclusions.</h1><p class="hero-copy">Signet7 separates signature validity, sender/key binding, protected-content integrity, policy outcome, caller enforcement, evidence custody, and legal interpretation. Each answers a different question.</p></div></section>
 
-  <main id="main-content">
-    <section class="page-hero">
-      <div class="container">
-        <div class="eyebrow">Key control · declared coverage · independent checks</div>
-        <div class="badge-row"><span class="badge cyan">Evidence before adjective</span><span class="badge gold">Tamper-evident, not universally immutable</span></div>
-        <h1>Trust is a chain of <span class="gradient-text">explicit dependencies.</span></h1>
-        <p class="hero-copy">A signature is useful only when the verifier knows what was signed, which key signed it, why that key was trusted, what its status was, and which evidence remains independently controlled.</p>
-      </div>
-    </section>
+    <section class="section section-line"><div class="container"><div class="eyebrow">Signature-bound sender identity</div><h2>A key relationship that can be checked.</h2><div class="grid-3"><article class="card hot"><h3>Bound</h3><p>The exact supplied key matches a configured tenant sender binding or accepted domain trust source. This establishes only that configured cryptographic relationship.</p></article><article class="card"><h3>Self-signed</h3><p>The signature may be cryptographically valid under the supplied key, but the key is not approved for the claimed sender. It does not earn a verified sender relationship.</p></article><article class="card"><h3>Unresolved</h3><p>The required signature or binding evidence was not established. This is absence of supported proof, not proof of fraud.</p></article></div><div class="notice gold"><strong>Anti-spoofing boundary:</strong> a look-alike sender without the authorized private key cannot satisfy the same bound-signature check. This does not block every phishing technique or account compromise.</div></div></section>
 
-    <section class="section">
-      <div class="container">
-        <div class="eyebrow">Trust questions</div>
-        <h2>Five questions, not one green badge.</h2>
-        <div class="grid-3">
-          <article class="card"><div class="icon">01</div><h3>Key control</h3><p>Did the signature verify under the corresponding public key for the exact covered input?</p></article>
-          <article class="card"><div class="icon">02</div><h3>Sender binding</h3><p>What separately governed relationship connected the key to the claimed sender or organization?</p></article>
-          <article class="card"><div class="icon">03</div><h3>Coverage</h3><p>Which headers, body parts, attachments, and metadata were declared as protected?</p></article>
-          <article class="card"><div class="icon">04</div><h3>Status</h3><p>Was the key active, rotated, revoked, expired, recovered, or disputed at the relevant time?</p></article>
-          <article class="card"><div class="icon">05</div><h3>Completeness</h3><p>Does an independently obtained expected head or anchor support the claimed history?</p></article>
-          <article class="card"><div class="icon">06</div><h3>Custody</h3><p>Who retained the evidence, trust inputs, logs, and policy records—and under what controls?</p></article>
-        </div>
-      </div>
-    </section>
+    <section class="section"><div class="container split"><div><p class="eyebrow">What a valid result means</p><h2>Possession, coverage, binding, and policy are separate.</h2></div><div class="scope-list"><div class="scope-row"><b>Signature</b><span>The corresponding private key signed the exact canonical input.</span></div><div class="scope-row"><b>Binding</b><span>The exact public key matched the configured sender relationship or accepted trust source.</span></div><div class="scope-row"><b>Coverage</b><span>Only the components declared by the supported profile were checked.</span></div><div class="scope-row"><b>Policy</b><span>The exact canonical action met the current narrow rule for that trust state.</span></div><div class="scope-row"><b>Enforcement</b><span>The caller, not Signet7, performed or refused the downstream action.</span></div></div></div></section>
 
-    <section class="section section-line">
-      <div class="container split">
-        <div>
-          <div class="eyebrow">Signature meaning</div>
-          <h2>Cryptographic validity is not a complete identity claim.</h2>
-          <p class="section-intro">The current foundation can show that a supported signature was created by the private key corresponding to a public key for exact input. Sender trust depends on the binding and status evidence around that key.</p>
-        </div>
-        <div class="scope-list">
-          <div class="scope-row"><b>Proves</b><span>Key control for exact covered bytes under the implemented algorithm and profile.</span></div>
-          <div class="scope-row"><b>Needs</b><span>Enrollment, organization authority, key custody, lifecycle, and status evidence.</span></div>
-          <div class="scope-row"><b>Does not prove</b><span>Legal identity, title, authority, intent, uncompromised device, or truthful content.</span></div>
-        </div>
-      </div>
-    </section>
+    <section class="section section-line"><div class="container"><div class="eyebrow">Evidence package</div><h2>Designed for audit, investigation, and regulated workflows.</h2><table class="data-table" tabindex="0"><thead><tr><th>Evidence plane</th><th>Current source capability</th><th>Boundary</th></tr></thead><tbody><tr><td><strong>Decision chronology</strong></td><td>Tenant-scoped signed and hash-chained records.</td><td>Tamper-evident for covered changes, not administrator-proof or universally immutable.</td></tr><tr><td><strong>Portable export</strong></td><td>Detached export, manifests, checksums, and offline verification.</td><td>Strong completeness conclusions require separately controlled signer and expected-head inputs.</td></tr><tr><td><strong>Evidence bundle</strong></td><td>Ledger, governance, audit, anchor, manifest, and attestation material.</td><td>Not a complete original-message or original-instruction custody package in every path.</td></tr><tr><td><strong>Retention</strong></td><td>Configurable retention-policy and legal-hold events.</td><td>No universal legal duration or seven-year default.</td></tr><tr><td><strong>External anchor</strong></td><td>Optional S3 Object Lock anchoring path and qualification checks.</td><td>Only strengthens claims when correctly deployed, retained, and independently evidenced.</td></tr></tbody></table></div></section>
 
-    <section class="section">
-      <div class="container">
-        <div class="eyebrow">Coverage</div>
-        <h2>Integrity is only as broad as the signed representation.</h2>
-        <p class="section-intro">The current <code>s7-email-1</code> profile implements deterministic rules for supported MIME structures, protected text and HTML alternatives, and attachment bytes plus declared metadata. Unsupported structures and provider transformations still require explicit negative outcomes and broader interoperability testing.</p>
-        <div class="truth-grid">
-          <div class="truth yes">
-            <h3>Implemented profile properties</h3>
-            <ul>
-              <li>Versioned canonicalization and declared component coverage.</li>
-              <li>Attachment and nested-part manifest rules.</li>
-              <li>Clear unsupported/indeterminate outcomes.</li>
-              <li>Replay, expiry, rotation, and revocation behavior.</li>
-              <li>Positive and negative fixtures in the current product test suite.</li>
-            </ul>
-          </div>
-          <div class="truth no">
-            <h3>Unsafe shortcuts</h3>
-            <ul>
-              <li>Calling a body string “the whole email.”</li>
-              <li>Implying unspecified attachments are protected.</li>
-              <li>Silently ignoring provider transformations.</li>
-              <li>Returning “verified” when coverage or status is unknown.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="section"><div class="container"><div class="eyebrow">Compliance boundary</div><h2>Evidence support is not certification.</h2><p class="section-intro">SEC recordkeeping, SOX-related audit retention, HIPAA documentation retention, and EU AI Act logging/retention duties can create demand for durable, defensible records. They do not mandate Signet7 or regulate every message, action, actor, or workflow.</p><div class="grid-3"><article class="card"><h3>Signet7 can contribute</h3><p>Portable cryptographic evidence about the inputs, action, policy result, and chronology the gate recorded.</p></article><article class="card"><h3>The customer still controls</h3><p>Policy design, access, identity proofing, deployment, custody, record classification, retention, and enforcement.</p></article><article class="card"><h3>The law still controls</h3><p>Applicability, required record content, admissibility, regulated role, jurisdiction, and qualified interpretation.</p></article></div><div class="notice"><strong>Not approved:</strong> “HIPAA email,” “SOX compliant,” “SEC approved,” “EU AI Act compliant,” “court-grade,” or “seven years by default.”</div></div></section>
 
-    <section class="section section-line">
-      <div class="container split">
-        <div>
-          <div class="eyebrow">VSN trust lifecycle</div>
-          <h2>Verification needs current status, not just a public key.</h2>
-          <p class="section-intro">The Verifiable Sender Network is Signet7's managed trust infrastructure for the organizational lifecycle around sender trust. The current repository does not yet prove the complete managed service.</p>
-        </div>
-        <div class="scope-list">
-          <div class="scope-row"><b>Enroll</b><span>Verify who may establish the organization/sender/key relationship.</span></div>
-          <div class="scope-row"><b>Publish</b><span>Make key and trust status discoverable through controlled services.</span></div>
-          <div class="scope-row"><b>Change</b><span>Rotate, revoke, recover, expire, and record administrative actions.</span></div>
-          <div class="scope-row"><b>Operate</b><span>Monitor, support, investigate abuse, and preserve lifecycle evidence.</span></div>
-        </div>
-      </div>
-    </section>
+    <section class="section section-line" id="vsn"><div class="container split"><div><p class="eyebrow">Verifiable Sender Network</p><h2>The planned managed trust layer.</h2><p class="section-intro">Cryptographic keys are not an organizational trust program by themselves. VSN is intended to operate enrollment, status, lifecycle, recovery, administration, scalable verification, abuse handling, monitoring, support, and service levels.</p></div><div class="scope-list"><div class="scope-row"><b>Current foundations</b><span>Signing SDK, tenant sender/key registry, signed lifecycle events, and optional exact-key DNS matching.</span></div><div class="scope-row"><b>Planned operations</b><span>Evidence-based enrollment, managed directory/status, rotation, revocation, recovery, delegation, monitoring, and support.</span></div><div class="scope-row"><b>Public rule</b><span>Always label the complete managed VSN as planned until exact service and deployment evidence exists.</span></div></div></div></section>
 
-    <section class="section">
-      <div class="container">
-        <div class="eyebrow">Evidence and anchoring</div>
-        <h2>Tamper evidence has layers.</h2>
-        <table class="data-table" tabindex="0" aria-label="Scrollable data table">
-          <thead><tr><th>Layer</th><th>Supported conclusion</th><th>Remaining boundary</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Signature</strong></td><td>Covered input verifies under a key</td><td>Binding, status, custody, and real-world truth remain external</td></tr>
-            <tr><td><strong>Hash chain</strong></td><td>Covered in-chain changes are detectable</td><td>A separately rolled-back complete copy may require an independent head</td></tr>
-            <tr><td><strong>Expected head</strong></td><td>Checked evidence matches an independently obtained checkpoint</td><td>Only as current and trustworthy as its custody/source</td></tr>
-            <tr><td><strong>External anchor</strong></td><td>Can strengthen rollback/deletion evidence</td><td>Requires correct deployment, retention, monitoring, and independent access</td></tr>
-            <tr><td><strong>Evidence bundle</strong></td><td>Portable bytes and verification metadata can be checked</td><td>Does not prove legal admissibility, completeness, or every asserted fact</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="section section-line">
-      <div class="container">
-        <div class="eyebrow">Coexistence</div>
-        <h2>Different controls answer different questions.</h2>
-        <div class="grid-3">
-          <article class="card"><h3>SPF / DKIM / DMARC</h3><p>Transport/domain authorization and policy signals that remain important. Signet7 does not claim to replace or currently integrate every one.</p></article>
-          <article class="card"><h3>Gateways / reputation</h3><p>Threat, abuse, behavioral, content, and policy analysis that can complement cryptographic evidence.</p></article>
-          <article class="card"><h3>Signet7</h3><p>Intended sender/key trust, declared protected-content integrity, portable evidence, and managed lifecycle through VSN.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="eyebrow">Regulatory context</div>
-        <h2>Durable evidence is a recurring control need, not a universal mandate.</h2>
-        <p class="section-intro">SEC electronic-recordkeeping rules, seven-year SOX-related audit-record retention, six-year HIPAA documentation retention, and EU AI Act logging and retention duties illustrate why covered organizations must preserve records and demonstrate integrity. Applicability depends on the actor, record, role, jurisdiction, and deployment.</p>
-        <div class="notice gold"><strong>Signet7 is not mandated by these regimes.</strong> Its cryptographic evidence model is designed to address the underlying need while customer-specific policy, custody, retention, legal analysis, and operational proof remain necessary.</div>
-      </div>
-    </section>
-
-    <section class="section" id="claim-boundary">
-      <div class="container">
-        <div class="eyebrow">Claim boundary</div>
-        <h2>What this candidate does not establish.</h2>
-        <div class="truth-grid">
-          <div class="truth no">
-            <h3>No universal guarantee</h3>
-            <ul>
-              <li>No universal sender identity or truthful-content proof.</li>
-              <li>No universal immutability, retention, or complete-history proof.</li>
-              <li>No guarantee that a recipient, provider, or agent acts correctly.</li>
-            </ul>
-          </div>
-          <div class="truth no">
-            <h3>No assurance shortcut</h3>
-            <ul>
-              <li>No approved production deployment, SLA, or customer result.</li>
-              <li>No independent penetration test or cryptographic review.</li>
-              <li>No SOC 2, ISO, EU AI Act, SOX, or legal-admissibility conclusion.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="actions">
-          <a class="button primary" href="#claim-boundary">Read the claim boundary</a>
-          <a class="button secondary" href="product.html#current">Current status</a>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="claim-boundary"><div class="container"><div class="eyebrow">Never collapse these meanings</div><h2>Verified is not safe. Unresolved is not fraudulent.</h2><div class="truth-grid"><div class="truth yes"><h3>Supported conclusions</h3><ul><li>Signature validity under the exact supplied key</li><li>Configured sender/key binding result</li><li>Declared protected-component integrity result</li><li>Exact-action policy decision</li><li>Recorded evidence chronology within the stated inputs</li></ul></div><div class="truth no"><h3>Unsupported conclusions</h3><ul><li>Which human physically acted</li><li>Business authority under every rule</li><li>Truthfulness, prudence, lawfulness, or safety</li><li>Malware or ransomware absence</li><li>Universal compliance or legal admissibility</li></ul></div></div></div></section>
   </main>
-
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div><a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a><div class="candidate-stamp">Local candidate - not a live service</div><div class="legal-note">Technical verification is not a safety verdict, legal conclusion, certification, customer acceptance, or proof of deployment.</div></div>
-      <div class="footer-links"><a href="index.html">Overview</a><a href="product.html">Product</a><a href="integrations.html">Integrations</a><a href="docs.html">Docs</a><a href="privacy.html">Privacy status</a><a href="disclaimer.html">Disclaimer</a><a href="terms.html">Terms</a></div>
-    </div>
-  </footer>
-</body>
-</html>
+  <footer class="site-footer"><div class="container footer-grid"><div><strong>Signet7</strong><p>Cryptographic policy gating for consequential AI-agent decisions.</p></div><div><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="disclaimer.html">Disclaimer</a></div><div><p>Current local candidate. Caller-enforced. Managed VSN planned.</p></div></div></footer>
+</body></html>

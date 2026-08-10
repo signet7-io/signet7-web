@@ -1,187 +1,23 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="canonical" href="https://signet7.io/integrations.html">
-  <meta property="og:url" content="https://signet7.io/integrations.html">
-  <meta name="description" content="Integrate Signet7 email signing, verification, evidence, and future managed VSN services without overstating current provider support.">
-  <meta name="theme-color" content="#030609">
-  <title>Email Integrations | Signet7</title>
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/site.css">
-</head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Integrations | Signet7 API &amp; MCP</title><meta name="description" content="Review Signet7 API/MCP-first agent gating, caller-enforcement contract, email integration candidates, and current deployment boundaries."><link rel="canonical" href="https://signet7.io/integrations.html"><meta property="og:url" content="https://signet7.io/integrations.html"><link rel="icon" type="image/png" href="assets/favicon.png"><link rel="stylesheet" href="assets/site.css"></head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
-  <header class="site-header">
-    <nav class="nav container" aria-label="Primary">
-      <a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a>
-      <div class="nav-links">
-        <a href="product.html">Product</a>
-        <a href="programs.html">Programs</a>
-        <a href="trust.html">Trust</a>
-        <a href="integrations.html" aria-current="page">Integrations</a>
-        <a href="pilot.html">Pilot</a>
-        <a href="about.html">Team</a>
-        <a href="docs.html">Docs</a>
-        <a class="nav-cta" href="product.html#current">Candidate status</a>
-      </div>
-    </nav>
-  </header>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="container nav-wrap"><a class="brand" href="index.html"><img src="assets/signet7-logo.png" width="44" height="44" alt=""><span>Signet7</span></a><nav class="site-nav" aria-label="Primary navigation"><a href="product.html">Product</a><a href="trust.html">Trust &amp; evidence</a><a aria-current="page" href="integrations.html">Integrations</a><a href="programs.html">Programs</a><a href="pilot.html">Pilot</a><a href="docs.html">Docs</a><a href="about.html">About</a></nav></div></header>
+  <main id="main">
+    <section class="page-hero"><div class="container"><p class="eyebrow">API/MCP-first</p><h1>Put the gate where the action is proposed.</h1><p class="hero-copy">Signet7 does not require a replacement mailbox, traditional secure-email gateway, or endpoint agent for the supported pattern. Connect the decision interface to the agent or workflow that proposes the action, then enforce the returned result in the caller.</p><div class="badge-row"><span class="badge cyan">HTTP decision API</span><span class="badge gold">MCP tool</span><span class="badge">Integration still required</span></div></div></section>
 
-  <main id="main-content">
-    <section class="page-hero">
-      <div class="container">
-        <div class="eyebrow">Sender systems · gateways · recipient systems · evidence tools</div>
-        <div class="badge-row">
-          <span class="badge cyan">Email-first integration model</span>
-          <span class="badge gold">Provider pilots are not production integrations</span>
-        </div>
-        <h1>Put verification into the <span class="gradient-text">email path.</span></h1>
-        <p class="hero-copy">Signet7 is intended to connect the systems that prepare important email, the controls that inspect it, the recipients that need a clear result, and the archives or investigators that need portable evidence later.</p>
-      </div>
-    </section>
+    <section class="section section-line"><div class="container"><div class="eyebrow">Integration contract</div><h2>Evidence in. Decision out. Enforcement stays explicit.</h2><div class="decision-rail"><div class="rail-node"><span>1</span><strong>Agent prepares action</strong><small>The caller knows the exact proposed operation.</small></div><div class="rail-arrow">&rarr;</div><div class="rail-node"><span>2</span><strong>Submit evidence</strong><small>Sender, message, body, action, signature, key, tenant context.</small></div><div class="rail-arrow">&rarr;</div><div class="rail-node gate-node"><span>3</span><strong>Signet7 decides</strong><small>Trust resolution and current policy.</small></div><div class="rail-arrow">&rarr;</div><div class="rail-node"><span>4</span><strong>Caller enforces</strong><small>Refuse or continue based on the result.</small></div><div class="rail-arrow">&rarr;</div><div class="rail-node"><span>5</span><strong>Evidence persists</strong><small>Signed decision chronology for later review.</small></div></div><div class="notice gold"><strong>Security boundary:</strong> treating the response as advisory while executing anyway defeats the control. Enforcement must live in the integrating system.</div></div></section>
 
-    <section class="visual-section" aria-label="Illustrated Signet7 integration lanes">
-      <div class="container">
-        <figure class="visual-stage">
-          <img src="assets/integration-map.png" alt="Browser, Gmail, and Outlook local candidate workflows converging on a server-owned catalog and entitlement boundary">
-          <figcaption class="visual-caption"><span>Familiar inboxes</span><strong>The UI explains. The server authorizes.</strong></figcaption>
-        </figure>
-      </div>
-    </section>
+    <section class="section"><div class="container split"><div><p class="eyebrow">HTTP decision API</p><h2>A structured policy decision for application code.</h2><p class="section-intro">The current endpoint accepts explicit instruction and action fields. It returns structured content including the normalized action, authentication state, policy verdict, and allow/block result.</p></div><div class="scope-list"><div class="scope-row"><b>Inputs</b><span>Agent ID, message ID, claimed sender, body, exact action, tenant/auth context, optional signature and key.</span></div><div class="scope-row"><b>Result</b><span>Derived trust state, canonical action, policy verdict, allowed boolean, and evidence identifier.</span></div><div class="scope-row"><b>Privacy</b><span>The persisted decision record uses protected identifiers and a request fingerprint rather than storing raw body, signature, or key verbatim.</span></div><div class="scope-row"><b>Limit</b><span>The caller must perform the downstream authorization and execution control.</span></div></div></div></section>
 
-    <section class="section">
-      <div class="container">
-        <div class="eyebrow">Target integration points</div>
-        <h2>An email trust layer, not a replacement mailbox.</h2>
-        <div class="grid-3">
-          <article class="card">
-            <div class="icon">01</div>
-            <h3>Sender-side systems</h3>
-            <p>Applications, provider send paths, mail-transfer systems, and secure-email gateways can prepare covered components and request a signature.</p>
-          </article>
-          <article class="card">
-            <div class="icon">02</div>
-            <h3>Verification controls</h3>
-            <p>Gateways, security products, provider workflows, and recipient clients can resolve trust and explain whether covered evidence validates.</p>
-          </article>
-          <article class="card">
-            <div class="icon">03</div>
-            <h3>Evidence consumers</h3>
-            <p>Archives, e-discovery, incident response, audit, and case-management systems can retain or inspect exported evidence with controlled trust inputs.</p>
-          </article>
-          <article class="card">
-            <div class="icon">04</div>
-            <h3>Identity and key systems</h3>
-            <p>Enterprise identity, key management, DNS, and future VSN services can support enrollment, discovery, rotation, revocation, and administrative status.</p>
-          </article>
-          <article class="card">
-            <div class="icon">05</div>
-            <h3>Administration</h3>
-            <p>Security and platform teams need tenant-scoped policy, sender inventory, lifecycle controls, monitoring, and evidence operations.</p>
-          </article>
-          <article class="card">
-            <div class="icon">06</div>
-            <h3>Automated consumers</h3>
-            <p>AI agents, workflow automation, compliance pipelines, ERP/CRM systems, and enterprise records consumers may use a verified-email result as trusted input before acting. That integration path is secondary to the email product and expands as the email and VSN foundation matures.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+    <section class="section section-line"><div class="container split"><div><p class="eyebrow">MCP integration</p><h2>Expose the same bounded gate to agent harnesses.</h2><p class="section-intro">The current MCP server publishes a <code>verify_email_authenticity</code> tool that derives the decision from the same core path. The name reflects its origin; the action field is what binds the proposed operation.</p></div><article class="card hot"><h3>Technical pattern, not partnership</h3><p>MCP materials demonstrate a protocol integration. They do not establish a certified agent-framework integration, vendor endorsement, marketplace listing, or hosted service.</p><p><a href="docs.html">Review technical status &rarr;</a></p></article></div></section>
 
-    <section class="section section-line">
-      <div class="container">
-        <div class="eyebrow">What can be evaluated now</div>
-        <h2>Local add-on packages exist. Production compatibility does not.</h2>
-        <table class="data-table" tabindex="0" aria-label="Scrollable data table">
-          <thead>
-            <tr><th>Surface</th><th>Current candidate</th><th>Email-product boundary</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>HTTP API</strong></td><td>Tenant-scoped decision, trust, ledger, export, and operational routes</td><td>Current request contracts are not a complete MIME or provider integration contract</td></tr>
-            <tr><td><strong>Recipient verifier</strong></td><td>HTTP and browser verifier for supported <code>s7-email-1</code> messages, coverage, status, evidence, and receipts</td><td>Useful for controlled evaluation; not a hosted production service or universal mailbox indicator</td></tr>
-            <tr><td><strong>Browser extension</strong></td><td>Manifest V3 package for free selected-<code>.eml</code> verification and Individual sender sealing</td><td>Unpacked/ZIP local candidate; exact-origin permission and session-only credential; no browser-store publication</td></tr>
-            <tr><td><strong>Gmail add-on</strong></td><td>Free received-message verification; Professional sender sealing; optional Enterprise SES dispatch</td><td>Apps Script test-install candidate; no Marketplace publication, production compatibility, or endorsement</td></tr>
-            <tr><td><strong>Outlook add-in</strong></td><td>Free read-message verification; Business draft sealing and sealed-<code>.eml</code> download</td><td>Sideload candidate; no AppSource publication, production compatibility, or endorsement</td></tr>
-            <tr><td><strong>CLI and sender helper</strong></td><td>Local signing, evaluation, verification, export, and an SES-oriented sender flow</td><td>Useful for controlled evaluation; not a production mailbox plug-in</td></tr>
-            <tr><td><strong>Detached verifier</strong></td><td>Evidence verification with independently supplied trust and completeness inputs</td><td>Does not prove the source history was complete or the real-world sender identity by itself</td></tr>
-            <tr><td><strong>DNS discovery</strong></td><td>Optional Signet7 key-discovery path</td><td>Not the complete managed VSN service and not a substitute for enrollment governance</td></tr>
-            <tr><td><strong>MCP / agent tooling</strong></td><td>Supporting action-bound decision and demonstration surfaces</td><td>The caller must enforce the result; this is not the product center</td></tr>
-          </tbody>
-        </table>
-        <div class="notice"><strong>Current coverage:</strong> the candidate supports the versioned <code>s7-email-1</code> profile for selected headers, text and HTML alternatives, attachments, declared metadata, lifecycle, expiry, replay, and optional evidence recording. Unsupported MIME and provider transformations remain explicit boundaries.</div>
-      </div>
-    </section>
+    <section class="section"><div class="container"><div class="eyebrow">Email and browser surfaces</div><h2>Instruction-assurance packages remain local candidates.</h2><table class="data-table" tabindex="0"><thead><tr><th>Surface</th><th>Current source</th><th>Distribution boundary</th></tr></thead><tbody><tr><td><strong>Browser extension</strong></td><td>User-selected message verification and a program-aware sender path.</td><td>Unpacked/ZIP local candidate; no browser-store publication.</td></tr><tr><td><strong>Gmail add-on</strong></td><td>Open-message verification, sender sealing, and configured SES dispatch path.</td><td>Apps Script test-install candidate; no Marketplace publication or endorsement.</td></tr><tr><td><strong>Outlook add-in</strong></td><td>Read-message verification and compose sealing/download path.</td><td>Sideload candidate; no AppSource publication or production compatibility claim.</td></tr><tr><td><strong>SES/Gmail transport</strong></td><td>Controlled adapters and pilot scaffolds.</td><td>No supported production mailstream or service commitment.</td></tr><tr><td><strong>CLI/browser verifier</strong></td><td>Local signing, verification, component results, and fact-only receipt.</td><td>No universal provider/MIME compatibility or hosted recipient SLA.</td></tr></tbody></table></div></section>
 
-    <section class="section">
-      <div class="container split">
-        <div>
-          <div class="eyebrow">Email MVP integration track</div>
-          <h2>The next contract must survive real email.</h2>
-          <p class="section-intro">Provider and gateway work should begin only after a versioned coverage profile defines how message headers, bodies, MIME parts, attachments, encodings, and allowed transformations are represented and verified.</p>
-        </div>
-        <div class="scope-list">
-          <div class="scope-row"><b>Canonicalize</b><span>Define exact, testable coverage profiles for real MIME messages.</span></div>
-          <div class="scope-row"><b>Transport</b><span>Specify how signature, coverage, key, and status references travel.</span></div>
-          <div class="scope-row"><b>Transform</b><span>Document which provider or gateway changes preserve or invalidate coverage.</span></div>
-          <div class="scope-row"><b>Explain</b><span>Return recipient-facing outcomes for valid, invalid, unknown, revoked, expired, and unsupported cases.</span></div>
-          <div class="scope-row"><b>Preserve</b><span>Define evidence custody, export, retention, and deletion responsibilities.</span></div>
-        </div>
-      </div>
-    </section>
+    <section class="section section-line"><div class="container"><div class="eyebrow">What “no infrastructure” must not mean</div><h2>Lower integration burden is not zero integration.</h2><div class="grid-3"><article class="card"><h3>No replacement mailbox</h3><p>Signet7 can sit beside existing email systems; it is not a mailbox provider.</p></article><article class="card"><h3>No traditional SEG</h3><p>The product is not positioned as an inbound spam, malware, or attachment-scanning gateway.</p></article><article class="card"><h3>No endpoint agent</h3><p>The supported pattern does not require a new endpoint-monitoring agent. An operated Signet7 service, credentials, policy, network path, and caller integration are still required.</p></article></div></div></section>
 
-    <section class="section section-line">
-      <div class="container">
-        <div class="eyebrow">Partner qualification</div>
-        <h2>No logo wall before the integration works.</h2>
-        <div class="truth-grid">
-          <div class="truth yes">
-            <h3>Required before a compatibility claim</h3>
-            <ul>
-              <li>A named, versioned integration contract and owner.</li>
-              <li>Fixtures for supported MIME structures and transformations.</li>
-              <li>Positive, negative, revocation, expiry, replay, and recovery tests.</li>
-              <li>Recipient-result and failure-mode review.</li>
-              <li>Operational, security, privacy, and evidence-custody acceptance.</li>
-            </ul>
-          </div>
-          <div class="truth no">
-            <h3>Not established by this repository</h3>
-            <ul>
-              <li>A signed partnership with any named email provider or vendor.</li>
-              <li>Production compatibility with Gmail, Outlook, or another mailbox.</li>
-              <li>Marketplace availability, provider endorsement, or certification.</li>
-              <li>A production SLA, supported deployment, or customer rollout.</li>
-              <li>Universal interoperability with SPF, DKIM, DMARC, S/MIME, or PGP.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container split">
-        <div>
-          <div class="eyebrow">Standards relationship</div>
-          <h2>Complement existing controls.</h2>
-          <p class="section-intro">Signet7 is intended to add explicit sender/key trust, declared protected-content integrity, managed lifecycle, and portable evidence. It should be evaluated alongside—not marketed as an automatic replacement for—transport authentication, gateway controls, encryption, reputation, and user safeguards.</p>
-        </div>
-        <article class="card">
-          <h3>Start a technical evaluation</h3>
-          <p>Begin with the exact current contract, the email-MVP gaps, and the verification trust inputs.</p>
-          <p><a href="docs.html">Open the documentation map →</a></p>
-        </article>
-      </div>
-    </section>
+    <section class="section"><div class="container"><div class="eyebrow">Evaluation sequence</div><h2>Integrate in a synthetic environment before consequential reliance.</h2><div class="grid-3"><article class="card"><h3>1. Map the action</h3><p>Define the exact canonical action and the caller that can enforce allow/block.</p></article><article class="card"><h3>2. Map the trust input</h3><p>Define sender/key enrollment, custody, revocation, and the supported signed instruction profile.</p></article><article class="card"><h3>3. Exercise failure</h3><p>Test missing signatures, self-signed keys, substituted actions, unknown identifiers, service unavailability, and caller bypass attempts.</p></article></div><div class="actions"><a class="button primary" href="pilot.html">Review the bounded pilot</a><a class="button secondary" href="product.html#current">Inspect current behavior</a></div></div></section>
   </main>
-
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div><a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a><div class="candidate-stamp">Local candidate - not a live service</div><div class="legal-note">Approved launch pricing does not establish a provider partnership, production compatibility, deployment, customer, certification, or SLA.</div></div>
-      <div class="footer-links"><a href="index.html">Overview</a><a href="product.html">Product</a><a href="trust.html">Trust</a><a href="about.html">Team</a><a href="privacy.html">Privacy status</a><a href="docs.html">Docs</a><a href="disclaimer.html">Disclaimer</a><a href="terms.html">Terms</a></div>
-    </div>
-  </footer>
-</body>
-</html>
+  <footer class="site-footer"><div class="container footer-grid"><div><strong>Signet7</strong><p>Cryptographic policy gating for consequential AI-agent decisions.</p></div><div><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="disclaimer.html">Disclaimer</a></div><div><p>Current local candidate. Caller-enforced. Managed VSN planned.</p></div></div></footer>
+</body></html>

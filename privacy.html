@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="canonical" href="https://signet7.io/privacy.html">
   <meta property="og:url" content="https://signet7.io/privacy.html">
-  <meta name="description" content="Current privacy status and product-data boundaries for the Signet7 email trust project.">
+  <meta name="description" content="Current privacy status and product-data boundaries for the Signet7 agent-action-gating project.">
   <meta name="theme-color" content="#030609">
   <title>Privacy Status | Signet7</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -73,14 +73,15 @@
     <section class="section section-line">
       <div class="container">
         <div class="eyebrow">Product data categories</div>
-        <h2>Email trust requires explicit handling decisions.</h2>
+        <h2>Agent-action gating requires explicit handling decisions.</h2>
         <table class="data-table" tabindex="0" aria-label="Scrollable data table">
           <thead>
             <tr><th>Category</th><th>Why it may be processed</th><th>Decision still required</th></tr>
           </thead>
           <tbody>
             <tr><td><strong>Sender and organization identifiers</strong></td><td>Enrollment, key binding, trust resolution, audit, and administration</td><td>Identity proofing level, authoritative source, corrections, and lifecycle</td></tr>
-            <tr><td><strong>Message identifiers and selected headers</strong></td><td>Coverage, correlation, replay handling, verification, and evidence</td><td>Exact profile, minimization, disclosure, indexing, and retention</td></tr>
+            <tr><td><strong>Agent, message, and instruction identifiers</strong></td><td>Correlation, replay handling, authorization context, verification, and evidence</td><td>Exact scope, minimization, disclosure, indexing, and retention</td></tr>
+            <tr><td><strong>Proposed action and policy result</strong></td><td>Exact-action normalization, trust/policy evaluation, allow/block result, and decision chronology</td><td>Action vocabulary, policy ownership, metadata minimization, retention, and downstream enforcement record</td></tr>
             <tr><td><strong>Bodies, MIME parts, and attachments</strong></td><td>Canonicalization, hashing, signing, and integrity verification</td><td>Local versus service-side processing, transient handling, content retention, encryption, and regional controls</td></tr>
             <tr><td><strong>Keys and trust status</strong></td><td>Signing, discovery, rotation, revocation, expiry, and recovery</td><td>Custody model, hardware boundaries, public disclosure, recovery, and administrator access</td></tr>
             <tr><td><strong>Verification and evidence records</strong></td><td>Result explanation, audit, export, incident response, and later validation</td><td>Field-level minimization, completeness, legal hold, access, retention, deletion, and export</td></tr>
@@ -104,7 +105,7 @@
         </article>
       </div>
       <div class="container">
-        <div class="notice"><strong>Email-product status:</strong> the current sign and verify routes receive supported raw message bytes to parse, canonicalize, hash, sign, or verify them. Optional evidence recording stores derived verification metadata; the deployed operator must still prove request logging, temporary-file, backup, access, deletion, regional, and retention behavior before making a privacy commitment.</div>
+        <div class="notice"><strong>Product status:</strong> the current decision route receives instruction text, exact proposed action, sender and message identifiers, tenant/agent context, and optional signature/key material. The current email routes can also receive supported raw message bytes. The deployed operator must still prove request logging, temporary-file, backup, access, deletion, regional, and retention behavior before making a privacy commitment.</div>
         <div class="notice gold"><strong>Commercial candidate status:</strong> the local product branch includes Stripe-test checkout/portal adapters and stores a minimized tenant subscription projection plus event identifiers. It does not store raw webhook payloads or payment methods. No live Stripe deployment, public customer identity/recovery system, final privacy notice, or customer processing authorization is established.</div>
       </div>
     </section>
