@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- GitHub Pages cannot set response headers. These meta-delivered policies are the
+     enforceable subset. NOTE: frame-ancestors is ignored when delivered via <meta>;
+     real clickjacking protection requires a header layer (Cloudflare/CloudFront) and
+     is required before any verification surface is hosted on this domain. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
   <title>Product | Signet7 Agent-Action Gate</title>
   <meta name="description" content="Inspect Signet7's current action-bound policy decision path, email instruction assurance, evidence model, caller-enforcement boundary, and planned VSN.">
   <link rel="canonical" href="https://signet7.io/product.html">

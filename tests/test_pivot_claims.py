@@ -164,3 +164,41 @@ class AgentActionGatingPivotTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+class ContentSecurityPolicy(unittest.TestCase):
+    """GitHub Pages cannot set response headers, so the policy ships in the markup.
+
+    frame-ancestors is ignored when delivered via <meta>; it is declared here so the
+    policy is correct the moment the domain moves behind a header-capable layer, which
+    must happen before any verification surface is hosted on signet7.io.
+    """
+
+    def setUp(self) -> None:
+        self.pages = {
+            path.name: path.read_text(encoding="utf-8") for path in sorted(ROOT.glob("*.html"))
+        }
+
+    def test_every_page_declares_the_restrictive_policy(self) -> None:
+        self.assertTrue(self.pages)
+        for name, html in self.pages.items():
+            with self.subTest(page=name):
+                self.assertIn('<meta http-equiv="Content-Security-Policy"', html)
+                for directive in (
+                    "default-src 'self'",
+                    "object-src 'none'",
+                    "base-uri 'none'",
+                    "frame-ancestors 'none'",
+                    "upgrade-insecure-requests",
+                ):
+                    self.assertIn(directive, html)
+                self.assertIn('<meta name="referrer" content="strict-origin-when-cross-origin">', html)
+                self.assertIn('<meta http-equiv="X-Content-Type-Options" content="nosniff">', html)
+
+    def test_no_inline_script_or_style_can_silently_rely_on_an_exemption(self) -> None:
+        """The policy allows no 'unsafe-inline'; assert nothing on the site needs it."""
+        for name, html in self.pages.items():
+            with self.subTest(page=name):
+                self.assertNotIn("unsafe-inline", html)
+                self.assertNotIn("<script", html)
+                self.assertNotIn("<style", html)
+                self.assertNotIn('style="', html)
