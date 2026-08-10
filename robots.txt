@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://signet7.io/sitemap.xml

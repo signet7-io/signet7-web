@@ -22,6 +22,31 @@ class ConsequentialEmailPivotTests(unittest.TestCase):
             with self.subTest(page=name):
                 self.assertIn('href="pilot.html"', html)
 
+    def test_public_export_has_canonical_discovery_metadata(self) -> None:
+        sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+        robots = (ROOT / "robots.txt").read_text(encoding="utf-8")
+        self.assertIn("Sitemap: https://signet7.io/sitemap.xml", robots)
+        for name, html in self.pages.items():
+            with self.subTest(page=name):
+                canonical = f"https://signet7.io/{name}"
+                self.assertIn(f'<link rel="canonical" href="{canonical}">', html)
+                self.assertIn(f'<meta property="og:url" content="{canonical}">', html)
+                if name in {"terms.html", "disclaimer.html"}:
+                    self.assertIn('<meta name="robots" content="noindex, nofollow">', html)
+                    self.assertNotIn(f"<loc>{canonical}</loc>", sitemap)
+                else:
+                    self.assertIn(f"<loc>{canonical}</loc>", sitemap)
+
+    def test_legal_drafts_exist_and_are_linked_from_every_page(self) -> None:
+        for target in ("terms.html", "disclaimer.html"):
+            with self.subTest(target=target):
+                self.assertIn(target, self.pages)
+            for name, html in self.pages.items():
+                with self.subTest(page=name, target=target):
+                    self.assertIn(f'href="{target}"', html)
+        self.assertIn("DRAFT — NON-OPERATIVE", self.pages["terms.html"])
+        self.assertIn("DRAFT — NON-OPERATIVE", self.pages["disclaimer.html"])
+
     def test_front_door_owns_consequential_email_for_three_beneficiary_groups(self) -> None:
         home = self.pages["index.html"]
         for phrase in (
