@@ -1,0 +1,14 @@
+Signet7 Website (signet7.io)
+Copyright (c) 2026 Signet7 (Samuel J. Sanderson & Justin D. Daines).
+All rights reserved.
+
+Third-party inventory
+---------------------
+This repository bundles no third-party code. All markup, stylesheets, and
+artwork in this export are original Signet7 works.
+
+Hosting
+-------
+The site is a static export hosted via GitHub Pages. GitHub Pages is a
+third-party hosting service; no third-party code from that service is
+vendored into this repository.
