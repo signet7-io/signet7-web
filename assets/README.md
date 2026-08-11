@@ -7,9 +7,9 @@ Generic logo and icon paths previously contained retired AI-inbox artwork. They 
 ## Final implementation
 
 - `signet7-circle-logo-official-v2.png` — canonical visible website mark.
-- `signet7-logo.png` — compatibility alias.
-- `apple-touch-icon.png` — touch-icon alias.
-- `favicon.png` — browser-icon alias.
+- `signet7-logo.png` — compatibility alias (byte-identical).
+- `apple-touch-icon.png` — 180×180 touch icon downscaled (LANCZOS) from the seal (not byte-identical).
+- `favicon.png` — 32×32 browser icon downscaled (LANCZOS) from the seal (not byte-identical).
 - `og-image.png` — distinct 1200×630 social-preview card derived from the seal (not byte-identical).
 - `site.css` — local website stylesheet.
 

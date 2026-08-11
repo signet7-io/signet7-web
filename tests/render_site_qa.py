@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from pathlib import Path
 
 from PIL import Image, ImageOps
@@ -12,7 +13,7 @@ VIEWPORTS = {
     "desktop": {"width": 1440, "height": 1000},
     "mobile": {"width": 390, "height": 844},
 }
-CHROME = Path("C:/Program Files/Google/Chrome/Application/chrome.exe")
+CHROME = Path(os.environ.get("CHROME_PATH", "C:/Program Files/Google/Chrome/Application/chrome.exe"))
 
 
 def contact_sheet(paths: list[Path], destination: Path, thumb_width: int) -> None:
