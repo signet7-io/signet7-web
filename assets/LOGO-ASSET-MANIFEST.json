@@ -12,8 +12,18 @@
   "active_byte_identical_paths": [
     "assets/signet7-logo.png",
     "assets/apple-touch-icon.png",
-    "assets/favicon.png",
-    "assets/og-image.png"
+    "assets/favicon.png"
+  ],
+  "distinct_derivatives": [
+    {
+      "path": "assets/og-image.png",
+      "note": "Distinct 1200x630 social-preview card derived from the canonical seal; not byte-identical (sha256 differs) and must not be treated as an alias.",
+      "sha256": "d02d98709a63050590b79fbc02094c767d8142397ff28c5b8bb028ee6ba29e11",
+      "dimensions": {
+        "width": 1200,
+        "height": 630
+      }
+    }
   ],
   "source_repository": "ClubSanderson/Signet7/10-product/www"
 }

@@ -162,9 +162,6 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 self.assertIsNone(re.search(pattern, visible))
 
 
-if __name__ == "__main__":
-    unittest.main()
-
 class ContentSecurityPolicy(unittest.TestCase):
     """GitHub Pages cannot set response headers, so the policy ships in the markup.
 
@@ -202,3 +199,6 @@ class ContentSecurityPolicy(unittest.TestCase):
                 self.assertNotIn("<script", html)
                 self.assertNotIn("<style", html)
                 self.assertNotIn('style="', html)
+
+if __name__ == "__main__":
+    unittest.main()

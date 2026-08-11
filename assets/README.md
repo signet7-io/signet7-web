@@ -10,7 +10,7 @@ Generic logo and icon paths previously contained retired AI-inbox artwork. They 
 - `signet7-logo.png` — compatibility alias.
 - `apple-touch-icon.png` — touch-icon alias.
 - `favicon.png` — browser-icon alias.
-- `og-image.png` — social-preview alias.
+- `og-image.png` — distinct 1200×630 social-preview card derived from the seal (not byte-identical).
 - `site.css` — local website stylesheet.
 
 The artwork reads **VERIFY THE SENDER • SEAL THE DECISION** and has SHA-256 `63ffd6be248b79a86b83f5da5aaa971490ebd7a5b1fa521bcb9785f699b7695e`. Keep the site self-contained and mirror this directory to `ClubSanderson/signet7-web`.
