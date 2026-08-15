@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- GitHub Pages cannot set response headers. These meta-delivered policies are the
+     enforceable subset. NOTE: frame-ancestors is ignored when delivered via <meta>;
+     real clickjacking protection requires a header layer (Cloudflare/CloudFront) and
+     is required before any verification surface is hosted on this domain. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <title>Check a message | Signet7</title>
+  <meta name="description" content="How a recipient checks a Signet7-sealed email without installing software. The live check host is not this static site.">
+  <meta name="theme-color" content="#07101b">
+  <meta property="og:title" content="Check a message | Signet7">
+  <meta property="og:description" content="How a recipient checks a Signet7-sealed email without installing software.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://signet7.io/check.html">
+  <meta property="og:image" content="https://signet7.io/assets/og-image.png">
+  <link rel="canonical" href="https://signet7.io/check.html">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Signet7 home">
+        <img src="assets/signet7-logo.png" width="44" height="44" alt="Signet7">
+        <span>Signet7</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="product.html">Product</a>
+        <a href="trust.html">Trust &amp; evidence</a>
+        <a aria-current="page" href="check.html">Check</a>
+        <a href="integrations.html">Integrations</a>
+        <a href="programs.html">Programs</a>
+        <a href="pilot.html">Pilot</a>
+        <a href="docs.html">Docs</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Recipient check</p>
+        <h1>No install for the other side.</h1>
+        <p class="hero-copy">A recipient should open a page, drop in the message, and see what Signet7 can prove. This static site cannot run that check. The check lives on the Signet7 host, not on GitHub Pages.</p>
+        <div class="badge-row">
+          <span class="badge cyan">Current local candidate</span>
+          <span class="badge gold">Hosted check not live on this domain</span>
+          <span class="badge">Managed VSN planned</span>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="eyebrow">What the recipient does</div>
+        <h2>Three steps. One result.</h2>
+        <div class="grid-3">
+          <article class="card"><h3>1. Save the email</h3><p>Keep the original <code>.eml</code>. Forwarded copies can drop the protected headers.</p></article>
+          <article class="card"><h3>2. Open the check</h3><p>On the Signet7 host, open <code>/email/verify</code>. No account is required for a public check when that flag is on.</p></article>
+          <article class="card"><h3>3. Read the result</h3><p>Matched, unmatched, or unknown. Verified does not mean safe. Unknown does not mean fraud.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section section-line">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">What this page is not</p>
+          <h2>A brochure is not a verifier.</h2>
+          <p class="section-intro">GitHub Pages has no Signet7 API. Putting a paste box here would fake a product. When the host is live behind a header-capable edge, this page will point at that URL and nothing else.</p>
+        </div>
+        <div class="scope-list">
+          <div class="scope-row"><b>Now</b><span>The verifier exists in <code>signet7-core</code> at <code>/email/verify</code>.</span></div>
+          <div class="scope-row"><b>Not now</b><span>No public Signet7 host on signet7.io. No live AWS claim.</span></div>
+          <div class="scope-row"><b>Never here</b><span>This page will not say a message is safe, authorized, or fraudulent.</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><strong>Signet7</strong><p>The trust layer for consequential email.</p><p>© 2026 Signet7. All rights reserved.</p></div>
+      <div><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="disclaimer.html">Disclaimer</a></div>
+      <div><p>Current local candidate. Caller-enforced. Managed VSN planned.</p></div>
+    </div>
+  </footer>
+</body>
+</html>
