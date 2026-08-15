@@ -46,21 +46,20 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertEqual(self.pages["terms.html"].count("DRAFT — NON-OPERATIVE"), 1)
         self.assertEqual(self.pages["disclaimer.html"].count("DRAFT — NON-OPERATIVE"), 1)
 
-    def test_front_door_owns_agent_action_gating(self) -> None:
+    def test_front_door_owns_consequential_email(self) -> None:
         home = self.pages["index.html"].lower()
         for phrase in (
-            "cryptographic agent-action gating",
-            "gate what the agent does.",
-            "not just what lands in the inbox.",
-            "inbox security stops at delivery.",
-            "signed instruction",
-            "exact proposed action",
-            "policy decision",
-            "caller enforcement",
+            "trust layer for consequential email",
+            "check the seal before you act.",
+            "the email is the moment that matters.",
+            "verified does not mean safe",
+            "unknown does not mean fraud",
             "managed vsn planned",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, home)
+        self.assertNotIn("cryptographic agent-action gating", home)
+        self.assertNotIn("gate what the agent does.", home)
 
     def test_current_product_truth_is_bounded_to_implemented_contract(self) -> None:
         product = self.pages["product.html"]
@@ -113,7 +112,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_program_page_retires_old_public_prices(self) -> None:
         programs = self.pages["programs.html"]
         for phrase in (
-            "Price the governed decision. Not the inbox.",
+            "Price the sender habit. Keep recipient checks free.",
             "Per-agent / decision-band direction",
             "Exact prices not approved",
             "No live offer",
@@ -133,13 +132,23 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             "No automatic paid conversion",
             "not a production service",
             "Synthetic or lower-risk actions first",
-            "A named agent, named caller, exact action vocabulary",
+            "Test one payment-instruction email.",
+            "Senders with one payment-instruction workflow.",
             "Exact pivot pricing is not approved",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, pilot)
         self.assertNotRegex(pilot, r"<form\b")
         self.assertEqual(re.findall(r"\$\s*\d+", pilot), ["$0"])
+
+    def test_check_page_exists_and_is_honest_about_hosting(self) -> None:
+        self.assertIn("check.html", self.pages)
+        check = self.pages["check.html"].lower()
+        self.assertIn("no install for the other side", check)
+        self.assertIn("hosted check not live on this domain", check)
+        self.assertIn("/email/verify", check)
+        self.assertIn("this static site cannot run that check", check)
+        self.assertIn('href="check.html"', self.pages["index.html"])
 
     def test_every_page_keeps_local_candidate_boundary(self) -> None:
         for name, html in self.pages.items():
