@@ -44,10 +44,11 @@
       <div class="container">
         <p class="eyebrow">Recipient check</p>
         <h1>No install for the other side.</h1>
-        <p class="hero-copy">A recipient should open a page, drop in the message, and see what Signet7 can prove. This static site cannot run that check. The check lives on the Signet7 host, not on GitHub Pages.</p>
+        <p class="hero-copy">A recipient should open a page, drop in the message, and see what Signet7 can prove. This static site cannot run that check. The live check is on the Signet7 qualification host.</p>
+        <p class="hero-actions"><a class="button button-primary" href="https://qual.signet7.io/email/verify">Open the live check</a></p>
         <div class="badge-row">
-          <span class="badge cyan">Current local candidate</span>
-          <span class="badge gold">Hosted check not live on this domain</span>
+          <span class="badge cyan">Public recipient check</span>
+          <span class="badge gold">Hosted at qual.signet7.io</span>
           <span class="badge">Managed VSN planned</span>
         </div>
       </div>
@@ -58,7 +59,7 @@
         <h2>Three steps. One result.</h2>
         <div class="grid-3">
           <article class="card"><h3>1. Save the email</h3><p>Keep the original <code>.eml</code>. Forwarded copies can drop the protected headers.</p></article>
-          <article class="card"><h3>2. Open the check</h3><p>On the Signet7 host, open <code>/email/verify</code>. No account is required for a public check when that flag is on.</p></article>
+          <article class="card"><h3>2. Open the check</h3><p>Open <a href="https://qual.signet7.io/email/verify"><code>https://qual.signet7.io/email/verify</code></a>. No account is required. Verified is not safe. Unknown is not fraud.</p></article>
           <article class="card"><h3>3. Read the result</h3><p>Matched, unmatched, or unknown. Verified does not mean safe. Unknown does not mean fraud.</p></article>
         </div>
       </div>
@@ -68,11 +69,11 @@
         <div>
           <p class="eyebrow">What this page is not</p>
           <h2>A brochure is not a verifier.</h2>
-          <p class="section-intro">GitHub Pages has no Signet7 API. Putting a paste box here would fake a product. When the host is live behind a header-capable edge, this page will point at that URL and nothing else.</p>
+          <p class="section-intro">GitHub Pages has no Signet7 API. Putting a paste box here would fake a product. The live verifier is <a href="https://qual.signet7.io/email/verify">https://qual.signet7.io/email/verify</a>.</p>
         </div>
         <div class="scope-list">
-          <div class="scope-row"><b>Now</b><span>The verifier exists in <code>signet7-core</code> at <code>/email/verify</code>.</span></div>
-          <div class="scope-row"><b>Not now</b><span>No public Signet7 host on signet7.io. No live AWS claim.</span></div>
+          <div class="scope-row"><b>Now</b><span>Public recipient check is hosted at <a href="https://qual.signet7.io/email/verify">qual.signet7.io/email/verify</a>.</span></div>
+          <div class="scope-row"><b>Not now</b><span>Managed VSN is not a live network. This static domain is not the verifier.</span></div>
           <div class="scope-row"><b>Never here</b><span>This page will not say a message is safe, authorized, or fraudulent.</span></div>
         </div>
       </div>
