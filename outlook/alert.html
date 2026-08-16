@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Signet7 warning</title>
+    <style>
+      body { font-family: "Segoe UI", sans-serif; margin: 20px; color: #10243a; }
+      h1 { font-size: 18px; }
+      p { line-height: 1.4; }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">Signet7 warning</h1>
+    <p id="body"></p>
+    <p>Call the person you already know. Do not change payment details from this email alone.</p>
+    <script>
+      var q = new URLSearchParams(window.location.search);
+      document.getElementById("title").textContent = q.get("title") || "Signet7 warning";
+      document.getElementById("body").textContent = q.get("body") || "";
+    </script>
+  </body>
+</html>
