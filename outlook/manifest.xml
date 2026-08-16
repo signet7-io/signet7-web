@@ -5,11 +5,11 @@
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
   xsi:type="MailApp">
   <Id>8f3c2a10-5b61-4d2e-9c0a-7e1d2f4a9b33</Id>
-  <Version>0.3.0.0</Version>
+  <Version>0.3.1.0</Version>
   <ProviderName>Signet7</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Signet7"/>
-  <Description DefaultValue="Passive Signet7 check. Warns only when a seal is broken, replayed, or revoked. Verified is not safe. Unknown is not fraud."/>
+  <Description DefaultValue="Passive incoming check. Seal an outgoing draft without an .eml file. Verified is not safe. Unknown is not fraud."/>
   <IconUrl DefaultValue="https://signet7.io/assets/favicon.png"/>
   <HighResolutionIconUrl DefaultValue="https://signet7.io/assets/signet7-logo.png"/>
   <SupportUrl DefaultValue="https://signet7.io/support"/>
@@ -22,7 +22,7 @@
   </Hosts>
   <Requirements>
     <Sets>
-      <Set Name="Mailbox" MinVersion="1.5"/>
+      <Set Name="Mailbox" MinVersion="1.8"/>
     </Sets>
   </Requirements>
   <FormSettings>
@@ -32,17 +32,23 @@
         <RequestedHeight>280</RequestedHeight>
       </DesktopSettings>
     </Form>
+    <Form xsi:type="ItemEdit">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://signet7.io/outlook/compose.html"/>
+        <RequestedHeight>320</RequestedHeight>
+      </DesktopSettings>
+    </Form>
   </FormSettings>
-  <Permissions>ReadItem</Permissions>
+  <Permissions>ReadWriteItem</Permissions>
   <Rule xsi:type="RuleCollection" Mode="Or">
-    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="ReadOrEdit"/>
   </Rule>
   <DisableEntityHighlighting>false</DisableEntityHighlighting>
   <VersionOverrides
     xmlns="http://schemas.microsoft.com/office/mailappversionoverrides"
     xsi:type="VersionOverridesV1_0">
     <Requirements>
-      <bt:Sets DefaultMinVersion="1.5">
+      <bt:Sets DefaultMinVersion="1.8">
         <bt:Set Name="Mailbox"/>
       </bt:Sets>
     </Requirements>
@@ -51,7 +57,7 @@
         <DesktopFormFactor>
           <ExtensionPoint xsi:type="MessageReadCommandSurface">
             <OfficeTab id="TabDefault">
-              <Group id="Signet7Group">
+              <Group id="Signet7ReadGroup">
                 <Label resid="GroupLabel"/>
                 <Control xsi:type="Button" id="VerifyButton">
                   <Label resid="VerifyButtonLabel"/>
@@ -71,6 +77,28 @@
               </Group>
             </OfficeTab>
           </ExtensionPoint>
+          <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="Signet7ComposeGroup">
+                <Label resid="GroupLabel"/>
+                <Control xsi:type="Button" id="SealButton">
+                  <Label resid="SealButtonLabel"/>
+                  <Supertip>
+                    <Title resid="SealButtonLabel"/>
+                    <Description resid="SealButtonTooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon16"/>
+                    <bt:Image size="32" resid="Icon32"/>
+                    <bt:Image size="80" resid="Icon80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="ComposeUrl"/>
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
         </DesktopFormFactor>
       </Host>
     </Hosts>
@@ -82,13 +110,16 @@
       </bt:Images>
       <bt:Urls>
         <bt:Url id="TaskpaneUrl" DefaultValue="https://signet7.io/outlook/taskpane.html"/>
+        <bt:Url id="ComposeUrl" DefaultValue="https://signet7.io/outlook/compose.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="Signet7"/>
         <bt:String id="VerifyButtonLabel" DefaultValue="Signet7"/>
+        <bt:String id="SealButtonLabel" DefaultValue="Seal"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="VerifyButtonTooltip" DefaultValue="Passive check. Pops only when a seal is broken."/>
+        <bt:String id="SealButtonTooltip" DefaultValue="Seal this draft. No .eml file. Needs a sender token."/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
