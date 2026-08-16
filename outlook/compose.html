@@ -4,21 +4,15 @@
     <meta charset="UTF-8" />
     <title>Signet7 Seal</title>
     <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
-    <script src="compose.js"></script>
     <style>
       body { font-family: "Segoe UI", sans-serif; margin: 16px; color: #10243a; background: #fff; }
-      .muted { color: #5a6b73; font-size: 12px; }
-      button { margin-top: 12px; padding: 8px 12px; }
-      input { box-sizing: border-box; width: 100%; margin: 4px 0 8px; padding: 8px; }
-      pre { white-space: pre-wrap; background: #f4f7f8; padding: 8px; font-size: 12px; }
+      .muted { color: #5a6b73; font-size: 13px; line-height: 1.45; }
     </style>
   </head>
   <body>
-    <h1>Seal this message</h1>
-    <p class="muted">No file. Signet7 reads the draft you already wrote. Sealing needs a sender token. Checking incoming mail stays free. Verified is not safe.</p>
-    <label>API base <input id="baseUrl" value="https://qual.signet7.io" /></label>
-    <label>Sender token <input id="token" type="password" autocomplete="off" /></label>
-    <button id="sealBtn" type="button">Seal this draft</button>
-    <pre id="out">Write the email as usual, then seal it here.</pre>
+    <h1>Write in Outlook. Not here.</h1>
+    <p class="muted">Signet7 is not a mail app. Keep bold, centering, and Send in Outlook.</p>
+    <p class="muted">Same opt-in on Windows, Mac, and Linux: run the Signet7 desktop, turn on auto-seal, point this mailbox SMTP at 127.0.0.1 port 2525. We stamp the exact draft you already wrote. Sealing needs a sender token. Incoming checks stay free.</p>
+    <p class="muted">Verified is not safe. Unknown is not fraud. Living stories: https://signet7.io/scenarios.html</p>
   </body>
 </html>

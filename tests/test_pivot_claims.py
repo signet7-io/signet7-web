@@ -150,6 +150,21 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("this static site cannot run that check", check)
         self.assertIn('href="check.html"', self.pages["index.html"])
 
+    def test_scenarios_page_is_living_and_cross_platform(self) -> None:
+        self.assertIn("scenarios.html", self.pages)
+        page = self.pages["scenarios.html"].lower()
+        for phrase in (
+            "living document",
+            "windows, macos, and linux",
+            "not a mail app",
+            "small company",
+            "corporation",
+            "verified is not safe",
+        ):
+            with self.subTest(phrase=phrase):
+                self.assertIn(phrase, page)
+        self.assertIn('href="scenarios.html"', self.pages["index.html"])
+
     def test_every_page_keeps_local_candidate_boundary(self) -> None:
         for name, html in self.pages.items():
             with self.subTest(page=name):
