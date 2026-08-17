@@ -2,8 +2,8 @@
 
 Read: passive check. Unsigned mail stays quiet.
 
-Compose: seal the draft you already wrote. No .eml file. Needs a sender API token.
-Checking incoming mail stays free.
+Write in Outlook. This pane is not a composer. Auto-seal, if they opt in, is the
+same localhost SMTP helper on Windows, Mac, and Linux. See https://signet7.io/smtp.html
 
 Sideload `manifest.xml`. Not AppSource. Org-wide push is a Microsoft 365 admin task.
 Not Exchange. Verified is not safe. Unknown is not fraud.
