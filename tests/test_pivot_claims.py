@@ -165,6 +165,13 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 self.assertIn(phrase, page)
         self.assertIn('href="scenarios.html"', self.pages["index.html"])
 
+    def test_smtp_recipes_are_cross_platform(self) -> None:
+        self.assertIn("smtp.html", self.pages)
+        page = self.pages["smtp.html"].lower()
+        for phrase in ("127.0.0.1", "2525", "outlook", "apple mail", "thunderbird", "windows, macos, and linux"):
+            with self.subTest(phrase=phrase):
+                self.assertIn(phrase, page)
+
     def test_every_page_keeps_local_candidate_boundary(self) -> None:
         for name, html in self.pages.items():
             with self.subTest(page=name):
