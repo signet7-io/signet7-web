@@ -109,20 +109,25 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, integrations)
 
-    def test_program_page_retires_old_public_prices(self) -> None:
+    def test_program_page_publishes_approved_prices_without_a_live_offer(self) -> None:
         programs = self.pages["programs.html"]
         for phrase in (
             "Price the sender habit. Keep recipient checks free.",
-            "Per-agent / decision-band direction",
-            "Exact prices not approved",
+            "Approved launch prices",
+            "Signup before install",
             "No live offer",
-            "Inactive legacy catalog",
-            "no longer the controlling public model",
+            "$12/month",
+            "$29/month",
+            "$99/month",
+            "From $1,000/month",
+            "There is no public installer download",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, programs)
-        for stale_price in ("$12/month", "$29/month", "$99/month", "$1,000/month"):
-            self.assertNotIn(stale_price, programs)
+        self.assertNotIn("Exact prices not approved", programs)
+        self.assertNotIn("Inactive legacy catalog", programs)
+        self.assertNotIn("no longer the controlling public model", programs)
+        self.assertNotRegex(programs, r"<form\b")
 
     def test_pilot_is_bounded_and_not_a_production_offer(self) -> None:
         pilot = self.pages["pilot.html"]
@@ -134,7 +139,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             "Synthetic or lower-risk actions first",
             "Test one payment-instruction email.",
             "Senders with one payment-instruction workflow.",
-            "Exact pivot pricing is not approved",
+            "Launch prices are approved. Checkout is not live.",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, pilot)
