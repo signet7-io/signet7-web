@@ -172,6 +172,13 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, page)
 
+    def test_it_one_pager_exists(self) -> None:
+        self.assertIn("it.html", self.pages)
+        page = self.pages["it.html"].lower()
+        for phrase in ("one mailbox", "pip install signet7", "windows, mac, and linux", "127.0.0.1"):
+            with self.subTest(phrase=phrase):
+                self.assertIn(phrase, page)
+
     def test_every_page_keeps_local_candidate_boundary(self) -> None:
         for name, html in self.pages.items():
             with self.subTest(page=name):
