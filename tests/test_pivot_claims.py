@@ -31,8 +31,9 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 canonical = "https://signet7.io/" if name == "index.html" else f"https://signet7.io/{name}"
                 self.assertIn(f'<link rel="canonical" href="{canonical}">', html)
                 self.assertIn(f'<meta property="og:url" content="{canonical}">', html)
-                if name in {"terms.html", "disclaimer.html"}:
-                    self.assertIn('<meta name="robots" content="noindex, nofollow">', html)
+                if name in {"terms.html", "disclaimer.html", "404.html"}:
+                    if name in {"terms.html", "disclaimer.html"}:
+                        self.assertIn('<meta name="robots" content="noindex, nofollow">', html)
                     self.assertNotIn(f"<loc>{canonical}</loc>", sitemap)
                 else:
                     self.assertIn(f"<loc>{canonical}</loc>", sitemap)
@@ -51,10 +52,10 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for phrase in (
             "trust layer for consequential email",
             "check the seal before you act.",
-            "the email is the moment that matters.",
+            "you already have a product: call the person.",
             "verified does not mean safe",
             "unknown does not mean fraud",
-            "managed vsn planned",
+            "vsn check hosted on qual",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, home)
@@ -89,7 +90,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             "does not block every phishing technique",
             "Evidence support is not certification",
             "No universal legal duration or seven-year default",
-            "The planned managed trust layer",
+            "Qualification VSN has Signet7 enrolled",
             "Verified is not safe. Unresolved is not fraudulent.",
         ):
             with self.subTest(phrase=phrase):
@@ -145,7 +146,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("check.html", self.pages)
         check = self.pages["check.html"].lower()
         self.assertIn("no install for the other side", check)
-        self.assertIn("hosted check not live on this domain", check)
+        self.assertIn("this static site cannot run that check", check)
         self.assertIn("/email/verify", check)
         self.assertIn("this static site cannot run that check", check)
         self.assertIn('href="check.html"', self.pages["index.html"])
