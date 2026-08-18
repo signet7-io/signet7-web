@@ -8,7 +8,7 @@
      is required before any verification surface is hosted on this domain. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
   <title>Signet7 | Check the seal before you act</title>
-  <meta name="description" content="Signet7 is the trust layer for consequential email. Recipients can inspect supported sender and content evidence before they act. A qualification VSN check is hosted; Signet7 enrolled its own domain there. It is not a public multi-customer directory.">
+  <meta name="description" content="Signet7 is the trust layer for consequential email. Recipients can inspect supported sender and content evidence before they act. The Verifiable Sender Network (VSN) binds a signing key to a domain or organization and records whether that binding is still active.">
   <meta name="theme-color" content="#07101b">
   <meta property="og:title" content="Signet7 | Check the seal before you act">
   <meta property="og:description" content="Before you act on an important email, check the seal: who sent it, what was bound, and whether it still matches.">
@@ -46,7 +46,7 @@
       <div class="container action-hero-content">
         <p class="eyebrow">Trust layer for consequential email</p>
         <h1 id="hero-title">Check the seal before you act.</h1>
-        <p class="hero-copy">Before you follow a payment change or invoice, inspect what Signet7 can prove about the sender and the protected parts of the message. Verified does not mean safe. Unknown does not mean fraud. A qualification VSN check is hosted. Signet7 enrolled its own domain there. It is not a public multi-customer directory.</p>
+        <p class="hero-copy">Before you follow a payment change or invoice, inspect what Signet7 can prove about the sender and the protected parts of the message. Verified does not mean safe. Unknown does not mean fraud. The Verifiable Sender Network (VSN) is Signet7's sender-trust layer. It binds a signing key to a domain or organization and records whether that binding is still active.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="https://qual.signet7.io/email/verify">Check a message</a>
           <a class="button button-secondary" href="check.html">How a recipient checks</a>
@@ -164,13 +164,13 @@
     <section class="section vsn-section">
       <div class="container two-column">
         <div>
-          <p class="eyebrow">Qualification VSN check</p>
-          <h2>Qualification VSN has Signet7 enrolled. It is not a public customer directory.</h2>
+          <p class="eyebrow">Verifiable Sender Network (VSN)</p>
+          <h2>Bind a signing key to a domain. Check whether that binding still holds.</h2>
         </div>
         <div>
-          <p>The qualification VSN check and admin pages are hosted at <a href="https://qual.signet7.io/vsn">qual.signet7.io/vsn</a>. They run on an isolated tenant. No public directory exists. Dual-control enrollment of a real customer domain has not been run.</p>
-          <p class="fine-print">Verified does not mean safe. The complete managed VSN service (customer enrollment, rotation, revocation, recovery, support) is still not an operating customer network.</p>
-          <a class="text-link light-link" href="https://qual.signet7.io/vsn">Open the hosted VSN check &rarr;</a>
+          <p>VSN is Signet7's sender-trust layer: it records which organization or domain a signing key belongs to, and whether that binding is still active. A lookup and admin pages are live at <a href="https://qual.signet7.io/vsn">qual.signet7.io/vsn</a> on an isolated qualification tenant. The only domain in that lookup today is Signet7's own (<code>signet7.io</code>), added by dual-control. Customer domains are not in it, and records are not publicly listed.</p>
+          <p class="fine-print">Verified does not mean safe. Customer enrollment, rotation, revocation, recovery, and support are still not an operating customer network.</p>
+          <a class="text-link light-link" href="https://qual.signet7.io/vsn">Open the VSN lookup &rarr;</a>
         </div>
       </div>
     </section>

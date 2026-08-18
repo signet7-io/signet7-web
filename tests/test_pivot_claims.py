@@ -90,7 +90,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             "does not block every phishing technique",
             "Evidence support is not certification",
             "No universal legal duration or seven-year default",
-            "Qualification VSN has Signet7 enrolled",
+            "Bind a signing key to a domain. Check whether that binding still holds.",
             "Verified is not safe. Unresolved is not fraudulent.",
         ):
             with self.subTest(phrase=phrase):
