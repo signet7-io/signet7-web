@@ -1,7 +1,7 @@
 # Signet7 public website export
 
 This repository is the sanitized static export of the canonical website source in
-`signet7-io/Signet7-Active/10-product/www/`.
+`signet7-io/signet7-active/10-product/www/`.
 
 ## Product position
 
