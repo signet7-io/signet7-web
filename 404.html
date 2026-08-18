@@ -2,10 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- GitHub Pages cannot set response headers. These meta-delivered policies are the
+     enforceable subset. NOTE: frame-ancestors is ignored when delivered via <meta>;
+     real clickjacking protection requires a header layer (Cloudflare/CloudFront) and
+     is required before any verification surface is hosted on this domain. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
   <title>Page not found | Signet7</title>
   <meta name="description" content="That Signet7 page is not here. Check a message, or go home.">
   <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#07101b">
+  <meta property="og:title" content="Page not found | Signet7">
+  <meta property="og:description" content="That Signet7 page is not here. Check a message, or go home.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://signet7.io/404.html">
+  <meta property="og:image" content="https://signet7.io/assets/og-image.png">
+  <link rel="canonical" href="https://signet7.io/404.html">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -17,6 +28,12 @@
         <img src="assets/signet7-logo.png" width="44" height="44" alt="Signet7">
         <span>Signet7</span>
       </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="product.html">Product</a>
+        <a href="pilot.html">Pilot</a>
+        <a href="check.html">Check</a>
+        <a href="about.html">About</a>
+      </nav>
     </div>
   </header>
   <main id="main">
@@ -33,5 +50,12 @@
       </div>
     </section>
   </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><strong>Signet7</strong><p>The trust layer for consequential email.</p><p>© 2026 Signet7. All rights reserved.</p></div>
+      <div><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="disclaimer.html">Disclaimer</a><a href="contact.html">Contact</a></div>
+      <div><p>Current local candidate. Caller-enforced. VSN check hosted on qual.</p></div>
+    </div>
+  </footer>
 </body>
 </html>
