@@ -147,10 +147,25 @@ main { position: relative; z-index: 4; }
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
+.scene-break {
+  position: relative;
+  z-index: 5;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.scene-break span {
+  display: block;
+  width: min(280px, 42vw);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #58def8 35%, #ffd16d 65%, transparent);
+  box-shadow: 0 0 18px rgba(88, 222, 248, 0.35);
+}
 .meet {
   position: relative;
   z-index: 5;
-  padding: 8px 0 0;
+  padding: 12px 0 0;
 }
 .meet-grid {
   display: grid;
