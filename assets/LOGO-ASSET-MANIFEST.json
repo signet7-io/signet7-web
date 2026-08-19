@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "effective_date": "2026-08-11",
-  "canonical_asset": "assets/signet7-circle-logo-official-v2.png",
+  "canonical_asset": "assets/signet7-logo-mark.png",
   "seal_line": "VERIFY THE SENDER • SEAL THE DECISION",
   "dimensions": {
     "width": 1254,
@@ -10,7 +10,7 @@
   "sha256": "63ffd6be248b79a86b83f5da5aaa971490ebd7a5b1fa521bcb9785f699b7695e",
   "status": "OWNER_APPROVED_ACTIVE",
   "active_byte_identical_paths": [
-    "assets/signet7-logo.png"
+    "assets/signet7-logo-mark.png"
   ],
   "distinct_derivatives": [
     {
