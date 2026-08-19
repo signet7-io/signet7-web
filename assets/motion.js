@@ -1,5 +1,23 @@
 (() => {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!document.querySelector(".sky")) {
+    const sky = document.createElement("div");
+    sky.className = "sky";
+    sky.setAttribute("aria-hidden", "true");
+    sky.innerHTML = '<i class="blob a"></i><i class="blob b"></i><i class="blob c"></i>';
+    const grain = document.createElement("div");
+    grain.className = "grain";
+    grain.setAttribute("aria-hidden", "true");
+    const spot = document.createElement("div");
+    spot.className = "spot";
+    spot.setAttribute("aria-hidden", "true");
+    const dust = document.createElement("canvas");
+    dust.id = "dust";
+    dust.setAttribute("aria-hidden", "true");
+    document.body.prepend(sky, dust, grain, spot);
+  }
+
   const toggle = document.querySelector(".nav-toggle");
   if (toggle) {
     toggle.addEventListener("click", () => {
@@ -14,6 +32,7 @@
   const inspect = document.querySelector("[data-inspect]");
   const tabs = [...document.querySelectorAll("[data-tab]")];
   const panels = [...document.querySelectorAll("[data-panel]")];
+  const spot = document.querySelector(".spot");
 
   const say = (text) => {
     if (hint) hint.textContent = text;
@@ -42,28 +61,78 @@
       say("Walkthrough only. This page is not the live check.");
     });
   }
-
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => showPanel(tab.getAttribute("data-tab")));
-  });
-
+  tabs.forEach((tab) => tab.addEventListener("click", () => showPanel(tab.getAttribute("data-tab"))));
   window.addEventListener("keydown", (e) => {
     if (e.key === "1") showPanel("received");
     if (e.key === "2") showPanel("inspect");
     if (e.key === "3") showPanel("limits");
   });
 
-  if (mail && !reduce) {
-    mail.addEventListener("mousemove", (e) => {
-      const r = mail.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - 0.5;
-      const y = (e.clientY - r.top) / r.height - 0.5;
-      mail.style.setProperty("--ry", `${x * 8}deg`);
-      mail.style.setProperty("--rx", `${-y * 6}deg`);
-    });
-    mail.addEventListener("mouseleave", () => {
-      mail.style.setProperty("--ry", "0deg");
-      mail.style.setProperty("--rx", "0deg");
-    });
+  if (!reduce) {
+    window.addEventListener(
+      "pointermove",
+      (e) => {
+        const x = `${(e.clientX / window.innerWidth) * 100}%`;
+        const y = `${(e.clientY / window.innerHeight) * 100}%`;
+        if (spot) {
+          spot.style.setProperty("--mx", x);
+          spot.style.setProperty("--my", y);
+        }
+        if (mail) {
+          const r = mail.getBoundingClientRect();
+          const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+          if (inside) {
+            mail.style.setProperty("--ry", `${((e.clientX - r.left) / r.width - 0.5) * 10}deg`);
+            mail.style.setProperty("--rx", `${-((e.clientY - r.top) / r.height - 0.5) * 8}deg`);
+          }
+        }
+      },
+      { passive: true }
+    );
+    if (mail) {
+      mail.addEventListener("mouseleave", () => {
+        mail.style.setProperty("--ry", "0deg");
+        mail.style.setProperty("--rx", "0deg");
+      });
+    }
   }
+
+  const canvas = document.getElementById("dust");
+  if (!canvas || reduce || !canvas.getContext) return;
+  const ctx = canvas.getContext("2d");
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  let w = 0;
+  let h = 0;
+  const bits = Array.from({ length: 70 }, () => ({
+    x: Math.random(),
+    y: Math.random(),
+    s: 0.6 + Math.random() * 1.8,
+    v: 0.08 + Math.random() * 0.22,
+    gold: Math.random() < 0.28,
+  }));
+  const resize = () => {
+    w = window.innerWidth;
+    h = window.innerHeight;
+    canvas.width = Math.floor(w * dpr);
+    canvas.height = Math.floor(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+  resize();
+  window.addEventListener("resize", resize, { passive: true });
+  const tick = () => {
+    ctx.clearRect(0, 0, w, h);
+    bits.forEach((b) => {
+      b.y -= b.v / 180;
+      if (b.y < -0.02) {
+        b.y = 1.02;
+        b.x = Math.random();
+      }
+      ctx.beginPath();
+      ctx.fillStyle = b.gold ? "rgba(255,209,109,0.45)" : "rgba(88,222,248,0.38)";
+      ctx.arc(b.x * w, b.y * h, b.s, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
 })();
