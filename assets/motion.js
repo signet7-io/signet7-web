@@ -1,8 +1,6 @@
 (() => {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const canvas = document.getElementById("field");
   const toggle = document.querySelector(".nav-toggle");
-
   if (toggle) {
     toggle.addEventListener("click", () => {
       const open = document.body.classList.toggle("nav-open");
@@ -10,104 +8,62 @@
     });
   }
 
-  const scenes = [...document.querySelectorAll("[data-scene]")];
-  const onScroll = () => {
-    const vh = window.innerHeight || 1;
-    scenes.forEach((scene) => {
-      const r = scene.getBoundingClientRect();
-      const start = r.top - vh * 0.15;
-      const end = r.bottom - vh * 0.55;
-      const p = 1 - Math.min(1, Math.max(0, end / (end - start || 1)));
-      scene.classList.toggle("is-on", r.top < vh * 0.72 && r.bottom > vh * 0.28);
-      scene.style.setProperty("--p", String(p));
-    });
+  const mail = document.querySelector("[data-mail]");
+  const hint = document.querySelector("[data-hint]");
+  const hots = [...document.querySelectorAll("[data-hot]")];
+  const inspect = document.querySelector("[data-inspect]");
+  const tabs = [...document.querySelectorAll("[data-tab]")];
+  const panels = [...document.querySelectorAll("[data-panel]")];
+
+  const say = (text) => {
+    if (hint) hint.textContent = text;
   };
 
-  if (!reduce) {
-    let ticking = false;
-    window.addEventListener(
-      "scroll",
-      () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          onScroll();
-          ticking = false;
-        });
-      },
-      { passive: true }
-    );
-    onScroll();
-  } else {
-    scenes.forEach((s) => s.classList.add("is-on"));
-  }
+  hots.forEach((el) => {
+    const msg = el.getAttribute("data-hot") || "";
+    const on = () => {
+      hots.forEach((h) => h.classList.remove("is-on"));
+      el.classList.add("is-on");
+      say(msg);
+    };
+    el.addEventListener("mouseenter", on);
+    el.addEventListener("focus", on);
+    el.addEventListener("click", on);
+  });
 
-  if (!canvas || reduce || !canvas.getContext) return;
-
-  const ctx = canvas.getContext("2d", { alpha: true });
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
-  let w = 0;
-  let h = 0;
-  const COUNT = 1400;
-  const pts = [];
-
-  const resize = () => {
-    w = canvas.clientWidth;
-    h = canvas.clientHeight;
-    canvas.width = Math.floor(w * dpr);
-    canvas.height = Math.floor(h * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const showPanel = (name) => {
+    tabs.forEach((t) => t.setAttribute("aria-selected", t.getAttribute("data-tab") === name ? "true" : "false"));
+    panels.forEach((p) => p.classList.toggle("is-on", p.getAttribute("data-panel") === name));
   };
 
-  const target = (i, n) => {
-    const a = (i / n) * Math.PI * 2;
-    const band = i % 6 === 0 ? 0.36 : i % 3 === 0 ? 0.58 : 0.8;
-    return [Math.cos(a) * band, Math.sin(a) * band];
-  };
-
-  for (let i = 0; i < COUNT; i += 1) {
-    const [sx, sy] = target(i, COUNT);
-    pts.push({
-      x: (Math.random() - 0.5) * 2,
-      y: (Math.random() - 0.5) * 2,
-      sx,
-      sy,
-      s: 1.2 + Math.random() * 2.4,
-      hue: Math.random() < 0.18 ? "gold" : "cyan",
+  if (inspect) {
+    inspect.addEventListener("click", () => {
+      showPanel("inspect");
+      say("Walkthrough only. This page is not the live check.");
     });
   }
 
-  resize();
-  window.addEventListener("resize", resize, { passive: true });
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => showPanel(tab.getAttribute("data-tab")));
+  });
 
-  let t0 = performance.now();
-  const tick = (now) => {
-    const t = (now - t0) / 1000;
-    const scroll = Math.min(1, window.scrollY / Math.max(1, window.innerHeight * 1.2));
-    const rot = t * 0.18;
-    const mix = 1;
-    ctx.clearRect(0, 0, w, h);
-    const cx = w * 0.70;
-    const cy = h * 0.52;
-    const scale = Math.min(w, h) * 0.32;
-    const fade = Math.max(0.35, 1 - scroll * 0.7);
-    for (const p of pts) {
-      const tx = p.sx * Math.cos(rot) - p.sy * Math.sin(rot);
-      const ty = p.sx * Math.sin(rot) + p.sy * Math.cos(rot);
-      p.x += (tx - p.x) * 0.06;
-      p.y += (ty - p.y) * 0.06;
-      const wobble = Math.sin(t * 1.4 + p.x * 6) * 4;
-      const px = cx + p.x * scale + wobble * (1 - scroll);
-      const py = cy + p.y * scale;
-      ctx.beginPath();
-      ctx.fillStyle =
-        p.hue === "gold"
-          ? `rgba(255, 209, 109, ${0.45 * fade + 0.2})`
-          : `rgba(88, 222, 248, ${0.4 * fade + 0.25})`;
-      ctx.arc(px, py, p.s, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    requestAnimationFrame(tick);
-  };
-  requestAnimationFrame(tick);
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "1") showPanel("received");
+    if (e.key === "2") showPanel("inspect");
+    if (e.key === "3") showPanel("limits");
+  });
+
+  if (mail && !reduce) {
+    mail.addEventListener("mousemove", (e) => {
+      const r = mail.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      mail.style.setProperty("--ry", `${x * 8}deg`);
+      mail.style.setProperty("--rx", `${-y * 6}deg`);
+    });
+    mail.addEventListener("mouseleave", () => {
+      mail.style.setProperty("--ry", "0deg");
+      mail.style.setProperty("--rx", "0deg");
+    });
+  }
 })();

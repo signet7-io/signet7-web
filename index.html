@@ -12,7 +12,7 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <title>Signet7 | Check the seal before you act</title>
   <meta name="description" content="Signet7 is the trust layer for consequential email. Recipients can inspect supported sender and content evidence before they act. The Verifiable Sender Network (VSN) binds a signing key to a domain or organization and records whether that binding is still active.">
-  <meta name="theme-color" content="#030508">
+  <meta name="theme-color" content="#f4efe4">
   <meta property="og:title" content="Signet7 | Check the seal before you act">
   <meta property="og:description" content="Before you act on an important email, check the seal: who sent it, what was bound, and whether it still matches.">
   <meta property="og:type" content="website">
@@ -22,16 +22,15 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="assets/site.css">
 </head>
-<body class="home">
+<body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <canvas id="field" aria-hidden="true"></canvas>
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="index.html" aria-label="Signet7 home">
         <img src="assets/signet7-logo.png" width="44" height="44" alt="Signet7">
         <span>Signet7</span>
       </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
       <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
         <a href="product.html">Product</a>
         <a href="trust.html">Trust &amp; evidence</a>
@@ -45,74 +44,73 @@
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero-grid">
-        <div class="hero-copy-col reveal">
-          <p class="eyebrow">Trust layer for consequential email</p>
-          <h1 id="hero-title">Check the seal before you act.</h1>
-          <p class="hero-copy">Before you follow a payment change or invoice, inspect what Signet7 can prove about the sender and the protected parts of the message. Verified does not mean safe. Unknown does not mean fraud. The Verifiable Sender Network (VSN) is Signet7's sender-trust layer. It binds a signing key to a domain or organization and records whether that binding is still active.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="https://qual.signet7.io/email/verify">Check a message</a>
-            <a class="button button-secondary" href="check.html">How a recipient checks</a>
-            <a class="button button-secondary" href="scenarios.html">Send and receive stories</a>
-          </div>
-          <div class="maturity-strip" aria-label="Current product maturity">
-            <span>Current local candidate</span>
-            <span>Caller-enforced</span>
-            <span>VSN check hosted on qual</span>
-          </div>
+    <section class="container stage" aria-labelledby="hero-title">
+      <div class="stage-copy">
+        <p class="eyebrow">Trust layer for consequential email</p>
+        <h1 id="hero-title">Check the seal before you act.</h1>
+        <p class="lede">Hover the invoice. Click the account number. Inspect what can be proven — and what still cannot.</p>
+        <p class="hero-copy">You already have a product: call the person. Signet7 is the last look before money or a decision moves.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://qual.signet7.io/email/verify">Open the live check</a>
+          <a class="button button-secondary" href="check.html">How a recipient checks</a>
+          <a class="button button-secondary" href="scenarios.html">Send and receive stories</a>
         </div>
-        <div class="hero-stage" aria-hidden="true">
-          <div class="viewfinder">
-            <span class="tl"></span><span class="tr"></span>
-            <span class="bl"></span><span class="br"></span>
-          </div>
+        <div class="maturity-strip" aria-label="Current product maturity">
+          <span>Current local candidate</span>
+          <span>Caller-enforced</span>
+          <span>VSN check hosted on qual</span>
         </div>
       </div>
-      <div class="discover">Discover<i></i></div>
-    </section>
 
-    <section class="scene" data-scene>
-      <div class="scene-sticky">
-        <div class="scene-inner">
-          <article class="frame">
-            <div class="mail-bar"><span>Inbox</span><span>Today, 9:14 AM</span></div>
-            <div class="mail-from">ap@northline-vendors.com</div>
-            <div class="mail-subject">Updated wiring instructions</div>
-            <p class="mail-body">Please use the account below for this week's invoice. We need this processed before close of business.</p>
-            <div class="acct">Routing 021000021 &nbsp; Account <b>4419920173</b></div>
-          </article>
-          <div>
-            <p class="eyebrow">The ordinary message</p>
-            <h2>It looks like every other Tuesday.</h2>
-            <p>Email can look routine while carrying a payment instruction. The missing control point is the pause before the irreversible step.</p>
+      <aside class="mail" data-mail aria-label="Interactive sample message">
+        <div class="mail-top">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>Inbox — play with this message</span>
+        </div>
+        <div class="mail-body">
+          <div class="row"><b>From</b><span class="hot" tabindex="0" data-hot="A look-alike address can be typed by anyone. The seal is about the key, not the costume.">ap@northline-vendors.com</span></div>
+          <div class="row"><b>To</b><span>finance@yourcompany.com</span></div>
+          <p class="subject">Updated wiring instructions</p>
+          <p>Please use the account below for this week's invoice. We need this processed before close of business.</p>
+          <p>Routing 021000021 &nbsp; Account <span class="hot" tabindex="0" data-hot="This is the irreversible detail. Check the seal before you change where money goes.">4419920173</span></p>
+          <p class="hint" data-hint>Hover a highlighted detail. Then inspect.</p>
+          <div class="mail-actions">
+            <button class="button button-primary" type="button" data-inspect>Inspect this message</button>
+            <a class="button button-secondary" href="https://qual.signet7.io/email/verify">Live check on qual</a>
           </div>
         </div>
+        <div class="tabs" role="tablist" aria-label="Walkthrough views">
+          <button class="tab" type="button" data-tab="received" aria-selected="true">1 Received</button>
+          <button class="tab" type="button" data-tab="inspect">2 Inspect</button>
+          <button class="tab" type="button" data-tab="limits">3 Limits</button>
+        </div>
+        <div class="panel is-on" data-panel="received">
+          <p>As received, it looks ordinary. That is the point.</p>
+        </div>
+        <div class="panel" data-panel="inspect">
+          <div class="state ok"><div><small>Protected content</small><strong>Matches the sealed bytes</strong></div><span>Held</span></div>
+          <div class="state warn"><div><small>Sender / key</small><strong>Self-signed</strong></div><span>Unapproved</span></div>
+          <div class="state bad"><div><small>Advice</small><strong>Do not treat this as safe</strong></div><span>Human</span></div>
+          <p class="walkthrough-note">Walkthrough. Verified does not mean safe. Unknown does not mean fraud.</p>
+        </div>
+        <div class="panel" data-panel="limits">
+          <p>Signet7 does not move money, approve payments, or replace a callback. The integrating caller still enforces.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="urgency-band">
+      <div class="container">
+        <p class="urgency-lead">You already have a product: call the person.</p>
+        <p>Spam filters feel like email security. Payment-detail fraud is rare until it is not. Check the seal before you change where money goes. Verified does not mean safe. Unknown does not mean fraud.</p>
       </div>
     </section>
 
-    <section class="scene" data-scene>
-      <div class="scene-sticky">
-        <div class="scene-inner">
-          <article class="frame check-card">
-            <div class="state bound"><div><small>Protected content</small><strong>Matches the sealed bytes</strong></div><span>Held</span></div>
-            <div class="state self"><div><small>Sender / key</small><strong>Self-signed</strong></div><span>Unapproved</span></div>
-            <div class="state none"><div><small>Advice</small><strong>Do not treat this as safe</strong></div><span>Human</span></div>
-          </article>
-          <div>
-            <p class="eyebrow">The pause</p>
-            <h2>You already have a product: call the person.</h2>
-            <p>Spam filters feel like email security. Payment-detail fraud is rare until it is not. Signet7 is a seatbelt for a crash they have not had. Check the seal before you change where money goes. Verified does not mean safe. Unknown does not mean fraud.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-light">
+    <section class="section">
       <div class="container">
         <div class="section-heading split-heading">
           <div>
-            <p class="eyebrow dark">The missing control point</p>
+            <p class="eyebrow">The missing control point</p>
             <h2>From an ordinary email to a decision you may regret.</h2>
           </div>
           <p>Signet7 lets the recipient inspect supported sender and content evidence before they act. Agents can later consume the same evidence.</p>
@@ -173,7 +171,7 @@
       </div>
     </section>
 
-    <section class="section evidence-section">
+    <section class="section evidence-section section-light">
       <div class="container">
         <div class="section-heading split-heading">
           <div>
