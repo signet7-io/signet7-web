@@ -8,15 +8,10 @@
      is required before any verification surface is hosted on this domain. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
   <link rel="canonical" href="https://signet7.io/privacy.html">
-  <meta property="og:title" content="Privacy Status | Signet7">
-  <meta property="og:description" content="Current privacy status and product-data boundaries for the Signet7 agent-action-gating project.">
-  <meta property="og:type" content="website">
   <meta property="og:url" content="https://signet7.io/privacy.html">
-  <meta property="og:image" content="https://signet7.io/assets/og-image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="description" content="Current privacy status and product-data boundaries for the Signet7 agent-action-gating project.">
+  <meta name="description" content="Signet7 Privacy Policy: data we collect, AI, providers, deletion, cancel, and rights.">
   <meta name="theme-color" content="#030609">
-  <title>Privacy Status | Signet7</title>
+  <title>Privacy Policy | Signet7</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="assets/site.css">
@@ -38,138 +33,61 @@
       </div>
     </nav>
   </header>
-
   <main id="main-content">
     <section class="page-hero">
       <div class="container">
-        <div class="eyebrow">Privacy design status · data boundaries · unresolved decisions</div>
-        <div class="badge-row">
-          <span class="badge cyan">Transparency notice</span>
-          <span class="badge gold">Not a final privacy policy</span>
-        </div>
-        <h1>Privacy claims should be as <span class="gradient-text">verifiable as the product.</span></h1>
-        <p class="hero-copy">This page explains the current repository and product-design status. It is not a final customer privacy notice, data-processing agreement, retention commitment, or representation that a production service is operating.</p>
+        <div class="eyebrow">Privacy Policy · effective 19 August 2026</div>
+        <div class="badge-row"><span class="badge gold">DRAFT — NON-OPERATIVE</span></div>
+        <h1>Privacy Policy. <span class="gradient-text">What Signet7 collects and what it does not.</span></h1>
       </div>
     </section>
-
     <section class="section">
-      <div class="container">
-        <div class="eyebrow">This static site</div>
-        <h2>No collection form is present in this source.</h2>
-        <div class="truth-grid">
-          <div class="truth yes">
-            <h3>What the repository page shows</h3>
-            <ul>
-              <li>Static HTML, CSS, images, and links.</li>
-              <li>No contact, signup, account, payment, checkout, or message-upload form in this static website source.</li>
-              <li>No analytics or advertising script declared by these page sources.</li>
-              <li>No instruction to send email content or personal information through this site.</li>
-            </ul>
-          </div>
-          <div class="truth no">
-            <h3>What cannot be claimed from the page source alone</h3>
-            <ul>
-              <li>That a hosting provider records no IP address, user agent, request path, time, security event, or other access metadata.</li>
-              <li>That every future deployment uses the same hosting, logging, analytics, or cookie configuration.</li>
-              <li>That third-party links have the same privacy practices.</li>
-              <li>That “Signet7 collects no data” in every product or operating context.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+      <div class="container legal-document">
+        <p>Effective date: 19 August 2026. Operator: the Signet7 project. Privacy contact: <a href="mailto:justin.daines@signet7.io">justin.daines@signet7.io</a>.</p>
+        <h2>1. Who we are</h2>
+        <p>Signet7 is a cryptographic email-evidence and optional action-gate product. The current operator is the Signet7 project, founded by Samuel, with Justin as CO-Founder and Josh as Founding Team Member. Until a legal entity is formed, this Privacy Policy is the project's published rule for how information is handled. When an entity is formed, that entity becomes the controller or business for the same practices unless a later version of this page says otherwise.</p>
+        <p>When a customer deploys Signet7 for that customer's own users, Signet7 processes those users' data as a service provider for the customer. The customer decides the purpose. Signet7 follows the customer's documented instructions, this policy, and the product's built-in limits.</p>
+        <h2>2. Data we collect</h2>
+        <p>We collect only what the product needs to do the job you asked it to do.</p>
+        <ul>
+          <li>Website: page requests. The static site has no signup, payment, cookie banner, or message-upload form. GitHub Pages may log IP address, user agent, path, time, and security events as ordinary host logs.</li>
+          <li>Recipient verify: supported message bytes are received in memory so Signet7 can hash and check them. Default public verify does not keep the raw email.</li>
+          <li>Optional evidence: if an authorized operator turns evidence on, Signet7 stores protected identifiers and digests. It does not store the raw body, submitted signature, or submitted key by default.</li>
+          <li>Mailbox agent: a customer-installed agent may read mailbox metadata through IMAP or Microsoft Graph on the customer's machine. It is designed not to keep mail bodies. Local state is message identifiers and cursors, not message text.</li>
+          <li>Account and test billing: tenant, program, subscription identifiers, and event IDs. No card numbers, bank credentials, or security codes. Live billing is off.</li>
+          <li>Deletion requests: a request identifier, a fingerprint of the subject, scope, status, and time. The raw subject string is not stored.</li>
+          <li>Support mail: whatever you send to the published inbox. Do not send live payment messages or secrets.</li>
+        </ul>
+        <h2>3. Why we process it</h2>
+        <p>We process information to verify supported sender and content evidence, operate the optional action gate, secure the service, prevent abuse, answer deletion and cancel requests, and, if separately authorized later, project a subscription. We do not sell personal data. We do not use personal data for advertising. We do not train a generative model on customer content.</p>
+        <h2>4. Artificial intelligence</h2>
+        <p>Signet7 is not a generative chatbot and does not generate email or marketing copy. An optional policy engine can record whether a named action was allowed or blocked. That is a static rule check. See <a href="ai.html">AI use</a>.</p>
+        <h2>5. Data providers</h2>
+        <p>Named providers are listed on <a href="providers.html">Data providers</a>. Stripe is not a live subprocessor. GitHub Pages hosts this website. Amazon Web Services is an optional private deploy target. Customer mailbox providers are used only when the customer connects them.</p>
+        <h2>6. Retention and deletion</h2>
+        <p>Raw email and transient uploads are not retained by default. Transient files are deleted after processing. If optional evidence is on, hash-chained evidence rows are append-only. A deletion request suppresses current use of the identified personal data and purges transient uploads. It does not silently rewrite historical hash rows. Legal holds, if any, are recorded separately.</p>
+        <p>How to request deletion: email <a href="mailto:justin.daines@signet7.io">justin.daines@signet7.io</a> with the word Delete, or call <code>POST /api/v1/privacy/deletion-request</code> on an operated instance. We will acknowledge the request and apply the product deletion path. Identity checks apply.</p>
+        <h2>7. Rights</h2>
+        <p>You may request access, correction, deletion, export, or restriction. Send the request to the privacy contact. We will not require a maze of pages. Applicable law may add or limit these rights. This policy does not claim that Signet7 is currently a CPRA "business" or a GDPR "controller" in the European Union. If those thresholds are later met, the same rights process applies and this page will say so.</p>
+        <h2>8. Children</h2>
+        <p>The product is for business email and adult operators. It is not directed to children under 13, and we do not knowingly collect their personal information. Do not submit a child's personal information.</p>
+        <h2>9. Security and public storage</h2>
+        <p>Declared object stores are configured with public-access blocks. Default verify does not keep raw email. This is not a certification, penetration-test report, or live-account audit.</p>
+        <h2>10. International transfers</h2>
+        <p>The public website is hosted on GitHub Pages. Optional AWS regions are chosen at deploy time. There is no live EU establishment claimed on this page. If a later deploy processes EU personal data, the formed entity will name the transfer tool on this page before that processing starts.</p>
+        <h2>11. Changes</h2>
+        <p>Material changes will be posted on this page with a new effective date. Continued use after the new date is use under the updated policy.</p>
+        <h2>12. Contact</h2>
+        <p>Privacy, deletion, and cancel requests: <a href="mailto:justin.daines@signet7.io">justin.daines@signet7.io</a>. Same inbox as <a href="contact.html">Contact</a>. Do not send live payment messages or secrets. That address is the working inbox until MX for role addresses exists.</p>
 
-    <section class="section section-line">
-      <div class="container">
-        <div class="eyebrow">Product data categories</div>
-        <h2>Agent-action gating requires explicit handling decisions.</h2>
-        <table class="data-table" tabindex="0" aria-label="Scrollable data table">
-          <thead>
-            <tr><th>Category</th><th>Why it may be processed</th><th>Decision still required</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>Sender and organization identifiers</strong></td><td>Enrollment, key binding, trust resolution, audit, and administration</td><td>Identity proofing level, authoritative source, corrections, and lifecycle</td></tr>
-            <tr><td><strong>Agent, message, and instruction identifiers</strong></td><td>Correlation, replay handling, authorization context, verification, and evidence</td><td>Exact scope, minimization, disclosure, indexing, and retention</td></tr>
-            <tr><td><strong>Proposed action and policy result</strong></td><td>Exact-action normalization, trust/policy evaluation, allow/block result, and decision chronology</td><td>Action vocabulary, policy ownership, metadata minimization, retention, and downstream enforcement record</td></tr>
-            <tr><td><strong>Bodies, MIME parts, and attachments</strong></td><td>Canonicalization, hashing, signing, and integrity verification</td><td>Local versus service-side processing, transient handling, content retention, encryption, and regional controls</td></tr>
-            <tr><td><strong>Keys and trust status</strong></td><td>Signing, discovery, rotation, revocation, expiry, and recovery</td><td>Custody model, hardware boundaries, public disclosure, recovery, and administrator access</td></tr>
-            <tr><td><strong>Verification and evidence records</strong></td><td>Result explanation, audit, export, incident response, and later validation</td><td>Field-level minimization, completeness, legal hold, access, retention, deletion, and export</td></tr>
-            <tr><td><strong>Operational metadata</strong></td><td>Security, reliability, rate limiting, abuse prevention, support, and diagnostics</td><td>Final telemetry, purpose, access, retention, subprocessor, and notice controls</td></tr>
-            <tr><td><strong>Commercial account and subscription metadata</strong></td><td>Program entitlement, checkout, billing-portal routing, webhook reconciliation, and support</td><td>Customer identity/recovery, lawful basis, notice, retention, Stripe configuration, subprocessors, disputes, tax, refunds, and closure</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container split">
-        <div>
-          <div class="eyebrow">Current candidate record</div>
-          <h2>Protected identifiers, not a promise of content-free operation.</h2>
-          <p class="section-intro">The current decision path is designed to persist protected identifiers, fingerprints, action/provenance/policy fields, metadata, and evidence-chain information rather than storing the submitted body, signature, or key verbatim in that decision record.</p>
-        </div>
-        <article class="card">
-          <h3>Important boundary</h3>
-          <p>The service necessarily receives inputs to evaluate them, and other routes, logs, deployment components, exports, test fixtures, integrations, or future email workflows may handle different data. The exact deployed flow must be reviewed before making a privacy claim.</p>
-        </article>
-      </div>
-      <div class="container">
-        <div class="notice"><strong>Product status:</strong> the current decision route receives instruction text, exact proposed action, sender and message identifiers, tenant/agent context, and optional signature/key material. The current email routes can also receive supported raw message bytes. The deployed operator must still prove request logging, temporary-file, backup, access, deletion, regional, and retention behavior before making a privacy commitment.</div>
-        <div class="notice gold"><strong>Commercial candidate status:</strong> the local product branch includes Stripe-test checkout/portal adapters and stores a minimized tenant subscription projection plus event identifiers. It does not store raw webhook payloads or payment methods. No live Stripe deployment, public customer identity/recovery system, final privacy notice, or customer processing authorization is established.</div>
-      </div>
-    </section>
-
-    <section class="section section-line">
-      <div class="container">
-        <div class="eyebrow">Verifiable Sender Network (VSN)</div>
-        <h2>Managed trust creates a lifecycle record.</h2>
-        <p class="section-intro">A complete VSN service is expected to process organization, sender, administrator, key, trust-status, rotation, revocation, recovery, verification, and abuse-prevention data. The managed service is not complete today, so its final data flows and commitments remain subject to design, security, privacy, legal, and operational approval.</p>
-        <div class="grid-3">
-          <article class="card"><h3>Enroll</h3><p>Define what evidence is required, who may act for an organization, and how errors or disputes are corrected.</p></article>
-          <article class="card"><h3>Maintain</h3><p>Record status changes, rotation, revocation, recovery, administrative actions, and applicable audit history.</p></article>
-          <article class="card"><h3>Resolve</h3><p>Expose only the information a verifier needs, with rate limits, abuse controls, status semantics, and privacy review.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="eyebrow">Before production</div>
-        <h2>Controls that must be approved.</h2>
-        <div class="scope-list">
-          <div class="scope-row"><b>Roles</b><span>Identify controllers, processors, subprocessors, administrators, custodians, and support access.</span></div>
-          <div class="scope-row"><b>Purpose</b><span>Map every field and derived value to a documented, limited processing purpose.</span></div>
-          <div class="scope-row"><b>Minimization</b><span>Keep only what the selected coverage, verification, evidence, security, and support model requires.</span></div>
-          <div class="scope-row"><b>Retention</b><span>Set category- and tenant-specific periods; no universal “seven years” default is approved.</span></div>
-          <div class="scope-row"><b>Rights</b><span>Define access, correction, deletion, objection, export, dispute, and legal-hold behavior.</span></div>
-          <div class="scope-row"><b>Security</b><span>Qualify encryption, key custody, tenant isolation, access review, incident response, backup, and deletion.</span></div>
-          <div class="scope-row"><b>Location</b><span>Document regional processing, transfers, subprocessors, and customer-controlled deployment choices.</span></div>
-          <div class="scope-row"><b>Notice</b><span>Publish the final privacy notice and contractual terms before collecting production customer data.</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-line">
-      <div class="container split">
-        <div>
-          <div class="eyebrow">Current action</div>
-          <h2>Do not submit sensitive email through this website.</h2>
-          <p class="section-intro">This static project site does not provide an authorized production intake channel. Do not use it to submit messages, attachments, credentials, personal information, or regulated data.</p>
-        </div>
-        <div class="actions">
-          <a class="button primary" href="product.html#current">Review current status</a>
-          <a class="button secondary" href="trust.html">Review trust boundaries</a>
-        </div>
       </div>
     </section>
   </main>
-
   <footer class="footer">
     <div class="container footer-grid">
-      <div><a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a><div class="candidate-stamp">Local candidate - not a live service</div><div class="legal-note">Draft transparency page only. Legal and privacy review is required before any public privacy policy, production data collection, retention promise, or customer processing commitment.</div><div class="legal-note">© 2026 Signet7. All rights reserved.</div></div>
-      <div class="footer-links"><a href="index.html">Overview</a><a href="product.html">Product</a><a href="trust.html">Trust</a><a href="integrations.html">Integrations</a><a href="about.html">Team</a><a href="docs.html">Docs</a><a href="disclaimer.html">Disclaimer</a><a href="terms.html">Terms</a></div>
+      <div><a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a><div class="candidate-stamp">Local candidate - not a live service</div><div class="legal-note">This is the current Signet7 policy text. A formed entity has not yet executed it as a corporate instrument.</div></div>
+      <div class="footer-links"><a href="index.html">Overview</a><a href="product.html">Product</a><a href="pilot.html">Pilot</a><a href="privacy.html">Privacy</a><a href="ai.html">AI use</a><a href="providers.html">Data providers</a><a href="cancel.html">Cancel</a><a href="safety.html">Safety</a><a href="disclaimer.html">Disclaimer</a><a href="terms.html">Terms</a></div>
     </div>
   </footer>
-  <script src="assets/motion.js" defer></script>
 </body>
 </html>
