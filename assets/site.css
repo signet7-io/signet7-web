@@ -219,7 +219,7 @@ main + .site-footer::before {
 .meet {
   position: relative;
   z-index: 5;
-  padding: 12px 0 0;
+  padding: 56px 0 24px;
 }
 .meet-grid {
   display: grid;
@@ -589,50 +589,66 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .film-hero {
   position: relative;
   z-index: 4;
-  min-height: 78vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 28px 20px 50vh;
+  padding: 28px 20px 8px;
 }
-.film-cta { position: relative; z-index: 77; }
-.buddy-follow {
-  position: fixed;
-  z-index: 60;
-  left: 50%;
-  bottom: -18px;
-  transform: translateX(-50%);
-  width: min(480px, 68vw);
+.film-cta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 16px 0 8px;
+  position: relative;
+  z-index: 5;
+}
+.buddy-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4px auto 0;
+  width: min(420px, 70vw);
   background: none;
   border: 0;
   padding: 0;
   cursor: pointer;
   color: inherit;
-  transition: width .35s ease, bottom .35s ease, right .35s ease, left .35s ease, transform .35s ease;
 }
-.buddy-follow img {
+.buddy-hero img,
+.buddy-dock img {
   width: 100%;
   height: auto;
   display: block;
   pointer-events: none;
-  filter: drop-shadow(0 16px 28px rgba(0,0,0,.4));
+  filter: drop-shadow(0 18px 30px rgba(0,0,0,.35));
 }
-.buddy-follow .buddy-hint {
+.buddy-hero .buddy-hint,
+.buddy-dock .buddy-hint {
   display: block;
-  margin-top: 2px;
+  margin-top: 4px;
   font-size: 10px;
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--gold);
 }
-.buddy-follow.is-docked {
-  left: auto;
-  right: 14px;
-  bottom: 14px;
-  transform: none;
-  width: min(210px, 36vw);
+.buddy-dock {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 70;
+  width: 132px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
 }
+.buddy-dock.is-on { display: flex; }
 .film-kicker {
   margin: 0;
   letter-spacing: 0.22em;
@@ -657,7 +673,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   margin: 0 auto;
   filter: drop-shadow(0 30px 60px rgba(88,222,248,.12));
 }
-.film-cta { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 18px 0 28px; }
+.film-cta { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 18px 0 8px; }
 .film-live { position: relative; z-index: 4; padding: 36px 0 20px; text-align: center; }
 .mascot3d {
   width: min(720px, 100%);

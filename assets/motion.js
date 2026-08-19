@@ -105,11 +105,18 @@
   }
 
   const buddy = document.querySelector("[data-buddy]");
+  const dockEl = document.querySelector("[data-buddy-dock]");
   if (buddy) {
-    const dock = () => buddy.classList.toggle("is-docked", window.scrollY > 140);
-    dock();
-    window.addEventListener("scroll", dock, { passive: true });
-    const hintEl = buddy.querySelector(".buddy-hint");
+    const live = () => (dockEl && dockEl.classList.contains("is-on") ? dockEl : buddy);
+    if (dockEl && "IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        const on = !entries[0].isIntersecting;
+        dockEl.classList.toggle("is-on", on);
+        dockEl.hidden = !on;
+      }, { threshold: 0.2, rootMargin: "-80px 0px 0px 0px" });
+      io.observe(buddy);
+    }
+    const hintEl = () => live().querySelector(".buddy-hint");
     const img = buddy.querySelector("img");
     const acts = [
       "toss","bank","hi5","catch","rocket","stampede","taplogo","hide",
@@ -131,7 +138,7 @@
     const wait = (ms) => new Promise((r) => window.setTimeout(r, ms));
     const rect = (el) => el.getBoundingClientRect();
     const home = () => {
-      const r = rect(buddy);
+      const r = live().getBoundingClientRect();
       return { x: r.left + r.width / 2, y: r.top + r.height / 2, w: r.width, h: r.height };
     };
     const spawn = (cls, extra) => {
@@ -418,19 +425,22 @@
       if (pick === last) pick = acts[(acts.indexOf(pick) + 1) % acts.length];
       last = pick;
       busy = true;
-      buddy.classList.add("is-busy");
-      if (hintEl) hintEl.textContent = lines[acts.indexOf(pick)] || "click me";
+      live().classList.add("is-busy");
+      const tip = hintEl();
+      if (tip) tip.textContent = lines[acts.indexOf(pick)] || "click me";
       try {
         if (!reduce && actsMap[pick]) await actsMap[pick]();
       } finally {
-        buddy.style.transform = "";
-        buddy.classList.remove("is-busy");
-        if (hintEl) hintEl.textContent = "click me";
+        live().style.transform = "";
+        live().classList.remove("is-busy");
+        const done = hintEl();
+        if (done) done.textContent = "click me";
         stage.innerHTML = "";
         busy = false;
       }
     };
     buddy.addEventListener("click", play);
+    if (dockEl) dockEl.addEventListener("click", play);
   }
 
   const canvas = document.getElementById("dust");
