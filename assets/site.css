@@ -161,7 +161,7 @@ main { position: relative; z-index: 4; }
 }
 .banner-offers {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 14px;
 }
 .banner-offers article {
@@ -376,6 +376,9 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 20px; color: var(--night-mute); }
 .footer-grid a { display: inline-block; margin-right: 12px; color: var(--night-mute); text-decoration: none; }
 
+@media (max-width: 1100px) {
+  .banner-offers { grid-template-columns: 1fr 1fr; }
+}
 @media (max-width: 900px) {
   .stage, .split-heading, .split, .two-column, .feature-pair,
   .consequence-grid, .evidence-grid, .grid-3, .grid-4, .truth-grid, .footer-grid,
