@@ -131,7 +131,7 @@ a:hover { color: #9aeffc; }
 }
 .brand img {
   width: 222px; height: 222px; border-radius: 0; object-fit: contain; background: transparent;
-  margin: -56px 0 -62px -10px;
+  margin: -8px 0 -72px -10px;
 }
 .site-nav, .nav-links { display: flex; flex-wrap: wrap; gap: 22px; justify-content: flex-end; }
 .site-nav a, .nav-links a { color: var(--night-mute); text-decoration: none; font-size: 22px; }
