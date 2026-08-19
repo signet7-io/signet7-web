@@ -17,7 +17,7 @@
   scene.add(card);
 
   const loader = new THREE.TextureLoader();
-  loader.load("assets/mascot-s7-fill.png", (tex) => {
+  loader.load("assets/mascot-s7-fill.png?v=pet", (tex) => {
     tex.colorSpace = THREE.SRGBColorSpace;
     const aspect = (tex.image && tex.image.width && tex.image.height)
       ? tex.image.width / tex.image.height
