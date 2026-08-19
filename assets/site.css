@@ -153,16 +153,19 @@ main { position: relative; z-index: 4; }
 }
 .banner-hook {
   margin: 0;
-  max-width: 52rem;
+  max-width: 58rem;
   font-family: "Instrument Serif", Georgia, serif;
-  font-size: clamp(22px, 2.6vw, 32px);
-  line-height: 1.2;
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.15;
   color: var(--night-ink);
 }
 .banner-offers {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
+  gap: 12px;
+}
+.banner-features article {
+  min-height: 132px;
 }
 .banner-offers article {
   padding: 14px 16px;
