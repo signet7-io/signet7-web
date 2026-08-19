@@ -42,13 +42,20 @@ class PublicLinkContractTests(unittest.TestCase):
                 target_path = unquote(parsed.path)
                 if not target_path:
                     target = source
+                elif target_path == "/":
+                    target = ROOT / "index.html"
                 else:
-                    target = (source.parent / target_path).resolve()
+                    rel = target_path[1:] if target_path.startswith("/") else target_path
+                    target = (ROOT / rel).resolve()
                     try:
                         target.relative_to(ROOT.resolve())
                     except ValueError:
                         failures.append(f"{source.name}: escapes public export: {raw}")
                         continue
+                if not target.exists() and target.suffix == "":
+                    html_target = target.with_name(target.name + ".html")
+                    if html_target.exists():
+                        target = html_target
                 if not target.exists():
                     failures.append(f"{source.name}: missing target: {raw}")
                     continue

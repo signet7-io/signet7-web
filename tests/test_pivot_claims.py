@@ -20,7 +20,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("pilot.html", self.pages)
         for name, html in self.pages.items():
             with self.subTest(page=name):
-                self.assertIn('href="pilot.html"', html)
+                self.assertIn('href="pilot"', html)
 
     def test_public_export_has_canonical_discovery_metadata(self) -> None:
         sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
@@ -28,7 +28,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("Sitemap: https://signet7.io/sitemap.xml", robots)
         for name, html in self.pages.items():
             with self.subTest(page=name):
-                canonical = "https://signet7.io/" if name == "index.html" else f"https://signet7.io/{name}"
+                canonical = "https://signet7.io/" if name == "index.html" else f"https://signet7.io/{name.removesuffix('.html')}"
                 self.assertIn(f'<link rel="canonical" href="{canonical}">', html)
                 self.assertIn(f'<meta property="og:url" content="{canonical}">', html)
                 if name in {"terms.html", "disclaimer.html", "404.html"}:
@@ -39,8 +39,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                     self.assertIn(f"<loc>{canonical}</loc>", sitemap)
 
     def test_legal_drafts_exist_and_are_linked_once_from_every_page(self) -> None:
-        for target in ("terms.html", "disclaimer.html"):
-            self.assertIn(target, self.pages)
+        for target in ("terms", "disclaimer"):
+            self.assertIn(f"{target}.html", self.pages)
             for name, html in self.pages.items():
                 with self.subTest(page=name, target=target):
                     self.assertIn(f'href="{target}"', html)
@@ -149,7 +149,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("this static site cannot run that check", check)
         self.assertIn("/email/verify", check)
         self.assertIn("this static site cannot run that check", check)
-        self.assertIn('href="check.html"', self.pages["index.html"])
+        self.assertIn('href="check"', self.pages["index.html"])
 
     def test_scenarios_page_is_living_and_cross_platform(self) -> None:
         self.assertIn("scenarios.html", self.pages)
@@ -164,7 +164,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, page)
-        self.assertIn('href="scenarios.html"', self.pages["index.html"])
+        self.assertIn('href="scenarios"', self.pages["index.html"])
 
     def test_smtp_recipes_are_cross_platform(self) -> None:
         self.assertIn("smtp.html", self.pages)

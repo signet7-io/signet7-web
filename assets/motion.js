@@ -1,4 +1,11 @@
 (() => {
+  const path = window.location.pathname;
+  if (path.endsWith("/index.html")) {
+    history.replaceState(null, "", `/${window.location.search}${window.location.hash}`);
+  } else if (path.endsWith(".html")) {
+    history.replaceState(null, "", `${path.slice(0, -5)}${window.location.search}${window.location.hash}`);
+  }
+
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (!document.querySelector(".sky")) {

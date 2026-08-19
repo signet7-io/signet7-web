@@ -7,11 +7,11 @@
      real clickjacking protection requires a header layer (Cloudflare/CloudFront) and
      is required before any verification surface is hosted on this domain. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <link rel="canonical" href="https://signet7.io/docs.html">
+  <link rel="canonical" href="https://signet7.io/docs">
   <meta property="og:title" content="Documentation | Signet7">
   <meta property="og:description" content="Signet7 documentation map for the agent-action gate, current candidate, email instruction assurance, Verifiable Sender Network (VSN), evidence, integrations, and operations.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://signet7.io/docs.html">
+  <meta property="og:url" content="https://signet7.io/docs">
   <meta property="og:image" content="https://signet7.io/assets/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="description" content="Signet7 documentation map for the agent-action gate, current candidate, email instruction assurance, Verifiable Sender Network (VSN), evidence, integrations, and operations.">
@@ -25,16 +25,16 @@
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <nav class="nav container" aria-label="Primary">
-      <a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a>
+      <a class="brand" href="/"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a>
       <div class="nav-links">
-        <a href="product.html">Product</a>
-        <a href="programs.html">Programs</a>
-        <a href="trust.html">Trust</a>
-        <a href="integrations.html">Integrations</a>
-        <a href="pilot.html">Pilot</a>
-        <a href="about.html">Team</a>
-        <a href="docs.html" aria-current="page">Docs</a>
-        <a class="nav-cta" href="product.html#current">Candidate status</a>
+        <a href="product">Product</a>
+        <a href="programs">Programs</a>
+        <a href="trust">Trust</a>
+        <a href="integrations">Integrations</a>
+        <a href="pilot">Pilot</a>
+        <a href="about">Team</a>
+        <a href="docs" aria-current="page">Docs</a>
+        <a class="nav-cta" href="product#current">Candidate status</a>
       </div>
     </nav>
   </header>
@@ -60,27 +60,27 @@
           <article class="card hot">
             <h3>Canonical product definition</h3>
             <p>The authoritative identity of Signet7: consequential email is the product, free recipient checks reduce friction, and the Verifiable Sender Network (VSN) binds signing keys to domains without being a customer-enrolled managed network.</p>
-            <p><a href="product.html">Read the public product definition →</a></p>
+            <p><a href="product">Read the public product definition →</a></p>
           </article>
           <article class="card">
             <h3>Product status</h3>
             <p>The current candidate's implemented, partial, absent, and unverified capabilities. Use this source for “does it exist now?” questions.</p>
-            <p><a href="product.html#current">Read public current status →</a></p>
+            <p><a href="product#current">Read public current status →</a></p>
           </article>
           <article class="card">
             <h3>Commercial program</h3>
             <p>The owner-directed per-agent or decision-band commercial direction, inactive legacy catalog, integration packages, and protected external activation gates.</p>
-            <p><a href="programs.html">Read the public program summary →</a></p>
+            <p><a href="programs">Read the public program summary →</a></p>
           </article>
           <article class="card">
             <h3>Architecture</h3>
             <p>The technical boundaries, trust inputs, action-bound decision flow, caller enforcement, evidence model, and managed-service gap.</p>
-            <p><a href="trust.html">Read the public trust architecture →</a></p>
+            <p><a href="trust">Read the public trust architecture →</a></p>
           </article>
           <article class="card">
             <h3>Trust and compliance</h3>
             <p>Precise meanings for provenance, tamper evidence, verification, anchoring, identity, retention, and compliance language.</p>
-            <p><a href="trust.html#claim-boundary">Read the public trust boundaries →</a></p>
+            <p><a href="trust#claim-boundary">Read the public trust boundaries →</a></p>
           </article>
         </div>
       </div>
@@ -94,17 +94,17 @@
           <article class="card">
             <h3>VSN specification</h3>
             <p>The Signet7-specific sender/key discovery and trust profile. It is not an IETF standard and does not by itself prove a legal identity.</p>
-            <p><a href="product.html#vsn">Read the public VSN status →</a></p>
+            <p><a href="product#vsn">Read the public VSN status →</a></p>
           </article>
           <article class="card">
             <h3>VSN email sender</h3>
             <p>The limited sender helper and its exact assumptions. Treat it as evaluation tooling, not evidence of a complete provider integration.</p>
-            <p><a href="integrations.html">Review public sender integration status →</a></p>
+            <p><a href="integrations">Review public sender integration status →</a></p>
           </article>
           <article class="card">
             <h3>Integration index</h3>
             <p>Current software integration surfaces and the distinction between library, service, CLI, and optional agent consumers.</p>
-            <p><a href="integrations.html">Open the public integration map →</a></p>
+            <p><a href="integrations">Open the public integration map →</a></p>
           </article>
         </div>
         <div class="notice gold"><strong>Current candidate:</strong> the source implements action-bound signatures, narrow fail-closed action policy, HTTP/MCP decisions, signed decision chronology, and <code>s7-email-1</code> instruction assurance. Direction-specific policy, universal tool interception, hosted operations, durable managed sender custody, and the complete VSN service remain unestablished.</div>
@@ -170,7 +170,7 @@
         <article class="card">
           <h3>Source order</h3>
           <p>Canonical definition → current status → architecture/trust → exact specification → tests and operating evidence → audience-approved claim.</p>
-          <p><a href="trust.html#claim-boundary">Open the public claim boundary →</a></p>
+          <p><a href="trust#claim-boundary">Open the public claim boundary →</a></p>
         </article>
       </div>
     </section>
@@ -178,8 +178,8 @@
 
   <footer class="footer">
     <div class="container footer-grid">
-      <div><a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a><div class="candidate-stamp">Local candidate - not a live service</div><div class="legal-note">Documentation links describe a release candidate and product direction. They do not establish production readiness, customer use, certification, an SLA, or a final commercial offer.</div><div class="legal-note">© 2026 Signet7. All rights reserved.</div></div>
-      <div class="footer-links"><a href="index.html">Overview</a><a href="product.html">Product</a><a href="trust.html">Trust</a><a href="integrations.html">Integrations</a><a href="about.html">Team</a><a href="privacy.html">Privacy status</a><a href="privacy.html">Privacy</a><a href="ai.html">AI use</a><a href="providers.html">Data providers</a><a href="cancel.html">Cancel</a><a href="safety.html">Safety</a><a href="disclaimer.html">Disclaimer</a><a href="terms.html">Terms</a></div>
+      <div><a class="brand" href="/"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a><div class="candidate-stamp">Local candidate - not a live service</div><div class="legal-note">Documentation links describe a release candidate and product direction. They do not establish production readiness, customer use, certification, an SLA, or a final commercial offer.</div><div class="legal-note">© 2026 Signet7. All rights reserved.</div></div>
+      <div class="footer-links"><a href="/">Overview</a><a href="product">Product</a><a href="trust">Trust</a><a href="integrations">Integrations</a><a href="about">Team</a><a href="privacy">Privacy status</a><a href="privacy">Privacy</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="disclaimer">Disclaimer</a><a href="terms">Terms</a></div>
     </div>
   </footer>
   <script src="assets/motion.js" defer></script>

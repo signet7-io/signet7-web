@@ -12,8 +12,8 @@ class LawsuitRiskPages(unittest.TestCase):
         cls.pages = {path.name: path.read_text(encoding="utf-8") for path in ROOT.glob("*.html")}
 
     def test_ten_item_pages_exist_and_are_linked(self) -> None:
-        for target in ("privacy.html", "ai.html", "providers.html", "cancel.html", "safety.html"):
-            self.assertIn(target, self.pages)
+        for target in ("privacy", "ai", "providers", "cancel", "safety"):
+            self.assertIn(f"{target}.html", self.pages)
             for name, html in self.pages.items():
                 with self.subTest(page=name, target=target):
                     self.assertIn(f'href="{target}"', html)
