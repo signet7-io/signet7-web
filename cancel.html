@@ -9,9 +9,9 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
   <link rel="canonical" href="https://signet7.io/cancel.html">
   <meta property="og:url" content="https://signet7.io/cancel.html">
-  <meta name="description" content="How to cancel Signet7 access and the no-silent-trial rule.">
+  <meta name="description" content="Signet7 cancel and trial policy. One-request cancel. No silent trial.">
   <meta name="theme-color" content="#030609">
-  <title>Cancel | Signet7</title>
+  <title>Cancel and trial | Signet7</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="assets/site.css">
@@ -36,32 +36,43 @@
   <main id="main-content">
     <section class="page-hero">
       <div class="container">
-        <div class="eyebrow">Cancel and trial reminder · 2026-08-19</div>
+        <div class="eyebrow">Cancel and Trial Policy · effective 19 August 2026</div>
         <div class="badge-row"><span class="badge gold">DRAFT — NON-OPERATIVE</span></div>
         <h1>Cancel is one request. <span class="gradient-text">There is no hidden trial.</span></h1>
-        <p class="hero-copy">United States law on internet negative-option sales requires clear terms before billing data is taken, express consent before a charge, and a simple way to stop recurring charges. Signet7 keeps those rules even while live billing is off.</p>
       </div>
     </section>
     <section class="section">
-      <div class="container">
-        <h2>How to cancel</h2>
+      <div class="container legal-document">
+        <p>Effective date: 19 August 2026. This is the Signet7 Cancel and Trial Policy.</p>
+        <h2>1. Current commercial fact</h2>
+        <p>Live billing is off. offer_live is false. The catalog has zero trial days and does not auto-convert. Free recipient verification is not a trial and is not a paid program.</p>
+        <h2>2. Owner-approved program amounts</h2>
+        <p>These amounts are the approved catalog facts. They are not a live checkout, tax-inclusive invoice, or public offer.</p>
+        <ul>
+          <li>Verify Free: $0</li>
+          <li>Individual: $12</li>
+          <li>Professional: $29</li>
+          <li>Business: $99</li>
+          <li>Enterprise: from $1000, quote only</li>
+        </ul>
+        <h2>3. How to cancel</h2>
+        <p>Cancel is one request. A billing portal is not required.</p>
         <ol>
-          <li>If a test or future paid program exists, open Account and choose Cancel access.</li>
-          <li>That calls the first-party cancel route. A billing portal is not required.</li>
-          <li>If no subscription exists, the server says so. You are not sent through extra pages.</li>
-          <li>You may also email the published contact channel with the word Cancel.</li>
+          <li>Open Account and choose Cancel access, or</li>
+          <li>Call <code>POST /api/v1/billing/cancel</code> on an operated instance, or</li>
+          <li>Email <a href="mailto:justin.daines@signet7.io">justin.daines@signet7.io</a> with the word Cancel.</li>
         </ol>
-        <h2>Trials</h2>
-        <p>The current catalog has zero trial days and does not auto-convert. A later trial cannot charge unless a reminder was sent at least twenty-four hours before the charge. Free recipient verification is not a trial.</p>
-        <p>No public page creates a live charge. offer_live remains false until a separate activation decision.</p>
-        <p><a href="privacy.html">Privacy and deletion</a></p>
+        <p>If no subscription exists, the server says so. You are not sent through extra pages. Cancel takes effect immediately for access. No refund term exists while live billing is off. If live billing is later turned on, this page will state the refund and period-end rule before the first charge.</p>
+        <h2>4. Trials</h2>
+        <p>There is no converting trial. A later trial cannot charge unless a reminder was sent at least twenty-four hours before the charge. The catalog reminder target is seventy-two hours. Silence is not consent.</p>
+        <p>This policy follows the ROSCA rule for internet negative-option sales: clear terms before billing data is taken, express consent before a charge, and a simple way to stop recurring charges. See <a href="privacy.html">Privacy Policy</a>.</p>
+
       </div>
     </section>
-
   </main>
   <footer class="footer">
     <div class="container footer-grid">
-      <div><a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a><div class="candidate-stamp">Local candidate - not a live service</div><div class="legal-note">Review draft. No live customer processing, charge, or operative privacy commitment is made by this page.</div></div>
+      <div><a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a><div class="candidate-stamp">Local candidate - not a live service</div><div class="legal-note">This is the current Signet7 policy text. A formed entity has not yet executed it as a corporate instrument.</div></div>
       <div class="footer-links"><a href="index.html">Overview</a><a href="product.html">Product</a><a href="pilot.html">Pilot</a><a href="privacy.html">Privacy</a><a href="ai.html">AI use</a><a href="providers.html">Data providers</a><a href="cancel.html">Cancel</a><a href="safety.html">Safety</a><a href="disclaimer.html">Disclaimer</a><a href="terms.html">Terms</a></div>
     </div>
   </footer>

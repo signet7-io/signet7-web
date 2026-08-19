@@ -18,12 +18,16 @@ class LawsuitRiskPages(unittest.TestCase):
                 with self.subTest(page=name, target=target):
                     self.assertIn(f'href="{target}"', html)
 
-    def test_privacy_is_a_draft_notice_not_a_hidden_policy(self) -> None:
+    def test_privacy_is_a_filled_policy(self) -> None:
         privacy = self.pages["privacy.html"]
-        self.assertIn("DRAFT — NON-OPERATIVE", privacy)
+        self.assertIn("Privacy Policy", privacy)
         self.assertIn("Data we collect", privacy)
         self.assertIn("raw email", privacy.lower())
+        self.assertIn("justin.daines@signet7.io", privacy)
+        self.assertIn("We do not sell personal data", privacy)
         self.assertEqual(privacy.count("DRAFT — NON-OPERATIVE"), 1)
+        self.assertNotIn("Not a final privacy policy", privacy)
+        self.assertNotIn("[DECISION]", privacy)
 
     def test_ai_page_does_not_invent_a_chatbot(self) -> None:
         ai = self.pages["ai.html"].lower()
