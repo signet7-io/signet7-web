@@ -132,12 +132,8 @@ main { position: relative; z-index: 4; }
 .site-banner {
   position: relative;
   z-index: 5;
-  padding: 22px 0 24px;
-  border-bottom: 1px solid var(--line);
-  background:
-    linear-gradient(90deg, rgba(88, 222, 248, 0.10), rgba(255, 209, 109, 0.08)),
-    rgba(8, 12, 18, 0.72);
-  backdrop-filter: blur(16px);
+  padding: 18px 0 8px;
+  background: transparent;
 }
 .banner-grid {
   display: grid;
@@ -154,7 +150,7 @@ main { position: relative; z-index: 4; }
 .meet {
   position: relative;
   z-index: 5;
-  padding: 28px 0 8px;
+  padding: 8px 0 0;
 }
 .meet-grid {
   display: grid;
@@ -274,12 +270,12 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .lede { font-size: 20px; color: #e8eef1; margin: 0 0 16px; }
 
 .stage {
-  min-height: calc(100vh - var(--nav-h));
+  min-height: 0;
   display: grid;
   grid-template-columns: minmax(280px, 0.9fr) minmax(340px, 1.1fr);
   gap: 36px;
-  align-items: center;
-  padding: 40px 0 64px;
+  align-items: start;
+  padding: 8px 0 48px;
 }
 .stage-copy { max-width: 520px; }
 

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 320" role="img" aria-labelledby="skTitle skDesc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 230" role="img" aria-labelledby="skTitle skDesc">
   <title id="skTitle">Signet7 sidekick</title>
   <desc id="skDesc">A friendly geometric seal character holding an envelope.</desc>
   <defs>
@@ -7,7 +7,7 @@
       <stop offset="1" stop-color="#0b1118"/>
     </linearGradient>
   </defs>
-  <ellipse cx="140" cy="292" rx="62" ry="10" fill="#000" opacity="0.28"/>
+  <ellipse cx="140" cy="214" rx="62" ry="8" fill="#000" opacity="0.28"/>
   <g class="sk-body">
     <polygon points="140,28 196,56 214,118 176,172 104,172 66,118 84,56" fill="url(#body)" stroke="#58def8" stroke-width="4"/>
     <polygon points="140,58 172,74 182,110 160,140 120,140 98,110 108,74" fill="none" stroke="#ffd16d" stroke-width="3"/>
