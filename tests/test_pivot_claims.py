@@ -56,6 +56,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             "verified does not mean safe",
             "unknown does not mean fraud",
             "vsn check hosted on qual",
+            "nobody else puts the whole check together",
+            "businesses that move money or change accounts",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, home)
