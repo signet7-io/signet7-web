@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1"><!-- GitHub Pages cannot set response headers. These meta-delivered policies are the
+     enforceable subset. NOTE: frame-ancestors is ignored when delivered via <meta>;
+     real clickjacking protection requires a header layer (Cloudflare/CloudFront) and
+     is required before any verification surface is hosted on this domain. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <link rel="canonical" href="https://signet7.io/providers.html">
+  <meta property="og:url" content="https://signet7.io/providers.html">
+  <meta name="description" content="Signet7 data provider and subprocessor list.">
+  <meta name="theme-color" content="#030609">
+  <title>Data providers | Signet7</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary">
+      <a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a>
+      <div class="nav-links">
+        <a href="product.html">Product</a>
+        <a href="programs.html">Programs</a>
+        <a href="trust.html">Trust</a>
+        <a href="integrations.html">Integrations</a>
+        <a href="pilot.html">Pilot</a>
+        <a href="about.html">Team</a>
+        <a href="docs.html">Docs</a>
+        <a class="nav-cta" href="product.html#current">Candidate status</a>
+      </div>
+    </nav>
+  </header>
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <div class="eyebrow">Data Provider List · effective 19 August 2026</div>
+        <div class="badge-row"><span class="badge gold">DRAFT — NON-OPERATIVE</span></div>
+        <h1>Who can receive data <span class="gradient-text">besides Signet7.</span></h1>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container legal-document">
+        <p>Effective date: 19 August 2026. This is the Signet7 Data Provider and Subprocessor List.</p>
+        <table class="data-table" tabindex="0" aria-label="Data providers">
+          <thead><tr><th>Provider</th><th>Role</th><th>Data</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>GitHub Pages</td><td>Public static website hosting</td><td>Ordinary request logs (IP, user agent, path, time)</td><td>Live for this website</td></tr>
+            <tr><td>Amazon Web Services</td><td>Optional private ledger, KMS, and object storage</td><td>Tenant identifiers, digests, and operational logs if deployed</td><td>Source-defined. Not claimed as a live production account on this page</td></tr>
+            <tr><td>Stripe</td><td>Test checkout and portal adapter</td><td>Provider customer, subscription, and event identifiers only. No card numbers in Signet7</td><td>Not a live subprocessor. offer_live is false</td></tr>
+            <tr><td>Customer mailbox provider</td><td>IMAP, Microsoft Graph, or Gmail when the customer connects it</td><td>Mailbox metadata and messages the customer chooses to check</td><td>Customer-controlled</td></tr>
+          </tbody>
+        </table>
+        <p>No analytics, advertising, or social-pixel script is declared in these page sources. We do not sell personal data. A later provider will be added to this list before it receives customer personal data.</p>
+        <p>Stripe is not an active subprocessor merely because a test adapter exists. See <a href="privacy.html">Privacy Policy</a> and <a href="cancel.html">Cancel and trial</a>.</p>
+
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><a class="brand" href="index.html"><img src="assets/signet7-circle-logo-official-v2.png" alt="Signet7 — Verify the Sender, Seal the Decision"><span>SIGNET<strong>7</strong></span></a><div class="candidate-stamp">Local candidate - not a live service</div><div class="legal-note">This is the current Signet7 policy text. A formed entity has not yet executed it as a corporate instrument.</div></div>
+      <div class="footer-links"><a href="index.html">Overview</a><a href="product.html">Product</a><a href="pilot.html">Pilot</a><a href="privacy.html">Privacy</a><a href="ai.html">AI use</a><a href="providers.html">Data providers</a><a href="cancel.html">Cancel</a><a href="safety.html">Safety</a><a href="disclaimer.html">Disclaimer</a><a href="terms.html">Terms</a></div>
+    </div>
+  </footer>
+</body>
+</html>
