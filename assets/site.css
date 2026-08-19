@@ -594,15 +594,16 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 36px 20px 42vh;
+  padding: 28px 20px 50vh;
 }
+.film-cta { position: relative; z-index: 77; }
 .buddy-follow {
   position: fixed;
-  z-index: 76;
+  z-index: 60;
   left: 50%;
-  bottom: 2vh;
+  bottom: -18px;
   transform: translateX(-50%);
-  width: min(560px, 82vw);
+  width: min(480px, 68vw);
   background: none;
   border: 0;
   padding: 0;
