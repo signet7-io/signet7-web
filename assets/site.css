@@ -38,7 +38,7 @@
   --night-ink: #f3f7f8;
   --night-mute: #a7b8c2;
   --max: 1220px;
-  --nav-h: 108px;
+  --nav-h: 180px;
 }
 
 * { box-sizing: border-box; }
@@ -114,13 +114,13 @@ a:hover { color: #9aeffc; }
   display: flex; min-height: var(--nav-h); align-items: center; justify-content: space-between; gap: 16px;
 }
 .brand {
-  display: inline-flex; align-items: center; gap: 14px;
-  color: var(--night-ink); text-decoration: none; font-weight: 700; letter-spacing: 0.16em;
-  text-transform: uppercase; font-size: 18px;
+  display: inline-flex; align-items: center; gap: 16px;
+  color: var(--night-ink); text-decoration: none; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; font-size: 26px;
 }
-.brand img { width: 57px; height: 57px; border-radius: 14px; object-fit: cover; }
-.site-nav, .nav-links { display: flex; flex-wrap: wrap; gap: 24px; justify-content: flex-end; }
-.site-nav a, .nav-links a { color: var(--night-mute); text-decoration: none; font-size: 20px; }
+.brand img { width: 96px; height: 96px; border-radius: 18px; object-fit: cover; }
+.site-nav, .nav-links { display: flex; flex-wrap: wrap; gap: 22px; justify-content: flex-end; }
+.site-nav a, .nav-links a { color: var(--night-mute); text-decoration: none; font-size: 22px; }
 .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--night-ink); }
 .nav-toggle {
   display: none; width: 52px; height: 52px; border: 1px solid var(--line);
