@@ -231,13 +231,17 @@ class ContentSecurityPolicy(unittest.TestCase):
                 self.assertIn('<meta http-equiv="X-Content-Type-Options" content="nosniff">', html)
 
     def test_no_inline_script_or_style_can_silently_rely_on_an_exemption(self) -> None:
-        """The policy allows no 'unsafe-inline'; assert nothing on the site needs it."""
+        """Self-hosted motion scripts are allowed. Inline script/style is not."""
         for name, html in self.pages.items():
             with self.subTest(page=name):
                 self.assertNotIn("unsafe-inline", html)
-                self.assertNotIn("<script", html)
                 self.assertNotIn("<style", html)
                 self.assertNotIn('style="', html)
+                for match in re.finditer(r"<script([^>]*)>(.*?)</script>", html, flags=re.I | re.S):
+                    attrs, body = match.group(1), match.group(2)
+                    self.assertIn('src="assets/', attrs)
+                    self.assertNotIn("http:", attrs.lower())
+                    self.assertEqual(body.strip(), "")
 
 if __name__ == "__main__":
     unittest.main()
