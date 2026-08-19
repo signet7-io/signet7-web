@@ -589,12 +589,48 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .film-hero {
   position: relative;
   z-index: 4;
-  min-height: 92vh;
+  min-height: 78vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 28px 20px 0;
+  padding: 36px 20px 42vh;
+}
+.buddy-follow {
+  position: fixed;
+  z-index: 76;
+  left: 50%;
+  bottom: 2vh;
+  transform: translateX(-50%);
+  width: min(560px, 82vw);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  transition: width .35s ease, bottom .35s ease, right .35s ease, left .35s ease, transform .35s ease;
+}
+.buddy-follow img {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  filter: drop-shadow(0 16px 28px rgba(0,0,0,.4));
+}
+.buddy-follow .buddy-hint {
+  display: block;
+  margin-top: 2px;
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.buddy-follow.is-docked {
+  left: auto;
+  right: 14px;
+  bottom: 14px;
+  transform: none;
+  width: min(210px, 36vw);
 }
 .film-kicker {
   margin: 0;

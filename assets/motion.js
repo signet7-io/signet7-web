@@ -106,6 +106,9 @@
 
   const buddy = document.querySelector("[data-buddy]");
   if (buddy) {
+    const dock = () => buddy.classList.toggle("is-docked", window.scrollY > 140);
+    dock();
+    window.addEventListener("scroll", dock, { passive: true });
     const hintEl = buddy.querySelector(".buddy-hint");
     const img = buddy.querySelector("img");
     const acts = [
