@@ -104,6 +104,46 @@
     }
   }
 
+  const buddy = document.querySelector("[data-buddy]");
+  if (buddy) {
+    const tricks = [
+      "hop","spin","wiggle","grow","flip","wave","glow","slide","tilt","shake",
+      "blink","moonwalk","stretch","squash","twirl","peek","drop","wobble","pulse","salute"
+    ];
+    const lines = [
+      "sealed","hop","spin","check first","not spam","keep the proof",
+      "call the person","bound?","still match?","click again"
+    ];
+    const hintEl = buddy.querySelector(".buddy-hint");
+    let last = "";
+    const play = () => {
+      if (buddy.classList.contains("is-busy")) return;
+      let pick = tricks[Math.floor(Math.random() * tricks.length)];
+      if (pick === last) pick = tricks[(tricks.indexOf(pick) + 1) % tricks.length];
+      last = pick;
+      buddy.classList.add("is-busy");
+      buddy.dataset.trick = pick;
+      if (hintEl) hintEl.textContent = lines[Math.floor(Math.random() * lines.length)];
+      const img = buddy.querySelector("img");
+      let finished = false;
+      const done = () => {
+        if (finished) return;
+        finished = true;
+        buddy.removeAttribute("data-trick");
+        buddy.classList.remove("is-busy");
+        if (hintEl) hintEl.textContent = "click me";
+        if (img) img.removeEventListener("animationend", done);
+      };
+      if (reduce) {
+        done();
+        return;
+      }
+      if (img) img.addEventListener("animationend", done);
+      window.setTimeout(done, 1100);
+    };
+    buddy.addEventListener("click", play);
+  }
+
   const canvas = document.getElementById("dust");
   if (!canvas || reduce || !canvas.getContext) return;
   const ctx = canvas.getContext("2d");
