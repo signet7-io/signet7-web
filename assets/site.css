@@ -586,6 +586,86 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   .scope-row { grid-template-columns: 1fr; }
 }
 
+.buddy-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  pointer-events: none;
+  overflow: hidden;
+}
+.buddy-prop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  will-change: transform;
+}
+.buddy-mail {
+  position: fixed;
+  width: 54px;
+  height: 36px;
+  border-radius: 4px;
+  background: #f6f0e4;
+  border: 2px solid #171410;
+  box-shadow: 0 8px 18px rgba(0,0,0,.35);
+}
+.buddy-mail:after {
+  content: "";
+  position: absolute;
+  inset: 4px 4px auto;
+  height: 14px;
+  border: 2px solid #b5811a;
+  border-top: 0;
+  transform: perspective(20px) rotateX(12deg);
+}
+.buddy-coin {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffe7a3, #c48a1a);
+  border: 2px solid #ffd16d;
+  box-shadow: 0 0 16px rgba(255,209,109,.5);
+}
+.buddy-mini {
+  width: 72px;
+  height: 78px;
+}
+.buddy-pal {
+  width: 160px;
+  height: 168px;
+  filter: drop-shadow(0 16px 24px rgba(255,209,109,.22));
+}
+.buddy-portal {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 4px solid #58def8;
+  box-shadow: 0 0 30px #58def8, inset 0 0 24px rgba(88,222,248,.4);
+  background: radial-gradient(circle, #0b1118, #12303a);
+}
+.buddy-spot {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,209,109,.28), transparent 68%);
+}
+.buddy-ladder {
+  width: 36px;
+  height: 180px;
+  background: repeating-linear-gradient(#ffd16d 0 6px, transparent 6px 28px);
+  border-left: 4px solid #ffd16d;
+  border-right: 4px solid #ffd16d;
+  opacity: .9;
+}
+.buddy-spark {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #58def8;
+  box-shadow: 0 0 10px #58def8;
+}
+.buddy-spark.gold { background: #ffd16d; box-shadow: 0 0 10px #ffd16d; }
+.buddy-hit.is-away img { visibility: hidden; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .blob, .grain, h1, .hot, .mail, .meet-buddy img, .buddy-hit img { animation: none; }
