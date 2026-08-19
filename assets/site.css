@@ -177,8 +177,8 @@ main + .site-footer::before {
   display: block;
   height: 70px;
   margin: 0 auto;
-  background: url("scene-break.png") center / min(1100px, 100%) 70px no-repeat;
-  mix-blend-mode: screen;
+  background: url("scene-break.png?v=2") center / min(1100px, 100%) 70px no-repeat;
+  filter: drop-shadow(0 0 10px rgba(88, 222, 248, 0.28));
   pointer-events: none;
 }
 .scene-break span { display: none; }
