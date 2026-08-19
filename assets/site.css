@@ -151,6 +151,58 @@ main { position: relative; z-index: 4; }
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
+.meet {
+  position: relative;
+  z-index: 5;
+  padding: 28px 0 8px;
+}
+.meet-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 28px;
+  align-items: center;
+}
+.meet-buddy {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+.meet-buddy img {
+  width: min(280px, 70vw);
+  height: auto;
+  animation: bob 3.2s ease-in-out infinite;
+  filter: drop-shadow(0 18px 30px rgba(88, 222, 248, 0.18));
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.meet-lead {
+  margin: 0 0 16px;
+  font-size: 20px;
+  color: #e8eef1;
+  max-width: 40rem;
+}
+.meet-beats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.meet-beats article {
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.04);
+}
+.meet-beats h3 {
+  margin: 0 0 8px;
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.meet-beats p { margin: 0; color: var(--night-mute); font-size: 15px; }
+
 .banner-hook {
   margin: 0;
   max-width: 58rem;
@@ -385,7 +437,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 @media (max-width: 900px) {
   .stage, .split-heading, .split, .two-column, .feature-pair,
   .consequence-grid, .evidence-grid, .grid-3, .grid-4, .truth-grid, .footer-grid,
-  .banner-offers { grid-template-columns: 1fr; }
+  .banner-offers, .meet-grid, .meet-beats { grid-template-columns: 1fr; }
   .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
   .site-nav, .nav-links {
     display: none; position: absolute; inset: var(--nav-h) 12px auto;
@@ -398,6 +450,6 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .blob, .grain, h1, .hot, .mail { animation: none; }
+  .blob, .grain, h1, .hot, .mail, .meet-buddy img { animation: none; }
   .mail { transform: none !important; }
 }
