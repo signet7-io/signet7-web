@@ -632,6 +632,45 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   .scope-row { grid-template-columns: 1fr; }
 }
 
+.story-hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.story-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 38%;
+}
+.story-veil {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  background: linear-gradient(180deg, rgba(5,8,13,0.12) 28%, rgba(5,8,13,0.82) 100%);
+}
+.story-copy {
+  padding: 0 0 56px;
+  max-width: 38rem;
+  text-align: left;
+  margin-left: 0;
+}
+.story-copy h1 {
+  margin: 0;
+  max-width: 14ch;
+  font-size: clamp(36px, 5.4vw, 68px);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  text-align: left;
+  color: #f4f1ea;
+}
+.story-copy .reel-line { text-align: left; color: #d5d0c6; }
+.story-copy .film-cta { justify-content: flex-start; margin: 22px 0 0; }
+
 .film { position: relative; z-index: 4; }
 .film > .reel + .reel::before,
 main.film > section + section::before {
