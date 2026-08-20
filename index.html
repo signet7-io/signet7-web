@@ -20,7 +20,7 @@
   <meta property="og:image" content="https://signet7.io/assets/og-image.png">
   <link rel="canonical" href="https://signet7.io/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/site.css?v=20260819ae">
+  <link rel="stylesheet" href="assets/site.css?v=20260819af">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -59,10 +59,12 @@
   </header>
 
   <main id="main" class="film">
-    <button class="film-object" type="button" data-buddy data-pose="idle" aria-label="S, with a red 7 sword">
-      <img src="assets/mascot-s7-cut.png?v=sword2" width="632" height="653" alt="S, the Signet7 mascot, with a red 7 sword">
-    </button>
-
+    <div class="film-sticky-slot" aria-hidden="false">
+      <button class="film-object" type="button" data-buddy data-pose="idle" aria-label="S, with a red 7 sword">
+        <img src="assets/mascot-s7-cut.png?v=sword2" width="632" height="653" alt="S, the Signet7 mascot, with a red 7 sword">
+      </button>
+    </div>
+    <div class="film-copy">
     <section class="reel reel-hero" data-pose="idle">
       <p class="reel-kicker">Signet7</p>
       <h1 id="hero-title">Check the seal before you act.</h1>
@@ -116,6 +118,7 @@
         <a class="button button-secondary" href="pilot">Review the evaluation path</a>
       </div>
     </section>
+    </div>
   </main>
 
   <footer class="site-footer">

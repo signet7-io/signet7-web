@@ -634,35 +634,52 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 
 .film { position: relative; z-index: 4; }
 .film > .reel + .reel::before,
-main.film > section + section::before {
+main.film > section + section::before,
+.film-copy > .reel + .reel::before {
   content: none !important;
   display: none !important;
   height: 0 !important;
   background: none !important;
   margin: 0 !important;
 }
-.film-object {
+.film-sticky-slot {
   position: sticky;
-  top: 42vh;
-  z-index: 6;
+  top: 0;
+  z-index: 3;
+  height: 100vh;
   display: flex;
+  align-items: flex-end;
   justify-content: center;
-  width: 100%;
-  height: 0;
-  border: 0;
-  background: none;
-  padding: 0;
-  cursor: pointer;
   pointer-events: none;
 }
+.film-object {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  border: 0;
+  background: none;
+  padding: 0 0 4vh;
+  cursor: pointer;
+  pointer-events: auto;
+}
 .film-object img {
-  width: min(420px, 58vw);
+  width: min(460px, 62vw);
   height: auto;
   display: block;
-  margin-top: 8vh;
-  pointer-events: auto;
+  margin: 0;
   filter: drop-shadow(0 24px 40px rgba(0,0,0,.45));
   transform-origin: 50% 80%;
+}
+.film-copy {
+  position: relative;
+  z-index: 4;
+  margin-top: -100vh;
+  pointer-events: none;
+}
+.film-copy a,
+.film-copy button {
+  pointer-events: auto;
 }
 .reel {
   position: relative;
@@ -672,8 +689,10 @@ main.film > section + section::before {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 16vh 24px 46vh;
+  padding: 14vh 24px 48vh;
+  pointer-events: none;
 }
+.reel .film-cta { pointer-events: auto; }
 .reel-kicker {
   margin: 0 0 14px;
   letter-spacing: 0.22em;
