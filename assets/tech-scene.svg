@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 340" width="1440" height="340" role="img" aria-hidden="true">
+  <rect width="1440" height="340" fill="#eef6fb"/>
+  <path d="M0 210 L180 92 L280 150 L420 70 L560 140 L720 48 L880 128 L1040 64 L1180 150 L1440 88 L1440 340 L0 340 Z" fill="#c5d8e6"/>
+  <path d="M0 240 L220 150 L340 200 L500 120 L680 190 L860 110 L1020 180 L1200 130 L1440 170 L1440 340 L0 340 Z" fill="#d7e6ef"/>
+  <polygon points="80,250 110,160 140,250" fill="#33a474"/>
+  <polygon points="200,255 225,175 250,255" fill="#2b8a62"/>
+  <polygon points="1180,248 1210,155 1240,248" fill="#33a474"/>
+  <polygon points="1288,252 1310,180 1332,252" fill="#2b8a62"/>
+  <polygon points="1360,250 1384,168 1408,250" fill="#33a474"/>
+  <ellipse cx="720" cy="268" rx="70" ry="18" fill="#dce3ea"/>
+  <rect x="688" y="210" width="64" height="44" rx="6" fill="#f6f0e4" stroke="#b5811a" stroke-width="3"/>
+  <path d="M688 218 L720 240 L752 218" fill="none" stroke="#b5811a" stroke-width="3"/>
+  <circle cx="744" cy="206" r="10" fill="#ffd16d"/>
+  <!-- model -->
+  <g transform="translate(250,210)">
+    <rect x="0" y="18" width="54" height="40" rx="8" fill="#4298b4"/>
+    <rect x="12" y="0" width="30" height="24" rx="6" fill="#2a6f86"/>
+    <circle cx="22" cy="12" r="4" fill="#e7f4f8"/>
+    <circle cx="32" cy="12" r="4" fill="#e7f4f8"/>
+    <rect x="8" y="58" width="12" height="16" fill="#2a6f86"/>
+    <rect x="34" y="58" width="12" height="16" fill="#2a6f86"/>
+    <text x="27" y="96" text-anchor="middle" font-family="Outfit,Segoe UI,sans-serif" font-size="11" fill="#5c6270">MODEL</text>
+  </g>
+  <!-- agent -->
+  <g transform="translate(430,198)">
+    <rect x="10" y="10" width="40" height="56" rx="12" fill="#88619a"/>
+    <circle cx="30" cy="8" r="10" fill="#c9a3d6"/>
+    <rect x="26" y="-10" width="8" height="14" fill="#5c3d6b"/>
+    <circle cx="30" cy="-12" r="5" fill="#ffd16d"/>
+    <rect x="16" y="66" width="10" height="18" fill="#5c3d6b"/>
+    <rect x="34" y="66" width="10" height="18" fill="#5c3d6b"/>
+    <text x="30" y="108" text-anchor="middle" font-family="Outfit,Segoe UI,sans-serif" font-size="11" fill="#5c6270">AGENT</text>
+  </g>
+  <!-- bot -->
+  <g transform="translate(900,218)">
+    <circle cx="28" cy="28" r="26" fill="#33a474"/>
+    <rect x="10" y="22" width="36" height="10" rx="5" fill="#e6f6ee"/>
+    <rect x="8" y="52" width="14" height="14" fill="#1f6b4a"/>
+    <rect x="34" y="52" width="14" height="14" fill="#1f6b4a"/>
+    <text x="28" y="90" text-anchor="middle" font-family="Outfit,Segoe UI,sans-serif" font-size="11" fill="#5c6270">BOT</text>
+  </g>
+  <!-- tool -->
+  <g transform="translate(1050,205)">
+    <polygon points="28,0 56,18 56,50 28,68 0,50 0,18" fill="#e4ae3a"/>
+    <rect x="18" y="24" width="20" height="20" fill="#12141d"/>
+    <rect x="12" y="68" width="10" height="16" fill="#b5811a"/>
+    <rect x="34" y="68" width="10" height="16" fill="#b5811a"/>
+    <text x="28" y="108" text-anchor="middle" font-family="Outfit,Segoe UI,sans-serif" font-size="11" fill="#5c6270">TOOL</text>
+  </g>
+  <!-- runner -->
+  <g transform="translate(580,222)">
+    <rect x="0" y="10" width="44" height="28" rx="6" fill="#12141d"/>
+    <rect x="8" y="0" width="28" height="16" rx="4" fill="#4298b4"/>
+    <rect x="6" y="38" width="10" height="18" fill="#5c6270"/>
+    <rect x="28" y="38" width="10" height="18" fill="#5c6270"/>
+    <text x="22" y="80" text-anchor="middle" font-family="Outfit,Segoe UI,sans-serif" font-size="11" fill="#5c6270">RUNNER</text>
+  </g>
+</svg>
