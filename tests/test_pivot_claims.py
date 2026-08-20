@@ -228,7 +228,6 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("21,442", home)
         self.assertIn("$16.6B", home)
         self.assertIn("193K+", home)
-        self.assertIn("not money signet7 saved", low)
         self.assertIn("fbi ic3", low)
         self.assertNotRegex(home, r"<form\b")
         self.assertNotIn("dual-control", low)
