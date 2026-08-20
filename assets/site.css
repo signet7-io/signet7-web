@@ -184,13 +184,12 @@ body > section + section::before,
 body > section + main::before,
 main > section + section::before,
 main + .site-footer::before {
-  content: "";
-  display: block;
-  height: 70px;
-  margin: 0 auto;
-  background: url("scene-break.png?v=2") center / min(1100px, 100%) 70px no-repeat;
-  filter: drop-shadow(0 0 10px rgba(88, 222, 248, 0.28));
-  pointer-events: none;
+  content: none;
+  display: none;
+  height: 0;
+  margin: 0;
+  background: none;
+  filter: none;
 }
 .scene-break span { display: none; }
 .who-for-grid {
@@ -809,8 +808,10 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .fact strong {
   display: block;
   margin-bottom: 8px;
-  font-size: clamp(22px, 2.2vw, 32px);
-  letter-spacing: -0.03em;
+  font-size: clamp(48px, 6vw, 72px);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-weight: 800;
 }
 .fact span { display: block; color: #5c6270; font-size: 14px; }
 .f-blue { background: #e7f4f8; border-top: 4px solid #4298b4; }
@@ -821,7 +822,36 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .film { background: #f7fbfe; color: #12141d; }
 .reel { color: #12141d; }
 .page-hero h1, .section h1, .section h2, .reel h2 { color: #12141d; }
-.eyebrow { color: #88619a; }
+.page-hero h1 {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(40px, 5.6vw, 64px);
+  line-height: 1.05;
+  max-width: 18ch;
+}
+.page-hero .hero-copy, .section-intro { color: #5c6270; max-width: 42rem; }
+.journey-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+.journey-step {
+  background: #fff;
+  border-radius: 16px;
+  padding: 22px 18px 24px;
+  box-shadow: 0 12px 32px rgba(18, 20, 29, 0.06);
+  border-top: 4px solid #4298b4;
+}
+.journey-step:nth-child(2) { border-top-color: #e4ae3a; }
+.journey-step:nth-child(3) { border-top-color: #33a474; }
+.journey-step:nth-child(4) { border-top-color: #88619a; }
+.journey-step b { display: inline-block; margin-bottom: 8px; color: #88619a; font-size: 12px; letter-spacing: 0.12em; }
+.data-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 32px rgba(18,20,29,.06); }
+.data-table th, .data-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #e6ebf0; }
+.truth-grid > div { background: #fff; border-radius: 16px; padding: 22px; box-shadow: 0 12px 32px rgba(18,20,29,.06); }
+.header-cta { margin-left: auto; }
 @media (max-width: 900px) {
   .facts-grid { grid-template-columns: 1fr 1fr; }
+  .journey-flow { grid-template-columns: 1fr; }
 }
