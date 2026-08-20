@@ -511,7 +511,10 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   border-bottom: 1px solid rgba(88, 222, 248, 0.28);
   backdrop-filter: none;
 }
-.header-cta { margin-left: 8px; min-height: 44px; padding: 0 16px; font-size: 15px; }
+.home .nav-wrap { flex-wrap: nowrap; }
+.home .site-nav { flex-wrap: nowrap; gap: 16px; }
+.home .site-nav a { font-size: 18px; }
+.header-cta { white-space: nowrap; }
 .scroll-progress {
   position: fixed; top: 0; left: 0; z-index: 120; height: 3px; width: 0;
   background: linear-gradient(90deg, var(--cyan), var(--gold));
