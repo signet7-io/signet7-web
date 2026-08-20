@@ -110,9 +110,18 @@
         el.hidden = !on;
         el.classList.toggle("is-on", on);
       });
-      const dots = [...quest.querySelectorAll("[data-quest-dots] i")];
+      const cards = quest.querySelector("[data-step-cards]");
+      if (cards) cards.hidden = id !== "1" && id !== 1;
+      const land = quest.querySelector(".quest-land");
+      if (land) land.hidden = id === "result";
       const n = id === "result" ? 3 : Number(id);
-      dots.forEach((d, i) => d.classList.toggle("is-on", i < n));
+      const count = quest.querySelector("[data-quest-count]");
+      if (count) {
+        count.hidden = id === "result";
+        count.textContent = `Question ${n} of 3`;
+      }
+      const fill = quest.querySelector("[data-quest-fill]");
+      if (fill) fill.className = `p${n}${id === "result" ? " done" : ""}`;
     };
     const writeResult = () => {
       const title = quest.querySelector("[data-result-title]");

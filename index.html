@@ -20,7 +20,7 @@
   <meta property="og:image" content="https://signet7.io/assets/og-image.png">
   <link rel="canonical" href="https://signet7.io/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/site.css?v=20260820e">
+  <link rel="stylesheet" href="assets/site.css?v=20260820f">
 </head>
 <body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -48,60 +48,80 @@
   <main id="main">
     <section class="quest" data-quest aria-labelledby="quest-title">
       <div class="container quest-inner">
-        <p class="eyebrow">Trust layer for consequential email</p>
-        <h1 id="quest-title">Three taps. Then we show you the moment.</h1>
-        <p class="lede">Nothing is sent. No account. This stays in your browser.</p>
-        <div class="quest-dots" data-quest-dots aria-hidden="true"><i class="is-on"></i><i></i><i></i></div>
+        <p class="quest-kicker">Trust layer for consequential email</p>
+        <h1 id="quest-title">The last look before money moves.</h1>
+        <p class="quest-sub">Three honest taps. Nothing is sent. No account.</p>
+        <p class="quest-count" data-quest-count>Question 1 of 3</p>
+        <div class="quest-bar" aria-hidden="true"><i data-quest-fill></i></div>
+
+        <div class="quest-steps-row" data-step-cards>
+          <article class="qcard qcard-blue">
+            <span>Step 1</span>
+            <h3>Answer honestly</h3>
+            <p>How money and accounts actually move in your world.</p>
+          </article>
+          <article class="qcard qcard-green">
+            <span>Step 2</span>
+            <h3>See the fit</h3>
+            <p>Why Signet7 is the last look — or why it is not.</p>
+          </article>
+          <article class="qcard qcard-purple">
+            <span>Step 3</span>
+            <h3>Play the message</h3>
+            <p>Inspect a wiring change. You still call the person.</p>
+          </article>
+        </div>
 
         <div class="quest-step is-on" data-step="1">
-          <div class="quest-art" aria-hidden="true">
-            <svg viewBox="0 0 160 120" width="160" height="120"><rect x="18" y="28" width="124" height="72" rx="8" fill="#f6f0e4"/><path d="M18 36 L80 72 L142 36" fill="none" stroke="#b5811a" stroke-width="4"/><circle cx="128" cy="24" r="16" fill="#ffd16d"/><text x="128" y="30" text-anchor="middle" font-size="16" font-family="Georgia" fill="#171410">$</text></svg>
-          </div>
-          <h2>Did an email ask you to send money or change an account?</h2>
-          <div class="quest-picks">
-            <button type="button" data-go="2" data-k="money" data-v="yes">Yes. That happens.</button>
-            <button type="button" data-go="2" data-k="money" data-v="rare">Once in a while.</button>
-            <button type="button" data-go="2" data-k="money" data-v="no">That's not my world.</button>
+          <h2>An email has asked me to send money or change an account.</h2>
+          <div class="scale" role="group" aria-label="Agreement">
+            <span class="scale-lab agree">Agree</span>
+            <button type="button" class="dot a3" data-go="2" data-k="money" data-v="yes" aria-label="Agree strongly"></button>
+            <button type="button" class="dot a2" data-go="2" data-k="money" data-v="yes" aria-label="Agree"></button>
+            <button type="button" class="dot a1" data-go="2" data-k="money" data-v="yes" aria-label="Agree slightly"></button>
+            <button type="button" class="dot mid" data-go="2" data-k="money" data-v="rare" aria-label="Neutral"></button>
+            <button type="button" class="dot d1" data-go="2" data-k="money" data-v="no" aria-label="Disagree slightly"></button>
+            <button type="button" class="dot d2" data-go="2" data-k="money" data-v="no" aria-label="Disagree"></button>
+            <button type="button" class="dot d3" data-go="2" data-k="money" data-v="no" aria-label="Disagree strongly"></button>
+            <span class="scale-lab disagree">Disagree</span>
           </div>
         </div>
 
         <div class="quest-step" data-step="2" hidden>
-          <div class="quest-art" aria-hidden="true">
-            <svg viewBox="0 0 160 120" width="160" height="120"><rect x="48" y="12" width="64" height="96" rx="12" fill="#0c1822" stroke="#58def8" stroke-width="3"/><circle cx="80" cy="92" r="6" fill="#ffd16d"/><rect x="62" y="28" width="36" height="44" rx="4" fill="#58def8" opacity=".35"/></svg>
-          </div>
-          <h2>A vendor sends “new wiring instructions.” What do you do?</h2>
-          <div class="quest-picks">
-            <button type="button" data-go="3" data-k="act" data-v="call">Call a number I already have.</button>
-            <button type="button" data-go="3" data-k="act" data-v="reply">Reply to the email.</button>
-            <button type="button" data-go="3" data-k="act" data-v="unsure">I'm not sure.</button>
+          <h2>If a vendor sent new wiring instructions, I would reply to that email.</h2>
+          <div class="scale" role="group" aria-label="Agreement">
+            <span class="scale-lab agree">Agree</span>
+            <button type="button" class="dot a3" data-go="3" data-k="act" data-v="reply" aria-label="Agree strongly"></button>
+            <button type="button" class="dot a2" data-go="3" data-k="act" data-v="reply" aria-label="Agree"></button>
+            <button type="button" class="dot a1" data-go="3" data-k="act" data-v="reply" aria-label="Agree slightly"></button>
+            <button type="button" class="dot mid" data-go="3" data-k="act" data-v="unsure" aria-label="Neutral"></button>
+            <button type="button" class="dot d1" data-go="3" data-k="act" data-v="call" aria-label="Disagree slightly"></button>
+            <button type="button" class="dot d2" data-go="3" data-k="act" data-v="call" aria-label="Disagree"></button>
+            <button type="button" class="dot d3" data-go="3" data-k="act" data-v="call" aria-label="Disagree strongly"></button>
+            <span class="scale-lab disagree">Disagree</span>
           </div>
         </div>
 
         <div class="quest-step" data-step="3" hidden>
-          <div class="quest-art" aria-hidden="true">
-            <svg viewBox="0 0 160 120" width="160" height="120"><rect x="20" y="70" width="28" height="36" fill="#58def8" opacity=".5"/><rect x="56" y="48" width="28" height="58" fill="#ffd16d" opacity=".7"/><rect x="92" y="32" width="28" height="74" fill="#58def8"/><rect x="128" y="20" width="16" height="86" fill="#f6f0e4" opacity=".4"/></svg>
-          </div>
           <h2>Where would that email land first?</h2>
-          <div class="quest-picks">
-            <button type="button" data-go="result" data-k="who" data-v="finance">Finance / AP</button>
-            <button type="button" data-go="result" data-k="who" data-v="title">Title / closing</button>
-            <button type="button" data-go="result" data-k="who" data-v="law">A law firm</button>
-            <button type="button" data-go="result" data-k="who" data-v="build">Construction</button>
-            <button type="button" data-go="result" data-k="who" data-v="pay">Payroll</button>
-            <button type="button" data-go="result" data-k="who" data-v="me">It's just me</button>
+          <div class="quest-picks type-tiles">
+            <button type="button" class="tile t-blue" data-go="result" data-k="who" data-v="finance">Finance / AP</button>
+            <button type="button" class="tile t-gold" data-go="result" data-k="who" data-v="title">Title / closing</button>
+            <button type="button" class="tile t-purple" data-go="result" data-k="who" data-v="law">A law firm</button>
+            <button type="button" class="tile t-teal" data-go="result" data-k="who" data-v="build">Construction</button>
+            <button type="button" class="tile t-green" data-go="result" data-k="who" data-v="pay">Payroll</button>
+            <button type="button" class="tile t-ink" data-go="result" data-k="who" data-v="me">It's just me</button>
           </div>
         </div>
 
         <div class="quest-step quest-result" data-step="result" hidden>
-          <p class="eyebrow" data-result-kicker>For you</p>
+          <p class="quest-kicker" data-result-kicker>For you</p>
           <h2 data-result-title>The last look before money moves.</h2>
           <p data-result-body>You already have a product: call the person. Signet7 is the last look — who the message is bound to, whether the words still match, the record you keep.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#letter">Play the message</a>
-            <a class="button button-secondary" href="https://qual.signet7.io/email/verify">Open the live check</a>
-          </div>
+          <a class="quest-cta" href="#letter">Play the message →</a>
         </div>
       </div>
+      <div class="quest-land" aria-hidden="true"></div>
     </section>
 
     <section class="film" data-film aria-labelledby="hero-title">
@@ -189,6 +209,6 @@
       <div><p>Current local candidate. Caller-enforced. VSN check hosted on qual.</p></div>
     </div>
   </footer>
-  <script src="assets/motion.js?v=20260820e" defer></script>
+  <script src="assets/motion.js?v=20260820f" defer></script>
 </body>
 </html>

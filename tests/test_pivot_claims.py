@@ -221,6 +221,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         home = self.pages["index.html"]
         low = home.lower()
         self.assertIn("data-quest", home)
+        self.assertIn('class="scale"', home)
+        self.assertIn(">Agree</span>", home)
         self.assertNotRegex(home, r"<form\b")
         self.assertNotIn("dual-control", low)
         self.assertNotIn("isolated qualification", low)
