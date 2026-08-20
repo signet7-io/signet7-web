@@ -123,16 +123,16 @@ a:hover { color: #2a6f86; }
   padding: 6px 0 0;
 }
 .brand {
-  display: inline-flex; align-items: center; gap: 14px;
+  display: inline-flex; align-items: center; gap: 12px;
   color: var(--night-ink); text-decoration: none; font-weight: 700; letter-spacing: 0.12em;
-  text-transform: uppercase; font-size: 42px;
+  text-transform: uppercase; font-size: 28px;
 }
 .brand img {
-  width: 222px; height: 222px; border-radius: 0; object-fit: contain; background: transparent;
-  margin: -8px 0 -72px -10px;
+  width: 88px; height: 88px; border-radius: 0; object-fit: contain; background: transparent;
+  margin: 0;
 }
-.site-nav, .nav-links { display: flex; flex-wrap: wrap; gap: 22px; justify-content: flex-end; }
-.site-nav a, .nav-links a { color: var(--night-mute); text-decoration: none; font-size: 22px; }
+.site-nav, .nav-links { display: flex; flex-wrap: nowrap; gap: 18px; justify-content: flex-end; }
+.site-nav a, .nav-links a { color: var(--night-mute); text-decoration: none; font-size: 16px; }
 .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--night-ink); }
 .nav-toggle {
   display: none; width: 52px; height: 52px; border: 1px solid var(--line);
@@ -496,16 +496,17 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
   .site-nav, .nav-links {
     display: none; position: absolute; inset: var(--nav-h) 12px auto;
-    padding: 14px; background: #0b1118; border: 1px solid var(--line); border-radius: 14px;
+    padding: 14px; background: #ffffff; border: 1px solid #e6ebf0; border-radius: 14px;
     flex-direction: column; align-items: stretch;
+    box-shadow: 0 18px 40px rgba(18, 20, 29, 0.12);
   }
   body.nav-open .site-nav, body.nav-open .nav-links { display: flex; }
   .scope-row { grid-template-columns: 1fr; }
 }
 
 .home .site-header {
-  background: #080c12;
-  border-bottom: 1px solid rgba(88, 222, 248, 0.28);
+  background: #ffffff;
+  border-bottom: 1px solid #e6ebf0;
   backdrop-filter: none;
 }
 .home .nav-wrap { flex-wrap: nowrap; }
@@ -852,7 +853,38 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .data-table th, .data-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #e6ebf0; }
 .truth-grid > div { background: #fff; border-radius: 16px; padding: 22px; box-shadow: 0 12px 32px rgba(18,20,29,.06); }
 .header-cta { margin-left: auto; }
+.site-nav a[href*="email/verify"] { display: none; }
+.quest h1 { max-width: 12ch; }
+.nav-wrap { min-height: 72px; }
+
 @media (max-width: 900px) {
   .facts-grid { grid-template-columns: 1fr 1fr; }
   .journey-flow { grid-template-columns: 1fr; }
+  .header-cta, .home .header-cta { display: none; }
+  .site-header .brand { font-size: 20px; }
+  .site-header .brand img { width: 56px; height: 56px; margin: 0; }
+  .site-nav a, .nav-links a { color: #12141d; font-size: 18px; min-height: 44px; display: flex; align-items: center; }
+  .site-nav a[href*="email/verify"] { display: flex; }
+  .quest { min-height: auto; padding: 16px 0 28px; }
+  .quest-steps-row { display: none; }
+  .quest h1 { font-size: clamp(32px, 9vw, 44px); max-width: none; }
+  .quest-step h2 { font-size: clamp(22px, 6vw, 28px); max-width: none; }
+  .scale { flex-wrap: nowrap; overflow-x: auto; gap: 8px; padding: 4px 0 10px; }
+  .scale-lab { min-width: auto; font-size: 13px; }
+  .dot.a3, .dot.d3 { width: 36px; height: 36px; }
+  .dot.a2, .dot.d2 { width: 32px; height: 32px; }
+  .dot.a1, .dot.d1 { width: 28px; height: 28px; }
+  .dot.mid { width: 24px; height: 24px; }
+  .film { min-height: auto; padding: 24px 0; }
+  .film-grid { grid-template-columns: 1fr; }
+  .film-copy h1 { font-size: clamp(32px, 8vw, 44px); max-width: none; }
+  .page-hero h1 { font-size: clamp(32px, 8vw, 44px); max-width: none; }
+  .site-footer, .footer { padding: 120px 0 24px; background-size: 180% auto; }
+  .tech-scene { width: 180%; margin-left: -40%; }
+  .scene-wrap { overflow: hidden; }
+}
+
+@media (max-width: 600px) {
+  .facts-grid { grid-template-columns: 1fr; }
+  .fact strong { font-size: clamp(36px, 12vw, 52px); }
 }
