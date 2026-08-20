@@ -609,3 +609,51 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   .blob, .grain, h1, .hot, .mail, .reel.is-in { animation: none; }
   .mail { transform: none !important; }
 }
+
+.quest {
+  position: relative;
+  z-index: 5;
+  min-height: calc(100vh - 96px);
+  display: flex;
+  align-items: center;
+  padding: 36px 0 48px;
+  text-align: center;
+}
+.quest-inner { width: min(760px, calc(100% - 36px)); }
+.quest-dots { display: flex; justify-content: center; gap: 8px; margin: 18px 0 28px; }
+.quest-dots i {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(214,235,253,0.2);
+  display: block;
+}
+.quest-dots i.is-on { background: var(--gold); }
+.quest-step h2 {
+  margin: 8px auto 22px;
+  max-width: 22ch;
+  font-size: clamp(28px, 4vw, 42px);
+}
+.quest-art { margin: 0 auto 12px; }
+.quest-picks {
+  display: grid;
+  gap: 10px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.quest-picks button {
+  min-height: 52px;
+  padding: 12px 18px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.04);
+  color: var(--night-ink);
+  font: 500 16px Outfit, sans-serif;
+  cursor: pointer;
+  text-align: left;
+}
+.quest-picks button:hover,
+.quest-picks button:focus-visible {
+  border-color: var(--cyan);
+  background: rgba(88,222,248,0.1);
+}
+.quest-result { padding-bottom: 12px; }
+.quest-result .hero-actions { justify-content: center; }

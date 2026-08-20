@@ -93,6 +93,61 @@
     chapters.forEach((el) => io.observe(el));
   }
 
+  const quest = document.querySelector("[data-quest]");
+  if (quest) {
+    const answers = {};
+    const whoLine = {
+      finance: "Finance and AP live on wiring changes.",
+      title: "Title and closing live on payoff letters.",
+      law: "Law firms live on settlement directions.",
+      build: "Construction lives on change-order payments.",
+      pay: "Payroll lives on deposit-account changes.",
+      me: "If it is just you, one bad wire is the whole company.",
+    };
+    const showStep = (id) => {
+      quest.querySelectorAll("[data-step]").forEach((el) => {
+        const on = el.getAttribute("data-step") === String(id);
+        el.hidden = !on;
+        el.classList.toggle("is-on", on);
+      });
+      const dots = [...quest.querySelectorAll("[data-quest-dots] i")];
+      const n = id === "result" ? 3 : Number(id);
+      dots.forEach((d, i) => d.classList.toggle("is-on", i < n));
+    };
+    const writeResult = () => {
+      const title = quest.querySelector("[data-result-title]");
+      const body = quest.querySelector("[data-result-body]");
+      const kick = quest.querySelector("[data-result-kicker]");
+      const money = answers.money;
+      const act = answers.act;
+      const who = answers.who;
+      if (kick) kick.textContent = whoLine[who] || "For you";
+      if (money === "no") {
+        if (title) title.textContent = "This is for people who move money because an email said so.";
+        if (body) body.textContent = "If that is not your world, you can still look. Signet7 is the last look before money or an account changes. You already have a product: call the person.";
+      } else if (act === "reply") {
+        if (title) title.textContent = "Replying to that email is the trap.";
+        if (body) body.textContent = "You already have a product: call the person. Signet7 is the last look before you change where money goes — who it is bound to, whether the words still match, the proof you keep.";
+      } else if (act === "call") {
+        if (title) title.textContent = "Keep the call. Keep the proof too.";
+        if (body) body.textContent = "The callback is still the product. Signet7 is the last look you can show later: bound sender, sealed words, a record that is not locked in one vendor's screen.";
+      } else {
+        if (title) title.textContent = "The last look before money moves.";
+        if (body) body.textContent = "You already have a product: call the person. Signet7 is the last look — who the message is bound to, whether the words still match, the record you keep.";
+      }
+    };
+    quest.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-go]");
+      if (!btn || !quest.contains(btn)) return;
+      const k = btn.getAttribute("data-k");
+      const v = btn.getAttribute("data-v");
+      if (k) answers[k] = v;
+      const next = btn.getAttribute("data-go");
+      if (next === "result") writeResult();
+      showStep(next);
+    });
+  }
+
   if (!reduce) {
     window.addEventListener(
       "pointermove",

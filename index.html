@@ -20,7 +20,7 @@
   <meta property="og:image" content="https://signet7.io/assets/og-image.png">
   <link rel="canonical" href="https://signet7.io/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/site.css?v=20260820d">
+  <link rel="stylesheet" href="assets/site.css?v=20260820e">
 </head>
 <body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -46,6 +46,64 @@
   </header>
 
   <main id="main">
+    <section class="quest" data-quest aria-labelledby="quest-title">
+      <div class="container quest-inner">
+        <p class="eyebrow">Trust layer for consequential email</p>
+        <h1 id="quest-title">Three taps. Then we show you the moment.</h1>
+        <p class="lede">Nothing is sent. No account. This stays in your browser.</p>
+        <div class="quest-dots" data-quest-dots aria-hidden="true"><i class="is-on"></i><i></i><i></i></div>
+
+        <div class="quest-step is-on" data-step="1">
+          <div class="quest-art" aria-hidden="true">
+            <svg viewBox="0 0 160 120" width="160" height="120"><rect x="18" y="28" width="124" height="72" rx="8" fill="#f6f0e4"/><path d="M18 36 L80 72 L142 36" fill="none" stroke="#b5811a" stroke-width="4"/><circle cx="128" cy="24" r="16" fill="#ffd16d"/><text x="128" y="30" text-anchor="middle" font-size="16" font-family="Georgia" fill="#171410">$</text></svg>
+          </div>
+          <h2>Did an email ask you to send money or change an account?</h2>
+          <div class="quest-picks">
+            <button type="button" data-go="2" data-k="money" data-v="yes">Yes. That happens.</button>
+            <button type="button" data-go="2" data-k="money" data-v="rare">Once in a while.</button>
+            <button type="button" data-go="2" data-k="money" data-v="no">That's not my world.</button>
+          </div>
+        </div>
+
+        <div class="quest-step" data-step="2" hidden>
+          <div class="quest-art" aria-hidden="true">
+            <svg viewBox="0 0 160 120" width="160" height="120"><rect x="48" y="12" width="64" height="96" rx="12" fill="#0c1822" stroke="#58def8" stroke-width="3"/><circle cx="80" cy="92" r="6" fill="#ffd16d"/><rect x="62" y="28" width="36" height="44" rx="4" fill="#58def8" opacity=".35"/></svg>
+          </div>
+          <h2>A vendor sends “new wiring instructions.” What do you do?</h2>
+          <div class="quest-picks">
+            <button type="button" data-go="3" data-k="act" data-v="call">Call a number I already have.</button>
+            <button type="button" data-go="3" data-k="act" data-v="reply">Reply to the email.</button>
+            <button type="button" data-go="3" data-k="act" data-v="unsure">I'm not sure.</button>
+          </div>
+        </div>
+
+        <div class="quest-step" data-step="3" hidden>
+          <div class="quest-art" aria-hidden="true">
+            <svg viewBox="0 0 160 120" width="160" height="120"><rect x="20" y="70" width="28" height="36" fill="#58def8" opacity=".5"/><rect x="56" y="48" width="28" height="58" fill="#ffd16d" opacity=".7"/><rect x="92" y="32" width="28" height="74" fill="#58def8"/><rect x="128" y="20" width="16" height="86" fill="#f6f0e4" opacity=".4"/></svg>
+          </div>
+          <h2>Where would that email land first?</h2>
+          <div class="quest-picks">
+            <button type="button" data-go="result" data-k="who" data-v="finance">Finance / AP</button>
+            <button type="button" data-go="result" data-k="who" data-v="title">Title / closing</button>
+            <button type="button" data-go="result" data-k="who" data-v="law">A law firm</button>
+            <button type="button" data-go="result" data-k="who" data-v="build">Construction</button>
+            <button type="button" data-go="result" data-k="who" data-v="pay">Payroll</button>
+            <button type="button" data-go="result" data-k="who" data-v="me">It's just me</button>
+          </div>
+        </div>
+
+        <div class="quest-step quest-result" data-step="result" hidden>
+          <p class="eyebrow" data-result-kicker>For you</p>
+          <h2 data-result-title>The last look before money moves.</h2>
+          <p data-result-body>You already have a product: call the person. Signet7 is the last look — who the message is bound to, whether the words still match, the record you keep.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#letter">Play the message</a>
+            <a class="button button-secondary" href="https://qual.signet7.io/email/verify">Open the live check</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="film" data-film aria-labelledby="hero-title">
       <div class="container film-grid">
         <div class="film-copy">
@@ -59,7 +117,7 @@
           <p class="film-hint">Hover the account. Press 1, 2, or 3. <a href="scenarios">Send and receive stories</a>.</p>
         </div>
 
-      <aside class="mail" data-mail aria-label="Interactive sample message">
+      <aside class="mail" id="letter" data-mail aria-label="Interactive sample message">
         <div class="mail-top">
           <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
           <span>Inbox — play with this message</span>
@@ -116,124 +174,11 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-heading split-heading">
-          <div>
-            <p class="eyebrow">The missing control point</p>
-            <h2>From an ordinary email to a decision you may regret.</h2>
-          </div>
-          <p>Signet7 lets the recipient inspect supported sender and content evidence before they act. Agents can later consume the same evidence.</p>
-        </div>
-        <div class="consequence-grid">
-          <article class="consequence-card">
-            <span class="card-number">01</span>
-            <h3>Instruction enters</h3>
-            <p>Evaluate supported signature evidence, declared content coverage, and the configured sender/key relationship.</p>
-          </article>
-          <article class="consequence-card featured">
-            <span class="card-number">02</span>
-            <h3>Policy decides</h3>
-            <p>Bind and normalize the exact proposed action. Known high-risk action families require stronger evidence; unknown actions fail closed.</p>
-          </article>
-          <article class="consequence-card">
-            <span class="card-number">03</span>
-            <h3>Caller enforces</h3>
-            <p>Return allow or block and seal the decision record. The integrating agent, workflow, or tool runner enforces the result.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section action-flow-section" aria-labelledby="flow-title">
-      <div class="container">
-        <p class="eyebrow">The decision rail</p>
-        <h2 id="flow-title">Evidence before execution.</h2>
-        <div class="decision-rail" role="list" aria-label="Signet7 decision path">
-          <div class="rail-node" role="listitem"><span>1</span><strong>Signed instruction</strong><small>Email or action envelope</small></div>
-          <div class="rail-arrow" aria-hidden="true">&rarr;</div>
-          <div class="rail-node" role="listitem"><span>2</span><strong>Identity binding</strong><small>Exact sender and key</small></div>
-          <div class="rail-arrow" aria-hidden="true">&rarr;</div>
-          <div class="rail-node gate-node" role="listitem"><span>3</span><strong>Policy gate</strong><small>Exact canonical action</small></div>
-          <div class="rail-arrow" aria-hidden="true">&rarr;</div>
-          <div class="rail-node" role="listitem"><span>4</span><strong>Caller enforcement</strong><small>Allow or refuse</small></div>
-          <div class="rail-arrow" aria-hidden="true">&rarr;</div>
-          <div class="rail-node" role="listitem"><span>5</span><strong>Evidence</strong><small>Export and verify later</small></div>
-        </div>
-        <p class="boundary-note"><strong>Current boundary:</strong> Signet7 returns and records the policy decision. It does not independently intercept every banking, purchasing, or command system.</p>
-      </div>
-    </section>
-
-    <section class="section section-light">
-      <div class="container two-column feature-pair">
-        <div>
-          <p class="eyebrow dark">Signature-bound sender identity</p>
-          <h2>A look-alike sender should not inherit an authorized key.</h2>
-          <p>Signet7 checks whether supported content was signed by the exact key bound to the claimed sender in the configured trust source. A spoofed look-alike without that private key cannot satisfy the same bound-signature check.</p>
-          <p class="fine-print dark-text">This is a cryptographic anti-spoofing control, not broad phishing detection. Compromised keys, bad enrollment, bad policy, and compromised callers remain material risks.</p>
-          <a class="text-link" href="trust">How trust states work &rarr;</a>
-        </div>
-        <div class="identity-state-stack" aria-label="Trust state examples">
-          <div class="identity-state strong"><span>Bound</span><strong>Configured sender/key relationship</strong></div>
-          <div class="identity-state"><span>Self-signed</span><strong>Signature valid; sender relationship unapproved</strong></div>
-          <div class="identity-state weak"><span>Unresolved</span><strong>No supported binding established</strong></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section evidence-section section-light">
-      <div class="container">
-        <div class="section-heading split-heading">
-          <div>
-            <p class="eyebrow">Portable decision evidence</p>
-            <h2>Built for the review that comes later.</h2>
-          </div>
-          <p>Signed, hash-chained records, detached export, offline verification, evidence bundles, retention-policy events, and optional external anchoring support audit, investigation, and regulated workflows.</p>
-        </div>
-        <div class="evidence-grid">
-          <article><h3>What was evaluated</h3><p>Canonical action, trust state, policy result, protected identifiers, and record chronology.</p></article>
-          <article><h3>What can travel</h3><p>Signed exports and bundles with manifests, checksums, signer inputs, and expected-head evidence.</p></article>
-          <article><h3>What remains contextual</h3><p>Customer policy, custody, completeness, deployment, retention, and legal applicability still control the compliance conclusion.</p></article>
-        </div>
-        <p class="boundary-note"><strong>Evidence for compliance-grade workflows</strong> is not a certification of HIPAA, SOX, SEC, EU AI Act, or any other regime.</p>
-      </div>
-    </section>
-
-    <section class="section section-light">
-      <div class="container integration-callout">
-        <div>
-          <p class="eyebrow dark">API/MCP-first</p>
-          <h2>No replacement mailbox. No traditional security gateway. No endpoint agent.</h2>
-          <p>Connect the current decision interface to the agent or workflow that proposes the action. Integration, caller enforcement, and an operated Signet7 service are still required.</p>
-        </div>
-        <a class="button button-dark" href="integrations">Review integration surfaces</a>
-      </div>
-    </section>
-
-    <section class="section vsn-section">
-      <div class="container two-column">
-        <div>
-          <p class="eyebrow">Verifiable Sender Network (VSN)</p>
-          <h2>Bind a signing key to a domain. Check whether that binding still holds.</h2>
-        </div>
-        <div>
-          <p>VSN is Signet7's sender-trust layer: it records which organization or domain a signing key belongs to, and whether that binding is still active. A lookup and admin pages are live at <a href="https://qual.signet7.io/vsn">qual.signet7.io/vsn</a> on an isolated qualification tenant. The only domain in that lookup today is Signet7's own (<code>signet7.io</code>), added by dual-control. Customer domains are not in it, and records are not publicly listed.</p>
-          <p class="fine-print">Verified does not mean safe. Customer enrollment, rotation, revocation, recovery, and support are still not an operating customer network.</p>
-          <a class="text-link light-link" href="https://qual.signet7.io/vsn">Open the VSN lookup &rarr;</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section final-cta">
-      <div class="container final-cta-inner">
-        <p class="eyebrow">Current candidate</p>
-        <h2>Put a verifiable decision point before consequential action.</h2>
-        <p>Inspect the implemented local path, the enforcement boundary, and the work still required before operational reliance.</p>
-        <div class="hero-actions centered-actions">
-          <a class="button button-primary" href="docs">Read current status</a>
-          <a class="button button-secondary" href="pilot">Review the evaluation path</a>
-        </div>
-      </div>
+    <section class="reel" data-chapter="keep">
+      <p class="eyebrow">Then you keep the proof</p>
+      <h2>Take it with you.</h2>
+      <p>Export a bundle you can verify later, even offline. Optional VSN: look up whether a company's signing key is still active. VSN check hosted on qual. Current local candidate. Caller-enforced.</p>
+      <div class="hero-actions centered-actions"><a class="button button-primary" href="https://qual.signet7.io/email/verify">Open the live check</a></div>
     </section>
   </main>
 
@@ -244,6 +189,6 @@
       <div><p>Current local candidate. Caller-enforced. VSN check hosted on qual.</p></div>
     </div>
   </footer>
-  <script src="assets/motion.js?v=20260820b" defer></script>
+  <script src="assets/motion.js?v=20260820e" defer></script>
 </body>
 </html>

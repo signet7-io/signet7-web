@@ -217,6 +217,16 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             self.assertNotIn("sidekick", blob)
             self.assertNotIn("buddy-hit", blob)
 
+    def test_homepage_is_a_customer_front_door(self) -> None:
+        home = self.pages["index.html"]
+        low = home.lower()
+        self.assertIn("data-quest", home)
+        self.assertNotRegex(home, r"<form\b")
+        self.assertNotIn("dual-control", low)
+        self.assertNotIn("isolated qualification", low)
+        self.assertNotIn("api/mcp-first", low)
+        self.assertNotIn("executewire", low)
+
 
 class ContentSecurityPolicy(unittest.TestCase):
     """GitHub Pages cannot set response headers, so the policy ships in the markup.
