@@ -654,10 +654,10 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   background: linear-gradient(180deg, rgba(5,8,13,0.12) 28%, rgba(5,8,13,0.82) 100%);
 }
 .story-copy {
-  padding: 0 0 56px;
-  max-width: 38rem;
+  padding: 0 40px 64px;
+  max-width: 42rem;
   text-align: left;
-  margin-left: 0;
+  margin: 0;
 }
 .story-copy h1 {
   margin: 0;
