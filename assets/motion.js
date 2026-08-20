@@ -141,7 +141,7 @@
         if (title) title.textContent = "Keep the call. Keep the proof too.";
         if (body) body.textContent = "The callback is still the product. Signet7 is the last look you can show later: bound sender, sealed words, a record that is not locked in one vendor's screen.";
       } else {
-        if (title) title.textContent = "The last look before money moves.";
+        if (title) title.textContent = "Looks ordinary. That's the trap.";
         if (body) body.textContent = "You already have a product: call the person. Signet7 is the last look — who the message is bound to, whether the words still match, the record you keep.";
       }
     };
