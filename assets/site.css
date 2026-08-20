@@ -632,15 +632,78 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   .scope-row { grid-template-columns: 1fr; }
 }
 
-.film-hero {
+.film { position: relative; z-index: 4; }
+.film > .reel + .reel::before,
+main.film > section + section::before {
+  content: none !important;
+  display: none !important;
+  height: 0 !important;
+  background: none !important;
+  margin: 0 !important;
+}
+.film-object {
+  position: sticky;
+  top: 42vh;
+  z-index: 6;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 0;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  pointer-events: none;
+}
+.film-object img {
+  width: min(420px, 58vw);
+  height: auto;
+  display: block;
+  margin-top: 8vh;
+  pointer-events: auto;
+  filter: drop-shadow(0 24px 40px rgba(0,0,0,.45));
+  transform-origin: 50% 80%;
+}
+.reel {
   position: relative;
-  z-index: 4;
+  z-index: 5;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 28px 20px 8px;
+  padding: 16vh 24px 46vh;
 }
+.reel-kicker {
+  margin: 0 0 14px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--gold);
+}
+.reel h1,
+.reel h2 {
+  margin: 0;
+  max-width: 16ch;
+  font-size: clamp(40px, 7.2vw, 92px);
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+}
+.reel-line {
+  margin: 18px 0 0;
+  max-width: 34rem;
+  color: var(--night-mute);
+  font-size: clamp(16px, 1.6vw, 22px);
+  line-height: 1.45;
+}
+.reel-end .film-cta { margin-top: 28px; }
+.film-object[data-pose="idle"] img { animation: s7-breathe 3.4s ease-in-out infinite; }
+.film-object[data-pose="wave"] img { animation: s7-wave .85s ease; }
+.film-object[data-pose="walk"] img { animation: s7-walk .55s ease-in-out infinite; }
+.film-object[data-pose="look"] img { animation: s7-look .9s ease forwards; }
+.film-object[data-pose="nod"] img { animation: s7-nod 1s ease; }
+.film-object[data-pose="point"] img { animation: s7-point .7s ease forwards; }
+.film-object[data-pose="guard"] img { animation: s7-guard .8s ease forwards; }
 .film-cta {
   display: flex;
   gap: 10px;

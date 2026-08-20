@@ -106,8 +106,7 @@
 
   const hero = document.querySelector("[data-buddy]");
   const actor = document.querySelector("[data-actor]");
-  const walkSrc = "assets/mascot-s7-walk.png";
-  const standSrc = "assets/mascot-s7-cut.png?v=sword2";
+  const reels = [...document.querySelectorAll(".reel[data-pose]")];
 
   if (hero) {
     hero.dataset.pose = "idle";
@@ -115,54 +114,16 @@
       hero.dataset.pose = "wave";
       window.setTimeout(() => { hero.dataset.pose = "idle"; }, 900);
     });
+    if (reels.length && "IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        const vis = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (vis) hero.dataset.pose = vis.target.getAttribute("data-pose") || "idle";
+      }, { threshold: [0.45, 0.7] });
+      reels.forEach((r) => io.observe(r));
+    }
   }
 
-  if (actor) {
-    const img = actor.querySelector("img");
-    const sections = [...document.querySelectorAll(".film-hero, .meet, .site-banner, main > section")];
-    const poseFor = (el) => {
-      if (!el) return "idle";
-      if (el.classList.contains("meet")) return "look";
-      if (el.getAttribute("aria-label") === "Why Signet7 exists") return "nod";
-      if (el.querySelector && el.querySelector("#who-title")) return "point";
-      if (el.querySelector && el.querySelector("[data-mail]")) return "guard";
-      if (el.classList.contains("vsn-section")) return "look";
-      return "idle";
-    };
-    let lastY = window.scrollY;
-    let walkUntil = 0;
-    const place = () => {
-      const y = window.scrollY;
-      if (Math.abs(y - lastY) > 2) walkUntil = performance.now() + 320;
-      lastY = y;
-      const walking = performance.now() < walkUntil;
-      const heroBox = hero ? hero.getBoundingClientRect() : { bottom: -1 };
-      const show = heroBox.bottom < 100;
-      actor.hidden = !show;
-      actor.classList.toggle("is-on", show);
-      if (!show) return;
-      const mid = window.innerHeight * 0.52;
-      let cur = sections[0];
-      for (const s of sections) {
-        const r = s.getBoundingClientRect();
-        if (r.top < mid && r.bottom > 150) cur = s;
-      }
-      const r = cur.getBoundingClientRect();
-      const top = Math.min(Math.max(r.top + 20, 120), window.innerHeight - 220);
-      actor.style.top = top + "px";
-      const pose = walking ? "walk" : poseFor(cur);
-      actor.dataset.pose = pose;
-      if (img) img.src = pose === "walk" ? walkSrc : standSrc;
-    };
-    window.addEventListener("scroll", place, { passive: true });
-    window.addEventListener("resize", place, { passive: true });
-    place();
-    actor.addEventListener("click", () => {
-      actor.dataset.pose = "wave";
-      if (img) img.src = standSrc;
-      window.setTimeout(place, 850);
-    });
-  }
+  if (actor) actor.remove();
 
   const canvas = document.getElementById("dust");
   if (!canvas || reduce || !canvas.getContext) return;
