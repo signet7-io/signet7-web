@@ -142,7 +142,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, pilot)
         self.assertNotRegex(pilot, r"<form\b")
-        self.assertEqual(re.findall(r"\$\s*\d+", pilot), ["$0"])
+        price_copy = re.sub(r'<section class="facts".*?</section>', "", pilot, flags=re.S)
+        self.assertEqual(re.findall(r"\$\s*\d+", price_copy), ["$0"])
 
     def test_check_page_exists_and_is_honest_about_hosting(self) -> None:
         self.assertIn("check.html", self.pages)
@@ -223,10 +224,12 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("data-quest", home)
         self.assertIn('class="scale"', home)
         self.assertIn(">Agree</span>", home)
-        self.assertIn("<strong>3</strong>", home)
-        self.assertIn("<strong>5</strong>", home)
-        self.assertIn("<strong>1</strong>", home)
-        self.assertIn("<strong>0</strong>", home)
+        self.assertIn("$2.77B", home)
+        self.assertIn("21,442", home)
+        self.assertIn("$16.6B", home)
+        self.assertIn("193K+", home)
+        self.assertIn("not money signet7 saved", low)
+        self.assertIn("fbi ic3", low)
         self.assertNotRegex(home, r"<form\b")
         self.assertNotIn("dual-control", low)
         self.assertNotIn("isolated qualification", low)

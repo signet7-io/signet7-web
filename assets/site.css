@@ -814,6 +814,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   font-weight: 800;
 }
 .fact span { display: block; color: #5c6270; font-size: 14px; }
+.facts-cite { margin: 16px auto 0; max-width: 40rem; text-align: center; color: #5c6270; font-size: 13px; }
 .f-blue { background: #e7f4f8; border-top: 4px solid #4298b4; }
 .f-gold { background: #fbf3e0; border-top: 4px solid #e4ae3a; }
 .f-green { background: #e6f6ee; border-top: 4px solid #33a474; }
