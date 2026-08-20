@@ -62,18 +62,36 @@
     panels.forEach((p) => p.classList.toggle("is-on", p.getAttribute("data-panel") === name));
   };
 
-  if (inspect) {
-    inspect.addEventListener("click", () => {
+  const inspectors = [...document.querySelectorAll("[data-inspect]")];
+  inspectors.forEach((btn) => {
+    btn.addEventListener("click", () => {
       showPanel("inspect");
       say("Walkthrough only. This page is not the live check.");
     });
-  }
+  });
   tabs.forEach((tab) => tab.addEventListener("click", () => showPanel(tab.getAttribute("data-tab"))));
   window.addEventListener("keydown", (e) => {
     if (e.key === "1") showPanel("received");
     if (e.key === "2") showPanel("inspect");
     if (e.key === "3") showPanel("limits");
   });
+
+  const bar = document.querySelector("[data-progress]");
+  const chapters = [...document.querySelectorAll("[data-chapter]")];
+  const onScroll = () => {
+    const max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    if (bar) bar.style.width = `${Math.min(100, (window.scrollY / max) * 100)}%`;
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  if (chapters.length && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) en.target.classList.add("is-in");
+      });
+    }, { threshold: 0.35 });
+    chapters.forEach((el) => io.observe(el));
+  }
 
   if (!reduce) {
     window.addEventListener(

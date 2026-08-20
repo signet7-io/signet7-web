@@ -20,10 +20,11 @@
   <meta property="og:image" content="https://signet7.io/assets/og-image.png">
   <link rel="canonical" href="https://signet7.io/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/site.css?v=20260820a">
+  <link rel="stylesheet" href="assets/site.css?v=20260820b">
 </head>
-<body>
+<body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" data-progress aria-hidden="true"></div>
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="/" aria-label="Signet7 home">
@@ -40,124 +41,29 @@
         <a href="docs">Docs</a>
         <a href="about">About</a>
       </nav>
-    </div>
-    <div class="nav-marks" aria-label="Signet7 evidence marks. Not a regulatory certification.">
-      <span title="Exact sender/key binding result under the configured trust source">Sender/key bound</span>
-      <span title="Declared protected parts still match the seal">Sealed-content match</span>
-      <span title="Signed, hash-chained decision records">Hash-chained</span>
-      <span title="Unknown high-risk actions fail closed">Fail-closed</span>
-      <span title="Export a bundle you can verify later, including offline">Portable proof</span>
-      <span title="Offline verification of exported evidence">Offline verify</span>
-      <span title="Named for the seven-year record standard. Not a promise every email is stored seven years.">7-year records</span>
-      <span title="Signet7 returns the decision. The caller enforces it.">Caller-enforced</span>
-      <span title="Optional VSN lookup. Check hosted on qual. Not a customer network.">Optional VSN</span>
+      <a class="button button-primary header-cta" href="https://qual.signet7.io/email/verify">Open the live check</a>
     </div>
   </header>
 
-  <section class="meet" aria-labelledby="meet-title">
-    <div class="container meet-grid">
-      <div class="meet-copy">
-        <p class="eyebrow">Meet Signet7</p>
-        <h2 id="meet-title">Here's what it does, and how it affects you.</h2>
-        <p class="meet-lead">Signet7 is the last look before you act on an important email. Not a new inbox. Not a spam filter. A check you can keep.</p>
-        <p class="banner-kicker">What nobody else does</p>
-        <p class="only-line" id="only-title">Spam filters, encryption, and registered mail each do one slice. Nobody else puts the whole check together.</p>
-        <div class="meet-beats">
-          <article>
-            <h3>What it does</h3>
-            <p>It checks who the message is bound to, whether the sealed words still match, and it keeps a hash-chained record. Optional VSN lets you look up whether a company's key is still active.</p>
-          </article>
-          <article>
-            <h3>How that affects you</h3>
-            <p>Before you send money or change an account, you get a plain answer: bound, not yet approved, or unresolved. You still decide. You still call the person. You keep the proof.</p>
-          </article>
-          <article>
-            <h3>Why that's different</h3>
-            <p>Filters, encryption, and registered mail each do one slice. Signet7 puts the check together — and the proof is not locked inside one vendor's screen.</p>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="site-banner" aria-label="Why Signet7 exists">
-    <div class="container banner-grid">
-      <div class="banner-lead">
-        <p class="banner-kicker">Why Signet7 exists</p>
-        <p class="banner-hook">Email can ask you to send money or change an account. Signet7 is the last check before you act — and the proof you keep.</p>
-      </div>
-      <div class="banner-offers banner-features">
-        <article>
-          <h3>Check the sender</h3>
-          <p>See whether the message is bound to the company or person it claims to be from.</p>
-        </article>
-        <article>
-          <h3>Check the sealed words</h3>
-          <p>See whether the protected parts still match the seal — including payment details — using cryptographic hashes, not a guess.</p>
-        </article>
-        <article>
-          <h3>Get a plain answer</h3>
-          <p>Bound, not yet approved, or unresolved. Then you decide.</p>
-        </article>
-        <article>
-          <h3>Gate the risky action</h3>
-          <p>Known high-risk actions can require a bound sender. Unknown actions fail closed. The caller still enforces.</p>
-        </article>
-        <article>
-          <h3>Keep a hash-chained record</h3>
-          <p>What was checked is signed and chained so a later change in the record is visible.</p>
-        </article>
-        <article>
-          <h3>Take the proof with you</h3>
-          <p>Export a bundle you can verify later, even offline, without trusting one vendor's screen.</p>
-        </article>
-        <article>
-          <h3>Built for the long keep</h3>
-          <p>The 7 is the seven-year record standard. Keep evidence you can still produce later — not a promise that every email is stored for seven years.</p>
-        </article>
-        <article>
-          <h3>Optional VSN</h3>
-          <p>Look up whether a company's signing key is still bound and still active. The managed network is optional; the check today is hosted on qual.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="site-banner" aria-labelledby="who-title">
-    <div class="container">
-      <p class="banner-kicker">Who this is for</p>
-      <h2 class="only-line" id="who-title">Businesses that move money or change accounts because an email said so.</h2>
-      <div class="who-for-grid">
-        <article><h3>Finance and AP</h3><p>Updated wiring instructions, vendor bank changes, last-minute invoices.</p></article>
-        <article><h3>Real estate and title</h3><p>Closing funds, escrow instructions, payoff letters.</p></article>
-        <article><h3>Law firms</h3><p>Settlement disbursements and client payment directions.</p></article>
-        <article><h3>Construction</h3><p>Change orders and contractor payment details.</p></article>
-        <article><h3>Accounting and tax</h3><p>Refund destinations and filing-instruction changes.</p></article>
-        <article><h3>Insurance</h3><p>Claim payouts and beneficiary updates.</p></article>
-        <article><h3>Payroll and benefits</h3><p>Direct-deposit and vendor-account changes.</p></article>
-        <article><h3>Agencies and freelancers</h3><p>Invoice payment details sent to clients who must be able to check.</p></article>
-      </div>
-    </div>
-  </section>
-
   <main id="main">
-    <section class="container stage" aria-labelledby="hero-title">
-      <div class="stage-copy">
-        <p class="eyebrow">Trust layer for consequential email</p>
-        <h1 id="hero-title">Check the seal before you act.</h1>
-        <p class="lede">Hover the invoice. Click the account number. Inspect what can be proven — and what still cannot.</p>
-        <p class="hero-copy">You already have a product: call the person. Signet7 is the last look before money or a decision moves.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="https://qual.signet7.io/email/verify">Open the live check</a>
-          <a class="button button-secondary" href="check">How a recipient checks</a>
-          <a class="button button-secondary" href="scenarios">Send and receive stories</a>
+    <section class="film" data-film aria-labelledby="hero-title">
+      <div class="container film-grid">
+        <div class="film-copy">
+          <p class="eyebrow">Trust layer for consequential email</p>
+          <h1 id="hero-title">The last look before money moves.</h1>
+          <p class="lede">A wiring change just landed. Hover the account. Inspect what can be proven. You already have a product: call the person.</p>
+          <div class="hero-actions">
+            <button class="button button-primary" type="button" data-inspect>Inspect this message</button>
+            <a class="button button-secondary" href="check">How a recipient checks</a>
+            <a class="button button-secondary" href="scenarios">Send and receive stories</a>
+          </div>
+          <p class="film-hint">Move the pointer. Press 1, 2, or 3.</p>
+          <div class="maturity-strip" aria-label="Current product maturity">
+            <span>Current local candidate</span>
+            <span>Caller-enforced</span>
+            <span>VSN check hosted on qual</span>
+          </div>
         </div>
-        <div class="maturity-strip" aria-label="Current product maturity">
-          <span>Current local candidate</span>
-          <span>Caller-enforced</span>
-          <span>VSN check hosted on qual</span>
-        </div>
-      </div>
 
       <aside class="mail" data-mail aria-label="Interactive sample message">
         <div class="mail-top">
@@ -194,6 +100,19 @@
           <p>Signet7 does not move money, approve payments, or replace a callback. The integrating caller still enforces.</p>
         </div>
       </aside>
+      </div>
+    </section>
+
+    <section class="reel" data-chapter="combo" aria-labelledby="only-title">
+      <p class="eyebrow">What nobody else does</p>
+      <h2 id="only-title">Nobody else puts the whole check together.</h2>
+      <p>Spam filters, encryption, and registered mail each do one slice. Signet7 is who it is bound to, whether the sealed words still match, and the proof you keep. Check the seal before you act.</p>
+    </section>
+
+    <section class="reel" data-chapter="who" aria-labelledby="who-title">
+      <p class="eyebrow">Who this is for</p>
+      <h2 id="who-title">Businesses that move money or change accounts because an email said so.</h2>
+      <p class="who-line">Finance. Title. Law. Construction. Payroll. Anyone who would wire because a message asked.</p>
     </section>
 
     <section class="urgency-band">
@@ -331,6 +250,6 @@
       <div><p>Current local candidate. Caller-enforced. VSN check hosted on qual.</p></div>
     </div>
   </footer>
-  <script src="assets/motion.js?v=20260820a" defer></script>
+  <script src="assets/motion.js?v=20260820b" defer></script>
 </body>
 </html>

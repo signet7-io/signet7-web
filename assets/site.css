@@ -506,8 +506,74 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   .scope-row { grid-template-columns: 1fr; }
 }
 
+.home .site-header {
+  background: #080c12;
+  border-bottom: 1px solid rgba(88, 222, 248, 0.28);
+  backdrop-filter: none;
+}
+.header-cta { margin-left: 8px; min-height: 44px; padding: 0 16px; font-size: 15px; }
+.scroll-progress {
+  position: fixed; top: 0; left: 0; z-index: 120; height: 3px; width: 0;
+  background: linear-gradient(90deg, var(--cyan), var(--gold));
+  pointer-events: none;
+}
+.film {
+  position: relative;
+  z-index: 5;
+  min-height: calc(100vh - 96px);
+  display: flex;
+  align-items: center;
+  padding: 28px 0 56px;
+}
+.film-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.95fr) minmax(340px, 1.05fr);
+  gap: 40px;
+  align-items: center;
+}
+.film-copy { text-align: left; }
+.film-copy h1 {
+  margin: 0 0 16px;
+  max-width: 11ch;
+  font-size: clamp(44px, 6.4vw, 82px);
+  line-height: 0.94;
+  background: linear-gradient(180deg, #f4fdff, #7ee7f8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.film-hint { margin: 14px 0 0; color: var(--night-mute); font-size: 14px; }
+.film .mail { width: 100%; }
+.reel {
+  position: relative;
+  z-index: 5;
+  min-height: 72vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 10vh 8vw;
+}
+.reel h2 {
+  margin: 0 auto 16px;
+  max-width: 18ch;
+  font-size: clamp(36px, 5vw, 64px);
+}
+.reel p { margin: 0 auto; max-width: 40rem; color: var(--night-mute); font-size: 18px; }
+.who-line { color: var(--gold) !important; letter-spacing: 0.04em; }
+.reel.is-in { animation: reel-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes reel-in {
+  from { opacity: 0.35; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 980px) {
+  .film-grid { grid-template-columns: 1fr; }
+  .header-cta { display: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .blob, .grain, h1, .hot, .mail { animation: none; }
+  .blob, .grain, h1, .hot, .mail, .reel.is-in { animation: none; }
   .mail { transform: none !important; }
 }
