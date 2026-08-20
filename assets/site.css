@@ -534,16 +534,45 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   gap: 40px;
   align-items: center;
 }
-.film-copy { text-align: left; }
+.film .mail { width: 100%; position: relative; z-index: 1; }
+.film-copy { text-align: left; position: relative; z-index: 1; }
 .film-copy h1 {
   margin: 0 0 16px;
   max-width: 11ch;
-  font-size: clamp(44px, 6.4vw, 82px);
-  line-height: 0.94;
-  background: linear-gradient(180deg, #f4fdff, #7ee7f8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  font-size: clamp(48px, 7vw, 92px);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: #f4fdff;
+  background: none;
+  -webkit-text-fill-color: unset;
+  text-shadow: 0 0 40px rgba(88, 222, 248, 0.12);
+}
+.film::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(90deg, rgba(8, 14, 22, 0.92) 0 14px, transparent 14px),
+    linear-gradient(180deg, rgba(8, 14, 22, 0.92) 0 14px, transparent 14px),
+    linear-gradient(rgba(12, 24, 34, 0.55) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12, 24, 34, 0.55) 1px, transparent 1px),
+    radial-gradient(ellipse 70% 80% at 50% 40%, rgba(88, 222, 248, 0.2), rgba(255, 209, 109, 0.08) 42%, transparent 70%);
+  background-size: 38% 52%, 38% 52%, 19% 26%, 19% 26%, 38% 52%;
+  background-repeat: no-repeat;
+  background-position: 78% 16%;
+  opacity: 0.55;
+}
+.film::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 2px, rgba(255,255,255,0.015) 2px 3px),
+    linear-gradient(180deg, transparent 58%, rgba(8, 14, 22, 0.4) 78%, #05080d 100%);
 }
 .film-hint { margin: 14px 0 0; color: var(--night-mute); font-size: 14px; }
 .film .mail { width: 100%; }
