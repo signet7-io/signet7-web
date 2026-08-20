@@ -20,37 +20,41 @@
   <meta property="og:image" content="https://signet7.io/assets/og-image.png">
   <link rel="canonical" href="https://signet7.io/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/site.css?v=20260819ac">
+  <link rel="stylesheet" href="assets/site.css?v=20260819ad">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="/" aria-label="Signet7 home">
-        <img src="assets/signet7-logo-mark.png" width="222" height="222" alt="Signet7">
-        <span>Signet7</span>
+    <div class="container header-grid">
+      <a class="brand-mark" href="/" aria-label="Signet7 home">
+        <img src="assets/signet7-logo-mark.png" width="136" height="136" alt="">
       </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
-      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-        <a href="product">Product</a>
-        <a href="trust">Trust &amp; evidence</a>
-        <a href="integrations">Integrations</a>
-        <a href="programs">Programs</a>
-        <a href="pilot">Pilot</a>
-        <a href="docs">Docs</a>
-        <a href="about">About</a>
-      </nav>
-    </div>
-    <div class="nav-marks" aria-label="Signet7 evidence marks. Not a regulatory certification.">
-      <span title="Exact sender/key binding result under the configured trust source">Sender/key bound</span>
-      <span title="Declared protected parts still match the seal">Sealed-content match</span>
-      <span title="Signed, hash-chained decision records">Hash-chained</span>
-      <span title="Unknown high-risk actions fail closed">Fail-closed</span>
-      <span title="Export a bundle you can verify later, including offline">Portable proof</span>
-      <span title="Offline verification of exported evidence">Offline verify</span>
-      <span title="Named for the seven-year record standard. Not a promise every email is stored seven years.">7-year records</span>
-      <span title="Signet7 returns the decision. The caller enforces it.">Caller-enforced</span>
-      <span title="Optional VSN lookup. Check hosted on qual. Not a customer network.">Optional VSN</span>
+      <div class="header-main">
+        <div class="header-top">
+          <a class="wordmark" href="/">Signet7</a>
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
+          <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+            <a href="product">Product</a>
+            <a href="trust">Trust &amp; evidence</a>
+            <a href="integrations">Integrations</a>
+            <a href="programs">Programs</a>
+            <a href="pilot">Pilot</a>
+            <a href="docs">Docs</a>
+            <a href="about">About</a>
+          </nav>
+        </div>
+        <div class="nav-marks" aria-label="Signet7 evidence marks. Not a regulatory certification.">
+          <span title="Exact sender/key binding result under the configured trust source">Sender/key bound</span>
+          <span title="Declared protected parts still match the seal">Sealed-content match</span>
+          <span title="Signed, hash-chained decision records">Hash-chained</span>
+          <span title="Unknown high-risk actions fail closed">Fail-closed</span>
+          <span title="Export a bundle you can verify later, including offline">Portable proof</span>
+          <span title="Offline verification of exported evidence">Offline verify</span>
+          <span title="Named for the seven-year record standard. Not a promise every email is stored seven years.">7-year records</span>
+          <span title="Signet7 returns the decision. The caller enforces it.">Caller-enforced</span>
+          <span title="Optional VSN lookup. Check hosted on qual. Not a customer network.">Optional VSN</span>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -62,14 +66,14 @@
       <a class="button button-primary" href="https://qual.signet7.io/email/verify">Open the live check</a>
       <a class="button button-secondary" href="check">How a recipient checks</a>
     </div>
-    <button class="buddy-hit buddy-hero" type="button" data-buddy aria-label="Play a random Signet7 trick">
+    <button class="buddy-hit buddy-hero" type="button" data-buddy data-pose="idle" aria-label="S waves">
       <img src="assets/mascot-s7-cut.png?v=sword2" width="632" height="653" alt="S, the Signet7 mascot, with a red 7 sword">
       <span class="buddy-hint">click me</span>
     </button>
   </section>
 
-  <button class="buddy-hit buddy-dock" type="button" data-buddy-dock hidden aria-label="Play a random Signet7 trick">
-    <img src="assets/mascot-s7-cut.png?v=sword2" width="632" height="653" alt="">
+  <button class="s7-actor" type="button" data-actor hidden aria-label="S walks with you">
+    <img src="assets/mascot-s7-walk.png" width="642" height="711" alt="">
     <span class="buddy-hint">click me</span>
   </button>
 
@@ -324,6 +328,6 @@
       <div><p>Current local candidate. Caller-enforced. VSN check hosted on qual.</p></div>
     </div>
   </footer>
-  <script src="assets/motion.js?v=20260819l" defer></script>
+  <script src="assets/motion.js?v=20260819m" defer></script>
 </body>
 </html>
