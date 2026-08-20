@@ -202,6 +202,21 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             with self.subTest(pattern=pattern):
                 self.assertIsNone(re.search(pattern, visible))
 
+    def test_public_pages_have_no_mascot(self) -> None:
+        for name, html in self.pages.items():
+            with self.subTest(page=name):
+                low = html.lower()
+                self.assertNotIn("sidekick", low)
+                self.assertNotIn("data-buddy", low)
+                self.assertNotIn("meet-buddy", low)
+                self.assertNotIn("click me", low)
+        motion = (ROOT / "assets" / "motion.js").read_text(encoding="utf-8").lower()
+        css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8").lower()
+        for blob in (motion, css):
+            self.assertNotIn("data-buddy", blob)
+            self.assertNotIn("sidekick", blob)
+            self.assertNotIn("buddy-hit", blob)
+
 
 class ContentSecurityPolicy(unittest.TestCase):
     """GitHub Pages cannot set response headers, so the policy ships in the markup.
