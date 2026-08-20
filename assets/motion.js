@@ -104,27 +104,6 @@
     }
   }
 
-  const hero = document.querySelector("[data-buddy]");
-  const actor = document.querySelector("[data-actor]");
-  const reels = [...document.querySelectorAll(".reel[data-pose]")];
-
-  if (hero) {
-    hero.dataset.pose = "idle";
-    hero.addEventListener("click", () => {
-      hero.dataset.pose = "wave";
-      window.setTimeout(() => { hero.dataset.pose = "idle"; }, 900);
-    });
-    if (reels.length && "IntersectionObserver" in window) {
-      const io = new IntersectionObserver((entries) => {
-        const vis = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (vis) hero.dataset.pose = vis.target.getAttribute("data-pose") || "idle";
-      }, { threshold: [0.45, 0.7] });
-      reels.forEach((r) => io.observe(r));
-    }
-  }
-
-  if (actor) actor.remove();
-
   const canvas = document.getElementById("dust");
   if (!canvas || reduce || !canvas.getContext) return;
   const ctx = canvas.getContext("2d");

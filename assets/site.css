@@ -634,52 +634,12 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 
 .film { position: relative; z-index: 4; }
 .film > .reel + .reel::before,
-main.film > section + section::before,
-.film-copy > .reel + .reel::before {
+main.film > section + section::before {
   content: none !important;
   display: none !important;
   height: 0 !important;
   background: none !important;
   margin: 0 !important;
-}
-.film-sticky-slot {
-  position: sticky;
-  top: 0;
-  z-index: 3;
-  height: 100vh;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  pointer-events: none;
-}
-.film-object {
-  display: flex;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  border: 0;
-  background: none;
-  padding: 0 0 4vh;
-  cursor: pointer;
-  pointer-events: auto;
-}
-.film-object img {
-  width: min(460px, 62vw);
-  height: auto;
-  display: block;
-  margin: 0;
-  filter: drop-shadow(0 24px 40px rgba(0,0,0,.45));
-  transform-origin: 50% 80%;
-}
-.film-copy {
-  position: relative;
-  z-index: 4;
-  margin-top: -100vh;
-  pointer-events: none;
-}
-.film-copy a,
-.film-copy button {
-  pointer-events: auto;
 }
 .reel {
   position: relative;
@@ -688,11 +648,16 @@ main.film > section + section::before,
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 14vh 24px 48vh;
-  pointer-events: none;
+  padding: 18vh 24px 16vh;
 }
-.reel .film-cta { pointer-events: auto; }
+.reel-object { justify-content: flex-start; padding-top: 12vh; padding-bottom: 10vh; }
+.reel-object .mail {
+  margin-top: 36px;
+  text-align: left;
+  width: min(520px, 100%);
+}
 .reel-kicker {
   margin: 0 0 14px;
   letter-spacing: 0.22em;

@@ -20,7 +20,7 @@
   <meta property="og:image" content="https://signet7.io/assets/og-image.png">
   <link rel="canonical" href="https://signet7.io/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/site.css?v=20260819af">
+  <link rel="stylesheet" href="assets/site.css?v=20260819ag">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -59,66 +59,91 @@
   </header>
 
   <main id="main" class="film">
-    <div class="film-sticky-slot" aria-hidden="false">
-      <button class="film-object" type="button" data-buddy data-pose="idle" aria-label="S, with a red 7 sword">
-        <img src="assets/mascot-s7-cut.png?v=sword2" width="632" height="653" alt="S, the Signet7 mascot, with a red 7 sword">
-      </button>
-    </div>
-    <div class="film-copy">
-    <section class="reel reel-hero" data-pose="idle">
+    <section class="reel reel-hero">
       <p class="reel-kicker">Signet7</p>
       <h1 id="hero-title">Check the seal before you act.</h1>
       <p class="reel-line">The last look before you send money or change an account.</p>
+      <div class="film-cta">
+        <a class="button button-primary" href="https://qual.signet7.io/email/verify">Open the live check</a>
+        <a class="button button-secondary" href="check">How a recipient checks</a>
+      </div>
     </section>
 
-    <section class="reel" data-pose="look">
+    <section class="reel">
       <p class="reel-kicker">Trust layer for consequential email</p>
       <h2>You already have a product: call the person.</h2>
       <p class="reel-line">Signet7 is the last look before money or a decision moves.</p>
     </section>
 
-    <section class="reel" data-pose="nod">
+    <section class="reel">
       <p class="reel-kicker">What nobody else does</p>
       <h2>Nobody else puts the whole check together.</h2>
       <p class="reel-line">Spam filters, encryption, and registered mail each do one slice.</p>
     </section>
 
-    <section class="reel" data-pose="point">
-      <p class="reel-kicker">Sender</p>
-      <h2>See who it is bound to.</h2>
-      <p class="reel-line">The company or person the message claims to be from — not the costume of the address.</p>
+    <section class="reel reel-object">
+      <p class="reel-kicker">The check</p>
+      <h2>See who it is bound to. See whether the words still match.</h2>
+      <p class="reel-line">Including payment details. Hashes, not a guess. Bound, not yet approved, or unresolved. Then you decide.</p>
+      <aside class="mail" data-mail aria-label="Interactive sample message">
+        <div class="mail-top">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>Inbox — play with this message</span>
+        </div>
+        <div class="mail-body">
+          <div class="row"><b>From</b><span class="hot" tabindex="0" data-hot="A look-alike address can be typed by anyone. The seal is about the key, not the costume.">ap@northline-vendors.com</span></div>
+          <div class="row"><b>To</b><span>finance@yourcompany.com</span></div>
+          <p class="subject">Updated wiring instructions</p>
+          <p>Please use the account below for this week's invoice. We need this processed before close of business.</p>
+          <p>Routing 021000021 &nbsp; Account <span class="hot" tabindex="0" data-hot="This is the irreversible detail. Check the seal before you change where money goes.">4419920173</span></p>
+          <p class="hint" data-hint>Hover a highlighted detail. Then inspect.</p>
+          <div class="mail-actions">
+            <button class="button button-primary" type="button" data-inspect>Inspect this message</button>
+            <a class="button button-secondary" href="https://qual.signet7.io/email/verify">Live check on qual</a>
+          </div>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Walkthrough views">
+          <button class="tab" type="button" data-tab="received" aria-selected="true">1 Received</button>
+          <button class="tab" type="button" data-tab="inspect">2 Inspect</button>
+          <button class="tab" type="button" data-tab="limits">3 Limits</button>
+        </div>
+        <div class="panel is-on" data-panel="received">
+          <p>As received, it looks ordinary. That is the point.</p>
+        </div>
+        <div class="panel" data-panel="inspect">
+          <div class="state ok"><div><small>Protected content</small><strong>Matches the sealed bytes</strong></div><span>Held</span></div>
+          <div class="state warn"><div><small>Sender / key</small><strong>Self-signed</strong></div><span>Unapproved</span></div>
+          <div class="state bad"><div><small>Advice</small><strong>Do not treat this as safe</strong></div><span>Human</span></div>
+          <p class="walkthrough-note">Walkthrough. Verified does not mean safe. Unknown does not mean fraud.</p>
+        </div>
+        <div class="panel" data-panel="limits">
+          <p>Signet7 does not move money, approve payments, or replace a callback. The integrating caller still enforces.</p>
+        </div>
+      </aside>
     </section>
 
-    <section class="reel" data-pose="guard">
-      <p class="reel-kicker">Sealed words</p>
-      <h2>See whether the words still match.</h2>
-      <p class="reel-line">Including payment details. Hashes, not a guess. Then a plain answer: bound, not yet approved, or unresolved.</p>
-    </section>
-
-    <section class="reel" data-pose="idle">
+    <section class="reel">
       <p class="reel-kicker">The record</p>
       <h2>Keep the proof. Take it with you.</h2>
       <p class="reel-line">Signed and chained so a later change is visible. Export a bundle you can verify later, even offline. The 7 is the seven-year record standard — not a promise every email is stored for seven years.</p>
     </section>
 
-    <section class="reel" data-pose="look">
+    <section class="reel">
       <p class="reel-kicker">Who this is for</p>
       <h2>Businesses that move money or change accounts because an email said so.</h2>
       <p class="reel-line">Finance. Title. Law. Construction. Payroll. Anyone who would wire because a message asked.</p>
     </section>
 
-    <section class="reel reel-end" data-pose="wave">
+    <section class="reel reel-end">
       <p class="reel-kicker">Then you decide</p>
       <h2>Verified does not mean safe. Unknown does not mean fraud.</h2>
       <p class="reel-line">Optional VSN: look up whether a company's signing key is still active. VSN check hosted on qual. Current local candidate. Caller-enforced.</p>
       <div class="film-cta">
         <a class="button button-primary" href="https://qual.signet7.io/email/verify">Open the live check</a>
-        <a class="button button-secondary" href="check">How a recipient checks</a>
         <a class="button button-secondary" href="scenarios">Send and receive stories</a>
         <a class="button button-secondary" href="pilot">Review the evaluation path</a>
       </div>
     </section>
-    </div>
   </main>
 
   <footer class="site-footer">
@@ -128,6 +153,6 @@
       <div><p>Current local candidate. Caller-enforced. VSN check hosted on qual.</p></div>
     </div>
   </footer>
-  <script src="assets/motion.js?v=20260819n" defer></script>
+  <script src="assets/motion.js?v=20260819o" defer></script>
 </body>
 </html>
