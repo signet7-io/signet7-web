@@ -155,16 +155,16 @@
       if (kick) kick.textContent = whoLine[who] || "For you";
       if (money === "no") {
         if (title) title.textContent = "This is for people who move money because an email said so.";
-        if (body) body.textContent = "If that is not your world, you can still look. Signet7 is the last look before money or an account changes. You already have a product: call the person.";
+        if (body) body.textContent = "If that is not your world, you can still look. Signet7 is the last look before money or an account changes. Call them on a number you already have — not the one in the email.";
       } else if (act === "reply") {
         if (title) title.textContent = "Replying to that email is the trap.";
-        if (body) body.textContent = "You already have a product: call the person. Signet7 is the last look before you change where money goes — who it is bound to, whether the words still match, the proof you keep.";
+        if (body) body.textContent = "Call them on a number you already have — not the one in the email. Signet7 is the last look before you change where money goes — who it is bound to, whether the words still match, the proof you keep.";
       } else if (act === "call") {
         if (title) title.textContent = "Keep the call. Keep the proof too.";
-        if (body) body.textContent = "The callback is still the product. Signet7 is the last look you can show later: bound sender, sealed words, a record that is not locked in one vendor's screen.";
+        if (body) body.textContent = "Keep making that call. Signet7 is the last look you can show later: bound sender, sealed words, a record that is not locked in one vendor's screen.";
       } else {
         if (title) title.textContent = "Looks ordinary. That's the trap.";
-        if (body) body.textContent = "You already have a product: call the person. Signet7 is the last look — who the message is bound to, whether the words still match, the record you keep.";
+        if (body) body.textContent = "Call them on a number you already have — not the one in the email. Signet7 is the last look: who the message is bound to, whether the words still match, the record you keep.";
       }
     };
     quest.addEventListener("click", (e) => {

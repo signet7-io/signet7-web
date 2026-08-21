@@ -52,7 +52,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for phrase in (
             "trust layer for consequential email",
             "check the seal before you act.",
-            "you already have a product: call the person.",
+            "call them on a number you already have",
             "verified does not mean safe",
             "unknown does not mean fraud",
             "vsn check hosted on qual",
