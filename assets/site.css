@@ -405,8 +405,41 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   to { opacity: 1; transform: none; }
 }
 .mail-top {
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
   padding: 12px 16px; background: #16130f; color: #f4efe4; font-size: 12px;
+}
+.demo-flag {
+  margin-right: auto;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #88619a;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+.tab b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-right: 4px;
+  border-radius: 50%;
+  background: rgba(23,20,16,0.12);
+  font-size: 11px;
+}
+.tab[aria-selected="true"] b { background: #e4ae3a; color: #171410; }
+.tab.is-flash b {
+  animation: stepflash 1s ease-in-out infinite;
+}
+@keyframes stepflash {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(228, 174, 58, 0.7); transform: scale(1); }
+  50% { box-shadow: 0 0 0 8px rgba(228, 174, 58, 0); transform: scale(1.12); background: #e4ae3a; color: #171410; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tab.is-flash b { animation: none; }
 }
 .dots { display: flex; gap: 6px; }
 .dots i { width: 9px; height: 9px; border-radius: 50%; background: #5c564c; display: block; }

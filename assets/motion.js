@@ -97,8 +97,17 @@
   });
 
   const showPanel = (name) => {
-    tabs.forEach((t) => t.setAttribute("aria-selected", t.getAttribute("data-tab") === name ? "true" : "false"));
+    tabs.forEach((t) => {
+      const on = t.getAttribute("data-tab") === name;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+    });
     panels.forEach((p) => p.classList.toggle("is-on", p.getAttribute("data-panel") === name));
+    tabs.forEach((t) => t.classList.remove("is-flash"));
+    const flashName = name === "received" ? "inspect" : name === "inspect" ? "inspect" : "";
+    const flash = tabs.find((t) => t.getAttribute("data-tab") === flashName);
+    if (flash && (name === "received" || name === "inspect")) flash.classList.add("is-flash");
+    if (name === "received") say("Demo. Hover a highlighted detail. Then tap 2.");
+    if (name === "inspect") say("Demo step 2. Walkthrough only. This page is not the live check.");
   };
 
   const inspectors = [...document.querySelectorAll("[data-inspect]")];

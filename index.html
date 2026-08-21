@@ -20,7 +20,7 @@
   <meta property="og:image" content="https://signet7.io/assets/og-image.png">
   <link rel="canonical" href="https://signet7.io/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/site.css?v=20260821f">
+  <link rel="stylesheet" href="assets/site.css?v=20260821g">
 </head>
 <body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -98,10 +98,11 @@
           </div>
           <p class="film-hint">Keep Outlook, Apple Mail, or Thunderbird. Same on Windows, Mac, and Linux. <a href="check">How a recipient checks</a>. <a href="scenarios">Send and receive stories</a>.</p>
         </div>
-      <aside class="mail" id="letter" data-mail aria-label="Interactive sample message">
+      <aside class="mail" id="letter" data-mail aria-label="Demo message. Two steps.">
         <div class="mail-top">
           <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-          <span>Inbox — play with this message</span>
+          <span class="demo-flag">Demo</span>
+          <span>Try step 1, then 2</span>
         </div>
         <div class="mail-body">
           <div class="row"><b>From</b><span class="hot" tabindex="0" data-hot="A look-alike address can be typed by anyone. The seal is about the key, not the costume.">ap@northline-vendors.com</span></div>
@@ -109,19 +110,19 @@
           <p class="subject">Updated wiring instructions</p>
           <p>Please use the account below for this week's invoice. We need this processed before close of business.</p>
           <p>Routing 021000021 &nbsp; Account <span class="hot" tabindex="0" data-hot="This is the irreversible detail. Check the seal before you change where money goes.">4419920173</span></p>
-          <p class="hint" data-hint>Hover a highlighted detail. Then inspect.</p>
+          <p class="hint" data-hint>Demo. Hover a highlighted detail. Then tap 2.</p>
           <div class="mail-actions">
-            <button class="button button-primary" type="button" data-inspect>Inspect this message</button>
+            <button class="button button-primary" type="button" data-inspect>2 · Inspect this message</button>
             <a class="button button-secondary" href="https://qual.signet7.io/email/verify">Live check on qual</a>
           </div>
         </div>
-        <div class="tabs" role="tablist" aria-label="Walkthrough views">
-          <button class="tab" type="button" data-tab="received" aria-selected="true">1 Received</button>
-          <button class="tab" type="button" data-tab="inspect">2 Inspect</button>
+        <div class="tabs" role="tablist" aria-label="Demo steps">
+          <button class="tab" type="button" data-tab="received" aria-selected="true"><b>1</b> Received</button>
+          <button class="tab is-flash" type="button" data-tab="inspect"><b>2</b> Inspect</button>
           <button class="tab" type="button" data-tab="limits">3 Limits</button>
         </div>
         <div class="panel is-on" data-panel="received">
-          <p>As received, it looks ordinary. That is the point.</p>
+          <p>Demo step 1. As received, it looks ordinary. That is the point.</p>
         </div>
         <div class="panel" data-panel="inspect">
           <div class="state ok"><div><small>Protected content</small><strong>Matches the sealed bytes</strong></div><span>Held</span></div>
@@ -328,6 +329,6 @@
       <div><p>Current local candidate. Caller-enforced. VSN check hosted on qual.</p></div>
     </div>
   </footer>
-  <script src="assets/motion.js?v=20260821f" defer></script>
+  <script src="assets/motion.js?v=20260821g" defer></script>
 </body>
 </html>
