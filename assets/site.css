@@ -44,7 +44,7 @@
   --purple: #88619a;
   --green: #33a474;
   --max: 1220px;
-  --nav-h: 168px;
+  --nav-h: 176px;
 }
 html[data-theme="dark"] {
   color-scheme: dark;
@@ -132,16 +132,16 @@ a:hover { color: #2a6f86; }
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 6px 16px 8px;
+  padding: 0 16px;
   box-sizing: border-box;
 }
 .nav-wrap, .nav {
   display: flex;
-  min-height: 168px;
+  min-height: 0;
   align-items: center;
   justify-content: flex-start;
   gap: 16px;
-  padding: 6px 0 0;
+  padding: 0;
 }
 .brand {
   display: inline-flex; align-items: center; gap: 12px;
@@ -149,16 +149,18 @@ a:hover { color: #2a6f86; }
   text-transform: uppercase; font-size: 28px;
 }
 .brand img {
-  width: 256px; height: 256px; border-radius: 0; object-fit: contain; background: transparent;
-  margin: -8px 0 -8px -6px;
+  width: 168px; height: 168px; border-radius: 0;
+  object-fit: cover; object-position: 50% 46%;
+  background: transparent;
+  margin: 4px 8px 4px -2px;
 }
 .logo-lockup {
   position: relative;
   display: inline-block;
-  width: 256px;
-  height: 256px;
+  width: 168px;
+  height: 168px;
   flex-shrink: 0;
-  margin: -12px 0 -12px -8px;
+  margin: 4px 0 4px 0;
 }
 .logo-lockup img {
   position: absolute;
@@ -644,8 +646,8 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 }
 @media (max-width: 900px) {
   .site-header .brand { font-size: 28px; }
-  .site-header .brand img { width: 240px; height: 240px; margin: -18px 0 -22px -6px; }
-  .site-header .logo-lockup { width: 240px; height: 240px; }
+  .site-header .brand img { width: 148px; height: 148px; margin: 4px 6px 4px -2px; object-fit: cover; object-position: 50% 46%; }
+  .site-header .logo-lockup { width: 148px; height: 148px; }
   .stage, .split-heading, .split, .two-column, .feature-pair,
   .consequence-grid, .evidence-grid, .grid-3, .grid-4, .truth-grid, .footer-grid,
   .banner-offers, .meet-grid, .meet-beats, .who-for-grid { grid-template-columns: 1fr; }
@@ -1045,7 +1047,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .header-cta { margin-left: 0; }
 .site-nav a[href*="email/verify"] { display: none; }
 .quest h1 { max-width: 12ch; }
-.nav-wrap { min-height: 72px; }
+.nav-wrap { min-height: 0; }
 
 .sell-hero {
   position: relative;
@@ -1151,8 +1153,8 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   .journey-flow { grid-template-columns: 1fr; }
   .header-cta, .home .header-cta { display: none; }
   .site-header .brand { font-size: 20px; }
-  .site-header .brand img { width: 160px; height: 160px; margin: -4px 0 -4px -4px; }
-  .site-header .logo-lockup { width: 160px; height: 160px; }
+  .site-header .brand img { width: 120px; height: 120px; margin: 4px 4px 4px 0; object-fit: cover; object-position: 50% 46%; }
+  .site-header .logo-lockup { width: 120px; height: 120px; }
   .site-nav a, .nav-links a { color: var(--ink); font-size: 18px; min-height: 44px; display: flex; align-items: center; }
   .site-nav a[href*="email/verify"] { display: flex; }
   .quest { min-height: auto; padding: 16px 0 28px; }
