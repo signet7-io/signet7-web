@@ -239,6 +239,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn(">BEC", home)
         self.assertIn("Law office", home)
         self.assertIn("A record you can produce", home)
+        self.assertIn("You hand them the check", home)
+        self.assertIn("You produce it. They weigh it.", home)
         self.assertIn("fbi ic3", low)
         self.assertIn("pip install signet7", home)
         self.assertIn("No live checkout", home)
