@@ -506,7 +506,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .site-footer, .footer {
   position: relative; z-index: 4;
   padding: 220px 0 28px; border-top: 0;
-  background: #eef6fb url("tech-scene.svg?v=5") no-repeat center bottom / min(1600px, 140%) auto;
+  background: #eef6fb url("tech-scene.svg?v=6") no-repeat center bottom / min(1600px, 140%) auto;
 }
 .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 20px; color: var(--night-mute); }
 .footer .brand, .site-footer .brand { font-size: 22px; }
@@ -826,7 +826,13 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   margin: 28px 0 0;
   line-height: 0;
 }
-.tech-scene { width: 100%; height: auto; display: block; }
+.tech-scene, object.tech-scene {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  border: 0;
+}
 .facts { padding: 8px 0 48px; }
 .facts-grid {
   display: grid;
@@ -837,9 +843,22 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   padding: 28px 22px 24px;
   border-radius: 16px;
   text-align: center;
-  transition: opacity 0.45s ease;
+  transform-origin: 50% 50%;
+  backface-visibility: hidden;
 }
-.fact.is-dim { opacity: 0; }
+.facts-grid { perspective: 900px; }
+.fact.is-flap {
+  animation: flapclock 0.55s ease-in-out;
+}
+@keyframes flapclock {
+  0% { transform: rotateX(0deg); }
+  42% { transform: rotateX(-90deg); }
+  58% { transform: rotateX(-90deg); }
+  100% { transform: rotateX(0deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fact.is-flap { animation: none; }
+}
 .fact strong {
   display: block;
   margin-bottom: 8px;

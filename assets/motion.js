@@ -203,23 +203,24 @@
       ],
     ];
     let i = 0;
-    const paint = (feed) => {
-      cards.forEach((card, n) => {
+    const flapCard = (card, pair) => {
+      card.classList.add("is-flap");
+      window.setTimeout(() => {
         const strong = card.querySelector("strong");
         const span = card.querySelector("span");
-        if (strong) strong.textContent = feed[n][0];
-        if (span) span.textContent = feed[n][1];
-      });
+        if (strong) strong.textContent = pair[0];
+        if (span) span.textContent = pair[1];
+      }, 220);
+      window.setTimeout(() => card.classList.remove("is-flap"), 560);
     };
     if (!reduce && cards.length === 4) {
       window.setInterval(() => {
-        cards.forEach((c) => c.classList.add("is-dim"));
-        window.setTimeout(() => {
-          i = (i + 1) % feeds.length;
-          paint(feeds[i]);
-          cards.forEach((c) => c.classList.remove("is-dim"));
-        }, 450);
-      }, 7000);
+        i = (i + 1) % feeds.length;
+        const feed = feeds[i];
+        cards.forEach((card, n) => {
+          window.setTimeout(() => flapCard(card, feed[n]), n * 420);
+        });
+      }, 8200);
     }
   }
 
