@@ -69,12 +69,12 @@
     1: "This looks like a real vendor. It isn't enough.",
     2: "The words still match. The sender is not tied to that company.",
     3: "VSN: that company's key is not listed as still theirs. Customer companies are not in this lookup yet.",
-    4: "Do not treat this as safe. Call the number you already have — not the one in the email.",
+    4: "You can keep this result as a file. Signet7 does not send money.",
   };
   const nextLabel = {
     1: "Next · Check the seal",
     2: "Next · Check VSN",
-    3: "Next · What you do",
+    3: "Next · Keep the record",
     4: "Start over",
   };
   const say = (text) => {
@@ -159,16 +159,16 @@
       if (kick) kick.textContent = whoLine[who] || "For you";
       if (money === "no") {
         if (title) title.textContent = "This is for people who move money because an email said so.";
-        if (body) body.textContent = "If that is not your world, you can still look. Signet7 is the last look before money or an account changes. Call them on a number you already have — not the one in the email.";
+        if (body) body.textContent = "If that is not your world, you can still look. Signet7 inspects a sealed email and keeps a record you can produce.";
       } else if (act === "reply") {
         if (title) title.textContent = "Replying to that email is the trap.";
-        if (body) body.textContent = "Call them on a number you already have — not the one in the email. Signet7 is the last look before you change where money goes — who it was tied to, whether the words still match, the record you keep.";
+        if (body) body.textContent = "Signet7 is the check before you change where money goes — who it was tied to, whether the words still match, the record you keep.";
       } else if (act === "call") {
-        if (title) title.textContent = "Keep the call. Keep the proof too.";
-        if (body) body.textContent = "Keep making that call. Signet7 is the last look you can show later: who it came from, whether the words still match, a record that is not locked in one company's screen.";
+        if (title) title.textContent = "Keep the proof too.";
+        if (body) body.textContent = "Signet7 is the file you can show later: who it came from, whether the words still match, a record that is not locked in one company's screen.";
       } else {
         if (title) title.textContent = "Looks ordinary. That's the trap.";
-        if (body) body.textContent = "Call them on a number you already have — not the one in the email. Signet7 is the last look: who it was tied to, whether the words still match, the record you keep.";
+        if (body) body.textContent = "Signet7 is the check: who it was tied to, whether the words still match, the record you keep.";
       }
     };
     quest.addEventListener("click", (e) => {

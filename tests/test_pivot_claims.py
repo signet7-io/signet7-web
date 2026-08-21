@@ -52,7 +52,6 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for phrase in (
             "trust layer for consequential email",
             "check the seal before you act.",
-            "call them on a number you already have",
             "verified does not mean safe",
             "unknown does not mean fraud",
             "vsn check hosted on qual",
@@ -61,6 +60,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, home)
+        self.assertNotIn("call them on a number you already have", home)
+        self.assertIn("call them on a number you already have", self.pages["faq.html"].lower())
         self.assertNotIn("cryptographic agent-action gating", home)
         self.assertNotIn("gate what the agent does.", home)
 
@@ -273,7 +274,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("href=\"pay\"", home)
         self.assertIn("Check VSN", home)
         self.assertIn("Verifiable Sender Network", home)
-        self.assertIn("$12 / $29 / $99", home)
+        self.assertNotIn("$12 / $29 / $99", home)
+        self.assertIn("$12", self.pages["pay.html"])
         self.assertIn("drop-btn", home)
         self.assertIn("Programs &amp; pricing", home)
         self.assertNotRegex(home, r"<form\b")
