@@ -963,6 +963,13 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   pointer-events: none;
   border: 0;
 }
+.circuit-scene { margin: 20px 0 0; }
+.circuit-banner {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2624 / 752;
+  display: block;
+}
 .facts { padding: 8px 0 48px; }
 .facts-grid {
   display: grid;

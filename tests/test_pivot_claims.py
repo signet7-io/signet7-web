@@ -83,6 +83,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, product)
+        self.assertIn("signet7-circuit.jpg", product)
+        self.assertNotIn("signet7-circuit.jpg", self.pages["index.html"])
 
     def test_trust_page_separates_identity_evidence_and_compliance(self) -> None:
         trust = self.pages["trust.html"]
