@@ -950,12 +950,16 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   z-index: 5;
   padding: 36px 0 48px;
 }
-.sell-hero .film-copy h1 {
-  max-width: 12ch;
+.hero-simple h1, .sell-hero .film-copy h1 {
+  max-width: 14ch;
   font-size: clamp(44px, 6vw, 72px);
   line-height: 0.95;
   color: #12141d;
 }
+.hero-simple { max-width: 40rem; padding-bottom: 8px; }
+.hero-simple .lede { font-size: clamp(18px, 2.2vw, 22px); max-width: 28rem; color: #12141d; }
+.demo-wrap { max-width: 42rem; }
+.demo-wrap .mail { margin-top: 20px; }
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
