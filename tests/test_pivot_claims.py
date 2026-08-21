@@ -117,8 +117,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for phrase in (
             "Price the sender habit. Keep recipient checks free.",
             "Per-agent / decision-band direction",
-            "Exact prices not approved",
-            "No live offer",
+            "Checkout not live yet",
+            "$12 / $29 / $99 / from $1,000",
             "Inactive legacy catalog",
             "no longer the controlling public model",
         ):
@@ -188,11 +188,14 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("pay.html", self.pages)
         download = self.pages["download.html"]
         pay = self.pages["pay.html"]
-        self.assertIn("pip install signet7-hold", download)
-        self.assertIn("is-off", download)
-        self.assertIn("Not open yet", download)
+        self.assertIn("pip install signet7", download)
+        self.assertNotIn("signet7-hold", download)
+        self.assertIn("$12", pay)
+        self.assertIn("$29", pay)
+        self.assertIn("$99", pay)
+        self.assertIn("from $1,000", pay)
         self.assertIn("is-off", pay)
-        self.assertIn("No live checkout", pay)
+        self.assertIn("Checkout is not live", pay)
         self.assertNotRegex(pay, r"<form\b")
         for name, html in self.pages.items():
             with self.subTest(page=name):
@@ -263,7 +266,9 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("pip install signet7", home)
         self.assertIn("href=\"download\"", home)
         self.assertIn("href=\"pay\"", home)
-        self.assertIn("No live checkout", home)
+        self.assertIn("Check VSN", home)
+        self.assertIn("Verifiable Sender Network", home)
+        self.assertIn("$12 / $29 / $99", home)
         self.assertIn("drop-btn", home)
         self.assertIn("Programs &amp; pricing", home)
         self.assertNotRegex(home, r"<form\b")
