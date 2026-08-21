@@ -1000,6 +1000,41 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 }
 .hero-simple { max-width: 40rem; padding-bottom: 8px; }
 .hero-simple .lede { font-size: clamp(18px, 2.2vw, 22px); max-width: 28rem; color: var(--ink); }
+.nutshell { max-width: 52rem; padding-bottom: 8px; }
+.nutshell h1 {
+  max-width: 18ch;
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1.05;
+  color: var(--ink);
+}
+.nutshell .lede { max-width: 36rem; font-size: clamp(17px, 2vw, 20px); color: var(--ink-soft); }
+.nut-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 28px 0 22px;
+}
+.nut {
+  background: var(--card);
+  color: var(--ink);
+  border-radius: 16px;
+  padding: 18px 16px 20px;
+  box-shadow: 0 12px 32px rgba(18, 20, 29, 0.06);
+}
+.nut h3 { margin: 0 0 8px; font-size: 16px; color: var(--ink); }
+.nut p { margin: 0; color: var(--ink-soft); font-size: 14px; }
+.price-nut {
+  margin: 0 0 6px;
+  font-size: clamp(22px, 3vw, 32px);
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.price-nut strong { font-weight: 800; }
+.price-note { margin: 0 0 18px; color: var(--mute); font-size: 14px; }
+@media (max-width: 800px) {
+  .nut-grid { grid-template-columns: 1fr; }
+  .nutshell h1 { max-width: none; }
+}
 .demo-wrap { max-width: 42rem; }
 .demo-wrap .mail { margin-top: 20px; }
 .feature-grid {

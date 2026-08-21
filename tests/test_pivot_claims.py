@@ -343,6 +343,9 @@ class ContentSecurityPolicy(unittest.TestCase):
         motion = (ROOT / "assets" / "motion.js").read_text(encoding="utf-8")
         self.assertIn("Next · Check VSN", motion)
         self.assertIn("demoStep === 4", motion)
+        home = self.pages["index.html"]
+        self.assertIn("Decisions You Can Prove", home)
+        self.assertIn("Verifiable by Design", home)
 
     def test_dark_mode_uses_tokens_so_menus_keep_ink(self) -> None:
         css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
