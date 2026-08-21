@@ -148,7 +148,7 @@ a:hover { color: #2a6f86; }
 .brand {
   display: inline-flex; align-items: center; gap: 12px;
   color: var(--night-ink); text-decoration: none; font-weight: 700; letter-spacing: 0.12em;
-  text-transform: uppercase; font-size: 28px;
+  text-transform: uppercase; font-size: 40px;
   line-height: 1;
 }
 .brand img {
@@ -208,19 +208,19 @@ a:hover { color: #2a6f86; }
   margin-left: 0;
   margin-right: 0;
 }
-.site-nav a, .nav-links a { color: var(--ink); text-decoration: none; font-size: 16px; }
+.site-nav a, .nav-links a { color: var(--ink); text-decoration: none; font-size: 22px; }
 .drop { position: relative; }
 .drop-btn {
   border: 0; background: transparent; font: inherit; color: var(--ink);
-  cursor: pointer; font-size: 16px; padding: 8px 0;
+  cursor: pointer; font-size: 22px; padding: 8px 0;
 }
-.drop-btn::after { content: " ▾"; font-size: 11px; color: #2a6f86; }
+.drop-btn::after { content: " ▾"; font-size: 14px; color: #2a6f86; }
 .drop-menu {
   display: none;
   position: absolute;
   top: calc(100% - 2px);
   left: 0;
-  min-width: 220px;
+  min-width: 280px;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -230,7 +230,7 @@ a:hover { color: #2a6f86; }
   flex-direction: column;
   gap: 0;
 }
-.drop-menu a { display: block; padding: 10px 12px; color: var(--ink); font-size: 15px; white-space: nowrap; border-radius: 8px; }
+.drop-menu a { display: block; padding: 12px 14px; color: var(--ink); font-size: 20px; white-space: nowrap; border-radius: 8px; }
 .drop-menu a:hover { background: var(--line); color: var(--ink); }
 .drop.is-open .drop-menu { display: flex; }
 @media (min-width: 901px) {
@@ -674,8 +674,8 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   backdrop-filter: none;
 }
 .home .nav-wrap { flex-wrap: nowrap; }
-.home .site-nav { flex-wrap: nowrap; gap: 16px; }
-.home .site-nav a { font-size: 18px; }
+.home .site-nav { flex-wrap: nowrap; gap: 20px; }
+.home .site-nav a { font-size: 22px; }
 .header-cta { white-space: nowrap; }
 .scroll-progress {
   position: fixed; top: 0; left: 0; z-index: 120; height: 3px; width: 0;
@@ -1068,9 +1068,15 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .hero-simple .lede { font-size: clamp(18px, 2.2vw, 22px); max-width: 28rem; color: var(--ink); }
 .nutshell { max-width: none; width: 100%; padding-bottom: 8px; }
 .sell-hero > .container.nutshell {
-  width: calc(100% - 32px);
+  width: auto;
   max-width: none;
-  margin-inline: 16px;
+  margin-inline: clamp(16px, 10vw, 1.75in);
+}
+@media (min-width: 901px) {
+  .sell-hero > .container.nutshell {
+    margin-inline: 1.5in;
+    width: calc(100% - 3in);
+  }
 }
 .nutshell h1 {
   max-width: none;
@@ -1167,7 +1173,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   .site-header .brand { font-size: 20px; }
   .site-header .brand img { width: 160px; height: 160px; margin: 0 4px 0 0; object-fit: cover; object-position: 50% 46%; }
   .site-header .logo-lockup { width: 160px; height: 160px; }
-  .site-nav a, .nav-links a { color: var(--ink); font-size: 18px; min-height: 44px; display: flex; align-items: center; }
+  .site-nav a, .nav-links a { color: var(--ink); font-size: 20px; min-height: 44px; display: flex; align-items: center; }
   .site-nav a[href*="email/verify"] { display: flex; }
   .quest { min-height: auto; padding: 16px 0 28px; }
   .quest-steps-row { display: none; }
