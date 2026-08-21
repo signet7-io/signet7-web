@@ -188,6 +188,12 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             with self.subTest(page=name):
                 self.assertIn("local candidate", html.lower())
 
+    def test_every_page_has_dropdown_nav(self) -> None:
+        for name, html in self.pages.items():
+            with self.subTest(page=name):
+                self.assertIn("drop-btn", html)
+                self.assertIn("pip", html.lower())
+
     def test_public_copy_does_not_overclaim(self) -> None:
         visible = re.sub(r"<[^>]+>", " ", self.all_copy).lower()
         forbidden = (
@@ -229,6 +235,10 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("$16.6B", home)
         self.assertIn("193K+", home)
         self.assertIn("fbi ic3", low)
+        self.assertIn("pip install signet7", home)
+        self.assertIn("No live checkout", home)
+        self.assertIn("drop-btn", home)
+        self.assertIn("Programs &amp; pricing", home)
         self.assertNotRegex(home, r"<form\b")
         self.assertNotIn("dual-control", low)
         self.assertNotIn("isolated qualification", low)

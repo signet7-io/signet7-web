@@ -33,6 +33,28 @@
     });
   }
 
+  const drops = [...document.querySelectorAll(".drop")];
+  drops.forEach((drop) => {
+    const btn = drop.querySelector(".drop-btn");
+    if (!btn) return;
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const open = !drop.classList.contains("is-open");
+      drops.forEach((d) => {
+        d.classList.toggle("is-open", d === drop && open);
+        const b = d.querySelector(".drop-btn");
+        if (b) b.setAttribute("aria-expanded", d === drop && open ? "true" : "false");
+      });
+    });
+  });
+  document.addEventListener("click", () => {
+    drops.forEach((d) => {
+      d.classList.remove("is-open");
+      const b = d.querySelector(".drop-btn");
+      if (b) b.setAttribute("aria-expanded", "false");
+    });
+  });
+
   const mail = document.querySelector("[data-mail]");
   const hint = document.querySelector("[data-hint]");
   const hots = [...document.querySelectorAll("[data-hot]")];
