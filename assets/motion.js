@@ -8,6 +8,19 @@
 
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  document.querySelectorAll("img.tech-scene").forEach((img) => {
+    fetch(img.getAttribute("src") || img.src, { credentials: "same-origin" })
+      .then((r) => (r.ok ? r.text() : Promise.reject()))
+      .then((text) => {
+        const svg = new DOMParser().parseFromString(text, "image/svg+xml").documentElement;
+        if (!svg || svg.nodeName.toLowerCase() !== "svg") return;
+        svg.setAttribute("class", "tech-scene");
+        svg.setAttribute("aria-hidden", "true");
+        img.replaceWith(svg);
+      })
+      .catch(() => {});
+  });
+
   if (!document.querySelector(".sky")) {
     const sky = document.createElement("div");
     sky.className = "sky";
