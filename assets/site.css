@@ -1074,17 +1074,20 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 }
 .nutshell h1 {
   max-width: none;
-  font-size: clamp(40px, 5.4vw, 76px);
-  line-height: 1.08;
+  font-size: clamp(28px, 3.2vw, 50px);
+  line-height: 1.18;
   color: var(--ink);
 }
-.nutshell .lede { max-width: none; font-size: clamp(20px, 2.15vw, 28px); color: var(--ink-soft); }
+.nutshell .lede { max-width: none; font-size: clamp(17px, 1.35vw, 22px); line-height: 1.5; color: var(--ink-soft); }
 .nutshell .lede-follow { margin-top: 14px; }
 .nutshell .tagline {
   margin: 12px 0 0;
   color: var(--mute);
-  font-size: 20px;
+  font-size: 18px;
   letter-spacing: 0.02em;
+}
+@media (min-width: 1280px) {
+  .nutshell h1 { font-size: 48px; }
 }
 .nut-grid {
   display: grid;
