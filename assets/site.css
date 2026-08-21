@@ -837,7 +837,9 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   padding: 28px 22px 24px;
   border-radius: 16px;
   text-align: center;
+  transition: opacity 0.45s ease;
 }
+.fact.is-dim { opacity: 0; }
 .fact strong {
   display: block;
   margin-bottom: 8px;

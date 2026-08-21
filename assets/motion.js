@@ -179,6 +179,50 @@
     });
   }
 
+  const factsRoot = document.querySelector("[data-facts]");
+  if (factsRoot) {
+    const cards = [...factsRoot.querySelectorAll(".fact")];
+    const feeds = [
+      [
+        ["$3.05B", "Business Email Compromise losses reported to FBI IC3 in 2025."],
+        ["24,768", "Business Email Compromise complaints reported to FBI IC3 in 2025."],
+        ["$20.9B", "Internet-crime losses reported to IC3 in 2025."],
+        ["191K+", "Phishing/spoofing complaints reported to FBI IC3 in 2025."],
+      ],
+      [
+        ["1,008,597", "Internet-crime complaints reported to FBI IC3 in 2025."],
+        ["26%", "Increase in losses reported to IC3 from 2024 to 2025."],
+        ["$20,699", "Average loss reported to FBI IC3 in 2025."],
+        ["$17.7B", "Cyber-enabled fraud losses reported to IC3 in 2025."],
+      ],
+      [
+        ["$3.05B", "Business Email Compromise losses reported to FBI IC3 in 2025."],
+        ["$275M", "Real estate fraud losses reported to FBI IC3 in 2025."],
+        ["12,368", "Real estate fraud complaints reported to FBI IC3 in 2025."],
+        ["85%", "Share of 2025 IC3 losses that were cyber-enabled fraud."],
+      ],
+    ];
+    let i = 0;
+    const paint = (feed) => {
+      cards.forEach((card, n) => {
+        const strong = card.querySelector("strong");
+        const span = card.querySelector("span");
+        if (strong) strong.textContent = feed[n][0];
+        if (span) span.textContent = feed[n][1];
+      });
+    };
+    if (!reduce && cards.length === 4) {
+      window.setInterval(() => {
+        cards.forEach((c) => c.classList.add("is-dim"));
+        window.setTimeout(() => {
+          i = (i + 1) % feeds.length;
+          paint(feeds[i]);
+          cards.forEach((c) => c.classList.remove("is-dim"));
+        }, 450);
+      }, 7000);
+    }
+  }
+
   if (!reduce) {
     window.addEventListener(
       "pointermove",
