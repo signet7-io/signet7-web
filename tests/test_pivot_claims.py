@@ -267,7 +267,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("You hand them the check", home)
         self.assertIn("You produce it. They weigh it.", home)
         self.assertIn("fbi ic3", low)
-        self.assertIn("pip install signet7", home)
+        self.assertNotIn("pip install signet7", home)
+        self.assertIn("pip install signet7", self.pages["download.html"])
         self.assertIn("href=\"download\"", home)
         self.assertIn("href=\"pay\"", home)
         self.assertIn("Check VSN", home)
@@ -336,9 +337,12 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("tech-scene-dark.jpg", home)
         self.assertIn("tech-scene-light", home)
         self.assertIn("data-demo-next", home)
+        self.assertIn("Step 1 of 4", home)
+        self.assertIn('data-panel="vsn"', home)
+        self.assertIn('data-panel="decide"', home)
         motion = (ROOT / "assets" / "motion.js").read_text(encoding="utf-8")
-        self.assertIn("[data-panel=inspect]", motion)
-        self.assertNotIn("nextBtn.hidden = step === 2", motion)
+        self.assertIn("Next · Check VSN", motion)
+        self.assertIn("demoStep === 4", motion)
 
 
 if __name__ == "__main__":

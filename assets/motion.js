@@ -61,29 +61,45 @@
   const nextBtn = document.querySelector("[data-demo-next]");
   const backBtn = document.querySelector("[data-demo-back]");
   const label = document.querySelector("[data-demo-label]");
-  const inspectPanel = document.querySelector("[data-panel=inspect]");
+  const panels = [...document.querySelectorAll("[data-panel]")];
   const acct = document.querySelector("[data-hot-acct]");
   const from = document.querySelector("[data-hot-from]");
   let demoStep = 1;
+  const hints = {
+    1: "This looks like a real vendor. It isn't enough.",
+    2: "The words still match. The sender is not tied to that company.",
+    3: "VSN: that company's key is not listed as still theirs. Customer companies are not in this lookup yet.",
+    4: "Do not treat this as safe. Call the number you already have — not the one in the email.",
+  };
+  const nextLabel = {
+    1: "Next · Check the seal",
+    2: "Next · Check VSN",
+    3: "Next · What you do",
+    4: "Start over",
+  };
   const say = (text) => {
     if (hint) hint.textContent = text;
   };
   const showDemo = (step) => {
-    demoStep = step === 2 ? 2 : 1;
-    if (label) label.textContent = demoStep === 1 ? "Step 1 of 2" : "Step 2 of 2";
-    if (inspectPanel) inspectPanel.classList.toggle("is-on", demoStep === 2);
+    demoStep = Math.min(4, Math.max(1, step));
+    if (label) label.textContent = `Step ${demoStep} of 4`;
+    panels.forEach((panel) => {
+      const name = panel.getAttribute("data-panel");
+      const on = (demoStep === 2 && name === "inspect") || (demoStep === 3 && name === "vsn") || (demoStep === 4 && name === "decide");
+      panel.classList.toggle("is-on", on);
+    });
     if (backBtn) backBtn.hidden = demoStep === 1;
     if (nextBtn) {
       nextBtn.hidden = false;
-      nextBtn.textContent = demoStep === 1 ? "Check the seal" : "Start over";
+      nextBtn.textContent = nextLabel[demoStep];
     }
-    if (acct) acct.classList.toggle("is-on", demoStep === 2);
-    if (from) from.classList.toggle("is-on", demoStep === 2);
-    if (demoStep === 1) say("This looks like a real vendor. It isn't enough. Tap Check the seal.");
-    if (demoStep === 2) say("The words still match. The sender is not bound. Call the number you already have.");
+    const mark = demoStep >= 2;
+    if (acct) acct.classList.toggle("is-on", mark);
+    if (from) from.classList.toggle("is-on", mark);
+    say(hints[demoStep]);
   };
-  if (nextBtn) nextBtn.addEventListener("click", () => showDemo(demoStep === 1 ? 2 : 1));
-  if (backBtn) backBtn.addEventListener("click", () => showDemo(1));
+  if (nextBtn) nextBtn.addEventListener("click", () => showDemo(demoStep === 4 ? 1 : demoStep + 1));
+  if (backBtn) backBtn.addEventListener("click", () => showDemo(demoStep - 1));
   if (mail) showDemo(1);
 
   const bar = document.querySelector("[data-progress]");
@@ -146,13 +162,13 @@
         if (body) body.textContent = "If that is not your world, you can still look. Signet7 is the last look before money or an account changes. Call them on a number you already have — not the one in the email.";
       } else if (act === "reply") {
         if (title) title.textContent = "Replying to that email is the trap.";
-        if (body) body.textContent = "Call them on a number you already have — not the one in the email. Signet7 is the last look before you change where money goes — who it is bound to, whether the words still match, the proof you keep.";
+        if (body) body.textContent = "Call them on a number you already have — not the one in the email. Signet7 is the last look before you change where money goes — who it was tied to, whether the words still match, the record you keep.";
       } else if (act === "call") {
         if (title) title.textContent = "Keep the call. Keep the proof too.";
-        if (body) body.textContent = "Keep making that call. Signet7 is the last look you can show later: bound sender, sealed words, a record that is not locked in one vendor's screen.";
+        if (body) body.textContent = "Keep making that call. Signet7 is the last look you can show later: who it came from, whether the words still match, a record that is not locked in one company's screen.";
       } else {
         if (title) title.textContent = "Looks ordinary. That's the trap.";
-        if (body) body.textContent = "Call them on a number you already have — not the one in the email. Signet7 is the last look: who the message is bound to, whether the words still match, the record you keep.";
+        if (body) body.textContent = "Call them on a number you already have — not the one in the email. Signet7 is the last look: who it was tied to, whether the words still match, the record you keep.";
       }
     };
     quest.addEventListener("click", (e) => {
