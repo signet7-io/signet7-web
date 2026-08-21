@@ -539,7 +539,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .site-footer, .footer {
   position: relative; z-index: 4;
   padding: 220px 0 28px; border-top: 0;
-  background: #eef6fb url("tech-scene.svg?v=7") no-repeat center bottom / min(1600px, 140%) auto;
+  background: #eef6fb url("tech-scene.jpg?v=8") no-repeat center bottom / min(1600px, 140%) auto;
 }
 .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 20px; color: var(--night-mute); }
 .footer .brand, .site-footer .brand { font-size: 22px; }
@@ -862,7 +862,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .tech-scene, object.tech-scene {
   width: 100%;
   height: auto;
-  aspect-ratio: 1440 / 400;
+  aspect-ratio: 2608 / 752;
   min-height: 220px;
   display: block;
   pointer-events: none;
