@@ -16,6 +16,10 @@
         if (!svg || svg.nodeName.toLowerCase() !== "svg") return;
         svg.setAttribute("class", "tech-scene");
         svg.setAttribute("aria-hidden", "true");
+        svg.querySelectorAll("image").forEach((pic) => {
+          pic.setAttribute("href", "assets/signet7-logo-mark.png");
+          pic.removeAttribute("xlink:href");
+        });
         img.replaceWith(svg);
       })
       .catch(() => {});
