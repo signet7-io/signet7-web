@@ -196,8 +196,7 @@
     });
   }
 
-  const factsRoot = document.querySelector("[data-facts]");
-  if (factsRoot) {
+  document.querySelectorAll("section.facts").forEach((factsRoot) => {
     const cards = [...factsRoot.querySelectorAll(".fact")];
     const feeds = [
       [
@@ -239,7 +238,7 @@
         });
       }, 8200);
     }
-  }
+  });
 
   if (!reduce) {
     window.addEventListener(

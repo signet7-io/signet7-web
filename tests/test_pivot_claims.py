@@ -188,8 +188,10 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("pay.html", self.pages)
         download = self.pages["download.html"]
         pay = self.pages["pay.html"]
-        self.assertIn("pip install signet7", download)
-        self.assertNotIn("signet7-hold", download)
+        self.assertIn("pip install signet7-hold", download)
+        self.assertNotIn("pypi.org", download)
+        self.assertIn("is-off", download)
+        self.assertIn("Not open yet", download)
         self.assertIn("$12", pay)
         self.assertIn("$29", pay)
         self.assertIn("$99", pay)
@@ -201,6 +203,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             with self.subTest(page=name):
                 self.assertIn('href="download"', html)
                 self.assertIn('href="pay"', html)
+                self.assertNotIn("pypi.org", html)
+                self.assertIn('class="facts"', html)
 
     def test_every_page_keeps_local_candidate_boundary(self) -> None:
         for name, html in self.pages.items():
