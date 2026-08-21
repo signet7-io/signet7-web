@@ -44,7 +44,7 @@
   --purple: #88619a;
   --green: #33a474;
   --max: 1220px;
-  --nav-h: 176px;
+  --nav-h: 256px;
 }
 html[data-theme="dark"] {
   color-scheme: dark;
@@ -127,6 +127,7 @@ a:hover { color: #2a6f86; }
   backdrop-filter: none;
   border-bottom: 1px solid var(--line);
   overflow: visible;
+  line-height: 0;
 }
 .site-header .container.nav-wrap {
   width: 100%;
@@ -142,25 +143,28 @@ a:hover { color: #2a6f86; }
   justify-content: flex-start;
   gap: 16px;
   padding: 0;
+  line-height: 1.5;
 }
 .brand {
   display: inline-flex; align-items: center; gap: 12px;
   color: var(--night-ink); text-decoration: none; font-weight: 700; letter-spacing: 0.12em;
   text-transform: uppercase; font-size: 28px;
+  line-height: 1;
 }
 .brand img {
-  width: 168px; height: 168px; border-radius: 0;
+  width: 256px; height: 256px; border-radius: 0;
   object-fit: cover; object-position: 50% 46%;
   background: transparent;
-  margin: 4px 8px 4px -2px;
+  margin: 0 8px 0 0;
+  display: block;
 }
 .logo-lockup {
   position: relative;
   display: inline-block;
-  width: 168px;
-  height: 168px;
+  width: 256px;
+  height: 256px;
   flex-shrink: 0;
-  margin: 4px 0 4px 0;
+  margin: 0;
 }
 .logo-lockup img {
   position: absolute;
@@ -646,8 +650,8 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 }
 @media (max-width: 900px) {
   .site-header .brand { font-size: 28px; }
-  .site-header .brand img { width: 148px; height: 148px; margin: 4px 6px 4px -2px; object-fit: cover; object-position: 50% 46%; }
-  .site-header .logo-lockup { width: 148px; height: 148px; }
+  .site-header .brand img { width: 240px; height: 240px; margin: 0 6px 0 0; object-fit: cover; object-position: 50% 46%; }
+  .site-header .logo-lockup { width: 240px; height: 240px; }
   .stage, .split-heading, .split, .two-column, .feature-pair,
   .consequence-grid, .evidence-grid, .grid-3, .grid-4, .truth-grid, .footer-grid,
   .banner-offers, .meet-grid, .meet-beats, .who-for-grid { grid-template-columns: 1fr; }
@@ -1153,8 +1157,8 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   .journey-flow { grid-template-columns: 1fr; }
   .header-cta, .home .header-cta { display: none; }
   .site-header .brand { font-size: 20px; }
-  .site-header .brand img { width: 120px; height: 120px; margin: 4px 4px 4px 0; object-fit: cover; object-position: 50% 46%; }
-  .site-header .logo-lockup { width: 120px; height: 120px; }
+  .site-header .brand img { width: 160px; height: 160px; margin: 0 4px 0 0; object-fit: cover; object-position: 50% 46%; }
+  .site-header .logo-lockup { width: 160px; height: 160px; }
   .site-nav a, .nav-links a { color: var(--ink); font-size: 18px; min-height: 44px; display: flex; align-items: center; }
   .site-nav a[href*="email/verify"] { display: flex; }
   .quest { min-height: auto; padding: 16px 0 28px; }
