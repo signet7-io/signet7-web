@@ -338,6 +338,7 @@ class ContentSecurityPolicy(unittest.TestCase):
                 self.assertIn("Dark mode", html)
                 self.assertIn("signet7-logo-mark.png", html)
                 self.assertIn('width="768"', html)
+                self.assertIn("https://qual.signet7.io/account", html)
         theme = (ROOT / "assets" / "theme.js").read_text(encoding="utf-8")
         self.assertIn('|| "dark"', theme)
         self.assertIn("s7-theme-v2", theme)
