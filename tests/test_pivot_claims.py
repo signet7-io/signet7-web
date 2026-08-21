@@ -335,6 +335,8 @@ class ContentSecurityPolicy(unittest.TestCase):
                 self.assertIn("data-theme-toggle", html)
                 self.assertIn('src="assets/theme.js', html)
                 self.assertIn("Dark mode", html)
+                self.assertIn("logo-lockup", html)
+                self.assertIn("DECISIONS YOU CAN PROVE", html)
         home = self.pages["index.html"]
         self.assertIn("tech-scene-dark.jpg", home)
         self.assertIn("tech-scene-light", home)

@@ -44,7 +44,7 @@
   --purple: #88619a;
   --green: #33a474;
   --max: 1220px;
-  --nav-h: 96px;
+  --nav-h: 168px;
 }
 html[data-theme="dark"] {
   color-scheme: dark;
@@ -137,7 +137,7 @@ a:hover { color: #2a6f86; }
 }
 .nav-wrap, .nav {
   display: flex;
-  min-height: 96px;
+  min-height: 168px;
   align-items: center;
   justify-content: flex-start;
   gap: 16px;
@@ -149,8 +149,48 @@ a:hover { color: #2a6f86; }
   text-transform: uppercase; font-size: 28px;
 }
 .brand img {
-  width: 128px; height: 128px; border-radius: 0; object-fit: contain; background: transparent;
+  width: 256px; height: 256px; border-radius: 0; object-fit: contain; background: transparent;
   margin: -8px 0 -8px -6px;
+}
+.logo-lockup {
+  position: relative;
+  display: inline-block;
+  width: 256px;
+  height: 256px;
+  flex-shrink: 0;
+  margin: -12px 0 -12px -8px;
+}
+.logo-lockup img {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  left: 15%;
+  top: 15%;
+  margin: 0;
+}
+.brand .logo-lockup img,
+.site-header .logo-lockup img,
+.site-header .brand .logo-lockup img,
+.footer .logo-lockup img,
+.site-footer .logo-lockup img {
+  width: 70%;
+  height: 70%;
+  margin: 0;
+}
+.logo-lockup svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.logo-lockup text {
+  fill: var(--ink);
+  font-size: 5.4px;
+  font-family: Outfit, "Segoe UI", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.22em;
 }
 .site-nav, .nav-links { display: flex; flex-wrap: nowrap; gap: 18px; justify-content: flex-end; align-items: center; }
 .site-nav a, .nav-links a { color: var(--ink); text-decoration: none; font-size: 16px; }
@@ -580,11 +620,12 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .site-footer, .footer {
   position: relative; z-index: 4;
   padding: 220px 0 28px; border-top: 0;
-  background: #eef6fb url("tech-scene.jpg?v=8") no-repeat center bottom / min(1600px, 140%) auto;
+  background: #eef6fb url("tech-scene.jpg?v=9") no-repeat center bottom / min(1600px, 140%) auto;
 }
 .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 20px; color: var(--night-mute); }
 .footer .brand, .site-footer .brand { font-size: 22px; }
-.footer .brand img, .site-footer .brand img { width: 72px; height: 72px; margin: 0; }
+.footer .brand img, .site-footer .brand img { width: 144px; height: 144px; margin: 0; }
+.footer .logo-lockup, .site-footer .logo-lockup { width: 144px; height: 144px; margin: 0; }
 .footer-grid a { display: inline-block; margin-right: 12px; color: var(--night-mute); text-decoration: none; }
 
 @media (max-width: 1100px) {
@@ -592,7 +633,8 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 }
 @media (max-width: 900px) {
   .site-header .brand { font-size: 28px; }
-  .site-header .brand img { width: 120px; height: 120px; margin: -18px 0 -22px -6px; }
+  .site-header .brand img { width: 240px; height: 240px; margin: -18px 0 -22px -6px; }
+  .site-header .logo-lockup { width: 240px; height: 240px; }
   .stage, .split-heading, .split, .two-column, .feature-pair,
   .consequence-grid, .evidence-grid, .grid-3, .grid-4, .truth-grid, .footer-grid,
   .banner-offers, .meet-grid, .meet-beats, .who-for-grid { grid-template-columns: 1fr; }
@@ -904,7 +946,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .tech-scene, object.tech-scene {
   width: 100%;
   height: auto;
-  aspect-ratio: 2608 / 752;
+  aspect-ratio: 2592 / 752;
   min-height: 220px;
   display: block;
   pointer-events: none;
@@ -1084,7 +1126,8 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   .journey-flow { grid-template-columns: 1fr; }
   .header-cta, .home .header-cta { display: none; }
   .site-header .brand { font-size: 20px; }
-  .site-header .brand img { width: 80px; height: 80px; margin: -4px 0 -4px -4px; }
+  .site-header .brand img { width: 160px; height: 160px; margin: -4px 0 -4px -4px; }
+  .site-header .logo-lockup { width: 160px; height: 160px; }
   .site-nav a, .nav-links a { color: var(--ink); font-size: 18px; min-height: 44px; display: flex; align-items: center; }
   .site-nav a[href*="email/verify"] { display: flex; }
   .quest { min-height: auto; padding: 16px 0 28px; }
