@@ -359,7 +359,9 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("Decisions You Can Prove", home)
         self.assertIn("Verifiable by Design", home)
         self.assertIn("cryptographic check for high-stakes email", home.lower())
+        self.assertIn("powered by VSN", home)
         self.assertIn("tamper-evident record", home.lower())
+        self.assertIn("gate actions proposed by people or AI agents", home)
 
     def test_dark_mode_uses_tokens_so_menus_keep_ink(self) -> None:
         css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")

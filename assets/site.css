@@ -1055,7 +1055,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .hero-simple .lede { font-size: clamp(18px, 2.2vw, 22px); max-width: 28rem; color: var(--ink); }
 .nutshell { max-width: 52rem; padding-bottom: 8px; }
 .nutshell h1 {
-  max-width: 28ch;
+  max-width: 34ch;
   font-size: clamp(30px, 4.4vw, 50px);
   line-height: 1.08;
   color: var(--ink);
