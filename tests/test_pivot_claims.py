@@ -332,10 +332,15 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertTrue((ROOT / "assets" / "theme.js").is_file())
         for name, html in self.pages.items():
             with self.subTest(page=name):
+                self.assertIn('data-theme="dark"', html)
                 self.assertIn("data-theme-toggle", html)
                 self.assertIn('src="assets/theme.js', html)
                 self.assertIn("Dark mode", html)
                 self.assertIn("signet7-logo-mark.png", html)
+                self.assertIn('width="768"', html)
+        theme = (ROOT / "assets" / "theme.js").read_text(encoding="utf-8")
+        self.assertIn('|| "dark"', theme)
+        self.assertIn("s7-theme-v2", theme)
         home = self.pages["index.html"]
         self.assertIn("tech-scene-dark.jpg", home)
         self.assertIn("tech-scene-light", home)

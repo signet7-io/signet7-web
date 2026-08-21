@@ -1,7 +1,7 @@
 (() => {
-  const KEY = "s7-theme";
+  const KEY = "s7-theme-v2";
   const apply = (theme) => {
-    const next = theme === "dark" ? "dark" : "light";
+    const next = theme === "light" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", next);
     document.documentElement.style.colorScheme = next;
     try {
@@ -19,15 +19,15 @@
       meta.setAttribute("content", dark ? "#071018" : "#f7fbfe");
     });
   };
-  let saved = "light";
+  let saved = "dark";
   try {
-    saved = localStorage.getItem(KEY) || "light";
+    saved = localStorage.getItem(KEY) || "dark";
   } catch (err) {
-    saved = "light";
+    saved = "dark";
   }
   apply(saved);
   const bind = () => {
-    apply(document.documentElement.getAttribute("data-theme") || "light");
+    apply(document.documentElement.getAttribute("data-theme") || "dark");
     document.querySelectorAll("[data-theme-toggle]").forEach((btn) => {
       if (btn.dataset.bound === "1") return;
       btn.dataset.bound = "1";
