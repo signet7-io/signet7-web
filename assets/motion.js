@@ -56,56 +56,35 @@
   });
 
   const mail = document.querySelector("[data-mail]");
-  const hint = document.querySelector("[data-hint]");
-  const hots = [...document.querySelectorAll("[data-hot]")];
-  const inspect = document.querySelector("[data-inspect]");
-  const tabs = [...document.querySelectorAll("[data-tab]")];
-  const panels = [...document.querySelectorAll("[data-panel]")];
   const spot = document.querySelector(".spot");
-
+  const hint = document.querySelector("[data-hint]");
+  const nextBtn = document.querySelector("[data-demo-next]");
+  const backBtn = document.querySelector("[data-demo-back]");
+  const label = document.querySelector("[data-demo-label]");
+  const inspectPanel = document.querySelector("[data-panel=\"inspect\"]");
+  const acct = document.querySelector("[data-hot-acct]");
+  const from = document.querySelector("[data-hot-from]");
+  let demoStep = 1;
   const say = (text) => {
     if (hint) hint.textContent = text;
   };
-
-  hots.forEach((el) => {
-    const msg = el.getAttribute("data-hot") || "";
-    const on = () => {
-      hots.forEach((h) => h.classList.remove("is-on"));
-      el.classList.add("is-on");
-      say(msg);
-    };
-    el.addEventListener("mouseenter", on);
-    el.addEventListener("focus", on);
-    el.addEventListener("click", on);
-  });
-
-  const showPanel = (name) => {
-    tabs.forEach((t) => {
-      const on = t.getAttribute("data-tab") === name;
-      t.setAttribute("aria-selected", on ? "true" : "false");
-    });
-    panels.forEach((p) => p.classList.toggle("is-on", p.getAttribute("data-panel") === name));
-    tabs.forEach((t) => t.classList.remove("is-flash"));
-    const flashName = name === "received" ? "inspect" : name === "inspect" ? "inspect" : "";
-    const flash = tabs.find((t) => t.getAttribute("data-tab") === flashName);
-    if (flash && (name === "received" || name === "inspect")) flash.classList.add("is-flash");
-    if (name === "received") say("Demo. Hover a highlighted detail. Then tap 2.");
-    if (name === "inspect") say("Demo step 2. Walkthrough only. This page is not the live check.");
+  const showDemo = (step) => {
+    demoStep = step;
+    if (label) label.textContent = step === 1 ? "Step 1 of 2" : "Step 2 of 2";
+    if (inspectPanel) inspectPanel.classList.toggle("is-on", step === 2);
+    if (backBtn) backBtn.hidden = step === 1;
+    if (nextBtn) {
+      nextBtn.hidden = step === 2;
+      nextBtn.textContent = "Next · Check the seal";
+    }
+    if (acct) acct.classList.toggle("is-on", step === 2);
+    if (from) from.classList.toggle("is-on", step === 2);
+    if (step === 1) say("This looks like a real vendor. It isn't enough. Tap Next.");
+    if (step === 2) say("The words still match. The sender is not bound. Call the number you already have.");
   };
-
-  const inspectors = [...document.querySelectorAll("[data-inspect]")];
-  inspectors.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      showPanel("inspect");
-      say("Walkthrough only. This page is not the live check.");
-    });
-  });
-  tabs.forEach((tab) => tab.addEventListener("click", () => showPanel(tab.getAttribute("data-tab"))));
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "1") showPanel("received");
-    if (e.key === "2") showPanel("inspect");
-    if (e.key === "3") showPanel("limits");
-  });
+  if (nextBtn) nextBtn.addEventListener("click", () => showDemo(2));
+  if (backBtn) backBtn.addEventListener("click", () => showDemo(1));
+  if (mail) showDemo(1);
 
   const bar = document.querySelector("[data-progress]");
   const chapters = [...document.querySelectorAll("[data-chapter]")];

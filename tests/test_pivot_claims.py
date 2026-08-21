@@ -324,5 +324,17 @@ class ContentSecurityPolicy(unittest.TestCase):
                     self.assertNotIn("http:", attrs.lower())
                     self.assertEqual(body.strip(), "")
 
+    def test_every_page_has_theme_switch_and_dark_scene_asset(self) -> None:
+        self.assertTrue((ROOT / "assets" / "tech-scene-dark.jpg").is_file())
+        self.assertTrue((ROOT / "assets" / "theme.js").is_file())
+        for name, html in self.pages.items():
+            with self.subTest(page=name):
+                self.assertIn("data-theme-toggle", html)
+                self.assertIn('src="assets/theme.js', html)
+        home = self.pages["index.html"]
+        self.assertIn("tech-scene-dark.jpg", home)
+        self.assertIn("tech-scene-light", home)
+
+
 if __name__ == "__main__":
     unittest.main()

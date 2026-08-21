@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <script src="assets/theme.js?v=1"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- GitHub Pages cannot set response headers. These meta-delivered policies are the
      enforceable subset. NOTE: frame-ancestors is ignored when delivered via <meta>;
@@ -20,7 +21,7 @@
   <meta property="og:image" content="https://signet7.io/assets/og-image.png">
   <link rel="canonical" href="https://signet7.io/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/site.css?v=20260821i">
+  <link rel="stylesheet" href="assets/site.css?v=20260821j">
 </head>
 <body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -82,6 +83,7 @@
         </div>
       <a href="https://qual.signet7.io/email/verify">Live check</a></nav>
       <a class="button button-primary header-cta" href="https://qual.signet7.io/email/verify">Live check</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">Dark</button>
     </div>
   </header>
 
@@ -97,7 +99,8 @@
         </div>
       </div>
       <div class="scene-wrap hero-scene" aria-hidden="true">
-        <img class="tech-scene" src="assets/tech-scene.jpg?v=8" width="2608" height="752" alt="">
+        <img class="tech-scene tech-scene-light" src="assets/tech-scene.jpg?v=8" width="2608" height="752" alt="">
+        <img class="tech-scene tech-scene-dark" src="assets/tech-scene-dark.jpg" width="2624" height="752" alt="">
       </div>
     </section>
 
@@ -105,41 +108,29 @@
       <div class="container demo-wrap">
         <p class="eyebrow">Demo</p>
         <h2 id="demo-title">Looks ordinary. That's the trap.</h2>
-        <p class="section-intro">Two steps. Nothing is sent. This page is not the live check.</p>
-      <aside class="mail" id="letter" data-mail aria-label="Demo message. Two steps.">
+        <p class="section-intro">Two taps. Nothing is sent.</p>
+      <aside class="mail" id="letter" data-mail aria-label="Demo. Two steps.">
         <div class="mail-top">
           <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
           <span class="demo-flag">Demo</span>
-          <span>Try step 1, then 2</span>
+          <span data-demo-label>Step 1 of 2</span>
         </div>
         <div class="mail-body">
-          <div class="row"><b>From</b><span class="hot" tabindex="0" data-hot="A look-alike address can be typed by anyone. The seal is about the key, not the costume.">ap@northline-vendors.com</span></div>
+          <div class="row"><b>From</b><span class="hot" data-hot-from>ap@northline-vendors.com</span></div>
           <div class="row"><b>To</b><span>finance@yourcompany.com</span></div>
           <p class="subject">Updated wiring instructions</p>
           <p>Please use the account below for this week's invoice. We need this processed before close of business.</p>
-          <p>Routing 021000021 &nbsp; Account <span class="hot" tabindex="0" data-hot="This is the irreversible detail. Check the seal before you change where money goes.">4419920173</span></p>
-          <p class="hint" data-hint>Demo. Hover a highlighted detail. Then tap 2.</p>
-          <div class="mail-actions">
-            <button class="button button-primary" type="button" data-inspect>2 · Inspect this message</button>
-            <a class="button button-secondary" href="https://qual.signet7.io/email/verify">Live check on qual</a>
+          <p>Routing 021000021 &nbsp; Account <span class="hot" data-hot-acct>4419920173</span></p>
+          <p class="hint" data-hint>This looks like a real vendor. It isn't enough. Tap Next.</p>
+          <div class="panel" data-panel="inspect">
+            <div class="state ok"><div><small>The sealed words</small><strong>Still match</strong></div></div>
+            <div class="state warn"><div><small>The sender</small><strong>Not bound to that company</strong></div></div>
+            <div class="state bad"><div><small>What you do</small><strong>Do not treat this as safe. Call the number you already have.</strong></div></div>
           </div>
-        </div>
-        <div class="tabs" role="tablist" aria-label="Demo steps">
-          <button class="tab" type="button" data-tab="received" aria-selected="true"><b>1</b> Received</button>
-          <button class="tab is-flash" type="button" data-tab="inspect"><b>2</b> Inspect</button>
-          <button class="tab" type="button" data-tab="limits">3 Limits</button>
-        </div>
-        <div class="panel is-on" data-panel="received">
-          <p>Demo step 1. As received, it looks ordinary. That is the point.</p>
-        </div>
-        <div class="panel" data-panel="inspect">
-          <div class="state ok"><div><small>Protected content</small><strong>Matches the sealed bytes</strong></div><span>Held</span></div>
-          <div class="state warn"><div><small>Sender / key</small><strong>Self-signed</strong></div><span>Unapproved</span></div>
-          <div class="state bad"><div><small>Advice</small><strong>Do not treat this as safe</strong></div><span>Human</span></div>
-          <p class="walkthrough-note">Walkthrough. Verified does not mean safe. Unknown does not mean fraud.</p>
-        </div>
-        <div class="panel" data-panel="limits">
-          <p>Signet7 does not move money, approve payments, or replace a phone call. You still decide.</p>
+          <div class="mail-actions">
+            <button class="button button-secondary" type="button" data-demo-back hidden>Back</button>
+            <button class="button button-primary" type="button" data-demo-next>Next · Check the seal</button>
+          </div>
         </div>
       </aside>
       </div>
@@ -279,7 +270,8 @@
         </div>
       </div>
       <div class="scene-wrap" aria-hidden="true">
-        <img class="tech-scene" src="assets/tech-scene.jpg?v=8" width="2608" height="752" alt="">
+        <img class="tech-scene tech-scene-light" src="assets/tech-scene.jpg?v=8" width="2608" height="752" alt="">
+        <img class="tech-scene tech-scene-dark" src="assets/tech-scene-dark.jpg" width="2624" height="752" alt="">
       </div>
     </section>
 
@@ -331,6 +323,6 @@
       <div><p>Current local candidate. Caller-enforced. VSN check hosted on qual.</p></div>
     </div>
   </footer>
-  <script src="assets/motion.js?v=20260821h" defer></script>
+  <script src="assets/motion.js?v=20260821j" defer></script>
 </body>
 </html>

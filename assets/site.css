@@ -165,6 +165,21 @@ a:hover { color: #2a6f86; }
   display: none; width: 52px; height: 52px; border: 1px solid var(--line);
   border-radius: 10px; background: transparent; color: var(--night-ink); cursor: pointer;
 }
+.theme-toggle {
+  margin-left: 8px;
+  min-width: 52px;
+  height: 52px;
+  padding: 0 12px;
+  border: 1px solid #dce3ea;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #12141d;
+  font: 700 13px Outfit, "Segoe UI", sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  flex-shrink: 0;
+}
 .nav-marks {
   display: flex;
   flex-wrap: wrap;
@@ -463,6 +478,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   background: #efe6d4; color: #4a433a; font-size: 13px;
 }
 .mail-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.mail-actions .button-primary { animation: stepflash 1.2s ease-in-out infinite; }
 .mail .button-primary { box-shadow: none; }
 .mail .button-secondary {
   color: #171410;
@@ -1035,4 +1051,131 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 @media (max-width: 600px) {
   .facts-grid { grid-template-columns: 1fr; }
   .fact strong { font-size: clamp(36px, 12vw, 52px); }
+}
+
+.tech-scene-dark { display: none; }
+html[data-theme="dark"] .tech-scene-light { display: none; }
+html[data-theme="dark"] .tech-scene-dark { display: block; }
+
+@media (max-width: 900px) {
+  .theme-toggle { margin-left: 8px; }
+  .nav-toggle { margin-left: auto; }
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+html[data-theme="dark"] body {
+  background: #071018;
+  color: #e8eef4;
+}
+html[data-theme="dark"] .site-header,
+html[data-theme="dark"] .home .site-header {
+  background: rgba(7, 16, 24, 0.94);
+  border-bottom-color: #1c2a38;
+}
+html[data-theme="dark"] .brand,
+html[data-theme="dark"] .home .site-header .brand span,
+html[data-theme="dark"] .drop-btn,
+html[data-theme="dark"] .site-nav a,
+html[data-theme="dark"] .nav-links a,
+html[data-theme="dark"] .home .site-nav a,
+html[data-theme="dark"] .nav-toggle,
+html[data-theme="dark"] .home .nav-toggle {
+  color: #e8eef4;
+}
+html[data-theme="dark"] .nav-toggle,
+html[data-theme="dark"] .home .nav-toggle,
+html[data-theme="dark"] .theme-toggle {
+  border-color: #3a5166;
+  background: #101c28;
+  color: #e8eef4;
+}
+html[data-theme="dark"] .drop-menu,
+html[data-theme="dark"] body.nav-open .site-nav,
+html[data-theme="dark"] body.nav-open .nav-links {
+  background: #0b1520;
+  border-color: #1c2a38;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+html[data-theme="dark"] .drop-menu a { color: #e8eef4; }
+html[data-theme="dark"] .drop-menu a:hover { background: #132233; }
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] .hero-simple h1,
+html[data-theme="dark"] .sell-hero .film-copy h1,
+html[data-theme="dark"] .home .site-header .brand span {
+  color: #f4f8fb;
+}
+html[data-theme="dark"] .lede,
+html[data-theme="dark"] .section-intro,
+html[data-theme="dark"] .eyebrow,
+html[data-theme="dark"] p,
+html[data-theme="dark"] .who-line,
+html[data-theme="dark"] .reel p,
+html[data-theme="dark"] .quest-sub,
+html[data-theme="dark"] .produce-weigh {
+  color: #c5d0da;
+}
+html[data-theme="dark"] .section,
+html[data-theme="dark"] .quest,
+html[data-theme="dark"] .reel,
+html[data-theme="dark"] .facts,
+html[data-theme="dark"] .sell-hero,
+html[data-theme="dark"] .urgency-band {
+  background: transparent;
+  color: #e8eef4;
+}
+html[data-theme="dark"] .mail {
+  background: #101c28;
+  color: #e8eef4;
+  border-color: #1c2a38;
+}
+html[data-theme="dark"] .hint {
+  background: #1a2733;
+  color: #d7e0e8;
+}
+html[data-theme="dark"] .button-secondary,
+html[data-theme="dark"] .mail .button-secondary {
+  color: #e8eef4;
+  background: #101c28;
+  border-color: #3a5166;
+}
+html[data-theme="dark"] .fact,
+html[data-theme="dark"] .qcard,
+html[data-theme="dark"] .start-card,
+html[data-theme="dark"] .price-card,
+html[data-theme="dark"] .feature-card,
+html[data-theme="dark"] .use-card {
+  background: #101c28;
+  color: #e8eef4;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+}
+html[data-theme="dark"] .start-card p,
+html[data-theme="dark"] .price-card p,
+html[data-theme="dark"] .fact span {
+  color: #c5d0da;
+}
+html[data-theme="dark"] .start-card code {
+  background: #132233;
+  color: #e8eef4;
+}
+html[data-theme="dark"] .site-footer,
+html[data-theme="dark"] .footer {
+  background: #071018 url("tech-scene-dark.jpg") no-repeat center bottom / min(1600px, 140%) auto;
+  color: #c5d0da;
+  border-top: 0;
+}
+html[data-theme="dark"] .footer-grid,
+html[data-theme="dark"] .footer-grid a,
+html[data-theme="dark"] .site-footer a {
+  color: #c5d0da;
+}
+html[data-theme="dark"] .page-hero,
+html[data-theme="dark"] main {
+  background: transparent;
+}
+html[data-theme="dark"] .state {
+  background: #132233;
 }
