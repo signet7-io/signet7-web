@@ -358,6 +358,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         home = self.pages["index.html"]
         self.assertIn("Decisions You Can Prove", home)
         self.assertIn("Verifiable by Design", home)
+        self.assertIn("cryptographic check for high-stakes email", home.lower())
+        self.assertIn("tamper-evident record", home.lower())
 
     def test_dark_mode_uses_tokens_so_menus_keep_ink(self) -> None:
         css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
