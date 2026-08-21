@@ -1099,24 +1099,27 @@ html[data-theme="dark"] body.nav-open .nav-links {
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
 }
 html[data-theme="dark"] .drop-menu a { color: #e8eef4; }
-html[data-theme="dark"] .drop-menu a:hover { background: #132233; }
+html[data-theme="dark"] .drop-menu a:hover { background: #eef6fb; }
 html[data-theme="dark"] h1,
 html[data-theme="dark"] h2,
-html[data-theme="dark"] h3,
 html[data-theme="dark"] .hero-simple h1,
 html[data-theme="dark"] .sell-hero .film-copy h1,
-html[data-theme="dark"] .home .site-header .brand span {
-  color: #f4f8fb;
+html[data-theme="dark"] .section h2,
+html[data-theme="dark"] .reel h2,
+html[data-theme="dark"] .page-hero h1 {
+  color: #c5d2de;
 }
 html[data-theme="dark"] .lede,
 html[data-theme="dark"] .section-intro,
 html[data-theme="dark"] .eyebrow,
-html[data-theme="dark"] p,
 html[data-theme="dark"] .who-line,
 html[data-theme="dark"] .reel p,
 html[data-theme="dark"] .quest-sub,
-html[data-theme="dark"] .produce-weigh {
-  color: #c5d0da;
+html[data-theme="dark"] .produce-weigh,
+html[data-theme="dark"] .produce-together,
+html[data-theme="dark"] .urgency-band p,
+html[data-theme="dark"] .facts-cite {
+  color: #8b9aab;
 }
 html[data-theme="dark"] .section,
 html[data-theme="dark"] .quest,
@@ -1125,41 +1128,55 @@ html[data-theme="dark"] .facts,
 html[data-theme="dark"] .sell-hero,
 html[data-theme="dark"] .urgency-band {
   background: transparent;
-  color: #e8eef4;
 }
-html[data-theme="dark"] .mail {
-  background: #101c28;
-  color: #e8eef4;
-  border-color: #1c2a38;
+html[data-theme="dark"] .feat,
+html[data-theme="dark"] .qcard,
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .start-card,
+html[data-theme="dark"] .price-card,
+html[data-theme="dark"] .journey-step,
+html[data-theme="dark"] .mail,
+html[data-theme="dark"] .drop-menu {
+  background: #ffffff;
+  color: #12141d;
 }
-html[data-theme="dark"] .hint {
-  background: #1a2733;
-  color: #d7e0e8;
+html[data-theme="dark"] .feat h3,
+html[data-theme="dark"] .qcard h3,
+html[data-theme="dark"] .card h3,
+html[data-theme="dark"] .start-card h3,
+html[data-theme="dark"] .price-card h3,
+html[data-theme="dark"] .journey-step h3,
+html[data-theme="dark"] .mail,
+html[data-theme="dark"] .mail p,
+html[data-theme="dark"] .mail b,
+html[data-theme="dark"] .drop-menu a {
+  color: #12141d;
 }
-html[data-theme="dark"] .button-secondary,
+html[data-theme="dark"] .feat p,
+html[data-theme="dark"] .qcard p,
+html[data-theme="dark"] .card p,
+html[data-theme="dark"] .start-card p,
+html[data-theme="dark"] .price-card p,
+html[data-theme="dark"] .journey-step p,
+html[data-theme="dark"] .fact span {
+  color: #3a4050;
+}
 html[data-theme="dark"] .mail .button-secondary {
-  color: #e8eef4;
+  color: #171410;
+  background: #fff;
+}
+html[data-theme="dark"] .button-secondary {
+  color: #d7e0e8;
   background: #101c28;
   border-color: #3a5166;
 }
-html[data-theme="dark"] .fact,
-html[data-theme="dark"] .qcard,
-html[data-theme="dark"] .start-card,
-html[data-theme="dark"] .price-card,
-html[data-theme="dark"] .feature-card,
-html[data-theme="dark"] .use-card {
-  background: #101c28;
-  color: #e8eef4;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
-}
-html[data-theme="dark"] .start-card p,
-html[data-theme="dark"] .price-card p,
-html[data-theme="dark"] .fact span {
-  color: #c5d0da;
+html[data-theme="dark"] .hint {
+  background: #efe6d4;
+  color: #4a433a;
 }
 html[data-theme="dark"] .start-card code {
-  background: #132233;
-  color: #e8eef4;
+  background: #eef6fb;
+  color: #12141d;
 }
 html[data-theme="dark"] .site-footer,
 html[data-theme="dark"] .footer {
