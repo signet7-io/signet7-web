@@ -619,9 +619,10 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   margin: 0 auto 16px;
   max-width: 18ch;
   font-size: clamp(36px, 5vw, 64px);
+  color: #12141d;
 }
-.reel p { margin: 0 auto; max-width: 40rem; color: var(--night-mute); font-size: 18px; }
-.who-line { color: var(--gold) !important; letter-spacing: 0.04em; }
+.reel p { margin: 0 auto; max-width: 40rem; color: #3a4050; font-size: 18px; }
+.who-line { color: #3a4050 !important; letter-spacing: 0.04em; }
 .reel.is-in { animation: reel-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
 @keyframes reel-in {
   from { opacity: 0.35; transform: translateY(24px); }
