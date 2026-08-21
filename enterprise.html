@@ -3,20 +3,19 @@
 <head>
   <meta charset="utf-8">
   <script src="assets/theme.js?v=3"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- GitHub Pages cannot set response headers. These meta-delivered policies are the
-     enforceable subset. NOTE: frame-ancestors is ignored when delivered via <meta>;
-     real clickjacking protection requires a header layer (Cloudflare/CloudFront) and
-     is required before any verification surface is hosted on this domain. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <title>Check a message | Signet7</title>
-  <meta name="description" content="How a recipient checks a Signet7-sealed email without installing software. The live check host is not this static site.">
-  <meta name="theme-color" content="#07101b">
-  <meta property="og:title" content="Check a message | Signet7">
-  <meta property="og:description" content="How a recipient checks a Signet7-sealed email without installing software.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <title>Enterprise | Signet7</title>
+  <meta name="description" content="How a law firm, title company, or finance team starts with Signet7. Setup in plain language. Technical detail lives on IT and Docs.">
+  <meta name="theme-color" content="#05080d">
+  <meta property="og:title" content="Enterprise | Signet7">
+  <meta property="og:description" content="How a company starts with Signet7. Setup in plain language.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://signet7.io/check">
+  <meta property="og:url" content="https://signet7.io/enterprise">
   <meta property="og:image" content="https://signet7.io/assets/og-image.png">
-  <link rel="canonical" href="https://signet7.io/check">
+  <link rel="canonical" href="https://signet7.io/enterprise">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="assets/site.css?v=20260821ai">
 </head>
@@ -28,8 +27,8 @@
         <img src="assets/signet7-logo-mark.png?v=c4" width="768" height="768" alt="Signet7">
         <span>Signet7</span>
       </a>
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
-                  <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
         <div class="drop">
           <button type="button" class="drop-btn" aria-expanded="false">Product</button>
           <div class="drop-menu">
@@ -61,7 +60,7 @@
             <a href="https://qual.signet7.io/account">Account</a>
             <a href="pay">Pay</a>
             <a href="programs">Programs &amp; pricing</a>
-            <a href="enterprise">Enterprise</a>
+            <a href="enterprise" aria-current="page">Enterprise</a>
             <a href="pilot">Pilot</a>
             <a href="about">About</a>
           </div>
@@ -88,45 +87,77 @@
   <main id="main">
     <section class="page-hero">
       <div class="container">
-        <p class="eyebrow">Recipient check</p>
-        <h1>No install for the other side.</h1>
-        <p class="hero-copy">A recipient should open a page, drop in the message, and see what Signet7 can prove. This static site cannot run that check. The live check is on the Signet7 qualification host.</p>
-        <p class="hero-actions"><a class="button button-primary" href="https://qual.signet7.io/email/verify">Open the live check</a></p>
+        <p class="eyebrow">Enterprise and business</p>
+        <h1>A company can prove the email before anyone acts.</h1>
+        <p class="hero-copy">Law, title, construction, payroll, and finance already live in email. Signet7 is the check and the record. Recipients do not install anything. Your people keep writing in the mail they already use.</p>
+        <p class="hero-actions">
+          <a class="button button-primary" href="https://qual.signet7.io/account">Open company account</a>
+          <a class="button button-secondary" href="programs">See programs</a>
+        </p>
         <div class="badge-row">
-          <span class="badge cyan">Public recipient check</span>
-          <span class="badge gold">Hosted at qual.signet7.io</span>
-          <span class="badge">VSN check hosted on qual</span>
+          <span class="badge cyan">No recipient install</span>
+          <span class="badge gold">Record you can produce</span>
+          <span class="badge">Checkout is not live yet</span>
         </div>
       </div>
-      <p class="facts-cite">Source: FBI Internet Crime Complaint Center, 2025 Annual Report. Reported losses, not Signet7 results. <a href="https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf">Read the IC3 report</a>.</p>
     </section>
-    <section class="section">
+
+    <section class="section" id="setup">
       <div class="container">
-        <div class="eyebrow">What the recipient does</div>
-        <h2>Four steps. One result.</h2>
+        <p class="eyebrow">Setup</p>
+        <h2>Four moves. No theater.</h2>
         <div class="grid-4">
-          <article class="card"><h3>1. Save the email</h3><p>Keep the original <code>.eml</code>. Forwarded copies can drop the protected headers. iPhone Mail often cannot export it; use a desktop if you cannot get the original file.</p></article>
-          <article class="card"><h3>2. Open the check</h3><p>Open <a href="https://qual.signet7.io/email/verify"><code>https://qual.signet7.io/email/verify</code></a>. No account is required. Verified is not safe. Unknown is not fraud.</p></article>
-          <article class="card"><h3>3. Check VSN</h3><p>Look up whether the signing key is still bound to that organization at <a href="https://qual.signet7.io/vsn">qual.signet7.io/vsn</a>. Today only Signet7's own domain is in that lookup.</p></article>
-          <article class="card"><h3>4. Read the result</h3><p>Matched, unmatched, or unknown. Then you decide. Verified does not mean safe. Unknown does not mean fraud.</p></article>
+          <article class="card"><h3>1. Open the account</h3><p>The company account lives on Qual. That is where the program and people are managed. This brochure site does not take passwords.</p></article>
+          <article class="card"><h3>2. Pick the program</h3><p>Pilot, then the commercial ladder. Prices and checkout live on Pay. Purchase is off until the owner turns it on.</p></article>
+          <article class="card"><h3>3. Keep writing in your mail</h3><p>Outlook, Apple Mail, Thunderbird. Signet7 is not a new inbox. Recipients open the live check when a message matters.</p></article>
+          <article class="card"><h3>4. Hand IT the one-pager</h3><p>One mailbox. Same on Windows, Mac, and Linux. Not Exchange. The technical sheet is separate so this page can stay human.</p></article>
         </div>
       </div>
     </section>
-    <section class="section section-line">
+
+    <section class="section section-line" id="spec">
       <div class="container split">
         <div>
-          <p class="eyebrow">What this page is not</p>
-          <h2>A brochure is not a verifier.</h2>
-          <p class="section-intro">GitHub Pages has no Signet7 API. Putting a paste box here would fake a product. The live verifier is <a href="https://qual.signet7.io/email/verify">https://qual.signet7.io/email/verify</a>.</p>
+          <p class="eyebrow">Technical specification</p>
+          <h2>The spec is for IT. The decision is for the desk.</h2>
+          <p class="section-intro">This page will not dump commands or source. If your IT lead needs the sheet, it is already written.</p>
         </div>
         <div class="scope-list">
-          <div class="scope-row"><b>Now</b><span>Public recipient check is hosted at <a href="https://qual.signet7.io/email/verify">qual.signet7.io/email/verify</a>.</span></div>
-          <div class="scope-row"><b>Also hosted</b><span>A Verifiable Sender Network (VSN) lookup is at <a href="https://qual.signet7.io/vsn">qual.signet7.io/vsn</a>. VSN binds a signing key to a domain or organization. The only domain in that lookup today is Signet7's own. Customer companies are not in it.</span></div>
-          <div class="scope-row"><b>Never here</b><span>This page will not say a message is safe, authorized, or fraudulent.</span></div>
+          <div class="scope-row"><b>IT one-pager</b><span><a href="it">How the mailbox sits next to the mail you already have.</a></span></div>
+          <div class="scope-row"><b>SMTP helper</b><span><a href="smtp">Optional outbound seal. Opt-in. Not a new composer.</a></span></div>
+          <div class="scope-row"><b>Docs</b><span><a href="docs">Product direction and current candidate notes.</a></span></div>
+          <div class="scope-row"><b>Integrations</b><span><a href="integrations">What is local, what is hosted, what is not live.</a></span></div>
         </div>
       </div>
     </section>
-  
+
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">What this is not</p>
+        <h2>A pretty site is not the product.</h2>
+        <div class="truth-grid">
+          <div class="truth yes">
+            <h3>You get</h3>
+            <ul>
+              <li>A check on a sealed message</li>
+              <li>A record you control and can produce later</li>
+              <li>A live recipient check with no install</li>
+              <li>A company account on Qual</li>
+            </ul>
+          </div>
+          <div class="truth no">
+            <h3>You do not get</h3>
+            <ul>
+              <li>A password wall on this brochure</li>
+              <li>A promise that a pass is the same as safe</li>
+              <li>Live checkout until the owner turns it on</li>
+              <li>A public staff console on this domain</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="facts" data-facts aria-label="Signet7 in numbers">
       <div class="container facts-grid">
         <article class="fact f-blue"><strong>$3.05B</strong><span>Business Email Compromise losses reported to FBI IC3 in 2025.</span></article>
@@ -135,7 +166,6 @@
         <article class="fact f-purple"><strong>191K+</strong><span>Phishing/spoofing complaints reported to FBI IC3 in 2025.</span></article>
       </div>
     </section>
-
   </main>
   <footer class="site-footer">
     <div class="container footer-grid">

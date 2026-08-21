@@ -65,6 +65,23 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("cryptographic agent-action gating", home)
         self.assertNotIn("gate what the agent does.", home)
 
+    def test_enterprise_page_is_plain_and_linked(self) -> None:
+        self.assertIn("enterprise.html", self.pages)
+        ent = self.pages["enterprise.html"]
+        self.assertIn("A company can prove the email before anyone acts.", ent)
+        self.assertIn("Technical specification", ent)
+        self.assertIn("This brochure site does not take passwords.", ent)
+        self.assertNotIn("<form", ent)
+        self.assertNotIn("API token", ent)
+        self.assertNotIn("EXECUTEWIRE", ent)
+        self.assertNotIn("pip install", ent)
+        for name, html in self.pages.items():
+            with self.subTest(page=name):
+                self.assertIn('href="enterprise"', html)
+                self.assertNotIn("AKIA", html)
+                self.assertNotIn("BEGIN PRIVATE KEY", html)
+                self.assertNotIn("ghp_", html)
+
     def test_current_product_truth_is_bounded_to_implemented_contract(self) -> None:
         product = self.pages["product.html"]
         for phrase in (
