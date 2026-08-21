@@ -183,6 +183,22 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, page)
 
+    def test_download_and_pay_pages_are_placeholders(self) -> None:
+        self.assertIn("download.html", self.pages)
+        self.assertIn("pay.html", self.pages)
+        download = self.pages["download.html"]
+        pay = self.pages["pay.html"]
+        self.assertIn("pip install signet7-hold", download)
+        self.assertIn("is-off", download)
+        self.assertIn("Not open yet", download)
+        self.assertIn("is-off", pay)
+        self.assertIn("No live checkout", pay)
+        self.assertNotRegex(pay, r"<form\b")
+        for name, html in self.pages.items():
+            with self.subTest(page=name):
+                self.assertIn('href="download"', html)
+                self.assertIn('href="pay"', html)
+
     def test_every_page_keeps_local_candidate_boundary(self) -> None:
         for name, html in self.pages.items():
             with self.subTest(page=name):
@@ -245,6 +261,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("You produce it. They weigh it.", home)
         self.assertIn("fbi ic3", low)
         self.assertIn("pip install signet7", home)
+        self.assertIn("href=\"download\"", home)
+        self.assertIn("href=\"pay\"", home)
         self.assertIn("No live checkout", home)
         self.assertIn("drop-btn", home)
         self.assertIn("Programs &amp; pricing", home)
