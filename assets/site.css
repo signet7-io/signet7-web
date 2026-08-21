@@ -922,6 +922,11 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .start-card h3 { margin: 0 0 8px; }
 .start-card p { margin: 0 0 14px; color: #3a4050; }
 .start-card code { font-size: 14px; background: #eef6fb; padding: 2px 6px; border-radius: 6px; }
+.button.is-off, span.button.is-off {
+  opacity: 0.45;
+  pointer-events: none;
+  cursor: not-allowed;
+}
 @media (max-width: 900px) { .start-grid { grid-template-columns: 1fr; } }
 .sell-hero .hero-scene { margin: 8px 0 0; }
 .produce-together { margin: 28px 0 8px; font-size: 20px; color: #12141d; max-width: 40rem; }
