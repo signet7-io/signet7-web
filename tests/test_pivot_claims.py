@@ -192,7 +192,9 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for name, html in self.pages.items():
             with self.subTest(page=name):
                 self.assertIn("drop-btn", html)
-                self.assertIn("pip", html.lower())
+                self.assertIn("Use cases", html)
+                self.assertIn("href=\"scenarios\"", html)
+                self.assertNotIn("Install (pip)", html)
 
     def test_public_copy_does_not_overclaim(self) -> None:
         visible = re.sub(r"<[^>]+>", " ", self.all_copy).lower()
