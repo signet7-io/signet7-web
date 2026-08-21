@@ -192,7 +192,16 @@ a:hover { color: #2a6f86; }
   font-weight: 700;
   letter-spacing: 0.22em;
 }
-.site-nav, .nav-links { display: flex; flex-wrap: nowrap; gap: 18px; justify-content: flex-end; align-items: center; }
+.site-nav, .nav-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 18px;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 0 1 auto;
+  margin-left: 0;
+  margin-right: 0;
+}
 .site-nav a, .nav-links a { color: var(--ink); text-decoration: none; font-size: 16px; }
 .drop { position: relative; }
 .drop-btn {
@@ -243,7 +252,9 @@ a:hover { color: #2a6f86; }
   cursor: pointer;
   flex-shrink: 0;
 }
-.header-cta { margin-left: 0; }
+.header-cta { margin-left: 16px; }
+.nav-wrap > .header-cta,
+.nav-wrap > .theme-toggle { margin-left: 12px; }
 [hidden] { display: none !important; }
 .nav-marks {
   display: flex;
