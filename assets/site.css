@@ -243,7 +243,7 @@ a:hover { color: #2a6f86; }
   cursor: pointer;
   flex-shrink: 0;
 }
-.header-cta { margin-left: auto; }
+.header-cta { margin-left: 0; }
 [hidden] { display: none !important; }
 .nav-marks {
   display: flex;
@@ -620,7 +620,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .site-footer, .footer {
   position: relative; z-index: 4;
   padding: 220px 0 28px; border-top: 0;
-  background: #eef6fb url("tech-scene.jpg?v=9") no-repeat center bottom / min(1600px, 140%) auto;
+  background: #eef6fb url("tech-scene.jpg?v=10") no-repeat center bottom / min(1600px, 140%) auto;
 }
 .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 20px; color: var(--night-mute); }
 .footer .brand, .site-footer .brand { font-size: 22px; }
@@ -1024,7 +1024,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .data-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 32px rgba(18,20,29,.06); }
 .data-table th, .data-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #e6ebf0; }
 .truth-grid > div { background: #fff; border-radius: 16px; padding: 22px; box-shadow: 0 12px 32px rgba(18,20,29,.06); }
-.header-cta { margin-left: auto; }
+.header-cta { margin-left: 0; }
 .site-nav a[href*="email/verify"] { display: none; }
 .quest h1 { max-width: 12ch; }
 .nav-wrap { min-height: 72px; }
@@ -1243,7 +1243,7 @@ html[data-theme="dark"] body.nav-open .drop-btn {
 }
 html[data-theme="dark"] .site-footer,
 html[data-theme="dark"] .footer {
-  background: #071018 url("tech-scene-dark.jpg") no-repeat center bottom / min(1600px, 140%) auto;
+  background: #071018 url("tech-scene-dark.jpg?v=10") no-repeat center bottom / min(1600px, 140%) auto;
 }
 html[data-theme="dark"] .footer-grid a,
 html[data-theme="dark"] .site-footer a,
