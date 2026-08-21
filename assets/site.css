@@ -1066,19 +1066,24 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 }
 .hero-simple { max-width: 40rem; padding-bottom: 8px; }
 .hero-simple .lede { font-size: clamp(18px, 2.2vw, 22px); max-width: 28rem; color: var(--ink); }
-.nutshell { max-width: 52rem; padding-bottom: 8px; }
+.nutshell { max-width: none; width: 100%; padding-bottom: 8px; }
+.sell-hero > .container.nutshell {
+  width: calc(100% - 32px);
+  max-width: none;
+  margin-inline: 16px;
+}
 .nutshell h1 {
-  max-width: 34ch;
-  font-size: clamp(30px, 4.4vw, 50px);
+  max-width: none;
+  font-size: clamp(40px, 5.4vw, 76px);
   line-height: 1.08;
   color: var(--ink);
 }
-.nutshell .lede { max-width: 40rem; font-size: clamp(17px, 2vw, 20px); color: var(--ink-soft); }
-.nutshell .lede-follow { margin-top: 12px; }
+.nutshell .lede { max-width: none; font-size: clamp(20px, 2.15vw, 28px); color: var(--ink-soft); }
+.nutshell .lede-follow { margin-top: 14px; }
 .nutshell .tagline {
-  margin: 10px 0 0;
+  margin: 12px 0 0;
   color: var(--mute);
-  font-size: 16px;
+  font-size: 20px;
   letter-spacing: 0.02em;
 }
 .nut-grid {
