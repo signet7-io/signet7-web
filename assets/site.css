@@ -110,15 +110,17 @@ a:hover { color: #2a6f86; }
   overflow: visible;
 }
 .site-header .container.nav-wrap {
-  width: min(var(--max), calc(100% - 12px));
-  margin-left: 6px;
-  margin-right: auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 6px 16px 8px;
+  box-sizing: border-box;
 }
 .nav-wrap, .nav {
   display: flex;
   min-height: 96px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 16px;
   padding: 6px 0 0;
 }
@@ -166,20 +168,24 @@ a:hover { color: #2a6f86; }
   border-radius: 10px; background: transparent; color: var(--night-ink); cursor: pointer;
 }
 .theme-toggle {
-  margin-left: 8px;
-  min-width: 52px;
+  margin-left: 12px;
+  margin-right: 0;
+  min-width: 0;
   height: 52px;
-  padding: 0 12px;
+  padding: 0 16px;
   border: 1px solid #dce3ea;
   border-radius: 10px;
   background: #ffffff;
   color: #12141d;
-  font: 700 13px Outfit, "Segoe UI", sans-serif;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font: 600 14px Outfit, "Segoe UI", sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
   cursor: pointer;
   flex-shrink: 0;
 }
+.header-cta { margin-left: auto; }
+[hidden] { display: none !important; }
 .nav-marks {
   display: flex;
   flex-wrap: wrap;
@@ -681,6 +687,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 @media (max-width: 980px) {
   .film-grid { grid-template-columns: 1fr; }
   .header-cta { display: none; }
+  .theme-toggle { margin-left: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -331,9 +331,14 @@ class ContentSecurityPolicy(unittest.TestCase):
             with self.subTest(page=name):
                 self.assertIn("data-theme-toggle", html)
                 self.assertIn('src="assets/theme.js', html)
+                self.assertIn("Dark mode", html)
         home = self.pages["index.html"]
         self.assertIn("tech-scene-dark.jpg", home)
         self.assertIn("tech-scene-light", home)
+        self.assertIn("data-demo-next", home)
+        motion = (ROOT / "assets" / "motion.js").read_text(encoding="utf-8")
+        self.assertIn("[data-panel=inspect]", motion)
+        self.assertNotIn("nextBtn.hidden = step === 2", motion)
 
 
 if __name__ == "__main__":

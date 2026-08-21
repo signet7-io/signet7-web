@@ -61,7 +61,7 @@
   const nextBtn = document.querySelector("[data-demo-next]");
   const backBtn = document.querySelector("[data-demo-back]");
   const label = document.querySelector("[data-demo-label]");
-  const inspectPanel = document.querySelector("[data-panel=\"inspect\"]");
+  const inspectPanel = document.querySelector("[data-panel=inspect]");
   const acct = document.querySelector("[data-hot-acct]");
   const from = document.querySelector("[data-hot-from]");
   let demoStep = 1;
@@ -69,20 +69,20 @@
     if (hint) hint.textContent = text;
   };
   const showDemo = (step) => {
-    demoStep = step;
-    if (label) label.textContent = step === 1 ? "Step 1 of 2" : "Step 2 of 2";
-    if (inspectPanel) inspectPanel.classList.toggle("is-on", step === 2);
-    if (backBtn) backBtn.hidden = step === 1;
+    demoStep = step === 2 ? 2 : 1;
+    if (label) label.textContent = demoStep === 1 ? "Step 1 of 2" : "Step 2 of 2";
+    if (inspectPanel) inspectPanel.classList.toggle("is-on", demoStep === 2);
+    if (backBtn) backBtn.hidden = demoStep === 1;
     if (nextBtn) {
-      nextBtn.hidden = step === 2;
-      nextBtn.textContent = "Next · Check the seal";
+      nextBtn.hidden = false;
+      nextBtn.textContent = demoStep === 1 ? "Check the seal" : "Start over";
     }
-    if (acct) acct.classList.toggle("is-on", step === 2);
-    if (from) from.classList.toggle("is-on", step === 2);
-    if (step === 1) say("This looks like a real vendor. It isn't enough. Tap Next.");
-    if (step === 2) say("The words still match. The sender is not bound. Call the number you already have.");
+    if (acct) acct.classList.toggle("is-on", demoStep === 2);
+    if (from) from.classList.toggle("is-on", demoStep === 2);
+    if (demoStep === 1) say("This looks like a real vendor. It isn't enough. Tap Check the seal.");
+    if (demoStep === 2) say("The words still match. The sender is not bound. Call the number you already have.");
   };
-  if (nextBtn) nextBtn.addEventListener("click", () => showDemo(2));
+  if (nextBtn) nextBtn.addEventListener("click", () => showDemo(demoStep === 1 ? 2 : 1));
   if (backBtn) backBtn.addEventListener("click", () => showDemo(1));
   if (mail) showDemo(1);
 

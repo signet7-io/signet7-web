@@ -13,7 +13,7 @@
     document.querySelectorAll("[data-theme-toggle]").forEach((btn) => {
       btn.setAttribute("aria-pressed", dark ? "true" : "false");
       btn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
-      btn.textContent = dark ? "Light" : "Dark";
+      btn.textContent = dark ? "Light mode" : "Dark mode";
     });
     document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
       meta.setAttribute("content", dark ? "#071018" : "#f7fbfe");
