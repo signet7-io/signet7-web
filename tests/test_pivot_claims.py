@@ -360,6 +360,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         home = self.pages["index.html"]
         self.assertIn("Decisions You Can Prove", home)
         self.assertIn("Verifiable by Design", home)
+        self.assertIn("Make email something you can", home)
         self.assertIn("cryptographic check for high-stakes email", home.lower())
         self.assertIn("powered by VSN", home)
         self.assertIn("tamper-evident record", home.lower())

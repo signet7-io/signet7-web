@@ -1056,7 +1056,43 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .sell-hero {
   position: relative;
   z-index: 5;
-  padding: 36px 0 48px;
+  padding: 48px 0 48px;
+}
+.nutshell .billboard {
+  display: block;
+  text-align: center;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(40px, 5.6vw, 78px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: var(--ink);
+  animation: none;
+  margin: 8px 0 40px;
+}
+.nutshell .billboard em {
+  font-style: italic;
+  font-weight: 400;
+}
+.nutshell .product-line {
+  margin: 0 0 16px;
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 1.25;
+  color: var(--ink);
+  font-family: "Instrument Serif", Georgia, serif;
+}
+.nutshell h1 {
+  max-width: none;
+  font-size: clamp(40px, 5.6vw, 78px);
+  line-height: 1.12;
+  color: var(--ink);
+  background: none;
+  -webkit-text-fill-color: var(--ink);
+  animation: none;
 }
 .hero-simple h1, .sell-hero .film-copy h1 {
   max-width: 14ch;
@@ -1078,12 +1114,6 @@ h3 { margin: 0 0 8px; font-size: 18px; }
     width: calc(100% - 3in);
   }
 }
-.nutshell h1 {
-  max-width: none;
-  font-size: clamp(28px, 3.2vw, 50px);
-  line-height: 1.18;
-  color: var(--ink);
-}
 .nutshell .lede { max-width: none; font-size: clamp(17px, 1.35vw, 22px); line-height: 1.5; color: var(--ink-soft); }
 .nutshell .lede-follow { margin-top: 14px; }
 .nutshell .tagline {
@@ -1091,9 +1121,6 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   color: var(--mute);
   font-size: 18px;
   letter-spacing: 0.02em;
-}
-@media (min-width: 1280px) {
-  .nutshell h1 { font-size: 48px; }
 }
 .nut-grid {
   display: grid;
