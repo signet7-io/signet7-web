@@ -51,14 +51,14 @@ html[data-theme="dark"] {
   --paper: #efe6d4;
   --page: #071018;
   --header: #0b1520;
-  --card: #12202c;
-  --ink: #dce6ee;
-  --ink-soft: #b3c0cc;
-  --mute: #8b9aab;
+  --card: #152433;
+  --ink: #eef4f8;
+  --ink-soft: #d4dde6;
+  --mute: #b7c4d0;
   --line: #2a3d4e;
   --night: #071018;
-  --night-ink: #dce6ee;
-  --night-mute: #8b9aab;
+  --night-ink: #eef4f8;
+  --night-mute: #b7c4d0;
 }
 
 * { box-sizing: border-box; }
@@ -1047,7 +1047,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .journey-step b { display: inline-block; margin-bottom: 8px; color: #88619a; font-size: 12px; letter-spacing: 0.12em; }
 .data-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 32px rgba(18,20,29,.06); }
 .data-table th, .data-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #e6ebf0; }
-.truth-grid > div { background: #fff; border-radius: 16px; padding: 22px; box-shadow: 0 12px 32px rgba(18,20,29,.06); }
+.truth-grid > div { background: var(--card); color: var(--ink); border-radius: 16px; padding: 22px; box-shadow: 0 12px 32px rgba(18,20,29,.06); }
 .header-cta { margin-left: 0; }
 .site-nav a[href*="email/verify"] { display: none; }
 .quest h1 { max-width: 12ch; }
@@ -1063,9 +1063,9 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   text-align: center;
   font-family: "Instrument Serif", Georgia, serif;
   font-weight: 400;
-  font-size: clamp(40px, 5.6vw, 78px);
+  font-size: clamp(26px, 5.4vw, 40px);
   line-height: 1.12;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: var(--ink);
   background: none;
   -webkit-background-clip: unset;
@@ -1073,6 +1073,16 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   -webkit-text-fill-color: var(--ink);
   animation: none;
   margin: 8px 0 40px;
+}
+@media (min-width: 901px) {
+  .sell-hero > .container.nutshell .billboard {
+    white-space: nowrap;
+    width: calc(100% + 3in - 48px);
+    max-width: none;
+    margin-left: calc(-1.5in + 24px);
+    margin-right: calc(-1.5in + 24px);
+    font-size: clamp(28px, 3.05vw, 52px);
+  }
 }
 .nutshell .billboard em {
   font-style: italic;
@@ -1279,15 +1289,15 @@ html[data-theme="dark"] body.nav-open .drop-btn {
 }
 
 .feat, .qcard, .card, .start-card, .price-card, .journey-step, .mail,
-.notice, .scope-list, .data-table, .legal-section {
+.notice, .scope-list, .data-table, .legal-section, .truth-grid > div {
   color: var(--ink);
 }
-.feat, .qcard, .card, .start-card, .price-card, .journey-step {
+.feat, .qcard, .card, .start-card, .price-card, .journey-step, .truth-grid > div {
   background: var(--card);
 }
 .feat h3, .qcard h3, .card h3, .start-card h3, .price-card h3, .journey-step h3,
 .card p, .legal-section p, .legal-section li, .scope-row, .scope-row span, .scope-row b,
-.data-table td, .data-table th, .notice, .hero-copy {
+.data-table td, .data-table th, .notice, .hero-copy, .truth-grid h3, .truth-grid li {
   color: var(--ink);
 }
 .feat p, .qcard p, .start-card p, .price-card p, .section-intro, .page-hero .hero-copy {
