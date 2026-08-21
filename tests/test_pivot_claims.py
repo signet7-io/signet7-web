@@ -344,6 +344,15 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("Next · Check VSN", motion)
         self.assertIn("demoStep === 4", motion)
 
+    def test_dark_mode_uses_tokens_so_menus_keep_ink(self) -> None:
+        css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
+        self.assertIn("--card:", css)
+        self.assertIn("--ink:", css)
+        self.assertIn('html[data-theme="dark"]', css)
+        self.assertIn(".home .site-nav .drop-menu a", css)
+        self.assertNotIn(".drop-menu a { color: #e8eef4", css)
+        self.assertNotIn("html[data-theme=\"dark\"] .drop-menu {\n  background: #ffffff", css)
+
 
 if __name__ == "__main__":
     unittest.main()
