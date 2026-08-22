@@ -596,9 +596,16 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .walkthrough-note { font-size: 12px; color: #4a433a; }
 
 .section, .urgency-band, .vsn-section, .final-cta, .action-flow-section, .evidence-section, .page-hero, .action-hero {
-  position: relative; z-index: 4; padding: 72px 0;
+  position: relative; z-index: 4; padding: 88px 0;
 }
-.page-hero, .action-hero { min-height: auto; padding-top: 48px; }
+.page-hero, .action-hero { min-height: auto; padding-top: 56px; }
+.section + .section,
+.page-hero + .section,
+.sell-hero + .section,
+.section + .facts,
+.demo + .section {
+  margin-top: 16px;
+}
 .section-light { background: transparent; }
 .section-night, .vsn-section, .final-cta, .action-flow-section { background: transparent; }
 .section-line { border-top: none; }
@@ -981,7 +988,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   aspect-ratio: 2624 / 752;
   display: block;
 }
-.facts { padding: 8px 0 48px; }
+.facts { padding: 28px 0 56px; }
 .facts-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1061,7 +1068,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .sell-hero {
   position: relative;
   z-index: 5;
-  padding: 48px 0 48px;
+  padding: 56px 0 64px;
 }
 .nutshell .billboard {
   display: block;
