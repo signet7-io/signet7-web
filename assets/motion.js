@@ -98,22 +98,6 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  const wavePin = document.querySelector("[data-wave-pin]");
-  const crawl = document.querySelector("[data-crawl]");
-  const crawlHint = document.querySelector("[data-crawl-hint]");
-  const onWave = () => {
-    if (!wavePin || !crawl || reduce) return;
-    const r = wavePin.getBoundingClientRect();
-    const vh = window.innerHeight;
-    const start = vh * 0.92;
-    const end = -(Math.max(wavePin.offsetHeight - vh, 1));
-    const t = Math.min(1, Math.max(0, (start - r.top) / (start - end)));
-    crawl.style.transform = `rotateX(16deg) translateY(${8 - t * 140}vh)`;
-    if (crawlHint) crawlHint.classList.toggle("is-gone", t > 0.08);
-  };
-  window.addEventListener("scroll", onWave, { passive: true });
-  onWave();
-
   const deskRoot = document.querySelector("[data-desks]");
   if (deskRoot) {
     const copy = {
