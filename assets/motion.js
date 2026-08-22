@@ -99,23 +99,14 @@
   onScroll();
 
   const wavePin = document.querySelector("[data-wave-pin]");
-  const waveLine = document.querySelector("[data-wave-line]");
-  const waves = [
-    "A signet is a seal. You put it on a letter so the letter can still be proven later.",
-    "The 7 is the long memory. The years they can still come back and ask.",
-    "A wire. A closing. A new account. Mail that can cost you.",
-    "Before you act, you need to know it is authentic.",
-    "Was it bound to who they claim. Do the protected words still match.",
-    "After you act, you need proof of exactly what you received.",
-    "Keep the result. Produce it when they ask."
-  ];
+  const crawl = document.querySelector("[data-crawl]");
   const onWave = () => {
-    if (!wavePin || !waveLine) return;
+    if (!wavePin || !crawl || reduce) return;
     const r = wavePin.getBoundingClientRect();
     const span = Math.max(wavePin.offsetHeight - window.innerHeight, 1);
-    const gone = Math.min(Math.max(-r.top, 0), span);
-    const i = Math.min(waves.length - 1, Math.floor((gone / span) * waves.length));
-    if (waveLine.textContent !== waves[i]) waveLine.textContent = waves[i];
+    const t = Math.min(1, Math.max(0, -r.top / span));
+    const y = 70 - t * 220;
+    crawl.style.transform = `rotateX(22deg) translateY(${y}vh)`;
   };
   window.addEventListener("scroll", onWave, { passive: true });
   onWave();
