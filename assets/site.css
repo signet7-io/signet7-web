@@ -1465,7 +1465,7 @@ html[data-theme="dark"] .qcard span {
   color: inherit;
 }
 
-.seasons-scene { margin: 0; }
+.seasons-scene { margin: 40px 0 0; }
 .people-scene { overflow: hidden; line-height: 0; }
 .people-plate {
   width: 100%;
