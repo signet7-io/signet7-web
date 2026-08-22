@@ -104,10 +104,12 @@
   const onWave = () => {
     if (!wavePin || !crawl || reduce) return;
     const r = wavePin.getBoundingClientRect();
-    const span = Math.max(wavePin.offsetHeight - window.innerHeight, 1);
-    const t = Math.min(1, Math.max(0, -r.top / span));
-    crawl.style.transform = `rotateX(16deg) translateY(${14 - t * 150}vh)`;
-    if (crawlHint) crawlHint.classList.toggle("is-gone", t > 0.06);
+    const vh = window.innerHeight;
+    const start = vh * 0.92;
+    const end = -(Math.max(wavePin.offsetHeight - vh, 1));
+    const t = Math.min(1, Math.max(0, (start - r.top) / (start - end)));
+    crawl.style.transform = `rotateX(16deg) translateY(${8 - t * 140}vh)`;
+    if (crawlHint) crawlHint.classList.toggle("is-gone", t > 0.08);
   };
   window.addEventListener("scroll", onWave, { passive: true });
   onWave();

@@ -1478,7 +1478,7 @@ html[data-theme="dark"] .qcard span {
 html:not([data-theme="dark"]) .people-plate.people-light,
 html[data-theme="dark"] .people-plate.people-dark { display: block; }
 #mail-flow, .theater-veil { display: none; }
-.wave-pin { min-height: 280vh; position: relative; }
+.wave-pin { min-height: 240vh; position: relative; }
 .crawl-stage {
   position: sticky;
   top: var(--nav-h);
@@ -1495,10 +1495,10 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
   width: min(26rem, 58vw);
   margin-left: calc(-0.5 * min(26rem, 58vw));
   transform-origin: 50% 0;
-  transform: rotateX(16deg) translateY(14vh);
+  transform: rotateX(16deg) translateY(8vh);
   text-align: center;
   font-family: "Instrument Serif", Georgia, serif;
-  font-size: clamp(18px, 2.2vw, 26px);
+  font-size: clamp(22px, 2.6vw, 32px);
   line-height: 1.4;
   color: var(--gold);
 }
