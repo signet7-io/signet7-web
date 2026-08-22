@@ -83,6 +83,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 self.assertNotIn("ghp_", html)
 
     def test_current_product_truth_is_bounded_to_implemented_contract(self) -> None:
+        spec = self.pages["docs.html"]
         product = self.pages["product.html"]
         for phrase in (
             "Action-bound signatures",
@@ -99,12 +100,14 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             "caller refuses or performs",
         ):
             with self.subTest(phrase=phrase):
-                self.assertIn(phrase, product)
+                self.assertIn(phrase, spec)
         self.assertIn("signet7-circuit.jpg", product)
         self.assertNotIn("signet7-circuit.jpg", self.pages["index.html"])
+        self.assertNotIn("EXECUTEWIRE", product)
+        self.assertNotIn("EXECUTEWIRE", self.pages["index.html"])
 
     def test_trust_page_separates_identity_evidence_and_compliance(self) -> None:
-        trust = self.pages["trust.html"]
+        spec = self.pages["docs.html"]
         for phrase in (
             "Signature-bound sender identity",
             "Self-signed",
@@ -116,10 +119,10 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             "Verified is not safe. Unresolved is not fraudulent.",
         ):
             with self.subTest(phrase=phrase):
-                self.assertIn(phrase, trust)
+                self.assertIn(phrase, spec)
 
     def test_integration_page_keeps_caller_enforcement_explicit(self) -> None:
-        integrations = self.pages["integrations.html"]
+        spec = self.pages["docs.html"]
         for phrase in (
             "API/MCP-first",
             "No replacement mailbox",
@@ -130,7 +133,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             "treating the response as advisory while executing anyway defeats the control",
         ):
             with self.subTest(phrase=phrase):
-                self.assertIn(phrase, integrations)
+                self.assertIn(phrase, spec)
 
     def test_program_page_retires_old_public_prices(self) -> None:
         programs = self.pages["programs.html"]

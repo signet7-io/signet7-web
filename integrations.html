@@ -32,6 +32,7 @@
           <div class="drop-menu">
             <a href="docs">Docs</a>
             <a href="it">IT</a>
+            <a href="smtp">SMTP</a>
           </div>
         </div>
         <div class="drop">
@@ -62,20 +63,34 @@
       <a class="button button-primary header-cta" href="https://qual.signet7.io/email/verify">Live check</a>
       <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">Dark mode</button></div></header>
   <main id="main">
-    <section class="page-hero"><div class="container"><p class="eyebrow">API/MCP-first</p><h1>Hook it to the step that spends the money.</h1><p class="hero-copy">Keep your mail. Keep your desk. Signet7 sits on the step that would wire, pay, or change an account. Caller enforces. Treating the response as advisory while executing anyway defeats the control. Integration still required.</p><div class="badge-row"><span class="badge cyan">HTTP decision API</span><span class="badge gold">MCP tool</span><span class="badge">Integration still required</span></div></div></section>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">How it sits</p>
+        <h1>Keep your inbox. We sit on the money step.</h1>
+        <p class="hero-copy">This is not a new mail app. Your people keep writing where they already write. Signet7 is the look before a wire, a pay, or an account change goes through.</p>
+        <p class="hero-actions">
+          <a class="button button-primary" href="https://qual.signet7.io/email/verify">Check a message</a>
+          <a class="button button-secondary" href="docs#spec">Engineer spec</a>
+        </p>
+        <div class="badge-row">
+          <span class="badge cyan">Beside the mail you have</span>
+          <span class="badge gold">Not a new inbox</span>
+          <span class="badge">VSN check hosted on qual</span>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">What this is not</p>
+        <h2>Not another product to live inside.</h2>
+        <div class="grid-3">
+          <article class="card"><h3>Not a mailbox</h3><p>Outlook stays Outlook. Apple Mail stays Apple Mail.</p></article>
+          <article class="card"><h3>Not a spam filter</h3><p>We do not rank junk. We check a sealed message before someone acts.</p></article>
+          <article class="card"><h3>Not a spy on every inbox</h3><p>One money mailbox. Recipients open the live check when it matters.</p></article>
+        </div>
+      </div>
+    </section>
 
-    <section class="section section-line"><div class="container"><div class="eyebrow">Integration contract</div><h2>Evidence in. Decision out. Enforcement stays explicit.</h2><div class="decision-rail"><div class="rail-node"><span>1</span><strong>Agent prepares action</strong><small>The caller knows the exact proposed operation.</small></div><div class="rail-arrow">&rarr;</div><div class="rail-node"><span>2</span><strong>Submit evidence</strong><small>Sender, message, body, action, signature, key, tenant context.</small></div><div class="rail-arrow">&rarr;</div><div class="rail-node gate-node"><span>3</span><strong>Signet7 decides</strong><small>Trust resolution and current policy.</small></div><div class="rail-arrow">&rarr;</div><div class="rail-node"><span>4</span><strong>Caller enforces</strong><small>Refuse or continue based on the result.</small></div><div class="rail-arrow">&rarr;</div><div class="rail-node"><span>5</span><strong>Evidence persists</strong><small>Signed decision chronology for later review.</small></div></div><div class="notice gold"><strong>Security boundary:</strong> treating the response as advisory while executing anyway defeats the control. Enforcement must live in the integrating system.</div></div></section>
-
-    <section class="section"><div class="container split"><div><p class="eyebrow">HTTP decision API</p><h2>A structured policy decision for application code.</h2><p class="section-intro">The current endpoint accepts explicit instruction and action fields. It returns structured content including the normalized action, authentication state, policy verdict, and allow/block result.</p></div><div class="scope-list"><div class="scope-row"><b>Inputs</b><span>Agent ID, message ID, claimed sender, body, exact action, tenant/auth context, optional signature and key.</span></div><div class="scope-row"><b>Result</b><span>Derived trust state, canonical action, policy verdict, allowed boolean, and evidence identifier.</span></div><div class="scope-row"><b>Privacy</b><span>The persisted decision record uses protected identifiers and a request fingerprint rather than storing raw body, signature, or key verbatim.</span></div><div class="scope-row"><b>Limit</b><span>The caller must perform the downstream authorization and execution control.</span></div></div></div></section>
-
-    <section class="section section-line"><div class="container split"><div><p class="eyebrow">MCP integration</p><h2>Expose the same bounded gate to agent harnesses.</h2><p class="section-intro">The current MCP server publishes a <code>verify_email_authenticity</code> tool that derives the decision from the same core path. The name reflects its origin; the action field is what binds the proposed operation.</p></div><article class="card hot"><h3>Technical pattern, not partnership</h3><p>MCP materials demonstrate a protocol integration. They do not establish a certified agent-framework integration, vendor endorsement, marketplace listing, or hosted service.</p><p><a href="docs">Review technical status &rarr;</a></p></article></div></section>
-
-    <section class="section"><div class="container"><div class="eyebrow">Email and browser surfaces</div><h2>Instruction-assurance packages remain local candidates.</h2><table class="data-table" tabindex="0"><thead><tr><th>Surface</th><th>Current source</th><th>Distribution boundary</th></tr></thead><tbody><tr><td><strong>Mailbox desktop</strong></td><td>Optional watch of one mailbox on Windows, Mac, and Linux. Quiet unless a seal is broken.</td><td>Local candidate. Not Exchange. Not an EDR. Recipients still use the website.</td></tr><tr><td><strong>Browser extension</strong></td><td>Click-to-check lab leftover. Defaults to the hosted qual check.</td><td>Unpacked/ZIP local candidate; no browser-store publication.</td></tr><tr><td><strong>Gmail add-on</strong></td><td>Lab leftover. Placeholder host. Not the company path.</td><td>Apps Script test-install candidate; no Marketplace publication or endorsement.</td></tr><tr><td><strong>Outlook add-in</strong></td><td>Passive read check. Write in Outlook. Auto-seal is the same localhost SMTP helper if they opt in.</td><td>Sideload candidate; no AppSource publication.</td></tr><tr><td><strong>SES/Gmail transport</strong></td><td>Controlled adapters and pilot scaffolds.</td><td>No supported production mailstream or service commitment.</td></tr><tr><td><strong>CLI/browser verifier</strong></td><td>Local signing, verification, component results, and fact-only receipt.</td><td>No universal provider/MIME compatibility or hosted recipient SLA.</td></tr></tbody></table></div></section>
-
-    <section class="section section-line"><div class="container"><div class="eyebrow">What “no infrastructure” must not mean</div><h2>Lower integration burden is not zero integration.</h2><div class="grid-3"><article class="card"><h3>No replacement mailbox</h3><p>Signet7 can sit beside existing email systems; it is not a mailbox provider.</p></article><article class="card"><h3>No traditional SEG</h3><p>The product is not positioned as an inbound spam, malware, or attachment-scanning gateway.</p></article><article class="card"><h3>No endpoint agent</h3><p>The supported pattern does not require a new endpoint-monitoring agent. An operated Signet7 service, credentials, policy, network path, and caller integration are still required.</p></article></div></div></section>
-
-    <section class="section"><div class="container"><div class="eyebrow">Evaluation sequence</div><h2>Integrate in a synthetic environment before consequential reliance.</h2><div class="grid-3"><article class="card"><h3>1. Map the action</h3><p>Define the exact canonical action and the caller that can enforce allow/block.</p></article><article class="card"><h3>2. Map the trust input</h3><p>Define sender/key enrollment, custody, revocation, and the supported signed instruction profile.</p></article><article class="card"><h3>3. Exercise failure</h3><p>Test missing signatures, self-signed keys, substituted actions, unknown identifiers, service unavailability, and caller bypass attempts.</p></article></div><div class="actions"><a class="button primary" href="pilot">Review the bounded pilot</a><a class="button secondary" href="product#current">Inspect current behavior</a></div></div></section>
-  
     <section class="facts" data-facts aria-label="Signet7 in numbers">
       <div class="container facts-grid">
         <article class="fact f-blue"><strong>$3.05B</strong><span>Business Email Compromise losses reported to FBI IC3 in 2025.</span></article>
@@ -85,7 +100,6 @@
       </div>
       <p class="facts-cite">Source: FBI Internet Crime Complaint Center, 2025 Annual Report. Reported losses, not Signet7 results. <a href="https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf">Read the IC3 report</a>.</p>
     </section>
-
   </main>
   <footer class="site-footer"><div class="container footer-grid"><div><strong>Signet7</strong><p>The trust layer for consequential email.</p><p>© 2026 Signet7. All rights reserved.</p></div><div><a href="privacy">Privacy</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a></div><div><p>Current local candidate. Caller-enforced. VSN check hosted on qual.</p></div></div></footer>
   <script src="assets/motion.js?v=20260821p" defer></script>

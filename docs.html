@@ -53,6 +53,7 @@
           <div class="drop-menu">
             <a href="docs">Docs</a>
             <a href="it">IT</a>
+            <a href="smtp">SMTP</a>
           </div>
         </div>
         <div class="drop">
@@ -112,7 +113,7 @@
           <article class="card">
             <h3>Product status</h3>
             <p>The current candidate's implemented, partial, absent, and unverified capabilities. Use this source for “does it exist now?” questions.</p>
-            <p><a href="product#current">Read public current status →</a></p>
+            <p><a href="docs#spec">Read public current status →</a></p>
           </article>
           <article class="card">
             <h3>Commercial program</h3>
@@ -127,7 +128,7 @@
           <article class="card">
             <h3>Trust and compliance</h3>
             <p>Precise meanings for provenance, tamper evidence, verification, anchoring, identity, retention, and compliance language.</p>
-            <p><a href="trust#claim-boundary">Read the public trust boundaries →</a></p>
+            <p><a href="docs#spec">Read the public trust boundaries →</a></p>
           </article>
         </div>
       </div>
@@ -141,7 +142,7 @@
           <article class="card">
             <h3>VSN specification</h3>
             <p>The Signet7-specific sender/key discovery and trust profile. It is not an IETF standard and does not by itself prove a legal identity.</p>
-            <p><a href="product#vsn">Read the public VSN status →</a></p>
+            <p><a href="docs#spec">Read the public VSN status →</a></p>
           </article>
           <article class="card">
             <h3>VSN email sender</h3>
@@ -209,7 +210,7 @@
         <article class="card">
           <h3>Source order</h3>
           <p>Canonical definition → current status → architecture/trust → exact specification → tests and operating evidence → audience-approved claim.</p>
-          <p><a href="trust#claim-boundary">Open the public claim boundary →</a></p>
+          <p><a href="docs#spec">Open the public claim boundary →</a></p>
         </article>
       </div>
     </section>
@@ -224,6 +225,20 @@
       </div>
     </section>
   
+    <section class="section section-line" id="spec">
+      <div class="container">
+        <p class="eyebrow">Engineer spec</p>
+        <h2>Current contract. Not a sales page.</h2>
+        <p class="section-intro">Action-bound signatures. Fail-closed unknown actions. no separate inbound/outbound direction field. HTTP and MCP decision surfaces. The caller refuses or performs. Email candidate <code>s7-email-1</code> covers text and HTML alternatives plus attachment bytes plus declared metadata.</p>
+        <div class="scope-list">
+          <div class="scope-row"><b>Financial actions</b><span><code>EXECUTEWIRE</code>, <code>PAY</code>, <code>PURCHASE</code>, <code>REFUND</code>, <code>TRANSFER</code></span></div>
+          <div class="scope-row"><b>API/MCP-first</b><span>No replacement mailbox. No traditional SEG. No endpoint agent. Integration still required. Caller enforces. treating the response as advisory while executing anyway defeats the control.</span></div>
+          <div class="scope-row"><b>Identity</b><span>Signature-bound sender identity. Self-signed and Unresolved are possible. Bind a signing key to a domain. Check whether that binding still holds.</span></div>
+          <div class="scope-row"><b>Limits</b><span>Verified is not safe. Unresolved is not fraudulent. does not block every phishing technique. Evidence support is not certification. No universal legal duration or seven-year default.</span></div>
+        </div>
+        <p class="section-intro">Sheets: <a href="it">IT one-pager</a> · <a href="smtp">outbound seal</a>.</p>
+      </div>
+    </section>
     <section class="facts" data-facts aria-label="Signet7 in numbers">
       <div class="container facts-grid">
         <article class="fact f-blue"><strong>$3.05B</strong><span>Business Email Compromise losses reported to FBI IC3 in 2025.</span></article>
