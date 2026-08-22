@@ -44,7 +44,7 @@
   --purple: #88619a;
   --green: #33a474;
   --max: 1220px;
-  --nav-h: 256px;
+  --nav-h: 64px;
 }
 html[data-theme="dark"] {
   color-scheme: dark;
@@ -133,7 +133,7 @@ a:hover { color: #2a6f86; }
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 0 16px;
+  padding: 8px 20px;
   box-sizing: border-box;
 }
 .nav-wrap, .nav {
@@ -141,28 +141,28 @@ a:hover { color: #2a6f86; }
   min-height: 0;
   align-items: center;
   justify-content: flex-start;
-  gap: 16px;
+  gap: 14px;
   padding: 0;
-  line-height: 1.5;
+  line-height: 1.3;
 }
 .brand {
-  display: inline-flex; align-items: center; gap: 12px;
-  color: var(--night-ink); text-decoration: none; font-weight: 700; letter-spacing: 0.12em;
-  text-transform: uppercase; font-size: 40px;
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--night-ink); text-decoration: none; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; font-size: 18px;
   line-height: 1;
 }
 .brand img {
-  width: 256px; height: 256px; border-radius: 0;
+  width: 40px; height: 40px; border-radius: 50%;
   object-fit: cover; object-position: 50% 46%;
   background: transparent;
-  margin: 0 8px 0 0;
+  margin: 0 4px 0 0;
   display: block;
 }
 .logo-lockup {
   position: relative;
   display: inline-block;
-  width: 256px;
-  height: 256px;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
   margin: 0;
 }
@@ -201,18 +201,18 @@ a:hover { color: #2a6f86; }
 .site-nav, .nav-links {
   display: flex;
   flex-wrap: nowrap;
-  gap: 18px;
+  gap: 16px;
   justify-content: flex-start;
   align-items: center;
   flex: 0 1 auto;
   margin-left: 0;
   margin-right: 0;
 }
-.site-nav a, .nav-links a { color: var(--ink); text-decoration: none; font-size: 22px; }
+.site-nav a, .nav-links a { color: var(--ink); text-decoration: none; font-size: 15px; }
 .drop { position: relative; }
 .drop-btn {
   border: 0; background: transparent; font: inherit; color: var(--ink);
-  cursor: pointer; font-size: 22px; padding: 8px 0;
+  cursor: pointer; font-size: 15px; padding: 4px 0;
 }
 .drop-btn::after { content: " ▾"; font-size: 14px; color: #2a6f86; }
 .drop-menu {
@@ -220,7 +220,7 @@ a:hover { color: #2a6f86; }
   position: absolute;
   top: calc(100% - 2px);
   left: 0;
-  min-width: 280px;
+  min-width: 220px;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -230,7 +230,7 @@ a:hover { color: #2a6f86; }
   flex-direction: column;
   gap: 0;
 }
-.drop-menu a { display: block; padding: 12px 14px; color: var(--ink); font-size: 20px; white-space: nowrap; border-radius: 8px; }
+.drop-menu a { display: block; padding: 8px 12px; color: var(--ink); font-size: 14px; white-space: nowrap; border-radius: 8px; }
 .drop-menu a:hover { background: var(--line); color: var(--ink); }
 .drop.is-open .drop-menu { display: flex; }
 @media (min-width: 901px) {
@@ -245,20 +245,25 @@ a:hover { color: #2a6f86; }
   margin-left: 12px;
   margin-right: 0;
   min-width: 0;
-  height: 52px;
-  padding: 0 16px;
-  border: 1px solid #dce3ea;
-  border-radius: 10px;
-  background: #ffffff;
-  color: #12141d;
-  font: 600 14px Outfit, "Segoe UI", sans-serif;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  font: 600 13px Outfit, "Segoe UI", sans-serif;
   letter-spacing: 0;
   text-transform: none;
   white-space: nowrap;
   cursor: pointer;
   flex-shrink: 0;
 }
-.header-cta { margin-left: 16px; }
+.header-cta {
+  margin-left: 8px;
+  min-height: 36px;
+  padding: 0 16px;
+  font-size: 14px;
+}
 .nav-wrap > .header-cta,
 .nav-wrap > .theme-toggle { margin-left: 12px; }
 [hidden] { display: none !important; }
@@ -649,16 +654,16 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   .banner-offers, .who-for-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 900px) {
-  .site-header .brand { font-size: 28px; }
-  .site-header .brand img { width: 240px; height: 240px; margin: 0 6px 0 0; object-fit: cover; object-position: 50% 46%; }
-  .site-header .logo-lockup { width: 240px; height: 240px; }
+  .site-header .brand { font-size: 16px; }
+  .site-header .brand img { width: 36px; height: 36px; margin: 0 6px 0 0; object-fit: cover; object-position: 50% 46%; }
+  .site-header .logo-lockup { width: 36px; height: 36px; }
   .stage, .split-heading, .split, .two-column, .feature-pair,
   .consequence-grid, .evidence-grid, .grid-3, .grid-4, .truth-grid, .footer-grid,
   .banner-offers, .meet-grid, .meet-beats, .who-for-grid { grid-template-columns: 1fr; }
   .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
   .site-nav, .nav-links {
     display: none; position: absolute; inset: var(--nav-h) 12px auto;
-    padding: 14px; background: #ffffff; border: 1px solid #e6ebf0; border-radius: 14px;
+    padding: 14px; background: var(--card); border: 1px solid var(--line); border-radius: 14px;
     flex-direction: column; align-items: stretch;
     box-shadow: 0 18px 40px rgba(18, 20, 29, 0.12);
   }
@@ -669,13 +674,13 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 }
 
 .home .site-header {
-  background: #ffffff;
-  border-bottom: 1px solid #e6ebf0;
+  background: var(--header);
+  border-bottom: 1px solid var(--line);
   backdrop-filter: none;
 }
 .home .nav-wrap { flex-wrap: nowrap; }
-.home .site-nav { flex-wrap: nowrap; gap: 20px; }
-.home .site-nav a { font-size: 22px; }
+.home .site-nav { flex-wrap: nowrap; gap: 16px; }
+.home .site-nav a { font-size: 15px; }
 .header-cta { white-space: nowrap; }
 .scroll-progress {
   position: fixed; top: 0; left: 0; z-index: 120; height: 3px; width: 0;
@@ -1230,10 +1235,10 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   .facts-grid { grid-template-columns: 1fr 1fr; }
   .journey-flow { grid-template-columns: 1fr; }
   .header-cta, .home .header-cta { display: none; }
-  .site-header .brand { font-size: 20px; }
-  .site-header .brand img { width: 160px; height: 160px; margin: 0 4px 0 0; object-fit: cover; object-position: 50% 46%; }
-  .site-header .logo-lockup { width: 160px; height: 160px; }
-  .site-nav a, .nav-links a { color: var(--ink); font-size: 20px; min-height: 44px; display: flex; align-items: center; }
+  .site-header .brand { font-size: 16px; }
+  .site-header .brand img { width: 36px; height: 36px; margin: 0 4px 0 0; object-fit: cover; object-position: 50% 46%; }
+  .site-header .logo-lockup { width: 36px; height: 36px; }
+  .site-nav a, .nav-links a { color: var(--ink); font-size: 16px; min-height: 44px; display: flex; align-items: center; }
   .site-nav a[href*="email/verify"] { display: flex; }
   .quest { min-height: auto; padding: 16px 0 28px; }
   .quest-steps-row { display: none; }
