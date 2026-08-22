@@ -1114,7 +1114,40 @@ html[data-theme="dark"] .action-hero::before {
 .sell-hero {
   position: relative;
   z-index: 5;
-  padding: 56px 0 64px;
+  min-height: calc(100vh - var(--nav-h));
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: 72px 0 48px;
+}
+.sell-hero .people-scene {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  z-index: 0;
+}
+.sell-hero .people-plate {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: 50% 38%;
+}
+.sell-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--page) 18%, transparent) 0%, color-mix(in srgb, var(--page) 70%, transparent) 58%, var(--page) 100%),
+    linear-gradient(90deg, color-mix(in srgb, var(--page) 52%, transparent) 0%, transparent 50%);
+}
+.sell-hero > .container.nutshell {
+  position: relative;
+  z-index: 2;
 }
 .nutshell .billboard {
   display: block;
@@ -1433,6 +1466,7 @@ html[data-theme="dark"] .qcard span {
   color: inherit;
 }
 
+.seasons-scene { margin: 0; }
 .people-scene { overflow: hidden; line-height: 0; }
 .people-plate {
   width: 100%;
