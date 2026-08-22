@@ -100,13 +100,14 @@
 
   const wavePin = document.querySelector("[data-wave-pin]");
   const crawl = document.querySelector("[data-crawl]");
+  const crawlHint = document.querySelector("[data-crawl-hint]");
   const onWave = () => {
     if (!wavePin || !crawl || reduce) return;
     const r = wavePin.getBoundingClientRect();
     const span = Math.max(wavePin.offsetHeight - window.innerHeight, 1);
     const t = Math.min(1, Math.max(0, -r.top / span));
-    const y = 70 - t * 220;
-    crawl.style.transform = `rotateX(22deg) translateY(${y}vh)`;
+    crawl.style.transform = `rotateX(16deg) translateY(${14 - t * 150}vh)`;
+    if (crawlHint) crawlHint.classList.toggle("is-gone", t > 0.06);
   };
   window.addEventListener("scroll", onWave, { passive: true });
   onWave();
