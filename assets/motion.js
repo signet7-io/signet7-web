@@ -9,20 +9,7 @@
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (!document.querySelector(".sky")) {
-    const sky = document.createElement("div");
-    sky.className = "sky";
-    sky.setAttribute("aria-hidden", "true");
-    sky.innerHTML = '<i class="blob a"></i><i class="blob b"></i><i class="blob c"></i>';
-    const grain = document.createElement("div");
-    grain.className = "grain";
-    grain.setAttribute("aria-hidden", "true");
-    const spot = document.createElement("div");
-    spot.className = "spot";
-    spot.setAttribute("aria-hidden", "true");
-    const dust = document.createElement("canvas");
-    dust.id = "dust";
-    dust.setAttribute("aria-hidden", "true");
-    document.body.prepend(sky, dust, grain, spot);
+    /* no-op: old sky/dust layers were lag. Keep the hook for older CSS. */
   }
 
   const toggle = document.querySelector(".nav-toggle");
@@ -298,7 +285,7 @@
   }
 
   const canvas = document.getElementById("dust");
-  if (document.getElementById("mail-flow") || !canvas || reduce || !canvas.getContext) return;
+  if (true || !canvas || reduce || !canvas.getContext) return;
   const ctx = canvas.getContext("2d");
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
   let w = 0;
