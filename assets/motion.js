@@ -110,6 +110,47 @@
   };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
+
+  const wavePin = document.querySelector("[data-wave-pin]");
+  const waveLine = document.querySelector("[data-wave-line]");
+  const waves = [
+    "The email lands.",
+    "You look once.",
+    "The seal answers.",
+    "You keep the record."
+  ];
+  const onWave = () => {
+    if (!wavePin || !waveLine) return;
+    const r = wavePin.getBoundingClientRect();
+    const span = Math.max(wavePin.offsetHeight - window.innerHeight, 1);
+    const gone = Math.min(Math.max(-r.top, 0), span);
+    const i = Math.min(waves.length - 1, Math.floor((gone / span) * waves.length));
+    if (waveLine.textContent !== waves[i]) waveLine.textContent = waves[i];
+  };
+  window.addEventListener("scroll", onWave, { passive: true });
+  onWave();
+
+  const deskRoot = document.querySelector("[data-desks]");
+  if (deskRoot) {
+    const copy = {
+      law: ["Law office", "Settlement, retainer, or “updated wiring.” Inspect the seal. Keep the record."],
+      title: ["Title / closing", "The irreversible detail is the account. Check the seal before you change where money goes."],
+      build: ["Construction", "Draws, change orders, sub pay-apps. Ordinary-looking email. That is the trap."],
+      pay: ["Payroll", "A “new direct deposit” from someone who looks like staff. Check who it came from. Keep the record."],
+      finance: ["Finance / AP", "Invoice plus new routing. Keep Outlook. Watch the money mailbox. Recipients use the live check."],
+      bank: ["Bank / credit union ops", "Internal or vendor instructions that move accounts. You still decide. Signet7 is the last look and the record you keep."]
+    };
+    const title = document.querySelector("[data-desk-title]");
+    const body = document.querySelector("[data-desk-body]");
+    deskRoot.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-desk]");
+      if (!btn) return;
+      deskRoot.querySelectorAll("[data-desk]").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      const row = copy[btn.getAttribute("data-desk")];
+      if (row && title) title.textContent = row[0];
+      if (row && body) body.textContent = row[1];
+    });
+  }
   if (chapters.length && "IntersectionObserver" in window) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
@@ -257,7 +298,7 @@
   }
 
   const canvas = document.getElementById("dust");
-  if (!canvas || reduce || !canvas.getContext) return;
+  if (document.getElementById("mail-flow") || !canvas || reduce || !canvas.getContext) return;
   const ctx = canvas.getContext("2d");
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
   let w = 0;

@@ -1410,3 +1410,99 @@ html[data-theme="dark"] .fact span {
 html[data-theme="dark"] .qcard span {
   color: inherit;
 }
+
+.theater-hero { padding: 0 0 24px; }
+.theater-stage {
+  position: relative;
+  min-height: calc(100vh - var(--nav-h));
+  overflow: hidden;
+}
+.people-plate {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 40%;
+  display: none;
+}
+html:not([data-theme="dark"]) .people-plate.people-light,
+html[data-theme="dark"] .people-plate.people-dark { display: block; }
+#mail-flow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+.theater-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--page) 55%, transparent) 0 38%, color-mix(in srgb, var(--page) 82%, transparent) 100%);
+}
+.theater-hero .nutshell { position: relative; z-index: 4; padding-top: 36px; }
+.wave-pin { min-height: 180vh; position: relative; }
+.wave-sticky {
+  position: sticky;
+  top: calc(var(--nav-h) + 12px);
+  min-height: 42vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+}
+.wave-line {
+  margin: 0;
+  max-width: 18ch;
+  text-align: center;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(36px, 6vw, 72px);
+  line-height: 1.08;
+  color: var(--ink);
+}
+.site-ticker {
+  overflow: hidden;
+  border-block: 1px solid var(--line);
+  padding: 12px 0;
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.site-ticker span {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: ticker 38s linear infinite;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--mute);
+}
+@keyframes ticker { to { transform: translateX(-100%); } }
+.desk-switch { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 14px; }
+.desk-switch button {
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  font: 600 14px Outfit, "Segoe UI", sans-serif;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.desk-switch button[aria-pressed="true"] { background: var(--ink); color: var(--page); }
+.desk-readout {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px 24px;
+  margin-bottom: 22px;
+}
+.desk-readout h3 { margin: 0 0 8px; }
+.desk-readout p { margin: 0; color: var(--mute); }
+@media (prefers-reduced-motion: reduce) {
+  #mail-flow, .site-ticker span { display: none; }
+  .people-plate { animation: none; }
+}
+
