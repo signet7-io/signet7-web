@@ -42,3 +42,9 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertIn("--nav-seal: 46px;", self.css)
         self.assertIn("--nav-word: 20px;", self.css)
         self.assertIn("--nav-type: 16px;", self.css)
+
+    def test_footer_rights_and_wrongs(self) -> None:
+        line = "All rights reserved, All wrongs revenged."
+        for path in sorted(ROOT.glob("*.html")):
+            with self.subTest(page=path.name):
+                self.assertIn(line, path.read_text(encoding="utf-8"))
