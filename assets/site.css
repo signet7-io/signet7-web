@@ -1117,7 +1117,7 @@ html[data-theme="dark"] .action-hero::before {
   display: flex;
   align-items: flex-start;
   overflow: hidden;
-  padding: 16px 0 40px;
+  padding: clamp(40px, 7vh, 64px) 0 48px;
 }
 .sell-hero .people-scene {
   position: absolute;
