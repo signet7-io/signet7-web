@@ -1478,7 +1478,7 @@ html[data-theme="dark"] .qcard span {
 html:not([data-theme="dark"]) .people-plate.people-light,
 html[data-theme="dark"] .people-plate.people-dark { display: block; }
 #mail-flow, .theater-veil { display: none; }
-.wave-pin { min-height: 100vh; position: relative; }
+.wave-pin { min-height: 560vh; position: relative; }
 .wave-sticky {
   position: sticky;
   top: calc(var(--nav-h) + 12px);

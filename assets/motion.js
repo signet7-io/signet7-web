@@ -102,9 +102,17 @@
   const waveLine = document.querySelector("[data-wave-line]");
   const waves = [
     "It looks like the vendor you already pay.",
-    "The new account is the part you cannot undo.",
-    "Look once. Who it came from. Whether the words still match.",
-    "Keep the file. You produce it. They weigh it."
+    "Same name. Same tone. New account number.",
+    "That number is the part you cannot undo.",
+    "If you send the wire, it is gone.",
+    "Replying to that email is the trap.",
+    "One look. Before the money moves.",
+    "Who was it tied to.",
+    "Do the words still match the seal.",
+    "Verified is not safe.",
+    "Unknown is not fraud.",
+    "Keep a file. Not a screenshot of an inbox.",
+    "You produce it. They weigh it."
   ];
   const onWave = () => {
     if (!wavePin || !waveLine) return;
