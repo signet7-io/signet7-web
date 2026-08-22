@@ -264,6 +264,17 @@ a:hover { color: #2a6f86; }
   padding: 0 16px;
   font-size: 14px;
 }
+.account-login {
+  margin-left: auto;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 0 4px;
+}
+.account-login:hover { color: var(--night-ink); }
 .nav-wrap > .header-cta,
 .nav-wrap > .theme-toggle { margin-left: 12px; }
 [hidden] { display: none !important; }
