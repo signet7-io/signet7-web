@@ -44,10 +44,10 @@
   --purple: #88619a;
   --green: #33a474;
   --max: 1220px;
-  --nav-h: 64px;
-  --nav-type: 15px;
-  --nav-word: 18px;
-  --nav-seal: 40px;
+  --nav-h: 72px;
+  --nav-type: 16px;
+  --nav-word: 20px;
+  --nav-seal: 46px;
 }
 html[data-theme="dark"] {
   color-scheme: dark;
@@ -136,7 +136,7 @@ a:hover { color: #2a6f86; }
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 8px 20px;
+  padding: 10px 22px;
   box-sizing: border-box;
 }
 .nav-wrap, .nav {
@@ -1117,7 +1117,7 @@ html[data-theme="dark"] .action-hero::before {
   display: flex;
   align-items: flex-start;
   overflow: hidden;
-  padding: clamp(40px, 7vh, 64px) 0 48px;
+  padding: clamp(28px, 5vh, 48px) 0 36px;
 }
 .sell-hero .people-scene {
   position: absolute;
@@ -1153,7 +1153,7 @@ html[data-theme="dark"] .action-hero::before {
   text-align: left;
   font-family: "Instrument Serif", Georgia, serif;
   font-weight: 400;
-  font-size: clamp(42px, 6.4vw, 84px);
+  font-size: clamp(34px, 5.2vw, 68px);
   line-height: 0.95;
   letter-spacing: -0.03em;
   max-width: 16ch;
@@ -1194,14 +1194,14 @@ html[data-theme="dark"] .action-hero::before {
 }
 .nutshell .product-line {
   margin: 0 0 16px;
-  font-size: clamp(22px, 2vw, 30px);
+  font-size: clamp(19px, 1.7vw, 26px);
   line-height: 1.25;
   color: var(--ink);
   font-family: "Instrument Serif", Georgia, serif;
 }
 .nutshell h1 {
   max-width: none;
-  font-size: clamp(40px, 5.6vw, 78px);
+  font-size: clamp(34px, 4.8vw, 64px);
   line-height: 1.12;
   color: var(--ink);
   background: none;
@@ -1228,12 +1228,12 @@ html[data-theme="dark"] .action-hero::before {
     width: calc(100% - 3in);
   }
 }
-.nutshell .lede { max-width: none; font-size: clamp(17px, 1.35vw, 22px); line-height: 1.5; color: var(--ink-soft); }
+.nutshell .lede { max-width: none; font-size: clamp(15px, 1.2vw, 19px); line-height: 1.5; color: var(--ink-soft); }
 .nutshell .lede-follow { margin-top: 14px; }
 .nutshell .tagline {
   margin: 12px 0 0;
   color: var(--mute);
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 0.02em;
 }
 .nut-grid {
@@ -1479,7 +1479,8 @@ html:not([data-theme="dark"]) .people-plate.people-light,
 html[data-theme="dark"] .people-plate.people-dark { display: block; }
 #mail-flow, .theater-veil { display: none; }
 .name-bridge {
-  padding: 36px 0 28px;
+  margin-top: 28px;
+  padding: 48px 0 36px;
   border-block: 1px solid var(--line);
 }
 .name-bridge-grid {
