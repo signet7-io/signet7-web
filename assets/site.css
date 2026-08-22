@@ -1114,11 +1114,10 @@ html[data-theme="dark"] .action-hero::before {
 .sell-hero {
   position: relative;
   z-index: 5;
-  min-height: calc(100vh - var(--nav-h));
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   overflow: hidden;
-  padding: 72px 0 48px;
+  padding: 16px 0 40px;
 }
 .sell-hero .people-scene {
   position: absolute;
