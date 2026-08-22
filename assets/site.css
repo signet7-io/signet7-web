@@ -1478,7 +1478,7 @@ html[data-theme="dark"] .qcard span {
 html:not([data-theme="dark"]) .people-plate.people-light,
 html[data-theme="dark"] .people-plate.people-dark { display: block; }
 #mail-flow, .theater-veil { display: none; }
-.wave-pin { min-height: 560vh; position: relative; }
+.wave-pin { min-height: 320vh; position: relative; }
 .wave-sticky {
   position: sticky;
   top: calc(var(--nav-h) + 12px);
@@ -1490,10 +1490,10 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 }
 .wave-line {
   margin: 0;
-  max-width: 22ch;
+  max-width: 28ch;
   text-align: center;
   font-family: "Instrument Serif", Georgia, serif;
-  font-size: clamp(32px, 5.2vw, 64px);
+  font-size: clamp(28px, 4.4vw, 52px);
   line-height: 1.08;
   color: var(--ink);
 }

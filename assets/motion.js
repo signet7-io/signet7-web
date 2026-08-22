@@ -101,18 +101,13 @@
   const wavePin = document.querySelector("[data-wave-pin]");
   const waveLine = document.querySelector("[data-wave-line]");
   const waves = [
-    "It looks like the vendor you already pay.",
-    "Same name. Same tone. New account number.",
-    "That number is the part you cannot undo.",
-    "If you send the wire, it is gone.",
-    "Replying to that email is the trap.",
-    "One look. Before the money moves.",
-    "Who was it tied to.",
-    "Do the words still match the seal.",
-    "Verified is not safe.",
-    "Unknown is not fraud.",
-    "Keep a file. Not a screenshot of an inbox.",
-    "You produce it. They weigh it."
+    "A signet is a seal. You put it on a letter so the letter can still be proven later.",
+    "The 7 is the long memory. The years they can still come back and ask.",
+    "A wire. A closing. A new account. Mail that can cost you.",
+    "Before you act, you need to know it is authentic.",
+    "Was it bound to who they claim. Do the protected words still match.",
+    "After you act, you need proof of exactly what you received.",
+    "Keep the result. Produce it when they ask."
   ];
   const onWave = () => {
     if (!wavePin || !waveLine) return;
