@@ -101,10 +101,10 @@
   const wavePin = document.querySelector("[data-wave-pin]");
   const waveLine = document.querySelector("[data-wave-line]");
   const waves = [
-    "The email lands.",
-    "You look once.",
-    "The seal answers.",
-    "You keep the record."
+    "It looks like the vendor you already pay.",
+    "The new account is the part you cannot undo.",
+    "Look once. Who it came from. Whether the words still match.",
+    "Keep the file. You produce it. They weigh it."
   ];
   const onWave = () => {
     if (!wavePin || !waveLine) return;
