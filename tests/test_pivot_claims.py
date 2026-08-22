@@ -361,7 +361,7 @@ class ContentSecurityPolicy(unittest.TestCase):
                 self.assertIn('src="assets/theme.js', html)
                 self.assertIn("Dark mode", html)
                 self.assertIn("signet7-logo-mark.png", html)
-                self.assertIn('width="768"', html)
+                self.assertIn('width="48"', html)
                 self.assertIn("https://qual.signet7.io/account", html)
                 self.assertIn(">Account</a>", html)
                 self.assertEqual(html.count(">Account</a>"), 1)
