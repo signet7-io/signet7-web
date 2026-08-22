@@ -56,51 +56,55 @@
   });
 
   const mail = document.querySelector("[data-mail]");
-  const spot = document.querySelector(".spot");
   const hint = document.querySelector("[data-hint]");
-  const nextBtn = document.querySelector("[data-demo-next]");
-  const backBtn = document.querySelector("[data-demo-back]");
-  const label = document.querySelector("[data-demo-label]");
+  const hots = [...document.querySelectorAll("[data-hot]")];
+  const tabs = [...document.querySelectorAll("[data-tab]")];
   const panels = [...document.querySelectorAll("[data-panel]")];
-  const acct = document.querySelector("[data-hot-acct]");
-  const from = document.querySelector("[data-hot-from]");
-  let demoStep = 1;
-  const hints = {
-    1: "This looks like a real vendor. It isn't enough.",
-    2: "The words still match. The sender is not tied to that company.",
-    3: "VSN: that company's key is not listed as still theirs. Customer companies are not in this lookup yet.",
-    4: "You can keep this result as a file. Signet7 does not send money.",
-  };
-  const nextLabel = {
-    1: "Next · Check the seal",
-    2: "Next · Check VSN",
-    3: "Next · Keep the record",
-    4: "Start over",
-  };
+  const spot = document.querySelector(".spot");
+
   const say = (text) => {
     if (hint) hint.textContent = text;
   };
-  const showDemo = (step) => {
-    demoStep = Math.min(4, Math.max(1, step));
-    if (label) label.textContent = `Step ${demoStep} of 4`;
-    panels.forEach((panel) => {
-      const name = panel.getAttribute("data-panel");
-      const on = (demoStep === 2 && name === "inspect") || (demoStep === 3 && name === "vsn") || (demoStep === 4 && name === "decide");
-      panel.classList.toggle("is-on", on);
+
+  hots.forEach((el) => {
+    const msg = el.getAttribute("data-hot") || "";
+    const on = () => {
+      hots.forEach((h) => h.classList.remove("is-on"));
+      el.classList.add("is-on");
+      say(msg);
+    };
+    el.addEventListener("mouseenter", on);
+    el.addEventListener("focus", on);
+    el.addEventListener("click", on);
+  });
+
+  const showPanel = (name) => {
+    tabs.forEach((t) => {
+      const on = t.getAttribute("data-tab") === name;
+      t.setAttribute("aria-selected", on ? "true" : "false");
     });
-    if (backBtn) backBtn.hidden = demoStep === 1;
-    if (nextBtn) {
-      nextBtn.hidden = false;
-      nextBtn.textContent = nextLabel[demoStep];
-    }
-    const mark = demoStep >= 2;
-    if (acct) acct.classList.toggle("is-on", mark);
-    if (from) from.classList.toggle("is-on", mark);
-    say(hints[demoStep]);
+    panels.forEach((p) => p.classList.toggle("is-on", p.getAttribute("data-panel") === name));
+    tabs.forEach((t) => t.classList.remove("is-flash"));
+    const flashName = name === "received" ? "inspect" : name === "inspect" ? "inspect" : "";
+    const flash = tabs.find((t) => t.getAttribute("data-tab") === flashName);
+    if (flash && (name === "received" || name === "inspect")) flash.classList.add("is-flash");
+    if (name === "received") say("Demo. Hover a highlighted detail. Then tap 2.");
+    if (name === "inspect") say("Demo step 2. Walkthrough only. This page is not the live check.");
   };
-  if (nextBtn) nextBtn.addEventListener("click", () => showDemo(demoStep === 4 ? 1 : demoStep + 1));
-  if (backBtn) backBtn.addEventListener("click", () => showDemo(demoStep - 1));
-  if (mail) showDemo(1);
+
+  const inspectors = [...document.querySelectorAll("[data-inspect]")];
+  inspectors.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      showPanel("inspect");
+      say("Walkthrough only. This page is not the live check.");
+    });
+  });
+  tabs.forEach((tab) => tab.addEventListener("click", () => showPanel(tab.getAttribute("data-tab"))));
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "1") showPanel("received");
+    if (e.key === "2") showPanel("inspect");
+    if (e.key === "3") showPanel("limits");
+  });
 
   const bar = document.querySelector("[data-progress]");
   const chapters = [...document.querySelectorAll("[data-chapter]")];
@@ -159,16 +163,16 @@
       if (kick) kick.textContent = whoLine[who] || "For you";
       if (money === "no") {
         if (title) title.textContent = "This is for people who move money because an email said so.";
-        if (body) body.textContent = "If that is not your world, you can still look. Signet7 inspects a sealed email and keeps a record you can produce.";
+        if (body) body.textContent = "If that is not your world, you can still look. Signet7 is the last look before money or an account changes. Call them on a number you already have — not the one in the email.";
       } else if (act === "reply") {
         if (title) title.textContent = "Replying to that email is the trap.";
-        if (body) body.textContent = "Signet7 is the check before you change where money goes — who it was tied to, whether the words still match, the record you keep.";
+        if (body) body.textContent = "Call them on a number you already have — not the one in the email. Signet7 is the last look before you change where money goes — who it is bound to, whether the words still match, the proof you keep.";
       } else if (act === "call") {
-        if (title) title.textContent = "Keep the proof too.";
-        if (body) body.textContent = "Signet7 is the file you can show later: who it came from, whether the words still match, a record that is not locked in one company's screen.";
+        if (title) title.textContent = "Keep the call. Keep the proof too.";
+        if (body) body.textContent = "Keep making that call. Signet7 is the last look you can show later: bound sender, sealed words, a record that is not locked in one vendor's screen.";
       } else {
         if (title) title.textContent = "Looks ordinary. That's the trap.";
-        if (body) body.textContent = "Signet7 is the check: who it was tied to, whether the words still match, the record you keep.";
+        if (body) body.textContent = "Call them on a number you already have — not the one in the email. Signet7 is the last look: who the message is bound to, whether the words still match, the record you keep.";
       }
     };
     quest.addEventListener("click", (e) => {

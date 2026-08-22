@@ -1,8 +1,7 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <script src="assets/theme.js?v=3"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- GitHub Pages cannot set response headers. These meta-delivered policies are the
      enforceable subset. NOTE: frame-ancestors is ignored when delivered via <meta>;
@@ -11,17 +10,17 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <title>Signet7 | Make email something you can prove — not just trust</title>
-  <meta name="description" content="Make email something you can prove — not just trust. Signet7 is the cryptographic check for high-stakes email — powered by VSN.">
-  <meta name="theme-color" content="#05080d">
-  <meta property="og:title" content="Signet7 | Make email something you can prove — not just trust">
-  <meta property="og:description" content="Make email something you can prove — not just trust.">
+  <title>Signet7 | The last look before money moves.</title>
+  <meta name="description" content="Signet7 is the trust layer for consequential email. Recipients can inspect supported sender and content evidence before they act. The Verifiable Sender Network (VSN) binds a signing key to a domain or organization and records whether that binding is still active.">
+  <meta name="theme-color" content="#f7fbfe">
+  <meta property="og:title" content="Signet7 | The last look before money moves.">
+  <meta property="og:description" content="Before you act on an important email, check the seal: who sent it, what was bound, and whether it still matches.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://signet7.io/">
   <meta property="og:image" content="https://signet7.io/assets/og-image.png">
   <link rel="canonical" href="https://signet7.io/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/site.css?v=20260821al">
+  <link rel="stylesheet" href="assets/site.css?v=20260822b">
 </head>
 <body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -29,7 +28,7 @@
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="/" aria-label="Signet7 home">
-        <img src="assets/signet7-logo-mark.png?v=c4" width="768" height="768" alt="Signet7">
+        <img src="assets/signet7-logo-mark.png?v=c4" width="48" height="48" alt="Signet7">
         <span>Signet7</span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
@@ -41,7 +40,6 @@
             <a href="check">How a recipient checks</a>
             <a href="trust">Trust &amp; evidence</a>
             <a href="integrations">Integrations</a>
-            <a href="about">About</a>
           </div>
         </div>
         <div class="drop">
@@ -67,6 +65,7 @@
             <a href="programs">Programs &amp; pricing</a>
             <a href="enterprise">Enterprise</a>
             <a href="pilot">Pilot</a>
+            <a href="about">About</a>
           </div>
         </div>
         <div class="drop">
@@ -85,28 +84,22 @@
       <a href="https://qual.signet7.io/account">Account</a>
 </nav>
       <a class="button button-primary header-cta" href="https://qual.signet7.io/email/verify">Live check</a>
-      <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">Dark mode</button>
     </div>
   </header>
 
   <main id="main">
     <section class="sell-hero" aria-labelledby="hero-title">
-      <div class="container nutshell">
-        <h1 id="hero-title" class="billboard">Make email something you can <em>prove</em> <span class="bill-aside">— not just trust.</span></h1>
-        <p class="eyebrow">What it is</p>
-        <p class="product-line">Signet7 is the cryptographic check for high-stakes email — powered by VSN.</p>
-        <p class="lede">It verifies whether a message is bound to the claimed sender through the Verifiable Sender Network (VSN), and whether the protected content — including payment, account, or other critical details — still matches the seal. You get a clear result and a tamper-evident record you control and can produce later.</p>
-        <p class="lede lede-follow">The same evidence can gate actions proposed by people or AI agents before irreversible steps are taken.</p>
-        <p class="lede lede-follow">Built for law firms, title companies, finance teams, and anyone who needs to verify consequential email before acting — and keep the proof.</p>
-        <p class="tagline">Decisions You Can Prove, Verifiable by Design.</p>
+      <div class="container hero-simple">
+        <p class="eyebrow">Trust layer for consequential email</p>
+        <h1 id="hero-title">The last look before money moves.</h1>
+        <p class="lede">An email says change the account. Check the seal. Keep a record. Then call.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="https://qual.signet7.io/email/verify">Check a message</a>
           <a class="button button-secondary" href="#demo">See a demo</a>
         </div>
       </div>
       <div class="scene-wrap hero-scene" aria-hidden="true">
-        <img class="tech-scene tech-scene-light" src="assets/tech-scene.jpg?v=12" width="2640" height="752" alt="">
-        <img class="tech-scene tech-scene-dark" src="assets/tech-scene-dark.jpg?v=12" width="2640" height="752" alt="">
+        <img class="tech-scene" src="assets/tech-scene.jpg?v=12" width="2640" height="752" alt="">
       </div>
     </section>
 
@@ -114,36 +107,41 @@
       <div class="container demo-wrap">
         <p class="eyebrow">Demo</p>
         <h2 id="demo-title">Looks ordinary. That's the trap.</h2>
-        <p class="section-intro">Four steps. Same as how it works. Nothing is sent.</p>
-      <aside class="mail" id="letter" data-mail aria-label="Demo. Four steps.">
+        <p class="section-intro">Two steps. Nothing is sent. This page is not the live check.</p>
+      <aside class="mail" id="letter" data-mail aria-label="Demo message. Two steps.">
         <div class="mail-top">
           <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
           <span class="demo-flag">Demo</span>
-          <span data-demo-label>Step 1 of 4</span>
+          <span>Try step 1, then 2</span>
         </div>
         <div class="mail-body">
-          <div class="row"><b>From</b><span class="hot" data-hot-from>ap@northline-vendors.com</span></div>
+          <div class="row"><b>From</b><span class="hot" tabindex="0" data-hot="A look-alike address can be typed by anyone. The seal is about the key, not the costume.">ap@northline-vendors.com</span></div>
           <div class="row"><b>To</b><span>finance@yourcompany.com</span></div>
           <p class="subject">Updated wiring instructions</p>
           <p>Please use the account below for this week's invoice. We need this processed before close of business.</p>
-          <p>Routing 021000021 &nbsp; Account <span class="hot" data-hot-acct>4419920173</span></p>
-          <p class="hint" data-hint>This looks like a real vendor. It isn't enough.</p>
-          <div class="panel" data-panel="inspect">
-            <div class="state ok"><div><small>The words</small><strong>Still match what was sealed</strong></div></div>
-            <div class="state warn"><div><small>The sender</small><strong>Not tied to that company</strong></div></div>
-          </div>
-          <div class="panel" data-panel="vsn">
-            <div class="state warn"><div><small>VSN</small><strong>That company's key is not listed as still theirs</strong></div></div>
-            <p>We look up whether the signing key is still listed for that company. Customer companies are not in this lookup yet.</p>
-          </div>
-          <div class="panel" data-panel="decide">
-            <div class="state bad"><div><small>The record</small><strong>You can keep this result as a file</strong></div></div>
-            <p>Signet7 does not send money. Verified does not mean safe. Unknown does not mean fraud.</p>
-          </div>
+          <p>Routing 021000021 &nbsp; Account <span class="hot" tabindex="0" data-hot="This is the irreversible detail. Check the seal before you change where money goes.">4419920173</span></p>
+          <p class="hint" data-hint>Demo. Hover a highlighted detail. Then tap 2.</p>
           <div class="mail-actions">
-            <button class="button button-secondary" type="button" data-demo-back hidden>Back</button>
-            <button class="button button-primary" type="button" data-demo-next>Next · Check the seal</button>
+            <button class="button button-primary" type="button" data-inspect>2 · Inspect this message</button>
+            <a class="button button-secondary" href="https://qual.signet7.io/email/verify">Live check on qual</a>
           </div>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Demo steps">
+          <button class="tab" type="button" data-tab="received" aria-selected="true"><b>1</b> Received</button>
+          <button class="tab is-flash" type="button" data-tab="inspect"><b>2</b> Inspect</button>
+          <button class="tab" type="button" data-tab="limits">3 Limits</button>
+        </div>
+        <div class="panel is-on" data-panel="received">
+          <p>Demo step 1. As received, it looks ordinary. That is the point.</p>
+        </div>
+        <div class="panel" data-panel="inspect">
+          <div class="state ok"><div><small>Protected content</small><strong>Matches the sealed bytes</strong></div><span>Held</span></div>
+          <div class="state warn"><div><small>Sender / key</small><strong>Self-signed</strong></div><span>Unapproved</span></div>
+          <div class="state bad"><div><small>Advice</small><strong>Do not treat this as safe</strong></div><span>Human</span></div>
+          <p class="walkthrough-note">Walkthrough. Verified does not mean safe. Unknown does not mean fraud.</p>
+        </div>
+        <div class="panel" data-panel="limits">
+          <p>Signet7 does not move money, approve payments, or replace a phone call. You still decide.</p>
         </div>
       </aside>
       </div>
@@ -162,12 +160,12 @@
     <section class="section features" id="features" aria-labelledby="feat-title">
       <div class="container">
         <p class="eyebrow">What it is</p>
-        <h2 id="feat-title">Check the seal. Keep the record.</h2>
+        <h2 id="feat-title">Check the seal. Keep the record. Then call.</h2>
         <p class="section-intro">Built for small businesses first — law, title, construction, payroll, finance, community banks — then up. Individuals can check a message.</p>
         <div class="feature-grid">
-          <article class="feat"><h3>Last look before a wire</h3><p>A vendor, client, or someone who looks like the bank just changed the account. Check the seal before you change where money goes.</p></article>
-          <article class="feat"><h3>A record you can produce</h3><p>Save a file you can open later, even offline. When an auditor, insurer, partner, or court asks what you received, you have the check — not a screenshot of an inbox.</p></article>
-          <article class="feat"><h3>Your mail stays yours</h3><p>Keep Outlook, Apple Mail, or Thunderbird. Signet7 is the check, not a second inbox.</p></article>
+          <article class="feat"><h3>Last look before a wire</h3><p>A vendor, client, or “bank” just changed the account. Inspect who the message is bound to, and whether the sealed words still match.</p></article>
+          <article class="feat"><h3>A record you can produce</h3><p>Export a bundle you can verify later, even offline. When an auditor, insurer, partner, or court asks what you received, you have the sealed words — not a screenshot of an inbox.</p></article>
+          <article class="feat"><h3>You still call</h3><p>Call them on a number you already have — not the one in the email. Signet7 does not move money. Keep Outlook. Check the seal before you act.</p></article>
         </div>
       </div>
     </section>
@@ -175,15 +173,15 @@
     <section class="section uses" id="uses" aria-labelledby="uses-title">
       <div class="container">
         <p class="eyebrow">Where it lands</p>
-        <h2 id="uses-title">These desks move money because an email said so.</h2>
+        <h2 id="uses-title">Desks that would wire because a message asked.</h2>
         <p class="section-intro">Individuals are fine. The product is aimed at the small firm first, then up-market through proven workflows.</p>
         <div class="feature-grid">
-          <article class="feat"><h3>Law office</h3><p>Settlement, retainer, or “updated wiring.” Inspect the seal. Keep the record.</p></article>
+          <article class="feat"><h3>Law office</h3><p>Settlement, retainer, or “updated wiring.” Pause. Inspect. Call the number you already have. Keep the record.</p></article>
           <article class="feat"><h3>Title / closing</h3><p>The irreversible detail is the account. Check the seal before you change where money goes.</p></article>
           <article class="feat"><h3>Construction</h3><p>Draws, change orders, sub pay-apps. Ordinary-looking email. That is the trap.</p></article>
-          <article class="feat"><h3>Payroll</h3><p>A “new direct deposit” from someone who looks like staff. Check who it came from. Keep the record.</p></article>
+          <article class="feat"><h3>Payroll</h3><p>A “new direct deposit” from someone who looks like staff. Inspect the bound sender. Then call.</p></article>
           <article class="feat"><h3>Finance / AP</h3><p>Invoice plus new routing. Keep Outlook. Watch the money mailbox. Recipients use the live check.</p></article>
-          <article class="feat"><h3>Bank / credit union ops</h3><p>Internal or vendor instructions that move accounts. You still decide. Signet7 is the last look and the record you keep.</p></article>
+          <article class="feat"><h3>Bank / credit union ops</h3><p>Internal or vendor instructions that move accounts. You still enforce. Signet7 is the last look and the portable proof.</p></article>
         </div>
       </div>
     </section>
@@ -194,9 +192,9 @@
         <h2 id="produce-title">You hand them the check. Not a verdict.</h2>
         <p class="section-intro">When an auditor, insurer, partner, or court asks what you received, you produce the record.</p>
         <div class="feature-grid">
-          <article class="feat"><h3>The bundle</h3><p>Save a file you can open later, even offline. Signed so you can tell if it was changed.</p></article>
-          <article class="feat"><h3>What was sealed</h3><p>Who it was tied to. Whether the words still matched.</p></article>
-          <article class="feat"><h3>When you checked</h3><p>The date and time of that result. The record has not been quietly edited.</p></article>
+          <article class="feat"><h3>The bundle</h3><p>Export a bundle you can verify later, even offline. Signed. Hash-chained. Portable.</p></article>
+          <article class="feat"><h3>What was sealed</h3><p>Who the key was bound to. Whether the sealed words still matched.</p></article>
+          <article class="feat"><h3>When you checked</h3><p>The chronology of that result. The record has not been quietly edited.</p></article>
           <article class="feat"><h3>Their mailbox</h3><p>The original email stays where they already keep mail. Signet7 is the check, not a second inbox.</p></article>
         </div>
         <p class="produce-together">Together: here is the message we got. Here is what the seal said at the time. This record has not been quietly edited.</p>
@@ -207,12 +205,12 @@
     <section class="section how" id="how" aria-labelledby="how-title">
       <div class="container">
         <p class="eyebrow">How it works</p>
-        <h2 id="how-title">Open it. Check it. Keep the record.</h2>
+        <h2 id="how-title">Receive. Inspect. Check VSN. Then you decide.</h2>
         <div class="quest-steps-row how-row">
           <article class="qcard qcard-blue"><span>1</span><h3>The email lands</h3><p>It looks ordinary. A new account is in the body. That is the irreversible detail.</p></article>
-          <article class="qcard qcard-green"><span>2</span><h3>You inspect the seal</h3><p>Who it was tied to. Whether the words still match. Verified does not mean safe. Unknown does not mean fraud.</p></article>
-          <article class="qcard qcard-gold"><span>3</span><h3>Check VSN</h3><p>VSN (Verifiable Sender Network) looks up whether that company's key is still listed as theirs. The lookup runs on our test check. Customer companies are not in it yet.</p></article>
-          <article class="qcard qcard-purple"><span>4</span><h3>Keep the record</h3><p>Save a file you can produce later. Signet7 does not send money.</p></article>
+          <article class="qcard qcard-green"><span>2</span><h3>You inspect the seal</h3><p>Who the message is bound to. Whether the sealed words still match. Verified does not mean safe. Unknown does not mean fraud.</p></article>
+          <article class="qcard qcard-gold"><span>3</span><h3>Check VSN</h3><p>The Verifiable Sender Network looks up whether that signing key is still bound to the organization. Lookup is on qual. Customer companies are not in it yet.</p></article>
+          <article class="qcard qcard-purple"><span>4</span><h3>You still call</h3><p>Call them on a number you already have — not the one in the email. Keep the proof.</p></article>
         </div>
       </div>
     </section>
@@ -220,7 +218,7 @@
     <section class="reel" data-chapter="combo" aria-labelledby="only-title">
       <p class="eyebrow">What nobody else does</p>
       <h2 id="only-title">Nobody else puts the whole check together.</h2>
-      <p>Spam filters catch junk. Encryption hides the letter. Registered mail proves it was sent. VSN says whether that company's key is still listed as theirs. Nobody else puts the whole check together. Check the seal before you act.</p>
+      <p>Spam filters catch junk. Encryption hides the letter. Registered mail proves it was sent. VSN says whether the signing key is still bound to that company. Nobody else puts the whole check together. Check the seal before you act.</p>
     </section>
 
     <section class="reel" data-chapter="who" aria-labelledby="who-title">
@@ -278,13 +276,12 @@
         <div class="quest-step quest-result" data-step="result" hidden>
           <p class="quest-kicker" data-result-kicker>For you</p>
           <h2 data-result-title>Looks ordinary. That's the trap.</h2>
-          <p data-result-body>Signet7 is the check: who it was tied to, whether the words still match, the record you keep.</p>
+          <p data-result-body>Call them on a number you already have — not the one in the email. Signet7 is the last look: who the message is bound to, whether the words still match, the record you keep.</p>
           <a class="quest-cta" href="#letter">Play the message</a>
         </div>
       </div>
       <div class="scene-wrap" aria-hidden="true">
-        <img class="tech-scene tech-scene-light" src="assets/tech-scene.jpg?v=12" width="2640" height="752" alt="">
-        <img class="tech-scene tech-scene-dark" src="assets/tech-scene-dark.jpg?v=12" width="2640" height="752" alt="">
+        <img class="tech-scene" src="assets/tech-scene.jpg?v=12" width="2640" height="752" alt="">
       </div>
     </section>
 
@@ -293,26 +290,22 @@
       <div class="container">
         <p class="eyebrow">Download and purchase</p>
         <h2 id="start-title">How you start.</h2>
-        <p class="section-intro">Recipient checks are live. Download and purchase have their own pages. Checkout is not live yet. Account is on Qual.</p>
+        <p class="section-intro">Recipient checks are live. Download and purchase have their own pages. Checkout is not live until tax and the qualification environment are ready.</p>
         <div class="start-grid">
           <article class="start-card">
             <h3>Recipients</h3>
-            <p>No install. No account. Open the live check.</p>
+            <p>No install. No account. Open the hosted check.</p>
             <a class="button button-primary" href="https://qual.signet7.io/email/verify">Open the live check</a>
           </article>
           <article class="start-card">
-            <h3>Account</h3>
-            <p>Manage the program and people for your company. Checkout is not live yet.</p>
-            <a class="button button-secondary" href="https://qual.signet7.io/account">Manage account</a>
-          </article>
-          <article class="start-card">
-            <h3>Enterprise</h3>
-            <p>How a company starts. Setup in plain language. Tech spec for IT.</p>
-            <a class="button button-secondary" href="enterprise">Enterprise</a>
+            <h3>Download</h3>
+            <p><code>pip install signet7-hold</code></p>
+            <p>Windows, Mac, and Linux. Recipients do not install. Not open yet.</p>
+            <span class="button button-secondary is-off" aria-disabled="true">Download</span>
           </article>
           <article class="start-card">
             <h3>Purchase</h3>
-            <p>Prices live on Pay. Checkout is not live yet.</p>
+            <p>$0 check. $12 / $29 / $99. From $1,000 quote. Stripe is wired. Checkout is not live yet.</p>
             <a class="button button-secondary" href="pay">Purchase</a>
           </article>
         </div>
@@ -320,7 +313,7 @@
     </section>
     <section class="urgency-band">
       <div class="container">
-        <p class="urgency-lead">Check the seal. Keep the record.</p>
+        <p class="urgency-lead">Call them on a number you already have — not the one in the email.</p>
         <p>Spam filters feel like email security. Payment-detail fraud is rare until it is not. Check the seal before you change where money goes. Verified does not mean safe. Unknown does not mean fraud.</p>
       </div>
     </section>
@@ -328,7 +321,7 @@
     <section class="reel" data-chapter="keep">
       <p class="eyebrow">Then you keep the proof</p>
       <h2>Take it with you.</h2>
-      <p>Save a file you can open later, even offline. Optional VSN: look up whether a company's key is still listed as theirs. VSN check hosted on qual.</p>
+      <p>Export a bundle you can verify later, even offline. Optional VSN: look up whether a company's signing key is still active. VSN check hosted on qual.</p>
       <div class="hero-actions centered-actions"><a class="button button-primary" href="https://qual.signet7.io/email/verify">Open the live check</a></div>
     </section>
   </main>
@@ -340,6 +333,6 @@
       <div><p>Current local candidate. Caller-enforced. VSN check hosted on qual.</p></div>
     </div>
   </footer>
-  <script src="assets/motion.js?v=20260821p" defer></script>
+  <script src="assets/motion.js?v=20260822b" defer></script>
 </body>
 </html>
