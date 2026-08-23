@@ -61,7 +61,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, home)
         self.assertNotIn("call them on a number you already have", home)
-        self.assertIn("call them on a number you already have", self.pages["faq.html"].lower())
+        self.assertIn("call a number you already have", self.pages["faq.html"].lower())
         self.assertNotIn("cryptographic agent-action gating", home)
         self.assertNotIn("gate what the agent does.", home)
 
