@@ -38,6 +38,7 @@
             <a href="trust">Trust &amp; evidence</a>
             <a href="integrations">Integrations</a>
             <a href="about">About</a>
+            <a href="faq">FAQ</a>
           </div>
         </div>
         <div class="drop">
@@ -95,6 +96,11 @@
     </section>
     <section class="section">
       <div class="container">
+        <article class="card" id="qual"><h3>What is Qual?</h3><p><strong>Qual</strong> (<a href="https://qual.signet7.io">qual.signet7.io</a>) is Signet7's qualification environment—a test host where the live email check, company accounts, and sender-key lookup run while the product is pre-release. It is not the finished production service.</p></article>
+        <article class="card" id="caller-enforced"><h3>What does caller-enforced mean?</h3><p>Signet7 returns a check result and a record. Your mail client, AP desk, or automation must decide whether to act. Signet7 does not silently block sends or payments for you. If you ignore the result, the control is defeated.</p></article>
+        <article class="card" id="local-candidate"><h3>What is a local candidate?</h3><p>Software we are testing locally and in Qual before we call it a live managed service. Features, pricing, and legal terms can still change.</p></article>
+        <article class="card" id="vsn"><h3>What is VSN?</h3><p>The <strong>Verifiable Sender Network (VSN)</strong> looks up whether a signing key is still bound to an organization. Today only Signet7's own domain is in that lookup. Customer companies are not listed yet.</p></article>
+        <article class="card" id="mx"><h3>How does @signet7.io email work?</h3><p>Company mail is hosted on <strong>Microsoft 365</strong>. DNS MX records deliver @signet7.io messages to Microsoft's servers. For pilot interest, privacy requests, security reports, and general contact, use <a href="mailto:justin.daines@signet7.io">justin.daines@signet7.io</a>. Role addresses on <a href="about">About</a> reach team mailboxes as they are provisioned. Do not send payment instructions, credentials, or customer files unless we ask you to.</p></article>
         <article class="card"><h3>Why would I bother?</h3><p>Call them on a number you already have — not the one in the email. Spam filters feel like email security. Payment-detail fraud is rare until it is not. Signet7 is a seatbelt for a crash you have not had. Use it before you change where money goes. Verified is not safe. Unknown is not fraud.</p></article>
         <article class="card"><h3>I got an important email. What do I do?</h3><p>Keep the original message. Open <a href="https://qual.signet7.io/email/verify">the live check</a>. Read what Signet7 can prove. Then still call a number you already have before you pay or send secrets.</p></article>
         <article class="card"><h3>Do I install an app?</h3><p>Recipients do not install. Use a browser. iPhone Mail often cannot export <code>.eml</code>; use a desktop if you cannot get the original file.</p></article>
@@ -119,7 +125,7 @@
     <div class="container footer-grid">
       <div><strong>Signet7</strong><p>The trust layer for consequential email.</p><p>© 2026 Signet7. All rights reserved, All wrongs revenged.</p></div>
       <div><a href="privacy">Privacy</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a></div>
-      <div><p>Current local candidate. Caller-enforced. VSN check hosted on qual.</p></div>
+      <div><p>Pre-release local candidate. Live check and accounts run on <a href="faq#qual">Qual</a> (qual.signet7.io), our test environment—not production. <a href="faq">Caller-enforced, VSN, and other terms</a> defined on FAQ.</p></div>
     </div>
   </footer>
   <script src="assets/motion.js?v=20260823a" defer></script>
