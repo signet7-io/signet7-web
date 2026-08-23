@@ -16,7 +16,9 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertIn('class="sell-hero"', self.home)
         self.assertIn("people-light.png", self.home)
         self.assertIn("people-dark.png", self.home)
-        self.assertIn("Make email something you can", self.home)
+        self.assertIn("High-stakes email, finally", self.home)
+        self.assertIn("provable", self.home)
+        self.assertNotIn("Make email something you can prove", self.home)
         self.assertNotIn("not just trust", self.home)
         self.assertIn("Signet7 is the cryptographic check for high-stakes email", self.home)
 
