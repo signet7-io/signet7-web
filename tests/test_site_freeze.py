@@ -22,19 +22,20 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertNotIn("not just trust", self.home)
         self.assertIn("Signet7 is the cryptographic check for high-stakes email", self.home)
 
-    def test_name_bridge_not_a_crawl(self) -> None:
-        self.assertIn('class="name-bridge"', self.home)
-        self.assertIn("A signet is a seal. The 7 is the long memory.", self.home)
-        self.assertIn("You need to know it is authentic.", self.home)
-        self.assertIn("You need proof of exactly what you received.", self.home)
+    def test_name_story_lives_on_about_not_home(self) -> None:
+        about = (ROOT / "about.html").read_text(encoding="utf-8")
+        self.assertIn("A signet is a seal. The 7 is the long memory.", about)
+        self.assertIn("You need to know it is authentic.", about)
+        self.assertIn("You need proof of exactly what you received.", about)
+        self.assertNotIn("A signet is a seal. The 7 is the long memory.", self.home)
         for banned in ("data-wave-pin", "data-crawl", "wave-pin", "crawl-stage"):
             self.assertNotIn(banned, self.home)
             self.assertNotIn(banned, self.css)
 
-    def test_seasons_stay_after_the_bridge(self) -> None:
-        bridge = self.home.index('class="name-bridge"')
+    def test_seasons_stay_after_the_hero(self) -> None:
+        hero = self.home.index('class="sell-hero"')
         seasons = self.home.index("tech-scene.jpg")
-        self.assertGreater(seasons, bridge)
+        self.assertGreater(seasons, hero)
         self.assertIn("tech-scene-dark.jpg", self.home)
         self.assertTrue((ROOT / "assets" / "tech-scene.jpg").is_file())
         self.assertTrue((ROOT / "assets" / "tech-scene-dark.jpg").is_file())

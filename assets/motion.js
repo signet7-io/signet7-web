@@ -55,7 +55,7 @@
   const hints = {
     1: "This looks like a real vendor. It isn't enough.",
     2: "The words still match. The sender is not tied to that company.",
-    3: "VSN: that company's key is not listed as still theirs. Customer companies are not in this lookup yet.",
+    3: "VSN (Verifiable Sender Network): that company's key is not listed as still theirs. Customer companies are not in this lookup yet.",
     4: "You can keep this result as a file. Signet7 does not send money.",
   };
   const nextLabel = {
@@ -126,70 +126,6 @@
       });
     }, { threshold: 0.35 });
     chapters.forEach((el) => io.observe(el));
-  }
-
-  const quest = document.querySelector("[data-quest]");
-  if (quest) {
-    const answers = {};
-    const whoLine = {
-      finance: "Finance and AP live on wiring changes.",
-      title: "Title and closing live on payoff letters.",
-      law: "Law firms live on settlement directions.",
-      build: "Construction lives on change-order payments.",
-      pay: "Payroll lives on deposit-account changes.",
-      me: "If it is just you, one bad wire is the whole company.",
-    };
-    const showStep = (id) => {
-      quest.querySelectorAll("[data-step]").forEach((el) => {
-        const on = el.getAttribute("data-step") === String(id);
-        el.hidden = !on;
-        el.classList.toggle("is-on", on);
-      });
-      const cards = quest.querySelector("[data-step-cards]");
-      if (cards) cards.hidden = id !== "1" && id !== 1;
-      const land = quest.querySelector(".quest-land");
-      if (land) land.hidden = id === "result";
-      const n = id === "result" ? 3 : Number(id);
-      const count = quest.querySelector("[data-quest-count]");
-      if (count) {
-        count.hidden = id === "result";
-        count.textContent = `Question ${n} of 3`;
-      }
-      const fill = quest.querySelector("[data-quest-fill]");
-      if (fill) fill.className = `p${n}${id === "result" ? " done" : ""}`;
-    };
-    const writeResult = () => {
-      const title = quest.querySelector("[data-result-title]");
-      const body = quest.querySelector("[data-result-body]");
-      const kick = quest.querySelector("[data-result-kicker]");
-      const money = answers.money;
-      const act = answers.act;
-      const who = answers.who;
-      if (kick) kick.textContent = whoLine[who] || "For you";
-      if (money === "no") {
-        if (title) title.textContent = "This is for people who move money because an email said so.";
-        if (body) body.textContent = "If that is not your world, you can still look. Signet7 inspects a sealed email and keeps a record you can produce.";
-      } else if (act === "reply") {
-        if (title) title.textContent = "Replying to that email is the trap.";
-        if (body) body.textContent = "Signet7 is the check before you change where money goes — who it was tied to, whether the words still match, the record you keep.";
-      } else if (act === "call") {
-        if (title) title.textContent = "Keep the proof too.";
-        if (body) body.textContent = "Signet7 is the file you can show later: who it came from, whether the words still match, a record that is not locked in one company's screen.";
-      } else {
-        if (title) title.textContent = "Looks ordinary. That's the trap.";
-        if (body) body.textContent = "Signet7 is the check: who it was tied to, whether the words still match, the record you keep.";
-      }
-    };
-    quest.addEventListener("click", (e) => {
-      const btn = e.target.closest("[data-go]");
-      if (!btn || !quest.contains(btn)) return;
-      const k = btn.getAttribute("data-k");
-      const v = btn.getAttribute("data-v");
-      if (k) answers[k] = v;
-      const next = btn.getAttribute("data-go");
-      if (next === "result") writeResult();
-      showStep(next);
-    });
   }
 
   document.querySelectorAll("section.facts").forEach((factsRoot) => {

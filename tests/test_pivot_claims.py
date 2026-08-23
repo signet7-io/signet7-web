@@ -275,9 +275,6 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_homepage_is_a_customer_front_door(self) -> None:
         home = self.pages["index.html"]
         low = home.lower()
-        self.assertIn("data-quest", home)
-        self.assertIn('class="scale"', home)
-        self.assertIn(">Agree</span>", home)
         self.assertIn("$3.05B", home)
         self.assertIn("24,768", home)
         self.assertIn("$20.9B", home)
@@ -381,14 +378,12 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("Next · Check VSN", motion)
         self.assertIn("demoStep === 4", motion)
         home = self.pages["index.html"]
-        self.assertIn("Decisions You Can Prove", home)
-        self.assertIn("Verifiable by Design", home)
         self.assertIn("High-stakes email, finally", home)
         self.assertIn("provable", home)
         self.assertNotIn("Make email something you can prove", home)
         self.assertNotIn("not just trust", home)
         self.assertIn("cryptographic check for high-stakes email", home.lower())
-        self.assertIn("powered by VSN", home)
+        self.assertIn("powered by our Verifiable Sender Network (VSN)", home)
         self.assertIn("tamper-evident record", home.lower())
         self.assertIn("gate actions proposed by people or AI agents", home)
 
