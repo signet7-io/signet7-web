@@ -17,7 +17,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertIn("people-light.png", self.home)
         self.assertIn("people-dark.png", self.home)
         self.assertIn("Make email something you can", self.home)
-        self.assertIn("not just trust", self.home)
+        self.assertNotIn("not just trust", self.home)
         self.assertIn("Signet7 is the cryptographic check for high-stakes email", self.home)
 
     def test_name_bridge_not_a_crawl(self) -> None:
