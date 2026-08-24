@@ -54,7 +54,6 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             "check the seal before you act.",
             "verified does not mean safe",
             "unknown does not mean fraud",
-            "vsn check hosted on qual",
             "nobody else puts the whole check together",
             "businesses that move money or change accounts",
         ):
@@ -172,9 +171,9 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("check.html", self.pages)
         check = self.pages["check.html"].lower()
         self.assertIn("no install for the other side", check)
-        self.assertIn("this static site cannot run that check", check)
+        self.assertIn("this brochure site cannot run that check", check)
         self.assertIn("/email/verify", check)
-        self.assertIn("this static site cannot run that check", check)
+        self.assertIn("this brochure site cannot run that check", check)
         self.assertIn('href="check"', self.pages["index.html"])
 
     def test_scenarios_page_is_living_and_cross_platform(self) -> None:
@@ -227,12 +226,15 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 self.assertIn('href="download"', html)
                 self.assertIn('href="pay"', html)
                 self.assertNotIn("pypi.org", html)
-                self.assertIn('class="facts"', html)
+                if name in {"index.html", "product.html", "about.html", "enterprise.html"}:
+                    self.assertIn('class="facts"', html)
+                else:
+                    self.assertNotIn('class="facts"', html)
 
-    def test_every_page_keeps_local_candidate_boundary(self) -> None:
+    def test_every_page_keeps_live_service_boundary(self) -> None:
         for name, html in self.pages.items():
             with self.subTest(page=name):
-                self.assertIn("local candidate", html.lower())
+                self.assertIn("live check and company accounts are available", html.lower())
 
     def test_every_page_has_dropdown_nav(self) -> None:
         for name, html in self.pages.items():
@@ -291,7 +293,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("pip install signet7", self.pages["download.html"])
         self.assertIn("href=\"download\"", home)
         self.assertIn("href=\"pay\"", home)
-        self.assertIn("Check VSN", home)
+        self.assertIn("Verifiable Sender Network (VSN)", home)
         self.assertIn("Verifiable Sender Network", home)
         self.assertNotIn("$12 / $29 / $99", home)
         self.assertIn("$12", self.pages["pay.html"])
@@ -375,7 +377,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn('data-panel="vsn"', home)
         self.assertIn('data-panel="decide"', home)
         motion = (ROOT / "assets" / "motion.js").read_text(encoding="utf-8")
-        self.assertIn("Next · Check VSN", motion)
+        self.assertIn("Next · Verifiable Sender Network (VSN)", motion)
         self.assertIn("demoStep === 4", motion)
         home = self.pages["index.html"]
         self.assertIn("High-stakes email, finally", home)
@@ -384,7 +386,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("not just trust", home)
         self.assertIn("cryptographic check for high-stakes email", home.lower())
         self.assertIn("powered by our Verifiable Sender Network (VSN)", home)
-        self.assertIn("tamper-evident record", home.lower())
+        self.assertIn("signed file you can produce later", home.lower())
         self.assertIn("gate actions proposed by people or AI agents", home)
 
     def test_dark_mode_uses_tokens_so_menus_keep_ink(self) -> None:

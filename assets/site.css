@@ -57,11 +57,11 @@ html[data-theme="dark"] {
   --card: #152433;
   --ink: #eef4f8;
   --ink-soft: #d4dde6;
-  --mute: #b7c4d0;
+  --mute: #c5d2dc;
   --line: #2a3d4e;
   --night: #071018;
   --night-ink: #eef4f8;
-  --night-mute: #b7c4d0;
+  --night-mute: #c5d2dc;
 }
 
 * { box-sizing: border-box; }
@@ -500,6 +500,8 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line);
   font-size: 12px; color: var(--night-mute);
 }
+.badge a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.badge a:hover { color: var(--cyan); }
 .badge.cyan { color: var(--cyan); }
 .badge.gold { color: var(--gold); }
 
@@ -1533,8 +1535,15 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 600;
-  color: var(--mute);
+  color: var(--ink-soft);
 }
+.demo-fallback {
+  margin: 0 0 20px;
+  padding-left: 1.25rem;
+  color: var(--ink-soft);
+  max-width: 42rem;
+}
+.demo-fallback li { margin: 0 0 8px; }
 @keyframes ticker { to { transform: translateX(-100%); } }
 .desk-switch { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 14px; }
 .desk-switch button {

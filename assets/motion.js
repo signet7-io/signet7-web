@@ -60,7 +60,7 @@
   };
   const nextLabel = {
     1: "Next · Check the seal",
-    2: "Next · Check VSN",
+    2: "Next · Verifiable Sender Network (VSN)",
     3: "Next · Keep the record",
     4: "Start over",
   };

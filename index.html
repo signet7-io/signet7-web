@@ -32,7 +32,7 @@
         <img src="assets/signet7-logo-mark.png?v=c4" width="768" height="768" alt="Signet7">
         <span>Signet7</span>
       </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
                   <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
         <div class="drop">
           <button type="button" class="drop-btn" aria-expanded="false">Product</button>
@@ -42,6 +42,7 @@
             <a href="trust">Trust &amp; evidence</a>
             <a href="integrations">Integrations</a>
             <a href="about">About</a>
+            <a href="faq">FAQ</a>
           </div>
         </div>
         <div class="drop">
@@ -100,7 +101,8 @@
         <h1 id="hero-title" class="billboard">High-stakes email, finally <em>provable</em>.</h1>
         <p class="eyebrow">What it is</p>
         <p class="product-line">Signet7 is the cryptographic check for high-stakes email, powered by our Verifiable Sender Network (VSN).</p>
-        <p class="lede">It verifies whether a message is bound to the claimed sender, and whether the protected words — including payment or account details — still match the seal. You get a clear result and a tamper-evident record you can produce later. The same evidence can gate actions proposed by people or AI agents before irreversible steps.</p>
+        <p class="lede">It verifies whether a message is bound to the claimed sender, and whether the protected words — including payment or account details — still match the seal.</p>
+        <p class="lede">You get a clear result and a signed file you can produce later. The same evidence can gate actions proposed by people or AI agents before irreversible steps.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="https://qual.signet7.io/email/verify">Check a message</a>
           <a class="button button-secondary" href="#demo">See a demo</a>
@@ -116,7 +118,13 @@
       <div class="container demo-wrap">
         <p class="eyebrow">Demo</p>
         <h2 id="demo-title">Looks ordinary. That's the trap.</h2>
-        <p class="section-intro">Four steps: the email, the seal, Check VSN, the record. Spam filters, encryption, and registered mail each do one part. Nobody else puts the whole check together. Check the seal before you act.</p>
+        <p class="section-intro">Four steps: the email, the seal, Verifiable Sender Network (VSN), the record. Spam filters, encryption, and registered mail each do one part. Nobody else puts the whole check together. Check the seal before you act.</p>
+        <ol class="demo-fallback">
+          <li><strong>Step 1 — The email:</strong> A vendor asks you to change wiring details.</li>
+          <li><strong>Step 2 — The seal:</strong> Check whether the words still match and the sender is tied to that company.</li>
+          <li><strong>Step 3 — Verifiable Sender Network (VSN):</strong> Look up whether that company's signing key is still listed as theirs.</li>
+          <li><strong>Step 4 — The record:</strong> Save the result as a file you can produce later. You decide whether to act.</li>
+        </ol>
       <aside class="mail" id="letter" data-mail aria-label="Demo. Four steps.">
         <div class="mail-top">
           <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -160,13 +168,13 @@
       </div>
       <p class="facts-cite">Source: FBI Internet Crime Complaint Center, 2025 Annual Report. Reported losses, not Signet7 results. <a href="https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf">Read the IC3 report</a>.</p>
     </section>
-    <div class="site-ticker" aria-hidden="true"><span>Matched · Unmatched · Unknown · You keep the record · Law · Title · Construction · Payroll · Finance · No recipient install · Stay in Outlook · VSN check hosted on qual ·&nbsp;</span></div>
+    <div class="site-ticker" aria-hidden="true"><span>Matched · Unmatched · Unknown · You keep the record · Law · Title · Construction · Payroll · Finance · No recipient install · Stay in Outlook · VSN check hosted on <a href="https://qual.signet7.io/#overview">qual.signet7.io</a> ·&nbsp;</span></div>
 
     <section class="section uses" id="uses" aria-labelledby="uses-title">
       <div class="container">
         <p class="eyebrow">Who this is for</p>
         <h2 id="uses-title">Businesses that move money or change accounts because an email said so.</h2>
-        <p class="section-intro">Individuals can use it. The product is aimed at the small firm first — law, title, construction, payroll, finance — then up-market through proven workflows.</p>
+        <p class="section-intro">Whoever got the email can open the <a href="https://qual.signet7.io/email/verify">Signet7 live check</a> with no account and no install. We built it for the office that then has to pay, change an account, or follow the email instruction.</p>
         <div class="desk-switch" data-desks>
           <button type="button" aria-pressed="true" data-desk="law">Law</button>
           <button type="button" aria-pressed="false" data-desk="title">Title</button>
@@ -201,7 +209,7 @@
       <div class="container">
         <p class="eyebrow">Download and purchase</p>
         <h2 id="start-title">How you start.</h2>
-        <p class="section-intro">Recipient checks are live on Signt7's verification site (<a href="https://qual.signet7.io/email/verify">qual.signet7.io/email/verify</a>). Download and purchase have their own pages. Checkout is not live yet. Account is on Qual.</p>
+        <p class="section-intro">Recipient checks are live. Open the <a href="https://qual.signet7.io/email/verify">live check</a>. Download and purchase have their own pages. Checkout is not live yet. <a href="https://qual.signet7.io/account">Manage your company account</a> separately.</p>
         <div class="start-grid">
           <article class="start-card">
             <h3>Recipients</h3>
@@ -232,7 +240,7 @@
     <div class="container footer-grid">
       <div><strong>Signet7</strong><p>The trust layer for consequential email.</p><p>© 2026 Signet7. All rights reserved, All wrongs revenged.</p></div>
       <div><a href="privacy">Privacy</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a></div>
-      <div><p>Current local candidate. Caller-enforced. VSN check hosted on qual.</p></div>
+      <div><p>Live check and company accounts are available. You decide whether to act on the result.</p></div>
     </div>
   </footer>
   <script src="assets/motion.js?v=20260823d" defer></script>
