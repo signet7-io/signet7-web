@@ -23,14 +23,14 @@
   <link rel="stylesheet" href="assets/site.css?v=20260823a">
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="/" aria-label="Signet7 home">
         <img src="assets/signet7-logo-mark.png?v=c4" width="768" height="768" alt="Signet7">
         <span>Signet7</span>
       </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
             <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
         <div class="drop">
           <button type="button" class="drop-btn" aria-expanded="false">Product</button>
@@ -87,7 +87,7 @@
     </div>
   </header>
 
-  <main id="main-content">
+  <main id="main">
     <section class="page-hero">
       <div class="container">
         <div class="eyebrow">Docs</div>
@@ -98,7 +98,6 @@
         <h1>Start with what is <span class="gradient-text">true now.</span></h1>
         <p class="hero-copy">A plan is not a product. Read what exists today before you read what we want next.</p>
       </div>
-      <p class="facts-cite">Source: FBI Internet Crime Complaint Center, 2025 Annual Report. Reported losses, not Signet7 results. <a href="https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf">Read the IC3 report</a>.</p>
     </section>
 
     <section class="section" id="candidate-status">
@@ -156,7 +155,8 @@
             <p><a href="integrations">Open the public integration map →</a></p>
           </article>
         </div>
-        <div class="notice gold"><strong>Current candidate:</strong> the source implements action-bound signatures, narrow fail-closed action policy, HTTP/MCP decisions, signed decision chronology, and <code>s7-email-1</code> instruction assurance. Direction-specific policy, universal tool interception, hosted operations, durable managed sender custody, and the complete VSN service remain unestablished.</div>
+        <div class="notice gold"><strong>In plain terms:</strong> the source code implements action-bound signatures, narrow fail-closed action policy, HTTP/MCP decisions, signed decision chronology, and the <code>s7-email-1</code> protected-message profile.</div>
+        <div class="notice gold"><strong>Still on the roadmap:</strong> direction-specific policy, universal tool interception, hosted operations, durable managed sender custody, and the complete Verifiable Sender Network (VSN) service.</div>
       </div>
     </section>
 
@@ -166,7 +166,7 @@
         <h2>Customer pages, not an internal map.</h2>
         <div class="grid-3">
           <article class="card"><h3>Product</h3><p>What the check does, and what it does not do.</p><p><a href="product">Open Product →</a></p></article>
-          <article class="card"><h3>Live check</h3><p>Recipients check on qual. This site has no paste box.</p><p><a href="https://qual.signet7.io/email/verify">Open the live check →</a></p></article>
+          <article class="card"><h3>Live check</h3><p>Recipients open the live check. This site has no paste box.</p><p><a href="https://qual.signet7.io/email/verify">Open the live check →</a></p></article>
           <article class="card"><h3>Pilot</h3><p>A bounded evaluation, not a production contract.</p><p><a href="pilot">Review the evaluation →</a></p></article>
         </div>
       </div>
@@ -206,7 +206,7 @@
         <div>
           <div class="eyebrow">Product center</div>
           <h2>Keep the policy gate and caller enforcement separate.</h2>
-          <p class="section-intro">The repository includes action binding, policy evaluation, HTTP/MCP tooling, and an agent harness. These are now the product center, but the caller remains responsible for enforcing the result and performing the downstream action.</p>
+          <p class="section-intro">The repository includes action binding, policy evaluation, HTTP/MCP tooling, and an agent harness. These are the product center. You still decide whether to act on the result and perform the downstream action.</p>
         </div>
         <article class="card">
           <h3>Source order</h3>
@@ -240,21 +240,14 @@
         <p class="section-intro">Sheets: <a href="it">IT one-pager</a> · <a href="smtp">outbound seal</a>.</p>
       </div>
     </section>
-    <section class="facts" data-facts aria-label="Signet7 in numbers">
-      <div class="container facts-grid">
-        <article class="fact f-blue"><strong>$3.05B</strong><span>Business Email Compromise losses reported to FBI IC3 in 2025.</span></article>
-        <article class="fact f-gold"><strong>24,768</strong><span>Business Email Compromise complaints reported to FBI IC3 in 2025.</span></article>
-        <article class="fact f-green"><strong>$20.9B</strong><span>Internet-crime losses reported to IC3 in 2025.</span></article>
-        <article class="fact f-purple"><strong>191K+</strong><span>Phishing/spoofing complaints reported to FBI IC3 in 2025.</span></article>
-      </div>
-    </section>
 
   </main>
 
-  <footer class="footer">
+    <footer class="site-footer">
     <div class="container footer-grid">
-      <div><a class="brand" href="/"><img src="assets/signet7-logo-mark.png?v=c4" width="768" height="768" alt="Signet7"><span>SIGNET<strong>7</strong></span></a><div class="candidate-stamp">Local candidate - not a live service</div><div class="legal-note">Documentation links describe a release candidate and product direction. They do not establish production readiness, customer use, certification, an SLA, or a final commercial offer.</div><div class="legal-note">© 2026 Signet7. All rights reserved, All wrongs revenged.</div></div>
-      <div class="footer-links"><a href="/">Overview</a><a href="product">Product</a><a href="trust">Trust</a><a href="integrations">Integrations</a><a href="about">Team</a><a href="privacy">Privacy status</a><a href="privacy">Privacy</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="disclaimer">Disclaimer</a><a href="terms">Terms</a></div>
+      <div><strong>Signet7</strong><p>The trust layer for consequential email.</p><p>© 2026 Signet7. All rights reserved, All wrongs revenged.</p></div>
+      <div><a href="privacy">Privacy</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a></div>
+      <div><p>Live check and company accounts are available. You decide whether to act on the result.</p></div>
     </div>
   </footer>
   <script src="assets/motion.js?v=20260823a" defer></script>

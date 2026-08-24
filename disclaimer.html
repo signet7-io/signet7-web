@@ -24,14 +24,14 @@
   <link rel="stylesheet" href="assets/site.css?v=20260823a">
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="/" aria-label="Signet7 home">
         <img src="assets/signet7-logo-mark.png?v=c4" width="768" height="768" alt="Signet7">
         <span>Signet7</span>
       </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
             <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
         <div class="drop">
           <button type="button" class="drop-btn" aria-expanded="false">Product</button>
@@ -41,6 +41,7 @@
             <a href="trust">Trust &amp; evidence</a>
             <a href="integrations">Integrations</a>
             <a href="about">About</a>
+            <a href="faq">FAQ</a>
           </div>
         </div>
         <div class="drop">
@@ -89,7 +90,7 @@
     </div>
   </header>
 
-  <main id="main-content">
+  <main id="main">
     <section class="page-hero"><div class="container legal-hero">
       <div class="eyebrow">Evidence boundary · status date 2026-08-10</div>
       <h1>Verification is evidence. <span class="gradient-text">It is not permission.</span></h1>
@@ -115,19 +116,16 @@
       <section class="legal-section"><h2>When Signet7 warns</h2><ol><li>Pause the consequential action when practical.</li><li>Contact the sender through an independently known channel.</li><li>Inspect which component, signature, sender/key relationship, lifecycle state, or coverage limit triggered the notice.</li><li>Preserve the original message in the Customer-controlled mailbox.</li><li>Save the available evidence receipt or report.</li><li>Follow Customer’s incident, fraud, payment, and escalation procedures.</li><li>Record an acknowledgement only when it accurately reflects the user’s decision.</li></ol><p><strong>Do not treat a warning as proof of fraud. Do not treat a quiet or verified result as permission to skip ordinary controls.</strong></p><div class="actions"><a class="button primary" href="terms">Read the Terms</a><a class="button secondary" href="privacy">Review privacy status</a></div></section>
     </div></section>
   
-    <section class="facts" data-facts aria-label="Signet7 in numbers">
-      <div class="container facts-grid">
-        <article class="fact f-blue"><strong>$3.05B</strong><span>Business Email Compromise losses reported to FBI IC3 in 2025.</span></article>
-        <article class="fact f-gold"><strong>24,768</strong><span>Business Email Compromise complaints reported to FBI IC3 in 2025.</span></article>
-        <article class="fact f-green"><strong>$20.9B</strong><span>Internet-crime losses reported to IC3 in 2025.</span></article>
-        <article class="fact f-purple"><strong>191K+</strong><span>Phishing/spoofing complaints reported to FBI IC3 in 2025.</span></article>
-      </div>
-      <p class="facts-cite">Source: FBI Internet Crime Complaint Center, 2025 Annual Report. Reported losses, not Signet7 results. <a href="https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf">Read the IC3 report</a>.</p>
-    </section>
 
   </main>
 
-  <footer class="footer"><div class="container footer-grid"><div><a class="brand" href="/"><img src="assets/signet7-logo-mark.png?v=c4" width="768" height="768" alt="Signet7"><span>SIGNET<strong>7</strong></span></a><div class="candidate-stamp">Local candidate - not a live service</div><div class="legal-note">Evidence boundaries prepared for review; no production service or operative agreement is represented.</div><div class="legal-note">© 2026 Signet7. All rights reserved, All wrongs revenged.</div></div><div class="footer-links"><a href="/">Overview</a><a href="product">Product</a><a href="pilot">Pilot</a><a href="privacy">Privacy</a><a href="disclaimer" aria-current="page">Disclaimer</a><a href="terms">Terms</a></div></div></footer>
+    <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><strong>Signet7</strong><p>The trust layer for consequential email.</p><p>© 2026 Signet7. All rights reserved, All wrongs revenged.</p></div>
+      <div><a href="privacy">Privacy</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a></div>
+      <div><p>Live check and company accounts are available. You decide whether to act on the result.</p></div>
+    </div>
+  </footer>
   <script src="assets/motion.js?v=20260823a" defer></script>
 </body>
 </html>

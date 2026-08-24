@@ -23,14 +23,14 @@
   <link rel="stylesheet" href="assets/site.css?v=20260823e">
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="/" aria-label="Signet7 home">
         <img src="assets/signet7-logo-mark.png?v=c4" width="768" height="768" alt="Signet7">
         <span>Signet7</span>
       </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
             <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
         <div class="drop">
           <button type="button" class="drop-btn" aria-expanded="false">Product</button>
@@ -40,6 +40,7 @@
             <a href="trust">Trust &amp; evidence</a>
             <a href="integrations">Integrations</a>
             <a href="about">About</a>
+            <a href="faq">FAQ</a>
           </div>
         </div>
         <div class="drop">
@@ -88,7 +89,7 @@
     </div>
   </header>
 
-  <main id="main-content">
+  <main id="main">
     <section class="page-hero">
       <div class="container">
         <div class="eyebrow">The last look before money moves</div>
@@ -99,7 +100,6 @@
         <h1>Important mail should be <span class="gradient-text">checked.</span></h1>
         <p class="hero-copy">Signet7 is the trust layer for consequential email. Check the seal. Keep the record. Then pick up the phone. An agent can use that same record later. The Verifiable Sender Network (VSN) looks up whether a company's key is still listed as theirs.</p>
       </div>
-      <p class="facts-cite">Source: FBI Internet Crime Complaint Center, 2025 Annual Report. Reported losses, not Signet7 results. <a href="https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf">Read the IC3 report</a>.</p>
     </section>
 
     <section class="section">
@@ -192,8 +192,10 @@
       <div class="container split">
         <div>
           <div class="eyebrow">Current stage</div>
-          <h2>A release-candidate decision gate, not a finished managed service.</h2>
-          <p class="section-intro">The repository demonstrates action-bound signatures, sender/key trust resolution, narrow fail-closed policy, HTTP/MCP decisions, signed decision chronology, portable evidence, and the <code>s7-email-1</code> protected-message profile. Direction-specific policy, universal tool interception, production operations, durable managed sender custody, and the complete VSN service remain to be built and qualified.</p>
+          <h2>Live today, with more on the roadmap.</h2>
+          <p class="section-intro">The live check, company accounts, and Verifiable Sender Network (VSN) lookup are available now.</p>
+          <p class="section-intro">The codebase also includes action-bound signatures, sender/key trust resolution, narrow fail-closed policy, HTTP/MCP decisions, signed decision chronology, portable evidence, and the <code>s7-email-1</code> protected-message profile.</p>
+          <p class="section-intro">Direction-specific policy, universal tool interception, durable managed sender custody, and the complete Verifiable Sender Network (VSN) service remain on the roadmap.</p>
         </div>
         <div class="actions">
           <a class="button primary" href="docs#spec">See current status</a>
@@ -209,14 +211,16 @@
         <article class="fact f-green"><strong>$20.9B</strong><span>Internet-crime losses reported to IC3 in 2025.</span></article>
         <article class="fact f-purple"><strong>191K+</strong><span>Phishing/spoofing complaints reported to FBI IC3 in 2025.</span></article>
       </div>
+      <p class="facts-cite">Source: FBI Internet Crime Complaint Center, 2025 Annual Report. Reported losses, not Signet7 results. <a href="https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf">Read the IC3 report</a>.</p>
     </section>
 
   </main>
 
-  <footer class="footer">
+    <footer class="site-footer">
     <div class="container footer-grid">
-      <div><a class="brand" href="/"><img src="assets/signet7-logo-mark.png?v=c4" width="768" height="768" alt="Signet7"><span>SIGNET<strong>7</strong></span></a><div class="candidate-stamp">Local candidate - not a live service</div><div class="legal-note">Role descriptions are operational summaries only. Refer to executed legal records for ownership, authority, compensation, and governance.</div><div class="legal-note">© 2026 Signet7. All rights reserved, All wrongs revenged.</div></div>
-      <div class="footer-links"><a href="/">Overview</a><a href="product">Product</a><a href="trust">Trust</a><a href="integrations">Integrations</a><a href="privacy">Privacy status</a><a href="docs">Docs</a><a href="privacy">Privacy</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="disclaimer">Disclaimer</a><a href="terms">Terms</a></div>
+      <div><strong>Signet7</strong><p>The trust layer for consequential email.</p><p>© 2026 Signet7. All rights reserved, All wrongs revenged.</p></div>
+      <div><a href="privacy">Privacy</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a></div>
+      <div><p>Live check and company accounts are available. You decide whether to act on the result.</p></div>
     </div>
   </footer>
   <script src="assets/motion.js?v=20260823a" defer></script>
