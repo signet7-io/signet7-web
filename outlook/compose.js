@@ -1,6 +1,6 @@
 /* global Office */
 var ACK = "terms-disclaimer-2026-08-15";
-var DEFAULT_BASE = "https://qual.signet7.io";
+var DEFAULT_BASE = "https://verify.signet7.io";
 
 function apiBase() {
   var el = document.getElementById("baseUrl");
@@ -96,7 +96,7 @@ function sealDraft() {
         setOut(pack.body.error || "Seal failed. Sender programs are not free.");
         return;
       }
-      var notice = "This message was sealed with Signet7. The original signed copy is attached. Recipients can check it at https://qual.signet7.io/email/verify . Verified is not safe.\n\n";
+      var notice = "This message was sealed with Signet7. The original signed copy is attached. Recipients can check it at https://verify.signet7.io/email/verify . Verified is not safe.\n\n";
       item.body.setAsync(notice, { coercionType: Office.CoercionType.Text }, function () {
         if (item.addFileAttachmentFromBase64Async && pack.body.eml_base64) {
           item.addFileAttachmentFromBase64Async(pack.body.eml_base64, "Signet7-sealed.eml", function () {

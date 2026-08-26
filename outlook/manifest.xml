@@ -15,7 +15,7 @@
   <SupportUrl DefaultValue="https://signet7.io/support"/>
   <AppDomains>
     <AppDomain>https://signet7.io</AppDomain>
-    <AppDomain>https://qual.signet7.io</AppDomain>
+    <AppDomain>https://verify.signet7.io</AppDomain>
   </AppDomains>
   <Hosts>
     <Host Name="Mailbox"/>

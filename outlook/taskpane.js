@@ -1,6 +1,6 @@
 /* global Office */
 var ACK = "terms-disclaimer-2026-08-15";
-var DEFAULT_BASE = "https://qual.signet7.io";
+var DEFAULT_BASE = "https://verify.signet7.io";
 
 function bytesToBase64(bytes) {
   var binary = "";
