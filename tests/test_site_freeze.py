@@ -50,6 +50,15 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertIn("--nav-word: 20px;", self.css)
         self.assertIn("--nav-type: 16px;", self.css)
 
+    def test_loop_on_every_page_under_the_hero(self) -> None:
+        self.assertIn("calc(12px + 1.5in)", self.css)
+        for path in sorted(ROOT.glob("*.html")):
+            html = path.read_text(encoding="utf-8")
+            with self.subTest(page=path.name):
+                self.assertIn("seasons-scene", html)
+                self.assertIn("door-loop.mp4", html)
+                self.assertIn("assets/site.css?v=20260826d", html)
+
     def test_footer_rights_and_wrongs(self) -> None:
         line = "All rights reserved, All wrongs revenged."
         for path in sorted(ROOT.glob("*.html")):
