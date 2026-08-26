@@ -1130,17 +1130,15 @@ html[data-theme="dark"] .action-hero::before {
   margin: 0;
   z-index: 0;
 }
-.sell-hero .door-loop,
-.sell-hero .door-poster {
+.sell-hero .people-plate {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   aspect-ratio: auto;
   object-fit: cover;
-  object-position: 50% 50%;
+  object-position: 50% 38%;
 }
-.sell-hero .door-poster { display: none; }
 .sell-hero::after {
   content: "";
   position: absolute;
@@ -1477,6 +1475,18 @@ html[data-theme="dark"] .qcard span {
   -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 14%, #000 86%, transparent 100%);
   mask-image: linear-gradient(180deg, transparent 0%, #000 14%, #000 86%, transparent 100%);
 }
+.seasons-scene .door-loop,
+.seasons-scene .door-poster {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1600 / 638;
+  min-height: 220px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  display: block;
+  pointer-events: none;
+}
+.seasons-scene .door-poster { display: none; }
 .people-scene { overflow: hidden; line-height: 0; }
 .people-plate {
   width: 100%;
@@ -1570,7 +1580,7 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 @media (prefers-reduced-motion: reduce) {
   #mail-flow, .site-ticker span { display: none; }
   .people-plate { animation: none; }
-  .sell-hero .door-loop { display: none; }
-  .sell-hero .door-poster { display: block; }
+  .seasons-scene .door-loop { display: none; }
+  .seasons-scene .door-poster { display: block; }
 }
 

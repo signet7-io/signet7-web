@@ -12,14 +12,11 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         cls.home = (ROOT / "index.html").read_text(encoding="utf-8")
         cls.css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
 
-    def test_door_uses_owner_loop_behind_type(self) -> None:
+    def test_door_keeps_people_behind_type(self) -> None:
         self.assertIn('class="sell-hero"', self.home)
-        self.assertIn("door-loop.mp4", self.home)
-        self.assertIn("door-loop.jpg", self.home)
-        self.assertNotIn("people-light.png", self.home)
-        self.assertNotIn("people-dark.png", self.home)
-        self.assertTrue((ROOT / "assets" / "door-loop.mp4").is_file())
-        self.assertTrue((ROOT / "assets" / "door-loop.jpg").is_file())
+        self.assertIn("people-light.png", self.home)
+        self.assertIn("people-dark.png", self.home)
+        self.assertNotIn("door-loop.mp4", self.home.split("seasons-scene")[0])
         self.assertIn("High-stakes email, finally", self.home)
         self.assertIn("provable", self.home)
         self.assertNotIn("Make email something you can prove", self.home)
@@ -38,11 +35,14 @@ class SiteFreeze20260822Tests(unittest.TestCase):
 
     def test_seasons_stay_after_the_hero(self) -> None:
         hero = self.home.index('class="sell-hero"')
-        seasons = self.home.index("tech-scene.jpg")
+        seasons = self.home.index("seasons-scene")
+        loop = self.home.index("door-loop.mp4")
         self.assertGreater(seasons, hero)
-        self.assertIn("tech-scene-dark.jpg", self.home)
-        self.assertTrue((ROOT / "assets" / "tech-scene.jpg").is_file())
-        self.assertTrue((ROOT / "assets" / "tech-scene-dark.jpg").is_file())
+        self.assertGreater(loop, seasons)
+        self.assertNotIn("tech-scene.jpg", self.home)
+        self.assertNotIn("tech-scene-dark.jpg", self.home)
+        self.assertTrue((ROOT / "assets" / "door-loop.mp4").is_file())
+        self.assertTrue((ROOT / "assets" / "door-loop.jpg").is_file())
 
     def test_frozen_chrome_tokens(self) -> None:
         self.assertIn("--nav-h: 72px;", self.css)

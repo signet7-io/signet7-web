@@ -370,8 +370,9 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn('|| "dark"', theme)
         self.assertIn("s7-theme-v2", theme)
         home = self.pages["index.html"]
-        self.assertIn("tech-scene-dark.jpg", home)
-        self.assertIn("tech-scene-light", home)
+        self.assertIn("door-loop.mp4", home)
+        self.assertIn("seasons-scene", home)
+        self.assertIn("people-light.png", home)
         self.assertIn("data-demo-next", home)
         self.assertIn("Step 1 of 4", home)
         self.assertIn('data-panel="vsn"', home)
