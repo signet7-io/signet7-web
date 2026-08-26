@@ -1130,15 +1130,17 @@ html[data-theme="dark"] .action-hero::before {
   margin: 0;
   z-index: 0;
 }
-.sell-hero .people-plate {
+.sell-hero .door-loop,
+.sell-hero .door-poster {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   aspect-ratio: auto;
   object-fit: cover;
-  object-position: 50% 38%;
+  object-position: 50% 50%;
 }
+.sell-hero .door-poster { display: none; }
 .sell-hero::after {
   content: "";
   position: absolute;
@@ -1568,5 +1570,7 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 @media (prefers-reduced-motion: reduce) {
   #mail-flow, .site-ticker span { display: none; }
   .people-plate { animation: none; }
+  .sell-hero .door-loop { display: none; }
+  .sell-hero .door-poster { display: block; }
 }
 
