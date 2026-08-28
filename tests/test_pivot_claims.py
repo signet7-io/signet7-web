@@ -140,13 +140,19 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             "Price the sender habit. Keep recipient checks free.",
             "Per-agent / decision-band direction",
             "Checkout not live yet",
-            "$12 / $29 / $99 / from $1,000",
+            "Amounts not set",
             "Inactive legacy catalog",
             "no longer the controlling public model",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, programs)
-        for stale_price in ("$12/month", "$29/month", "$99/month", "$1,000/month"):
+        for stale_price in (
+            "$12 / $29 / $99 / from $1,000",
+            "$12/month",
+            "$29/month",
+            "$99/month",
+            "$1,000/month",
+        ):
             self.assertNotIn(stale_price, programs)
 
     def test_pilot_is_bounded_and_not_a_production_offer(self) -> None:
@@ -201,7 +207,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_it_one_pager_exists(self) -> None:
         self.assertIn("it.html", self.pages)
         page = self.pages["it.html"].lower()
-        for phrase in ("one mailbox", "pip install signet7", "windows, mac, and linux", "127.0.0.1"):
+        for phrase in ("one mailbox", "windows, mac, and linux", "127.0.0.1"):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, page)
 
@@ -210,14 +216,15 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("pay.html", self.pages)
         download = self.pages["download.html"]
         pay = self.pages["pay.html"]
-        self.assertIn("pip install signet7-hold", download)
+        self.assertNotIn("pip install", download)
         self.assertNotIn("pypi.org", download)
         self.assertIn("is-off", download)
         self.assertIn("Not open yet", download)
-        self.assertIn("$12", pay)
-        self.assertIn("$29", pay)
-        self.assertIn("$99", pay)
-        self.assertIn("from $1,000", pay)
+        self.assertNotIn("$12", pay)
+        self.assertNotIn("$29", pay)
+        self.assertNotIn("$99", pay)
+        self.assertNotIn("$1,000", pay)
+        self.assertIn("Amount not set", pay)
         self.assertIn("is-off", pay)
         self.assertIn("Checkout is not live", pay)
         self.assertNotRegex(pay, r"<form\b")
@@ -290,13 +297,13 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("You produce it. They weigh it.", home)
         self.assertIn("fbi ic3", low)
         self.assertNotIn("pip install signet7", home)
-        self.assertIn("pip install signet7", self.pages["download.html"])
+        self.assertNotIn("pip install signet7", self.pages["download.html"])
         self.assertIn("href=\"download\"", home)
         self.assertIn("href=\"pay\"", home)
         self.assertIn("Verifiable Sender Network (VSN)", home)
         self.assertIn("Verifiable Sender Network", home)
         self.assertNotIn("$12 / $29 / $99", home)
-        self.assertIn("$12", self.pages["pay.html"])
+        self.assertNotIn("$12", self.pages["pay.html"])
         self.assertIn("https://account.signet7.io/account", home)
         self.assertIn("Manage account", home)
         self.assertIn("drop-btn", home)
