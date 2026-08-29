@@ -55,9 +55,15 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in sorted(ROOT.glob("*.html")):
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
+                self.assertIn("assets/site.css?v=20260829c", html)
+                if path.name in {"product.html", "docs.html"}:
+                    self.assertNotIn("seasons-scene", html)
+                    self.assertNotIn("door-loop.mp4", html)
+                    if path.name == "product.html":
+                        self.assertIn("signet7-circuit.jpg", html)
+                    continue
                 self.assertIn("seasons-scene", html)
                 self.assertIn("door-loop.mp4", html)
-                self.assertIn("assets/site.css?v=20260826d", html)
 
     def test_footer_rights_and_wrongs(self) -> None:
         line = "All rights reserved, All wrongs revenged."
