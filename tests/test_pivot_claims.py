@@ -101,9 +101,52 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, spec)
         self.assertIn("signet7-circuit.jpg", product)
+        self.assertNotIn("door-loop.mp4", product)
+        self.assertNotIn("seasons-scene", product)
         self.assertNotIn("signet7-circuit.jpg", self.pages["index.html"])
         self.assertNotIn("EXECUTEWIRE", product)
         self.assertNotIn("EXECUTEWIRE", self.pages["index.html"])
+
+    def test_docs_page_is_a_customer_handbook(self) -> None:
+        docs = self.pages["docs.html"]
+        self.assertIn("account.signet7.io/account", docs)
+        self.assertIn("verify.signet7.io/email/verify", docs)
+        self.assertIn("verify.signet7.io/vsn", docs)
+        self.assertIn("Create a Google Cloud app for Gmail", docs)
+        self.assertIn("console.cloud.google.com", docs)
+        self.assertIn("gmail.googleapis.com", docs)
+        self.assertIn("Desktop app", docs)
+        self.assertNotIn("check@signet7.io", docs)
+        self.assertNotIn("Forward the original", docs)
+        self.assertIn(
+            '<a href="https://verify.signet7.io/email/verify">Recipients still check at the live check</a>',
+            docs,
+        )
+        self.assertIn("Sideload the manifest", docs)
+        self.assertIn("outlook/manifest.xml", docs)
+        self.assertIn("Other Mail Account", docs)
+        self.assertIn("docs-signet7-mailbox-helper.png", docs)
+        self.assertIn("docs-apple-mail-server-settings.png", docs)
+        self.assertIn("Authentication <strong>None</strong>", docs)
+        self.assertTrue((ROOT / "assets" / "docs-signet7-mailbox-helper.png").is_file())
+        self.assertTrue((ROOT / "assets" / "docs-apple-mail-server-settings.png").is_file())
+        self.assertIn("127.0.0.1", docs)
+        self.assertIn("The signed app is not open yet", docs)
+        self.assertIn("id=\"install\"", docs)
+        self.assertIn("How to use Signet7", docs)
+        self.assertIn("class=\"docs-manual\"", docs)
+        self.assertIn("Contents", docs)
+        self.assertNotIn("door-loop.mp4", docs)
+        self.assertNotIn("seasons-scene", docs)
+        self.assertNotIn("admin.signet7.io", docs)
+        self.assertNotIn("qual.signet7.io", docs)
+        self.assertNotIn("pip install", docs)
+        self.assertIn("You received an important email", docs)
+        self.assertIn("Seal from Apple Mail", docs)
+        self.assertLess(docs.find('id="verify"'), docs.find('id="signup"'))
+        self.assertLess(docs.find('id="limits"'), docs.find('id="signup"'))
+        self.assertLess(docs.find('id="seal"'), docs.find('id="clients"'))
+        self.assertLess(docs.find('id="apple-mail"'), docs.find('id="install"'))
 
     def test_trust_page_separates_identity_evidence_and_compliance(self) -> None:
         spec = self.pages["docs.html"]
@@ -250,6 +293,11 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 self.assertIn("Use cases", html)
                 self.assertIn("href=\"scenarios\"", html)
                 self.assertNotIn("Install (pip)", html)
+                self.assertNotIn(">Docs</button>", html)
+                self.assertIn('<a href="docs">Docs</a>', html)
+                nav = html.split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
+                self.assertNotIn('href="it"', nav)
+                self.assertNotIn('href="smtp"', nav)
 
     def test_public_copy_does_not_overclaim(self) -> None:
         visible = re.sub(r"<[^>]+>", " ", self.all_copy).lower()
