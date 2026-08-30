@@ -112,6 +112,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("account.signet7.io/account", docs)
         self.assertIn("verify.signet7.io/email/verify", docs)
         self.assertIn("verify.signet7.io/vsn", docs)
+        self.assertIn("seal.signet7.io", docs)
         self.assertIn("Create a Google Cloud app for Gmail", docs)
         self.assertIn("console.cloud.google.com", docs)
         self.assertIn("gmail.googleapis.com", docs)

@@ -5,7 +5,7 @@
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
   xsi:type="MailApp">
   <Id>8f3c2a10-5b61-4d2e-9c0a-7e1d2f4a9b33</Id>
-  <Version>0.3.1.0</Version>
+  <Version>0.3.2.0</Version>
   <ProviderName>Signet7</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Signet7"/>
@@ -16,6 +16,8 @@
   <AppDomains>
     <AppDomain>https://signet7.io</AppDomain>
     <AppDomain>https://verify.signet7.io</AppDomain>
+    <AppDomain>https://account.signet7.io</AppDomain>
+    <AppDomain>https://seal.signet7.io</AppDomain>
   </AppDomains>
   <Hosts>
     <Host Name="Mailbox"/>

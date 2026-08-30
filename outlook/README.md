@@ -9,4 +9,5 @@ Sideload `manifest.xml`. Not AppSource. Org-wide push is a Microsoft 365 admin t
 Not Exchange. Verified is not safe. Unknown is not fraud.
 
 Hosted files: https://signet7.io/outlook/taskpane.html and compose.html
-API: https://verify.signet7.io
+Recipient check API: https://verify.signet7.io
+Sender seal API: https://seal.signet7.io

@@ -136,6 +136,7 @@
           <div class="scope-row"><b>Live check</b><span><a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a>. Check a message. No account.</span></div>
           <div class="scope-row"><b>VSN lookup</b><span><a href="https://verify.signet7.io/vsn">verify.signet7.io/vsn</a>. Whether a signing key is still bound to a domain. Not a check of one message. Today only Signet7's own domain is in that lookup.</span></div>
           <div class="scope-row"><b>Account</b><span><a href="https://account.signet7.io/account">account.signet7.io/account</a>. Company sign-up and sign-in.</span></div>
+          <div class="scope-row"><b>Seal</b><span><a href="https://seal.signet7.io">seal.signet7.io</a>. Desktop helper posts here. No hosted compose. Token still comes from account.</span></div>
         </div>
       </div>
     </section>
@@ -208,7 +209,7 @@
     <section class="section" id="seal">
       <div class="container">
         <h2>Seal outgoing mail</h2>
-        <p class="section-intro">Optional. Same computer as the mail app. Leave the helper running or port 2525 goes quiet. <a href="https://verify.signet7.io/email/verify">Recipients still check at the live check</a>. They do not install.</p>
+        <p class="section-intro">Optional. Same computer as the mail app. Leave the helper running or port 2525 goes quiet. The helper posts seals to <a href="https://seal.signet7.io">seal.signet7.io</a>. The token still comes from <a href="https://account.signet7.io/account">account</a>. <a href="https://verify.signet7.io/email/verify">Recipients still check at the live check</a>. They do not install.</p>
         <p class="docs-note"><strong>Not available yet.</strong> The signed desktop helper is the <a href="docs#install">install placeholder</a>. Do not point a mail app at 127.0.0.1:2525 until that helper is listening on this computer.</p>
         <div class="scope-list">
           <div class="scope-row"><b>Mail app → 127.0.0.1</b><span>Your email address. Authentication None on this hop. TLS off. Port 2525.</span></div>
