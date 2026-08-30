@@ -21,6 +21,7 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="assets/site.css?v=20260829c">
+  <link rel="stylesheet" href="assets/docs.css?v=20260830a">
 </head>
 <body class="docs-manual">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -80,6 +81,34 @@
     </div>
   </header>
 
+  <button type="button" class="docs-nav-toggle" aria-controls="docs-sidebar" aria-expanded="false">Contents</button>
+  <div class="docs-nav-mask"></div>
+  <div class="docs-shell">
+    <aside class="docs-sidebar" id="docs-sidebar">
+      <nav class="docs-nav" id="on-this-page" aria-label="Contents">
+        <p class="docs-nav-title">Contents</p>
+        <p class="docs-nav-group">Start</p>
+        <a href="#start">Start here</a>
+        <p class="docs-nav-group">Check a message</p>
+        <a href="#hosts">Which URL to open</a>
+        <a href="#verify">Check a message</a>
+        <a href="#limits">What a result means</a>
+        <p class="docs-nav-group">Send from a money mailbox</p>
+        <a href="#signup">Company account</a>
+        <a href="#outlook">Outlook add-in</a>
+        <a href="#seal">Seal outgoing mail</a>
+        <a href="#clients">Use each mail app</a>
+        <a href="#gmail-gcp">Google Cloud for Gmail</a>
+        <a href="#apple-mail">Seal from Apple Mail</a>
+        <a href="#install">Install the desktop app</a>
+        <p class="docs-nav-group">For engineers</p>
+        <a href="#spec">Engineer contract</a>
+        <a class="docs-nav-ext" href="it">IT one-pager</a>
+        <a class="docs-nav-ext" href="smtp">Outbound seal</a>
+        <a class="docs-nav-ext" href="check">Recipient check</a>
+      </nav>
+    </aside>
+    <div class="docs-content">
   <main id="main">
     <section class="page-hero">
       <div class="container">
@@ -95,25 +124,6 @@
           <div class="scope-row"><b>You received an important email</b><span>Skip to <a href="docs#verify">Check a message</a>. No account. No install.</span></div>
           <div class="scope-row"><b>You send from a money mailbox</b><span><a href="docs#signup">Company account</a>, then <a href="docs#outlook">Outlook sideload</a>, then <a href="docs#seal">sealing</a> (not available yet).</span></div>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="on-this-page">
-      <div class="container">
-        <h2>Contents</h2>
-        <ol class="docs-toc">
-          <li><a href="docs#hosts">Which URL to open</a></li>
-          <li><a href="docs#verify">Check a message</a></li>
-          <li><a href="docs#limits">What a result means</a></li>
-          <li><a href="docs#signup">Create or open a company account</a></li>
-          <li><a href="docs#outlook">Sideload the Outlook add-in</a></li>
-          <li><a href="docs#seal">Seal outgoing mail</a> (not available yet)</li>
-          <li><a href="docs#clients">Use each mail app</a></li>
-          <li><a href="docs#gmail-gcp">Create a Google Cloud app for Gmail</a></li>
-          <li><a href="docs#apple-mail">Seal from Apple Mail</a></li>
-          <li><a href="docs#install">Install the desktop app</a> (not available yet)</li>
-          <li><a href="docs#spec">Engineer contract</a></li>
-        </ol>
       </div>
     </section>
 
@@ -320,6 +330,8 @@
     </section>
 
   </main>
+    </div>
+  </div>
 
     <footer class="site-footer">
     <div class="container footer-grid">
@@ -329,5 +341,6 @@
     </div>
   </footer>
   <script src="assets/motion.js?v=20260823a" defer></script>
+  <script src="assets/docs-nav.js?v=20260830a" defer></script>
 </body>
 </html>
