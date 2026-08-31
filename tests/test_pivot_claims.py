@@ -303,8 +303,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         contact = self.pages["contact.html"]
         self.assertIn('href="feedback"', contact)
         home_nav = self.pages["index.html"].split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
-        self.assertNotIn('href="feedback"', home_nav)
-        self.assertIn('href="feedback">Feedback</a>', self.pages["index.html"].split("site-footer", 1)[1])
+        self.assertIn('href="feedback">Feedback</a>', home_nav)
+        self.assertIn('href="about">About</a>', home_nav)
 
     def test_homepage_situation_chooser_and_terminal_install(self) -> None:
         home = self.pages["index.html"]
@@ -375,8 +375,10 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for name, html in self.pages.items():
             with self.subTest(page=name):
                 self.assertIn("drop-btn", html)
-                self.assertIn("Use cases", html)
-                self.assertIn("href=\"scenarios\"", html)
+                self.assertIn(">About</a>", html)
+                self.assertIn(">Feedback</a>", html)
+                self.assertIn('href="scenarios"', html)
+                self.assertNotIn("Use cases", html)
                 self.assertNotIn("Install (pip)", html)
                 self.assertNotIn(">Docs</button>", html)
                 self.assertIn('<a href="docs">Docs</a>', html)
@@ -438,9 +440,10 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("$12 / $29 / $99", home)
         self.assertNotIn("$12", self.pages["pay.html"])
         self.assertIn("https://account.signet7.io/account", home)
-        self.assertIn("Manage account", home)
+        self.assertIn("Login to Signet7", home)
         self.assertIn("drop-btn", home)
-        self.assertIn("Programs &amp; pricing", home)
+        self.assertIn("Programs", home)
+        self.assertIn('href="programs"', home)
         self.assertNotRegex(home, r"<form\b")
         self.assertNotIn("dual-control", low)
         self.assertNotIn("isolated qualification", low)
@@ -496,19 +499,22 @@ class ContentSecurityPolicy(unittest.TestCase):
         for name, html in self.pages.items():
             with self.subTest(page=name):
                 self.assertIn('data-theme="dark"', html)
-                self.assertIn("data-theme-toggle", html)
+                self.assertNotIn("data-theme-toggle", html)
+                self.assertNotIn("Dark mode", html)
+                self.assertNotIn("Light mode", html)
                 self.assertIn('src="assets/theme.js', html)
-                self.assertIn("Dark mode", html)
                 self.assertIn("signet7-logo-mark.png", html)
                 self.assertIn('width="768"', html)
                 self.assertIn("https://account.signet7.io/account", html)
-                self.assertIn(">Account</a>", html)
-                self.assertEqual(html.count(">Account</a>"), 1)
+                self.assertIn(">Login to Signet7</a>", html)
+                self.assertEqual(html.count(">Login to Signet7</a>"), 1)
+                self.assertNotIn(">Account</a>", html)
                 self.assertIn("header-cta", html)
                 self.assertEqual(html.count("header-cta"), 1)
         theme = (ROOT / "assets" / "theme.js").read_text(encoding="utf-8")
-        self.assertIn('|| "dark"', theme)
-        self.assertIn("s7-theme-v2", theme)
+        self.assertIn('data-theme", "dark"', theme)
+        self.assertNotIn("s7-theme-v2", theme)
+        self.assertNotIn("light", theme)
         home = self.pages["index.html"]
         self.assertNotIn("signet7-circuit.jpg", home)
         self.assertNotIn("seasons-scene", home)

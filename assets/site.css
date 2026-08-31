@@ -1037,7 +1037,17 @@ html[data-theme="dark"] .action-hero::before {
   pointer-events: none;
   border: 0;
 }
-.circuit-scene { margin: 20px 0 0; }
+.home details {
+  margin: 8px 0 12px;
+  color: var(--mute);
+  font-size: 14px;
+}
+.home details summary {
+  cursor: pointer;
+  color: var(--cyan);
+  font-weight: 600;
+}
+.home details p { margin: 8px 0 0; }
 .circuit-banner {
   width: 100%;
   height: auto;
@@ -1554,8 +1564,8 @@ html[data-theme="dark"] .qcard span {
   object-position: 50% 38%;
   display: none;
 }
-html:not([data-theme="dark"]) .people-plate.people-light,
 html[data-theme="dark"] .people-plate.people-dark { display: block; }
+.people-plate.people-light { display: none; }
 #mail-flow, .theater-veil { display: none; }
 .name-bridge {
   position: relative;
