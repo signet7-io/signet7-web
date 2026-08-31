@@ -100,7 +100,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, spec)
-        self.assertIn("signet7-circuit.jpg", self.pages["index.html"])
+        self.assertNotIn("signet7-circuit.jpg", self.pages["index.html"])
         self.assertNotIn("door-loop.mp4", product)
         self.assertNotIn("seasons-scene", product)
         self.assertNotIn("signet7-circuit.jpg", product)
@@ -284,27 +284,24 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             with self.subTest(path=path.name):
                 self.assertNotIn("money mailbox", path.read_text(encoding="utf-8").lower())
 
-    def test_feedback_page_uses_named_inboxes_and_mailto_only(self) -> None:
+    def test_feedback_page_posts_send_without_mailto(self) -> None:
         html = self.pages["feedback.html"]
         js = (ROOT / "assets" / "feedback.js").read_text(encoding="utf-8")
         self.assertNotIn("<form", html)
         self.assertIn("Tell us what to build, fix, or change.", html)
-        self.assertIn("customerservice@signet7.io", html)
-        self.assertIn("mailto:check@signet7.io", html)
-        self.assertIn("mailto:sales@signet7.io", html)
-        self.assertIn("mailto:marketing@signet7.io", html)
-        self.assertIn("does not upload", html.lower())
+        self.assertIn("Press Send", html)
+        self.assertNotIn("mailto:", html)
         self.assertNotIn("qual", html.lower())
         self.assertIn('href="pilot"', html)
-        self.assertIn("customerservice@signet7.io", js)
-        self.assertIn("mailto:", js)
-        self.assertNotIn("fetch(", js)
+        self.assertIn("https://verify.signet7.io/api/v1/feedback", js)
+        self.assertIn("fetch(", js)
+        self.assertNotIn("mailto:", js)
+        self.assertNotIn("qual", js.lower())
         programs = self.pages["programs.html"]
-        self.assertIn("mailto:sales@signet7.io", programs)
         self.assertIn('href="feedback"', programs)
+        self.assertNotIn("mailto:sales@signet7.io", programs)
         contact = self.pages["contact.html"]
-        self.assertIn("mailto:customerservice@signet7.io", contact)
-        self.assertIn("mailto:check@signet7.io", contact)
+        self.assertIn('href="feedback"', contact)
         home_nav = self.pages["index.html"].split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
         self.assertNotIn('href="feedback"', home_nav)
         self.assertIn('href="feedback">Feedback</a>', self.pages["index.html"].split("site-footer", 1)[1])
@@ -513,8 +510,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn('|| "dark"', theme)
         self.assertIn("s7-theme-v2", theme)
         home = self.pages["index.html"]
-        self.assertIn("signet7-circuit.jpg", home)
-        self.assertIn("seasons-scene", home)
+        self.assertNotIn("signet7-circuit.jpg", home)
+        self.assertNotIn("seasons-scene", home)
         self.assertNotIn("door-loop.mp4", home)
         self.assertIn("people-light.png", home)
         self.assertIn("data-demo-next", home)

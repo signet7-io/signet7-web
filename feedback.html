@@ -7,12 +7,12 @@
      enforceable subset. NOTE: frame-ancestors is ignored when delivered via <meta>;
      real clickjacking protection requires a header layer (Cloudflare/CloudFront) and
      is required before any verification surface is hosted on this domain. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self' https://verify.signet7.io; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
   <title>Feedback | Signet7</title>
-  <meta name="description" content="Tell Signet7 what to build, fix, or change. Feedback opens your mail app. This page does not upload messages.">
+  <meta name="description" content="Tell Signet7 what to build, fix, or change. Type it, press Send. No mail app.">
   <meta name="theme-color" content="#07101b">
   <meta property="og:title" content="Feedback | Signet7">
-  <meta property="og:description" content="Tell Signet7 what to build, fix, or change. Feedback opens your mail app. This page does not upload messages.">
+  <meta property="og:description" content="Tell Signet7 what to build, fix, or change. Type it, press Send. No mail app.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://signet7.io/feedback">
   <meta property="og:image" content="https://signet7.io/assets/og-image.png">
@@ -85,7 +85,7 @@
       <div class="container">
         <p class="eyebrow">Feedback</p>
         <h1>Tell us what to build, fix, or change.</h1>
-        <p class="hero-copy">Every note is read. This page does not upload anything to Signet7. Submit opens your mail app to the right inbox. Do not send a real invoice, password, or customer file.</p>
+        <p class="hero-copy">Every note is read. Type it, press Send. Do not send a real invoice, password, or customer file. Checkout is not required.</p>
       </div>
     </section>
 
@@ -99,6 +99,8 @@
             <button type="button" data-type="feedback" aria-pressed="true">Feedback</button>
             <button type="button" data-type="bug" aria-pressed="false">Bug</button>
             <button type="button" data-type="feature" aria-pressed="false">Feature request</button>
+            <button type="button" data-type="sales" aria-pressed="false">Sales</button>
+            <button type="button" data-type="marketing" aria-pressed="false">Marketing</button>
           </div>
         </div>
 
@@ -114,17 +116,23 @@
           <textarea id="feedback-content" maxlength="4000" placeholder="Say anything about Signet7…"></textarea>
         </div>
 
-        <button type="button" class="feedback-submit" id="feedback-submit">Submit feedback</button>
-        <p class="feedback-status" id="feedback-status" role="status">Feedback, bugs, and feature requests go to customerservice@signet7.io through your mail app.</p>
+        <div class="feedback-card">
+          <h2>Reply email (optional)</h2>
+          <label class="sr-only" for="feedback-reply">Reply email</label>
+          <input id="feedback-reply" maxlength="120" placeholder="Only if you want a reply" autocomplete="email">
+        </div>
+
+        <button type="button" class="feedback-submit" id="feedback-submit">Send</button>
+        <p class="feedback-status" id="feedback-status" role="status">Press Send. No mail app.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
         <div class="grid-3">
-          <article class="card"><h3>Check a message</h3><p>Recipients install nothing. Open <a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a>, or forward a saved message to <a href="mailto:check@signet7.io">check@signet7.io</a>. That inbox is for checks, not product notes.</p></article>
-          <article class="card"><h3>Sales and programs</h3><p>Ask about programs, a design partner, or a company account: <a href="mailto:sales@signet7.io">sales@signet7.io</a>. Checkout is not live. Amounts stay on <a href="pay">Pay</a>.</p></article>
-          <article class="card"><h3>Marketing</h3><p>Press, campaigns, and public copy: <a href="mailto:marketing@signet7.io">marketing@signet7.io</a>. Privacy and deletion stay on <a href="contact">Contact</a>.</p></article>
+          <article class="card"><h3>Check a message</h3><p>Recipients install nothing. Open <a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a>. That is a check, not this form.</p></article>
+          <article class="card"><h3>Privacy and security</h3><p>Deletion and security reports stay on <a href="contact">Contact</a>.</p></article>
+          <article class="card"><h3>Checkout</h3><p>Not live. Amounts stay on <a href="pay">Pay</a>.</p></article>
         </div>
       </div>
     </section>

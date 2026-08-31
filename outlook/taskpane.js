@@ -141,5 +141,32 @@ Office.onReady(function () {
   if (verifyBtn) verifyBtn.onclick = function () { verifyCurrentMessage({ silent: false }); };
   var base = document.getElementById("baseUrl");
   if (base && !base.value) base.value = DEFAULT_BASE;
+  var fbBtn = document.getElementById("feedbackBtn");
+  if (fbBtn) {
+    fbBtn.onclick = function () {
+      var text = (document.getElementById("feedbackText") || {}).value || "";
+      var out = document.getElementById("feedbackOut");
+      if (!String(text).trim()) {
+        if (out) out.textContent = "Write a few words first.";
+        return;
+      }
+      if (out) out.textContent = "Sending…";
+      fetch(apiBase() + "/api/v1/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "feedback", content: String(text).trim() })
+      }).then(function (res) { return res.json().then(function (body) { return { ok: res.ok, body: body }; }); })
+        .then(function (result) {
+          if (result.ok && result.body && result.body.accepted) {
+            if (out) out.textContent = result.body.mailed ? "Sent. Thank you." : "Received. Thank you.";
+            var box = document.getElementById("feedbackText");
+            if (box) box.value = "";
+            return;
+          }
+          if (out) out.textContent = (result.body && result.body.error) || "Could not send.";
+        })
+        .catch(function () { if (out) out.textContent = "Could not send."; });
+    };
+  }
   bindPassive();
 });

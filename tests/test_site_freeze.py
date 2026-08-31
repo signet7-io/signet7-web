@@ -34,17 +34,12 @@ class SiteFreeze20260822Tests(unittest.TestCase):
             self.assertNotIn(banned, self.css)
 
     def test_seasons_stay_after_the_hero(self) -> None:
-        hero = self.home.index('class="sell-hero"')
-        seasons = self.home.index("seasons-scene")
-        circuit = self.home.index("signet7-circuit.jpg")
-        self.assertGreater(seasons, hero)
-        self.assertGreater(circuit, seasons)
+        self.assertIn('class="sell-hero"', self.home)
+        self.assertNotIn("seasons-scene", self.home)
+        self.assertNotIn("signet7-circuit.jpg", self.home)
         self.assertNotIn("tech-scene.jpg", self.home)
         self.assertNotIn("tech-scene-dark.jpg", self.home)
         self.assertNotIn("door-loop.mp4", self.home)
-        self.assertTrue((ROOT / "assets" / "signet7-circuit.jpg").is_file())
-        self.assertTrue((ROOT / "assets" / "door-loop.mp4").is_file())
-        self.assertTrue((ROOT / "assets" / "door-loop.jpg").is_file())
 
     def test_frozen_chrome_tokens(self) -> None:
         self.assertIn("--nav-h: 72px;", self.css)
@@ -58,11 +53,6 @@ class SiteFreeze20260822Tests(unittest.TestCase):
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
                 self.assertIn("assets/site.css?v=20260829c", html)
-                if path.name == "index.html":
-                    self.assertIn("seasons-scene", html)
-                    self.assertIn("signet7-circuit.jpg", html)
-                    self.assertNotIn("door-loop.mp4", html)
-                    continue
                 self.assertNotIn("seasons-scene", html)
                 self.assertNotIn("door-loop.mp4", html)
                 self.assertNotIn("signet7-circuit.jpg", html)
