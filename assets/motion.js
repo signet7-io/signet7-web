@@ -105,7 +105,7 @@
       title: ["Title / closing", "The irreversible detail is the account. Check the seal before you change where money goes."],
       build: ["Construction", "Draws, change orders, sub pay-apps. Ordinary-looking email. That is the trap."],
       pay: ["Payroll", "A “new direct deposit” from someone who looks like staff. Check who it came from. Keep the record."],
-      finance: ["Finance / AP", "Invoice plus new routing. Keep Outlook. Watch the money mailbox. Recipients use the live check."],
+      finance: ["Finance / AP", "Invoice plus new routing. Keep Outlook. Watch the company inbox. Recipients use the live check."],
       bank: ["Bank / credit union ops", "Internal or vendor instructions that move accounts. You still decide. Signet7 is the last look and the record you keep."]
     };
     const title = document.querySelector("[data-desk-title]");

@@ -93,7 +93,7 @@
         <a href="#hosts">Which URL to open</a>
         <a href="#verify">Check a message</a>
         <a href="#limits">What a result means</a>
-        <p class="docs-nav-group">Send from a money mailbox</p>
+        <p class="docs-nav-group">Send from a company inbox</p>
         <a href="#signup">Company account</a>
         <a href="#outlook">Outlook add-in</a>
         <a href="#seal">Seal outgoing mail</a>
@@ -122,7 +122,7 @@
         <h2>Start here</h2>
         <div class="scope-list">
           <div class="scope-row"><b>You received an important email</b><span>Skip to <a href="docs#verify">Check a message</a>. No account. No install.</span></div>
-          <div class="scope-row"><b>You send from a money mailbox</b><span><a href="docs#signup">Company account</a>, then <a href="docs#outlook">Outlook sideload</a>, then <a href="docs#seal">sealing</a> (not available yet).</span></div>
+          <div class="scope-row"><b>You send from a company inbox</b><span><a href="docs#signup">Company account</a>, then <a href="docs#outlook">Outlook sideload</a>, then <a href="docs#seal">sealing</a> (not available yet).</span></div>
         </div>
       </div>
     </section>
@@ -214,7 +214,7 @@
         <div class="scope-list">
           <div class="scope-row"><b>Mail app → 127.0.0.1</b><span>Your email address. Authentication None on this hop. TLS off. Port 2525.</span></div>
           <div class="scope-row"><b>Signet7 → your provider</b><span>Provider app password (Gmail: 16 letters). Not the Google login. Not a Signet7 token.</span></div>
-          <div class="scope-row"><b>Limits</b><span>Not a new composer. Not Exchange. Not a mail vendor. One money mailbox, not every inbox.</span></div>
+          <div class="scope-row"><b>Limits</b><span>Not a new composer. Not Exchange. Not a mail vendor. One company inbox, not every inbox.</span></div>
         </div>
       </div>
     </section>
@@ -238,7 +238,7 @@
         <ol>
           <li>To check: see <a href="docs#verify">Check a message</a>.</li>
           <li>To seal later: Account Settings → Outgoing Server (SMTP) → Add.</li>
-          <li>Host 127.0.0.1, port 2525. Use that server for the money mailbox only.</li>
+          <li>Host 127.0.0.1, port 2525. Use that server for the company inbox only.</li>
         </ol>
         <h3>Apple Mail</h3>
         <ol>
@@ -254,7 +254,7 @@
         <p class="section-intro">Gmail sealing needs a Google Cloud project with the Gmail API on, plus an OAuth Desktop client. Do this before you fill the Signet7 helper. Checking a message does not need this. Recipients do not need this.</p>
         <p class="docs-note">Do not paste a Google Cloud client ID, client secret, or JSON into Signet7 Token, into Mail user name, or into the Google app password field. The helper still uses a 16-letter Google <strong>app password</strong> in those password rows. The Cloud app is what Google requires so this mailbox can use Gmail APIs.</p>
         <ol>
-          <li>Open <a href="https://console.cloud.google.com/">console.cloud.google.com</a> with the Google account that owns the money mailbox. Accept the Cloud terms if Google asks.</li>
+          <li>Open <a href="https://console.cloud.google.com/">console.cloud.google.com</a> with the Google account that owns the company inbox. Accept the Cloud terms if Google asks.</li>
           <li>Create a project. Name it something you will recognize, for example <strong>Signet7 Gmail</strong>. Select that project in the top bar.</li>
           <li>Enable the Gmail API: <a href="https://console.cloud.google.com/apis/library/gmail.googleapis.com">APIs &amp; Services → Library → Gmail API → Enable</a>.</li>
           <li>Open <a href="https://console.cloud.google.com/auth/overview">APIs &amp; Services → Google Auth platform</a>. If Google asks you to get started, continue.</li>
@@ -312,7 +312,7 @@
       <div class="container">
         <h2>Install the desktop app</h2>
         <p class="section-intro">The signed app is not open yet. This section is a placeholder. Windows, Mac, and Linux steps will go here when the signed apps are ready.</p>
-        <p class="docs-note">Recipients never install. They use the <a href="https://verify.signet7.io/email/verify">live check</a>. When it ships, the app watches one money mailbox. It is not a composer. See the <a href="download">download page</a>.</p>
+        <p class="docs-note">Recipients never install. They use the <a href="https://verify.signet7.io/email/verify">live check</a>. When it ships, the app watches one company inbox. It is not a composer. See the <a href="download">download page</a>.</p>
       </div>
     </section>
 

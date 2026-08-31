@@ -278,6 +278,22 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertTrue((ROOT / "files" / "signet7-watch-linux.zip").is_file())
         self.assertTrue((ROOT / "files" / "latest.json").is_file())
 
+    def test_customer_copy_never_says_money_mailbox(self) -> None:
+        paths = list(ROOT.glob("*.html")) + list((ROOT / "outlook").glob("*.html")) + [ROOT / "assets" / "motion.js"]
+        for path in paths:
+            with self.subTest(path=path.name):
+                self.assertNotIn("money mailbox", path.read_text(encoding="utf-8").lower())
+
+    def test_outlook_directory_has_index_for_pages(self) -> None:
+        index = ROOT / "outlook" / "index.html"
+        self.assertTrue(index.is_file())
+        html = index.read_text(encoding="utf-8")
+        self.assertIn("manifest.xml", html)
+        self.assertIn("Sideload", html)
+        self.assertIn("Checkout is not live", html)
+        self.assertIn("verify.signet7.io/email/verify", html)
+        self.assertNotIn("qual", html.lower())
+
     def test_pay_page_stays_closed(self) -> None:
         self.assertIn("pay.html", self.pages)
         pay = self.pages["pay.html"]
