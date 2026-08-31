@@ -1,6 +1,7 @@
 /* global Office */
 var ACK = "terms-disclaimer-2026-08-15";
 var DEFAULT_BASE = "https://verify.signet7.io";
+var CONSEQUENTIAL = /\b(wire(?:\s+transfer)?|wiring|routing\s+number|iban|swift|account\s+number|bank\s+account|change.{0,40}account|new\s+account|update.{0,40}payment|payment\s+instruction|beneficiary|w-?9|gift\s+cards?|invoice.{0,80}pay)\b/i;
 
 function bytesToBase64(bytes) {
   var binary = "";
@@ -17,7 +18,15 @@ function apiBase() {
   return base || DEFAULT_BASE;
 }
 
-function classifyAlert(result) {
+function looksSealed(result) {
+  if (!result) return false;
+  if (result.integrity_ok === true) return true;
+  var signature = String(result.signature || "").toUpperCase();
+  if (signature === "VALID" || signature === "OK" || signature === "PASS") return true;
+  return result.sealed === true;
+}
+
+function classifyAlert(result, subject, body) {
   if (!result) return null;
   var signature = String(result.signature || "").toUpperCase();
   var replay = String(result.replay || "").toUpperCase();
@@ -50,6 +59,13 @@ function classifyAlert(result) {
       body: "The sender/key binding is recorded as " + status + ". Use a known callback before you act."
     };
   }
+  if (CONSEQUENTIAL.test(String(subject || "") + "\n" + String(body || "")) && !looksSealed(result)) {
+    return {
+      level: "warn",
+      title: "Signet7: payment or account change, no seal",
+      body: "This looks like a payment or account-change instruction and it is not sealed. Call a number you already have. Do not use a number from this email. Unknown is not fraud. Verified is not safe."
+    };
+  }
   return null;
 }
 
@@ -76,8 +92,21 @@ function setOut(text) {
 }
 
 function ackHeader() {
-  var headers = { "Content-Type": "application/json", "X-Signet7-Ack": ACK };
-  return headers;
+  return { "Content-Type": "application/json", "X-Signet7-Ack": ACK };
+}
+
+function fromAddress() {
+  var item = Office.context.mailbox.item;
+  if (item && item.from && item.from.emailAddress) return item.from.emailAddress;
+  return "";
+}
+
+function lookupVsn(fromAddr) {
+  if (!fromAddr || fromAddr.indexOf("@") < 0) return Promise.resolve(null);
+  var domain = fromAddr.split("@").pop();
+  return fetch(apiBase() + "/api/v1/vsn/lookup?domain=" + encodeURIComponent(domain))
+    .then(function (response) { return response.json(); })
+    .catch(function () { return null; });
 }
 
 function verifyCurrentMessage(opts) {
@@ -109,15 +138,26 @@ function verifyCurrentMessage(opts) {
             resolve();
             return;
           }
-          var alert = classifyAlert(pack.body);
-          if (alert) {
-            showBanner(alert);
-            showPopup(alert);
-            setOut(alert.title + "\n\n" + alert.body);
-          } else {
-            setOut("No Signet7 warning. Ordinary unsigned mail stays quiet. Verified is not safe. Unknown is not fraud.");
-          }
-          resolve();
+          var item = Office.context.mailbox.item;
+          var subject = item && item.subject ? item.subject : "";
+          var alert = classifyAlert(pack.body, subject, "");
+          var from = fromAddress();
+          lookupVsn(from).then(function (vsn) {
+            var vsnLine = "";
+            if (vsn && vsn.status === "PUBLISHED") {
+              vsnLine = "\nFrom domain is listed in public DNS lookup (" + vsn.domain + "). Managed network stays planned.";
+            } else if (vsn) {
+              vsnLine = "\nFrom domain is not in public DNS lookup. Invite them from your Signet7 account if you work with them.";
+            }
+            if (alert) {
+              showBanner(alert);
+              if (!silent) showPopup(alert);
+              setOut(alert.title + "\n\n" + alert.body + vsnLine);
+            } else {
+              setOut("No Signet7 warning. Ordinary unsigned mail stays quiet. Verified is not safe. Unknown is not fraud." + vsnLine);
+            }
+            resolve();
+          });
         })
         .catch(function (error) {
           if (!silent) setOut(String(error));
@@ -136,9 +176,20 @@ function bindPassive() {
   }
 }
 
+function inviteSender() {
+  var from = fromAddress();
+  if (!from) {
+    setOut("Open a message first.");
+    return;
+  }
+  window.open("https://account.signet7.io/account?invite=" + encodeURIComponent(from), "_blank");
+}
+
 Office.onReady(function () {
   var verifyBtn = document.getElementById("verifyBtn");
   if (verifyBtn) verifyBtn.onclick = function () { verifyCurrentMessage({ silent: false }); };
+  var inviteBtn = document.getElementById("inviteBtn");
+  if (inviteBtn) inviteBtn.onclick = inviteSender;
   var base = document.getElementById("baseUrl");
   if (base && !base.value) base.value = DEFAULT_BASE;
   var fbBtn = document.getElementById("feedbackBtn");

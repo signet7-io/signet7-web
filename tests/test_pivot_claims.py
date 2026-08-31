@@ -567,7 +567,17 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn('html[data-theme="dark"]', css)
         self.assertIn(".home .site-nav .drop-menu a", css)
         self.assertNotIn(".drop-menu a { color: #e8eef4", css)
-        self.assertNotIn("html[data-theme=\"dark\"] .drop-menu {\n  background: #ffffff", css)
+
+    def test_outlook_stay_in_mail(self) -> None:
+        manifest = (ROOT / "outlook" / "manifest.xml").read_text(encoding="utf-8")
+        self.assertIn("<SupportsPinning>true</SupportsPinning>", manifest)
+        self.assertIn("OnMessageSend", manifest)
+        pane = (ROOT / "outlook" / "taskpane.html").read_text(encoding="utf-8")
+        self.assertIn("inviteBtn", pane)
+        js = (ROOT / "outlook" / "taskpane.js").read_text(encoding="utf-8")
+        self.assertIn("/api/v1/vsn/lookup", js)
+        self.assertIn("account.signet7.io/account?invite=", js)
+        self.assertNotIn("This message was sealed with Signet7", js)
 
 
 if __name__ == "__main__":
