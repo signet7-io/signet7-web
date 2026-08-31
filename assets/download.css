@@ -1,0 +1,32 @@
+.os-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 28px 0;
+}
+.os-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 20px 18px 18px;
+}
+.os-card h2 { margin: 0 0 8px; font-size: 20px; }
+.os-card p { margin: 0 0 16px; color: var(--mute); }
+.os-card.is-you { border-color: var(--cyan); box-shadow: 0 0 0 1px var(--cyan); }
+.os-card .you-flag {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 8px;
+}
+.os-card .button { display: inline-flex; }
+.warn-box {
+  border: 1px solid var(--gold);
+  padding: 14px 16px;
+  margin: 16px 0 28px;
+  color: var(--ink-soft);
+}
+@media (max-width: 900px) {
+  .os-grid { grid-template-columns: 1fr; }
+}

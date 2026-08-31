@@ -9,16 +9,17 @@
      is required before any verification surface is hosted on this domain. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
   <title>Download | Signet7</title>
-  <meta name="description" content="Download Signet7 for one money mailbox. Windows, Mac, and Linux. Recipients use the live check.">
+  <meta name="description" content="Download Signet7 Watch for one company inbox on Windows, Mac, or Linux. Recipients never install. They use the live check.">
   <meta name="theme-color" content="#07101b">
   <meta property="og:title" content="Download | Signet7">
-  <meta property="og:description" content="Download Signet7 for one money mailbox. Windows, Mac, and Linux. Recipients use the live check.">
+  <meta property="og:description" content="Download Signet7 Watch for one company inbox. Recipients use the live check.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://signet7.io/download">
   <meta property="og:image" content="https://signet7.io/assets/og-image.png">
   <link rel="canonical" href="https://signet7.io/download">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="assets/site.css?v=20260829c">
+  <link rel="stylesheet" href="assets/download.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -83,12 +84,12 @@
     <section class="page-hero">
       <div class="container">
         <p class="eyebrow">Download</p>
-        <h1>The app is not open yet.</h1>
-        <p class="hero-copy">When it is, it is for one money mailbox on Windows, Mac, and Linux. Recipients never install. They use the live check. This page is on the site so you can find it. We will email you when Windows and Mac are signed and ready.</p>
-        <p class="hero-actions"><span class="button button-secondary is-off" aria-disabled="true">Download</span> <a class="button button-primary" href="https://verify.signet7.io/email/verify">Open the live check</a></p>
+        <h1>Watch one company inbox.</h1>
+        <p class="hero-copy">This is for your company machine. Recipients never install. They paste or open a message at the live check. Checkout is not live. Windows and Mac will warn because this build is not code-signed yet.</p>
+        <p class="hero-actions"><a class="button button-primary" href="https://verify.signet7.io/email/verify">I only need to check a message</a></p>
         <div class="badge-row">
-          <span class="badge cyan">Not open yet</span>
-          <span class="badge">Live service</span>
+          <span class="badge cyan">Unsigned preview</span>
+          <span class="badge">Build <span id="build-version">2026-08-27-unsigned</span></span>
         </div>
       </div>
     </section>
@@ -101,7 +102,28 @@
 
     <section class="section">
       <div class="container">
-        <p class="section-intro">Same window on Windows, Mac, and Linux. Watch AP, treasury, closings, or vendor-changes. Quiet unless a seal is broken. Write in Outlook, Apple Mail, or Thunderbird. Signet7 is not a composer.</p>
+        <div class="warn-box">Windows SmartScreen and Mac Gatekeeper will ask extra clicks. That is unsigned software, not a Signet7 plan. Recipients should not download this.</div>
+        <div class="os-grid">
+          <article class="os-card" data-os="windows">
+            <span class="you-flag" data-you hidden>Your computer</span>
+            <h2>Windows</h2>
+            <p>Inbox Watch for one company inbox. Write mail in Outlook as usual. Signet7 is not a composer.</p>
+            <a class="button button-primary" href="files/signet7-watch-windows.zip">Download for Windows</a>
+          </article>
+          <article class="os-card" data-os="macos">
+            <span class="you-flag" data-you hidden>Your computer</span>
+            <h2>Mac</h2>
+            <p>Same Watch on this Mac. Recipients still use the live check. No extra app for them.</p>
+            <a class="button button-primary" href="files/signet7-watch-macos.zip">Download for Mac</a>
+          </article>
+          <article class="os-card" data-os="linux">
+            <span class="you-flag" data-you hidden>Your computer</span>
+            <h2>Linux</h2>
+            <p>Same Watch on Linux. If something fails after install, use the live check until we send a new build.</p>
+            <a class="button button-primary" href="files/signet7-watch-linux.zip">Download for Linux</a>
+          </article>
+        </div>
+        <p class="section-intro">When we ship a new program build, this page and <a href="files/latest.json">files/latest.json</a> change together. After you create a company account we email the steps for your system. Engineer notes live on <a href="docs">Docs</a>.</p>
         <p><a href="it">IT one-pager</a> · <a href="smtp">SMTP helper</a></p>
       </div>
     </section>
@@ -115,5 +137,6 @@
     </div>
   </footer>
   <script src="assets/motion.js?v=20260823a" defer></script>
+  <script src="assets/download.js" defer></script>
 </body>
 </html>

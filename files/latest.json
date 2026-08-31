@@ -1,0 +1,22 @@
+{
+  "version": "2026-08-27-unsigned",
+  "channel": "preview",
+  "signed": false,
+  "files": {
+    "windows": {
+      "href": "files/signet7-watch-windows.zip",
+      "sha256": "f8869a00fd0f119cd50c6ec6565a1b2e453d7431e0ef599f373d34e490745872",
+      "bytes": 21328794
+    },
+    "macos": {
+      "href": "files/signet7-watch-macos.zip",
+      "sha256": "36eab63e5097d51ee4117e6a7fd5793a4320c5255b4df2692f73343a10b4508c",
+      "bytes": 43137116
+    },
+    "linux": {
+      "href": "files/signet7-watch-linux.zip",
+      "sha256": "b91fb74b1b59a7c3a4aa3135d1458e1c7967654a7b47bc30a01a38c929cccb10",
+      "bytes": 40058413
+    }
+  }
+}
