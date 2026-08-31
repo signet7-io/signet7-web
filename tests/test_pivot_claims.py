@@ -184,12 +184,12 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_program_page_retires_old_public_prices(self) -> None:
         programs = self.pages["programs.html"]
         for phrase in (
-            "Price the sender habit. Keep recipient checks free.",
-            "Per-agent / decision-band direction",
+            "Sell the check. One Watch. A company that can be looked up.",
             "Checkout not live yet",
             "Amounts not set",
-            "Inactive legacy catalog",
-            "no longer the controlling public model",
+            "Inactive catalog",
+            "Team is not a catalog SKU",
+            "vanity seats",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, programs)
@@ -454,6 +454,18 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("isolated qualification", low)
         self.assertNotIn("api/mcp-first", low)
         self.assertNotIn("executewire", low)
+        self.assertIn("The check. One Watch. A company that can be looked up.", home)
+        self.assertIn("Not a thousand installs", home)
+        self.assertIn("vanity seats", home)
+        self.assertIn("What Watch does", self.pages["download.html"])
+        self.assertIn("What does Watch do?", self.pages["faq.html"])
+        self.assertIn("going to the factory", self.pages["faq.html"])
+        self.assertIn("One Watch on AP", self.pages["enterprise.html"])
+        programs = self.pages["programs.html"]
+        self.assertIn("Team is not a catalog SKU", programs)
+        self.assertNotIn("Governed agents", programs)
+        self.assertIn("vanity seats", programs)
+        self.assertIn("Checkout is not live", programs)
 
 
 class ContentSecurityPolicy(unittest.TestCase):
