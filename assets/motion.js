@@ -101,15 +101,40 @@
   const deskRoot = document.querySelector("[data-desks]");
   if (deskRoot) {
     const copy = {
-      law: ["Law office", "Settlement, retainer, or “updated wiring.” Inspect the seal. Keep the record."],
-      title: ["Title / closing", "The irreversible detail is the account. Check the seal before you change where money goes."],
-      build: ["Construction", "Draws, change orders, sub pay-apps. Ordinary-looking email. That is the trap."],
-      pay: ["Payroll", "A “new direct deposit” from someone who looks like staff. Check who it came from. Keep the record."],
-      finance: ["Finance / AP", "Invoice plus new routing. Keep Outlook. Watch the company inbox. Recipients use the live check."],
-      bank: ["Bank / credit union ops", "Internal or vendor instructions that move accounts. You still decide. Signet7 is the last look and the record you keep."]
+      law: [
+        "Law office",
+        "When a settlement, retainer, or “updated wiring” email arrives, the person who got it opens the live check. No account. No install.",
+        "If the seal does not match, they keep the record and call a number they already have. Watch belongs on the one office inbox that would send the money, not on every lawyer’s laptop. Verified is not safe. Unknown is not fraud."
+      ],
+      title: [
+        "Title / closing",
+        "The irreversible step is the account number. Whoever received the email checks it on the website before anyone changes where money goes.",
+        "Closing staff do not each install Signet7. Recipients use the live check. Watch, if you use it, sits on the one inbox that would wire funds. You still decide."
+      ],
+      build: [
+        "Construction",
+        "Draws, change orders, and sub pay-apps often look ordinary. That is the trap. The person who got the email opens the live check.",
+        "Do not put Watch on every jobsite laptop. One company inbox that pays vendors is enough. Recipients never install. Keep writing in Outlook."
+      ],
+      pay: [
+        "Payroll",
+        "A “new direct deposit” that looks like staff still gets checked on the website. No employee app. No account for the recipient.",
+        "If you Watch anything, Watch the inbox that would change bank details. Everyone else keeps their mail app. Unknown is not fraud. Verified is not safe."
+      ],
+      finance: [
+        "Finance / AP",
+        "Invoice plus new routing. The person who must pay opens the live check. They do not download Signet7 to do that.",
+        "Watch the one AP inbox on one company PC if you want a quiet alarm when a seal is torn. Recipients still use the website. Stay in Outlook."
+      ],
+      bank: [
+        "Bank / credit union ops",
+        "Internal or vendor instructions that move accounts still get a last look on the live check. Staff do not install a new mail app.",
+        "Watch is optional and still one inbox. You decide whether to act. Signet7 is the check and the record you can produce later."
+      ]
     };
     const title = document.querySelector("[data-desk-title]");
     const body = document.querySelector("[data-desk-body]");
+    const more = document.querySelector("[data-desk-more]");
     deskRoot.addEventListener("click", (e) => {
       const btn = e.target.closest("[data-desk]");
       if (!btn) return;
@@ -117,6 +142,7 @@
       const row = copy[btn.getAttribute("data-desk")];
       if (row && title) title.textContent = row[0];
       if (row && body) body.textContent = row[1];
+      if (row && more) more.textContent = row[2];
     });
   }
   if (chapters.length && "IntersectionObserver" in window) {

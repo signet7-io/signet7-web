@@ -22,7 +22,6 @@
   <link rel="canonical" href="https://signet7.io/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="assets/site.css?v=20260829c">
-  <link rel="stylesheet" href="assets/install-chooser.css?v=20260831b">
 </head>
 <body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -93,6 +92,16 @@
       </div>
     </section>
 
+    <section class="facts" data-facts aria-label="Why this moment exists">
+      <div class="container facts-grid">
+        <article class="fact f-blue"><strong>$3.05B</strong><span>Business Email Compromise losses reported to FBI IC3 in 2025.</span></article>
+        <article class="fact f-gold"><strong>24,768</strong><span>Business Email Compromise complaints reported to FBI IC3 in 2025.</span></article>
+        <article class="fact f-green"><strong>$20.9B</strong><span>Internet-crime losses reported to IC3 in 2025.</span></article>
+        <article class="fact f-purple"><strong>191K+</strong><span>Phishing/spoofing complaints reported to FBI IC3 in 2025.</span></article>
+      </div>
+      <p class="facts-cite">Source: FBI Internet Crime Complaint Center, 2025 Annual Report. Reported losses, not Signet7 results. <a href="https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf">Read the IC3 report</a>.</p>
+    </section>
+
     <section class="section demo" id="demo" aria-labelledby="demo-title">
       <div class="container demo-wrap">
         <p class="eyebrow">Demo</p>
@@ -137,16 +146,6 @@
       </aside>
       </div>
     </section>
-
-    <section class="facts" data-facts aria-label="Why this moment exists">
-      <div class="container facts-grid">
-        <article class="fact f-blue"><strong>$3.05B</strong><span>Business Email Compromise losses reported to FBI IC3 in 2025.</span></article>
-        <article class="fact f-gold"><strong>24,768</strong><span>Business Email Compromise complaints reported to FBI IC3 in 2025.</span></article>
-        <article class="fact f-green"><strong>$20.9B</strong><span>Internet-crime losses reported to IC3 in 2025.</span></article>
-        <article class="fact f-purple"><strong>191K+</strong><span>Phishing/spoofing complaints reported to FBI IC3 in 2025.</span></article>
-      </div>
-      <p class="facts-cite">Source: FBI Internet Crime Complaint Center, 2025 Annual Report. Reported losses, not Signet7 results. <a href="https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf">Read the IC3 report</a>.</p>
-    </section>
     <div class="site-ticker" aria-hidden="true"><span>Matched · Unmatched · Unknown · You keep the record · Law · Title · Construction · Payroll · Finance · No recipient install · Stay in Outlook · VSN check hosted on <a href="https://verify.signet7.io/vsn">verify.signet7.io</a> ·&nbsp;</span></div>
 
     <section class="section uses" id="uses" aria-labelledby="uses-title">
@@ -164,7 +163,8 @@
         </div>
         <article class="desk-readout">
           <h3 data-desk-title>Law office</h3>
-          <p data-desk-body>Settlement, retainer, or “updated wiring.” Inspect the seal. Keep the record.</p>
+          <p data-desk-body>When a settlement, retainer, or “updated wiring” email arrives, the person who got it opens the live check. No account. No install.</p>
+          <p data-desk-more>If the seal does not match, they keep the record and call a number they already have. Watch belongs on the one office inbox that would send the money, not on every lawyer’s laptop. Verified is not safe. Unknown is not fraud.</p>
         </article>
       </div>
     </section>
@@ -216,26 +216,6 @@
           </article>
         </div>
         <p class="section-intro">Need a company login? <a href="https://account.signet7.io/account">Open company login</a>. Prices stay on <a href="pay">Pay</a>. Checkout is not live yet.</p>
-
-        <div class="install-chooser" data-install-chooser>
-          <p class="install-kicker">Install via terminal</p>
-          <p class="install-lead">Only if you are setting up this company computer. Recipients skip this. The command matches the operating system you pick. Nothing is uploaded to this page.</p>
-          <div class="install-os" role="group" aria-label="Operating system">
-            <button type="button" data-os-tab="macos" aria-pressed="false">macOS / Linux</button>
-            <button type="button" data-os-tab="windows" aria-pressed="true">Windows</button>
-          </div>
-          <div class="install-kind" role="group" aria-label="What to install">
-            <button type="button" data-kind="help" aria-pressed="true">Show options</button>
-            <button type="button" data-kind="watch" aria-pressed="false">Watch</button>
-            <button type="button" data-kind="desktop" aria-pressed="false">Desktop</button>
-            <button type="button" data-kind="outlook" aria-pressed="false">Outlook files</button>
-          </div>
-          <div class="install-cmd">
-            <code id="install-command">irm https://signet7.io/install.ps1 | iex</code>
-            <button type="button" class="install-copy" data-install-copy aria-label="Copy command">Copy</button>
-          </div>
-          <p class="install-note" id="install-note">Prints the list. Does not install Watch until you choose Watch. Unsigned software. Not a store listing.</p>
-        </div>
       </div>
     </section>
   </main>
@@ -247,7 +227,6 @@
       <div><p>Live check and company accounts are available. You decide whether to act on the result.</p></div>
     </div>
   </footer>
-  <script src="assets/motion.js?v=20260823d" defer></script>
-  <script src="assets/install-chooser.js?v=20260831b" defer></script>
+  <script src="assets/motion.js?v=20260831e" defer></script>
 </body>
 </html>

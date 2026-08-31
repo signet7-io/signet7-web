@@ -20,6 +20,7 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="assets/site.css?v=20260829c">
   <link rel="stylesheet" href="assets/download.css">
+  <link rel="stylesheet" href="assets/install-chooser.css?v=20260831c">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -85,7 +86,7 @@
 
 <section class="section">
       <div class="container">
-        <div class="warn-box">Windows SmartScreen and Mac Gatekeeper will ask extra clicks. That is unsigned software, not a Signet7 plan. Recipients should not download this. A terminal chooser that picks your operating system lives on the homepage, not here.</div>
+        <div class="warn-box">There is one company download: Watch, for one inbox, on one PC. Pick your operating system. Recipients should not download this. Windows SmartScreen and Mac Gatekeeper will ask extra clicks because this build is not code-signed yet.</div>
         <div class="os-grid">
           <article class="os-card" data-os="windows">
             <span class="you-flag" data-you hidden>Your computer</span>
@@ -106,7 +107,20 @@
             <a class="button button-primary" href="files/signet7-watch-linux.zip">Download for Linux</a>
           </article>
         </div>
-        <p class="section-intro">When we ship a new program build, this page and <a href="files/latest.json">files/latest.json</a> change together. After you create a company account we email the steps for your system. Engineer notes live on <a href="docs">Docs</a>.</p>
+        <p class="section-intro">You only need one of those three files — the computer that will Watch the inbox. Recipients never install. After you create a company account we email the same links plus your keys. Build list: <a href="files/latest.json">files/latest.json</a>.</p>
+        <div class="install-chooser" data-install-chooser>
+          <p class="install-kicker">Install via terminal</p>
+          <p class="install-lead">Same Watch download as the button above. Recipients skip this.</p>
+          <div class="install-os" role="group" aria-label="Operating system">
+            <button type="button" data-os-tab="macos" aria-pressed="false">macOS / Linux</button>
+            <button type="button" data-os-tab="windows" aria-pressed="true">Windows</button>
+          </div>
+          <div class="install-cmd">
+            <code id="install-command">$env:SIGNET7_SETUP='watch'; irm https://signet7.io/install.ps1 | iex</code>
+            <button type="button" class="install-copy" data-install-copy aria-label="Copy command">Copy</button>
+          </div>
+          <p class="install-note" id="install-note">Downloads unsigned Watch. Not a store listing.</p>
+        </div>
         <p><a href="it">IT one-pager</a> · <a href="smtp">SMTP helper</a></p>
       </div>
     </section>
@@ -119,7 +133,8 @@
       <div><p>Live check and company accounts are available. You decide whether to act on the result.</p></div>
     </div>
   </footer>
-  <script src="assets/motion.js?v=20260823a" defer></script>
+  <script src="assets/motion.js?v=20260831e" defer></script>
   <script src="assets/download.js" defer></script>
+  <script src="assets/install-chooser.js?v=20260831c" defer></script>
 </body>
 </html>

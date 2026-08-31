@@ -1,35 +1,23 @@
 "use strict";
 
 const COMMANDS = {
-  windows: {
-    help: "irm https://signet7.io/install.ps1 | iex",
-    watch: "$env:SIGNET7_SETUP='watch'; irm https://signet7.io/install.ps1 | iex",
-    desktop: "$env:SIGNET7_SETUP='desktop'; irm https://signet7.io/install.ps1 | iex",
-    outlook: "$env:SIGNET7_SETUP='outlook'; irm https://signet7.io/install.ps1 | iex",
-  },
-  macos: {
-    help: "curl -fsSL https://signet7.io/install.sh | bash",
-    watch: "curl -fsSL https://signet7.io/install.sh | SIGNET7_SETUP=watch bash",
-    desktop: "curl -fsSL https://signet7.io/install.sh | SIGNET7_SETUP=desktop bash",
-    outlook: "curl -fsSL https://signet7.io/install.sh | SIGNET7_SETUP=outlook bash",
-  },
+  windows: "$env:SIGNET7_SETUP='watch'; irm https://signet7.io/install.ps1 | iex",
+  macos: "curl -fsSL https://signet7.io/install.sh | SIGNET7_SETUP=watch bash",
 };
 
 const NOTES = {
-  help: "Prints the list. Does not install Watch until you choose Watch. Unsigned software. Not a store listing.",
-  watch: "Downloads unsigned Watch for this OS into a Signet7 folder. Recipients should not run this. SmartScreen or Gatekeeper will warn.",
-  desktop: "Company setup window on this computer. Recipients still use the live check. Not a store listing.",
-  outlook: "Saves the Outlook manifest. Add from File. Not AppSource. Recipients who never sideload still use the live check.",
+  windows: "Downloads unsigned Watch for Windows. Recipients should not run this. SmartScreen will warn.",
+  macos: "Downloads unsigned Watch for this Mac or Linux PC. Recipients should not run this. Gatekeeper may warn.",
 };
 
-function selected(group, attr) {
-  const pressed = document.querySelector(group + " button[aria-pressed='true']");
-  return pressed ? pressed.getAttribute(attr) : null;
+function selectedOs() {
+  const pressed = document.querySelector(".install-os button[aria-pressed='true']");
+  return (pressed && pressed.getAttribute("data-os-tab")) || "windows";
 }
 
-function setPressed(group, attr, value) {
-  document.querySelectorAll(group + " button").forEach((btn) => {
-    btn.setAttribute("aria-pressed", btn.getAttribute(attr) === value ? "true" : "false");
+function setOs(os) {
+  document.querySelectorAll(".install-os button").forEach((btn) => {
+    btn.setAttribute("aria-pressed", btn.getAttribute("data-os-tab") === os ? "true" : "false");
   });
 }
 
@@ -40,27 +28,19 @@ function detectOs() {
 }
 
 function render() {
-  const os = selected(".install-os", "data-os-tab") || "windows";
-  const kind = selected(".install-kind", "data-kind") || "help";
-  const cmd = COMMANDS[os][kind];
+  const os = selectedOs();
   const el = document.getElementById("install-command");
   const note = document.getElementById("install-note");
-  if (el) el.textContent = cmd;
-  if (note) note.textContent = NOTES[kind];
+  if (el) el.textContent = COMMANDS[os];
+  if (note) note.textContent = NOTES[os];
 }
 
 const root = document.querySelector("[data-install-chooser]");
 if (root) {
-  setPressed(".install-os", "data-os-tab", detectOs());
+  setOs(detectOs());
   document.querySelectorAll(".install-os button").forEach((btn) => {
     btn.addEventListener("click", () => {
-      setPressed(".install-os", "data-os-tab", btn.getAttribute("data-os-tab"));
-      render();
-    });
-  });
-  document.querySelectorAll(".install-kind button").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      setPressed(".install-kind", "data-kind", btn.getAttribute("data-kind"));
+      setOs(btn.getAttribute("data-os-tab"));
       render();
     });
   });
