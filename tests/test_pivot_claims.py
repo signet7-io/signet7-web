@@ -258,15 +258,29 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, page)
 
-    def test_download_and_pay_pages_are_placeholders(self) -> None:
+    def test_download_page_ships_unsigned_watch_zips(self) -> None:
         self.assertIn("download.html", self.pages)
-        self.assertIn("pay.html", self.pages)
         download = self.pages["download.html"]
-        pay = self.pages["pay.html"]
         self.assertNotIn("pip install", download)
         self.assertNotIn("pypi.org", download)
-        self.assertIn("is-off", download)
-        self.assertIn("Not open yet", download)
+        self.assertNotIn("money mailbox", download.lower())
+        self.assertNotIn("is-off", download)
+        self.assertNotIn("Not open yet", download)
+        self.assertIn("files/signet7-watch-windows.zip", download)
+        self.assertIn("files/signet7-watch-macos.zip", download)
+        self.assertIn("files/signet7-watch-linux.zip", download)
+        self.assertIn("files/latest.json", download)
+        self.assertIn("Recipients never install", download)
+        self.assertIn("not code-signed yet", download)
+        self.assertIn("Checkout is not live", download)
+        self.assertTrue((ROOT / "files" / "signet7-watch-windows.zip").is_file())
+        self.assertTrue((ROOT / "files" / "signet7-watch-macos.zip").is_file())
+        self.assertTrue((ROOT / "files" / "signet7-watch-linux.zip").is_file())
+        self.assertTrue((ROOT / "files" / "latest.json").is_file())
+
+    def test_pay_page_stays_closed(self) -> None:
+        self.assertIn("pay.html", self.pages)
+        pay = self.pages["pay.html"]
         self.assertNotIn("$12", pay)
         self.assertNotIn("$29", pay)
         self.assertNotIn("$99", pay)
