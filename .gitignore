@@ -8,3 +8,6 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# Local static-server noise
+server.log
