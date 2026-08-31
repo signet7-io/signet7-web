@@ -5,13 +5,13 @@
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
   xsi:type="MailApp">
   <Id>8f3c2a10-5b61-4d2e-9c0a-7e1d2f4a9b33</Id>
-  <Version>0.3.2.0</Version>
+  <Version>0.3.3.0</Version>
   <ProviderName>Signet7</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Signet7"/>
-  <Description DefaultValue="Passive incoming check. Seal an outgoing draft without an .eml file. Verified is not safe. Unknown is not fraud."/>
-  <IconUrl DefaultValue="https://signet7.io/assets/favicon.png"/>
-  <HighResolutionIconUrl DefaultValue="https://signet7.io/assets/signet7-logo-mark.png"/>
+  <Description DefaultValue="Passive incoming check. Keep writing in Outlook. Verified is not safe. Unknown is not fraud."/>
+  <IconUrl DefaultValue="https://signet7.io/outlook/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://signet7.io/outlook/icon-48.png"/>
   <SupportUrl DefaultValue="https://signet7.io/support"/>
   <AppDomains>
     <AppDomain>https://signet7.io</AppDomain>
@@ -106,9 +106,9 @@
     </Hosts>
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon16" DefaultValue="https://signet7.io/assets/favicon.png"/>
-        <bt:Image id="Icon32" DefaultValue="https://signet7.io/assets/favicon.png"/>
-        <bt:Image id="Icon80" DefaultValue="https://signet7.io/assets/signet7-logo-mark.png"/>
+        <bt:Image id="Icon16" DefaultValue="https://signet7.io/outlook/icon-32.png"/>
+        <bt:Image id="Icon32" DefaultValue="https://signet7.io/outlook/icon-32.png"/>
+        <bt:Image id="Icon80" DefaultValue="https://signet7.io/outlook/icon-48.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="TaskpaneUrl" DefaultValue="https://signet7.io/outlook/taskpane.html"/>

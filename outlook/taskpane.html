@@ -5,19 +5,16 @@
     <title>Signet7</title>
     <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
     <script src="taskpane.js"></script>
-    <style>
-      body { font-family: "Segoe UI", sans-serif; margin: 16px; color: #10243a; }
-      .muted { color: #5a6b73; font-size: 12px; }
-      button { margin-top: 12px; padding: 8px 12px; }
-      pre { white-space: pre-wrap; background: #f4f7f8; padding: 8px; font-size: 12px; }
-      input { box-sizing: border-box; width: 100%; margin: 4px 0 8px; padding: 8px; }
-    </style>
+    <link rel="stylesheet" href="signet7.css" />
   </head>
   <body>
-    <h1>Signet7</h1>
-    <p class="muted">Passive check. Unsigned mail stays quiet. A warning pops only when a seal is broken, replayed, or revoked. Verified is not safe. Unknown is not fraud.</p>
+    <div class="brand">
+      <img src="icon-48.png" width="36" height="36" alt="Signet7" />
+      <h1>Signet7</h1>
+    </div>
+    <p class="muted">Recipient check stays free. Passive check. Unsigned mail stays quiet. A warning pops only when a seal is broken, replayed, or revoked. Verified is not safe. Unknown is not fraud.</p>
     <label>API base <input id="baseUrl" value="https://verify.signet7.io" /></label>
-    <button id="verifyBtn" type="button">Check this message now</button>
+    <button id="verifyBtn" class="primary" type="button">Check this message now</button>
     <pre id="out">Watching this message…</pre>
   </body>
 </html>
