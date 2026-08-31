@@ -22,6 +22,7 @@
   <link rel="canonical" href="https://signet7.io/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="assets/site.css?v=20260829c">
+  <link rel="stylesheet" href="assets/install-chooser.css?v=20260831b">
 </head>
 <body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -102,11 +103,8 @@
         </div>
       </div>
     </section>
-    <div class="scene-wrap hero-scene seasons-scene" aria-hidden="true">
-      <img class="door-poster" src="assets/door-loop.jpg?v=6" width="1600" height="638" alt="">
-      <video class="door-loop" autoplay muted loop playsinline poster="assets/door-loop.jpg?v=6" width="1600" height="638">
-        <source src="assets/door-loop.mp4?v=6" type="video/mp4">
-      </video>
+    <div class="scene-wrap hero-scene seasons-scene circuit-scene" aria-hidden="true">
+      <img class="circuit-banner" src="assets/signet7-circuit.jpg?v=2" width="1660" height="817" alt="Signet7 seal on a live circuit board">
     </div>
 
     <section class="section demo" id="demo" aria-labelledby="demo-title">
@@ -202,30 +200,51 @@
 
     <section class="section start" id="start" aria-labelledby="start-title">
       <div class="container">
-        <p class="eyebrow">Download and purchase</p>
-        <h2 id="start-title">How you start.</h2>
-        <p class="section-intro">Recipient checks are live. Open the <a href="https://verify.signet7.io/email/verify">live check</a>. Download and purchase have their own pages. Checkout is not live yet. <a href="https://account.signet7.io/account">Manage your company account</a> separately.</p>
+        <p class="eyebrow">Pick your situation</p>
+        <h2 id="start-title">From one person checking a message to a company of a thousand.</h2>
+        <p class="section-intro">Most people do not download anything. Recipients never install. A thousand people are protected because each of them can open the live check, not because a thousand PCs run Watch. Checkout is not live. <a href="integrations">Full integration list</a>.</p>
         <div class="start-grid">
           <article class="start-card">
-            <h3>Recipients</h3>
-            <p>No install. No account. Open the live check.</p>
+            <h3>1. I received one email</h3>
+            <p>No download. No account. Save the message and drop it on the live check. Verified is not safe. Unknown is not fraud.</p>
             <a class="button button-primary" href="https://verify.signet7.io/email/verify">Open the live check</a>
           </article>
           <article class="start-card">
-            <h3>Account</h3>
-            <p>Manage the program and people for your company. Checkout is not live yet.</p>
-            <a class="button button-secondary" href="https://account.signet7.io/account">Manage account</a>
+            <h3>2. I send from one desk</h3>
+            <p>Keep writing in Outlook or Apple Mail. Optional sideload. Optional SMTP helper on this computer. Recipients still use the website.</p>
+            <a class="button button-secondary" href="outlook/">Outlook sideload</a>
           </article>
           <article class="start-card">
-            <h3>Enterprise</h3>
-            <p>How a company starts. Setup in plain language. Tech spec for IT.</p>
-            <a class="button button-secondary" href="enterprise">Enterprise</a>
+            <h3>3. Small company, one inbox</h3>
+            <p>Watch one company inbox on one Windows, Mac, or Linux PC. Unsigned preview. Recipients should not download this.</p>
+            <a class="button button-secondary" href="download">Watch download</a>
           </article>
           <article class="start-card">
-            <h3>Purchase</h3>
-            <p>Prices live on Pay. Checkout is not live yet.</p>
-            <a class="button button-secondary" href="pay">Purchase</a>
+            <h3>4. Many people, one company</h3>
+            <p>Staff still check on the web. Watch stays one inbox, not every mailbox. Org-wide Outlook is a Microsoft 365 admin task. Not AppSource.</p>
+            <a class="button button-secondary" href="enterprise">Company start</a>
           </article>
+        </div>
+        <p class="section-intro">Need a company account? <a href="https://account.signet7.io/account">Manage account</a>. Prices stay on <a href="pay">Pay</a>. Checkout is not live yet.</p>
+
+        <div class="install-chooser" data-install-chooser>
+          <p class="install-kicker">Install via terminal</p>
+          <p class="install-lead">Only if you are setting up this company computer. Recipients skip this. The command matches the operating system you pick. Nothing is uploaded to this page.</p>
+          <div class="install-os" role="group" aria-label="Operating system">
+            <button type="button" data-os-tab="macos" aria-pressed="false">macOS / Linux</button>
+            <button type="button" data-os-tab="windows" aria-pressed="true">Windows</button>
+          </div>
+          <div class="install-kind" role="group" aria-label="What to install">
+            <button type="button" data-kind="help" aria-pressed="true">Show options</button>
+            <button type="button" data-kind="watch" aria-pressed="false">Watch</button>
+            <button type="button" data-kind="desktop" aria-pressed="false">Desktop</button>
+            <button type="button" data-kind="outlook" aria-pressed="false">Outlook files</button>
+          </div>
+          <div class="install-cmd">
+            <code id="install-command">irm https://signet7.io/install.ps1 | iex</code>
+            <button type="button" class="install-copy" data-install-copy aria-label="Copy command">Copy</button>
+          </div>
+          <p class="install-note" id="install-note">Prints the list. Does not install Watch until you choose Watch. Unsigned software. Not a store listing.</p>
         </div>
       </div>
     </section>
@@ -239,5 +258,6 @@
     </div>
   </footer>
   <script src="assets/motion.js?v=20260823d" defer></script>
+  <script src="assets/install-chooser.js?v=20260831b" defer></script>
 </body>
 </html>

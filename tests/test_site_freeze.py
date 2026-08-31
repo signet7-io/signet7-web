@@ -36,11 +36,13 @@ class SiteFreeze20260822Tests(unittest.TestCase):
     def test_seasons_stay_after_the_hero(self) -> None:
         hero = self.home.index('class="sell-hero"')
         seasons = self.home.index("seasons-scene")
-        loop = self.home.index("door-loop.mp4")
+        circuit = self.home.index("signet7-circuit.jpg")
         self.assertGreater(seasons, hero)
-        self.assertGreater(loop, seasons)
+        self.assertGreater(circuit, seasons)
         self.assertNotIn("tech-scene.jpg", self.home)
         self.assertNotIn("tech-scene-dark.jpg", self.home)
+        self.assertNotIn("door-loop.mp4", self.home)
+        self.assertTrue((ROOT / "assets" / "signet7-circuit.jpg").is_file())
         self.assertTrue((ROOT / "assets" / "door-loop.mp4").is_file())
         self.assertTrue((ROOT / "assets" / "door-loop.jpg").is_file())
 
@@ -56,14 +58,14 @@ class SiteFreeze20260822Tests(unittest.TestCase):
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
                 self.assertIn("assets/site.css?v=20260829c", html)
-                if path.name in {"product.html", "docs.html"}:
-                    self.assertNotIn("seasons-scene", html)
+                if path.name == "index.html":
+                    self.assertIn("seasons-scene", html)
+                    self.assertIn("signet7-circuit.jpg", html)
                     self.assertNotIn("door-loop.mp4", html)
-                    if path.name == "product.html":
-                        self.assertIn("signet7-circuit.jpg", html)
                     continue
-                self.assertIn("seasons-scene", html)
-                self.assertIn("door-loop.mp4", html)
+                self.assertNotIn("seasons-scene", html)
+                self.assertNotIn("door-loop.mp4", html)
+                self.assertNotIn("signet7-circuit.jpg", html)
 
     def test_footer_rights_and_wrongs(self) -> None:
         line = "All rights reserved, All wrongs revenged."

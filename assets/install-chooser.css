@@ -1,0 +1,78 @@
+.install-chooser {
+  margin: 36px 0 8px;
+  padding: 22px 22px 18px;
+  border-radius: 16px;
+  background: #0a1a3a;
+  color: #e8eef3;
+}
+.install-kicker {
+  margin: 0 0 6px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9bb7ff;
+}
+.install-lead {
+  margin: 0 0 16px;
+  color: #c9d6ee;
+}
+.install-os,
+.install-kind {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+.install-os button,
+.install-kind button {
+  border: 1px solid rgba(255,255,255,.2);
+  background: transparent;
+  color: #e8eef3;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.install-os button[aria-pressed="true"],
+.install-kind button[aria-pressed="true"] {
+  background: #21d4f3;
+  color: #031013;
+  border-color: #21d4f3;
+}
+.install-cmd {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  background: #f4f7fb;
+  color: #111827;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.install-cmd code {
+  flex: 1;
+  display: block;
+  padding: 14px 16px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 14px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.install-copy {
+  border: 0;
+  background: #e7eef8;
+  color: #111827;
+  padding: 0 16px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.install-note {
+  margin: 12px 0 0;
+  color: #c9d6ee;
+  font-size: 14px;
+}
+@media (max-width: 700px) {
+  .install-cmd { flex-direction: column; }
+  .install-copy { padding: 12px; }
+}

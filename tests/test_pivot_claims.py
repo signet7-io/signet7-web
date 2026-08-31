@@ -100,10 +100,10 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, spec)
-        self.assertIn("signet7-circuit.jpg", product)
+        self.assertIn("signet7-circuit.jpg", self.pages["index.html"])
         self.assertNotIn("door-loop.mp4", product)
         self.assertNotIn("seasons-scene", product)
-        self.assertNotIn("signet7-circuit.jpg", self.pages["index.html"])
+        self.assertNotIn("signet7-circuit.jpg", product)
         self.assertNotIn("EXECUTEWIRE", product)
         self.assertNotIn("EXECUTEWIRE", self.pages["index.html"])
 
@@ -309,6 +309,35 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn('href="feedback"', home_nav)
         self.assertIn('href="feedback">Feedback</a>', self.pages["index.html"].split("site-footer", 1)[1])
 
+    def test_homepage_situation_chooser_and_terminal_install(self) -> None:
+        home = self.pages["index.html"]
+        self.assertIn("From one person checking a message to a company of a thousand.", home)
+        self.assertIn("Most people do not download anything", home)
+        self.assertIn("I received one email", home)
+        self.assertIn("Many people, one company", home)
+        self.assertIn("data-install-chooser", home)
+        self.assertIn("irm https://signet7.io/install.ps1 | iex", home)
+        self.assertNotIn("pip install signet7", home)
+        self.assertNotIn("Chrome Web Store", home)
+        self.assertNotIn("Play Store", home)
+        js = (ROOT / "assets" / "install-chooser.js").read_text(encoding="utf-8")
+        self.assertIn("install.sh", js)
+        self.assertNotIn("pip install signet7", js)
+        ps1 = (ROOT / "install.ps1").read_text(encoding="utf-8")
+        sh = (ROOT / "install.sh").read_text(encoding="utf-8")
+        self.assertIn("SIGNET7_SETUP", ps1)
+        self.assertIn("verify.signet7.io/email/verify", ps1)
+        self.assertIn("Recipients should not run this", ps1)
+        self.assertNotIn("qual", ps1.lower())
+        self.assertIn("SIGNET7_SETUP", sh)
+        self.assertNotIn("qual", sh.lower())
+        integrations = self.pages["integrations.html"]
+        self.assertIn("Do you need a download?", integrations)
+        self.assertIn("Live check — no download", integrations)
+        self.assertIn("Not Play Store", integrations)
+        self.assertIn("Not AppSource", integrations)
+        self.assertNotIn("qual", integrations.lower())
+
     def test_outlook_directory_has_index_for_pages(self) -> None:
         index = ROOT / "outlook" / "index.html"
         self.assertTrue(index.is_file())
@@ -484,8 +513,9 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn('|| "dark"', theme)
         self.assertIn("s7-theme-v2", theme)
         home = self.pages["index.html"]
-        self.assertIn("door-loop.mp4", home)
+        self.assertIn("signet7-circuit.jpg", home)
         self.assertIn("seasons-scene", home)
+        self.assertNotIn("door-loop.mp4", home)
         self.assertIn("people-light.png", home)
         self.assertIn("data-demo-next", home)
         self.assertIn("Step 1 of 4", home)

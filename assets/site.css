@@ -1041,7 +1041,7 @@ html[data-theme="dark"] .action-hero::before {
 .circuit-banner {
   width: 100%;
   height: auto;
-  aspect-ratio: 2624 / 752;
+  aspect-ratio: 1660 / 817;
   display: block;
 }
 .facts { padding: 28px 0 56px; }
