@@ -8,17 +8,18 @@
      real clickjacking protection requires a header layer (Cloudflare/CloudFront) and
      is required before any verification surface is hosted on this domain. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <title>Set outgoing mail | Signet7</title>
-  <meta name="description" content="Same auto-seal setup on Windows, Mac, and Linux. Point Outlook, Apple Mail, or Thunderbird at 127.0.0.1 port 2525. Signet7 is not a mail app.">
+  <title>Feedback | Signet7</title>
+  <meta name="description" content="Tell Signet7 what to build, fix, or change. Feedback opens your mail app. This page does not upload messages.">
   <meta name="theme-color" content="#07101b">
-  <meta property="og:title" content="Set outgoing mail | Signet7">
-  <meta property="og:description" content="Same auto-seal setup on Windows, Mac, and Linux. Point your mail app at 127.0.0.1 port 2525.">
+  <meta property="og:title" content="Feedback | Signet7">
+  <meta property="og:description" content="Tell Signet7 what to build, fix, or change. Feedback opens your mail app. This page does not upload messages.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://signet7.io/smtp">
+  <meta property="og:url" content="https://signet7.io/feedback">
   <meta property="og:image" content="https://signet7.io/assets/og-image.png">
-  <link rel="canonical" href="https://signet7.io/smtp">
+  <link rel="canonical" href="https://signet7.io/feedback">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="assets/site.css?v=20260829c">
+  <link rel="stylesheet" href="assets/feedback.css?v=20260831a">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -82,14 +83,9 @@
   <main id="main">
     <section class="page-hero">
       <div class="container">
-        <p class="eyebrow">Keep your inbox</p>
-        <h1>Stay in Outlook. We stamp the send.</h1>
-        <p class="hero-copy">Write the way you already write. Bold, centering, Send. Outlook, Apple Mail, or Thunderbird. On this computer only, outgoing mail goes through 127.0.0.1 port 2525. Same on Windows, macOS, and Linux. Signet7 stamps that exact message, then forwards it. Checking stays free. Verified is not safe.</p>
-        <div class="badge-row">
-          <span class="badge cyan">Live service</span>
-          <span class="badge">Caller-enforced</span>
-          <span class="badge gold">Verifiable Sender Network (VSN) lookup is <a href="https://verify.signet7.io/vsn">live</a></span>
-        </div>
+        <p class="eyebrow">Feedback</p>
+        <h1>Tell us what to build, fix, or change.</h1>
+        <p class="hero-copy">Every note is read. This page does not upload anything to Signet7. Submit opens your mail app to the right inbox. Do not send a real invoice, password, or customer file.</p>
       </div>
     </section>
     <div class="scene-wrap hero-scene seasons-scene" aria-hidden="true">
@@ -100,21 +96,44 @@
     </div>
 
     <section class="section">
+      <div class="container feedback-wrap">
+        <p class="feedback-note">Every message is read by our team. Your feedback directly shapes what we build, fix, and develop next.</p>
+
+        <div class="feedback-card">
+          <h2>Type</h2>
+          <div class="feedback-types" role="group" aria-label="Feedback type">
+            <button type="button" data-type="feedback" aria-pressed="true">Feedback</button>
+            <button type="button" data-type="bug" aria-pressed="false">Bug</button>
+            <button type="button" data-type="feature" aria-pressed="false">Feature request</button>
+          </div>
+        </div>
+
+        <div class="feedback-card">
+          <h2>Subject (optional)</h2>
+          <label class="sr-only" for="feedback-subject">Subject</label>
+          <input id="feedback-subject" maxlength="120" placeholder="Brief title for your report" autocomplete="off">
+        </div>
+
+        <div class="feedback-card">
+          <h2>Content</h2>
+          <label class="sr-only" for="feedback-content">Content</label>
+          <textarea id="feedback-content" maxlength="4000" placeholder="Say anything about Signet7…"></textarea>
+        </div>
+
+        <button type="button" class="feedback-submit" id="feedback-submit">Submit feedback</button>
+        <p class="feedback-status" id="feedback-status" role="status">Feedback, bugs, and feature requests go to customerservice@signet7.io through your mail app.</p>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="container">
         <div class="grid-3">
-          <article class="card"><h3>Outlook</h3><p>File, Account Settings, more settings, outgoing server. SMTP host 127.0.0.1. Port 2525. Keep writing in Outlook.</p></article>
-          <article class="card"><h3>Apple Mail</h3><p>Mail, Settings, Accounts, Server Settings, outgoing. SMTP 127.0.0.1 port 2525. Keep writing in Mail.</p></article>
-          <article class="card"><h3>Thunderbird</h3><p>Account Settings, Outgoing Server (SMTP), Add. Host 127.0.0.1, port 2525. Use it for the company inbox only.</p></article>
+          <article class="card"><h3>Check a message</h3><p>Recipients install nothing. Open <a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a>, or forward a saved message to <a href="mailto:check@signet7.io">check@signet7.io</a>. That inbox is for checks, not product notes.</p></article>
+          <article class="card"><h3>Sales and programs</h3><p>Ask about programs, a design partner, or a company account: <a href="mailto:sales@signet7.io">sales@signet7.io</a>. Checkout is not live. Amounts stay on <a href="pay">Pay</a>.</p></article>
+          <article class="card"><h3>Marketing</h3><p>Press, campaigns, and public copy: <a href="mailto:marketing@signet7.io">marketing@signet7.io</a>. Privacy and deletion stay on <a href="contact">Contact</a>.</p></article>
         </div>
       </div>
     </section>
-    <section class="section section-line">
-      <div class="container">
-        <p>This hop never leaves the computer. Real TLS is to your provider after Signet7 forwards. Not Exchange. Not a mail vendor. Living stories: <a href="scenarios">send and receive</a>.</p>
-      </div>
-    </section>
-  
-
   </main>
   <footer class="site-footer">
     <div class="container footer-grid">
@@ -124,5 +143,6 @@
     </div>
   </footer>
   <script src="assets/motion.js?v=20260823a" defer></script>
+  <script src="assets/feedback.js?v=20260831a" defer></script>
 </body>
 </html>

@@ -284,6 +284,31 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             with self.subTest(path=path.name):
                 self.assertNotIn("money mailbox", path.read_text(encoding="utf-8").lower())
 
+    def test_feedback_page_uses_named_inboxes_and_mailto_only(self) -> None:
+        html = self.pages["feedback.html"]
+        js = (ROOT / "assets" / "feedback.js").read_text(encoding="utf-8")
+        self.assertNotIn("<form", html)
+        self.assertIn("Tell us what to build, fix, or change.", html)
+        self.assertIn("customerservice@signet7.io", html)
+        self.assertIn("mailto:check@signet7.io", html)
+        self.assertIn("mailto:sales@signet7.io", html)
+        self.assertIn("mailto:marketing@signet7.io", html)
+        self.assertIn("does not upload", html.lower())
+        self.assertNotIn("qual", html.lower())
+        self.assertIn('href="pilot"', html)
+        self.assertIn("customerservice@signet7.io", js)
+        self.assertIn("mailto:", js)
+        self.assertNotIn("fetch(", js)
+        programs = self.pages["programs.html"]
+        self.assertIn("mailto:sales@signet7.io", programs)
+        self.assertIn('href="feedback"', programs)
+        contact = self.pages["contact.html"]
+        self.assertIn("mailto:customerservice@signet7.io", contact)
+        self.assertIn("mailto:check@signet7.io", contact)
+        home_nav = self.pages["index.html"].split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
+        self.assertNotIn('href="feedback"', home_nav)
+        self.assertIn('href="feedback">Feedback</a>', self.pages["index.html"].split("site-footer", 1)[1])
+
     def test_outlook_directory_has_index_for_pages(self) -> None:
         index = ROOT / "outlook" / "index.html"
         self.assertTrue(index.is_file())
