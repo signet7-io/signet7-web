@@ -240,6 +240,27 @@ a:hover { color: #2a6f86; }
 }
 .drop-menu a { display: block; padding: 8px 12px; color: var(--ink); font-size: 14px; white-space: nowrap; border-radius: 8px; }
 .drop-menu a:hover { background: var(--line); color: var(--ink); }
+.drop-panel {
+  min-width: 460px;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 16px;
+}
+.drop-col {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+}
+.drop-head {
+  margin: 4px 12px 6px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-weight: 600;
+}
 .drop.is-open .drop-menu { display: flex; }
 @media (min-width: 901px) {
   .drop:hover .drop-menu, .drop:focus-within .drop-menu { display: flex; }
@@ -721,6 +742,7 @@ html[data-theme="dark"] .action-hero::before {
   }
   body.nav-open .site-nav, body.nav-open .nav-links { display: flex; }
   .drop-menu { position: static; box-shadow: none; border: 0; padding: 0 0 8px 8px; min-width: 0; }
+  .drop-panel { min-width: 0; flex-direction: column; padding: 0; }
   .drop-btn { text-align: left; min-height: 44px; }
   .scope-row { grid-template-columns: 1fr; }
 }

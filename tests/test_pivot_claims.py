@@ -283,6 +283,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for path in paths:
             with self.subTest(path=path.name):
                 self.assertNotIn("money mailbox", path.read_text(encoding="utf-8").lower())
+                self.assertNotIn("money inbox", path.read_text(encoding="utf-8").lower())
 
     def test_feedback_page_posts_send_without_mailto(self) -> None:
         html = self.pages["feedback.html"]
@@ -304,7 +305,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn('href="feedback"', contact)
         home_nav = self.pages["index.html"].split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
         self.assertIn('href="feedback">Feedback</a>', home_nav)
-        self.assertIn('href="about">About</a>', home_nav)
+        self.assertIn('href="about">About Signet7</a>', home_nav)
 
     def test_homepage_situation_chooser_and_terminal_install(self) -> None:
         home = self.pages["index.html"]
@@ -380,7 +381,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for name, html in self.pages.items():
             with self.subTest(page=name):
                 self.assertIn("drop-btn", html)
-                self.assertIn(">About</a>", html)
+                self.assertIn(">About Signet7</a>", html)
                 self.assertIn(">Feedback</a>", html)
                 self.assertIn('href="scenarios"', html)
                 self.assertNotIn("Use cases", html)
@@ -390,6 +391,11 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 nav = html.split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
                 self.assertNotIn('href="it"', nav)
                 self.assertNotIn('href="smtp"', nav)
+                self.assertIn(">Product</button>", nav)
+                self.assertIn(">About</button>", nav)
+                self.assertNotIn(">Legal</button>", nav)
+                self.assertIn('href="download">Download</a>', nav)
+                self.assertIn("Inbox Watch", self.pages["index.html"])
 
     def test_public_copy_does_not_overclaim(self) -> None:
         visible = re.sub(r"<[^>]+>", " ", self.all_copy).lower()
