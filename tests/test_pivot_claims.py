@@ -385,7 +385,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 nav = html.split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
                 self.assertIn(">Product</button>", nav)
                 self.assertIn(">Company</button>", nav)
-                self.assertIn(">Help</button>", nav)
+                self.assertNotIn(">Help</button>", nav)
                 self.assertIn("How it works", nav)
                 self.assertRegex(nav, r'href="(\.\./)?about">About</a>')
                 self.assertRegex(nav, r'href="(\.\./)?register">Register</a>')
@@ -657,7 +657,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("AP", one)
         nav = home.split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
         self.assertIn("How it works", nav)
-        self.assertIn(">Help</button>", nav)
+        self.assertNotIn(">Help</button>", nav)
         self.assertIn(">Company</button>", nav)
         self.assertNotIn(">About Signet7</a>", nav)
 

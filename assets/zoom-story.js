@@ -71,4 +71,23 @@
   apply(0);
   window.addEventListener("scroll", kick, { passive: true });
   window.addEventListener("resize", kick);
+
+  document.querySelectorAll("[data-flow]").forEach((root) => {
+    const btns = [...root.querySelectorAll("[data-flow-step]")];
+    const panels = [...root.querySelectorAll("[data-flow-panel]")];
+    const show = (step) => {
+      btns.forEach((b) => {
+        const on = b.getAttribute("data-flow-step") === step;
+        b.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      panels.forEach((p) => {
+        const on = p.getAttribute("data-flow-panel") === step;
+        p.hidden = !on;
+        p.classList.toggle("is-on", on);
+      });
+    };
+    btns.forEach((btn) => {
+      btn.addEventListener("click", () => show(btn.getAttribute("data-flow-step")));
+    });
+  });
 })();
