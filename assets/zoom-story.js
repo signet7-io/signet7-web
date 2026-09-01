@@ -4,50 +4,71 @@
   if (!pin || scenes.length < 2) return;
   const n = scenes.length;
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let current = 0;
+  let running = false;
 
-  const paint = () => {
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const smooth = (t) => t * t * (3 - 2 * t);
+
+  const target = () => {
     const total = Math.max(1, pin.offsetHeight - window.innerHeight);
-    const passed = Math.min(total, Math.max(0, -pin.getBoundingClientRect().top));
-    const t = reduce ? 0 : passed / total;
+    const passed = clamp(-pin.getBoundingClientRect().top, 0, total);
+    return passed / total;
+  };
+
+  const apply = (t) => {
     const x = t * (n - 1);
     const i = Math.min(n - 1, Math.floor(x + 1e-9));
-    const u = Math.min(1, x - i);
+    const u = clamp(x - i, 0, 1);
     const last = i === n - 1;
-    const hold = 0.24;
-    const z = last || u < hold ? 0 : (u - hold) / (1 - hold);
+    const hold = 0.32;
+    const z = last || u < hold ? 0 : smooth((u - hold) / (1 - hold));
 
     scenes.forEach((el, j) => {
       const copy = el.querySelector("[data-zoom-copy]");
+      el.style.clipPath = "none";
       if (j < i) {
         el.style.opacity = "0";
-        el.style.transform = "scale(2.05)";
-        el.style.clipPath = "none";
+        el.style.transform = "scale(1.28)";
         el.style.zIndex = "1";
         if (copy) copy.style.opacity = "0";
       } else if (j === i) {
-        el.style.opacity = "1";
-        el.style.transform = "scale(" + (1 + z * 1.7) + ")";
-        el.style.clipPath = "none";
+        el.style.opacity = String(1 - z * 0.35);
+        el.style.transform = "scale(" + (1 + z * 0.42) + ")";
         el.style.zIndex = "2";
-        if (copy) copy.style.opacity = String(Math.max(0, 1 - z * 1.45));
+        if (copy) copy.style.opacity = String(clamp(1 - z * 1.7, 0, 1));
       } else if (j === i + 1) {
-        const r = Math.max(0, z * 82);
-        el.style.opacity = z > 0.03 ? "1" : "0";
-        el.style.transform = "scale(1)";
-        el.style.clipPath = "circle(" + r + "% at 50% 52%)";
-        el.style.zIndex = "4";
-        if (copy) copy.style.opacity = String(Math.max(0, (z - 0.58) * 2.6));
+        el.style.opacity = String(z);
+        el.style.transform = "scale(" + (1.18 - z * 0.18) + ")";
+        el.style.zIndex = "3";
+        if (copy) copy.style.opacity = String(clamp((z - 0.42) / 0.58, 0, 1));
       } else {
         el.style.opacity = "0";
-        el.style.transform = "scale(1)";
-        el.style.clipPath = "circle(0% at 50% 52%)";
+        el.style.transform = "scale(1.18)";
         el.style.zIndex = "0";
         if (copy) copy.style.opacity = "0";
       }
     });
   };
 
-  paint();
-  window.addEventListener("scroll", paint, { passive: true });
-  window.addEventListener("resize", paint);
+  const tick = () => {
+    const goal = reduce ? 0 : target();
+    current += (goal - current) * 0.14;
+    if (Math.abs(goal - current) < 0.00035) {
+      current = goal;
+      running = false;
+    } else {
+      running = true;
+      requestAnimationFrame(tick);
+    }
+    apply(current);
+  };
+
+  const kick = () => {
+    if (!running) tick();
+  };
+
+  apply(0);
+  window.addEventListener("scroll", kick, { passive: true });
+  window.addEventListener("resize", kick);
 })();
