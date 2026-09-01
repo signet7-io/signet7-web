@@ -13,9 +13,9 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         cls.css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
 
     def test_door_keeps_people_behind_type(self) -> None:
-        self.assertIn('class="sell-hero"', self.home)
-        self.assertIn("people-light.png", self.home)
-        self.assertIn("people-dark.png", self.home)
+        self.assertIn("sell-hero", self.home)
+        self.assertIn("air-valley.jpg", self.home)
+        self.assertIn("data-air-world", self.home)
         self.assertNotIn("door-loop.mp4", self.home.split("seasons-scene")[0])
         self.assertIn("High-stakes email, finally", self.home)
         self.assertIn("provable", self.home)
@@ -38,7 +38,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
             self.assertNotIn(banned, self.css)
 
     def test_seasons_stay_after_the_hero(self) -> None:
-        self.assertIn('class="sell-hero"', self.home)
+        self.assertIn("sell-hero", self.home)
         self.assertNotIn("seasons-scene", self.home)
         self.assertNotIn("signet7-circuit.jpg", self.home)
         self.assertNotIn("tech-scene.jpg", self.home)
@@ -56,7 +56,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in sorted(ROOT.glob("*.html")):
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                pin = "assets/site.css?v=20260901s" if path.name == "index.html" else "assets/site.css?v=20260829c"
+                pin = "assets/site.css?v=20260901air"
                 self.assertIn(pin, html)
                 self.assertNotIn("seasons-scene", html)
                 self.assertNotIn("door-loop.mp4", html)

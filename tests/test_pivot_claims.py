@@ -531,7 +531,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertTrue((ROOT / "assets" / "theme.js").is_file())
         for name, html in self.pages.items():
             with self.subTest(page=name):
-                self.assertIn('data-theme="dark"', html)
+                self.assertIn('data-theme="light"', html)
                 self.assertNotIn("data-theme-toggle", html)
                 self.assertNotIn("Dark mode", html)
                 self.assertNotIn("Light mode", html)
@@ -545,14 +545,13 @@ class ContentSecurityPolicy(unittest.TestCase):
                 self.assertIn("header-cta", html)
                 self.assertEqual(html.count("header-cta"), 1)
         theme = (ROOT / "assets" / "theme.js").read_text(encoding="utf-8")
-        self.assertIn('data-theme", "dark"', theme)
+        self.assertIn('data-theme", "light"', theme)
         self.assertNotIn("s7-theme-v2", theme)
-        self.assertNotIn("light", theme)
         home = self.pages["index.html"]
         self.assertNotIn("signet7-circuit.jpg", home)
         self.assertNotIn("seasons-scene", home)
         self.assertNotIn("door-loop.mp4", home)
-        self.assertIn("people-light.png", home)
+        self.assertIn("air-valley.jpg", home)
         self.assertIn("data-demo-next", home)
         self.assertIn("Step 1 of 4", home)
         self.assertIn('data-panel="vsn"', home)
