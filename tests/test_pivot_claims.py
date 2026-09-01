@@ -583,6 +583,14 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("/api/v1/vsn/listing", js)
         self.assertIn("account.signet7.io/account?invite=", js)
         self.assertNotIn("This message was sealed with Signet7", js)
+        compose = (ROOT / "outlook" / "compose.js").read_text(encoding="utf-8")
+        self.assertIn("signet7-invite-asked-v1", compose)
+        self.assertIn("invitePrompt", compose)
+        self.assertNotIn("item.body.setAsync", compose)
+        self.assertNotIn("verify.signet7.io/email/verify", compose)
+        html = (ROOT / "outlook" / "compose.html").read_text(encoding="utf-8")
+        self.assertIn("inviteBtn", html)
+        self.assertIn("Do not put a check link in the business letter", html)
 
 
 if __name__ == "__main__":
