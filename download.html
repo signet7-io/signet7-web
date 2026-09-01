@@ -7,7 +7,7 @@
      enforceable subset. NOTE: frame-ancestors is ignored when delivered via <meta>;
      real clickjacking protection requires a header layer (Cloudflare/CloudFront) and
      is required before any verification surface is hosted on this domain. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self' https://verify.signet7.io; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
   <title>Download | Signet7</title>
   <meta name="description" content="Download Signet7 Watch for one company inbox on Windows, Mac, or Linux. Recipients never install. They use the live check.">
   <meta name="theme-color" content="#07101b">
@@ -70,6 +70,7 @@
         <div class="drop">
           <button type="button" class="drop-btn" aria-expanded="false">Company</button>
           <div class="drop-menu">
+            <a href="register">Registration</a>
             <a href="download">Download</a>
             <a href="https://account.signet7.io/account">Login</a>
             <a href="pay">Pay</a>
@@ -105,9 +106,9 @@
     <section class="page-hero">
       <div class="container">
         <p class="eyebrow">Download</p>
-        <h1>Inbox Watch. One company inbox.</h1>
-        <p class="hero-copy">This download is for the one company machine that watches the inbox where invoices and payment changes arrive. It is not an app for every employee. Recipients never install. They paste or open a message at the live check. Checkout is not live. Windows and Mac will warn because this build is not code-signed yet.</p>
-        <p class="hero-actions"><a class="button button-primary" href="https://verify.signet7.io/email/verify">I only need to check a message</a></p>
+        <h1>Inbox Watch. Company computers only.</h1>
+        <p class="hero-copy">Step 1 is registration. We email a code to that work mailbox. Then you unlock Watch for the named inboxes you connect. Recipients never install. They use the live check. Checkout is not live.</p>
+        <p class="hero-actions"><a class="button button-primary" href="register">Step 1 · Registration</a> <a class="button button-secondary" href="https://verify.signet7.io/email/verify">I only need to check a message</a></p>
         <div class="badge-row">
           <span class="badge cyan">Unsigned preview</span>
           <span class="badge">Build <span id="build-version">2026-08-27-unsigned</span></span>
@@ -117,34 +118,41 @@
 
 <section class="section">
       <div class="container">
-        <div class="warn-box">There is one company download: Watch, for one inbox, on one PC. Pick your operating system. Recipients should not download this. Windows SmartScreen and Mac Gatekeeper will ask extra clicks because this build is not code-signed yet.</div>
-        <div class="os-grid">
+        <div class="warn-box">There is one company download: Watch, after registration. Enter the code we email to this work mailbox. Recipients should not download this. Windows SmartScreen and Mac Gatekeeper will ask extra clicks because this build is not code-signed yet.</div>
+        <form id="unlock-form" class="scope-list">
+          <p><label>Work email <input id="unlock-mailbox" type="email" required autocomplete="email"></label>
+          <button class="button button-primary" type="submit">Email my unlock code</button></p>
+          <p><label>Code <input id="unlock-code" maxlength="12" autocomplete="one-time-code"></label>
+          <button class="button" type="button" id="unlock-redeem">Unlock Watch</button></p>
+          <p id="unlock-status" class="section-intro" role="status"></p>
+        </form>
+        <div class="os-grid" id="watch-files" hidden>
           <article class="os-card" data-os="windows">
             <span class="you-flag" data-you hidden>Your computer</span>
             <h2>Windows</h2>
             <p>Inbox Watch for one company inbox. Write mail in Outlook as usual. Signet7 is not a composer.</p>
-            <a class="button button-primary" href="files/signet7-watch-windows.zip">Download for Windows</a>
+            <a class="button button-primary" href="#" data-watch-file="windows">Download for Windows</a>
           </article>
           <article class="os-card" data-os="macos">
             <span class="you-flag" data-you hidden>Your computer</span>
             <h2>Mac</h2>
             <p>Same Watch on this Mac. Recipients still use the live check. No extra app for them.</p>
-            <a class="button button-primary" href="files/signet7-watch-macos.zip">Download for Mac</a>
+            <a class="button button-primary" href="#" data-watch-file="macos">Download for Mac</a>
           </article>
           <article class="os-card" data-os="linux">
             <span class="you-flag" data-you hidden>Your computer</span>
             <h2>Linux</h2>
             <p>Same Watch on Linux. If something fails after install, use the live check until we send a new build.</p>
-            <a class="button button-primary" href="files/signet7-watch-linux.zip">Download for Linux</a>
+            <a class="button button-primary" href="#" data-watch-file="linux">Download for Linux</a>
           </article>
         </div>
-        <p class="section-intro">You only need one of those three files — the computer that will Watch the inbox. Recipients never install. After you create a company account we email the same links plus your keys. Build list: <a href="files/latest.json">files/latest.json</a>.</p>
+        <p class="section-intro">You only need the file for the computer that will Watch named company inboxes. Recipients never install. Build list is shown after unlock.</p>
         <div class="scope-list">
           <div class="scope-row"><b>What Watch does</b><span>It sits on one inbox. Ordinary mail stays quiet. It shouts if a seal is torn, or if a named vendor arrives unsealed. It does not send. It is not Exchange.</span></div>
           <div class="scope-row"><b>What Watch does not do</b><span>It does not check every employee mailbox. It does not replace the live check for staff. Recipients never install it.</span></div>
           <div class="scope-row"><b>Uninstall / update</b><span>Not a product feature today. There is no Uninstall button and no Check for update. The Windows script unpacks an unsigned zip into %LOCALAPPDATA%\Signet7 and stops. files/latest.json names this preview; nothing upgrades you. Partners delete that folder by hand and download a new zip. Outlook is removed in My add-ins — that is Microsoft, not Signet7. Recipients never install, so they have nothing to uninstall. Do not call this set and forget.</span></div>
         </div>
-        <div class="install-chooser" data-install-chooser>
+        <div class="install-chooser" data-install-chooser id="install-chooser" hidden>
           <p class="install-kicker">Install via terminal</p>
           <p class="install-lead">Same Watch download as the button above. Recipients skip this.</p>
           <div class="install-os" role="group" aria-label="Operating system">

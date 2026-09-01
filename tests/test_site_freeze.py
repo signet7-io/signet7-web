@@ -75,6 +75,9 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertIn(".study-grid", self.css)
         self.assertIn('url("studies/seal.jpg")', self.css)
         self.assertIn("High-stakes email, finally", self.home)
+        self.assertIn('id="created"', self.home)
+        self.assertIn("That file is the record.", self.home)
+        self.assertIn("Looks ordinary", self.home)
 
     def test_footer_rights_and_wrongs(self) -> None:
         line = "All rights reserved, All wrongs revenged."
