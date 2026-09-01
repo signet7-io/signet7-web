@@ -305,7 +305,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn('href="feedback"', contact)
         home_nav = self.pages["index.html"].split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
         self.assertIn('href="feedback">Feedback</a>', home_nav)
-        self.assertIn('href="about">About Signet7</a>', home_nav)
+        self.assertIn('href="about">Team</a>', home_nav)
 
     def test_homepage_situation_chooser_and_terminal_install(self) -> None:
         home = self.pages["index.html"]
@@ -364,8 +364,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotRegex(pay, r"<form\b")
         for name, html in self.pages.items():
             with self.subTest(page=name):
-                self.assertIn('href="download"', html)
-                self.assertIn('href="pay"', html)
+                self.assertRegex(html, r'href="(\.\./)?download"')
+                self.assertRegex(html, r'href="(\.\./)?pay"')
                 self.assertNotIn("pypi.org", html)
                 if name in {"index.html", "product.html", "about.html", "enterprise.html"}:
                     self.assertIn('class="facts"', html)
@@ -381,20 +381,23 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for name, html in self.pages.items():
             with self.subTest(page=name):
                 self.assertIn("drop-btn", html)
-                self.assertIn(">About Signet7</a>", html)
+                self.assertIn(">Team</a>", html)
                 self.assertIn(">Feedback</a>", html)
-                self.assertIn('href="scenarios"', html)
+                self.assertRegex(html, r'href="(\.\./)?scenarios"')
                 self.assertNotIn("Use cases", html)
                 self.assertNotIn("Install (pip)", html)
-                self.assertNotIn(">Docs</button>", html)
-                self.assertIn('<a href="docs">Docs</a>', html)
+                self.assertIn(">Docs</button>", html)
+                self.assertRegex(html, r'href="(\.\./)?docs">Docs</a>')
                 nav = html.split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
-                self.assertNotIn('href="it"', nav)
-                self.assertNotIn('href="smtp"', nav)
+                self.assertRegex(nav, r'href="(\.\./)?it"')
+                self.assertRegex(nav, r'href="(\.\./)?smtp"')
                 self.assertIn(">Product</button>", nav)
                 self.assertIn(">About</button>", nav)
-                self.assertNotIn(">Legal</button>", nav)
-                self.assertIn('href="download">Download</a>', nav)
+                self.assertIn(">Legal</button>", nav)
+                self.assertIn(">Check</button>", nav)
+                self.assertIn(">Company</button>", nav)
+                self.assertNotIn('<p class="drop-head">Product</p>', nav)
+                self.assertRegex(nav, r'href="(\.\./)?download">Download</a>')
                 self.assertIn("Inbox Watch", self.pages["index.html"])
 
     def test_public_copy_does_not_overclaim(self) -> None:
@@ -593,6 +596,47 @@ class ContentSecurityPolicy(unittest.TestCase):
         html = (ROOT / "outlook" / "compose.html").read_text(encoding="utf-8")
         self.assertIn("inviteBtn", html)
         self.assertIn("Do not put a check link in the business letter", html)
+
+    def test_marketing_kit_honest_watch_and_frozen_h1(self) -> None:
+        home = self.pages["index.html"]
+        self.assertIn('id="hero-title"', home)
+        self.assertIn("High-stakes email, finally", home)
+        self.assertIn("Questionable email? Check it here.", home)
+        self.assertIn("Save the original.", home)
+        self.assertIn("Drop it here.", home)
+        how = self.pages["how.html"]
+        self.assertIn("https://verify.signet7.io/email/verify", how)
+        self.assertIn("Questionable email? Check it here.", how)
+        self.assertNotIn("never check this", how.lower())
+        self.assertNotIn("never check them again", how.lower())
+        download = self.pages["download.html"]
+        self.assertIn("Not a product feature today", download)
+        self.assertIn("Do not call this set and forget", download)
+        self.assertIn("There is no Uninstall button", download)
+        watch = self.pages["watch.html"]
+        self.assertIn("There is no Uninstall button", watch)
+        self.assertIn("This is not set and forget", watch)
+        companies = self.pages["companies.html"]
+        self.assertIn("You list your address", companies)
+        self.assertIn("They list theirs", companies)
+        loop = self.pages["loop.html"]
+        self.assertIn("link-loop", loop)
+        self.assertIn("https://verify.signet7.io/email/verify", loop)
+        self.assertIn("Open the live check", loop)
+        self.assertNotIn("door-loop.mp4", loop)
+        kit = "\n".join(
+            self.pages[n]
+            for n in ("how.html", "watch.html", "vsn.html", "companies.html", "one-pager.html", "loop.html")
+        ).lower()
+        self.assertNotIn("verified means trusted", kit)
+        self.assertNotIn("is safe to pay", kit)
+        one = self.pages["one-pager.html"]
+        self.assertIn("AP", one)
+        nav = home.split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
+        self.assertIn(">Check</button>", nav)
+        self.assertIn(">Legal</button>", nav)
+        self.assertIn(">Company</button>", nav)
+        self.assertNotIn(">About Signet7</a>", nav)
 
 
 if __name__ == "__main__":

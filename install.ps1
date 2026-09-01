@@ -21,6 +21,9 @@ function Show-Help {
   Write-Host "  outlook   save Outlook manifest (Add from File, not AppSource)"
   Write-Host "  help      this list (default)"
   Write-Host ""
+  Write-Host "There is no Uninstall command and no Check for update. To remove Watch, delete $root by hand."
+  Write-Host "files/latest.json names the current unsigned preview. This script does not upgrade you."
+  Write-Host ""
   Write-Host "Example:"
   Write-Host "  `$env:SIGNET7_SETUP='watch'; irm https://signet7.io/install.ps1 | iex"
 }
