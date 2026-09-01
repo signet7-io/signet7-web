@@ -101,10 +101,9 @@ function fromAddress() {
   return "";
 }
 
-function lookupVsn(fromAddr) {
+function lookupListing(fromAddr) {
   if (!fromAddr || fromAddr.indexOf("@") < 0) return Promise.resolve(null);
-  var domain = fromAddr.split("@").pop();
-  return fetch(apiBase() + "/api/v1/vsn/lookup?domain=" + encodeURIComponent(domain))
+  return fetch(apiBase() + "/api/v1/vsn/listing?sender=" + encodeURIComponent(fromAddr))
     .then(function (response) { return response.json(); })
     .catch(function () { return null; });
 }
@@ -142,19 +141,21 @@ function verifyCurrentMessage(opts) {
           var subject = item && item.subject ? item.subject : "";
           var alert = classifyAlert(pack.body, subject, "");
           var from = fromAddress();
-          lookupVsn(from).then(function (vsn) {
-            var vsnLine = "";
-            if (vsn && vsn.status === "PUBLISHED") {
-              vsnLine = "\nFrom domain is listed in public DNS lookup (" + vsn.domain + "). Managed network stays planned.";
-            } else if (vsn) {
-              vsnLine = "\nFrom domain is not in public DNS lookup. Invite them from your Signet7 account if you work with them.";
+          lookupListing(from).then(function (listing) {
+            var listingLine = "";
+            if (listing && listing.code === "listing_matches") {
+              listingLine = "\nListed for this address.";
+            } else if (listing && listing.code === "listing_does_not_match") {
+              listingLine = "\nListing doesn’t match this address.";
+            } else {
+              listingLine = "\nNot listed for this address.";
             }
             if (alert) {
               showBanner(alert);
               if (!silent) showPopup(alert);
-              setOut(alert.title + "\n\n" + alert.body + vsnLine);
+              setOut(alert.title + "\n\n" + alert.body + listingLine);
             } else {
-              setOut("No Signet7 warning. Ordinary unsigned mail stays quiet. Verified is not safe. Unknown is not fraud." + vsnLine);
+              setOut("No Signet7 warning. Ordinary unsigned mail stays quiet. Words matching is not safe to pay." + listingLine);
             }
             resolve();
           });

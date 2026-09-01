@@ -469,6 +469,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("id=\"three-jobs\"", self.pages["faq.html"])
         self.assertIn("only between you and them", self.pages["faq.html"])
         self.assertIn("Sideload is not Watch", self.pages["faq.html"])
+        self.assertIn("more than one listing", self.pages["faq.html"])
+        self.assertNotIn("One listing covers every mailbox", self.pages["faq.html"])
         self.assertIn("One Watch on AP", self.pages["enterprise.html"])
         programs = self.pages["programs.html"]
         self.assertIn("Team is not a catalog SKU", programs)
@@ -578,7 +580,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         pane = (ROOT / "outlook" / "taskpane.html").read_text(encoding="utf-8")
         self.assertIn("inviteBtn", pane)
         js = (ROOT / "outlook" / "taskpane.js").read_text(encoding="utf-8")
-        self.assertIn("/api/v1/vsn/lookup", js)
+        self.assertIn("/api/v1/vsn/listing", js)
         self.assertIn("account.signet7.io/account?invite=", js)
         self.assertNotIn("This message was sealed with Signet7", js)
 
