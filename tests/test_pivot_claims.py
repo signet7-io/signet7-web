@@ -466,6 +466,9 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("What Watch does", self.pages["download.html"])
         self.assertIn("What does Watch do?", self.pages["faq.html"])
         self.assertIn("going to the factory", self.pages["faq.html"])
+        self.assertIn("id=\"three-jobs\"", self.pages["faq.html"])
+        self.assertIn("only between you and them", self.pages["faq.html"])
+        self.assertIn("Sideload is not Watch", self.pages["faq.html"])
         self.assertIn("One Watch on AP", self.pages["enterprise.html"])
         programs = self.pages["programs.html"]
         self.assertIn("Team is not a catalog SKU", programs)
