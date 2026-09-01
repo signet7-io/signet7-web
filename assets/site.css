@@ -1808,7 +1808,7 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 .sell-hero.air-hero::after { display: none; }
 .air-world {
   position: absolute;
-  transform-origin: 51.9% 76.6%;
+  transform-origin: 39% 54%;
   will-change: transform;
 }
 .air-land {
@@ -1824,13 +1824,13 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(8,12,18,.42) 0%, rgba(8,12,18,.12) 28%, transparent 48%);
+  background: linear-gradient(180deg, rgba(8,12,18,.48) 0%, rgba(8,12,18,.14) 32%, transparent 52%);
 }
 .air-copy {
   position: absolute;
   left: 0;
   right: 0;
-  top: 16%;
+  top: 12%;
   z-index: 6;
   text-align: center;
   color: #fff;
@@ -1874,13 +1874,13 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 }
 .air-check {
   position: absolute;
-  left: 50.35%;
-  top: 75.05%;
-  width: 2.35%;
-  height: 3.15%;
+  left: 35.2%;
+  top: 47%;
+  width: 5.8%;
+  height: 7.2%;
   min-width: 0;
-  max-width: 2.35%;
-  max-height: 3.15%;
+  max-width: 5.8%;
+  max-height: 7.2%;
   z-index: 5;
   opacity: 0;
   pointer-events: none;

@@ -36,7 +36,7 @@
     const total = Math.max(1, pin.offsetHeight - window.innerHeight);
     const passed = Math.min(total, Math.max(0, -pin.getBoundingClientRect().top));
     const p = passed / total;
-    world.style.transform = "scale(" + (1 + p * 2.85) + ")";
+    world.style.transform = "scale(" + (1 + p * 1.55) + ")";
     if (copy) copy.style.opacity = String(Math.max(0, 1 - p * 1.55));
     if (check) {
       if (p > 0.38) check.classList.add("is-on");
