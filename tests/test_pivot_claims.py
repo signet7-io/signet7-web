@@ -467,6 +467,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("What does Watch do?", self.pages["faq.html"])
         self.assertIn("going to the factory", self.pages["faq.html"])
         self.assertIn("id=\"three-jobs\"", self.pages["faq.html"])
+        self.assertIn("id=\"status-chips\"", self.pages["faq.html"])
+        self.assertIn("People and agents use the same check", self.pages["faq.html"])
         self.assertIn("only between you and them", self.pages["faq.html"])
         self.assertIn("Sideload is not Watch", self.pages["faq.html"])
         self.assertIn("more than one listing", self.pages["faq.html"])
