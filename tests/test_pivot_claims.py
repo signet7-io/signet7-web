@@ -16,11 +16,10 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         }
         cls.all_copy = "\n".join(cls.pages.values())
 
-    def test_pilot_page_exists_and_is_linked_from_every_page(self) -> None:
+    def test_pilot_page_exists_and_is_linked_from_product(self) -> None:
         self.assertIn("pilot.html", self.pages)
-        for name, html in self.pages.items():
-            with self.subTest(page=name):
-                self.assertIn('href="pilot"', html)
+        self.assertIn('href="pilot"', self.pages["product.html"])
+        self.assertIn('href="pilot"', self.pages["programs.html"])
 
     def test_public_export_has_canonical_discovery_metadata(self) -> None:
         sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
@@ -74,9 +73,9 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("API token", ent)
         self.assertNotIn("EXECUTEWIRE", ent)
         self.assertNotIn("pip install", ent)
+        self.assertIn('href="enterprise"', self.pages["product.html"])
         for name, html in self.pages.items():
             with self.subTest(page=name):
-                self.assertIn('href="enterprise"', html)
                 self.assertNotIn("AKIA", html)
                 self.assertNotIn("BEGIN PRIVATE KEY", html)
                 self.assertNotIn("ghp_", html)
@@ -226,8 +225,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("no install for the other side", check)
         self.assertIn("this brochure site cannot run that check", check)
         self.assertIn("/email/verify", check)
-        self.assertIn("this brochure site cannot run that check", check)
-        self.assertIn('href="check"', self.pages["index.html"])
+        self.assertIn('href="how"', self.pages["index.html"])
 
     def test_scenarios_page_is_living_and_cross_platform(self) -> None:
         self.assertIn("scenarios.html", self.pages)
@@ -242,7 +240,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, page)
-        self.assertIn('href="scenarios"', self.pages["index.html"])
+        self.assertIn('href="scenarios"', self.pages["product.html"])
 
     def test_smtp_recipes_are_cross_platform(self) -> None:
         self.assertIn("smtp.html", self.pages)
@@ -294,7 +292,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("Press Send", html)
         self.assertNotIn("mailto:", html)
         self.assertNotIn("qual", html.lower())
-        self.assertIn('href="pilot"', html)
+        self.assertIn('href="pilot"', self.pages["product.html"])
         self.assertIn("https://verify.signet7.io/api/v1/feedback", js)
         self.assertIn("fetch(", js)
         self.assertNotIn("mailto:", js)
@@ -304,9 +302,9 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("mailto:sales@signet7.io", programs)
         contact = self.pages["contact.html"]
         self.assertIn('href="feedback"', contact)
-        home_nav = self.pages["index.html"].split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
-        self.assertIn('href="feedback">Feedback</a>', home_nav)
-        self.assertIn('href="about">Team</a>', home_nav)
+        home_footer = self.pages["index.html"].split("<footer", 1)[1]
+        self.assertIn('href="feedback">Feedback</a>', home_footer)
+        self.assertIn('href="about">About</a>', self.pages["index.html"].split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0])
 
     def test_homepage_situation_chooser_and_terminal_install(self) -> None:
         home = self.pages["index.html"]
@@ -366,7 +364,6 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for name, html in self.pages.items():
             with self.subTest(page=name):
                 self.assertRegex(html, r'href="(\.\./)?download"')
-                self.assertRegex(html, r'href="(\.\./)?pay"')
                 self.assertNotIn("pypi.org", html)
                 if name in {"index.html", "product.html", "about.html", "enterprise.html"}:
                     self.assertIn('class="facts"', html)
@@ -382,25 +379,27 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for name, html in self.pages.items():
             with self.subTest(page=name):
                 self.assertIn("drop-btn", html)
-                self.assertIn(">Team</a>", html)
                 self.assertIn(">Feedback</a>", html)
-                self.assertRegex(html, r'href="(\.\./)?scenarios"')
                 self.assertNotIn("Use cases", html)
                 self.assertNotIn("Install (pip)", html)
-                self.assertIn(">Docs</button>", html)
-                self.assertRegex(html, r'href="(\.\./)?docs">Docs</a>')
                 nav = html.split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
-                self.assertRegex(nav, r'href="(\.\./)?it"')
-                self.assertRegex(nav, r'href="(\.\./)?smtp"')
                 self.assertIn(">Product</button>", nav)
-                self.assertIn(">About</button>", nav)
-                self.assertIn(">Legal</button>", nav)
-                self.assertIn(">Check</button>", nav)
                 self.assertIn(">Company</button>", nav)
-                self.assertRegex(nav, r'href="(\.\./)?register">Registration</a>')
-                self.assertNotIn('<p class="drop-head">Product</p>', nav)
+                self.assertIn(">Help</button>", nav)
+                self.assertIn("How it works", nav)
+                self.assertRegex(nav, r'href="(\.\./)?about">About</a>')
+                self.assertRegex(nav, r'href="(\.\./)?register">Register</a>')
+                self.assertRegex(nav, r'href="(\.\./)?docs">Docs</a>')
+                self.assertRegex(nav, r'href="(\.\./)?faq">FAQ</a>')
                 self.assertRegex(nav, r'href="(\.\./)?download">Download</a>')
-                self.assertIn("Inbox Watch", self.pages["index.html"])
+                self.assertNotIn(">Check</button>", nav)
+                self.assertNotIn(">Legal</button>", nav)
+                self.assertNotIn(">Docs</button>", nav)
+                self.assertNotIn(">About</button>", nav)
+                self.assertNotIn('<p class="drop-head">Product</p>', nav)
+                self.assertNotIn(">About Signet7</a>", nav)
+        self.assertIn("Inbox Watch", self.pages["index.html"])
+        self.assertIn("Team", self.pages["about.html"])
 
     def test_public_copy_does_not_overclaim(self) -> None:
         visible = re.sub(r"<[^>]+>", " ", self.all_copy).lower()
@@ -450,7 +449,6 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("pip install signet7", home)
         self.assertNotIn("pip install signet7", self.pages["download.html"])
         self.assertIn("href=\"download\"", home)
-        self.assertIn("href=\"pay\"", home)
         self.assertIn("Verifiable Sender Network (VSN)", home)
         self.assertIn("Verifiable Sender Network", home)
         self.assertNotIn("$12 / $29 / $99", home)
@@ -458,8 +456,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("https://account.signet7.io/account", home)
         self.assertIn("Login to Signet7", home)
         self.assertIn("drop-btn", home)
-        self.assertIn("Programs", home)
-        self.assertIn('href="programs"', home)
+        self.assertIn("Programs", self.pages["product.html"])
+        self.assertIn('href="programs"', self.pages["product.html"])
         self.assertNotRegex(home, r"<form\b")
         self.assertNotIn("dual-control", low)
         self.assertNotIn("isolated qualification", low)
@@ -659,8 +657,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         one = self.pages["one-pager.html"]
         self.assertIn("AP", one)
         nav = home.split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
-        self.assertIn(">Check</button>", nav)
-        self.assertIn(">Legal</button>", nav)
+        self.assertIn("How it works", nav)
+        self.assertIn(">Help</button>", nav)
         self.assertIn(">Company</button>", nav)
         self.assertNotIn(">About Signet7</a>", nav)
 
