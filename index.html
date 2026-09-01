@@ -21,7 +21,7 @@
   <meta property="og:image" content="https://signet7.io/assets/og-image.png">
   <link rel="canonical" href="https://signet7.io/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/site.css?v=20260901air">
+  <link rel="stylesheet" href="assets/site.css?v=20260901m">
 </head>
 <body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -69,39 +69,37 @@
   <main id="main">
     <div class="air-pin" data-air-pin>
     <section class="sell-hero air-hero" aria-labelledby="hero-title">
-      <img class="air-land" src="assets/air-valley.jpg" width="1920" height="1080" alt="">
+      <img class="air-land" data-air-land data-air-world src="assets/air-valley.jpg" width="1920" height="1080" alt="">
+      <div class="air-shade" aria-hidden="true"></div>
       <div class="air-copy" data-air-copy>
         <h1 id="hero-title" class="billboard">High-stakes email, finally <em>provable</em>.</h1>
         <p class="eyebrow">Questionable email? Check it here.</p>
-        <ol class="lede" id="check-123">
+        <ol class="hero-steps" id="check-123">
           <li>Save the original.</li>
           <li>Drop it here.</li>
           <li>Read the result. Anyone. No account. No install.</li>
         </ol>
-        <p class="product-line">Signet7 is the cryptographic check for high-stakes email, powered by our Verifiable Sender Network (VSN).</p>
-        <p class="lede">It verifies whether a message is bound to the claimed sender, and whether the protected words — including payment or account details — still match the seal.</p>
-        <p class="lede">You get a clear result and a signed file you can produce later. The same evidence can gate actions proposed by people or AI agents before irreversible steps.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="https://verify.signet7.io/email/verify">Check a message</a>
           <a class="button button-secondary" href="register">Register</a>
         </div>
       </div>
-      <div class="air-world" data-air-world>
-        <div class="air-set">
-          <div class="air-chair" aria-hidden="true"></div>
-          <div class="air-desk" aria-hidden="true"></div>
-          <div class="air-laptop" aria-label="The check on a laptop">
-            <div class="air-screen">
-              <p class="from">From ap@northline-vendors.com</p>
-              <h3>Updated wiring instructions</h3>
-              <div class="pane"><span>The words</span><strong>Still match what was sealed</strong></div>
-              <div class="pane"><span>The sender</span><strong>Not tied to that company</strong></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <aside class="air-check" data-air-check aria-label="The check on the laptop">
+        <p class="from">From ap@northline-vendors.com</p>
+        <h3>Updated wiring instructions</h3>
+        <div class="pane"><span>The words</span><strong>Still match what was sealed</strong></div>
+        <div class="pane"><span>The sender</span><strong>Not tied to that company</strong></div>
+      </aside>
     </section>
     </div>
+
+    <section class="section air-after" aria-label="What Signet7 is">
+      <div class="container">
+        <p class="product-line">Signet7 is the cryptographic check for high-stakes email, powered by our Verifiable Sender Network (VSN).</p>
+        <p class="lede">It verifies whether a message is bound to the claimed sender, and whether the protected words — including payment or account details — still match the seal.</p>
+        <p class="lede">You get a clear result and a signed file you can produce later. The same evidence can gate actions proposed by people or AI agents before irreversible steps.</p>
+      </div>
+    </section>
 
     <section class="facts" data-facts aria-label="Why this moment exists">
       <div class="container facts-grid">
