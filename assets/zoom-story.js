@@ -21,7 +21,7 @@
     const i = Math.min(n - 1, Math.floor(x + 1e-9));
     const u = clamp(x - i, 0, 1);
     const last = i === n - 1;
-    const hold = 0.32;
+    const hold = 0.55;
     const z = last || u < hold ? 0 : smooth((u - hold) / (1 - hold));
 
     scenes.forEach((el, j) => {

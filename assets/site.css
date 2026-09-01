@@ -1916,16 +1916,21 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 .air-after { padding-top: 56px; }
 .air-after .product-line { font-size: 20px; max-width: 720px; }
 .home .site-header {
-  position: absolute;
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  background: transparent;
+  z-index: 200;
+  background: rgba(8, 32, 48, 0.82);
+  backdrop-filter: blur(14px);
   border-bottom: 0;
 }
+.home .site-header .brand span,
 .home .brand, .home .drop-btn, .home .site-nav > a, .home .account-login, .home .nav-toggle { color: #fff; }
 .home .drop-btn::after { color: #fff; }
 
-.zoom-pin { height: 820vh; position: relative; }
+.home #uses { padding-top: calc(var(--nav-h) + 48px); }
+.zoom-pin { height: 615vh; position: relative; }
 .zoom-stage {
   position: sticky;
   top: 0;
