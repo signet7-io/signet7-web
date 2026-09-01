@@ -8,7 +8,7 @@
      enforceable subset. NOTE: frame-ancestors is ignored when delivered via <meta>;
      real clickjacking protection requires a header layer (Cloudflare/CloudFront) and
      is required before any verification surface is hosted on this domain. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <title>Signet7 | High-stakes email, finally provable.</title>
@@ -21,7 +21,7 @@
   <meta property="og:image" content="https://signet7.io/assets/og-image.png">
   <link rel="canonical" href="https://signet7.io/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/site.css?v=20260829c">
+  <link rel="stylesheet" href="assets/site.css?v=20260901s">
 </head>
 <body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -49,9 +49,9 @@
               <a href="watch">Watch</a>
               <a href="smtp">Send &amp; seal</a>
               <a href="vsn">VSN</a>
-              <a href="scenarios">Send and receive</a>
             </div>
             <div class="drop-col">
+              <a href="scenarios">Send and receive</a>
               <a href="integrations">Integrations</a>
               <a href="programs">Programs</a>
               <a href="enterprise">Enterprise</a>
@@ -136,6 +136,39 @@
         <article class="fact f-purple"><strong>191K+</strong><span>Phishing/spoofing complaints reported to FBI IC3 in 2025.</span></article>
       </div>
       <p class="facts-cite">Source: FBI Internet Crime Complaint Center, 2025 Annual Report. Reported losses, not Signet7 results. <a href="https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf">Read the IC3 report</a>.</p>
+    </section>
+
+    <section class="section studies" id="play" aria-labelledby="studies-title">
+      <div class="container">
+        <h2 id="studies-title">Three studies, running mute.</h2>
+        <p class="section-intro">Same three claims, as film.</p>
+        <div class="study-grid">
+          <article class="study">
+            <div class="study-card">
+              <video src="assets/studies/seal.mp4" poster="assets/studies/seal.jpg" autoplay muted loop playsinline preload="metadata"></video>
+            </div>
+            <p class="eyebrow">Study 01 · The seal</p>
+            <h3>A signet is a seal. The 7 is the long memory.</h3>
+            <p>You put a seal on a letter so it can still be proven years later — when an auditor, partner, or court asks what you received.</p>
+          </article>
+          <article class="study">
+            <div class="study-card">
+              <video src="assets/studies/network.mp4" poster="assets/studies/network.jpg" autoplay muted loop playsinline preload="metadata"></video>
+            </div>
+            <p class="eyebrow">Study 02 · The network</p>
+            <h3>Mail in motion. Sealed or not.</h3>
+            <p>Gold is sealed. Cyan is ordinary. The Verifiable Sender Network looks up whether a company's signing key is still listed as theirs.</p>
+          </article>
+          <article class="study">
+            <div class="study-card">
+              <video src="assets/studies/stamp.mp4" poster="assets/studies/stamp.jpg" autoplay muted loop playsinline preload="metadata"></video>
+            </div>
+            <p class="eyebrow">Study 03 · The stamp</p>
+            <h3>Look once. Then decide whether to act.</h3>
+            <p>The check happens before money moves. The original stays in the mailbox. Signet7 is the check, not a second inbox.</p>
+          </article>
+        </div>
+      </div>
     </section>
 
     <section class="section demo" id="demo" aria-labelledby="demo-title">

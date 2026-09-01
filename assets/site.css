@@ -241,17 +241,17 @@ a:hover { color: #2a6f86; }
 .drop-menu a { display: block; padding: 8px 12px; color: var(--ink); font-size: 14px; white-space: nowrap; border-radius: 8px; }
 .drop-menu a:hover { background: var(--line); color: var(--ink); }
 .drop-panel {
-  min-width: 460px;
+  min-width: 560px;
   flex-direction: row;
-  align-items: flex-start;
-  gap: 8px;
+  align-items: stretch;
+  gap: 16px;
   padding: 16px;
 }
 .drop-col {
-  flex: 1 1 200px;
+  flex: 1 1 240px;
   display: flex;
   flex-direction: column;
-  min-width: 180px;
+  min-width: 240px;
 }
 .drop-head {
   margin: 4px 12px 6px;
@@ -1667,12 +1667,53 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 }
 .desk-readout h3 { margin: 0 0 8px; }
 .desk-readout p { margin: 0; color: var(--mute); }
+.study-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.study-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  aspect-ratio: 16 / 9;
+  background: var(--header);
+}
+.study-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.study .eyebrow { margin: 12px 0 6px; }
+.study h3 {
+  margin: 0 0 8px;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--ink);
+}
+.study p { margin: 0; color: var(--mute); font-size: 14px; }
+@media (max-width: 980px) {
+  .study-grid { grid-template-columns: 1fr; }
+}
 @media (prefers-reduced-motion: reduce) {
   #mail-flow, .site-ticker span { display: none; }
   .people-plate { animation: none; }
   .seasons-scene .door-loop { display: none; }
   .seasons-scene .door-poster { display: block; }
   .link-loop .wire, .link-loop .pulse, .link-loop .chip { animation: none; }
+  .study-card video { display: none; }
+  .study-card {
+    background-size: cover;
+    background-position: center;
+  }
+  .study:nth-child(1) .study-card { background-image: url("studies/seal.jpg"); }
+  .study:nth-child(2) .study-card { background-image: url("studies/network.jpg"); }
+  .study:nth-child(3) .study-card { background-image: url("studies/stamp.jpg"); }
 }
 
 .link-loop {

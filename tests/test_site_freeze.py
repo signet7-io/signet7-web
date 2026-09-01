@@ -23,12 +23,16 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertNotIn("not just trust", self.home)
         self.assertIn("Signet7 is the cryptographic check for high-stakes email", self.home)
 
-    def test_name_story_lives_on_about_not_home(self) -> None:
+    def test_name_story_lives_on_about_and_homepage_studies(self) -> None:
         about = (ROOT / "about.html").read_text(encoding="utf-8")
         self.assertIn("A signet is a seal. The 7 is the long memory.", about)
         self.assertIn("You need to know it is authentic.", about)
         self.assertIn("You need proof of exactly what you received.", about)
-        self.assertNotIn("A signet is a seal. The 7 is the long memory.", self.home)
+        self.assertIn('id="play"', self.home)
+        play = self.home.split('id="play"', 1)[1].split('id="demo"', 1)[0]
+        self.assertIn("A signet is a seal. The 7 is the long memory.", play)
+        hero = self.home.split("<h1", 1)[1].split("</section>", 1)[0]
+        self.assertNotIn("A signet is a seal. The 7 is the long memory.", hero)
         for banned in ("data-wave-pin", "data-crawl", "wave-pin", "crawl-stage"):
             self.assertNotIn(banned, self.home)
             self.assertNotIn(banned, self.css)
@@ -52,10 +56,25 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in sorted(ROOT.glob("*.html")):
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                self.assertIn("assets/site.css?v=20260829c", html)
+                pin = "assets/site.css?v=20260901s" if path.name == "index.html" else "assets/site.css?v=20260829c"
+                self.assertIn(pin, html)
                 self.assertNotIn("seasons-scene", html)
                 self.assertNotIn("door-loop.mp4", html)
                 self.assertNotIn("signet7-circuit.jpg", html)
+
+    def test_homepage_mute_study_films(self) -> None:
+        self.assertIn("media-src 'self'", self.home)
+        facts_end = self.home.find("</section>", self.home.find('class="facts"'))
+        demo = self.home.find('id="demo"')
+        play = self.home.find('id="play"')
+        self.assertTrue(0 < facts_end < play < demo)
+        self.assertIn("assets/studies/seal.mp4", self.home)
+        self.assertIn("assets/studies/network.mp4", self.home)
+        self.assertIn("assets/studies/stamp.mp4", self.home)
+        self.assertIn("autoplay muted loop playsinline", self.home)
+        self.assertIn(".study-grid", self.css)
+        self.assertIn('url("studies/seal.jpg")', self.css)
+        self.assertIn("High-stakes email, finally", self.home)
 
     def test_footer_rights_and_wrongs(self) -> None:
         line = "All rights reserved, All wrongs revenged."
