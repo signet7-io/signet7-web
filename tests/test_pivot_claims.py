@@ -160,6 +160,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             "does not block every phishing technique",
             "Evidence support is not certification",
             "No universal legal duration or seven-year default",
+            "US and EU rules create demand for records. They do not certify Signet7.",
             "Bind a signing key to a domain. Check whether that binding still holds.",
             "Verified is not safe. Unresolved is not fraudulent.",
         ):
@@ -411,6 +412,12 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             r"hipaa compliant email",
             r"seven-year retention by default",
             r"no integration required",
+            r"we are compliant",
+            r"signet7 is compliant",
+            r"signet7 is certified",
+            r"signet7 is required",
+            r"nis2 compliant",
+            r"dora compliant",
         )
         for pattern in forbidden:
             with self.subTest(pattern=pattern):
@@ -482,6 +489,22 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("Governed agents", programs)
         self.assertIn("vanity seats", programs)
         self.assertIn("Checkout is not live", programs)
+
+    def test_faq_us_eu_proof_is_demand_not_certification(self) -> None:
+        faq = self.pages["faq.html"]
+        self.assertIn('id="us-eu-proof"', faq)
+        start = faq.find('id="us-eu-proof"')
+        card = faq[start : faq.find("</article>", start)]
+        self.assertIn("create demand for records", card)
+        self.assertIn("They do not require Signet7, certify Signet7, or set a seven-year default here.", card)
+        self.assertIn("A public check does not keep the letter.", card)
+        self.assertIn("Object Lock days exist only after a human retention schedule.", card)
+        self.assertIn("Counsel still decides what you must keep.", card)
+        low = card.lower()
+        self.assertNotIn("we are compliant", low)
+        self.assertNotIn("signet7 is compliant", low)
+        self.assertNotIn("safe to pay", low)
+        self.assertNotIn("qual.signet7.io", low)
 
 
 class ContentSecurityPolicy(unittest.TestCase):
