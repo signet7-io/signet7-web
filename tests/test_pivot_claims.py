@@ -132,7 +132,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertTrue((ROOT / "assets" / "docs-signet7-mailbox-helper.png").is_file())
         self.assertTrue((ROOT / "assets" / "docs-apple-mail-server-settings.png").is_file())
         self.assertIn("127.0.0.1", docs)
-        self.assertIn("The signed app is not open yet", docs)
+        self.assertNotIn("The signed app is not open yet", docs)
         self.assertIn("id=\"install\"", docs)
         self.assertIn("How to use Signet7", docs)
         self.assertIn("class=\"docs-manual\"", docs)
@@ -250,6 +250,33 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for phrase in ("127.0.0.1", "2525", "outlook", "apple mail", "thunderbird", "windows, macos, and linux"):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, page)
+
+    def test_seal_path_is_unsigned_preview_not_a_signed_product(self) -> None:
+        docs = self.pages["docs.html"]
+        faq = self.pages["faq.html"]
+        smtp = self.pages["smtp.html"]
+        docs_l = docs.lower()
+        smtp_l = smtp.lower()
+        self.assertNotIn("The signed app is not open yet", docs)
+        self.assertNotIn("not available yet as a signed product", docs_l)
+        self.assertNotIn("Not available yet.", docs)
+        self.assertIn("unsigned preview", docs_l)
+        self.assertIn("Not Authenticode", docs)
+        self.assertIn("stamps the exact outgoing", docs_l)
+        self.assertNotIn("is safe to pay", docs_l)
+        self.assertIn("Seal: Preview (unsigned)", faq)
+        self.assertNotIn("Seal: Not yet as a signed product", faq)
+        self.assertIn("unsigned", smtp_l)
+        self.assertNotIn("Live service", smtp)
+        self.assertIn("127.0.0.1", smtp)
+        self.assertIn("2525", smtp)
+        self.assertNotIn("is safe to pay", smtp_l)
+        for name, html in (("docs", docs), ("faq", faq), ("smtp", smtp)):
+            with self.subTest(page=name):
+                self.assertNotIn("qual.signet7.io", html)
+                self.assertNotIn("pip install", html)
+        self.assertIn("Recipients never install", docs)
+        self.assertIn("Recipients never install", faq)
 
     def test_it_one_pager_exists(self) -> None:
         self.assertIn("it.html", self.pages)
