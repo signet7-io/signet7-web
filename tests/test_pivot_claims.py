@@ -551,7 +551,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("signet7-circuit.jpg", home)
         self.assertNotIn("seasons-scene", home)
         self.assertNotIn("door-loop.mp4", home)
-        self.assertIn("air-valley.jpg", home)
+        self.assertIn("zoom/01.jpg", home)
         self.assertIn("data-demo-next", home)
         self.assertIn("Step 1 of 4", home)
         self.assertIn('data-panel="vsn"', home)

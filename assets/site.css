@@ -1919,3 +1919,75 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 }
 .home .brand, .home .drop-btn, .home .site-nav > a, .home .account-login, .home .nav-toggle { color: #fff; }
 .home .drop-btn::after { color: #fff; }
+
+.zoom-pin { height: 820vh; position: relative; }
+.zoom-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: #10151c;
+}
+.zoom-scene {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 52%;
+  will-change: transform, opacity, clip-path;
+}
+.zoom-plate {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.zoom-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(8,12,18,.55) 0%, rgba(8,12,18,.16) 38%, rgba(8,12,18,.4) 100%);
+}
+.zoom-copy {
+  position: absolute;
+  left: 50%;
+  top: 13%;
+  transform: translateX(-50%);
+  width: min(1040px, calc(100% - 40px));
+  z-index: 5;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 2px 16px rgba(0,0,0,.4);
+}
+.zoom-copy .billboard {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(36px, 5.4vw, 66px);
+  line-height: 1.08;
+  margin: 0 0 10px;
+  color: #fff;
+}
+.zoom-copy .eyebrow { color: rgba(255,255,255,.9); letter-spacing: .14em; }
+.zoom-copy .lede, .zoom-copy .product-line, .zoom-copy .section-intro, .zoom-copy p {
+  color: rgba(255,255,255,.94);
+}
+.zoom-copy h2 { color: #fff; }
+.zoom-copy .hero-actions { justify-content: center; }
+.zoom-copy .button-secondary {
+  background: rgba(255,255,255,.14);
+  color: #fff;
+  border-color: rgba(255,255,255,.6);
+}
+.zoom-copy .facts-grid { margin-top: 18px; }
+.zoom-copy .study-grid { margin-top: 12px; }
+.zoom-copy .study h3, .zoom-copy .study p { text-shadow: none; }
+.zoom-copy .study { text-align: left; }
+.zoom-copy .demo-wrap { text-align: left; }
+.zoom-copy .mail { margin: 12px auto 0; max-width: 560px; text-shadow: none; }
+@media (prefers-reduced-motion: reduce) {
+  .zoom-pin { height: auto; }
+  .zoom-stage { position: relative; height: auto; }
+  .zoom-scene { position: relative; height: 100vh; opacity: 1 !important; transform: none !important; clip-path: none !important; }
+  .zoom-copy { opacity: 1 !important; position: relative; top: auto; left: auto; transform: none; padding: 80px 20px 40px; }
+}

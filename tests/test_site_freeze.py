@@ -14,8 +14,8 @@ class SiteFreeze20260822Tests(unittest.TestCase):
 
     def test_door_keeps_people_behind_type(self) -> None:
         self.assertIn("sell-hero", self.home)
-        self.assertIn("air-valley.jpg", self.home)
-        self.assertIn("data-air-world", self.home)
+        self.assertIn("zoom/01.jpg", self.home)
+        self.assertIn("data-zoom-pin", self.home)
         self.assertNotIn("door-loop.mp4", self.home.split("seasons-scene")[0])
         self.assertIn("High-stakes email, finally", self.home)
         self.assertIn("provable", self.home)
@@ -56,7 +56,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in sorted(ROOT.glob("*.html")):
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                pin = "assets/site.css?v=20260901alps"
+                pin = "assets/site.css?v=20260901z"
                 self.assertIn(pin, html)
                 self.assertNotIn("seasons-scene", html)
                 self.assertNotIn("door-loop.mp4", html)
