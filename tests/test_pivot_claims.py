@@ -597,6 +597,30 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("inviteBtn", html)
         self.assertIn("Do not put a check link in the business letter", html)
 
+    def test_outlook_pane_uses_same_two_facts_as_the_website_check(self) -> None:
+        js = (ROOT / "outlook" / "taskpane.js").read_text(encoding="utf-8")
+        pane = (ROOT / "outlook" / "taskpane.html").read_text(encoding="utf-8")
+        self.assertIn("function wordsLine", js)
+        self.assertIn("function listingLine", js)
+        self.assertIn("function formatRecipientResult", js)
+        self.assertIn("formatRecipientResult(", js)
+        self.assertIn("Words match", js)
+        self.assertIn("Words do not match", js)
+        self.assertIn("No seal", js)
+        self.assertIn("Listed", js)
+        self.assertIn("Not listed", js)
+        self.assertIn("Listing doesn’t match this address", js)
+        self.assertIn("The words still match the seal. You still decide.", js)
+        self.assertIn("Do not pay. Call a number you already have.", js)
+        self.assertIn("Ordinary mail", js)
+        self.assertNotIn("safe to pay", js.lower())
+        self.assertNotIn("congrats", js.lower())
+        self.assertNotIn("Words matching is not safe to pay", js)
+        self.assertNotIn("VSN lookup", js)
+        self.assertNotIn("Verifiable Sender", js)
+        self.assertNotIn("safe to pay", pane.lower())
+        self.assertNotIn("VSN", pane)
+
     def test_marketing_kit_honest_watch_and_frozen_h1(self) -> None:
         home = self.pages["index.html"]
         self.assertIn('id="hero-title"', home)

@@ -101,11 +101,56 @@ function fromAddress() {
   return "";
 }
 
-function lookupListing(fromAddr) {
+function lookupListing(fromAddr, key) {
   if (!fromAddr || fromAddr.indexOf("@") < 0) return Promise.resolve(null);
-  return fetch(apiBase() + "/api/v1/vsn/listing?sender=" + encodeURIComponent(fromAddr))
+  var url = apiBase() + "/api/v1/vsn/listing?sender=" + encodeURIComponent(fromAddr);
+  if (key) url += "&public_key_b64=" + encodeURIComponent(key);
+  return fetch(url)
     .then(function (response) { return response.json(); })
     .catch(function () { return null; });
+}
+
+function wordsLine(result) {
+  if (!result) return "No seal";
+  if (result.sealed === false) return "No seal";
+  var signature = String(result.signature || "").toUpperCase();
+  var ok = result.integrity_ok === true;
+  if (!ok && (signature === "UNKNOWN" || signature === "") && !result.profile) {
+    return "No seal";
+  }
+  var currentStatus = String(result.current_status || "").toUpperCase();
+  var statusAtSigning = String(result.status_at_signing || "").toUpperCase();
+  var adverse = ["COMPROMISED", "REVOKED", "SUSPENDED"];
+  if (
+    !ok ||
+    signature === "INVALID" ||
+    signature === "FAIL" ||
+    signature === "FAILED" ||
+    adverse.indexOf(currentStatus) >= 0 ||
+    adverse.indexOf(statusAtSigning) >= 0
+  ) {
+    return "Words do not match";
+  }
+  return "Words match";
+}
+
+function listingLine(listing) {
+  if (listing && listing.label) return String(listing.label);
+  if (listing && listing.code === "listing_matches") return "Listed";
+  if (listing && listing.code === "listing_does_not_match") return "Listing doesn’t match this address";
+  return "Not listed";
+}
+
+function formatRecipientResult(result, listing) {
+  var words = wordsLine(result);
+  var listed = listingLine(listing);
+  var note = "Ordinary mail.";
+  if (words === "Words match") {
+    note = "The words still match the seal. You still decide.";
+  } else if (words === "Words do not match") {
+    note = "Do not pay. Call a number you already have.";
+  }
+  return words + "\n" + listed + "\n" + note;
 }
 
 function verifyCurrentMessage(opts) {
@@ -141,21 +186,12 @@ function verifyCurrentMessage(opts) {
           var subject = item && item.subject ? item.subject : "";
           var alert = classifyAlert(pack.body, subject, "");
           var from = fromAddress();
-          lookupListing(from).then(function (listing) {
-            var listingLine = "";
-            if (listing && listing.code === "listing_matches") {
-              listingLine = "\nListed for this address.";
-            } else if (listing && listing.code === "listing_does_not_match") {
-              listingLine = "\nListing doesn’t match this address.";
-            } else {
-              listingLine = "\nNot listed for this address.";
-            }
+          var key = pack.body.public_key_b64 || pack.body.key_fingerprint || "";
+          lookupListing(from, key).then(function (listing) {
+            setOut(formatRecipientResult(pack.body, listing));
             if (alert) {
               showBanner(alert);
               if (!silent) showPopup(alert);
-              setOut(alert.title + "\n\n" + alert.body + listingLine);
-            } else {
-              setOut("No Signet7 warning. Ordinary unsigned mail stays quiet. Words matching is not safe to pay." + listingLine);
             }
             resolve();
           });
