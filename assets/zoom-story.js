@@ -21,7 +21,7 @@
     const i = Math.min(n - 1, Math.floor(x + 1e-9));
     const u = clamp(x - i, 0, 1);
     const last = i === n - 1;
-    const hold = 0.55;
+    const hold = 0.22;
     const z = last || u < hold ? 0 : smooth((u - hold) / (1 - hold));
 
     scenes.forEach((el, j) => {
@@ -53,7 +53,7 @@
 
   const tick = () => {
     const goal = reduce ? 0 : target();
-    current += (goal - current) * 0.14;
+    current += (goal - current) * 0.26;
     if (Math.abs(goal - current) < 0.00035) {
       current = goal;
       running = false;

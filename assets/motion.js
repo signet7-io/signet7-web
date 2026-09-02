@@ -192,9 +192,9 @@
         i = (i + 1) % feeds.length;
         const feed = feeds[i];
         cards.forEach((card, n) => {
-          window.setTimeout(() => flapCard(card, feed[n]), n * 420);
+          window.setTimeout(() => flapCard(card, feed[n]), n * 160);
         });
-      }, 8200);
+      }, 2800);
     }
   });
 
