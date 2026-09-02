@@ -225,7 +225,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("no install for the other side", check)
         self.assertIn("this brochure site cannot run that check", check)
         self.assertIn("/email/verify", check)
-        self.assertIn('href="how"', self.pages["index.html"])
+        self.assertIn('href="product"', self.pages["index.html"])
 
     def test_scenarios_page_is_living_and_cross_platform(self) -> None:
         self.assertIn("scenarios.html", self.pages)
@@ -388,7 +388,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 self.assertIn(">Product</button>", nav)
                 self.assertIn(">Company</button>", nav)
                 self.assertNotIn(">Help</button>", nav)
-                self.assertIn("How it works", nav)
+                self.assertNotIn("How it works", nav)
+                self.assertIn("What it is", nav)
                 self.assertRegex(nav, r'href="(\.\./)?about">About</a>')
                 self.assertRegex(nav, r'href="(\.\./)?register">Register</a>')
                 self.assertRegex(nav, r'href="(\.\./)?docs">Docs</a>')
@@ -658,7 +659,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         one = self.pages["one-pager.html"]
         self.assertIn("AP", one)
         nav = home.split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
-        self.assertIn("How it works", nav)
+        self.assertNotIn("How it works", nav)
+        self.assertIn("What it is", nav)
         self.assertNotIn(">Help</button>", nav)
         self.assertIn(">Company</button>", nav)
         self.assertNotIn(">About Signet7</a>", nav)
