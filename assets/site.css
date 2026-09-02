@@ -670,15 +670,15 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   content: "";
   position: absolute;
   inset: 0;
-  background: url("people-light.png") 50% 32% / cover no-repeat;
-  opacity: 0.22;
+  background: url("art/seal-macro.jpg") 100% 0 / min(520px, 46%) auto no-repeat;
+  opacity: 0.16;
   pointer-events: none;
   z-index: 0;
 }
 html[data-theme="dark"] .page-hero::before,
 html[data-theme="dark"] .action-hero::before {
-  background-image: url("people-dark.png");
-  opacity: 0.3;
+  background-image: url("art/watch.jpg");
+  opacity: 0.22;
 }
 .page-hero > *, .action-hero > * { position: relative; z-index: 1; }
 .section + .section,
@@ -733,8 +733,12 @@ html[data-theme="dark"] .action-hero::before {
 
 .site-footer, .footer {
   position: relative; z-index: 4;
-  padding: 220px 0 28px; border-top: 0;
-  background: #eef6fb url("tech-scene.jpg?v=12") no-repeat center bottom / min(1600px, 140%) auto;
+  padding: 180px 0 28px; border-top: 1px solid var(--line);
+  background-color: var(--page);
+  background-image: linear-gradient(to bottom, transparent 0, transparent 152px, var(--page) 168px), url("art/seal-macro.jpg");
+  background-repeat: no-repeat;
+  background-position: center top, center top;
+  background-size: 100% 100%, 100% 168px;
 }
 .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 20px; color: var(--night-mute); }
 .footer .brand, .site-footer .brand { font-size: 22px; }
@@ -1448,7 +1452,7 @@ body.docs-manual .docs-figure figcaption {
   .film-grid { grid-template-columns: 1fr; }
   .film-copy h1 { font-size: clamp(32px, 8vw, 44px); max-width: none; }
   .page-hero h1 { font-size: clamp(32px, 8vw, 44px); max-width: none; }
-  .site-footer, .footer { padding: 120px 0 24px; background-size: 180% auto; }
+  .site-footer, .footer { padding: 140px 0 24px; }
   .tech-scene { width: 180%; margin-left: -40%; }
   .scene-wrap { overflow: hidden; }
 }
@@ -1538,7 +1542,11 @@ html[data-theme="dark"] body.nav-open .drop-btn {
 }
 html[data-theme="dark"] .site-footer,
 html[data-theme="dark"] .footer {
-  background: #071018 url("tech-scene-dark.jpg?v=12") no-repeat center bottom / min(1600px, 140%) auto;
+  background-color: #071018;
+  background-image: linear-gradient(to bottom, transparent 0, transparent 152px, #071018 168px), url("art/watch.jpg");
+  background-repeat: no-repeat;
+  background-position: center top, center top;
+  background-size: 100% 100%, 100% 168px;
 }
 html[data-theme="dark"] .footer-grid a,
 html[data-theme="dark"] .site-footer a,
@@ -1975,6 +1983,43 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
   color: var(--mute);
   font-size: 14px;
   letter-spacing: 0.02em;
+}
+.art-trio {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 28px 0 8px;
+}
+.art-trio figure, .art-hero {
+  margin: 0;
+  background: var(--card);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.art-trio img {
+  display: block;
+  width: 100%;
+  height: 188px;
+  object-fit: cover;
+}
+.art-hero {
+  margin: 22px 0 0;
+}
+.art-hero img {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+.art-trio figcaption {
+  padding: 10px 14px 14px;
+  font-size: 14px;
+  color: var(--ink);
+}
+@media (max-width: 900px) {
+  .art-trio { grid-template-columns: 1fr; }
+  .art-trio img, .art-hero img { height: 200px; }
 }
 .flow-diag {
   margin: 8px 0 36px;

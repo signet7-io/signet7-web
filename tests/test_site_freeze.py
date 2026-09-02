@@ -56,7 +56,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in sorted(ROOT.glob("*.html")):
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                pin = "assets/site.css?v=20260902b"
+                pin = "assets/site.css?v=20260902c"
                 self.assertIn(pin, html)
                 self.assertNotIn("seasons-scene", html)
                 self.assertNotIn("door-loop.mp4", html)
@@ -84,3 +84,25 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in sorted(ROOT.glob("*.html")):
             with self.subTest(page=path.name):
                 self.assertIn(line, path.read_text(encoding="utf-8"))
+
+    def test_people_panorama_only_once_and_new_art(self) -> None:
+        home = (ROOT / "index.html").read_text(encoding="utf-8")
+        css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
+        product = (ROOT / "product.html").read_text(encoding="utf-8")
+        self.assertEqual(home.count("people-once.jpg"), 1)
+        for path in sorted(ROOT.glob("*.html")):
+            if path.name == "index.html":
+                continue
+            html = path.read_text(encoding="utf-8")
+            with self.subTest(page=path.name):
+                self.assertNotIn("people-once.jpg", html)
+                self.assertNotIn("people-light.png", html)
+                self.assertNotIn("people-dark.png", html)
+        self.assertNotIn('url("people-light.png")', css)
+        self.assertNotIn('url("tech-scene.jpg', css)
+        self.assertIn("art/seal-macro.jpg", css)
+        self.assertIn("assets/art/check.jpg", product)
+        self.assertIn("assets/art/watch.jpg", product)
+        self.assertIn("assets/art/press.jpg", product)
+        self.assertIn("assets/art/listing.jpg", (ROOT / "vsn.html").read_text(encoding="utf-8"))
+        self.assertTrue((ROOT / "assets" / "art" / "seal-macro.jpg").is_file())
