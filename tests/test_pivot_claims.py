@@ -689,6 +689,27 @@ class ContentSecurityPolicy(unittest.TestCase):
         header = home.split("<header", 1)[1].split("</header>", 1)[0]
         self.assertLess(header.index("header-register"), header.index("account-login"))
 
+    def test_loop_page_does_not_lead_with_vsn(self) -> None:
+        """Recipients never need the word VSN. /loop is a customer page, not docs."""
+        loop = self.pages["loop.html"]
+        visible = re.sub(r"<[^>]+>", " ", loop)
+        self.assertIsNone(re.search(r"\bVSN\b", visible))
+        desc = re.search(r'<meta name="description" content="([^"]*)"', loop)
+        self.assertIsNotNone(desc)
+        self.assertNotIn("VSN", desc.group(1))
+        og = re.search(r'<meta property="og:description" content="([^"]*)"', loop)
+        self.assertIsNotNone(og)
+        self.assertNotIn("VSN", og.group(1))
+        self.assertIn('href="vsn"', loop)
+        self.assertIn("Look up a company", loop)
+        self.assertIn("You list your address", loop)
+        self.assertIn("They list theirs", loop)
+        self.assertNotIn("safe to pay", loop.lower())
+        self.assertNotIn("set and forget", loop.lower())
+        self.assertNotIn("never check again", loop.lower())
+        self.assertIn("This is not a video file", loop)
+        self.assertIn("Recipients never install", loop)
+
 
 if __name__ == "__main__":
     unittest.main()
