@@ -2104,17 +2104,6 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
   text-transform: uppercase;
   color: rgba(255,255,255,.72);
 }
-.zoom-logo {
-  position: absolute;
-  left: 50%;
-  top: 44%;
-  width: min(22vw, 180px);
-  height: auto;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  pointer-events: none;
-  filter: drop-shadow(0 10px 28px rgba(0,0,0,.45));
-}
 .zoom-copy .fact {
   background: rgba(255,255,255,.94);
   text-shadow: none;
