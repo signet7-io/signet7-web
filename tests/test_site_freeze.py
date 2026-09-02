@@ -56,7 +56,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in sorted(ROOT.glob("*.html")):
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                pin = "assets/site.css?v=20260902c"
+                pin = "assets/site.css?v=20260902d"
                 self.assertIn(pin, html)
                 self.assertNotIn("seasons-scene", html)
                 self.assertNotIn("door-loop.mp4", html)
@@ -101,8 +101,8 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertNotIn('url("people-light.png")', css)
         self.assertNotIn('url("tech-scene.jpg', css)
         self.assertIn("art/seal-macro.jpg", css)
-        self.assertIn("assets/art/check.jpg", product)
-        self.assertIn("assets/art/watch.jpg", product)
+        self.assertIn("assets/art/drop-glass.jpg", product)
+        self.assertIn("assets/art/watch-night.jpg", product)
         self.assertIn("assets/art/press.jpg", product)
         self.assertIn("assets/art/listing.jpg", (ROOT / "vsn.html").read_text(encoding="utf-8"))
         self.assertTrue((ROOT / "assets" / "art" / "seal-macro.jpg").is_file())

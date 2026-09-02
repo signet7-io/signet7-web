@@ -21,7 +21,7 @@
  <meta property="og:image" content="https://signet7.io/assets/og-image.png">
  <link rel="canonical" href="https://signet7.io/">
  <link rel="icon" type="image/png" href="assets/favicon.png">
- <link rel="stylesheet" href="assets/site.css?v=20260902c">
+ <link rel="stylesheet" href="assets/site.css?v=20260902d">
 </head>
 <body class="home">
  <a class="skip-link" href="#main">Skip to content</a>
@@ -217,7 +217,7 @@
  <div class="container">
  <p class="eyebrow">Who this is for</p>
  <h2 id="uses-title">Businesses that move money or change accounts because an email said so.</h2>
- <p class="section-intro">Whoever got the email can open the <a href="https://verify.signet7.io/email/verify">Signet7 live check</a> with no account and no install. We built it for the office that then has to pay, change an account, or follow the email instruction.</p>
+ <p class="section-intro">Law office, title desk, payroll, finance. Whoever got the email opens the <a href="https://verify.signet7.io/email/verify">Signet7 live check</a>. No account. No install.</p>
  <figure class="people-once">
  <img src="assets/zoom/people-once.jpg" width="1700" height="261" alt="Anyone, on the device they already have, can check a sealed message. No install.">
  <figcaption>The product for every human is the check. Not a thousand installs.</figcaption>
@@ -247,102 +247,75 @@
  </div>
  </div>
 
- <section class="try-live" id="try" aria-labelledby="try-title">
- <p class="eyebrow">Try it on the live check</p>
- <h2 id="try-title">One sealed message. Then the same message after someone changed the words.</h2>
- <p class="section-intro">Download a sample. Drop it on Live check.</p>
- 
- <div class="try-grid">
- <article class="try-card">
- <h3>Intact</h3>
- <p>The words still match the seal. Drop this on the live check. You should see Words match.</p>
- <p class="hero-actions">
+ <section class="pitch-live" id="try" data-pitch aria-labelledby="try-title">
+ <p class="eyebrow">Watch it happen</p>
+ <h2 id="try-title">They kept the wax. They changed one line.</h2>
+ <p class="section-intro">Your finger is already on send. The email looks like last week’s. That is the trap.</p>
+ <div class="pitch-acts" role="tablist" aria-label="The trick, the catch, the cost">
+ <button type="button" role="tab" aria-selected="true" data-pitch-act="0">Looks fine</button>
+ <button type="button" role="tab" aria-selected="false" data-pitch-act="1">The trick</button>
+ <button type="button" role="tab" aria-selected="false" data-pitch-act="2">Intact</button>
+ <button type="button" role="tab" aria-selected="false" data-pitch-act="3">Caught</button>
+ <button type="button" role="tab" aria-selected="false" data-pitch-act="4">The link</button>
+ <button type="button" role="tab" aria-selected="false" data-pitch-act="5">The bill</button>
+ </div>
+ <div class="pitch-show">
+ <img data-pitch-art src="assets/art/pitch-looks.jpg" width="1920" height="1080" alt="">
+ <img src="assets/art/pitch-trick.jpg" width="1920" height="1080" alt="" hidden>
+ <img src="assets/art/pitch-intact.jpg" width="1920" height="1080" alt="" hidden>
+ <img src="assets/art/pitch-caught.jpg" width="1920" height="1080" alt="" hidden>
+ <img src="assets/art/pitch-link.jpg" width="1920" height="1080" alt="" hidden>
+ <img src="assets/art/pitch-bill.jpg" width="1920" height="1080" alt="" hidden>
+ <div class="pitch-copy">
+ <article data-pitch-panel="0" class="is-on">
+ <h3>It looks like last week’s invoice.</h3>
+ <p>Ordinary. Familiar. Already in the pile that gets paid.</p>
+ </article>
+ <article data-pitch-panel="1" hidden>
+ <h3>They did not break the seal.</h3>
+ <p>They changed one line of the body: <span class="swap"><del>fixture pack body</del> → <ins>fixture pack evil</ins></span>. The wax is still on it. That is the whole trick.</p>
+ </article>
+ <article data-pitch-panel="2" hidden>
+ <h3>Drop the intact message.</h3>
+ <p>Signet7 says <strong>Words match</strong>. The protected words still match the wax. You hand them the check. That file is the record.</p>
  <a class="button button-secondary" href="assets/samples/intact-message" download="intact-message">Download the intact message</a>
- <a class="button button-primary" href="https://verify.signet7.io/email/verify">Open the live check</a>
- </p>
  </article>
- <article class="try-card">
- <h3>Words changed</h3>
- <p>A bad actor took that sealed message and changed the body from “fixture pack body” to “fixture pack evil.” The seal is still on it. The words no longer match. Drop this on the live check. Signet7 reports Words do not match.</p>
- <p class="hero-actions">
+ <article data-pitch-panel="3" hidden>
+ <h3>Drop the changed message.</h3>
+ <p>Same seal. New words. Signet7 says <strong>Words do not match</strong>. Do not pay. The catch is the report, not a green badge.</p>
  <a class="button button-secondary" href="assets/samples/tampered-message" download="tampered-message">Download the changed message</a>
- <a class="button button-primary" href="https://verify.signet7.io/email/verify">Open the live check</a>
+ </article>
+ <article data-pitch-panel="4" hidden>
+ <h3>Then you list this address.</h3>
+ <p>They list theirs. Mail between those two can be looked up. That is the link. Recipients never need a special word for it. It is not a phone book of every company.</p>
+ </article>
+ <article data-pitch-panel="5" hidden>
+ <h3>What walks if nobody looks.</h3>
+ <p class="cost-hit">$3.05B</p>
+ <p>Business Email Compromise losses reported to FBI IC3 in 2025. Average reported loss <strong>$20,699</strong>. Those are IC3 numbers, not Signet7 results. The email still looked ordinary.</p>
+ </article>
+ </div>
+ </div>
+ <p class="hero-actions">
+ <a class="button button-primary" href="https://verify.signet7.io/email/verify">Drop it on the live check</a>
+ <a class="button button-secondary" href="assets/samples/intact-message" download="intact-message">Intact message</a>
+ <a class="button button-secondary" href="assets/samples/tampered-message" download="tampered-message">Changed message</a>
  </p>
- </article>
- </div>
  </section>
-
- <div class="desk-switch" data-desks>
- <button type="button" aria-pressed="true" data-desk="law">Law</button>
- <button type="button" aria-pressed="false" data-desk="title">Title</button>
- <button type="button" aria-pressed="false" data-desk="build">Construction</button>
- <button type="button" aria-pressed="false" data-desk="pay">Payroll</button>
- <button type="button" aria-pressed="false" data-desk="finance">Finance</button>
- <button type="button" aria-pressed="false" data-desk="bank">Bank</button>
- </div>
- <article class="desk-readout">
- <h3 data-desk-title>Law office</h3>
- <p data-desk-body>When a settlement, retainer, or “updated wiring” email arrives, the person who got it opens the live check. No account. No install.</p>
- <p data-desk-more>If the seal does not match, they keep the record and call a number they already have. Watch belongs on the one office inbox that would send the money, not on every lawyer’s laptop. </p>
- </article>
- </div>
- </section>
-
- <section class="section produce sell-path-block" id="produce" aria-labelledby="produce-title">
- <div class="container">
- <p class="eyebrow">A record you can produce</p>
- <h2 id="produce-title">You hand them the check. Not a verdict.</h2>
- <p class="section-intro">After you check a message, you save the result. When an auditor, insurer, partner, or court asks what you received, you produce that file.</p>
- <div class="feature-grid offer-trio">
- <article class="feat"><h3>1. Save the result</h3><p>Keep a file you can open later, even offline. It is signed, so you can tell if that file was altered.</p></article>
- <article class="feat"><h3>2. What the file holds</h3><p>Who the message was tied to. Whether the protected words still matched. The date and time of that check.</p></article>
- <article class="feat"><h3>3. The original stays put</h3><p>The email stays in their mailbox. Signet7 is the check, not a second inbox.</p></article>
- </div>
- <p class="produce-together">Together, these show the message we received, what the seal said at the time, and that the record has not been edited.</p>
  </div>
  </section>
 
  <section class="section sell-path-block" id="offers" aria-labelledby="offers-title">
  <div class="container">
- <p class="eyebrow">What we sell</p>
+ <p class="eyebrow">A record you can produce</p>
  <h2 id="offers-title">The check. One Watch. A company that can be looked up.</h2>
- <p class="section-intro">Not a thousand installs. Free access should buy evidence, not vanity seats. Checkout is not live.</p>
+ <p class="section-intro">From one person checking a message to a company of a thousand. Most people do not download anything. Recipients never install.</p>
+ <p class="zoom-quiet">I received one email. Many people, one company.</p>
  <div class="feature-grid offer-trio">
- <article class="feat feat-hot"><h3>The check — every human</h3><p>The product for a person is the live check. No account. No install. You do not check junk. You check the email that asks you to move money or change an account. One person and a thousand people use that same door.</p><a class="button button-primary" href="https://verify.signet7.io/email/verify">Open the live check</a></article>
- <article class="feat"><h3>Inbox Watch — one company inbox</h3><p>Inbox Watch is a program on one PC that sits on the company inbox that pays bills. Ordinary mail stays quiet. It shouts if a seal is torn, or if a named vendor arrives unsealed. It does not send. It is not for every laptop.</p><a class="button button-secondary" href="download">Watch download</a></article>
- <article class="feat"><h3>Look up a company</h3><p>A company lists the key that seals its mail, per address. Recipients look that up. Enroll when you are ready to seal outbound. Today the public lookup lists Signet7’s own domain. Customer companies are not in it until you enroll.</p><a class="button button-secondary" href="register">Register</a></article>
+ <article class="feat feat-hot"><h3>The check</h3><p>Every human. No account. No install.</p><a class="button button-primary" href="https://verify.signet7.io/email/verify">Open the live check</a></article>
+ <article class="feat"><h3>Inbox Watch</h3><p>Named company inboxes. Cap 20. Not a thousand laptops.</p><a class="button button-secondary" href="download">Watch download</a></article>
+ <article class="feat"><h3>List this address</h3><p>They look you up. Recipients check for free. Free access should buy evidence, not vanity seats.</p><a class="button button-secondary" href="register">Register</a></article>
  </div>
- </div>
- </section>
-
- <section class="section start sell-path-block" id="start" aria-labelledby="start-title">
- <div class="container">
- <p class="eyebrow">Pick your situation</p>
- <h2 id="start-title">From one person checking a message to a company of a thousand.</h2>
- <p class="section-intro">Most people do not download anything. Recipients never install. A thousand people are covered because each of them can open the live check, not because a thousand PCs run Watch. Checkout is not live. <a href="integrations">Full integration list</a>.</p>
- <div class="start-grid start-three">
- <article class="start-card">
- <h3>1. I received one email</h3>
- <p>No download. No account. Save the message and drop it on the live check. </p>
- <a class="button button-primary" href="https://verify.signet7.io/email/verify">Open the live check</a>
- </article>
- <article class="start-card">
- <h3>2. I send from one desk</h3>
- <p>Keep writing in Outlook or Apple Mail. Optional sideload so the check happens on the open message — you do not leave mail. Recipients without that button still use the website.</p>
- <a class="button button-secondary" href="outlook/">Stay in Outlook</a>
- </article>
- <article class="start-card">
- <h3>3. Inbox Watch, one company inbox</h3>
- <p>Inbox Watch sits on one company inbox — usually accounts payable — on one Windows, Mac, or Linux PC. Unsigned preview. Recipients should not download this.</p>
- <a class="button button-secondary" href="download">Watch download</a>
- </article>
- <article class="start-card">
- <h3>4. Many people, one company</h3>
- <p>Staff still use the live check. One Watch on the inbox that pays bills. IT can push Outlook so people do not leave the message. Enroll when you seal outbound. Not a thousand Watches. Not AppSource.</p>
- <a class="button button-secondary" href="enterprise">Company start</a>
- </article>
- </div>
- <p class="section-intro">Need a company login? <a href="https://account.signet7.io/account">Open company login</a>. Prices stay on <a href="pay">Pay</a>. Checkout is not live yet.</p>
  </div>
  </section>
  </main>
@@ -354,7 +327,7 @@
  <div><p>Live check and company accounts are available.</p></div>
  </div>
  </footer>
- <script src="assets/motion.js?v=20260902a" defer></script>
+ <script src="assets/motion.js?v=20260902d" defer></script>
  <script src="assets/zoom-story.js?v=7" defer></script>
 </body>
 </html>

@@ -733,12 +733,8 @@ html[data-theme="dark"] .action-hero::before {
 
 .site-footer, .footer {
   position: relative; z-index: 4;
-  padding: 180px 0 28px; border-top: 1px solid var(--line);
-  background-color: var(--page);
-  background-image: linear-gradient(to bottom, transparent 0, transparent 152px, var(--page) 168px), url("art/seal-macro.jpg");
-  background-repeat: no-repeat;
-  background-position: center top, center top;
-  background-size: 100% 100%, 100% 168px;
+  padding: 36px 0 28px; border-top: 1px solid var(--line);
+  background: var(--page);
 }
 .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 20px; color: var(--night-mute); }
 .footer .brand, .site-footer .brand { font-size: 22px; }
@@ -1452,7 +1448,7 @@ body.docs-manual .docs-figure figcaption {
   .film-grid { grid-template-columns: 1fr; }
   .film-copy h1 { font-size: clamp(32px, 8vw, 44px); max-width: none; }
   .page-hero h1 { font-size: clamp(32px, 8vw, 44px); max-width: none; }
-  .site-footer, .footer { padding: 140px 0 24px; }
+  .site-footer, .footer { padding: 28px 0 24px; }
   .tech-scene { width: 180%; margin-left: -40%; }
   .scene-wrap { overflow: hidden; }
 }
@@ -1542,11 +1538,7 @@ html[data-theme="dark"] body.nav-open .drop-btn {
 }
 html[data-theme="dark"] .site-footer,
 html[data-theme="dark"] .footer {
-  background-color: #071018;
-  background-image: linear-gradient(to bottom, transparent 0, transparent 152px, #071018 168px), url("art/watch.jpg");
-  background-repeat: no-repeat;
-  background-position: center top, center top;
-  background-size: 100% 100%, 100% 168px;
+  background: #071018;
 }
 html[data-theme="dark"] .footer-grid a,
 html[data-theme="dark"] .site-footer a,
@@ -1983,6 +1975,72 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
   color: var(--mute);
   font-size: 14px;
   letter-spacing: 0.02em;
+}
+.pitch-live {
+  margin: 36px 0 8px;
+}
+.pitch-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 18px;
+}
+.pitch-acts button {
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font: inherit;
+}
+.pitch-acts button[aria-selected="true"] {
+  background: #4a4bd4;
+  color: #fff;
+  border-color: #4a4bd4;
+}
+.pitch-show {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 20px;
+  align-items: stretch;
+  min-height: 360px;
+}
+.pitch-show img {
+  display: block;
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+  box-shadow: 0 18px 40px rgba(20, 24, 32, 0.16);
+}
+.pitch-copy {
+  display: flex;
+  align-items: center;
+  padding: 8px 4px;
+}
+.pitch-copy article h3 {
+  margin: 0 0 10px;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+.pitch-copy article p { margin: 0 0 14px; font-size: 18px; line-height: 1.45; }
+.swap { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 15px; }
+.swap del { color: #8a4b08; }
+.swap ins { color: #146c43; text-decoration: none; font-weight: 700; }
+.cost-hit {
+  margin: 0 0 8px;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(48px, 8vw, 84px);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+@media (max-width: 900px) {
+  .pitch-show { grid-template-columns: 1fr; }
+  .pitch-show img { height: 220px; }
 }
 .art-trio {
   display: grid;

@@ -227,6 +227,38 @@
     }
   }
 
+  const pitch = document.querySelector("[data-pitch]");
+  if (pitch) {
+    const acts = [...pitch.querySelectorAll("[data-pitch-act]")];
+    const panels = [...pitch.querySelectorAll("[data-pitch-panel]")];
+    const art = pitch.querySelector("[data-pitch-art]");
+    const arts = [
+      "assets/art/pitch-looks.jpg",
+      "assets/art/pitch-trick.jpg",
+      "assets/art/pitch-intact.jpg",
+      "assets/art/pitch-caught.jpg",
+      "assets/art/pitch-link.jpg",
+      "assets/art/pitch-bill.jpg",
+    ];
+    const showPitch = (i) => {
+      acts.forEach((btn, n) => btn.setAttribute("aria-selected", n === i ? "true" : "false"));
+      panels.forEach((panel, n) => {
+        panel.hidden = n !== i;
+        panel.classList.toggle("is-on", n === i);
+      });
+      if (art && arts[i]) art.src = arts[i];
+    };
+    acts.forEach((btn, i) => btn.addEventListener("click", () => showPitch(i)));
+    if (!reduce && acts.length) {
+      let n = 0;
+      window.setInterval(() => {
+        if (pitch.matches(":hover") || pitch.matches(":focus-within")) return;
+        n = (n + 1) % acts.length;
+        showPitch(n);
+      }, 4800);
+    }
+  }
+
   const canvas = document.getElementById("dust");
   if (true || !canvas || reduce || !canvas.getContext) return;
   const ctx = canvas.getContext("2d");
