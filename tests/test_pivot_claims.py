@@ -220,9 +220,13 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_check_page_exists_and_is_honest_about_hosting(self) -> None:
         self.assertIn("check.html", self.pages)
         check = self.pages["check.html"].lower()
-        self.assertIn("no install for the other side", check)
+        self.assertIn("check the email that asks you to act", check)
         self.assertIn("this brochure site cannot run that check", check)
+        self.assertIn("this brochure does not run the check", check)
+        self.assertIn("no seal is ordinary mail", check)
+        self.assertIn("will not say a message is safe", check)
         self.assertIn("/email/verify", check)
+        self.assertNotIn("no install for the other side", check)
         self.assertIn('href="product"', self.pages["index.html"])
 
     def test_scenarios_page_is_living_and_cross_platform(self) -> None:
@@ -468,7 +472,9 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("vanity seats", home)
         self.assertIn("What Watch does", self.pages["download.html"])
         self.assertIn("What does Watch do?", self.pages["faq.html"])
-        self.assertIn("going to the factory", self.pages["faq.html"])
+        self.assertIn("the no-install door", self.pages["faq.html"])
+        self.assertIn("Recipients still never install", self.pages["faq.html"])
+        self.assertNotIn("going to the factory", self.pages["faq.html"])
         self.assertIn("id=\"three-jobs\"", self.pages["faq.html"])
         self.assertIn("id=\"status-chips\"", self.pages["faq.html"])
         self.assertIn("People and agents use the same check", self.pages["faq.html"])
