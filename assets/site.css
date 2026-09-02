@@ -1964,7 +1964,6 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 .people-once img {
   display: block;
   width: 100%;
-  max-width: 1080px;
   height: auto;
   margin: 0 auto;
   border-radius: 18px;
@@ -2079,82 +2078,11 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
   .art-trio { grid-template-columns: 1fr; }
   .art-trio img, .art-hero img { height: 200px; }
 }
-.flow-diag {
-  margin: 8px 0 36px;
-  padding: 22px 22px 18px;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  background: var(--card);
-}
-.flow-title { margin: 0 0 14px; font-size: clamp(22px, 3vw, 32px); }
-.flow-steps {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 0 0 16px;
-}
-.flow-steps button {
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--ink);
-  border-radius: 999px;
-  padding: 8px 14px;
-  font: inherit;
-  cursor: pointer;
-}
-.flow-steps button[aria-selected="true"] {
-  background: var(--ink);
-  color: #fff;
-  border-color: var(--ink);
-}
-.flow-stage { min-height: 120px; }
-.flow-panel { display: none; align-items: center; gap: 18px; }
-.flow-panel.is-on, .flow-panel:not([hidden]) { display: flex; }
-.flow-panel[hidden] { display: none !important; }
-.flow-visual {
-  flex: 0 0 140px;
-  height: 88px;
-  border-radius: 14px;
-  background: #1b2430;
-  display: grid;
-  place-items: center;
-  position: relative;
-}
-.flow-two { display: flex; align-items: center; justify-content: center; gap: 8px; }
-.flow-env {
-  width: 78px;
-  height: 48px;
-  border-radius: 4px;
-  background:
-    linear-gradient(180deg, transparent 0 18px, #efe4cf 18px),
-    linear-gradient(135deg, #efe4cf 50%, transparent 50%) no-repeat 0 0 / 50% 22px,
-    linear-gradient(-135deg, #efe4cf 50%, transparent 50%) no-repeat 100% 0 / 50% 22px,
-    #f6edd9;
-  box-shadow: 0 0 0 2px #2a9d8f, 0 0 18px rgba(94,224,200,.45);
-}
-.flow-card {
-  background: #f7f4ee;
-  color: #1b2430;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 10px 8px;
-  border-radius: 8px;
-}
-.flow-sheet {
-  width: 54px;
-  height: 68px;
-  background: #f7f4ee;
-  border-radius: 4px;
-  box-shadow: 8px 6px 0 #c9a227;
-}
-.flow-panel p { margin: 0; max-width: 36em; }
 .offer-trio .feat-hot { border-color: var(--gold); }
 .offer-trio .button { margin-top: 12px; }
 .sell-path-block { padding-top: 28px; }
 .start-three { gap: 14px; }
-@media (max-width: 720px) {
-  .flow-panel.is-on, .flow-panel:not([hidden]) { flex-direction: column; align-items: flex-start; }
-}
+
 .zoom-pin { height: 450vh; position: relative; }
 .zoom-stage {
   position: sticky;
