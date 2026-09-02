@@ -544,6 +544,8 @@ class ContentSecurityPolicy(unittest.TestCase):
                 self.assertIn("https://account.signet7.io/account", html)
                 self.assertIn(">Login to Signet7</a>", html)
                 self.assertEqual(html.count(">Login to Signet7</a>"), 1)
+                self.assertIn('class="header-register"', html)
+                self.assertLess(html.index('class="header-register"'), html.index('class="account-login"'))
                 self.assertNotIn(">Account</a>", html)
                 self.assertIn("header-cta", html)
                 self.assertEqual(html.count("header-cta"), 1)
@@ -664,6 +666,24 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn(">Help</button>", nav)
         self.assertIn(">Company</button>", nav)
         self.assertNotIn(">About Signet7</a>", nav)
+
+    def test_try_samples_and_locked_register_login(self) -> None:
+        home = self.pages["index.html"]
+        self.assertNotIn(">Check a message</a>", home)
+        self.assertIn('id="try"', home)
+        self.assertIn("assets/samples/intact-message", home)
+        self.assertIn("assets/samples/tampered-message", home)
+        self.assertIn("Words do not match", home)
+        self.assertIn("fixture pack body", home)
+        self.assertIn("fixture pack evil", home)
+        self.assertNotIn(".eml", home)
+        self.assertTrue((ROOT / "assets" / "samples" / "intact-message").is_file())
+        self.assertTrue((ROOT / "assets" / "samples" / "tampered-message").is_file())
+        css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
+        self.assertIn(".site-header {\n  position: fixed;", css)
+        self.assertIn("body:not(.home) { padding-top: var(--nav-h); }", css)
+        header = home.split("<header", 1)[1].split("</header>", 1)[0]
+        self.assertLess(header.index("header-register"), header.index("account-login"))
 
 
 if __name__ == "__main__":

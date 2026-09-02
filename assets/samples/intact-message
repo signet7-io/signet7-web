@@ -1,0 +1,43 @@
+From: alice@example.test
+To: bob@example.test
+Subject: Fixture pack
+Date: Mon, 27 Jul 2026 18:30:00 -0400
+Message-ID: <fixture-pack@example.test>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+X-Signet7-Profile: s7-email-1
+X-Signet7-Envelope: =?utf-8?q?eyJhbGdvcml0aG0iOiJFZDI1NTE5IiwiY2Fub25pY2FsaX?=
+ =?utf-8?q?phdGlvbiI6InM3LW1pbWUtc2VtYW50aWMtMSIsImV4cGlyZXNfYXQiOm51bGwsImh?=
+ =?utf-8?q?lYWRlcnMiOlt7Im5hbWUiOiJkYXRlIiwib2NjdXJyZW5jZSI6MCwic2hhMjU2Ijoi?=
+ =?utf-8?q?ZjAyYTI4MmJmMmU5MWEwZGQwN2EzOTQ3Y2VkMTkxMmY2ZDlmM2VhOTlmZGU0OWZlM?=
+ =?utf-8?q?GYzZDRlYWZlNmVlYjlmNCJ9LHsibmFtZSI6ImZyb20iLCJvY2N1cnJlbmNlIjowLC?=
+ =?utf-8?q?JzaGEyNTYiOiJjZDY4ZmJjZjczNmI3YmFiN2M1MGU5NzMwMmVlNWI4NTM4MTFkNDg?=
+ =?utf-8?q?wZDQ1Yzg5Y2Q2YmRlYzNlOWQzOTgwZDJjIn0seyJuYW1lIjoibWVzc2FnZS1pZCIs?=
+ =?utf-8?q?Im9jY3VycmVuY2UiOjAsInNoYTI1NiI6IjA5OGI0NjAyY2E5NDI2NDc2NTRhY2E1Y?=
+ =?utf-8?q?2FhNzdiNDhlYTQ3ZWI1ZTE4YTkxMjU0MmE3YWZiOWZlNTVhMjNiOGMifSx7Im5hbW?=
+ =?utf-8?q?UiOiJzdWJqZWN0Iiwib2NjdXJyZW5jZSI6MCwic2hhMjU2IjoiOGI1OTYxMzQ4ZGJ?=
+ =?utf-8?q?iMDFkOGE4ZDRkZGRhNTc4MWZmMWU1MTJlOGIyOWRlNzQ5ZThiY2JjNzlkMDJkYzAz?=
+ =?utf-8?q?MDIzYSJ9LHsibmFtZSI6InRvIiwib2NjdXJyZW5jZSI6MCwic2hhMjU2IjoiNDkyM?=
+ =?utf-8?q?mEwNzgyMDdmNDVjYWY0Y2JkNThjZDA3ODE1YjBlZGE5ODgyNmQ3NTMyZWU2YzMyY2?=
+ =?utf-8?q?YzMjU3NGMyOWY2NCJ9XSwia2V5Ijp7ImZpbmdlcnByaW50Ijoic2hhMjU2OmIzZDJ?=
+ =?utf-8?q?jMDE3N2ZlNDg2MTliYjMxNTYzMjZlY2VhOTUwZDkyNmNkODNkN2VhNjIwM2U4NDRk?=
+ =?utf-8?q?NGY1MTYxODUwNDEiLCJwdWJsaWNfa2V5IjoiajZLamlQaG14b3FXa2NGV0RIS1lqc?=
+ =?utf-8?q?VJIT2MyVE9IZVhuOXVoTGtPT203RSIsInNlbGVjdG9yIjoiZGVmYXVsdCJ9LCJtZX?=
+ =?utf-8?q?NzYWdlX2lkIjoiZml4dHVyZS1wYWNrQGV4YW1wbGUudGVzdCIsIm1pbWVfdHJlZSI?=
+ =?utf-8?q?6W3siY2hpbGRfY291bnQiOjAsIm1lZGlhX3R5cGUiOiJ0ZXh0L3BsYWluIiwicGF0?=
+ =?utf-8?q?aCI6IjEifV0sIm5vbmNlIjoiNlRuYkd5RHdWbHkxUTloNWlMaWJNZyIsInBhcnRzI?=
+ =?utf-8?q?jpbeyJjYW5vbmljYWxfc2l6ZSI6MTgsImNoYXJzZXQiOiJ1dGYtOCIsImNvbnRlbn?=
+ =?utf-8?q?RfaWRfc2hhMjU2IjpudWxsLCJjb250ZW50X3NoYTI1NiI6ImI0MjYxZmFhMGQwODk?=
+ =?utf-8?q?yOGY2NjE5MDhhYTgzOWU0NzQzM2ZjOTQ5YWYyNzgzNjI4ODViNzc4MDRmOGI4Yzgx?=
+ =?utf-8?q?ZDciLCJkaXNwb3NpdGlvbiI6Im5vbmUiLCJmaWxlbmFtZV9zaGEyNTYiOm51bGwsI?=
+ =?utf-8?q?m1lZGlhX3R5cGUiOiJ0ZXh0L3BsYWluIiwicGF0aCI6IjEifV0sInByb2ZpbGUiOi?=
+ =?utf-8?q?JzNy1lbWFpbC0xIiwicHVycG9zZSI6InNpZ25ldDcuZW1haWwiLCJzZW5kZXIiOiJ?=
+ =?utf-8?q?hbGljZUBleGFtcGxlLnRlc3QiLCJzaWduZWRfYXQiOiIyMDI2LTA3LTI4VDIzOjA5?=
+ =?utf-8?q?OjExWiJ9?=
+X-Signet7-Signature: =?utf-8?q?pvjYfZZOTRyWB0ucLQ0Y0P8VWrACM5TvvdycrPdFkwS?=
+ =?utf-8?q?=5FFxjSoCF=5FpIm6eylqITp-LWI2RCXhpwzI06FXhZntCg?=
+X-Signet7-Key-ID:
+ sha256:b3d2c0177fe48619bb3156326ecea950d926cd83d7ea6203e844d4f516185041
+
+fixture pack body

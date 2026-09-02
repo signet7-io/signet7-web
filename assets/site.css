@@ -129,10 +129,11 @@ a:hover { color: #3d3ed0; }
   transform: translateY(-160%);
 }
 .skip-link:focus { transform: none; }
+body:not(.home) { padding-top: var(--nav-h); }
 .container { width: min(var(--max), calc(100% - 36px)); margin-inline: auto; position: relative; z-index: 4; }
 
 .site-header {
-  position: sticky; top: 0; z-index: 80; height: auto;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: auto;
   background: var(--header);
   backdrop-filter: none;
   border-bottom: 1px solid var(--line);
@@ -300,8 +301,19 @@ a:hover { color: #3d3ed0; }
   padding: 0 16px;
   font-size: 14px;
 }
-.account-login {
+.header-register {
   margin-left: auto;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: var(--nav-type);
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 0 10px;
+}
+.header-register:hover { color: var(--night-ink); }
+.account-login {
+  margin-left: 4px;
   color: var(--ink);
   text-decoration: none;
   font-size: var(--nav-type);
@@ -1926,7 +1938,7 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
   border-bottom: 0;
 }
 .home .site-header .brand span,
-.home .brand, .home .drop-btn, .home .site-nav > a, .home .account-login, .home .nav-toggle { color: #fff; }
+.home .brand, .home .drop-btn, .home .site-nav > a, .home .header-register, .home .account-login, .home .nav-toggle { color: #fff; }
 .home .drop-btn::after { color: #fff; }
 
 .price-was {
@@ -2167,3 +2179,10 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
   .zoom-scene { position: relative; height: 100vh; opacity: 1 !important; transform: none !important; clip-path: none !important; }
   .zoom-copy { opacity: 1 !important; position: relative; top: auto; left: auto; transform: none; padding: 80px 20px 40px; }
 }
+
+.try-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+.try-card { padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); }
+.try-card h3 { margin: 0 0 8px; }
+.try-card p { margin: 0 0 12px; color: var(--mute); }
+.try-card .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+@media (max-width: 720px) { .try-grid { grid-template-columns: 1fr; } }
