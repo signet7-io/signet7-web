@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Signet7 Seal</title>
-    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
-    <link rel="stylesheet" href="signet7.css" />
-  </head>
-  <body>
-    <div class="brand">
-      <img src="icon-48.png" width="36" height="36" alt="Signet7" />
-      <h1>Write in Outlook. Not here.</h1>
-    </div>
-    <p class="muted">Signet7 is not a mail app. Keep bold, centering, and Send in Outlook.</p>
-    <p class="muted">Verified is not safe. Unknown is not fraud. Do not put a check link in the business letter.</p>
-    <p>
-      <label for="token">Sender token (optional seal)</label>
-      <input id="token" type="password" autocomplete="off" />
-    </p>
-    <p>
-      <button id="sealBtn" type="button">Seal this draft</button>
-      <button id="inviteBtn" type="button">Invite</button>
-    </p>
-    <p id="invitePrompt" class="muted" hidden>
-      Invite this recipient to Signet7?
-      <button id="inviteYes" type="button">Yes</button>
-      <button id="inviteNo" type="button">No</button>
-    </p>
-    <p id="out" class="muted"></p>
-    <script src="compose.js"></script>
-  </body>
+ <head>
+ <meta charset="UTF-8" />
+ <title>Signet7 Seal</title>
+ <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+ <link rel="stylesheet" href="signet7.css" />
+ </head>
+ <body>
+ <div class="brand">
+ <img src="icon-48.png" width="36" height="36" alt="Signet7" />
+ <h1>Write in Outlook. Not here.</h1>
+ </div>
+ <p class="muted">Signet7 is not a mail app. Keep bold, centering, and Send in Outlook.</p>
+ <p class="muted"> Do not put a check link in the business letter.</p>
+ <p>
+ <label for="token">Sender token (optional seal)</label>
+ <input id="token" type="password" autocomplete="off" />
+ </p>
+ <p>
+ <button id="sealBtn" type="button">Seal this draft</button>
+ <button id="inviteBtn" type="button">Invite</button>
+ </p>
+ <p id="invitePrompt" class="muted" hidden>
+ Invite this recipient to Signet7?
+ <button id="inviteYes" type="button">Yes</button>
+ <button id="inviteNo" type="button">No</button>
+ </p>
+ <p id="out" class="muted"></p>
+ <script src="compose.js"></script>
+ </body>
 </html>

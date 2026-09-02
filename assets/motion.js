@@ -56,7 +56,7 @@
     1: "This looks like a real vendor. It isn't enough.",
     2: "The words still match. The sender is not tied to that company.",
     3: "VSN (Verifiable Sender Network): that company's key is not listed as still theirs. Customer companies are not in this lookup yet.",
-    4: "You can keep this result as a file. Signet7 does not send money.",
+    4: "You can keep this result as a file. ",
   };
   const nextLabel = {
     1: "Next · Check the seal",
@@ -104,12 +104,12 @@
       law: [
         "Law office",
         "When a settlement, retainer, or “updated wiring” email arrives, the person who got it opens the live check. No account. No install.",
-        "If the seal does not match, they keep the record and call a number they already have. Watch belongs on the one office inbox that would send the money, not on every lawyer’s laptop. Verified is not safe. Unknown is not fraud."
+        "If the seal does not match, they keep the record and call a number they already have. Watch belongs on the one office inbox that would send the money, not on every lawyer’s laptop. "
       ],
       title: [
         "Title / closing",
         "The irreversible step is the account number. Whoever received the email checks it on the website before anyone changes where money goes.",
-        "Closing staff do not each install Signet7. Recipients use the live check. Watch, if you use it, sits on the one inbox that would wire funds. You still decide."
+        "Closing staff do not each install Signet7. Recipients use the live check. Watch, if you use it, sits on the one inbox that would wire funds. "
       ],
       build: [
         "Construction",
@@ -119,7 +119,7 @@
       pay: [
         "Payroll",
         "A “new direct deposit” that looks like staff still gets checked on the website. No employee app. No account for the recipient.",
-        "If you Watch anything, Watch the inbox that would change bank details. Everyone else keeps their mail app. Unknown is not fraud. Verified is not safe."
+        "If you Watch anything, Watch the inbox that would change bank details. Everyone else keeps their mail app.  "
       ],
       finance: [
         "Finance / AP",
@@ -129,7 +129,7 @@
       bank: [
         "Bank / credit union ops",
         "Internal or vendor instructions that move accounts still get a last look on the live check. Staff do not install a new mail app.",
-        "Watch is optional and still one inbox. You decide whether to act. Signet7 is the check and the record you can produce later."
+        "Watch is optional and still one inbox.  Signet7 is the check and the record you can produce later."
       ]
     };
     const title = document.querySelector("[data-desk-title]");

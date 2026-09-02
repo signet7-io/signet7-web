@@ -1,142 +1,139 @@
 <!doctype html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="utf-8">
-  <script src="assets/theme.js?v=3"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- GitHub Pages cannot set response headers. These meta-delivered policies are the
-     enforceable subset. NOTE: frame-ancestors is ignored when delivered via <meta>;
-     real clickjacking protection requires a header layer (Cloudflare/CloudFront) and
-     is required before any verification surface is hosted on this domain. -->
+ <meta charset="utf-8">
+ <script src="assets/theme.js?v=3"></script>
+ <meta name="viewport" content="width=device-width, initial-scale=1"><!-- GitHub Pages cannot set response headers. These meta-delivered policies are the
+ enforceable subset. NOTE: frame-ancestors is ignored when delivered via <meta>;
+ real clickjacking protection requires a header layer (Cloudflare/CloudFront) and
+ is required before any verification surface is hosted on this domain. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <title>How send and receive work | Signet7</title>
-  <meta name="description" content="Living send and receive scenarios for a small company and a corporation. Same on Windows, Mac, and Linux. Signet7 is not a mail app.">
-  <meta name="theme-color" content="#f7f4ee">
-  <meta property="og:title" content="How send and receive work | Signet7">
-  <meta property="og:description" content="Living send and receive scenarios. Same on Windows, Mac, and Linux. Signet7 is not a mail app.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://signet7.io/scenarios">
-  <meta property="og:image" content="https://signet7.io/assets/og-image.png">
-  <link rel="canonical" href="https://signet7.io/scenarios">
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/site.css?v=20260902a">
+ <title>How send and receive work | Signet7</title>
+ <meta name="description" content="Living send and receive scenarios for a small company and a corporation. Same on Windows, Mac, and Linux. Signet7 is not a mail app.">
+ <meta name="theme-color" content="#f7f4ee">
+ <meta property="og:title" content="How send and receive work | Signet7">
+ <meta property="og:description" content="Living send and receive scenarios. Same on Windows, Mac, and Linux. Signet7 is not a mail app.">
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://signet7.io/scenarios">
+ <meta property="og:image" content="https://signet7.io/assets/og-image.png">
+ <link rel="canonical" href="https://signet7.io/scenarios">
+ <link rel="icon" type="image/png" href="assets/favicon.png">
+ <link rel="stylesheet" href="assets/site.css?v=20260902b">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="/" aria-label="Signet7 home">
-        <img src="assets/signet7-logo-mark.png?v=c4" width="768" height="768" alt="Signet7">
-        <span>Signet7</span>
-      </a>
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
-                                          <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-        <div class="drop">
-          <button type="button" class="drop-btn" aria-expanded="false">Product</button>
-          <div class="drop-menu">
-            <a href="product">What it is</a>
-            <a href="watch">Watch</a>
-            <a href="smtp">Send &amp; seal</a>
-            <a href="vsn">Look up a company</a>
-            <a href="faq">FAQ</a>
-            <a href="docs">Docs</a>
-          </div>
-        </div>
-        <div class="drop">
-          <button type="button" class="drop-btn" aria-expanded="false">Company</button>
-          <div class="drop-menu">
-            <a href="register">Register</a>
-            <a href="download">Download</a>
-            <a href="pay">Pay</a>
-          </div>
-        </div>
-        <a href="about">About</a>
-      </nav>
-      <a class="button button-primary header-cta" href="https://verify.signet7.io/email/verify">Live check</a>
-      <a class="header-register" href="register">Register</a>
-      <a class="account-login" href="https://account.signet7.io/account">Login to Signet7</a>
-    </div>
-  </header>
-  <main id="main">
-    <section class="page-hero">
-      <div class="container">
-        <p class="eyebrow">Living document</p>
-        <h1>What a clerk actually does.</h1>
-        <p class="hero-copy">We will adjust these stories as the product changes. Recipients do not install. You write mail in the program you already use. Signet7 is not a mail app and does not replace bold, centering, or Send. Same product on Windows, macOS, and Linux.</p>
-        <div class="badge-row">
-          <span class="badge cyan">Live service</span>
-          <span class="badge">Caller-enforced</span>
-          <span class="badge gold">Verifiable Sender Network (VSN) lookup is <a href="https://verify.signet7.io/vsn">live</a></span>
-        </div>
-      </div>
-    </section>
+ <a class="skip-link" href="#main">Skip to content</a>
+ <header class="site-header">
+ <div class="container nav-wrap">
+ <a class="brand" href="/" aria-label="Signet7 home">
+ <img src="assets/signet7-logo-mark.png?v=c4" width="768" height="768" alt="Signet7">
+ <span>Signet7</span>
+ </a>
+ <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
+ <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+ <div class="drop">
+ <button type="button" class="drop-btn" aria-expanded="false">Product</button>
+ <div class="drop-menu">
+ <a href="product">What it is</a>
+ <a href="vsn">Look up a company</a>
+ <a href="faq">FAQ</a>
+ <a href="docs">Docs</a>
+ </div>
+ </div>
+ <div class="drop">
+ <button type="button" class="drop-btn" aria-expanded="false">Company</button>
+ <div class="drop-menu">
+ <a href="register">Register</a>
+ <a href="download">Download</a>
+ <a href="pay">Pay</a>
+ </div>
+ </div>
+ <a href="about">About</a>
+ </nav>
+ <a class="button button-primary header-cta" href="https://verify.signet7.io/email/verify">Live check</a>
+ <a class="header-register" href="register">Register</a>
+ <a class="account-login" href="https://account.signet7.io/account">Login to Signet7</a>
+ </div>
+ </header>
+ <main id="main">
+ <section class="page-hero">
+ <div class="container">
+ <p class="eyebrow">Living document</p>
+ <h1>What a clerk actually does.</h1>
+ <p class="hero-copy">We will adjust these stories as the product changes. Recipients do not install. You write mail in the program you already use. Signet7 is not a mail app and does not replace bold, centering, or Send. Same product on Windows, macOS, and Linux.</p>
+ <div class="badge-row">
+ <span class="badge cyan">Live service</span>
+ <span class="badge">Caller-enforced</span>
+ <span class="badge gold">Verifiable Sender Network (VSN) lookup is <a href="https://verify.signet7.io/vsn">live</a></span>
+ </div>
+ </div>
+ </section>
 
 <section class="section">
-      <div class="container">
-        <p class="eyebrow">The rule</p>
-        <h2>Passive receive. Opt-in seal. Never our composer.</h2>
-        <div class="grid-3">
-          <article class="card"><h3>Receive</h3><p>Watch one mailbox. Unsigned or ordinary mail stays quiet. A warning appears only if a seal is broken, replayed, or revoked.</p></article>
-          <article class="card"><h3>Send</h3><p>Write in Outlook, Apple Mail, or Thunderbird. If you opt in and have a sender token, Signet7 stamps the exact message on the way out. Checking stays free. Sealing is a paid sender program.</p></article>
-          <article class="card"><h3>All three systems</h3><p>Windows, Mac, and Linux use the same desktop and the same helper. There is no Windows-only tray and no Outlook-only send path as the product.</p></article>
-        </div>
-      </div>
-    </section>
+ <div class="container">
+ <p class="eyebrow">The rule</p>
+ <h2>Passive receive. Opt-in seal. Never our composer.</h2>
+ <div class="grid-3">
+ <article class="card"><h3>Receive</h3><p>Watch one mailbox. Unsigned or ordinary mail stays quiet. A warning appears only if a seal is broken, replayed, or revoked.</p></article>
+ <article class="card"><h3>Send</h3><p>Write in Outlook, Apple Mail, or Thunderbird. If you opt in and have a sender token, Signet7 stamps the exact message on the way out. Checking stays free. Sealing is a paid sender program.</p></article>
+ <article class="card"><h3>All three systems</h3><p>Windows, Mac, and Linux use the same desktop and the same helper. There is no Windows-only tray and no Outlook-only send path as the product.</p></article>
+ </div>
+ </div>
+ </section>
 
-    <section class="section section-light">
-      <div class="container">
-        <p class="eyebrow">Small company</p>
-        <h2>One owner. One company inbox.</h2>
-        <p>Maya pays vendors. She uses Outlook on a PC and the same mailbox on her phone. She can just as well be on a Mac or Linux box. The steps do not change.</p>
-        <ol>
-          <li>She lands on this site. Recipients do not start on GitHub.</li>
-          <li>First invoice: she opens the live check and brings the original message. No install.</li>
-          <li>Always-on: she runs Signet7 on Windows, Mac, or Linux, picks Microsoft / Gmail / iCloud, saves. Same window.</li>
-          <li>Receiving: mail still arrives in her mail app. Signet7 is quiet unless a seal is torn.</li>
-          <li>Sending: she writes in Outlook or Apple Mail with bold and centering. If she opted in, she points that app SMTP at 127.0.0.1 port 2525. Signet7 seals the bytes and forwards. She still hits Send in her mail app.</li>
-        </ol>
-      </div>
-    </section>
+ <section class="section section-light">
+ <div class="container">
+ <p class="eyebrow">Small company</p>
+ <h2>One owner. One company inbox.</h2>
+ <p>Maya pays vendors. She uses Outlook on a PC and the same mailbox on her phone. She can just as well be on a Mac or Linux box. The steps do not change.</p>
+ <ol>
+ <li>She lands on this site. Recipients do not start on GitHub.</li>
+ <li>First invoice: she opens the live check and brings the original message. No install.</li>
+ <li>Always-on: she runs Signet7 on Windows, Mac, or Linux, picks Microsoft / Gmail / iCloud, saves. Same window.</li>
+ <li>Receiving: mail still arrives in her mail app. Signet7 is quiet unless a seal is torn.</li>
+ <li>Sending: she writes in Outlook or Apple Mail with bold and centering. If she opted in, she points that app SMTP at 127.0.0.1 port 2525. Signet7 seals the bytes and forwards. She still hits Send in her mail app.</li>
+ </ol>
+ </div>
+ </section>
 
-    <section class="section">
-      <div class="container">
-        <p class="eyebrow">Corporation</p>
-        <h2>AP or treasury only. Not the whole company.</h2>
-        <p>A controller changes vendor bank details. Mail is Microsoft 365. People use Windows, Mac, and sometimes Linux. Legal will not let a startup sit in the mail pipe.</p>
-        <ol>
-          <li>They do not buy live Exchange. Signet7 does not own Microsoft transport.</li>
-          <li>IT runs the same Signet7 desktop on the AP workstation, whichever OS it is.</li>
-          <li>Receiving: the agent watches that one mailbox. Phones already use it. No .eml hunt.</li>
-          <li>Sending: clerks keep writing in Outlook. Org-wide add-in push is still a Microsoft admin. Auto-seal is the same localhost SMTP helper as the small company, if they opt in and have a sender token.</li>
-          <li>Vendors check on the website. They install nothing.</li>
-        </ol>
-      </div>
-    </section>
+ <section class="section">
+ <div class="container">
+ <p class="eyebrow">Corporation</p>
+ <h2>AP or treasury only. Not the whole company.</h2>
+ <p>A controller changes vendor bank details. Mail is Microsoft 365. People use Windows, Mac, and sometimes Linux. Legal will not let a startup sit in the mail pipe.</p>
+ <ol>
+ <li>They do not buy live Exchange. Signet7 does not own Microsoft transport.</li>
+ <li>IT runs the same Signet7 desktop on the AP workstation, whichever OS it is.</li>
+ <li>Receiving: the agent watches that one mailbox. Phones already use it. No.eml hunt.</li>
+ <li>Sending: clerks keep writing in Outlook. Org-wide add-in push is still a Microsoft admin. Auto-seal is the same localhost SMTP helper as the small company, if they opt in and have a sender token.</li>
+ <li>Vendors check on the website. They install nothing.</li>
+ </ol>
+ </div>
+ </section>
 
-    <section class="section section-line">
-      <div class="container split">
-        <div>
-          <p class="eyebrow">What this is not</p>
-          <h2>We will keep this page honest.</h2>
-        </div>
-        <div class="scope-list">
-          <div class="scope-row"><b>Not a mail app</b><span>No compose box. No centering. No Send button inside Signet7.</span></div>
-          <div class="scope-row"><b>Not Exchange</b><span>We do not block or rewrite mail in Microsoft's pipe.</span></div>
-          <div class="scope-row"><b>Not every avenue</b><span>Screenshots, Slack, and printed PDFs are not email.</span></div>
-          <div class="scope-row"><b>Not safe</b><span>Verified is not safe. Unknown is not fraud. Call the person you already know.</span></div>
-          <div class="scope-row"><b>SMTP recipes</b><span>Same 127.0.0.1 port 2525 on all three systems. See the <a href="smtp">SMTP page</a>.</span></div>
-        </div>
-      </div>
-    </section>
-  
+ <section class="section section-line">
+ <div class="container split">
+ <div>
+ <p class="eyebrow">What this is not</p>
+ <h2>We will keep this page honest.</h2>
+ </div>
+ <div class="scope-list">
+ <div class="scope-row"><b>Not a mail app</b><span>No compose box. No centering. No Send button inside Signet7.</span></div>
+ <div class="scope-row"><b>Not Exchange</b><span>We do not block or rewrite mail in Microsoft's pipe.</span></div>
+ <div class="scope-row"><b>Not every avenue</b><span>Screenshots, Slack, and printed PDFs are not email.</span></div>
+ <div class="scope-row"><b>SMTP recipes</b><span>Same 127.0.0.1 port 2525 on all three systems. See the <a href="smtp">SMTP page</a>.</span></div>
+ </div>
+ </div>
+ </section>
+ 
 
-  </main>
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div><strong>Signet7</strong><p>The trust layer for consequential email.</p><p>© 2026 Signet7. All rights reserved, All wrongs revenged.</p></div>
-      <div><a href="privacy">Privacy</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div>
-      <div><p>Live check and company accounts are available. You decide whether to act on the result.</p></div>
-    </div>
-  </footer>
-  <script src="assets/motion.js?v=20260902a" defer></script>
+ </main>
+ <footer class="site-footer">
+ <div class="container footer-grid">
+ <div><strong>Signet7</strong><p>The trust layer for consequential email.</p><p>© 2026 Signet7. All rights reserved, All wrongs revenged.</p></div>
+ <div><a href="privacy">Privacy</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div>
+ <div><p>Live check and company accounts are available.</p></div>
+ </div>
+ </footer>
+ <script src="assets/motion.js?v=20260902a" defer></script>
 </body>
 </html>

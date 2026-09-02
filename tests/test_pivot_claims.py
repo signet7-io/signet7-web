@@ -51,15 +51,14 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for phrase in (
             "trust layer for consequential email",
             "check the seal before you act.",
-            "verified does not mean safe",
-            "unknown does not mean fraud",
             "nobody else puts the whole check together",
             "businesses that move money or change accounts",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, home)
         self.assertNotIn("call them on a number you already have", home)
-        self.assertIn("call a number you already have", self.pages["faq.html"].lower())
+        self.assertNotIn("listed is not trusted", home.lower())
+        self.assertNotIn("you still decide", home.lower())
         self.assertNotIn("cryptographic agent-action gating", home)
         self.assertNotIn("gate what the agent does.", home)
 
@@ -161,7 +160,6 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             "Evidence support is not certification",
             "No universal legal duration or seven-year default",
             "Bind a signing key to a domain. Check whether that binding still holds.",
-            "Verified is not safe. Unresolved is not fraudulent.",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, spec)
@@ -236,7 +234,6 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             "not a mail app",
             "small company",
             "corporation",
-            "verified is not safe",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, page)
@@ -447,7 +444,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("Law office", home)
         self.assertIn("A record you can produce", home)
         self.assertIn("You hand them the check", home)
-        self.assertIn("You produce it. They weigh it.", home)
+        self.assertIn("That file is the record.", home)
         self.assertIn("fbi ic3", low)
         self.assertNotIn("pip install signet7", home)
         self.assertNotIn("pip install signet7", self.pages["download.html"])
@@ -614,7 +611,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("Listed", js)
         self.assertIn("Not listed", js)
         self.assertIn("Listing doesn’t match this address", js)
-        self.assertIn("The words still match the seal. You still decide.", js)
+        self.assertIn("The words still match the seal.", js)
         self.assertIn("Do not pay. Call a number you already have.", js)
         self.assertIn("Ordinary mail", js)
         self.assertNotIn("safe to pay", js.lower())
@@ -663,6 +660,11 @@ class ContentSecurityPolicy(unittest.TestCase):
         nav = home.split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
         self.assertNotIn("How it works", nav)
         self.assertIn("What it is", nav)
+        self.assertNotIn(">Watch</a>", nav)
+        self.assertNotIn("Send &amp; seal", nav)
+        self.assertIn('href="watch"', self.pages["product.html"])
+        self.assertIn('href="smtp"', self.pages["product.html"])
+        self.assertIn("The check. Inbox Watch. Send", self.pages["product.html"])
         self.assertNotIn(">Help</button>", nav)
         self.assertIn(">Company</button>", nav)
         self.assertNotIn(">About Signet7</a>", nav)

@@ -1,92 +1,90 @@
 <!doctype html>
 <html lang="en" data-theme="light">
 <head><meta charset="utf-8">
-  <script src="assets/theme.js?v=3"></script><meta name="viewport" content="width=device-width, initial-scale=1"><!-- GitHub Pages cannot set response headers. These meta-delivered policies are the
-     enforceable subset. NOTE: frame-ancestors is ignored when delivered via <meta>;
-     real clickjacking protection requires a header layer (Cloudflare/CloudFront) and
-     is required before any verification surface is hosted on this domain. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff"><title>Integrations | Signet7 API &amp; MCP</title><meta name="description" content="Review Signet7 API/MCP-first agent gating, caller-enforcement contract, email integration candidates, and current deployment boundaries."><link rel="canonical" href="https://signet7.io/integrations"><meta property="og:title" content="Integrations | Signet7 API &amp; MCP"><meta property="og:description" content="Review Signet7 API/MCP-first agent gating, caller-enforcement contract, email integration candidates, and current deployment boundaries."><meta property="og:type" content="website"><meta property="og:url" content="https://signet7.io/integrations"><meta property="og:image" content="https://signet7.io/assets/og-image.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/png" href="assets/favicon.png"><link rel="stylesheet" href="assets/site.css?v=20260902a"></head>
+ <script src="assets/theme.js?v=3"></script><meta name="viewport" content="width=device-width, initial-scale=1"><!-- GitHub Pages cannot set response headers. These meta-delivered policies are the
+ enforceable subset. NOTE: frame-ancestors is ignored when delivered via <meta>;
+ real clickjacking protection requires a header layer (Cloudflare/CloudFront) and
+ is required before any verification surface is hosted on this domain. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff"><title>Integrations | Signet7 API &amp; MCP</title><meta name="description" content="Review Signet7 API/MCP-first agent gating, caller-enforcement contract, email integration candidates, and current deployment boundaries."><link rel="canonical" href="https://signet7.io/integrations"><meta property="og:title" content="Integrations | Signet7 API &amp; MCP"><meta property="og:description" content="Review Signet7 API/MCP-first agent gating, caller-enforcement contract, email integration candidates, and current deployment boundaries."><meta property="og:type" content="website"><meta property="og:url" content="https://signet7.io/integrations"><meta property="og:image" content="https://signet7.io/assets/og-image.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/png" href="assets/favicon.png"><link rel="stylesheet" href="assets/site.css?v=20260902b"></head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><div class="container nav-wrap"><a class="brand" href="/"><img src="assets/signet7-logo-mark.png?v=c4" width="768" height="768" alt="Signet7"><span>Signet7</span></a>      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
-                                          <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-        <div class="drop">
-          <button type="button" class="drop-btn" aria-expanded="false">Product</button>
-          <div class="drop-menu">
-            <a href="product">What it is</a>
-            <a href="watch">Watch</a>
-            <a href="smtp">Send &amp; seal</a>
-            <a href="vsn">Look up a company</a>
-            <a href="faq">FAQ</a>
-            <a href="docs">Docs</a>
-          </div>
-        </div>
-        <div class="drop">
-          <button type="button" class="drop-btn" aria-expanded="false">Company</button>
-          <div class="drop-menu">
-            <a href="register">Register</a>
-            <a href="download">Download</a>
-            <a href="pay">Pay</a>
-          </div>
-        </div>
-        <a href="about">About</a>
-      </nav>
-      <a class="button button-primary header-cta" href="https://verify.signet7.io/email/verify">Live check</a>
-      <a class="header-register" href="register">Register</a>
-      <a class="account-login" href="https://account.signet7.io/account">Login to Signet7</a></div></header>
-  <main id="main">
-    <section class="page-hero">
-      <div class="container">
-        <p class="eyebrow">How it sits</p>
-        <h1>Keep your inbox. We sit on the money step.</h1>
-        <p class="hero-copy">This is not a new mail app. Your people keep writing where they already write. Signet7 is the look before a wire, a pay, or an account change goes through.</p>
-        <p class="hero-actions">
-          <a class="button button-primary" href="https://verify.signet7.io/email/verify">Check a message</a>
-          <a class="button button-secondary" href="docs#spec">Engineer spec</a>
-        </p>
-        <div class="badge-row">
-          <span class="badge cyan">Beside the mail you have</span>
-          <span class="badge gold">Not a new inbox</span>
-          <span class="badge">Verifiable Sender Network (VSN) lookup is <a href="https://verify.signet7.io/vsn">live</a></span>
-        </div>
-      </div>
-    </section>
+ <a class="skip-link" href="#main">Skip to content</a>
+ <header class="site-header"><div class="container nav-wrap"><a class="brand" href="/"><img src="assets/signet7-logo-mark.png?v=c4" width="768" height="768" alt="Signet7"><span>Signet7</span></a> <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
+ <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+ <div class="drop">
+ <button type="button" class="drop-btn" aria-expanded="false">Product</button>
+ <div class="drop-menu">
+ <a href="product">What it is</a>
+ <a href="vsn">Look up a company</a>
+ <a href="faq">FAQ</a>
+ <a href="docs">Docs</a>
+ </div>
+ </div>
+ <div class="drop">
+ <button type="button" class="drop-btn" aria-expanded="false">Company</button>
+ <div class="drop-menu">
+ <a href="register">Register</a>
+ <a href="download">Download</a>
+ <a href="pay">Pay</a>
+ </div>
+ </div>
+ <a href="about">About</a>
+ </nav>
+ <a class="button button-primary header-cta" href="https://verify.signet7.io/email/verify">Live check</a>
+ <a class="header-register" href="register">Register</a>
+ <a class="account-login" href="https://account.signet7.io/account">Login to Signet7</a></div></header>
+ <main id="main">
+ <section class="page-hero">
+ <div class="container">
+ <p class="eyebrow">How it sits</p>
+ <h1>Keep your inbox. We sit on the money step.</h1>
+ <p class="hero-copy">This is not a new mail app. Your people keep writing where they already write. Signet7 is the look before a wire, a pay, or an account change goes through.</p>
+ <p class="hero-actions">
+ <a class="button button-primary" href="https://verify.signet7.io/email/verify">Check a message</a>
+ <a class="button button-secondary" href="docs#spec">Engineer spec</a>
+ </p>
+ <div class="badge-row">
+ <span class="badge cyan">Beside the mail you have</span>
+ <span class="badge gold">Not a new inbox</span>
+ <span class="badge">Verifiable Sender Network (VSN) lookup is <a href="https://verify.signet7.io/vsn">live</a></span>
+ </div>
+ </div>
+ </section>
 
 <section class="section">
-  <div class="container">
-    <p class="eyebrow">What this is not</p>
-    <h2>Not another product to live inside.</h2>
-    <div class="grid-3">
-      <article class="card"><h3>Not a mailbox</h3><p>Outlook stays Outlook. Apple Mail stays Apple Mail.</p></article>
-      <article class="card"><h3>Not a spam filter</h3><p>We do not rank junk. We check a sealed message before someone acts.</p></article>
-      <article class="card"><h3>Not a spy on every inbox</h3><p>One company inbox. Recipients open the live check when it matters.</p></article>
-    </div>
-  </div>
+ <div class="container">
+ <p class="eyebrow">What this is not</p>
+ <h2>Not another product to live inside.</h2>
+ <div class="grid-3">
+ <article class="card"><h3>Not a mailbox</h3><p>Outlook stays Outlook. Apple Mail stays Apple Mail.</p></article>
+ <article class="card"><h3>Not a spam filter</h3><p>We do not rank junk. We check a sealed message before someone acts.</p></article>
+ <article class="card"><h3>Not a spy on every inbox</h3><p>One company inbox. Recipients open the live check when it matters.</p></article>
+ </div>
+ </div>
 </section>
 
 <section class="section section-line">
-  <div class="container">
-    <p class="eyebrow">Do you need a download?</p>
-    <h2>Every current route. Who installs, who does not.</h2>
-    <p class="section-intro">Recipients never install. A thousand people are covered because they can open the live check. Watch is still one company inbox on one PC. Checkout is not live. Nothing here is a store listing unless it says so.</p>
-    <div class="grid-3">
-      <article class="card"><h3>Live check — no download</h3><p>The product for the other side. <a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a>. No account. Or forward a saved message to <a href="mailto:check@signet7.io">check@signet7.io</a>.</p></article>
-      <article class="card"><h3>Outlook sideload — optional files</h3><p>Save <a href="outlook/">manifest.xml</a>. Add from File. Not AppSource. Recipients who never sideload still use the live check.</p></article>
-      <article class="card"><h3>Watch — company download</h3><p>One Windows, Mac, or Linux PC. Unsigned preview. Recipients should not download. <a href="download">Download</a>.</p></article>
-      <article class="card"><h3>SMTP helper — this computer</h3><p>Optional local hop 127.0.0.1 port 2525 with the company desktop. Not Exchange. <a href="smtp">SMTP</a>.</p></article>
-      <article class="card"><h3>Company desktop</h3><p>Setup window on this computer. Recipients do not need it. Use the homepage terminal chooser or Watch zip. Not a store.</p></article>
-      <article class="card"><h3>Company account — no Watch required</h3><p>Email link at <a href="https://account.signet7.io/account">account.signet7.io/account</a>. Checkout is not live.</p></article>
-      <article class="card"><h3>Browser extension — lab</h3><p>Unpacked sideload in the client tree. Not Chrome Web Store. Not the product.</p></article>
-      <article class="card"><h3>Gmail add-on — lab</h3><p>Placeholder host. Not the product. Not a Workspace Marketplace listing.</p></article>
-      <article class="card"><h3>Android check — lab</h3><p>Sideload debug APK that opens the live check. Not Play Store.</p></article>
-      <article class="card"><h3>MCP / action gate — operator</h3><p>stdio <code>signet7-mcp</code>. Caller enforces. Not a Claude Directory listing. Recipients do not install it.</p></article>
-      <article class="card"><h3>App stores — not a current route</h3><p>No Signet7 in Chrome Web Store, Play Store, App Store, or AppSource. Do not send people there.</p></article>
-      <article class="card"><h3>Need a human</h3><p>Programs: <a href="mailto:sales@signet7.io">sales@signet7.io</a>. Product notes: <a href="feedback">Feedback</a>.</p></article>
-    </div>
-  </div>
+ <div class="container">
+ <p class="eyebrow">Do you need a download?</p>
+ <h2>Every current route. Who installs, who does not.</h2>
+ <p class="section-intro">Recipients never install. A thousand people are covered because they can open the live check. Watch is still one company inbox on one PC. Checkout is not live. Nothing here is a store listing unless it says so.</p>
+ <div class="grid-3">
+ <article class="card"><h3>Live check — no download</h3><p>The product for the other side. <a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a>. No account. Or forward a saved message to <a href="mailto:check@signet7.io">check@signet7.io</a>.</p></article>
+ <article class="card"><h3>Outlook sideload — optional files</h3><p>Save <a href="outlook/">manifest.xml</a>. Add from File. Not AppSource. Recipients who never sideload still use the live check.</p></article>
+ <article class="card"><h3>Watch — company download</h3><p>One Windows, Mac, or Linux PC. Unsigned preview. Recipients should not download. <a href="download">Download</a>.</p></article>
+ <article class="card"><h3>SMTP helper — this computer</h3><p>Optional local hop 127.0.0.1 port 2525 with the company desktop. Not Exchange. <a href="smtp">SMTP</a>.</p></article>
+ <article class="card"><h3>Company desktop</h3><p>Setup window on this computer. Recipients do not need it. Use the homepage terminal chooser or Watch zip. Not a store.</p></article>
+ <article class="card"><h3>Company account — no Watch required</h3><p>Email link at <a href="https://account.signet7.io/account">account.signet7.io/account</a>. Checkout is not live.</p></article>
+ <article class="card"><h3>Browser extension — lab</h3><p>Unpacked sideload in the client tree. Not Chrome Web Store. Not the product.</p></article>
+ <article class="card"><h3>Gmail add-on — lab</h3><p>Placeholder host. Not the product. Not a Workspace Marketplace listing.</p></article>
+ <article class="card"><h3>Android check — lab</h3><p>Sideload debug APK that opens the live check. Not Play Store.</p></article>
+ <article class="card"><h3>MCP / action gate — operator</h3><p>stdio <code>signet7-mcp</code>. Caller enforces. Not a Claude Directory listing. Recipients do not install it.</p></article>
+ <article class="card"><h3>App stores — not a current route</h3><p>No Signet7 in Chrome Web Store, Play Store, App Store, or AppSource. Do not send people there.</p></article>
+ <article class="card"><h3>Need a human</h3><p>Programs: <a href="mailto:sales@signet7.io">sales@signet7.io</a>. Product notes: <a href="feedback">Feedback</a>.</p></article>
+ </div>
+ </div>
 </section>
 
-  </main>
-  <footer class="site-footer"><div class="container footer-grid"><div><strong>Signet7</strong><p>The trust layer for consequential email.</p><p>© 2026 Signet7. All rights reserved, All wrongs revenged.</p></div><div><a href="privacy">Privacy</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div><div><p>Live check and company accounts are available. You decide whether to act on the result.</p></div></div></footer>
-  <script src="assets/motion.js?v=20260902a" defer></script>
+ </main>
+ <footer class="site-footer"><div class="container footer-grid"><div><strong>Signet7</strong><p>The trust layer for consequential email.</p><p>© 2026 Signet7. All rights reserved, All wrongs revenged.</p></div><div><a href="privacy">Privacy</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div><div><p>Live check and company accounts are available.</p></div></div></footer>
+ <script src="assets/motion.js?v=20260902a" defer></script>
 </body></html>

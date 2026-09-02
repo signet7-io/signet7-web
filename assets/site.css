@@ -28,17 +28,17 @@
 }
 
 :root {
-  --paper: #e8dfcf;
-  --page: #ebe3d3;
-  --header: #ebe3d3;
-  --card: #f4ecdf;
+  --paper: #e4f3f1;
+  --page: #e7f5f3;
+  --header: #e7f5f3;
+  --card: #f3fbf9;
   --ink: #161616;
   --ink-soft: #3a3a3a;
   --mute: #5c5c5c;
-  --line: #d5ccbc;
+  --line: #c4ddd8;
   --cyan: #5b5ce2;
   --gold: #c9a227;
-  --night: #ebe3d3;
+  --night: #e7f5f3;
   --night-ink: #161616;
   --night-mute: #5c5c5c;
   --purple: #5b5ce2;
@@ -51,15 +51,15 @@
 }
 html[data-theme="dark"] {
   color-scheme: light;
-  --paper: #e8dfcf;
-  --page: #ebe3d3;
-  --header: #ebe3d3;
-  --card: #f4ecdf;
+  --paper: #e4f3f1;
+  --page: #e7f5f3;
+  --header: #e7f5f3;
+  --card: #f3fbf9;
   --ink: #161616;
   --ink-soft: #3a3a3a;
   --mute: #5c5c5c;
-  --line: #d5ccbc;
-  --night: #ebe3d3;
+  --line: #c4ddd8;
+  --night: #e7f5f3;
   --night-ink: #161616;
   --night-mute: #5c5c5c;
 }
@@ -70,10 +70,11 @@ html[data-theme="dark"] { color-scheme: light; }
 html, body {
   background-color: var(--page);
   background-image:
-    linear-gradient(rgba(70, 54, 36, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(70, 54, 36, 0.05) 1px, transparent 1px),
-    radial-gradient(circle, rgba(70, 54, 36, 0.11) 0.7px, transparent 0.8px);
-  background-size: 52px 52px, 52px 52px, 7px 7px;
+    linear-gradient(rgba(28, 98, 94, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 98, 94, 0.07) 1px, transparent 1px),
+    radial-gradient(circle, rgba(18, 110, 104, 0.12) 0.7px, transparent 0.85px),
+    repeating-linear-gradient(-18deg, transparent 0 10px, rgba(20, 92, 88, 0.035) 10px 11px);
+  background-size: 48px 48px, 48px 48px, 6px 6px, auto;
 }
 body {
   margin: 0;

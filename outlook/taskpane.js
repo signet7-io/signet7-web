@@ -35,7 +35,7 @@ function classifyAlert(result, subject, body) {
     return {
       level: "alert",
       title: "Signet7: protected parts do not match",
-      body: "This message has a Signet7 seal, but the protected parts no longer match or the signature is not valid. Do not change payment details from this email. Call the person you already know. Verified is not safe. Unknown is not fraud."
+      body: "This message has a Signet7 seal, but the protected parts no longer match or the signature is not valid. Do not change payment details from this email. Call the person you already know."
     };
   }
   if (replay === "SUSPECTED_REPLAY") {
@@ -63,7 +63,7 @@ function classifyAlert(result, subject, body) {
     return {
       level: "warn",
       title: "Signet7: payment or account change, no seal",
-      body: "This looks like a payment or account-change instruction and it is not sealed. Call a number you already have. Do not use a number from this email. Unknown is not fraud. Verified is not safe."
+      body: "This looks like a payment or account-change instruction and it is not sealed. Do not use a number from this email."
     };
   }
   return null;
@@ -146,7 +146,7 @@ function formatRecipientResult(result, listing) {
   var listed = listingLine(listing);
   var note = "Ordinary mail.";
   if (words === "Words match") {
-    note = "The words still match the seal. You still decide.";
+    note = "The words still match the seal.";
   } else if (words === "Words do not match") {
     note = "Do not pay. Call a number you already have.";
   }
