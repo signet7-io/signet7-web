@@ -1929,6 +1929,20 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 .home .brand, .home .drop-btn, .home .site-nav > a, .home .account-login, .home .nav-toggle { color: #fff; }
 .home .drop-btn::after { color: #fff; }
 
+.price-was {
+  margin: 0 0 4px;
+  color: var(--mute);
+  text-decoration: line-through;
+  font-size: 14px;
+}
+.price-now { display: block; margin: 0 0 10px; font-size: 28px; }
+.price-card ul {
+  margin: 0 0 16px;
+  padding-left: 1.1rem;
+  color: var(--ink-soft);
+  font-size: 14px;
+  text-align: left;
+}
 .home #uses { padding-top: calc(var(--nav-h) + 48px); }
 .people-once {
   margin: 28px 0 36px;
@@ -2120,8 +2134,11 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
   padding: 8px 12px;
   border-radius: 8px;
 }
+.zoom-copy .study .eyebrow,
 .zoom-copy .study h3 {
-  background: rgba(8,12,18,.62);
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+  background: rgba(8,12,18,.78);
   padding: 8px 10px;
   border-radius: 8px;
   text-shadow: none;
