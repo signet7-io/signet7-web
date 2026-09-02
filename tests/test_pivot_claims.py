@@ -689,6 +689,27 @@ class ContentSecurityPolicy(unittest.TestCase):
         header = home.split("<header", 1)[1].split("</header>", 1)[0]
         self.assertLess(header.index("header-register"), header.index("account-login"))
 
+    def test_check_page_does_not_lead_with_vsn(self) -> None:
+        """Recipients never need the word VSN. /check is a customer page, not docs."""
+        check = self.pages["check.html"]
+        self.assertIn("<h3>3. Listing for this address</h3>", check)
+        self.assertNotIn("<h3>3. Verifiable Sender Network", check)
+        visible = re.sub(r"<[^>]+>", " ", check)
+        self.assertIsNone(re.search(r"\bVSN\b", visible))
+        desc = re.search(r'<meta name="description" content="([^"]*)"', check)
+        self.assertIsNotNone(desc)
+        self.assertNotIn("VSN", desc.group(1))
+        og = re.search(r'<meta property="og:description" content="([^"]*)"', check)
+        self.assertIsNotNone(og)
+        self.assertNotIn("VSN", og.group(1))
+        self.assertIn('href="vsn"', check)
+        self.assertIn("Look up a company", check)
+        self.assertIn("Listed, Not listed, or Listing doesn’t match this address", check)
+        self.assertIn("Today only Signet7's own domain is in that lookup", check)
+        self.assertNotIn("one listing covers every mailbox", check.lower())
+        self.assertNotIn("safe to pay", check.lower())
+        self.assertIn("No install for the other side.", check)
+
 
 if __name__ == "__main__":
     unittest.main()
