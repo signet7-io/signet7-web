@@ -489,6 +489,21 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("vanity seats", programs)
         self.assertIn("Checkout is not live", programs)
 
+    def test_pilot_page_does_not_lead_with_vsn(self) -> None:
+        """Recipients never need the word VSN. /pilot is a customer page, not docs."""
+        page = self.pages["pilot.html"]
+        visible = re.sub(r"<[^>]+>", " ", page)
+        self.assertIsNone(re.search(r"\bVSN\b", visible))
+        desc = re.search(r'<meta name="description" content="([^"]*)"', page)
+        self.assertIsNotNone(desc)
+        self.assertNotIn("VSN", desc.group(1))
+        og = re.search(r'<meta property="og:description" content="([^"]*)"', page)
+        self.assertIsNotNone(og)
+        self.assertNotIn("VSN", og.group(1))
+        self.assertIn('href="vsn"', page)
+        self.assertIn("live public company directory", page)
+        self.assertNotIn("Verifiable Sender Network", page)
+
 
 class ContentSecurityPolicy(unittest.TestCase):
     """GitHub Pages cannot set response headers, so the policy ships in the markup.
