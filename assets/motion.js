@@ -55,12 +55,12 @@
   const hints = {
     1: "This looks like a real vendor. It isn't enough.",
     2: "The words still match. The sender is not tied to that company.",
-    3: "VSN (Verifiable Sender Network): that company's key is not listed as still theirs. Customer companies are not in this lookup yet.",
+    3: "Not listed. Customer companies are not in this lookup yet.",
     4: "You can keep this result as a file. ",
   };
   const nextLabel = {
     1: "Next · Check the seal",
-    2: "Next · Verifiable Sender Network (VSN)",
+    2: "Next · Look up a company",
     3: "Next · Keep the record",
     4: "Start over",
   };
