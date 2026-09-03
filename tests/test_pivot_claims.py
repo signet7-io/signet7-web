@@ -695,6 +695,18 @@ class ContentSecurityPolicy(unittest.TestCase):
         header = home.split("<header", 1)[1].split("</header>", 1)[0]
         self.assertLess(header.index("header-register"), header.index("account-login"))
 
+    def test_docs_page_does_not_whisper_then_you_decide(self) -> None:
+        """The check lists facts. Recipients never need a sermon."""
+        page = self.pages["docs.html"]
+        self.assertIn("Matched, unmatched, or unknown.", page)
+        self.assertIn('href="vsn"', page)
+        self.assertIn("https://verify.signet7.io/vsn", page)
+        self.assertNotIn("then you decide", page.lower())
+        self.assertNotIn("you still decide", page.lower())
+        self.assertNotIn("permission to pay", page.lower())
+        self.assertNotIn("safe to pay", page.lower())
+        self.assertNotIn("Verified is not safe", page)
+
 
 if __name__ == "__main__":
     unittest.main()
