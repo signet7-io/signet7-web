@@ -695,6 +695,28 @@ class ContentSecurityPolicy(unittest.TestCase):
         header = home.split("<header", 1)[1].split("</header>", 1)[0]
         self.assertLess(header.index("header-register"), header.index("account-login"))
 
+    def test_programs_page_does_not_lead_with_vsn(self) -> None:
+        """Recipients never need the word VSN. Programs is a customer page, not docs."""
+        programs = self.pages["programs.html"]
+        self.assertIn("<h3>Your company can be looked up</h3>", programs)
+        self.assertNotIn("<h3>VSN", programs)
+        self.assertNotIn("VSN —", programs)
+        visible = re.sub(r"<[^>]+>", " ", programs)
+        self.assertIsNone(re.search(r"\bVSN\b", visible))
+        desc = re.search(r'<meta name="description" content="([^"]*)"', programs)
+        self.assertIsNotNone(desc)
+        self.assertNotIn("VSN", desc.group(1))
+        og = re.search(r'<meta property="og:description" content="([^"]*)"', programs)
+        self.assertIsNotNone(og)
+        self.assertNotIn("VSN", og.group(1))
+        self.assertIn('href="vsn"', programs)
+        self.assertIn("Look up a company", programs)
+        self.assertIn("Listed, Not listed, or Listing doesn’t match this address", programs)
+        self.assertIn("Today the public lookup lists Signet7", programs)
+        self.assertNotIn("one listing covers every mailbox", programs.lower())
+        self.assertNotIn("safe to pay", programs.lower())
+        self.assertIn("Checkout is not live", programs)
+
 
 if __name__ == "__main__":
     unittest.main()
