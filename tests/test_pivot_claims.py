@@ -181,7 +181,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_program_page_retires_old_public_prices(self) -> None:
         programs = self.pages["programs.html"]
         for phrase in (
-            "Sell the check. One Watch. A company that can be looked up.",
+            "Check for free. Company app for several work emails.",
             "Checkout not live yet",
             "Amounts not set",
             "Inactive catalog",
@@ -253,7 +253,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_it_one_pager_exists(self) -> None:
         self.assertIn("it.html", self.pages)
         page = self.pages["it.html"].lower()
-        for phrase in ("one mailbox", "windows, mac, and linux", "127.0.0.1"):
+        for phrase in ("several named emails", "windows, mac, and linux", "127.0.0.1"):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, page)
 
@@ -482,7 +482,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("Sideload is not Watch", self.pages["faq.html"])
         self.assertIn("more than one listing", self.pages["faq.html"])
         self.assertNotIn("One listing covers every mailbox", self.pages["faq.html"])
-        self.assertIn("One Watch on AP", self.pages["enterprise.html"])
+        self.assertIn("Named work emails", self.pages["enterprise.html"])
         programs = self.pages["programs.html"]
         self.assertIn("Team is not a catalog SKU", programs)
         self.assertNotIn("Governed agents", programs)
