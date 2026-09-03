@@ -695,6 +695,25 @@ class ContentSecurityPolicy(unittest.TestCase):
         header = home.split("<header", 1)[1].split("</header>", 1)[0]
         self.assertLess(header.index("header-register"), header.index("account-login"))
 
+    def test_how_page_does_not_whisper_permission_to_pay(self) -> None:
+        """Recipients never need the word VSN. Matched is quiet, not a sermon."""
+        how = self.pages["how.html"]
+        visible = re.sub(r"<[^>]+>", " ", how)
+        self.assertIsNone(re.search(r"\bVSN\b", visible))
+        desc = re.search(r'<meta name="description" content="([^"]*)"', how)
+        self.assertIsNotNone(desc)
+        self.assertNotIn("VSN", desc.group(1))
+        og = re.search(r'<meta property="og:description" content="([^"]*)"', how)
+        self.assertIsNotNone(og)
+        self.assertNotIn("VSN", og.group(1))
+        self.assertIn('href="vsn"', how)
+        self.assertIn("No seal is ordinary mail", how)
+        self.assertIn("Checking does not create a seal", how)
+        self.assertNotIn("permission to pay", how.lower())
+        self.assertNotIn("safe to pay", how.lower())
+        self.assertNotIn("Verifiable Sender Network", how)
+        self.assertIn("Questionable email? Check it here.", how)
+
 
 if __name__ == "__main__":
     unittest.main()
