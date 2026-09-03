@@ -150,6 +150,27 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertLess(docs.find('id="seal"'), docs.find('id="clients"'))
         self.assertLess(docs.find('id="apple-mail"'), docs.find('id="install"'))
 
+    def test_docs_page_does_not_lead_with_vsn(self) -> None:
+        """Recipients never need the word VSN. /docs is a customer page, not an engineer nickname."""
+        page = self.pages["docs.html"]
+        visible = re.sub(r"<[^>]+>", " ", page)
+        self.assertIsNone(re.search(r"\bVSN\b", visible))
+        desc = re.search(r'<meta name="description" content="([^"]*)"', page)
+        self.assertIsNotNone(desc)
+        self.assertNotIn("VSN", desc.group(1))
+        og = re.search(r'<meta property="og:description" content="([^"]*)"', page)
+        self.assertIsNotNone(og)
+        self.assertNotIn("VSN", og.group(1))
+        self.assertIn('href="vsn"', page)
+        self.assertIn("Look up a company", page)
+        self.assertIn("Listing lookup", page)
+        self.assertIn("https://verify.signet7.io/vsn", page)
+        self.assertIn("Listed, Not listed, or Listing doesn’t match this address", page)
+        self.assertIn("Today only Signet7's own domain is in that lookup", page)
+        self.assertNotIn("safe to pay", page.lower())
+        self.assertNotIn("Verifiable Sender Network", page)
+        self.assertNotIn("VSN lookup", page)
+
     def test_trust_page_separates_identity_evidence_and_compliance(self) -> None:
         spec = self.pages["docs.html"]
         for phrase in (
