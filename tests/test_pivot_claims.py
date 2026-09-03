@@ -695,6 +695,28 @@ class ContentSecurityPolicy(unittest.TestCase):
         header = home.split("<header", 1)[1].split("</header>", 1)[0]
         self.assertLess(header.index("header-register"), header.index("account-login"))
 
+    def test_check_page_does_not_whisper_then_you_decide(self) -> None:
+        """Matched listing is quiet. Recipients never need the word VSN."""
+        check = self.pages["check.html"]
+        visible = re.sub(r"<[^>]+>", " ", check)
+        self.assertIsNone(re.search(r"\bVSN\b", visible))
+        desc = re.search(r'<meta name="description" content="([^"]*)"', check)
+        self.assertIsNotNone(desc)
+        self.assertNotIn("VSN", desc.group(1))
+        og = re.search(r'<meta property="og:description" content="([^"]*)"', check)
+        self.assertIsNotNone(og)
+        self.assertNotIn("VSN", og.group(1))
+        self.assertIn('href="vsn"', check)
+        self.assertIn("https://verify.signet7.io/vsn", check)
+        self.assertIn("Listed for this address", check)
+        self.assertIn("No seal is ordinary mail", check)
+        self.assertNotIn("then you decide", check.lower())
+        self.assertNotIn("you still decide", check.lower())
+        self.assertNotIn("permission to pay", check.lower())
+        self.assertNotIn("safe to pay", check.lower())
+        self.assertNotIn("Verified is not safe", check)
+        self.assertNotIn("Verifiable Sender Network", check)
+
 
 if __name__ == "__main__":
     unittest.main()
