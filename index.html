@@ -12,7 +12,7 @@
  <meta name="referrer" content="strict-origin-when-cross-origin">
  <meta http-equiv="X-Content-Type-Options" content="nosniff">
  <title>Signet7 | High-stakes email, finally provable.</title>
- <meta name="description" content="High-stakes email, finally provable. Signet7 is the cryptographic check for high-stakes email, powered by our Verifiable Sender Network (VSN).">
+ <meta name="description" content="High-stakes email, finally provable. Signet7 is the cryptographic check for high-stakes email.">
  <meta name="theme-color" content="#f7f4ee">
  <meta property="og:title" content="Signet7 | High-stakes email, finally provable.">
  <meta property="og:description" content="High-stakes email, finally provable.">
@@ -40,9 +40,9 @@
  <a href="product">What it is</a>
  <a href="vsn">Look up a company</a>
  <a href="faq">FAQ</a>
- <a href="docs">Docs</a>
  </div>
  </div>
+ <a href="docs.html">Docs</a>
  <div class="drop">
  <button type="button" class="drop-btn" aria-expanded="false">Company</button>
  <div class="drop-menu">
@@ -82,7 +82,7 @@
  <img class="zoom-plate" src="assets/zoom/02.jpg" width="1920" height="1080" alt="">
  <div class="zoom-shade" aria-hidden="true"></div>
  <div class="zoom-copy" data-zoom-copy>
- <p class="product-line">Signet7 is the cryptographic check for high-stakes email, powered by our Verifiable Sender Network (VSN).</p>
+ <p class="product-line">Signet7 is the cryptographic check for high-stakes email.</p>
  <p class="lede zoom-quiet">It verifies whether a message is bound to the claimed sender, and whether the protected words — including payment or account details — still match the seal.</p>
  <p class="lede zoom-quiet">You get a clear result and a signed file you can produce later. The same evidence can gate actions proposed by people or AI agents before irreversible steps.</p>
  </div>
@@ -127,7 +127,7 @@
  </div>
  <p class="eyebrow">Study 02 · The network</p>
  <h3>Mail in motion. Sealed or not.</h3>
- <p class="zoom-quiet">Gold is sealed. Cyan is ordinary. The Verifiable Sender Network looks up whether a company's signing key is still listed as theirs.</p>
+ <p class="zoom-quiet">Gold is sealed. Cyan is ordinary. Look up whether this From address is listed.</p>
  </article>
  <article class="study">
  <div class="study-card">
@@ -167,11 +167,11 @@
  <p class="eyebrow">Demo</p>
  <h2 id="demo-title">Looks ordinary. That's the trap.</h2>
  <p class="section-intro">Check the seal before you act.</p>
- <p class="zoom-quiet">Four steps: the email, the seal, Verifiable Sender Network (VSN), the record. Spam filters, encryption, and registered mail each do one part. Nobody else puts the whole check together. Check the seal before you act.</p>
+ <p class="zoom-quiet">Four steps: the email, the seal, the listing, the record. Spam filters, encryption, and registered mail each do one part. Nobody else puts the whole check together. Check the seal before you act.</p>
  <ol class="demo-fallback zoom-quiet">
  <li><strong>Step 1 — The email:</strong> A vendor asks you to change wiring details.</li>
  <li><strong>Step 2 — The seal:</strong> Check whether the words still match and the sender is tied to that company.</li>
- <li><strong>Step 3 — Verifiable Sender Network (VSN):</strong> Look up whether that company's signing key is still listed as theirs.</li>
+ <li><strong>Step 3 — Listing for this address:</strong> Recipients see Listed, Not listed, or Listing doesn’t match this address.</li>
  <li><strong>Step 4 — The record:</strong> Save the result as a file you can produce later. </li>
  </ol>
  <aside class="mail" id="letter" data-mail aria-label="Demo. Four steps.">
@@ -192,8 +192,8 @@
  <div class="state warn"><div><small>The sender</small><strong>Not tied to that company</strong></div></div>
  </div>
  <div class="panel" data-panel="vsn">
- <div class="state warn"><div><small>VSN</small><strong>That company's key is not listed as still theirs</strong></div></div>
- <p>We look up whether the signing key is still listed for that company. Customer companies are not in this lookup yet.</p>
+ <div class="state warn"><div><small>Listing</small><strong>Not listed</strong></div></div>
+ <p>Recipients see Listed, Not listed, or Listing doesn’t match this address. Customer companies are not in this lookup yet.</p>
  </div>
  <div class="panel" data-panel="decide">
  <div class="state bad"><div><small>The record</small><strong>You can keep this result as a file</strong></div></div>
