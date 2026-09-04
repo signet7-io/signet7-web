@@ -715,6 +715,9 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn(">Company</button>", nav)
         self.assertNotIn(">About Signet7</a>", nav)
 
+    def test_it_page_does_not_lead_with_vsn(self) -> None:
+        """Recipients never need the word VSN. /it is a customer page, not docs."""
+        page = self.pages["it.html"]
     def test_programs_page_does_not_name_vsn(self) -> None:
         """Recipients never need the word VSN. Programs is a customer page, not docs."""
         page = self.pages["programs.html"]
@@ -752,6 +755,10 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("VSN", og.group(1))
         self.assertIn('href="vsn"', page)
         self.assertIn("Look up a company", page)
+        self.assertIn("Company listing lookup is", page)
+        self.assertIn("List this address when the company is ready to seal outbound", page)
+        self.assertIn("Named work emails", page)
+        self.assertIn("Several named emails", page)
         self.assertIn("Each of those emails gets its own listing.", page)
         self.assertIn("Recipients never install", page)
         self.assertNotIn("VSN identity", page)
@@ -785,6 +792,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("VSN lookup", page)
         self.assertNotIn("one listing covers every mailbox", page.lower())
         self.assertIn("https://verify.signet7.io/email/verify", page)
+        self.assertIn("https://verify.signet7.io/vsn", page)
 
     def test_try_samples_and_locked_register_login(self) -> None:
         home = self.pages["index.html"]
