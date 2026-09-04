@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://signet7.io/#website",
+      "url": "https://signet7.io/",
+      "name": "Signet7",
+      "description": "High-stakes email, finally provable. Signet7 is the cryptographic check for high-stakes email.",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://signet7.io/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://signet7.io/#organization",
+      "name": "Signet7",
+      "url": "https://signet7.io/",
+      "logo": "https://signet7.io/assets/signet7-logo-mark.png",
+      "email": "justin.daines@signet7.io"
+    }
+  ]
+}
