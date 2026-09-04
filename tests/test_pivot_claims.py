@@ -840,7 +840,27 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("addresses assigned to it", docs)
         self.assertIn("Domain-wide is a choice", docs)
 
+    def test_seal_path_is_unsigned_preview_not_a_signed_wait(self) -> None:
+        faq = self.pages["faq.html"]
+        docs = self.pages["docs.html"]
+        smtp = self.pages["smtp.html"]
+        self.assertIn("Seal: Preview (unsigned).", faq)
+        self.assertNotIn("Seal: Not yet as a signed product", faq)
+        self.assertIn("unsigned preview — not Authenticode", docs)
+        self.assertIn("this is not Authenticode", docs)
+        self.assertNotIn("Not available yet.", docs)
+        self.assertNotIn("The signed helper is not downloadable yet", docs)
+        self.assertIn("The unsigned helper stamps that exact message", smtp)
+        self.assertIn("Preview · unsigned", smtp)
+        self.assertIn("Not Authenticode", smtp)
+        self.assertNotIn("Verified is not safe", smtp)
+
+    def test_faq_status_still_names_pay_visible_and_off(self) -> None:
+        faq = self.pages["faq.html"]
+        self.assertIn("Pay: visible and off", faq)
+        self.assertIn("Inbox Watch: Preview (unsigned)", faq)
 
 
 if __name__ == "__main__":
     unittest.main()
+

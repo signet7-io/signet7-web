@@ -101,7 +101,7 @@
  <p class="section-intro">What gets created: you drop a message on the live check (or Watch checks the named inboxes). Signet7 answers: words match or not, key listed or not, time of the check. You get a signed file. That file is the record. Recipients never install. Companies start at <a href="register">Registration</a>.</p>
  <div class="scope-list">
  <div class="scope-row"><b>You received an important email</b><span>Skip to <a href="docs#verify">Check a message</a>. No account. No install.</span></div>
- <div class="scope-row"><b>You send from a company inbox</b><span><a href="register">Registration</a>, then <a href="docs#outlook">Outlook sideload</a>, then <a href="docs#seal">sealing</a> (not available yet as a signed product).</span></div>
+ <div class="scope-row"><b>You send from a company inbox</b><span><a href="register">Registration</a>, then <a href="docs#outlook">Outlook sideload</a>, then <a href="docs#seal">sealing</a> (unsigned preview — not Authenticode).</span></div>
  </div>
  </div>
  </section>
@@ -190,11 +190,11 @@
  <div class="container">
  <h2>Seal outgoing mail</h2>
  <p class="section-intro">Optional. Same computer as the mail app. Leave the helper running or port 2525 goes quiet. The helper posts seals to <a href="https://seal.signet7.io">seal.signet7.io</a>. The token still comes from <a href="https://account.signet7.io/account">account</a>. <a href="https://verify.signet7.io/email/verify">Recipients still check at the live check</a>. They do not install.</p>
- <p class="docs-note"><strong>Not available yet.</strong> The signed desktop helper is the <a href="docs#install">install placeholder</a>. Do not point a mail app at 127.0.0.1:2525 until that helper is listening on this computer.</p>
+ <p class="docs-note">Unsigned preview. After <a href="register">Registration</a>, open <a href="download">Download</a>. Windows may warn; this is not Authenticode. Signed builds stay later. Do not point a mail app at 127.0.0.1:2525 until the footer says it is listening.</p>
  <div class="scope-list">
  <div class="scope-row"><b>Mail app → 127.0.0.1</b><span>Your email address. Authentication None on this hop. TLS off. Port 2525.</span></div>
  <div class="scope-row"><b>Signet7 → your provider</b><span>Provider app password (Gmail: 16 letters). Not the Google login. Not a Signet7 token.</span></div>
- <div class="scope-row"><b>Limits</b><span>Not a new composer. Not Exchange. Not a mail vendor. One company inbox, not every inbox.</span></div>
+ <div class="scope-row"><b>Limits</b><span>Not a new composer. Not Exchange. Not a mail vendor. Not Authenticode. One company inbox, not every inbox.</span></div>
  </div>
  </div>
  </section>
@@ -251,7 +251,7 @@
  <div class="container">
  <h2>The desktop helper</h2>
  <p class="section-intro">Same window on Windows, Mac, and Linux. Signet7 is not a mail app. You still write and send in Outlook, Apple Mail, or Thunderbird. The helper watches one company inbox on this computer, stamps outgoing mail when that app sends through <strong>127.0.0.1:2525</strong>, and stays quiet unless a named sender arrives unsealed or a seal is broken. Recipients never install it.</p>
- <p class="docs-note">The signed download is not open yet. Use this layout when the helper is running. The footer must read <strong>Listening on 127.0.0.1:2525</strong> before a mail app can seal through it.</p>
+ <p class="docs-note">Unsigned preview. After <a href="register">Registration</a>, open <a href="download">Download</a>. Windows may warn; this is not Authenticode. Signed builds stay later. The footer must read <strong>Listening on 127.0.0.1:2525</strong> before a mail app can seal through it.</p>
  <div class="scope-list">
  <div class="scope-row"><b>Header</b><span>Signet7 and Mailbox helper. <strong>Help</strong> (top right) opens Mail app SMTP steps and Send feedback. Those are not tabs.</span></div>
  <div class="scope-row"><b>Left — Mailbox</b><span>Provider, email, app password, Signet7 token, and who must seal. Outgoing: auto-seal and the real SMTP host (for Gmail, <code>smtp.gmail.com</code>, not 127.0.0.1). <strong>Save and watch</strong> starts the listener.</span></div>
@@ -269,7 +269,7 @@
  <div class="container">
  <h2>Seal from Apple Mail (when the helper is running)</h2>
  <p class="section-intro">Sealing needs the Signet7 helper listening on this Mac, plus an Other IMAP account in Mail. Do not set outgoing SMTP to 127.0.0.1 on a Google-type account (Internet Accounts → Google). Mail will list that server as Offline and will not send. To check a message, see <a href="docs#verify">Check a message</a>.</p>
- <p class="docs-note">The signed helper is not downloadable yet. Use these screens when it is running. The footer must read <strong>Listening on 127.0.0.1:2525</strong> before Mail can send.</p>
+ <p class="docs-note">Unsigned preview. Get the helper from <a href="download">Download</a> after Registration. Windows and Mac may warn; this is not Authenticode. The footer must read <strong>Listening on 127.0.0.1:2525</strong> before Mail can send.</p>
 
  <h3>1. Configure the Signet7 helper</h3>
  <ol>
@@ -322,7 +322,7 @@
  <div class="scope-row"><b>Financial actions</b><span><code>EXECUTEWIRE</code>, <code>PAY</code>, <code>PURCHASE</code>, <code>REFUND</code>, <code>TRANSFER</code></span></div>
  <div class="scope-row"><b>API/MCP-first</b><span>No replacement mailbox. No traditional SEG. No endpoint agent. Integration still required. Caller enforces. treating the response as advisory while executing anyway defeats the control.</span></div>
  <div class="scope-row"><b>Identity</b><span>Signature-bound sender identity. Self-signed and Unresolved are possible. Bind a signing key to a domain. Check whether that binding still holds.</span></div>
- <div class="scope-row"><b>Limits</b><span> does not block every phishing technique. Evidence support is not certification. No universal legal duration or seven-year default.</span></div>
+ <div class="scope-row"><b>Limits</b><span>does not block every phishing technique. Evidence support is not certification. No universal legal duration or seven-year default. US and EU rules create demand for records. They do not certify Signet7.</span></div>
  </div>
  <p class="docs-note">Short sheets: <a href="it">IT</a> · <a href="smtp">outbound seal</a> · <a href="check">recipient check</a>.</p>
  </div>
