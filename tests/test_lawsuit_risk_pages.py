@@ -1,15 +1,14 @@
 from __future__ import annotations
 
 import unittest
-from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+from tests.site_html import root_html_pages
 
 
 class LawsuitRiskPages(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        cls.pages = {path.name: path.read_text(encoding="utf-8") for path in ROOT.glob("*.html")}
+        cls.pages = {path.name: path.read_text(encoding="utf-8") for path in root_html_pages()}
 
     def test_ten_item_pages_exist_and_are_linked(self) -> None:
         for target in ("privacy", "ai", "providers", "cancel", "safety"):

@@ -3,9 +3,8 @@ from __future__ import annotations
 import json
 import re
 import unittest
-from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+from tests.site_html import ROOT, root_html_pages
 
 
 class AgentActionGatingPivotTests(unittest.TestCase):
@@ -13,7 +12,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.pages = {
             path.name: path.read_text(encoding="utf-8")
-            for path in sorted(ROOT.glob("*.html"))
+            for path in root_html_pages()
         }
         cls.all_copy = "\n".join(cls.pages.values())
 
@@ -59,6 +58,15 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         key = "31c6ab5cca284146bb0b26bd193d25e2"
         key_file = ROOT / f"{key}.txt"
         self.assertEqual(key_file.read_text(encoding="utf-8").strip(), key)
+
+    def test_google_search_console_file_is_exact(self) -> None:
+        path = ROOT / "googled2cf3c6d0c5a81c5.html"
+        self.assertEqual(
+            path.read_text(encoding="utf-8").strip(),
+            "google-site-verification: googled2cf3c6d0c5a81c5.html",
+        )
+        sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+        self.assertNotIn("googled2cf3c6d0c5a81c5", sitemap)
 
     def test_legal_drafts_exist_and_are_linked_once_from_every_page(self) -> None:
         for target in ("terms", "disclaimer"):
@@ -308,7 +316,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertTrue((ROOT / "files" / "latest.json").is_file())
 
     def test_customer_copy_never_says_money_mailbox(self) -> None:
-        paths = list(ROOT.glob("*.html")) + list((ROOT / "outlook").glob("*.html")) + [ROOT / "assets" / "motion.js"]
+        paths = root_html_pages() + list((ROOT / "outlook").glob("*.html")) + [ROOT / "assets" / "motion.js"]
         for path in paths:
             with self.subTest(path=path.name):
                 self.assertNotIn("money mailbox", path.read_text(encoding="utf-8").lower())
@@ -534,7 +542,7 @@ class ContentSecurityPolicy(unittest.TestCase):
 
     def setUp(self) -> None:
         self.pages = {
-            path.name: path.read_text(encoding="utf-8") for path in sorted(ROOT.glob("*.html"))
+            path.name: path.read_text(encoding="utf-8") for path in root_html_pages()
         }
 
     def test_every_page_declares_the_restrictive_policy(self) -> None:
