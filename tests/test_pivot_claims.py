@@ -699,6 +699,9 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn(">Company</button>", nav)
         self.assertNotIn(">About Signet7</a>", nav)
 
+    def test_one_pager_states_listing_words_without_vsn(self) -> None:
+        """Recipients never need the word VSN. /one-pager is the same 1-2-3, not an engineer nickname."""
+        page = self.pages["one-pager.html"]
     def test_companies_page_does_not_lead_with_vsn(self) -> None:
         """Recipients never need the word VSN. /companies is the kit spine, not an engineer nickname."""
         page = self.pages["companies.html"]
@@ -713,6 +716,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn('href="vsn"', page)
         self.assertIn("Look up a company", page)
         self.assertIn("Listed, Not listed, or Listing doesn’t match this address", page)
+        self.assertIn("Questionable email? Check it here.", page)
         self.assertIn("You list your address", page)
         self.assertIn("They list theirs", page)
         self.assertNotIn("safe to pay", page.lower())
