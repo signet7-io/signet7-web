@@ -573,7 +573,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("zoom/01.jpg", home)
         self.assertIn("data-demo-next", home)
         self.assertIn("Step 1 of 4", home)
-        self.assertIn('data-panel="vsn"', home)
+        self.assertIn('data-panel="listing"', home)
+        self.assertNotIn('data-panel="vsn"', home)
         self.assertIn('data-panel="decide"', home)
         motion = (ROOT / "assets" / "motion.js").read_text(encoding="utf-8")
         self.assertNotIn("Next · Verifiable Sender Network (VSN)", motion)
@@ -825,8 +826,14 @@ class ContentSecurityPolicy(unittest.TestCase):
         home = self.pages["index.html"]
         self._assert_page_does_not_name_vsn(home)
         motion = (ROOT / "assets" / "motion.js").read_text(encoding="utf-8")
+        css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
         self.assertNotIn("Verifiable Sender Network (VSN)", motion)
         self.assertNotIn("VSN (Verifiable Sender Network)", motion)
+        self.assertNotIn('data-panel="vsn"', home)
+        self.assertIn('data-panel="listing"', home)
+        self.assertNotIn('name === "vsn"', motion)
+        self.assertIn('name === "listing"', motion)
+        self.assertNotIn(".vsn-section", css)
         self.assertIn("High-stakes email, finally", home)
 
     def test_public_copy_does_not_say_one_listing_covers_every_mailbox(self) -> None:
