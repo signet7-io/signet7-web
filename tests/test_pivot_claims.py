@@ -132,6 +132,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("127.0.0.1", docs)
         self.assertIn("The signed app is not open yet", docs)
         self.assertIn("id=\"install\"", docs)
+        self.assertTrue((ROOT / "docs" / "index.html").is_file())
+        self.assertIn("/docs.html", (ROOT / "docs" / "index.html").read_text(encoding="utf-8"))
         self.assertIn("How to use Signet7", docs)
         self.assertIn("class=\"docs-manual\"", docs)
         self.assertIn("Contents", docs)
@@ -148,6 +150,10 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertLess(docs.find('id="verify"'), docs.find('id="signup"'))
         self.assertLess(docs.find('id="limits"'), docs.find('id="signup"'))
         self.assertLess(docs.find('id="seal"'), docs.find('id="clients"'))
+        self.assertIn("id=\"desktop\"", docs)
+        self.assertIn("The desktop helper", docs)
+        self.assertIn("Right — Status", docs)
+        self.assertLess(docs.find('id="desktop"'), docs.find('id="apple-mail"'))
         self.assertLess(docs.find('id="apple-mail"'), docs.find('id="install"'))
 
     def test_trust_page_separates_identity_evidence_and_compliance(self) -> None:
@@ -181,7 +187,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_program_page_retires_old_public_prices(self) -> None:
         programs = self.pages["programs.html"]
         for phrase in (
-            "Sell the check. One Watch. A company that can be looked up.",
+            "Check for free. Company app for several work emails.",
             "Checkout not live yet",
             "Amounts not set",
             "Inactive catalog",
@@ -253,7 +259,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_it_one_pager_exists(self) -> None:
         self.assertIn("it.html", self.pages)
         page = self.pages["it.html"].lower()
-        for phrase in ("one mailbox", "windows, mac, and linux", "127.0.0.1"):
+        for phrase in ("several named emails", "windows, mac, and linux", "127.0.0.1"):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, page)
 
@@ -393,9 +399,14 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 self.assertIn("What it is", nav)
                 self.assertRegex(nav, r'href="(\.\./)?about">About</a>')
                 self.assertRegex(nav, r'href="(\.\./)?register">Register</a>')
-                self.assertRegex(nav, r'href="(\.\./)?docs">Docs</a>')
                 self.assertRegex(nav, r'href="(\.\./)?faq">FAQ</a>')
                 self.assertRegex(nav, r'href="(\.\./)?download">Download</a>')
+                product_menu = nav.split(">Product</button>", 1)[1].split("</div>", 1)[0]
+                self.assertNotIn("Docs", product_menu)
+                self.assertRegex(
+                    nav,
+                    r">Product</button>[\s\S]*?</div>\s*</div>\s*<a href=\"(\.\./)?docs\.html\">Docs</a>\s*<div class=\"drop\">",
+                )
                 self.assertNotIn(">Check</button>", nav)
                 self.assertNotIn(">Legal</button>", nav)
                 self.assertNotIn(">Docs</button>", nav)
@@ -453,8 +464,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("pip install signet7", home)
         self.assertNotIn("pip install signet7", self.pages["download.html"])
         self.assertIn("href=\"download\"", home)
-        self.assertIn("Verifiable Sender Network (VSN)", home)
-        self.assertIn("Verifiable Sender Network", home)
+        self.assertNotIn("Verifiable Sender Network (VSN)", home)
         self.assertNotIn("$12 / $29 / $99", home)
         self.assertIn("Placeholder $12", self.pages["pay.html"])
         self.assertIn("https://account.signet7.io/account", home)
@@ -482,7 +492,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("Sideload is not Watch", self.pages["faq.html"])
         self.assertIn("more than one listing", self.pages["faq.html"])
         self.assertNotIn("One listing covers every mailbox", self.pages["faq.html"])
-        self.assertIn("One Watch on AP", self.pages["enterprise.html"])
+        self.assertIn("Named work emails", self.pages["enterprise.html"])
         programs = self.pages["programs.html"]
         self.assertIn("Team is not a catalog SKU", programs)
         self.assertNotIn("Governed agents", programs)
@@ -565,7 +575,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn('data-panel="vsn"', home)
         self.assertIn('data-panel="decide"', home)
         motion = (ROOT / "assets" / "motion.js").read_text(encoding="utf-8")
-        self.assertIn("Next · Verifiable Sender Network (VSN)", motion)
+        self.assertIn("Next · Look up a company", motion)
         self.assertIn("demoStep === 4", motion)
         home = self.pages["index.html"]
         self.assertIn("High-stakes email, finally", home)
@@ -573,7 +583,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("Make email something you can prove", home)
         self.assertNotIn("not just trust", home)
         self.assertIn("cryptographic check for high-stakes email", home.lower())
-        self.assertIn("powered by our Verifiable Sender Network (VSN)", home)
+        self.assertNotIn("powered by our Verifiable Sender Network (VSN)", home)
         self.assertIn("signed file you can produce later", home.lower())
         self.assertIn("gate actions proposed by people or AI agents", home)
 
@@ -603,6 +613,20 @@ class ContentSecurityPolicy(unittest.TestCase):
         html = (ROOT / "outlook" / "compose.html").read_text(encoding="utf-8")
         self.assertIn("inviteBtn", html)
         self.assertIn("Do not put a check link in the business letter", html)
+
+    def test_outlook_sideload_does_not_whisper_hedge(self) -> None:
+        manifest = (ROOT / "outlook" / "manifest.xml").read_text(encoding="utf-8")
+        readme = (ROOT / "outlook" / "README.md").read_text(encoding="utf-8")
+        for blob in (manifest, readme):
+            lower = blob.lower()
+            self.assertNotIn("verified is not safe", lower)
+            self.assertNotIn("unknown is not fraud", lower)
+            self.assertNotIn("listed is not trusted", lower)
+            self.assertNotIn("you still decide", lower)
+            self.assertNotIn("safe to pay", lower)
+        self.assertIn("Passive incoming check. Keep writing in Outlook.", manifest)
+        self.assertIn("Not Exchange.", readme)
+        self.assertIn("Sideload `manifest.xml`.", readme)
 
     def test_outlook_pane_uses_same_two_facts_as_the_website_check(self) -> None:
         js = (ROOT / "outlook" / "taskpane.js").read_text(encoding="utf-8")
@@ -678,6 +702,12 @@ class ContentSecurityPolicy(unittest.TestCase):
     def test_it_page_does_not_lead_with_vsn(self) -> None:
         """Recipients never need the word VSN. /it is a customer page, not docs."""
         page = self.pages["it.html"]
+    def test_one_pager_states_listing_words_without_vsn(self) -> None:
+        """Recipients never need the word VSN. /one-pager is the same 1-2-3, not an engineer nickname."""
+        page = self.pages["one-pager.html"]
+    def test_companies_page_does_not_lead_with_vsn(self) -> None:
+        """Recipients never need the word VSN. /companies is the kit spine, not an engineer nickname."""
+        page = self.pages["companies.html"]
         visible = re.sub(r"<[^>]+>", " ", page)
         self.assertIsNone(re.search(r"\bVSN\b", visible))
         desc = re.search(r'<meta name="description" content="([^"]*)"', page)
@@ -691,6 +721,10 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("Company listing lookup is", page)
         self.assertIn("List this address when the company is ready to seal outbound", page)
         self.assertIn("One mailbox", page)
+        self.assertIn("Listed, Not listed, or Listing doesn’t match this address", page)
+        self.assertIn("Questionable email? Check it here.", page)
+        self.assertIn("You list your address", page)
+        self.assertIn("They list theirs", page)
         self.assertNotIn("safe to pay", page.lower())
         self.assertNotIn("Verifiable Sender Network", page)
         self.assertNotIn("VSN lookup", page)
@@ -716,6 +750,81 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("body:not(.home) { padding-top: var(--nav-h); }", css)
         header = home.split("<header", 1)[1].split("</header>", 1)[0]
         self.assertLess(header.index("header-register"), header.index("account-login"))
+
+    def test_homepage_does_not_lead_with_vsn(self) -> None:
+        """Recipients never need the word VSN. Homepage freeze keeps H1; quiet copy does not force VSN."""
+        home = self.pages["index.html"]
+        self.assertIn('id="hero-title"', home)
+        self.assertIn("High-stakes email, finally <em>provable</em>.", home)
+        self.assertIn("Signet7 is the cryptographic check for high-stakes email", home)
+        self.assertNotIn("Verifiable Sender Network (VSN)", home)
+        self.assertNotIn("powered by our Verifiable Sender Network", home)
+        visible = re.sub(r"<[^>]+>", " ", home)
+        self.assertIsNone(re.search(r"\bVSN\b", visible))
+        desc = re.search(r'<meta name="description" content="([^"]*)"', home)
+        self.assertIsNotNone(desc)
+        self.assertNotIn("VSN", desc.group(1))
+        og = re.search(r'<meta property="og:description" content="([^"]*)"', home)
+        self.assertIsNotNone(og)
+        self.assertNotIn("VSN", og.group(1))
+        self.assertIn('href="vsn"', home)
+        self.assertIn("Look up a company", home)
+        self.assertIn("Listed", home)
+        self.assertIn("Not listed", home)
+        self.assertIn("Listing doesn’t match this address", home)
+        motion = (ROOT / "assets" / "motion.js").read_text(encoding="utf-8")
+        self.assertNotIn("Verifiable Sender Network (VSN)", motion)
+        self.assertNotIn("VSN (Verifiable Sender Network)", motion)
+        self.assertIn("Next · Look up a company", motion)
+        self.assertNotIn("safe to pay", home.lower())
+        self.assertNotIn("you still decide", home.lower())
+    def test_trust_page_does_not_lead_with_vsn(self) -> None:
+        """Recipients never need the word VSN. Trust is a customer page, not docs."""
+        trust = self.pages["trust.html"]
+        self.assertIn("Look up a company", trust)
+        self.assertNotIn("Verifiable Sender Network (VSN)", trust)
+        visible = re.sub(r"<[^>]+>", " ", trust)
+        self.assertIsNone(re.search(r"\bVSN\b", visible))
+        desc = re.search(r'<meta name="description" content="([^"]*)"', trust)
+        self.assertIsNotNone(desc)
+        self.assertNotIn("VSN", desc.group(1))
+        og = re.search(r'<meta property="og:description" content="([^"]*)"', trust)
+        self.assertIsNotNone(og)
+        self.assertNotIn("VSN", og.group(1))
+        self.assertIn('href="vsn"', trust)
+        self.assertIn("Listed, Not listed, or Listing doesn’t match this address", trust)
+        self.assertNotIn("one listing covers every mailbox", trust.lower())
+        self.assertNotIn("safe to pay", trust.lower())
+        self.assertNotIn("you still decide", trust.lower())
+    def test_about_page_does_not_lead_with_vsn(self) -> None:
+        """Recipients never need the word VSN. About is a customer page, not docs."""
+        about = self.pages["about.html"]
+        self.assertIn("<b>Look up a company</b>", about)
+        self.assertNotIn("<b>Verifiable Sender Network (VSN)</b>", about)
+        visible = re.sub(r"<[^>]+>", " ", about)
+        self.assertIsNone(re.search(r"\bVSN\b", visible))
+        desc = re.search(r'<meta name="description" content="([^"]*)"', about)
+        self.assertIsNotNone(desc)
+        self.assertNotIn("VSN", desc.group(1))
+        og = re.search(r'<meta property="og:description" content="([^"]*)"', about)
+        self.assertIsNotNone(og)
+        self.assertNotIn("VSN", og.group(1))
+        self.assertIn('href="vsn"', about)
+        self.assertIn("Look up a company", about)
+        self.assertIn("Listed, Not listed, or Listing doesn’t match this address", about)
+        self.assertIn("company listing lookup are available now", about)
+        self.assertNotIn("one listing covers every mailbox", about.lower())
+        self.assertNotIn("safe to pay", about.lower())
+    def test_public_copy_does_not_say_one_listing_covers_every_mailbox(self) -> None:
+        for name, html in self.pages.items():
+            low = html.lower()
+            with self.subTest(page=name):
+                self.assertNotIn("one listing covers every mailbox", low)
+                self.assertNotIn("covers every mailbox", low)
+                self.assertNotIn("bound to a domain", low)
+        docs = self.pages["docs.html"]
+        self.assertIn("addresses assigned to it", docs)
+        self.assertIn("Domain-wide is a choice", docs)
 
 
 if __name__ == "__main__":
