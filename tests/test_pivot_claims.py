@@ -855,6 +855,9 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIsNone(re.search(r"\bVSN\b", visible))
         self.assertIn('href="vsn"', product)
         self.assertIn("The check. Inbox Watch. Send", product)
+        self.assertIn("Listing lookup is", product)
+        self.assertNotIn("safe to pay", product.lower())
+        self.assertNotIn("you still decide", product.lower())
         self.assertNotIn("safe to pay", product.lower())
     def test_how_page_does_not_whisper_permission_to_pay(self) -> None:
         """Recipients never need the word VSN. Matched is quiet, not a sermon."""
