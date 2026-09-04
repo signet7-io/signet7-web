@@ -464,8 +464,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("pip install signet7", home)
         self.assertNotIn("pip install signet7", self.pages["download.html"])
         self.assertIn("href=\"download\"", home)
-        self.assertIn("Verifiable Sender Network (VSN)", home)
-        self.assertIn("Verifiable Sender Network", home)
+        self.assertNotIn("Verifiable Sender Network (VSN)", home)
         self.assertNotIn("$12 / $29 / $99", home)
         self.assertIn("Placeholder $12", self.pages["pay.html"])
         self.assertIn("https://account.signet7.io/account", home)
@@ -576,7 +575,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn('data-panel="vsn"', home)
         self.assertIn('data-panel="decide"', home)
         motion = (ROOT / "assets" / "motion.js").read_text(encoding="utf-8")
-        self.assertIn("Next · Verifiable Sender Network (VSN)", motion)
+        self.assertIn("Next · Look up a company", motion)
         self.assertIn("demoStep === 4", motion)
         home = self.pages["index.html"]
         self.assertIn("High-stakes email, finally", home)
@@ -584,7 +583,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("Make email something you can prove", home)
         self.assertNotIn("not just trust", home)
         self.assertIn("cryptographic check for high-stakes email", home.lower())
-        self.assertIn("powered by our Verifiable Sender Network (VSN)", home)
+        self.assertNotIn("powered by our Verifiable Sender Network (VSN)", home)
         self.assertIn("signed file you can produce later", home.lower())
         self.assertIn("gate actions proposed by people or AI agents", home)
 
@@ -720,6 +719,33 @@ class ContentSecurityPolicy(unittest.TestCase):
         header = home.split("<header", 1)[1].split("</header>", 1)[0]
         self.assertLess(header.index("header-register"), header.index("account-login"))
 
+    def test_homepage_does_not_lead_with_vsn(self) -> None:
+        """Recipients never need the word VSN. Homepage freeze keeps H1; quiet copy does not force VSN."""
+        home = self.pages["index.html"]
+        self.assertIn('id="hero-title"', home)
+        self.assertIn("High-stakes email, finally <em>provable</em>.", home)
+        self.assertIn("Signet7 is the cryptographic check for high-stakes email", home)
+        self.assertNotIn("Verifiable Sender Network (VSN)", home)
+        self.assertNotIn("powered by our Verifiable Sender Network", home)
+        visible = re.sub(r"<[^>]+>", " ", home)
+        self.assertIsNone(re.search(r"\bVSN\b", visible))
+        desc = re.search(r'<meta name="description" content="([^"]*)"', home)
+        self.assertIsNotNone(desc)
+        self.assertNotIn("VSN", desc.group(1))
+        og = re.search(r'<meta property="og:description" content="([^"]*)"', home)
+        self.assertIsNotNone(og)
+        self.assertNotIn("VSN", og.group(1))
+        self.assertIn('href="vsn"', home)
+        self.assertIn("Look up a company", home)
+        self.assertIn("Listed", home)
+        self.assertIn("Not listed", home)
+        self.assertIn("Listing doesn’t match this address", home)
+        motion = (ROOT / "assets" / "motion.js").read_text(encoding="utf-8")
+        self.assertNotIn("Verifiable Sender Network (VSN)", motion)
+        self.assertNotIn("VSN (Verifiable Sender Network)", motion)
+        self.assertIn("Next · Look up a company", motion)
+        self.assertNotIn("safe to pay", home.lower())
+        self.assertNotIn("you still decide", home.lower())
     def test_trust_page_does_not_lead_with_vsn(self) -> None:
         """Recipients never need the word VSN. Trust is a customer page, not docs."""
         trust = self.pages["trust.html"]
