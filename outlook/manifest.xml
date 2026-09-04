@@ -9,7 +9,7 @@
   <ProviderName>Signet7</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Signet7"/>
-  <Description DefaultValue="Passive incoming check. Keep writing in Outlook. Verified is not safe. Unknown is not fraud."/>
+  <Description DefaultValue="Passive incoming check. Keep writing in Outlook."/>
   <IconUrl DefaultValue="https://signet7.io/outlook/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://signet7.io/outlook/icon-48.png"/>
   <SupportUrl DefaultValue="https://signet7.io/support"/>
