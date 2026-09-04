@@ -132,6 +132,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("127.0.0.1", docs)
         self.assertIn("The signed app is not open yet", docs)
         self.assertIn("id=\"install\"", docs)
+        self.assertTrue((ROOT / "docs" / "index.html").is_file())
+        self.assertIn("/docs.html", (ROOT / "docs" / "index.html").read_text(encoding="utf-8"))
         self.assertIn("How to use Signet7", docs)
         self.assertIn("class=\"docs-manual\"", docs)
         self.assertIn("Contents", docs)
@@ -148,6 +150,10 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertLess(docs.find('id="verify"'), docs.find('id="signup"'))
         self.assertLess(docs.find('id="limits"'), docs.find('id="signup"'))
         self.assertLess(docs.find('id="seal"'), docs.find('id="clients"'))
+        self.assertIn("id=\"desktop\"", docs)
+        self.assertIn("The desktop helper", docs)
+        self.assertIn("Right — Status", docs)
+        self.assertLess(docs.find('id="desktop"'), docs.find('id="apple-mail"'))
         self.assertLess(docs.find('id="apple-mail"'), docs.find('id="install"'))
 
     def test_trust_page_separates_identity_evidence_and_compliance(self) -> None:
@@ -393,9 +399,14 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 self.assertIn("What it is", nav)
                 self.assertRegex(nav, r'href="(\.\./)?about">About</a>')
                 self.assertRegex(nav, r'href="(\.\./)?register">Register</a>')
-                self.assertRegex(nav, r'href="(\.\./)?docs">Docs</a>')
                 self.assertRegex(nav, r'href="(\.\./)?faq">FAQ</a>')
                 self.assertRegex(nav, r'href="(\.\./)?download">Download</a>')
+                product_menu = nav.split(">Product</button>", 1)[1].split("</div>", 1)[0]
+                self.assertNotIn("Docs", product_menu)
+                self.assertRegex(
+                    nav,
+                    r">Product</button>[\s\S]*?</div>\s*</div>\s*<a href=\"(\.\./)?docs\.html\">Docs</a>\s*<div class=\"drop\">",
+                )
                 self.assertNotIn(">Check</button>", nav)
                 self.assertNotIn(">Legal</button>", nav)
                 self.assertNotIn(">Docs</button>", nav)
