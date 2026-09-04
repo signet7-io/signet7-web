@@ -5,8 +5,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
-
-ROOT = Path(__file__).resolve().parents[1]
+from tests.site_html import ROOT, root_html_pages
 
 
 class _Links(HTMLParser):
@@ -28,7 +27,7 @@ class _Links(HTMLParser):
 class PublicLinkContractTests(unittest.TestCase):
     def test_every_local_link_stays_inside_the_public_export_and_resolves(self) -> None:
         documents: dict[Path, _Links] = {}
-        for path in sorted(ROOT.glob("*.html")):
+        for path in root_html_pages():
             parser = _Links()
             parser.feed(path.read_text(encoding="utf-8"))
             documents[path.resolve()] = parser

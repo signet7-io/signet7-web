@@ -1,9 +1,8 @@
 from __future__ import annotations
 
 import unittest
-from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+from tests.site_html import ROOT, root_html_pages
 
 
 class SiteFreeze20260822Tests(unittest.TestCase):
@@ -53,7 +52,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
 
     def test_loop_on_every_page_under_the_hero(self) -> None:
         self.assertIn("calc(12px + 1.5in)", self.css)
-        for path in sorted(ROOT.glob("*.html")):
+        for path in root_html_pages():
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
                 pin = "assets/site.css?v=20260902d"
@@ -81,7 +80,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
 
     def test_footer_rights_and_wrongs(self) -> None:
         line = "All rights reserved, All wrongs revenged."
-        for path in sorted(ROOT.glob("*.html")):
+        for path in root_html_pages():
             with self.subTest(page=path.name):
                 self.assertIn(line, path.read_text(encoding="utf-8"))
 
@@ -90,7 +89,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
         product = (ROOT / "product.html").read_text(encoding="utf-8")
         self.assertEqual(home.count("people-once.jpg"), 1)
-        for path in sorted(ROOT.glob("*.html")):
+        for path in root_html_pages():
             if path.name == "index.html":
                 continue
             html = path.read_text(encoding="utf-8")
