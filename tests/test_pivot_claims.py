@@ -132,6 +132,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("127.0.0.1", docs)
         self.assertIn("The signed app is not open yet", docs)
         self.assertIn("id=\"install\"", docs)
+        self.assertTrue((ROOT / "docs" / "index.html").is_file())
+        self.assertIn("/docs.html", (ROOT / "docs" / "index.html").read_text(encoding="utf-8"))
         self.assertIn("How to use Signet7", docs)
         self.assertIn("class=\"docs-manual\"", docs)
         self.assertIn("Contents", docs)
@@ -148,6 +150,10 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertLess(docs.find('id="verify"'), docs.find('id="signup"'))
         self.assertLess(docs.find('id="limits"'), docs.find('id="signup"'))
         self.assertLess(docs.find('id="seal"'), docs.find('id="clients"'))
+        self.assertIn("id=\"desktop\"", docs)
+        self.assertIn("The desktop helper", docs)
+        self.assertIn("Right — Status", docs)
+        self.assertLess(docs.find('id="desktop"'), docs.find('id="apple-mail"'))
         self.assertLess(docs.find('id="apple-mail"'), docs.find('id="install"'))
 
     def test_trust_page_separates_identity_evidence_and_compliance(self) -> None:
@@ -181,7 +187,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_program_page_retires_old_public_prices(self) -> None:
         programs = self.pages["programs.html"]
         for phrase in (
-            "Sell the check. One Watch. A company that can be looked up.",
+            "Check for free. Company app for several work emails.",
             "Checkout not live yet",
             "Amounts not set",
             "Inactive catalog",
@@ -253,7 +259,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_it_one_pager_exists(self) -> None:
         self.assertIn("it.html", self.pages)
         page = self.pages["it.html"].lower()
-        for phrase in ("one mailbox", "windows, mac, and linux", "127.0.0.1"):
+        for phrase in ("several named emails", "windows, mac, and linux", "127.0.0.1"):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, page)
 
@@ -393,9 +399,14 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 self.assertIn("What it is", nav)
                 self.assertRegex(nav, r'href="(\.\./)?about">About</a>')
                 self.assertRegex(nav, r'href="(\.\./)?register">Register</a>')
-                self.assertRegex(nav, r'href="(\.\./)?docs">Docs</a>')
                 self.assertRegex(nav, r'href="(\.\./)?faq">FAQ</a>')
                 self.assertRegex(nav, r'href="(\.\./)?download">Download</a>')
+                product_menu = nav.split(">Product</button>", 1)[1].split("</div>", 1)[0]
+                self.assertNotIn("Docs", product_menu)
+                self.assertRegex(
+                    nav,
+                    r">Product</button>[\s\S]*?</div>\s*</div>\s*<a href=\"(\.\./)?docs\.html\">Docs</a>\s*<div class=\"drop\">",
+                )
                 self.assertNotIn(">Check</button>", nav)
                 self.assertNotIn(">Legal</button>", nav)
                 self.assertNotIn(">Docs</button>", nav)
@@ -482,7 +493,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("Sideload is not Watch", self.pages["faq.html"])
         self.assertIn("more than one listing", self.pages["faq.html"])
         self.assertNotIn("One listing covers every mailbox", self.pages["faq.html"])
-        self.assertIn("One Watch on AP", self.pages["enterprise.html"])
+        self.assertIn("Named work emails", self.pages["enterprise.html"])
         programs = self.pages["programs.html"]
         self.assertIn("Team is not a catalog SKU", programs)
         self.assertNotIn("Governed agents", programs)
@@ -604,6 +615,20 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("inviteBtn", html)
         self.assertIn("Do not put a check link in the business letter", html)
 
+    def test_outlook_sideload_does_not_whisper_hedge(self) -> None:
+        manifest = (ROOT / "outlook" / "manifest.xml").read_text(encoding="utf-8")
+        readme = (ROOT / "outlook" / "README.md").read_text(encoding="utf-8")
+        for blob in (manifest, readme):
+            lower = blob.lower()
+            self.assertNotIn("verified is not safe", lower)
+            self.assertNotIn("unknown is not fraud", lower)
+            self.assertNotIn("listed is not trusted", lower)
+            self.assertNotIn("you still decide", lower)
+            self.assertNotIn("safe to pay", lower)
+        self.assertIn("Passive incoming check. Keep writing in Outlook.", manifest)
+        self.assertIn("Not Exchange.", readme)
+        self.assertIn("Sideload `manifest.xml`.", readme)
+
     def test_outlook_pane_uses_same_two_facts_as_the_website_check(self) -> None:
         js = (ROOT / "outlook" / "taskpane.js").read_text(encoding="utf-8")
         pane = (ROOT / "outlook" / "taskpane.html").read_text(encoding="utf-8")
@@ -714,6 +739,16 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("company listing lookup are available now", about)
         self.assertNotIn("one listing covers every mailbox", about.lower())
         self.assertNotIn("safe to pay", about.lower())
+    def test_public_copy_does_not_say_one_listing_covers_every_mailbox(self) -> None:
+        for name, html in self.pages.items():
+            low = html.lower()
+            with self.subTest(page=name):
+                self.assertNotIn("one listing covers every mailbox", low)
+                self.assertNotIn("covers every mailbox", low)
+                self.assertNotIn("bound to a domain", low)
+        docs = self.pages["docs.html"]
+        self.assertIn("addresses assigned to it", docs)
+        self.assertIn("Domain-wide is a choice", docs)
 
 
 if __name__ == "__main__":
