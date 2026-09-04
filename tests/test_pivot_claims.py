@@ -800,6 +800,15 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("Today only Signet7's own domain is in that lookup", page)
         self.assertNotIn("VSN lookup", page)
 
+    def test_docs_page_visible_copy_does_not_name_vsn(self) -> None:
+        """Recipients never need the word VSN. Keep the /vsn lookup URL."""
+        page = self.pages["docs.html"]
+        visible = re.sub(r"<[^>]+>", " ", page)
+        self.assertIsNone(re.search(r"vsn", visible, re.I))
+        self.assertIn('href="https://verify.signet7.io/vsn"', page)
+        self.assertIn("Look up a company", page)
+        self.assertIn("Listing lookup", page)
+
     def test_docs_page_does_not_whisper_then_you_decide(self) -> None:
         page = self.pages["docs.html"]
         self.assertIn("Matched, unmatched, or unknown.", page)
