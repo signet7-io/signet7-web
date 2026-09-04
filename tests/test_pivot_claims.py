@@ -757,6 +757,9 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn(">Company</button>", nav)
         self.assertNotIn(">About Signet7</a>", nav)
 
+    def test_watch_page_does_not_lead_with_vsn(self) -> None:
+        """Recipients never need the word VSN. Watch is a customer page, not docs."""
+        page = self.pages["watch.html"]
     def test_loop_page_does_not_lead_with_vsn(self) -> None:
         """Recipients never need the word VSN. /loop is a customer page, not docs."""
         loop = self.pages["loop.html"]
@@ -833,6 +836,9 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("VSN", og.group(1))
         self.assertIn('href="vsn"', page)
         self.assertIn("Look up a company", page)
+        self.assertIn("Each of those emails gets its own listing.", page)
+        self.assertIn("Not every staff laptop", page)
+        self.assertIn("Recipients never install it", page)
         self.assertIn("live public company directory", page)
         self.assertNotIn("Verifiable Sender Network", page)
         self.assertNotIn("managed VSN service", page)
@@ -864,6 +870,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("Verifiable Sender Network", page)
         self.assertNotIn("safe to pay", page.lower())
         self.assertNotIn("one listing covers every mailbox", page.lower())
+        self.assertIn("Named work emails. Company computers only.", page)
+        self.assertIn("High-stakes email, finally", self.pages["index.html"])
         self.assertIn("Check for free. Company app for several work emails.", page)
         self.assertIn("High-stakes email, finally", self.pages["index.html"])
         self.assertIn("High-stakes email, finally", self.pages["index.html"])
