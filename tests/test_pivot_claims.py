@@ -706,6 +706,17 @@ class ContentSecurityPolicy(unittest.TestCase):
         header = home.split("<header", 1)[1].split("</header>", 1)[0]
         self.assertLess(header.index("header-register"), header.index("account-login"))
 
+    def test_public_copy_does_not_say_one_listing_covers_every_mailbox(self) -> None:
+        for name, html in self.pages.items():
+            low = html.lower()
+            with self.subTest(page=name):
+                self.assertNotIn("one listing covers every mailbox", low)
+                self.assertNotIn("covers every mailbox", low)
+                self.assertNotIn("bound to a domain", low)
+        docs = self.pages["docs.html"]
+        self.assertIn("addresses assigned to it", docs)
+        self.assertIn("Domain-wide is a choice", docs)
+
 
 if __name__ == "__main__":
     unittest.main()
