@@ -615,6 +615,20 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("inviteBtn", html)
         self.assertIn("Do not put a check link in the business letter", html)
 
+    def test_outlook_sideload_does_not_whisper_hedge(self) -> None:
+        manifest = (ROOT / "outlook" / "manifest.xml").read_text(encoding="utf-8")
+        readme = (ROOT / "outlook" / "README.md").read_text(encoding="utf-8")
+        for blob in (manifest, readme):
+            lower = blob.lower()
+            self.assertNotIn("verified is not safe", lower)
+            self.assertNotIn("unknown is not fraud", lower)
+            self.assertNotIn("listed is not trusted", lower)
+            self.assertNotIn("you still decide", lower)
+            self.assertNotIn("safe to pay", lower)
+        self.assertIn("Passive incoming check. Keep writing in Outlook.", manifest)
+        self.assertIn("Not Exchange.", readme)
+        self.assertIn("Sideload `manifest.xml`.", readme)
+
     def test_outlook_pane_uses_same_two_facts_as_the_website_check(self) -> None:
         js = (ROOT / "outlook" / "taskpane.js").read_text(encoding="utf-8")
         pane = (ROOT / "outlook" / "taskpane.html").read_text(encoding="utf-8")
