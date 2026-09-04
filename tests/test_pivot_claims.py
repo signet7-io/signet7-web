@@ -720,6 +720,25 @@ class ContentSecurityPolicy(unittest.TestCase):
         header = home.split("<header", 1)[1].split("</header>", 1)[0]
         self.assertLess(header.index("header-register"), header.index("account-login"))
 
+    def test_about_page_does_not_lead_with_vsn(self) -> None:
+        """Recipients never need the word VSN. About is a customer page, not docs."""
+        about = self.pages["about.html"]
+        self.assertIn("<b>Look up a company</b>", about)
+        self.assertNotIn("<b>Verifiable Sender Network (VSN)</b>", about)
+        visible = re.sub(r"<[^>]+>", " ", about)
+        self.assertIsNone(re.search(r"\bVSN\b", visible))
+        desc = re.search(r'<meta name="description" content="([^"]*)"', about)
+        self.assertIsNotNone(desc)
+        self.assertNotIn("VSN", desc.group(1))
+        og = re.search(r'<meta property="og:description" content="([^"]*)"', about)
+        self.assertIsNotNone(og)
+        self.assertNotIn("VSN", og.group(1))
+        self.assertIn('href="vsn"', about)
+        self.assertIn("Look up a company", about)
+        self.assertIn("Listed, Not listed, or Listing doesn’t match this address", about)
+        self.assertIn("company listing lookup are available now", about)
+        self.assertNotIn("one listing covers every mailbox", about.lower())
+        self.assertNotIn("safe to pay", about.lower())
     def test_public_copy_does_not_say_one_listing_covers_every_mailbox(self) -> None:
         for name, html in self.pages.items():
             low = html.lower()
