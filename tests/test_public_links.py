@@ -52,6 +52,13 @@ class PublicLinkContractTests(unittest.TestCase):
                     except ValueError:
                         failures.append(f"{source.name}: escapes public export: {raw}")
                         continue
+                if target.is_dir():
+                    sibling_html = target.with_suffix(".html")
+                    index = target / "index.html"
+                    if sibling_html.is_file():
+                        target = sibling_html
+                    elif index.is_file():
+                        target = index
                 if not target.exists() and target.suffix == "":
                     html_target = target.with_name(target.name + ".html")
                     if html_target.exists():
