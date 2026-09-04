@@ -39,9 +39,9 @@
  <a href="product">What it is</a>
  <a href="vsn">Look up a company</a>
  <a href="faq">FAQ</a>
+ <a href="docs">Docs</a>
  </div>
  </div>
- <a href="docs.html">Docs</a>
  <div class="drop">
  <button type="button" class="drop-btn" aria-expanded="false">Company</button>
  <div class="drop-menu">
@@ -76,7 +76,6 @@
  <a href="#seal">Seal outgoing mail</a>
  <a href="#clients">Use each mail app</a>
  <a href="#gmail-gcp">Google Cloud for Gmail</a>
- <a href="#desktop">The desktop helper</a>
  <a href="#apple-mail">Seal from Apple Mail</a>
  <a href="#install">Install the desktop app</a>
  <p class="docs-nav-group">For engineers</p>
@@ -113,7 +112,7 @@
  <div class="scope-list">
  <div class="scope-row"><b>This site</b><span><a href="https://signet7.io">signet7.io</a>. Product, docs, and legal. No paste box.</span></div>
  <div class="scope-row"><b>Live check</b><span><a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a>. Check a message. No account.</span></div>
- <div class="scope-row"><b>VSN lookup</b><span><a href="https://verify.signet7.io/vsn">verify.signet7.io/vsn</a>. Whether a signing key is still bound to a domain. Not a check of one message. Today only Signet7's own domain is in that lookup.</span></div>
+ <div class="scope-row"><b>Listing lookup</b><span><a href="https://verify.signet7.io/vsn">verify.signet7.io/vsn</a>. Whether a signing key is still listed for this company. Recipients see Listed, Not listed, or Listing doesn’t match this address. Not a check of one message. Today only Signet7's own domain is in that lookup.</span></div>
  <div class="scope-row"><b>Account</b><span><a href="https://account.signet7.io/account">account.signet7.io/account</a>. Company sign-up and sign-in.</span></div>
  <div class="scope-row"><b>Seal</b><span><a href="https://seal.signet7.io">seal.signet7.io</a>. Desktop helper posts here. No hosted compose. Token still comes from account.</span></div>
  </div>
@@ -247,24 +246,6 @@
  </div>
  </section>
 
- <section class="section section-line" id="desktop">
- <div class="container">
- <h2>The desktop helper</h2>
- <p class="section-intro">Same window on Windows, Mac, and Linux. Signet7 is not a mail app. You still write and send in Outlook, Apple Mail, or Thunderbird. The helper watches one company inbox on this computer, stamps outgoing mail when that app sends through <strong>127.0.0.1:2525</strong>, and stays quiet unless a named sender arrives unsealed or a seal is broken. Recipients never install it.</p>
- <p class="docs-note">The signed download is not open yet. Use this layout when the helper is running. The footer must read <strong>Listening on 127.0.0.1:2525</strong> before a mail app can seal through it.</p>
- <div class="scope-list">
- <div class="scope-row"><b>Header</b><span>Signet7 and Mailbox helper. <strong>Help</strong> (top right) opens Mail app SMTP steps and Send feedback. Those are not tabs.</span></div>
- <div class="scope-row"><b>Left — Mailbox</b><span>Provider, email, app password, Signet7 token, and who must seal. Outgoing: auto-seal and the real SMTP host (for Gmail, <code>smtp.gmail.com</code>, not 127.0.0.1). <strong>Save and watch</strong> starts the listener.</span></div>
- <div class="scope-row"><b>Right — Status</b><span>Always visible. Watch counts, last warning, <strong>Check now</strong>, <strong>Open last warning</strong>, and <strong>History</strong> (warnings only; quiet checks stay off that list).</span></div>
- <div class="scope-row"><b>Footer</b><span>Green dot and Listening on 127.0.0.1:2525. Closing the window hides it. The helper keeps listening until you quit.</span></div>
- </div>
- <figure class="docs-figure">
- <img src="assets/docs-signet7-mailbox-helper.png" width="903" height="1024" alt="Signet7 Mailbox helper: Gmail on the left, Status rail on the right with Check now, Open last warning, and History, Save and watch, listening on 127.0.0.1 port 2525">
- <figcaption>Mailbox on the left, Status on the right. SMTP host stays your provider. The helper listens on 127.0.0.1:2525 for the mail app.</figcaption>
- </figure>
- </div>
- </section>
-
  <section class="section section-line" id="apple-mail">
  <div class="container">
  <h2>Seal from Apple Mail (when the helper is running)</h2>
@@ -273,7 +254,7 @@
 
  <h3>1. Configure the Signet7 helper</h3>
  <ol>
- <li>Open Signet7. Mailbox settings are on the left. Status is on the right.</li>
+ <li>Open Signet7. Stay on the <strong>Mailbox</strong> tab.</li>
  <li>Provider: <strong>Gmail</strong>.</li>
  <li>Email: your full Gmail address.</li>
  <li>Google app password: the 16-letter app password, not your Google login password, not the Google Cloud client ID. Create the Cloud app first (<a href="docs#gmail-gcp">steps</a>), then the app password at <a href="https://myaccount.google.com/apppasswords">myaccount.google.com/apppasswords</a>. After you save, the row must read <strong>(16 characters)</strong>.</li>
@@ -285,8 +266,8 @@
  <li>Click <strong>Save and watch</strong>. Confirm the footer: Listening on 127.0.0.1:2525.</li>
  </ol>
  <figure class="docs-figure">
- <img src="assets/docs-signet7-mailbox-helper.png" width="903" height="1024" alt="Signet7 Mailbox helper: Gmail on the left, Status rail on the right with Check now, Open last warning, and History, Save and watch, listening on 127.0.0.1 port 2525">
- <figcaption>Signet7 helper. Mailbox on the left, Status on the right. SMTP host stays smtp.gmail.com. The helper listens on 127.0.0.1:2525 for Mail.</figcaption>
+ <img src="assets/docs-signet7-mailbox-helper.png" width="693" height="827" alt="Signet7 Mailbox helper: Gmail, 16-character Google app password, 64-character Signet7 token, auto-seal on, SMTP host smtp.gmail.com, Save and watch, listening on 127.0.0.1 port 2525">
+ <figcaption>Signet7 helper, Mailbox tab. SMTP host stays smtp.gmail.com. The helper listens on 127.0.0.1:2525 for Mail.</figcaption>
  </figure>
 
  <h3>2. Add an Other IMAP account in Mail</h3>
