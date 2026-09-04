@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import re
 import unittest
 from pathlib import Path
@@ -36,6 +37,28 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                     self.assertNotIn(f"<loc>{canonical}</loc>", sitemap)
                 else:
                     self.assertIn(f"<loc>{canonical}</loc>", sitemap)
+                    self.assertIn("<lastmod>2026-09-04</lastmod>", sitemap)
+
+    def test_homepage_exposes_claim_safe_structured_data(self) -> None:
+        ld_path = ROOT / "assets" / "ld-website.json"
+        payload = json.loads(ld_path.read_text(encoding="utf-8"))
+        home = self.pages["index.html"]
+        self.assertIn('type="application/ld+json" src="assets/ld-website.json"', home)
+        self.assertIn('rel="alternate" type="application/ld+json" href="assets/ld-website.json"', home)
+        types = {node.get("@type") for node in payload["@graph"]}
+        self.assertEqual(types, {"WebSite", "Organization"})
+        combined = json.dumps(payload).lower()
+        for banned in ("compliant", "certified", "soc 2", "eidas", "five stars", "aggregateRating"):
+            self.assertNotIn(banned, combined)
+        self.assertEqual(payload["@graph"][0]["description"], (
+            "High-stakes email, finally provable. Signet7 is the cryptographic "
+            "check for high-stakes email."
+        ))
+
+    def test_bing_indexnow_key_file_matches_its_name(self) -> None:
+        key = "31c6ab5cca284146bb0b26bd193d25e2"
+        key_file = ROOT / f"{key}.txt"
+        self.assertEqual(key_file.read_text(encoding="utf-8").strip(), key)
 
     def test_legal_drafts_exist_and_are_linked_once_from_every_page(self) -> None:
         for target in ("terms", "disclaimer"):
