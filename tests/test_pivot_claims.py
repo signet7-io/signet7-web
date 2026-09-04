@@ -465,6 +465,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("pip install signet7", self.pages["download.html"])
         self.assertIn("href=\"download\"", home)
         self.assertNotIn("Verifiable Sender Network (VSN)", home)
+        self.assertNotIn("Verifiable Sender Network", home)
         self.assertNotIn("$12 / $29 / $99", home)
         self.assertIn("Placeholder $12", self.pages["pay.html"])
         self.assertIn("https://account.signet7.io/account", home)
@@ -805,6 +806,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         header = home.split("<header", 1)[1].split("</header>", 1)[0]
         self.assertLess(header.index("header-register"), header.index("account-login"))
 
+    def test_homepage_does_not_name_vsn(self) -> None:
+        """Recipients never need the word VSN. Homepage freeze keeps H1."""
     def test_docs_page_does_not_whisper_then_you_decide(self) -> None:
         """The check lists facts. Recipients never need a sermon."""
         page = self.pages["docs.html"]
@@ -892,6 +895,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("Listed", home)
         self.assertIn("Not listed", home)
         self.assertIn("Listing doesn’t match this address", home)
+        self.assertNotIn("Verifiable Sender Network", home)
+        self.assertNotIn("powered by our Verifiable Sender Network", home)
         motion = (ROOT / "assets" / "motion.js").read_text(encoding="utf-8")
         self.assertNotIn("Verifiable Sender Network (VSN)", motion)
         self.assertNotIn("VSN (Verifiable Sender Network)", motion)
