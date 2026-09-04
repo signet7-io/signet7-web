@@ -284,6 +284,27 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, page)
 
+    def test_vsn_page_does_not_lead_with_vsn(self) -> None:
+        """Recipients never need the word VSN. /vsn is a customer page, not docs."""
+        page = self.pages["vsn.html"]
+        visible = re.sub(r"<[^>]+>", " ", page)
+        self.assertIsNone(re.search(r"\bVSN\b", visible))
+        desc = re.search(r'<meta name="description" content="([^"]*)"', page)
+        self.assertIsNotNone(desc)
+        self.assertNotIn("VSN", desc.group(1))
+        og = re.search(r'<meta property="og:description" content="([^"]*)"', page)
+        self.assertIsNotNone(og)
+        self.assertNotIn("VSN", og.group(1))
+        self.assertIn('href="vsn"', page)
+        self.assertIn("Look up a company", page)
+        self.assertIn("Listed, Not listed, or Listing doesn’t match this address", page)
+        self.assertIn("not Watch on every laptop", page)
+        self.assertIn("Invite once per recipient", page)
+        self.assertIn("Link the company you pay.", page)
+        self.assertNotIn("Verifiable Sender Network", page)
+        self.assertNotIn("safe to pay", page.lower())
+        self.assertNotIn("set and forget", page.lower())
+
     def test_download_page_ships_unsigned_watch_zips(self) -> None:
         self.assertIn("download.html", self.pages)
         download = self.pages["download.html"]
