@@ -789,6 +789,22 @@ class ContentSecurityPolicy(unittest.TestCase):
         header = home.split("<header", 1)[1].split("</header>", 1)[0]
         self.assertLess(header.index("header-register"), header.index("account-login"))
 
+    def test_product_page_does_not_lead_with_vsn(self) -> None:
+        """Recipients never need the word VSN. Product meta is public copy."""
+        product = self.pages["product.html"]
+        desc = re.search(r'<meta name="description" content="([^"]*)"', product)
+        self.assertIsNotNone(desc)
+        self.assertNotIn("VSN", desc.group(1))
+        self.assertNotIn("Verifiable Sender Network", desc.group(1))
+        og = re.search(r'<meta property="og:description" content="([^"]*)"', product)
+        self.assertIsNotNone(og)
+        self.assertNotIn("VSN", og.group(1))
+        self.assertNotIn("Verifiable Sender Network", og.group(1))
+        visible = re.sub(r"<[^>]+>", " ", product)
+        self.assertIsNone(re.search(r"\bVSN\b", visible))
+        self.assertIn('href="vsn"', product)
+        self.assertIn("The check. Inbox Watch. Send", product)
+        self.assertNotIn("safe to pay", product.lower())
     def test_how_page_does_not_whisper_permission_to_pay(self) -> None:
         """Recipients never need the word VSN. Matched is quiet, not a sermon."""
         how = self.pages["how.html"]
