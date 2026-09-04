@@ -9,14 +9,8 @@ Signet7 is the trust layer for consequential email. It is designed to help a
 recipient inspect supported sender/key evidence and declared protected-component
 integrity before acting, then preserve the verifier response for later review.
 
-> **Verified does not mean the message is safe, truthful, lawful, malware-free,
-> confidential, or prudent to act on.**
-
 > **This message is not Signet7-sealed. That is normal for ordinary email and is
 > not evidence of tampering or fraud.**
-
-> **Verified does not mean safe to act. Unknown, unsealed, unsupported, or
-> unverified does not mean fraudulent.**
 
 ## Export boundary
 
