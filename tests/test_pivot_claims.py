@@ -675,6 +675,28 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn(">Company</button>", nav)
         self.assertNotIn(">About Signet7</a>", nav)
 
+    def test_scenarios_page_does_not_lead_with_vsn(self) -> None:
+        """Recipients never need the word VSN. /scenarios is a customer page, not docs."""
+        page = self.pages["scenarios.html"]
+        visible = re.sub(r"<[^>]+>", " ", page)
+        self.assertIsNone(re.search(r"\bVSN\b", visible))
+        desc = re.search(r'<meta name="description" content="([^"]*)"', page)
+        self.assertIsNotNone(desc)
+        self.assertNotIn("VSN", desc.group(1))
+        og = re.search(r'<meta property="og:description" content="([^"]*)"', page)
+        self.assertIsNotNone(og)
+        self.assertNotIn("VSN", og.group(1))
+        self.assertIn('href="vsn"', page)
+        self.assertIn("Look up a company", page)
+        self.assertIn("Company listing lookup is", page)
+        self.assertIn("What a clerk actually does.", page)
+        self.assertIn("Checking stays free", page)
+        self.assertIn("https://verify.signet7.io/vsn", page)
+        self.assertNotIn("safe to pay", page.lower())
+        self.assertNotIn("Verifiable Sender Network", page)
+        self.assertNotIn("VSN lookup", page)
+        self.assertNotIn("one listing covers every mailbox", page.lower())
+
     def test_try_samples_and_locked_register_login(self) -> None:
         home = self.pages["index.html"]
         self.assertNotIn(">Check a message</a>", home)
