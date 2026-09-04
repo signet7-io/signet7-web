@@ -715,6 +715,27 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn(">Company</button>", nav)
         self.assertNotIn(">About Signet7</a>", nav)
 
+    def test_loop_page_does_not_lead_with_vsn(self) -> None:
+        """Recipients never need the word VSN. /loop is a customer page, not docs."""
+        loop = self.pages["loop.html"]
+        visible = re.sub(r"<[^>]+>", " ", loop)
+        self.assertIsNone(re.search(r"\bVSN\b", visible))
+        desc = re.search(r'<meta name="description" content="([^"]*)"', loop)
+        self.assertIsNotNone(desc)
+        self.assertNotIn("VSN", desc.group(1))
+        og = re.search(r'<meta property="og:description" content="([^"]*)"', loop)
+        self.assertIsNotNone(og)
+        self.assertNotIn("VSN", og.group(1))
+        self.assertIn('href="vsn"', loop)
+        self.assertIn("Look up a company", loop)
+        self.assertIn("You list your address", loop)
+        self.assertIn("They list theirs", loop)
+        self.assertNotIn("safe to pay", loop.lower())
+        self.assertNotIn("set and forget", loop.lower())
+        self.assertNotIn("never check again", loop.lower())
+        self.assertIn("This is not a video file", loop)
+        self.assertIn("Recipients never install", loop)
+        self.assertIn("<h1>Link two companies.</h1>", loop)
     def test_pilot_page_does_not_lead_with_vsn(self) -> None:
         """Recipients never need the word VSN. /pilot is a customer page, not docs."""
         page = self.pages["pilot.html"]
