@@ -819,6 +819,15 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("permission to pay", check.lower())
         self.assertNotIn("Verified is not safe", check)
 
+    def test_check_page_visible_copy_does_not_name_vsn(self) -> None:
+        """Recipients never need the word VSN. Keep the /vsn lookup URL."""
+        check = self.pages["check.html"]
+        visible = re.sub(r"<[^>]+>", " ", check)
+        self.assertIsNone(re.search(r"vsn", visible, re.I))
+        self.assertIn('href="https://verify.signet7.io/vsn"', check)
+        self.assertIn("Look up a company", check)
+        self.assertIn("Listed for this address", check)
+
     def test_how_page_does_not_whisper_permission_to_pay(self) -> None:
         how = self.pages["how.html"]
         self._assert_page_does_not_name_vsn(how)
