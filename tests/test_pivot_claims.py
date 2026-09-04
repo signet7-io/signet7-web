@@ -715,6 +715,9 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn(">Company</button>", nav)
         self.assertNotIn(">About Signet7</a>", nav)
 
+    def test_smtp_page_does_not_lead_with_vsn(self) -> None:
+        """Recipients never need the word VSN. /smtp is a customer page, not docs."""
+        page = self.pages["smtp.html"]
     def test_enterprise_page_does_not_lead_with_vsn(self) -> None:
         """Recipients never need the word VSN. /enterprise is a customer page, not docs."""
         page = self.pages["enterprise.html"]
@@ -758,6 +761,10 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("VSN", og.group(1))
         self.assertIn('href="vsn"', page)
         self.assertIn("Look up a company", page)
+        self.assertIn("Company listing lookup is", page)
+        self.assertIn("Stay in Outlook. We stamp the send.", page)
+        self.assertIn("Checking stays free", page)
+        self.assertIn("https://verify.signet7.io/vsn", page)
         self.assertIn("List this address when you seal outbound", page)
         self.assertIn("Named work emails", page)
         self.assertIn("A company can prove the email before anyone acts.", page)
