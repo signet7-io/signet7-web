@@ -1881,6 +1881,11 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
   font-size: 15px;
 }
 .hero-steps li { margin: 0; }
+.hero-steps a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .home .air-hero .hero-actions {
   justify-content: center;
   margin-top: 22px;

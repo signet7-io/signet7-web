@@ -6,7 +6,7 @@
       "@id": "https://signet7.io/#website",
       "url": "https://signet7.io/",
       "name": "Signet7",
-      "description": "High-stakes email, finally provable. Signet7 is the cryptographic check for high-stakes email.",
+      "description": "High-stakes email, finally provable. Signet7 is the cryptographic seal and check for high-stakes email.",
       "inLanguage": "en",
       "publisher": {
         "@id": "https://signet7.io/#organization"

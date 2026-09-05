@@ -51,7 +51,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             self.assertNotIn(banned, combined)
         self.assertEqual(payload["@graph"][0]["description"], (
             "High-stakes email, finally provable. Signet7 is the cryptographic "
-            "check for high-stakes email."
+            "seal and check for high-stakes email."
         ))
 
     def test_bing_indexnow_key_file_matches_its_name(self) -> None:
@@ -509,7 +509,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("isolated qualification", low)
         self.assertNotIn("api/mcp-first", low)
         self.assertNotIn("executewire", low)
-        self.assertIn("The check. One Watch. A company that can be looked up.", home)
+        self.assertIn("The check. Send &amp; seal. One Watch.", home)
         self.assertIn("Not a thousand installs", home)
         self.assertIn("vanity seats", home)
         self.assertIn("What Watch does", self.pages["download.html"])
@@ -615,7 +615,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("provable", home)
         self.assertNotIn("Make email something you can prove", home)
         self.assertNotIn("not just trust", home)
-        self.assertIn("cryptographic check for high-stakes email", home.lower())
+        self.assertIn("cryptographic seal and check for high-stakes email", home.lower())
         self.assertNotIn("powered by our Verifiable Sender Network (VSN)", home)
         self.assertIn("signed file you can produce later", home.lower())
         self.assertIn("gate actions proposed by people or AI agents", home)
@@ -675,9 +675,9 @@ class ContentSecurityPolicy(unittest.TestCase):
         home = self.pages["index.html"]
         self.assertIn('id="hero-title"', home)
         self.assertIn("High-stakes email, finally", home)
-        self.assertIn("Questionable email? Check it here.", home)
+        self.assertIn("Signet7 can seal the send and check the seal.", home)
         self.assertIn("Save the original.", home)
-        self.assertIn("Drop it here.", home)
+        self.assertIn("Verify on <a href=\"https://verify.signet7.io/email/verify\">Signet7</a>.", home)
         how = self.pages["how.html"]
         self.assertIn("https://verify.signet7.io/email/verify", how)
         self.assertIn("Questionable email? Check it here.", how)
@@ -881,7 +881,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("this is not Authenticode", docs)
         self.assertNotIn("Not available yet.", docs)
         self.assertNotIn("The signed helper is not downloadable yet", docs)
-        self.assertIn("The unsigned helper stamps that exact message", smtp)
+        self.assertIn("The unsigned helper cryptographically seals that exact message", smtp)
         self.assertIn("Preview · unsigned", smtp)
         self.assertIn("Not Authenticode", smtp)
         self.assertNotIn("Verified is not safe", smtp)
