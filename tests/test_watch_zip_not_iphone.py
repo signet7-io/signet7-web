@@ -33,8 +33,8 @@ class WatchZipNotIphoneTests(unittest.TestCase):
     def test_watch_and_download_stay_claim_safe(self) -> None:
         for name, html in (("watch", self.watch), ("download", self.download)):
             with self.subTest(page=name):
-                self.assertNotIn("VSN", html)
                 self.assertNotIn("Qual", html)
+                self.assertIn("VSN identity", html)
                 self.assertNotIn("is safe to pay", html)
                 self.assertNotIn("you’re safe", html)
                 self.assertNotIn("you're safe", html)
