@@ -678,7 +678,12 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("High-stakes email, finally", home)
         self.assertIn("Signet7 can seal the send and check the seal.", home)
         self.assertIn("Save the original.", home)
-        self.assertIn("Verify on <a href=\"https://verify.signet7.io/email/verify\">Signet7</a>.", home)
+        self.assertIn(
+            "Receiver can verify the seal on "
+            "<a href=\"https://verify.signet7.io/email/verify\">Signet7</a>, "
+            "no account or install required for verification.",
+            home,
+        )
         how = self.pages["how.html"]
         self.assertIn("https://verify.signet7.io/email/verify", how)
         self.assertIn("Questionable email? Check it here.", how)

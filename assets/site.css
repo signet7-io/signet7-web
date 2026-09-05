@@ -1870,17 +1870,14 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 }
 .hero-steps {
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px 22px;
+  display: block;
   margin: 0 auto;
   padding: 0;
-  max-width: 820px;
+  max-width: 36rem;
   color: #fff;
   font-size: 15px;
+  line-height: 1.45;
 }
-.hero-steps li { margin: 0; }
 .hero-steps a {
   color: inherit;
   text-decoration: underline;
@@ -2102,6 +2099,7 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
   transform-origin: 50% 52%;
   will-change: transform, opacity;
 }
+.zoom-scene ~ .zoom-scene { pointer-events: none; }
 .zoom-plate {
   position: absolute;
   inset: 0;
@@ -2197,7 +2195,7 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 .zoom-copy h2 { color: #fff; }
 .zoom-copy .hero-actions { justify-content: center; }
 .zoom-copy .product-line { font-size: clamp(22px, 2.6vw, 32px); max-width: 18em; }
-.zoom-copy .hero-steps { justify-content: center; list-style: none; padding: 0; margin: 0; gap: 10px 22px; }
+.zoom-copy .hero-steps { list-style: none; padding: 0; margin: 0 auto; }
 .zoom-copy .facts-grid, .zoom-copy .study-grid { width: min(980px, 100%); }
 .zoom-copy .button-secondary {
   background: rgba(255,255,255,.14);

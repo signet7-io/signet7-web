@@ -31,21 +31,25 @@
         el.style.opacity = "0";
         el.style.transform = "scale(1.28)";
         el.style.zIndex = "1";
+        el.style.pointerEvents = "none";
         if (copy) copy.style.opacity = "0";
       } else if (j === i) {
         el.style.opacity = String(1 - z * 0.35);
         el.style.transform = "scale(" + (1 + z * 0.42) + ")";
         el.style.zIndex = "2";
+        el.style.pointerEvents = "auto";
         if (copy) copy.style.opacity = String(clamp(1 - z * 1.7, 0, 1));
       } else if (j === i + 1) {
         el.style.opacity = String(z);
         el.style.transform = "scale(" + (1.18 - z * 0.18) + ")";
         el.style.zIndex = "3";
+        el.style.pointerEvents = "none";
         if (copy) copy.style.opacity = String(clamp((z - 0.42) / 0.58, 0, 1));
       } else {
         el.style.opacity = "0";
         el.style.transform = "scale(1.18)";
         el.style.zIndex = "0";
+        el.style.pointerEvents = "none";
         if (copy) copy.style.opacity = "0";
       }
     });
