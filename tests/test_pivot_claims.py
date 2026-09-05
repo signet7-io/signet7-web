@@ -392,6 +392,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("pay.html", self.pages)
         pay = self.pages["pay.html"]
         self.assertIn("Amount not set", pay)
+        self.assertNotIn("Placeholder $", pay)
         self.assertNotIn("Placeholder $12", pay)
         self.assertNotIn("Placeholder $29", pay)
         self.assertNotIn("Placeholder $99", pay)
@@ -521,7 +522,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("People and agents use the same check", self.pages["faq.html"])
         self.assertIn("only between you and them", self.pages["faq.html"])
         self.assertIn("Sideload is not Watch", self.pages["faq.html"])
-        self.assertIn("more than one listing", self.pages["faq.html"])
+        self.assertIn("more than one work email", self.pages["faq.html"])
+        self.assertIn("own key", self.pages["faq.html"])
         self.assertNotIn("One listing covers every mailbox", self.pages["faq.html"])
         self.assertIn("Named work emails", self.pages["enterprise.html"])
         programs = self.pages["programs.html"]
@@ -713,6 +715,10 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn('href="watch"', self.pages["product.html"])
         self.assertIn('href="smtp"', self.pages["product.html"])
         self.assertIn("The check. The company app.", self.pages["product.html"])
+        self.assertIn("Optional stamp", self.pages["product.html"])
+        self.assertNotIn("one company inbox", self.pages["docs.html"].lower())
+        self.assertNotIn("one company inbox", self.pages["it.html"].lower())
+        self.assertNotIn("one company inbox", self.pages["integrations.html"].lower())
         self.assertNotIn(">Help</button>", nav)
         self.assertIn(">Company</button>", nav)
         self.assertNotIn(">About Signet7</a>", nav)
