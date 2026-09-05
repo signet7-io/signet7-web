@@ -391,12 +391,10 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_pay_page_stays_closed(self) -> None:
         self.assertIn("pay.html", self.pages)
         pay = self.pages["pay.html"]
-        self.assertIn("Placeholder $12", pay)
-        self.assertIn("Placeholder $29", pay)
-        self.assertIn("Placeholder $99", pay)
-        self.assertIn("Placeholder from $1,000", pay)
-        self.assertIn("Free for a limited time", pay)
         self.assertIn("Amount not set", pay)
+        self.assertNotIn("Placeholder $12", pay)
+        self.assertNotIn("Placeholder $29", pay)
+        self.assertNotIn("Placeholder $99", pay)
         self.assertIn("is-off", pay)
         self.assertIn("Checkout is not live", pay)
         self.assertNotIn("free forever", pay.lower())
@@ -498,7 +496,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("Verifiable Sender Network (VSN)", home)
         self.assertNotIn("Verifiable Sender Network", home)
         self.assertNotIn("$12 / $29 / $99", home)
-        self.assertIn("Placeholder $12", self.pages["pay.html"])
+        self.assertIn("Amount not set", self.pages["pay.html"])
+        self.assertNotIn("Placeholder $12", self.pages["pay.html"])
         self.assertIn("https://account.signet7.io/account", home)
         self.assertIn("Login to Signet7", home)
         self.assertIn("drop-btn", home)
@@ -713,7 +712,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("Send &amp; seal", nav)
         self.assertIn('href="watch"', self.pages["product.html"])
         self.assertIn('href="smtp"', self.pages["product.html"])
-        self.assertIn("The check. Inbox Watch. Send", self.pages["product.html"])
+        self.assertIn("The check. The company app.", self.pages["product.html"])
         self.assertNotIn(">Help</button>", nav)
         self.assertIn(">Company</button>", nav)
         self.assertNotIn(">About Signet7</a>", nav)
@@ -769,7 +768,6 @@ class ContentSecurityPolicy(unittest.TestCase):
             "check.html",
             "companies.html",
             "docs.html",
-            "download.html",
             "enterprise.html",
             "how.html",
             "index.html",
@@ -778,13 +776,10 @@ class ContentSecurityPolicy(unittest.TestCase):
             "loop.html",
             "one-pager.html",
             "pilot.html",
-            "product.html",
-            "programs.html",
             "scenarios.html",
             "smtp.html",
             "trust.html",
             "vsn.html",
-            "watch.html",
         ):
             with self.subTest(page=name):
                 self._assert_page_does_not_name_vsn(self.pages[name])
@@ -844,10 +839,9 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("Questionable email? Check it here.", page)
         self.assertIn("Listed, Not listed, or Listing doesn’t match this address", page)
 
-    def test_watch_page_does_not_lead_with_vsn(self) -> None:
+    def test_watch_page_names_vsn_identity(self) -> None:
         page = self.pages["watch.html"]
-        self._assert_page_does_not_name_vsn(page)
-        self.assertIn("Each of those emails gets its own listing.", page)
+        self.assertIn("Each of those emails gets its own VSN identity.", page)
         self.assertIn("Not every staff laptop", page)
         self.assertIn("Recipients never install it", page)
         self.assertIn("Named work emails. Company computers only.", page)
