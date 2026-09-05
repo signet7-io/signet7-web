@@ -20,7 +20,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertIn("provable", self.home)
         self.assertNotIn("Make email something you can prove", self.home)
         self.assertNotIn("not just trust", self.home)
-        self.assertIn("Signet7 is the cryptographic check for high-stakes email", self.home)
+        self.assertIn("Signet7 is the cryptographic seal and check for high-stakes email", self.home)
 
     def test_name_story_lives_on_about_and_homepage_studies(self) -> None:
         about = (ROOT / "about.html").read_text(encoding="utf-8")
