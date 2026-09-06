@@ -114,7 +114,7 @@
       build: [
         "Construction",
         "Draws, change orders, and sub pay-apps often look ordinary. That is the trap. The person who got the email opens the live check.",
-        "Do not put Watch on every jobsite laptop. One company inbox that pays vendors is enough. Recipients never install. Keep writing in Outlook."
+        "Do not put Watch on every jobsite laptop. One company inbox that pays vendors is enough. Recipients never install. Keep writing in your mail app."
       ],
       pay: [
         "Payroll",
@@ -124,7 +124,7 @@
       finance: [
         "Finance / AP",
         "Invoice plus new routing. The person who must pay opens the live check. They do not download Signet7 to do that.",
-        "Watch the one AP inbox on one company PC if you want a quiet alarm when a seal is torn. Recipients still use the website. Stay in Outlook."
+        "Watch the one AP inbox on one company PC if you want a quiet alarm when a seal is torn. Recipients still use the website. Stay in your mail app."
       ],
       bank: [
         "Bank / credit union ops",
@@ -194,7 +194,7 @@
         cards.forEach((card, n) => {
           window.setTimeout(() => flapCard(card, feed[n]), n * 160);
         });
-      }, 2800);
+      }, 7000);
     }
   });
 
