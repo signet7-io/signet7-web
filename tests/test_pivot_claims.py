@@ -218,7 +218,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_program_page_retires_old_public_prices(self) -> None:
         programs = self.pages["programs.html"]
         for phrase in (
-            "Check for free. Company app for several work emails.",
+            "Seal outgoing email. Check for free. Company app for several work emails.",
             "Checkout not live yet",
             "Amounts not set",
             "Inactive catalog",
@@ -509,7 +509,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("isolated qualification", low)
         self.assertNotIn("api/mcp-first", low)
         self.assertNotIn("executewire", low)
-        self.assertIn("The check. Send &amp; seal. One Watch.", home)
+        self.assertIn("Send &amp; seal. The check. One Watch.", home)
         self.assertIn("Not a thousand installs", home)
         self.assertIn("vanity seats", home)
         self.assertIn("What Watch does", self.pages["download.html"])
@@ -676,17 +676,18 @@ class ContentSecurityPolicy(unittest.TestCase):
         home = self.pages["index.html"]
         self.assertIn('id="hero-title"', home)
         self.assertIn("High-stakes email, finally", home)
-        self.assertIn("Signet7 can seal the send and check the seal.", home)
+        self.assertIn("Signet7 can seal the email and verify the seal.", home)
+        self.assertIn("Signet7 cryptographically seals the email.", home)
         self.assertIn("Save the original.", home)
         self.assertIn(
-            "Receiver can verify the seal on "
-            "<a href=\"https://verify.signet7.io/email/verify\">Signet7</a>, "
-            "no account or install required for verification.",
+            "Verify on "
+            "<a href=\"https://verify.signet7.io/email/verify\">Signet7</a>. "
+            "No install or account required to verify emails.",
             home,
         )
         how = self.pages["how.html"]
         self.assertIn("https://verify.signet7.io/email/verify", how)
-        self.assertIn("Questionable email? Check it here.", how)
+        self.assertIn("Signet7 can seal the email. Then anyone can verify.", how)
         self.assertNotIn("never check this", how.lower())
         self.assertNotIn("never check them again", how.lower())
         download = self.pages["download.html"]
@@ -719,7 +720,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("Send &amp; seal", nav)
         self.assertIn('href="watch"', self.pages["product.html"])
         self.assertIn('href="smtp"', self.pages["product.html"])
-        self.assertIn("The check. The company app.", self.pages["product.html"])
+        self.assertIn("Seal the email. Then verify.", self.pages["product.html"])
         self.assertIn("Optional stamp", self.pages["product.html"])
         self.assertNotIn("one company inbox", self.pages["docs.html"].lower())
         self.assertNotIn("one company inbox", self.pages["it.html"].lower())
@@ -831,7 +832,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("No seal is ordinary mail", how)
         self.assertIn("Checking does not create a seal", how)
         self.assertNotIn("permission to pay", how.lower())
-        self.assertIn("Questionable email? Check it here.", how)
+        self.assertIn("Signet7 can seal the email. Then anyone can verify.", how)
 
     def test_companies_page_does_not_lead_with_vsn(self) -> None:
         page = self.pages["companies.html"]
@@ -847,7 +848,7 @@ class ContentSecurityPolicy(unittest.TestCase):
     def test_one_pager_states_listing_words_without_vsn(self) -> None:
         page = self.pages["one-pager.html"]
         self._assert_page_does_not_name_vsn(page)
-        self.assertIn("Questionable email? Check it here.", page)
+        self.assertIn("Signet7 can seal the email. Then check it here.", page)
         self.assertIn("Listed, Not listed, or Listing doesn’t match this address", page)
 
     def test_watch_page_names_vsn_identity(self) -> None:
