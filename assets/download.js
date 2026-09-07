@@ -33,7 +33,7 @@
       })
         .then(function (r) { return r.json(); })
         .then(function () {
-          setStatus("If that mailbox can register, the code is on its way. Recipients never install Watch.");
+          setStatus("If that mailbox can register, the code is on its way. Recipients never install Signet7 desktop.");
         })
         .catch(function () {
           setStatus("Could not reach Signet7. Try again, or use the live check.");

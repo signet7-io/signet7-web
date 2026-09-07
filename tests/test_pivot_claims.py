@@ -142,10 +142,12 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("verify.signet7.io/email/verify", docs)
         self.assertIn("verify.signet7.io/vsn", docs)
         self.assertIn("seal.signet7.io", docs)
-        self.assertIn("Create a Google Cloud app for Gmail", docs)
-        self.assertIn("console.cloud.google.com", docs)
-        self.assertIn("gmail.googleapis.com", docs)
-        self.assertIn("Desktop app", docs)
+        self.assertIn("Gmail: 16-letter app password (not Google Cloud)", docs)
+        self.assertIn("myaccount.google.com/apppasswords", docs)
+        self.assertNotIn("Create a Google Cloud app for Gmail", docs)
+        self.assertNotIn("console.cloud.google.com", docs)
+        self.assertNotIn("gmail.googleapis.com", docs)
+        self.assertNotIn("Create the Google Cloud app first", docs)
         self.assertNotIn("check@signet7.io", docs)
         self.assertNotIn("Forward the original", docs)
         self.assertIn(
@@ -180,12 +182,15 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("Seal from Apple Mail", docs)
         self.assertLess(docs.find('id="verify"'), docs.find('id="signup"'))
         self.assertLess(docs.find('id="limits"'), docs.find('id="signup"'))
+        self.assertLess(docs.find('id="outlook"'), docs.find('id="signup"'))
+        self.assertLess(docs.find('id="signup"'), docs.find('id="install"'))
+        self.assertLess(docs.find('id="install"'), docs.find('id="desktop"'))
+        self.assertLess(docs.find('id="desktop"'), docs.find('id="seal"'))
         self.assertLess(docs.find('id="seal"'), docs.find('id="clients"'))
         self.assertIn("id=\"desktop\"", docs)
         self.assertIn("The desktop helper", docs)
         self.assertIn("Right — Status", docs)
-        self.assertLess(docs.find('id="desktop"'), docs.find('id="apple-mail"'))
-        self.assertLess(docs.find('id="apple-mail"'), docs.find('id="install"'))
+        self.assertLess(docs.find('id="clients"'), docs.find('id="apple-mail"'))
 
     def test_trust_page_separates_identity_evidence_and_compliance(self) -> None:
         spec = self.pages["docs.html"]
@@ -218,7 +223,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_program_page_retires_old_public_prices(self) -> None:
         programs = self.pages["programs.html"]
         for phrase in (
-            "Seal outgoing email. Check for free. Company app for several work emails.",
+            "Seal outgoing email. Check for free. Signet7 desktop for several work emails.",
             "Checkout not live yet",
             "Amounts not set",
             "Inactive catalog",
@@ -509,7 +514,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("isolated qualification", low)
         self.assertNotIn("api/mcp-first", low)
         self.assertNotIn("executewire", low)
-        self.assertIn("Send &amp; seal. The check. One Watch.", home)
+        self.assertIn("Send &amp; seal. The check. One desktop.", home)
         self.assertIn("Not a thousand installs", home)
         self.assertIn("vanity seats", home)
         self.assertIn("What Watch does", self.pages["download.html"])

@@ -104,32 +104,32 @@
       law: [
         "Law office",
         "When a settlement, retainer, or “updated wiring” email arrives, the person who got it opens the live check. No account. No install.",
-        "If the seal does not match, they keep the record and call a number they already have. Watch belongs on the one office inbox that would send the money, not on every lawyer’s laptop. "
+        "If the seal does not match, they keep the record and call a number they already have. Signet7 desktop Watch belongs on the office inbox that would send the money, not on every lawyer’s laptop. "
       ],
       title: [
         "Title / closing",
         "The irreversible step is the account number. Whoever received the email checks it on the website before anyone changes where money goes.",
-        "Closing staff do not each install Signet7. Recipients use the live check. Watch, if you use it, sits on the one inbox that would wire funds. "
+        "Closing staff do not each install Signet7. Recipients use the live check. Signet7 desktop Watch, if you use it, sits on the inbox that would wire funds. "
       ],
       build: [
         "Construction",
         "Draws, change orders, and sub pay-apps often look ordinary. That is the trap. The person who got the email opens the live check.",
-        "Do not put Watch on every jobsite laptop. One company inbox that pays vendors is enough. Recipients never install. Keep writing in your mail app."
+        "Do not put Signet7 desktop on every jobsite laptop. Watch the named inbox that pays vendors. Recipients never install. Keep writing in your mail app."
       ],
       pay: [
         "Payroll",
         "A “new direct deposit” that looks like staff still gets checked on the website. No employee app. No account for the recipient.",
-        "If you Watch anything, Watch the inbox that would change bank details. Everyone else keeps their mail app.  "
+        "If you Watch anything, run Signet7 desktop on the inbox that would change bank details. Everyone else keeps their mail app.  "
       ],
       finance: [
         "Finance / AP",
         "Invoice plus new routing. The person who must pay opens the live check. They do not download Signet7 to do that.",
-        "Watch the one AP inbox on one company PC if you want a quiet alarm when a seal is torn. Recipients still use the website. Stay in your mail app."
+        "Run Signet7 desktop Watch on the AP inbox on one company PC if you want a quiet alarm when a seal is torn. Recipients still use the website. Stay in your mail app."
       ],
       bank: [
         "Bank / credit union ops",
         "Internal or vendor instructions that move accounts still get a last look on the live check. Staff do not install a new mail app.",
-        "Watch is optional and still one inbox.  Signet7 is the check and the record you can produce later."
+        "Watch, inside Signet7 desktop, is optional and still named inboxes.  Signet7 is the check and the record you can produce later."
       ]
     };
     const title = document.querySelector("[data-desk-title]");
