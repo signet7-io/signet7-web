@@ -18,7 +18,7 @@ class FaqWhoCanReadTests(unittest.TestCase):
         self.assertIn("Only you see this check in your browser.", faq)
         self.assertIn("Signet7 does not keep the letter for others to look up.", faq)
         self.assertIn("A short status link, if one exists, is not the letter.", faq)
-        self.assertIn("Company Watch status needs a company login.", faq)
+        self.assertIn("Watch status in Signet7 desktop needs a company login.", faq)
         self.assertIn("Staff tools are a different door.", faq)
 
     def test_faq_who_copy_stays_claim_safe(self) -> None:
