@@ -834,6 +834,7 @@ html[data-theme="dark"] .action-hero::before {
     padding: 0 14px;
     min-height: 44px;
     align-items: center;
+    line-height: 1.2;
     color: var(--ink) !important;
     background: var(--card);
     border-left: 1px solid var(--line);
@@ -856,6 +857,9 @@ html[data-theme="dark"] .action-hero::before {
   backdrop-filter: none;
 }
 .home .nav-wrap { flex-wrap: nowrap; }
+@media (max-width: 900px) {
+  .home .nav-wrap { flex-wrap: wrap; }
+}
 .home .site-nav { flex-wrap: nowrap; gap: 24px; }
 .home .site-nav a { font-size: var(--nav-type); }
 .header-cta { white-space: nowrap; }
