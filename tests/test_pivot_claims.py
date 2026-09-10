@@ -643,6 +643,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn(".copy-scrim", css)
         self.assertIn(".status-strip", css)
         self.assertIn("rgba(247, 244, 238, 0.94)", css)
+        self.assertIn(".zoom-copy .copy-scrim .billboard em", css)
+        self.assertIn(".copy-scrim a.button-primary", css)
 
     def test_outlook_stay_in_mail(self) -> None:
         manifest = (ROOT / "outlook" / "manifest.xml").read_text(encoding="utf-8")

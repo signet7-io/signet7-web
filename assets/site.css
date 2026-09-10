@@ -2147,12 +2147,18 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 }
 .copy-scrim .eyebrow { color: #3a3a3a; letter-spacing: .14em; }
 .copy-scrim .hero-steps a,
-.copy-scrim a { color: #5b5ce2; }
+.copy-scrim a { color: #3d3ed0; }
 .copy-scrim .hero-actions { margin-top: 18px; justify-content: flex-start; }
 .copy-scrim .status-strip { color: #3a3a3a; }
+.copy-scrim a.button-primary,
+.copy-scrim .button-primary {
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+}
 .copy-scrim .button-secondary {
   background: #fff;
   color: #12141d;
+  -webkit-text-fill-color: #12141d;
   border-color: #dce3ea;
 }
 .zoom-copy {
@@ -2234,6 +2240,14 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 .zoom-copy .copy-scrim .billboard {
   color: #161616;
   -webkit-text-fill-color: #161616;
+}
+.zoom-copy .copy-scrim .billboard em {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  color: #5b5ce2;
+  -webkit-text-fill-color: #5b5ce2;
+  animation: none;
 }
 .zoom-copy .eyebrow { color: rgba(255,255,255,.9); letter-spacing: .14em; }
 .zoom-copy .lede, .zoom-copy .product-line, .zoom-copy .section-intro, .zoom-copy p {
