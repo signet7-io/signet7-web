@@ -805,13 +805,45 @@ html[data-theme="dark"] .action-hero::before {
   .consequence-grid, .evidence-grid, .grid-2, .grid-3, .grid-4, .truth-grid, .footer-grid,
   .banner-offers, .meet-grid, .meet-beats, .who-for-grid { grid-template-columns: 1fr; }
   .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .nav-wrap, .home .nav-wrap { flex-wrap: wrap; }
   .site-nav, .nav-links {
-    display: none; position: absolute; inset: var(--nav-h) 12px auto;
-    padding: 14px; background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-    flex-direction: column; align-items: stretch;
-    box-shadow: 0 18px 40px rgba(18, 20, 29, 0.12);
+    display: none;
+    position: static;
+    width: calc(100% - 24px);
+    order: 20;
+    margin: 8px 12px 0;
+    padding: 14px 14px 8px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-bottom: 0;
+    border-radius: 14px 14px 0 0;
+    flex-direction: column;
+    align-items: stretch;
   }
-  body.nav-open .site-nav, body.nav-open .nav-links { display: flex; }
+  .header-register,
+  .account-login { display: none; }
+  body.nav-open .site-nav,
+  body.nav-open .nav-links,
+  body.nav-open .header-register,
+  body.nav-open .account-login { display: flex; }
+  body.nav-open .header-register,
+  body.nav-open .account-login {
+    order: 21;
+    width: calc(100% - 24px);
+    margin: 0 12px;
+    padding: 0 14px;
+    min-height: 44px;
+    align-items: center;
+    color: var(--ink) !important;
+    background: var(--card);
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+  }
+  body.nav-open .account-login {
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0 0 14px 14px;
+  }
   .drop-menu { position: static; box-shadow: none; border: 0; padding: 0 0 8px 8px; min-width: 0; }
   .drop-panel { min-width: 0; flex-direction: column; padding: 0; }
   .drop-btn { text-align: left; min-height: 44px; }
@@ -1481,7 +1513,14 @@ body.docs-manual .docs-figure figcaption {
   .site-header .brand img { width: var(--nav-seal); height: var(--nav-seal); margin: 0 4px 0 0; object-fit: cover; object-position: 50% 46%; }
   .site-header .logo-lockup { width: var(--nav-seal); height: var(--nav-seal); }
   .site-nav a, .nav-links a { color: var(--ink); font-size: var(--nav-type); min-height: 44px; display: flex; align-items: center; }
-  .site-nav a[href*="email/verify"] { display: flex; }
+  .site-nav a[href*="email/verify"] {
+    display: flex;
+    justify-content: center;
+    background: #88619a;
+    color: #fff !important;
+    border-radius: 10px;
+    padding: 0 16px;
+  }
   .quest { min-height: auto; padding: 16px 0 28px; }
   .quest-steps-row { display: none; }
   .how-row { display: grid; grid-template-columns: 1fr; }

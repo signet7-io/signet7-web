@@ -442,6 +442,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 self.assertIn("nav-cue", nav)
                 self.assertIn("Preview", nav)
                 self.assertRegex(nav, r'href="(\.\./)?about">About</a>')
+                self.assertIn('href="https://verify.signet7.io/email/verify">Live check</a>', nav)
                 self.assertNotIn(">Product</button>", nav)
                 self.assertNotIn(">Company</button>", nav)
                 self.assertNotIn(">Help</button>", nav)
@@ -792,6 +793,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertTrue((ROOT / "assets" / "samples" / "intact-message").is_file())
         self.assertTrue((ROOT / "assets" / "samples" / "tampered-message").is_file())
         css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
+        self.assertIn("body.nav-open .header-register", css)
+        self.assertIn("body.nav-open .account-login", css)
         self.assertIn(".site-header {\n  position: fixed;", css)
         self.assertIn("body:not(.home) { padding-top: var(--nav-h); }", css)
         header = home.split("<header", 1)[1].split("</header>", 1)[0]
