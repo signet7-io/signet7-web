@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Signet7 warning</title>
-    <link rel="stylesheet" href="signet7.css" />
-  </head>
-  <body>
-    <div class="brand">
-      <img src="icon-48.png" width="36" height="36" alt="Signet7" />
-      <h1 id="title">Signet7 warning</h1>
-    </div>
-    <p id="body" class="muted"></p>
-    <p class="muted">Call the person you already know. Do not change payment details from this email alone.</p>
-    <script>
-      var q = new URLSearchParams(window.location.search);
-      document.getElementById("title").textContent = q.get("title") || "Signet7 warning";
-      document.getElementById("body").textContent = q.get("body") || "";
-    </script>
-  </body>
+ <head>
+ <meta charset="UTF-8" />
+ <title>Signet7 warning</title>
+ <link rel="stylesheet" href="signet7.css" />
+ </head>
+ <body>
+ <div class="brand">
+ <img src="icon-48.png" width="36" height="36" alt="Signet7" />
+ <h1 id="title">Signet7 warning</h1>
+ </div>
+ <p id="body" class="muted"></p>
+ <p class="muted"> Do not change payment details from this email alone.</p>
+ <script>
+ var q = new URLSearchParams(window.location.search);
+ document.getElementById("title").textContent = q.get("title") || "Signet7 warning";
+ document.getElementById("body").textContent = q.get("body") || "";
+ </script>
+ </body>
 </html>
