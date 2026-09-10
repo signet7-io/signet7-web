@@ -82,6 +82,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for phrase in (
             "trust layer for consequential email",
             "check the seal before you act.",
+            "signet7 puts the seal, the listing check, and the record in one place",
             "businesses that move money or change accounts",
             "check ready",
             "seal/watch preview",
@@ -725,10 +726,11 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("Check the seal", home)
         self.assertIn("before you pay", home)
         self.assertIn("The live check is ready.", home)
+        self.assertIn("Check: Ready. Seal: Preview.", home)
+        self.assertIn("High-stakes email, finally", home)
+        self.assertNotIn("Signet7 cryptographically seals the email.", home)
         self.assertIn("Save the original.", home)
         self.assertIn(
-            "Verify on "
-            "<a href=\"https://verify.signet7.io/email/verify\">Signet7</a>. "
             "No install or account required to verify emails.",
             home,
         )
@@ -737,8 +739,17 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("Start sealing (preview)", hero)
         self.assertIn('href="download"', hero)
         self.assertIn("https://verify.signet7.io/email/verify", hero)
-        self.assertNotIn("Signet7 cryptographically seals the email.", home)
         self.assertNotIn("Signet7 can seal the email and verify the seal.", home)
+        self.assertIn("DNS key lookup", self.pages["trust.html"])
+        self.assertIn("managed company directory not live", self.pages["trust.html"])
+        self.assertNotIn("Listing lookup is", self.pages["trust.html"])
+        download = self.pages["download.html"]
+        self.assertIn("Check: Ready", download)
+        self.assertIn("Watch: Preview", download)
+        self.assertIn("Seal: Preview", download)
+        pay = self.pages["pay.html"]
+        self.assertIn("Check: Ready", pay)
+        self.assertIn("Checkout not live yet", pay)
         how = self.pages["how.html"]
         self.assertIn("https://verify.signet7.io/email/verify", how)
         self.assertIn("Signet7 can seal the email. Then anyone can verify.", how)
