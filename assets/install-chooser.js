@@ -6,8 +6,8 @@ const COMMANDS = {
 };
 
 const NOTES = {
-  windows: "Downloads unsigned Signet7 desktop for Windows. Watch is inside it. Recipients should not run this. SmartScreen will warn.",
-  macos: "Downloads unsigned Signet7 desktop for this Mac or Linux PC. Watch is inside it. Recipients should not run this. Gatekeeper may warn.",
+  windows: "Downloads unsigned Watch for Windows. Recipients should not run this. SmartScreen will warn.",
+  macos: "Downloads unsigned Watch for this Mac or Linux PC. Recipients should not run this. Gatekeeper may warn.",
 };
 
 function selectedOs() {

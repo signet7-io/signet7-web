@@ -12,14 +12,6 @@
     }
   });
 
-  fetch("files/latest.json")
-    .then(function (r) { return r.json(); })
-    .then(function (meta) {
-      var el = document.getElementById("build-version");
-      if (el && meta && meta.version) el.textContent = meta.version;
-    })
-    .catch(function () {});
-
   var API = "https://verify.signet7.io";
   var form = document.getElementById("unlock-form");
   var statusEl = document.getElementById("unlock-status");
@@ -41,7 +33,7 @@
       })
         .then(function (r) { return r.json(); })
         .then(function () {
-          setStatus("If that mailbox can register, the code is on its way. Recipients never install Signet7 desktop.");
+          setStatus("If that mailbox can register, the code is on its way. Recipients never install Watch.");
         })
         .catch(function () {
           setStatus("Could not reach Signet7. Try again, or use the live check.");
