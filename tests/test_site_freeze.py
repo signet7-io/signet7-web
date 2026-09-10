@@ -12,15 +12,15 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         cls.css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
 
     def test_door_keeps_people_behind_type(self) -> None:
-        self.assertIn('class="sell-hero"', self.home)
-        self.assertIn("people-light.png", self.home)
-        self.assertIn("people-dark.png", self.home)
+        self.assertIn("sell-hero", self.home)
+        self.assertIn("zoom/01.jpg", self.home)
+        self.assertIn("data-zoom-pin", self.home)
         self.assertNotIn("door-loop.mp4", self.home.split("seasons-scene")[0])
         self.assertIn("High-stakes email, finally", self.home)
         self.assertIn("provable", self.home)
         self.assertNotIn("Make email something you can prove", self.home)
         self.assertNotIn("not just trust", self.home)
-        self.assertIn("Signet7 is the cryptographic check for high-stakes email", self.home)
+        self.assertIn("Signet7 is the cryptographic seal and check for high-stakes email", self.home)
 
     def test_name_story_lives_on_about_and_homepage_studies(self) -> None:
         about = (ROOT / "about.html").read_text(encoding="utf-8")
@@ -37,7 +37,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
             self.assertNotIn(banned, self.css)
 
     def test_seasons_stay_after_the_hero(self) -> None:
-        self.assertIn('class="sell-hero"', self.home)
+        self.assertIn("sell-hero", self.home)
         self.assertNotIn("seasons-scene", self.home)
         self.assertNotIn("signet7-circuit.jpg", self.home)
         self.assertNotIn("tech-scene.jpg", self.home)
@@ -55,7 +55,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in root_html_pages():
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                pin = "assets/site.css?v=20260901s" if path.name == "index.html" else "assets/site.css?v=20260829c"
+                pin = "assets/site.css?v=20260906a"
                 self.assertIn(pin, html)
                 self.assertNotIn("seasons-scene", html)
                 self.assertNotIn("door-loop.mp4", html)
@@ -83,3 +83,25 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in root_html_pages():
             with self.subTest(page=path.name):
                 self.assertIn(line, path.read_text(encoding="utf-8"))
+
+    def test_people_panorama_only_once_and_new_art(self) -> None:
+        home = (ROOT / "index.html").read_text(encoding="utf-8")
+        css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
+        product = (ROOT / "product.html").read_text(encoding="utf-8")
+        self.assertEqual(home.count("people-once.jpg"), 1)
+        for path in root_html_pages():
+            if path.name == "index.html":
+                continue
+            html = path.read_text(encoding="utf-8")
+            with self.subTest(page=path.name):
+                self.assertNotIn("people-once.jpg", html)
+                self.assertNotIn("people-light.png", html)
+                self.assertNotIn("people-dark.png", html)
+        self.assertNotIn('url("people-light.png")', css)
+        self.assertNotIn('url("tech-scene.jpg', css)
+        self.assertIn("art/seal-macro.jpg", css)
+        self.assertIn("assets/art/drop-glass.jpg", product)
+        self.assertIn("assets/art/watch-night.jpg", product)
+        self.assertIn("assets/art/press.jpg", product)
+        self.assertIn("assets/art/listing.jpg", (ROOT / "vsn.html").read_text(encoding="utf-8"))
+        self.assertTrue((ROOT / "assets" / "art" / "seal-macro.jpg").is_file())

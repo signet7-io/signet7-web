@@ -23,7 +23,7 @@ show_help() {
   echo "This script is for one company computer. Unsigned preview. Not a store listing."
   echo "Set SIGNET7_SETUP then re-run:"
   echo "  watch     download Watch zip for this OS (one company inbox)"
-  echo "  desktop   pip install signet7 if Python is present"
+  echo "  desktop   same as watch: unsigned zip for this OS"
   echo "  outlook   save Outlook manifest (Add from File, not AppSource)"
   echo "  help      this list (default)"
   echo
@@ -43,15 +43,8 @@ install_watch() {
 }
 
 install_desktop() {
-  if ! command -v pip >/dev/null 2>&1 && ! command -v pip3 >/dev/null 2>&1; then
-    echo "Python/pip not found. Use Watch on https://signet7.io/download or install Python first."
-    echo "Recipients still use ${VERIFY}"
-    return 0
-  fi
-  echo "Installing company desktop (pip). Recipients do not need this."
-  if command -v pip3 >/dev/null 2>&1; then pip3 install --upgrade signet7; else pip install --upgrade signet7; fi
-  echo "Run: signet7"
-  echo "Or: signet7-setup --list"
+  echo "Company desktop is the unsigned zip, not pip. Recipients do not install."
+  install_watch
 }
 
 install_outlook() {
