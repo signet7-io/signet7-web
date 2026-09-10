@@ -17,7 +17,7 @@ function Show-Help {
   Write-Host "This script is for one company computer. Unsigned preview. Not a store listing."
   Write-Host "Set SIGNET7_SETUP then re-run:"
   Write-Host "  watch     download Watch zip for this PC (one company inbox)"
-  Write-Host "  desktop   same as watch: unsigned zip for this PC"
+  Write-Host "  desktop   pip install signet7 if Python is present"
   Write-Host "  outlook   save Outlook manifest (Add from File, not AppSource)"
   Write-Host "  help      this list (default)"
   Write-Host ""
@@ -40,8 +40,16 @@ function Install-Watch {
 }
 
 function Install-Desktop {
-  Write-Host "Company desktop is the unsigned zip, not pip. Recipients do not install."
-  Install-Watch
+  $pip = Get-Command pip -ErrorAction SilentlyContinue
+  if (-not $pip) {
+    Write-Host "Python/pip not found. Use Watch on https://signet7.io/download or install Python first."
+    Write-Host "Recipients still use $verify"
+    return
+  }
+  Write-Host "Installing company desktop (pip). Recipients do not need this."
+  & pip install --upgrade signet7
+  Write-Host "Run: signet7"
+  Write-Host "Or: signet7-setup --list"
 }
 
 function Install-Outlook {

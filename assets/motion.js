@@ -55,12 +55,12 @@
   const hints = {
     1: "This looks like a real vendor. It isn't enough.",
     2: "The words still match. The sender is not tied to that company.",
-    3: "Not listed. Customer companies are not in this lookup yet.",
-    4: "You can keep this result as a file. ",
+    3: "VSN (Verifiable Sender Network): that company's key is not listed as still theirs. Customer companies are not in this lookup yet.",
+    4: "You can keep this result as a file. Signet7 does not send money.",
   };
   const nextLabel = {
     1: "Next · Check the seal",
-    2: "Next · Look up a company",
+    2: "Next · Verifiable Sender Network (VSN)",
     3: "Next · Keep the record",
     4: "Start over",
   };
@@ -104,32 +104,32 @@
       law: [
         "Law office",
         "When a settlement, retainer, or “updated wiring” email arrives, the person who got it opens the live check. No account. No install.",
-        "If the seal does not match, they keep the record and call a number they already have. Signet7 desktop Watch belongs on the office inbox that would send the money, not on every lawyer’s laptop. "
+        "If the seal does not match, they keep the record and call a number they already have. Watch belongs on the one office inbox that would send the money, not on every lawyer’s laptop. Verified is not safe. Unknown is not fraud."
       ],
       title: [
         "Title / closing",
         "The irreversible step is the account number. Whoever received the email checks it on the website before anyone changes where money goes.",
-        "Closing staff do not each install Signet7. Recipients use the live check. Signet7 desktop Watch, if you use it, sits on the inbox that would wire funds. "
+        "Closing staff do not each install Signet7. Recipients use the live check. Watch, if you use it, sits on the one inbox that would wire funds. You still decide."
       ],
       build: [
         "Construction",
         "Draws, change orders, and sub pay-apps often look ordinary. That is the trap. The person who got the email opens the live check.",
-        "Do not put Signet7 desktop on every jobsite laptop. Watch the named inbox that pays vendors. Recipients never install. Keep writing in your mail app."
+        "Do not put Watch on every jobsite laptop. One company inbox that pays vendors is enough. Recipients never install. Keep writing in Outlook."
       ],
       pay: [
         "Payroll",
         "A “new direct deposit” that looks like staff still gets checked on the website. No employee app. No account for the recipient.",
-        "If you Watch anything, run Signet7 desktop on the inbox that would change bank details. Everyone else keeps their mail app.  "
+        "If you Watch anything, Watch the inbox that would change bank details. Everyone else keeps their mail app. Unknown is not fraud. Verified is not safe."
       ],
       finance: [
         "Finance / AP",
         "Invoice plus new routing. The person who must pay opens the live check. They do not download Signet7 to do that.",
-        "Run Signet7 desktop Watch on the AP inbox on one company PC if you want a quiet alarm when a seal is torn. Recipients still use the website. Stay in your mail app."
+        "Watch the one AP inbox on one company PC if you want a quiet alarm when a seal is torn. Recipients still use the website. Stay in Outlook."
       ],
       bank: [
         "Bank / credit union ops",
         "Internal or vendor instructions that move accounts still get a last look on the live check. Staff do not install a new mail app.",
-        "Watch, inside Signet7 desktop, is optional and still named inboxes.  Signet7 is the check and the record you can produce later."
+        "Watch is optional and still one inbox. You decide whether to act. Signet7 is the check and the record you can produce later."
       ]
     };
     const title = document.querySelector("[data-desk-title]");
@@ -192,9 +192,9 @@
         i = (i + 1) % feeds.length;
         const feed = feeds[i];
         cards.forEach((card, n) => {
-          window.setTimeout(() => flapCard(card, feed[n]), n * 160);
+          window.setTimeout(() => flapCard(card, feed[n]), n * 420);
         });
-      }, 7000);
+      }, 8200);
     }
   });
 
@@ -224,38 +224,6 @@
         mail.style.setProperty("--ry", "0deg");
         mail.style.setProperty("--rx", "0deg");
       });
-    }
-  }
-
-  const pitch = document.querySelector("[data-pitch]");
-  if (pitch) {
-    const acts = [...pitch.querySelectorAll("[data-pitch-act]")];
-    const panels = [...pitch.querySelectorAll("[data-pitch-panel]")];
-    const art = pitch.querySelector("[data-pitch-art]");
-    const arts = [
-      "assets/art/pitch-looks.jpg",
-      "assets/art/pitch-trick.jpg",
-      "assets/art/pitch-intact.jpg",
-      "assets/art/pitch-caught.jpg",
-      "assets/art/pitch-link.jpg",
-      "assets/art/pitch-bill.jpg",
-    ];
-    const showPitch = (i) => {
-      acts.forEach((btn, n) => btn.setAttribute("aria-selected", n === i ? "true" : "false"));
-      panels.forEach((panel, n) => {
-        panel.hidden = n !== i;
-        panel.classList.toggle("is-on", n === i);
-      });
-      if (art && arts[i]) art.src = arts[i];
-    };
-    acts.forEach((btn, i) => btn.addEventListener("click", () => showPitch(i)));
-    if (!reduce && acts.length) {
-      let n = 0;
-      window.setInterval(() => {
-        if (pitch.matches(":hover") || pitch.matches(":focus-within")) return;
-        n = (n + 1) % acts.length;
-        showPitch(n);
-      }, 4800);
     }
   }
 
