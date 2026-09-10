@@ -12,6 +12,14 @@
     }
   });
 
+  fetch("files/latest.json")
+    .then(function (r) { return r.json(); })
+    .then(function (meta) {
+      var el = document.getElementById("build-version");
+      if (el && meta && meta.version) el.textContent = meta.version;
+    })
+    .catch(function () {});
+
   var API = "https://verify.signet7.io";
   var form = document.getElementById("unlock-form");
   var statusEl = document.getElementById("unlock-status");
