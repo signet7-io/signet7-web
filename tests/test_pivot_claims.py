@@ -585,7 +585,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertTrue((ROOT / "assets" / "theme.js").is_file())
         for name, html in self.pages.items():
             with self.subTest(page=name):
-                self.assertIn('data-theme="light"', html)
+                self.assertIn('data-theme="dark"', html)
                 self.assertNotIn("data-theme-toggle", html)
                 self.assertNotIn("Dark mode", html)
                 self.assertNotIn("Light mode", html)
@@ -601,7 +601,7 @@ class ContentSecurityPolicy(unittest.TestCase):
                 self.assertIn("header-cta", html)
                 self.assertEqual(html.count("header-cta"), 1)
         theme = (ROOT / "assets" / "theme.js").read_text(encoding="utf-8")
-        self.assertIn('data-theme", "light"', theme)
+        self.assertIn('data-theme", "dark"', theme)
         self.assertNotIn("s7-theme-v2", theme)
         home = self.pages["index.html"]
         self.assertNotIn("signet7-circuit.jpg", home)
@@ -631,8 +631,15 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("--card:", css)
         self.assertIn("--ink:", css)
         self.assertIn('html[data-theme="dark"]', css)
+        self.assertIn("--page: #071018", css)
+        self.assertIn("--header: #0b1520", css)
+        self.assertIn("--card: #152433", css)
+        self.assertIn("--ink: #eef4f8", css)
+        self.assertIn("color-scheme: dark", css)
         self.assertIn(".home .site-nav .drop-menu a", css)
         self.assertNotIn(".drop-menu a { color: #e8eef4", css)
+        self.assertNotIn("--page: #e7f5f3", css)
+        self.assertNotIn('color-scheme: light', css)
 
     def test_outlook_stay_in_mail(self) -> None:
         manifest = (ROOT / "outlook" / "manifest.xml").read_text(encoding="utf-8")
