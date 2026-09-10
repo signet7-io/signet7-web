@@ -25,6 +25,19 @@ class _Links(HTMLParser):
 
 
 class PublicLinkContractTests(unittest.TestCase):
+    def test_public_export_never_links_dead_qual_host(self) -> None:
+        text_suffixes = {".html", ".css", ".js", ".md", ".txt", ".json", ".xml", ".ps1", ".sh"}
+        hits: list[str] = []
+        for path in ROOT.rglob("*"):
+            if not path.is_file() or path.suffix.lower() not in text_suffixes:
+                continue
+            if ".git" in path.parts or "tests" in path.parts:
+                continue
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            if "qual.signet7.io" in text.lower():
+                hits.append(str(path.relative_to(ROOT)))
+        self.assertEqual(hits, [])
+
     def test_every_local_link_stays_inside_the_public_export_and_resolves(self) -> None:
         documents: dict[Path, _Links] = {}
         for path in root_html_pages():

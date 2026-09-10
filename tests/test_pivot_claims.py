@@ -84,14 +84,20 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             "check the seal before you act.",
             "signet7 puts the seal, the listing check, and the record in one place",
             "businesses that move money or change accounts",
+            "check ready",
+            "seal/watch preview",
+            "checkout not live",
+            "customer listings not live yet",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, home)
+        self.assertNotIn("nobody else puts the whole check together", home)
         self.assertNotIn("call them on a number you already have", home)
         self.assertNotIn("listed is not trusted", home.lower())
         self.assertNotIn("you still decide", home.lower())
         self.assertNotIn("cryptographic agent-action gating", home)
         self.assertNotIn("gate what the agent does.", home)
+        self.assertNotIn("qual.signet7.io", home)
 
     def test_enterprise_page_is_plain_and_linked(self) -> None:
         self.assertIn("enterprise.html", self.pages)
@@ -347,7 +353,10 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn('href="feedback"', contact)
         home_footer = self.pages["index.html"].split("<footer", 1)[1]
         self.assertIn('href="feedback">Feedback</a>', home_footer)
-        self.assertIn('href="about">About</a>', self.pages["index.html"].split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0])
+        nav = self.pages["index.html"].split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
+        self.assertIn('href="about">About</a>', nav)
+        self.assertIn('href="product">Product</a>', nav)
+        self.assertNotIn(">Company</button>", nav)
 
     def test_homepage_situation_chooser_and_terminal_install(self) -> None:
         home = self.pages["index.html"]
@@ -419,37 +428,57 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             with self.subTest(page=name):
                 self.assertIn("live check and company accounts are available", html.lower())
 
-    def test_every_page_has_dropdown_nav(self) -> None:
+    def test_every_page_has_thin_nav(self) -> None:
         for name, html in self.pages.items():
             with self.subTest(page=name):
-                self.assertIn("drop-btn", html)
+                self.assertNotIn("drop-btn", html)
                 self.assertIn(">Feedback</a>", html)
+                self.assertIn("footer-more", html)
                 self.assertNotIn("Use cases", html)
                 self.assertNotIn("Install (pip)", html)
                 nav = html.split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
-                self.assertIn(">Product</button>", nav)
-                self.assertIn(">Company</button>", nav)
+                self.assertRegex(nav, r'href="(\.\./)?product">Product</a>')
+                self.assertRegex(nav, r'href="(\.\./)?docs\.html">Docs</a>')
+                self.assertRegex(nav, r'href="(\.\./)?download">Download')
+                self.assertIn("nav-cue", nav)
+                self.assertIn("Preview", nav)
+                self.assertRegex(nav, r'href="(\.\./)?about">About</a>')
+                self.assertIn('href="https://verify.signet7.io/email/verify">Live check</a>', nav)
+                self.assertNotIn(">Product</button>", nav)
+                self.assertNotIn(">Company</button>", nav)
                 self.assertNotIn(">Help</button>", nav)
                 self.assertNotIn("How it works", nav)
-                self.assertIn("What it is", nav)
-                self.assertRegex(nav, r'href="(\.\./)?about">About</a>')
-                self.assertRegex(nav, r'href="(\.\./)?register">Register</a>')
-                self.assertRegex(nav, r'href="(\.\./)?faq">FAQ</a>')
-                self.assertRegex(nav, r'href="(\.\./)?download">Download</a>')
-                product_menu = nav.split(">Product</button>", 1)[1].split("</div>", 1)[0]
-                self.assertNotIn("Docs", product_menu)
-                self.assertRegex(
-                    nav,
-                    r">Product</button>[\s\S]*?</div>\s*</div>\s*<a href=\"(\.\./)?docs\.html\">Docs</a>\s*<div class=\"drop\">",
-                )
+                self.assertNotIn("What it is", nav)
+                self.assertNotIn("Look up a company", nav)
+                self.assertNotIn('href="register">Register</a>', nav)
+                self.assertNotIn('href="faq">FAQ</a>', nav)
+                self.assertIn('class="header-register"', html)
+                self.assertRegex(html, r'href="(\.\./)?faq">FAQ</a>')
                 self.assertNotIn(">Check</button>", nav)
                 self.assertNotIn(">Legal</button>", nav)
                 self.assertNotIn(">Docs</button>", nav)
                 self.assertNotIn(">About</button>", nav)
                 self.assertNotIn('<p class="drop-head">Product</p>', nav)
                 self.assertNotIn(">About Signet7</a>", nav)
+                self.assertNotIn(">Watch</a>", nav)
+                self.assertNotIn("Send &amp; seal", nav)
         self.assertIn("Inbox Watch", self.pages["index.html"])
         self.assertIn("Team", self.pages["about.html"])
+        for demoted in (
+            "loop.html",
+            "how.html",
+            "programs.html",
+            "scenarios.html",
+            "smtp.html",
+            "vsn.html",
+            "watch.html",
+            "enterprise.html",
+            "companies.html",
+            "one-pager.html",
+        ):
+            with self.subTest(moved=demoted):
+                self.assertIn("moved-banner", self.pages[demoted])
+                self.assertIn("This page is still here.", self.pages[demoted])
 
     def test_public_copy_does_not_overclaim(self) -> None:
         visible = re.sub(r"<[^>]+>", " ", self.all_copy).lower()
@@ -506,7 +535,9 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("Placeholder $12", self.pages["pay.html"])
         self.assertIn("https://account.signet7.io/account", home)
         self.assertIn("Login to Signet7", home)
-        self.assertIn("drop-btn", home)
+        self.assertNotIn("drop-btn", home)
+        self.assertIn("id=\"honesty\"", home)
+        self.assertIn("A pass is not a blessing. No seal is ordinary mail.", home)
         self.assertIn("Programs", self.pages["product.html"])
         self.assertIn('href="programs"', self.pages["product.html"])
         self.assertNotRegex(home, r"<form\b")
@@ -617,6 +648,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("Next · Look up a company", motion)
         self.assertIn("demoStep === 4", motion)
         home = self.pages["index.html"]
+        self.assertIn("Check the seal", home)
+        self.assertIn("before you pay", home)
         self.assertIn("High-stakes email, finally", home)
         self.assertIn("provable", home)
         self.assertNotIn("Make email something you can prove", home)
@@ -624,7 +657,12 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("cryptographic seal and check for high-stakes email", home.lower())
         self.assertNotIn("powered by our Verifiable Sender Network (VSN)", home)
         self.assertIn("signed file you can produce later", home.lower())
-        self.assertIn("gate actions proposed by people or AI agents", home)
+        self.assertNotIn("gate actions proposed by people or AI agents", home)
+        self.assertIn("copy-scrim", home)
+        self.assertIn("status-strip", home)
+        self.assertIn("paper-home", home)
+        self.assertIn("data-zoom-off", home)
+        self.assertIn("zoom/01.jpg", home)
 
     def test_dark_mode_uses_tokens_so_menus_keep_ink(self) -> None:
         css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
@@ -633,6 +671,11 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn('html[data-theme="dark"]', css)
         self.assertIn(".home .site-nav .drop-menu a", css)
         self.assertNotIn(".drop-menu a { color: #e8eef4", css)
+        self.assertIn(".copy-scrim", css)
+        self.assertIn(".status-strip", css)
+        self.assertIn("rgba(247, 244, 238, 0.94)", css)
+        self.assertIn(".zoom-copy .copy-scrim .billboard em", css)
+        self.assertIn(".copy-scrim a.button-primary", css)
 
     def test_outlook_stay_in_mail(self) -> None:
         manifest = (ROOT / "outlook" / "manifest.xml").read_text(encoding="utf-8")
@@ -680,14 +723,23 @@ class ContentSecurityPolicy(unittest.TestCase):
     def test_marketing_kit_honest_watch_and_frozen_h1(self) -> None:
         home = self.pages["index.html"]
         self.assertIn('id="hero-title"', home)
-        self.assertIn("High-stakes email, finally", home)
+        self.assertIn("Check the seal", home)
+        self.assertIn("before you pay", home)
+        self.assertIn("The live check is ready.", home)
         self.assertIn("Check: Ready. Seal: Preview.", home)
+        self.assertIn("High-stakes email, finally", home)
         self.assertNotIn("Signet7 cryptographically seals the email.", home)
         self.assertIn("Save the original.", home)
         self.assertIn(
             "No install or account required to verify emails.",
             home,
         )
+        hero = home.split('id="hero-title"', 1)[1].split('class="facts"', 1)[0]
+        self.assertIn(">Try free check</a>", hero)
+        self.assertIn("Start sealing (preview)", hero)
+        self.assertIn('href="download"', hero)
+        self.assertIn("https://verify.signet7.io/email/verify", hero)
+        self.assertNotIn("Signet7 can seal the email and verify the seal.", home)
         self.assertIn("DNS key lookup", self.pages["trust.html"])
         self.assertIn("managed company directory not live", self.pages["trust.html"])
         self.assertNotIn("Listing lookup is", self.pages["trust.html"])
@@ -728,7 +780,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("AP", one)
         nav = home.split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
         self.assertNotIn("How it works", nav)
-        self.assertIn("What it is", nav)
+        self.assertIn(">Product</a>", nav)
+        self.assertNotIn("What it is", nav)
         self.assertNotIn(">Watch</a>", nav)
         self.assertNotIn("Send &amp; seal", nav)
         self.assertIn('href="watch"', self.pages["product.html"])
@@ -739,7 +792,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("one company inbox", self.pages["it.html"].lower())
         self.assertNotIn("one company inbox", self.pages["integrations.html"].lower())
         self.assertNotIn(">Help</button>", nav)
-        self.assertIn(">Company</button>", nav)
+        self.assertNotIn(">Company</button>", nav)
         self.assertNotIn(">About Signet7</a>", nav)
 
     def test_try_samples_and_locked_register_login(self) -> None:
@@ -748,7 +801,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn('id="try"', home)
         self.assertIn("assets/samples/intact-message", home)
         self.assertIn("assets/samples/tampered-message", home)
-        self.assertIn("They kept the wax", home)
+        self.assertIn("They changed one line", home)
         self.assertIn("assets/art/pitch-looks.jpg", home)
         self.assertIn("assets/art/pitch-caught.jpg", home)
         self.assertIn("$20,699", home)
@@ -757,6 +810,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertTrue((ROOT / "assets" / "samples" / "intact-message").is_file())
         self.assertTrue((ROOT / "assets" / "samples" / "tampered-message").is_file())
         css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
+        self.assertIn("body.nav-open .header-register", css)
+        self.assertIn("body.nav-open .account-login", css)
         self.assertIn(".site-header {\n  position: fixed;", css)
         self.assertIn("body:not(.home) { padding-top: var(--nav-h); }", css)
         header = home.split("<header", 1)[1].split("</header>", 1)[0]
@@ -890,11 +945,39 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("addresses assigned to it", docs)
         self.assertIn("Domain-wide is a choice", docs)
 
+    def test_primary_doors_share_status_and_listing_truth(self) -> None:
+        strip = "Check Ready · Seal/Watch Preview · Checkout not live · Customer listings not live yet"
+        listing = "The DNS listing lookup is live. The managed customer directory is not. Customers are generally not listed yet."
+        for name in (
+            "index.html",
+            "product.html",
+            "download.html",
+            "pay.html",
+            "trust.html",
+            "faq.html",
+            "docs.html",
+            "check.html",
+        ):
+            html = self.pages[name]
+            with self.subTest(page=name):
+                self.assertIn(strip, html)
+                self.assertIn(listing, html)
+                self.assertIn("https://verify.signet7.io/email/verify", html)
+                self.assertNotIn("qual.signet7.io", html.lower())
+        product = self.pages["product.html"]
+        self.assertIn("Check is ready. Seal and Watch are preview.", product)
+        self.assertNotIn("Under 60 seconds", product)
+        css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
+        self.assertIn(".button:focus-visible", css)
+        self.assertIn(".header-cta:focus-visible", css)
+        self.assertNotIn(".header-cta { display: none; }", css)
+
     def test_seal_path_is_unsigned_preview_not_a_signed_wait(self) -> None:
         faq = self.pages["faq.html"]
         docs = self.pages["docs.html"]
         smtp = self.pages["smtp.html"]
         self.assertIn("Seal: Preview (unsigned).", faq)
+        self.assertIn("Customer listings: not live yet.", faq)
         self.assertNotIn("Seal: Not yet as a signed product", faq)
         self.assertIn("unsigned preview — not Authenticode", docs)
         self.assertIn("this is not Authenticode", docs)

@@ -22,7 +22,7 @@
  <link rel="stylesheet" href="assets/download.css">
  <link rel="stylesheet" href="assets/install-chooser.css?v=20260831c">
 </head>
-<body>
+<body class="paper-page">
  <a class="skip-link" href="#main">Skip to content</a>
  <header class="site-header">
  <div class="container nav-wrap">
@@ -32,25 +32,12 @@
  </a>
  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
  <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
- <div class="drop">
- <button type="button" class="drop-btn" aria-expanded="false">Product</button>
- <div class="drop-menu">
- <a href="product">What it is</a>
- <a href="vsn">Look up a company</a>
- <a href="faq">FAQ</a>
- </div>
- </div>
+ <a href="product">Product</a>
  <a href="docs.html">Docs</a>
- <div class="drop">
- <button type="button" class="drop-btn" aria-expanded="false">Company</button>
- <div class="drop-menu">
- <a href="register">Register</a>
- <a href="download">Download</a>
- <a href="pay">Pay</a>
- </div>
- </div>
+ <a href="download">Download <span class="nav-cue">Preview</span></a>
  <a href="about">About</a>
- </nav>
+ <a href="https://verify.signet7.io/email/verify">Live check</a>
+</nav>
  <a class="button button-primary header-cta" href="https://verify.signet7.io/email/verify">Live check</a>
  <a class="header-register" href="register">Register</a>
  <a class="account-login" href="https://account.signet7.io/account">Login to Signet7</a>
@@ -59,11 +46,13 @@
  <main id="main">
  <section class="page-hero">
  <div class="container">
- <p class="eyebrow">Download</p>
+ <p class="eyebrow">Start sealing (preview)</p>
  <h1>Signet7 desktop. Several work emails.</h1>
- <p class="hero-copy">Step 1 is registration. Check a message for free on the website. The download is Signet7 desktop for the company: name the work emails that can move money, jobs, or clients. Watch is the incoming job inside that same app. Each of those emails gets its own VSN identity. Recipients never install. Checkout is not live.</p>
+ <p class="hero-copy">Need to check one email? Use the free website check — no download. Step 1 is registration if you want the unsigned desktop preview: name the work emails that can move money, jobs, or clients. Watch is the incoming job inside that same app. Each of those emails gets its own VSN identity. Recipients never install. Checkout is not live.</p>
  <p class="hero-copy" id="watch-not-iphone">Signet7 desktop is an unsigned zip for Windows or Mac. Watch lives inside it. Linux is the same preview. Not Watch on iPhone. On a phone, use the live check.</p>
  <p class="hero-actions"><a class="button button-primary" href="register">Register</a> <a class="button button-secondary" href="https://verify.signet7.io/email/verify">I only need to check a message</a></p>
+ <p class="status-strip" aria-label="What is live">Check Ready · Seal/Watch Preview · Checkout not live · Customer listings not live yet</p>
+ <p>The DNS listing lookup is live. The managed customer directory is not. Customers are generally not listed yet. Seal and Watch stay Preview.</p>
  <div class="badge-row">
  <span class="badge cyan">Check: Ready</span>
  <span class="badge gold">Watch: Preview</span>
@@ -130,6 +119,7 @@
  <div class="container footer-grid">
  <div><strong>Signet7</strong><p>The trust layer for consequential email.</p><p>© 2026 Signet7. All rights reserved, All wrongs revenged.</p></div>
  <div><a href="privacy">Privacy</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div>
+<div class="footer-more"><p class="footer-kicker">More</p><a href="faq">FAQ</a><a href="trust">Trust</a><a href="pay">Pay</a><a href="how">How</a><a href="watch">Watch</a><a href="smtp">Seal</a><a href="vsn">Look up</a><a href="programs">Programs</a><a href="enterprise">Enterprise</a><a href="scenarios">Scenarios</a><a href="companies">Companies</a><a href="loop">Loop</a><a href="one-pager">One-pager</a></div>
  <div><p>Live check and company accounts are available.</p></div>
  </div>
  </footer>
