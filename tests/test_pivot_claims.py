@@ -647,6 +647,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("Next · Look up a company", motion)
         self.assertIn("demoStep === 4", motion)
         home = self.pages["index.html"]
+        self.assertIn("Check the seal", home)
+        self.assertIn("before you pay", home)
         self.assertIn("High-stakes email, finally", home)
         self.assertIn("provable", home)
         self.assertNotIn("Make email something you can prove", home)
@@ -720,7 +722,8 @@ class ContentSecurityPolicy(unittest.TestCase):
     def test_marketing_kit_honest_watch_and_frozen_h1(self) -> None:
         home = self.pages["index.html"]
         self.assertIn('id="hero-title"', home)
-        self.assertIn("High-stakes email, finally", home)
+        self.assertIn("Check the seal", home)
+        self.assertIn("before you pay", home)
         self.assertIn("The live check is ready.", home)
         self.assertIn("Save the original.", home)
         self.assertIn(
@@ -730,8 +733,8 @@ class ContentSecurityPolicy(unittest.TestCase):
             home,
         )
         hero = home.split('id="hero-title"', 1)[1].split('class="facts"', 1)[0]
-        self.assertIn(">Live check</a>", hero)
-        self.assertIn("Send &amp; seal (preview)", hero)
+        self.assertIn(">Try free check</a>", hero)
+        self.assertIn("Start sealing (preview)", hero)
         self.assertIn('href="download"', hero)
         self.assertIn("https://verify.signet7.io/email/verify", hero)
         self.assertNotIn("Signet7 cryptographically seals the email.", home)
@@ -787,7 +790,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn('id="try"', home)
         self.assertIn("assets/samples/intact-message", home)
         self.assertIn("assets/samples/tampered-message", home)
-        self.assertIn("They kept the wax", home)
+        self.assertIn("They changed one line", home)
         self.assertIn("assets/art/pitch-looks.jpg", home)
         self.assertIn("assets/art/pitch-caught.jpg", home)
         self.assertIn("$20,699", home)
