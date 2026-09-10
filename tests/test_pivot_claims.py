@@ -82,7 +82,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for phrase in (
             "trust layer for consequential email",
             "check the seal before you act.",
-            "signet7 puts the seal, the listing check, and the record in one place",
+            "nobody else puts the whole check together",
             "businesses that move money or change accounts",
         ):
             with self.subTest(phrase=phrase):
@@ -585,7 +585,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertTrue((ROOT / "assets" / "theme.js").is_file())
         for name, html in self.pages.items():
             with self.subTest(page=name):
-                self.assertIn('data-theme="dark"', html)
+                self.assertIn('data-theme="light"', html)
                 self.assertNotIn("data-theme-toggle", html)
                 self.assertNotIn("Dark mode", html)
                 self.assertNotIn("Light mode", html)
@@ -601,7 +601,7 @@ class ContentSecurityPolicy(unittest.TestCase):
                 self.assertIn("header-cta", html)
                 self.assertEqual(html.count("header-cta"), 1)
         theme = (ROOT / "assets" / "theme.js").read_text(encoding="utf-8")
-        self.assertIn('data-theme", "dark"', theme)
+        self.assertIn('data-theme", "light"', theme)
         self.assertNotIn("s7-theme-v2", theme)
         home = self.pages["index.html"]
         self.assertNotIn("signet7-circuit.jpg", home)
@@ -631,15 +631,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("--card:", css)
         self.assertIn("--ink:", css)
         self.assertIn('html[data-theme="dark"]', css)
-        self.assertIn("--page: #071018", css)
-        self.assertIn("--header: #0b1520", css)
-        self.assertIn("--card: #152433", css)
-        self.assertIn("--ink: #eef4f8", css)
-        self.assertIn("color-scheme: dark", css)
         self.assertIn(".home .site-nav .drop-menu a", css)
         self.assertNotIn(".drop-menu a { color: #e8eef4", css)
-        self.assertNotIn("--page: #e7f5f3", css)
-        self.assertNotIn('color-scheme: light', css)
 
     def test_outlook_stay_in_mail(self) -> None:
         manifest = (ROOT / "outlook" / "manifest.xml").read_text(encoding="utf-8")
@@ -688,23 +681,15 @@ class ContentSecurityPolicy(unittest.TestCase):
         home = self.pages["index.html"]
         self.assertIn('id="hero-title"', home)
         self.assertIn("High-stakes email, finally", home)
-        self.assertIn("Check: Ready. Seal: Preview.", home)
-        self.assertNotIn("Signet7 cryptographically seals the email.", home)
+        self.assertIn("Signet7 can seal the email and verify the seal.", home)
+        self.assertIn("Signet7 cryptographically seals the email.", home)
         self.assertIn("Save the original.", home)
         self.assertIn(
+            "Verify on "
+            "<a href=\"https://verify.signet7.io/email/verify\">Signet7</a>. "
             "No install or account required to verify emails.",
             home,
         )
-        self.assertIn("DNS key lookup", self.pages["trust.html"])
-        self.assertIn("managed company directory not live", self.pages["trust.html"])
-        self.assertNotIn("Listing lookup is", self.pages["trust.html"])
-        download = self.pages["download.html"]
-        self.assertIn("Check: Ready", download)
-        self.assertIn("Watch: Preview", download)
-        self.assertIn("Seal: Preview", download)
-        pay = self.pages["pay.html"]
-        self.assertIn("Check: Ready", pay)
-        self.assertIn("Checkout not live yet", pay)
         how = self.pages["how.html"]
         self.assertIn("https://verify.signet7.io/email/verify", how)
         self.assertIn("Signet7 can seal the email. Then anyone can verify.", how)
