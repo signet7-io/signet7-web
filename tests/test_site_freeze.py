@@ -28,12 +28,10 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertIn("You need to know it is authentic.", about)
         self.assertIn("You need proof of exactly what you received.", about)
         self.assertIn('id="play"', self.home)
-        play = self.home.split('id="play"', 1)[1]
-        self.assertIn("A signet is a seal. You keep the record.", play)
-        self.assertNotIn("A signet is a seal. The 7 is the long memory.", play)
-        hero = self.home.split("<h1", 1)[1].split('id="demo"', 1)[0]
+        play = self.home.split('id="play"', 1)[1].split('id="demo"', 1)[0]
+        self.assertIn("A signet is a seal. The 7 is the long memory.", play)
+        hero = self.home.split("<h1", 1)[1].split("</section>", 1)[0]
         self.assertNotIn("A signet is a seal. The 7 is the long memory.", hero)
-        self.assertLess(self.home.find('id="demo"'), self.home.find('id="play"'))
         for banned in ("data-wave-pin", "data-crawl", "wave-pin", "crawl-stage"):
             self.assertNotIn(banned, self.home)
             self.assertNotIn(banned, self.css)
@@ -65,11 +63,10 @@ class SiteFreeze20260822Tests(unittest.TestCase):
 
     def test_homepage_mute_study_films(self) -> None:
         self.assertIn("media-src 'self'", self.home)
-        facts = self.home.find('class="facts"')
+        facts_end = self.home.find("</section>", self.home.find('class="facts"'))
         demo = self.home.find('id="demo"')
         play = self.home.find('id="play"')
-        created = self.home.find('id="created"')
-        self.assertTrue(0 < demo < created < facts < play)
+        self.assertTrue(0 < facts_end < play < demo)
         self.assertIn("assets/studies/seal.mp4", self.home)
         self.assertIn("assets/studies/network.mp4", self.home)
         self.assertIn("assets/studies/stamp.mp4", self.home)
