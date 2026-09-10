@@ -657,6 +657,9 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("gate actions proposed by people or AI agents", home)
         self.assertIn("copy-scrim", home)
         self.assertIn("status-strip", home)
+        self.assertIn("paper-home", home)
+        self.assertIn("data-zoom-off", home)
+        self.assertIn("zoom/01.jpg", home)
 
     def test_dark_mode_uses_tokens_so_menus_keep_ink(self) -> None:
         css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
