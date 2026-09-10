@@ -82,16 +82,21 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for phrase in (
             "trust layer for consequential email",
             "check the seal before you act.",
-            "nobody else puts the whole check together",
             "businesses that move money or change accounts",
+            "check ready",
+            "seal/watch preview",
+            "checkout not live",
+            "customer listings not live yet",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, home)
+        self.assertNotIn("nobody else puts the whole check together", home)
         self.assertNotIn("call them on a number you already have", home)
         self.assertNotIn("listed is not trusted", home.lower())
         self.assertNotIn("you still decide", home.lower())
         self.assertNotIn("cryptographic agent-action gating", home)
         self.assertNotIn("gate what the agent does.", home)
+        self.assertNotIn("qual.signet7.io", home)
 
     def test_enterprise_page_is_plain_and_linked(self) -> None:
         self.assertIn("enterprise.html", self.pages)
@@ -624,7 +629,9 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("cryptographic seal and check for high-stakes email", home.lower())
         self.assertNotIn("powered by our Verifiable Sender Network (VSN)", home)
         self.assertIn("signed file you can produce later", home.lower())
-        self.assertIn("gate actions proposed by people or AI agents", home)
+        self.assertNotIn("gate actions proposed by people or AI agents", home)
+        self.assertIn("copy-scrim", home)
+        self.assertIn("status-strip", home)
 
     def test_dark_mode_uses_tokens_so_menus_keep_ink(self) -> None:
         css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
@@ -633,6 +640,9 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn('html[data-theme="dark"]', css)
         self.assertIn(".home .site-nav .drop-menu a", css)
         self.assertNotIn(".drop-menu a { color: #e8eef4", css)
+        self.assertIn(".copy-scrim", css)
+        self.assertIn(".status-strip", css)
+        self.assertIn("rgba(247, 244, 238, 0.94)", css)
 
     def test_outlook_stay_in_mail(self) -> None:
         manifest = (ROOT / "outlook" / "manifest.xml").read_text(encoding="utf-8")
@@ -681,8 +691,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         home = self.pages["index.html"]
         self.assertIn('id="hero-title"', home)
         self.assertIn("High-stakes email, finally", home)
-        self.assertIn("Signet7 can seal the email and verify the seal.", home)
-        self.assertIn("Signet7 cryptographically seals the email.", home)
+        self.assertIn("The live check is ready.", home)
         self.assertIn("Save the original.", home)
         self.assertIn(
             "Verify on "
@@ -690,6 +699,13 @@ class ContentSecurityPolicy(unittest.TestCase):
             "No install or account required to verify emails.",
             home,
         )
+        hero = home.split('id="hero-title"', 1)[1].split('class="facts"', 1)[0]
+        self.assertIn(">Live check</a>", hero)
+        self.assertIn("Send &amp; seal (preview)", hero)
+        self.assertIn('href="download"', hero)
+        self.assertIn("https://verify.signet7.io/email/verify", hero)
+        self.assertNotIn("Signet7 cryptographically seals the email.", home)
+        self.assertNotIn("Signet7 can seal the email and verify the seal.", home)
         how = self.pages["how.html"]
         self.assertIn("https://verify.signet7.io/email/verify", how)
         self.assertIn("Signet7 can seal the email. Then anyone can verify.", how)
@@ -887,6 +903,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         docs = self.pages["docs.html"]
         smtp = self.pages["smtp.html"]
         self.assertIn("Seal: Preview (unsigned).", faq)
+        self.assertIn("Customer listings: not live yet.", faq)
         self.assertNotIn("Seal: Not yet as a signed product", faq)
         self.assertIn("unsigned preview — not Authenticode", docs)
         self.assertIn("this is not Authenticode", docs)

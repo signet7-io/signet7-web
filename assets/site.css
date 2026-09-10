@@ -546,6 +546,13 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line);
   font-size: 12px; color: var(--night-mute);
 }
+.status-strip {
+  margin: 16px 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: var(--ink-soft);
+}
 .badge a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .badge a:hover { color: var(--cyan); }
 .badge.cyan { color: var(--cyan); }
@@ -2113,7 +2120,40 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(8,12,18,.22) 0%, transparent 38%, rgba(8,12,18,.12) 100%);
+  background:
+    linear-gradient(180deg, rgba(8,12,18,.58) 0%, rgba(8,12,18,.36) 42%, rgba(8,12,18,.62) 100%),
+    radial-gradient(ellipse at 50% 42%, rgba(8,12,18,.2) 0%, transparent 70%);
+}
+.copy-scrim {
+  background: rgba(247, 244, 238, 0.94);
+  color: #161616;
+  padding: 22px 26px 24px;
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(12, 16, 22, 0.28);
+  text-shadow: none;
+  max-width: min(42rem, 100%);
+}
+.copy-scrim.is-wide { max-width: min(56rem, 100%); }
+.copy-scrim .billboard,
+.copy-scrim h2,
+.copy-scrim .lede,
+.copy-scrim .product-line,
+.copy-scrim .hero-steps,
+.copy-scrim .section-intro,
+.copy-scrim p {
+  color: #161616;
+  -webkit-text-fill-color: #161616;
+  text-shadow: none;
+}
+.copy-scrim .eyebrow { color: #3a3a3a; letter-spacing: .14em; }
+.copy-scrim .hero-steps a,
+.copy-scrim a { color: #5b5ce2; }
+.copy-scrim .hero-actions { margin-top: 18px; justify-content: flex-start; }
+.copy-scrim .status-strip { color: #3a3a3a; }
+.copy-scrim .button-secondary {
+  background: #fff;
+  color: #12141d;
+  border-color: #dce3ea;
 }
 .zoom-copy {
   position: absolute;
@@ -2172,14 +2212,16 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
   border-radius: 8px;
 }
 .zoom-copy .study .eyebrow,
-.zoom-copy .study h3 {
-  color: #fff;
-  -webkit-text-fill-color: #fff;
-  background: rgba(8,12,18,.78);
+.zoom-copy .study h3,
+.zoom-copy .study p {
+  color: #161616;
+  -webkit-text-fill-color: #161616;
+  background: rgba(247, 244, 238, 0.94);
   padding: 8px 10px;
   border-radius: 8px;
   text-shadow: none;
 }
+.zoom-copy .study p { margin: 0; }
 .page-hero::before, .action-hero::before { opacity: 0.08; }
 .zoom-copy .billboard {
   font-family: "Instrument Serif", Georgia, serif;
@@ -2189,13 +2231,28 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
   margin: 0 0 10px;
   color: #fff;
 }
+.zoom-copy .copy-scrim .billboard {
+  color: #161616;
+  -webkit-text-fill-color: #161616;
+}
 .zoom-copy .eyebrow { color: rgba(255,255,255,.9); letter-spacing: .14em; }
 .zoom-copy .lede, .zoom-copy .product-line, .zoom-copy .section-intro, .zoom-copy p {
   color: rgba(255,255,255,.94);
 }
+.zoom-copy .copy-scrim .lede,
+.zoom-copy .copy-scrim .product-line,
+.zoom-copy .copy-scrim .section-intro,
+.zoom-copy .copy-scrim p,
+.zoom-copy .copy-scrim h2 {
+  color: #161616;
+  -webkit-text-fill-color: #161616;
+}
 .zoom-copy h2 { color: #fff; }
+.zoom-copy .copy-scrim h2 { color: #161616; }
 .zoom-copy .hero-actions { justify-content: center; }
+.zoom-copy .copy-scrim .hero-actions { justify-content: flex-start; }
 .zoom-copy .product-line { font-size: clamp(22px, 2.6vw, 32px); max-width: 18em; }
+.zoom-copy .copy-scrim .product-line { font-size: clamp(18px, 2vw, 24px); max-width: 28em; }
 .zoom-copy .hero-steps { list-style: none; padding: 0; margin: 0 auto; }
 .zoom-copy .facts-grid, .zoom-copy .study-grid { width: min(980px, 100%); }
 .zoom-copy .button-secondary {
@@ -2208,7 +2265,16 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 .zoom-copy .study h3, .zoom-copy .study p { text-shadow: none; }
 .zoom-copy .study { text-align: left; }
 .zoom-copy .demo-wrap { text-align: left; }
-.zoom-copy .mail { margin: 12px auto 0; max-width: 560px; text-shadow: none; }
+.zoom-copy .mail { margin: 12px auto 0; max-width: 560px; text-shadow: none; color: var(--ink); }
+.zoom-copy .mail p {
+  color: #3c372f;
+  -webkit-text-fill-color: #3c372f;
+  text-shadow: none;
+}
+.zoom-copy .mail .subject {
+  color: #171410;
+  -webkit-text-fill-color: #171410;
+}
 @media (prefers-reduced-motion: reduce) {
   .zoom-pin { height: auto; }
   .zoom-stage { position: relative; height: auto; }

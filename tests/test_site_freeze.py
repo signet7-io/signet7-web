@@ -29,7 +29,8 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertIn("You need proof of exactly what you received.", about)
         self.assertIn('id="play"', self.home)
         play = self.home.split('id="play"', 1)[1].split('id="demo"', 1)[0]
-        self.assertIn("A signet is a seal. The 7 is the long memory.", play)
+        self.assertIn("A signet is a seal. You keep the record.", play)
+        self.assertNotIn("A signet is a seal. The 7 is the long memory.", play)
         hero = self.home.split("<h1", 1)[1].split("</section>", 1)[0]
         self.assertNotIn("A signet is a seal. The 7 is the long memory.", hero)
         for banned in ("data-wave-pin", "data-crawl", "wave-pin", "crawl-stage"):
