@@ -928,6 +928,33 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("addresses assigned to it", docs)
         self.assertIn("Domain-wide is a choice", docs)
 
+    def test_primary_doors_share_status_and_listing_truth(self) -> None:
+        strip = "Check Ready · Seal/Watch Preview · Checkout not live · Customer listings not live yet"
+        listing = "The DNS listing lookup is live. The managed customer directory is not. Customers are generally not listed yet."
+        for name in (
+            "index.html",
+            "product.html",
+            "download.html",
+            "pay.html",
+            "trust.html",
+            "faq.html",
+            "docs.html",
+            "check.html",
+        ):
+            html = self.pages[name]
+            with self.subTest(page=name):
+                self.assertIn(strip, html)
+                self.assertIn(listing, html)
+                self.assertIn("https://verify.signet7.io/email/verify", html)
+                self.assertNotIn("qual.signet7.io", html.lower())
+        product = self.pages["product.html"]
+        self.assertIn("Check is ready. Seal and Watch are preview.", product)
+        self.assertNotIn("Under 60 seconds", product)
+        css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
+        self.assertIn(".button:focus-visible", css)
+        self.assertIn(".header-cta:focus-visible", css)
+        self.assertNotIn(".header-cta { display: none; }", css)
+
     def test_seal_path_is_unsigned_preview_not_a_signed_wait(self) -> None:
         faq = self.pages["faq.html"]
         docs = self.pages["docs.html"]
