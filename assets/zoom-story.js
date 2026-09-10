@@ -1,7 +1,7 @@
 (() => {
   const pin = document.querySelector("[data-zoom-pin]");
   const scenes = [...document.querySelectorAll("[data-zoom-scene]")];
-  if (!pin || scenes.length < 2 || pin.hasAttribute("data-zoom-off")) return;
+  if (!pin || scenes.length < 2) return;
   const n = scenes.length;
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let current = 0;
