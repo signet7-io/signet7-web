@@ -82,7 +82,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for phrase in (
             "trust layer for consequential email",
             "check the seal before you act.",
-            "nobody else puts the whole check together",
+            "signet7 puts the seal, the listing check, and the record in one place",
             "businesses that move money or change accounts",
         ):
             with self.subTest(phrase=phrase):
@@ -681,15 +681,23 @@ class ContentSecurityPolicy(unittest.TestCase):
         home = self.pages["index.html"]
         self.assertIn('id="hero-title"', home)
         self.assertIn("High-stakes email, finally", home)
-        self.assertIn("Signet7 can seal the email and verify the seal.", home)
-        self.assertIn("Signet7 cryptographically seals the email.", home)
+        self.assertIn("Check: Ready. Seal: Preview.", home)
+        self.assertNotIn("Signet7 cryptographically seals the email.", home)
         self.assertIn("Save the original.", home)
         self.assertIn(
-            "Verify on "
-            "<a href=\"https://verify.signet7.io/email/verify\">Signet7</a>. "
             "No install or account required to verify emails.",
             home,
         )
+        self.assertIn("DNS key lookup", self.pages["trust.html"])
+        self.assertIn("managed company directory not live", self.pages["trust.html"])
+        self.assertNotIn("Listing lookup is", self.pages["trust.html"])
+        download = self.pages["download.html"]
+        self.assertIn("Check: Ready", download)
+        self.assertIn("Watch: Preview", download)
+        self.assertIn("Seal: Preview", download)
+        pay = self.pages["pay.html"]
+        self.assertIn("Check: Ready", pay)
+        self.assertIn("Checkout not live yet", pay)
         how = self.pages["how.html"]
         self.assertIn("https://verify.signet7.io/email/verify", how)
         self.assertIn("Signet7 can seal the email. Then anyone can verify.", how)

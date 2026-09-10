@@ -64,7 +64,7 @@
  <span class="badge cyan">Live service</span>
  <span class="badge">Preview · unsigned</span>
  <span class="badge">Caller-enforced</span>
- <span class="badge gold">Company listing lookup is <a href="https://verify.signet7.io/vsn">live</a></span>
+ <span class="badge gold">DNS key lookup <a href="https://verify.signet7.io/vsn">live</a>; managed company directory not live</span>
  </div>
  </div>
  </section>
@@ -81,6 +81,10 @@
  <section class="section section-line">
  <div class="container">
  <p>This hop never leaves the computer. Real TLS is to your provider after Signet7 forwards. Leave the unsigned helper running or port 2525 goes quiet. Not Exchange. Not a mail vendor. Not Authenticode. Living stories: <a href="scenarios">send and receive</a>.</p>
+ <h2>First consequential send</h2>
+ <p>The only recommended first-run: <code>python -m signet7_agent --first-send</code>. It checks 2525, then a test MAIL/DATA, then whether the provider took the sealed send, then that the live check page opens. It stops at the first red light.</p>
+ <p>Get listed (rare, company). Seal this message (every consequential send). Those are two steps. Do not put a verify link in the letter. Recipients drop the original on the live check, or use Watch / Outlook.</p>
+ <p>Google-type Apple Mail accounts cannot use 127.0.0.1 SMTP. Add Other Mail Account (IMAP) instead.</p>
  </div>
  </section>
  
