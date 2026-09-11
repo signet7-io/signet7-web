@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
  <meta charset="utf-8">
- <script src="assets/theme.js?v=3"></script>
+ <script src="assets/theme.js?v=4"></script>
  <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
  <title>Security | Signet7</title>
  <meta name="description" content="Signet7 security notes for the running product. Not a certification or SLA.">
- <meta name="theme-color" content="#f7f4ee">
+ <meta name="theme-color" content="#05080d">
  <link rel="canonical" href="https://signet7.io/security">
  <meta property="og:title" content="Security | Signet7">
  <meta property="og:description" content="What Signet7 encrypts, signs, and does not claim.">
@@ -15,7 +15,7 @@
  <meta property="og:url" content="https://signet7.io/security">
  <meta property="og:image" content="https://signet7.io/assets/og-image.png">
  <link rel="icon" type="image/png" href="assets/favicon.png">
- <link rel="stylesheet" href="assets/site.css?v=20260906a">
+ <link rel="stylesheet" href="assets/site.css?v=20260911d">
 </head>
 <body>
  <a class="skip-link" href="#main">Skip to content</a>
@@ -69,7 +69,7 @@
  <li>Unknown actions on the decision surface fail closed. The caller still has to enforce.</li>
  <li>Public check does not keep the raw letter by default.</li>
  <li>Company desk uses a one-time email link, not a Signet7 password.</li>
- <li>Desktop can start when you sign in to this computer and keep running in the background after you close the window, once named work emails are saved.</li>
+ <li>After setup, Signet7 starts at login on the office computer that runs it. Closing the window leaves it running.</li>
  <li>Download zips are unsigned previews. SmartScreen and Gatekeeper will warn.</li>
  </ul>
  <h2>Not claimed</h2>

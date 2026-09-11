@@ -34,17 +34,17 @@ class InnerPagesPaperChromeTests(unittest.TestCase):
         cls.pages = {name: (ROOT / name).read_text(encoding="utf-8") for name in PAPER}
 
     def test_check_and_home_keep_paper_chrome(self) -> None:
-        self.assertIn('data-theme="light"', self.check)
-        self.assertIn('content="#f7f4ee"', self.check)
+        self.assertIn('data-theme="dark"', self.check)
+        self.assertIn('content="#05080d"', self.check)
         self.assertIn("High-stakes email, finally", self.home)
         self.assertIn("provable", self.home)
-        self.assertIn('content="#f7f4ee"', self.home)
+        self.assertIn('content="#05080d"', self.home)
 
     def test_inner_pages_match_check_paper_chrome(self) -> None:
         for name, html in self.pages.items():
             with self.subTest(page=name):
-                self.assertIn('data-theme="light"', html)
-                self.assertIn('content="#f7f4ee"', html)
+                self.assertIn('data-theme="dark"', html)
+                self.assertIn('content="#05080d"', html)
                 self.assertNotIn('content="#030609"', html)
                 self.assertIn('href="vsn"', html)
                 self.assertNotIn("How it works", html)
