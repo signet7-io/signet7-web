@@ -126,7 +126,9 @@ a:hover { color: #2a6f86; }
 
 .site-header {
   position: fixed;
-  top: 0; z-index: 80; height: auto;
+  top: 0; left: 0; right: 0;
+  width: 100%;
+  z-index: 80; height: auto;
   background: var(--header);
   backdrop-filter: none;
   border-bottom: 1px solid var(--line);
@@ -294,16 +296,19 @@ a:hover { color: #2a6f86; }
   padding: 0 16px;
   font-size: 14px;
 }
+.header-register,
 .account-login {
-  margin-left: auto;
+  margin-left: 0;
   color: var(--ink);
   text-decoration: none;
   font-size: var(--nav-type);
   font-weight: 600;
   white-space: nowrap;
   flex-shrink: 0;
-  padding: 0 6px;
+  padding: 6px 8px;
+  line-height: 1.3;
 }
+.header-register:hover,
 .account-login:hover { color: var(--night-ink); }
 .nav-wrap > .header-cta,
 .nav-wrap > .theme-toggle { margin-left: 12px; }
@@ -709,7 +714,16 @@ html[data-theme="dark"] .action-hero::before {
 .boundary-note, .notice { margin-top: 18px; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); color: var(--night-mute); }
 .notice.gold { border-color: rgba(255,209,109,0.35); }
 .scope-list { display: grid; gap: 10px; }
-.scope-row { display: grid; grid-template-columns: 130px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.scope-row {
+  display: grid;
+  grid-template-columns: minmax(14rem, 22rem) minmax(0, 1fr);
+  column-gap: 24px;
+  row-gap: 6px;
+  align-items: start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.scope-row b { line-height: 1.35; }
 .truth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .fine-print, .fine-print.dark-text { color: var(--night-mute); font-size: 13px; }
 
@@ -1154,6 +1168,36 @@ html[data-theme="dark"] .action-hero::before {
 .site-nav a[href*="email/verify"] { display: none; }
 .quest h1 { max-width: 12ch; }
 .nav-wrap { min-height: 0; }
+#unlock-form p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0;
+}
+#unlock-form label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+  min-height: 44px;
+}
+#unlock-form input {
+  min-height: 44px;
+  min-width: 18rem;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+}
+.card, .consequence-card, .evidence-grid article, .identity-state,
+.journey-step, .data-table, .price-card {
+  background: var(--card);
+  color: var(--ink);
+}
+.data-table th, .data-table td { border-bottom-color: var(--line); }
 
 .sell-hero {
   position: relative;
