@@ -696,11 +696,11 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("never check this", how.lower())
         self.assertNotIn("never check them again", how.lower())
         download = self.pages["download.html"]
-        self.assertIn("Not a product feature today", download)
-        self.assertIn("Do not call this set and forget", download)
-        self.assertIn("There is no Uninstall button", download)
+        self.assertIn("uninstall.ps1", download)
+        self.assertIn("There is no Check for update", download)
+        self.assertIn("Records on this computer", download)
         watch = self.pages["watch.html"]
-        self.assertIn("There is no Uninstall button", watch)
+        self.assertIn("uninstall.ps1", watch)
         self.assertIn("This is not set and forget", watch)
         companies = self.pages["companies.html"]
         self.assertIn("You list your address", companies)
@@ -809,7 +809,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("Listing lookup", page)
         self.assertIn("https://verify.signet7.io/vsn", page)
         self.assertIn("Listed, Not listed, or Listing doesn’t match this address", page)
-        self.assertIn("Today only Signet7's own domain is in that lookup", page)
+        self.assertIn("DNS key lookup is live; a managed company directory is not", page)
         self.assertNotIn("VSN lookup", page)
 
     def test_docs_page_does_not_whisper_then_you_decide(self) -> None:
