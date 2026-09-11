@@ -61,6 +61,21 @@ class DownloadVaultWizardTests(unittest.TestCase):
         hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
         self.assertIn("High-stakes email, finally", hero)
 
+    def test_faq_names_optional_vault_cap(self) -> None:
+        html = (ROOT / "faq.html").read_text(encoding="utf-8")
+        self.assertIn('id="faq-records-vault"', html)
+        self.assertIn("Cap is 10 GB", html)
+        self.assertIn("50%", html)
+        self.assertIn("90%", html)
+        self.assertIn("The public website check does not keep the letter", html)
+        self.assertIn("Recipients never use the vault", html)
+        self.assertIn("Not a court stamp", html)
+        self.assertNotIn("pip install", html)
+        self.assertNotIn("Qual", html)
+        self.assertNotIn("VSN", html)
+        self.assertNotIn("is safe to pay", html)
+        self.assertNotIn("How it works", html)
+
     def test_latest_json_is_unsigned_preview_not_pip(self) -> None:
         meta = json.loads((ROOT / "files" / "latest.json").read_text(encoding="utf-8"))
         self.assertIs(meta["signed"], False)
