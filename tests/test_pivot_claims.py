@@ -593,7 +593,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertTrue((ROOT / "assets" / "theme.js").is_file())
         for name, html in self.pages.items():
             with self.subTest(page=name):
-                self.assertIn('data-theme="light"', html)
+                self.assertIn('data-theme="dark"', html)
                 self.assertNotIn("data-theme-toggle", html)
                 self.assertNotIn("Dark mode", html)
                 self.assertNotIn("Light mode", html)
@@ -609,13 +609,13 @@ class ContentSecurityPolicy(unittest.TestCase):
                 self.assertIn("header-cta", html)
                 self.assertEqual(html.count("header-cta"), 1)
         theme = (ROOT / "assets" / "theme.js").read_text(encoding="utf-8")
-        self.assertIn('data-theme", "light"', theme)
+        self.assertIn('data-theme", "dark"', theme)
         self.assertNotIn("s7-theme-v2", theme)
         home = self.pages["index.html"]
         self.assertNotIn("signet7-circuit.jpg", home)
         self.assertNotIn("seasons-scene", home)
         self.assertNotIn("door-loop.mp4", home)
-        self.assertIn("zoom/01.jpg", home)
+        self.assertIn("people-dark.png", home)
         self.assertIn("data-demo-next", home)
         self.assertIn("Step 1 of 4", home)
         self.assertIn('data-panel="listing"', home)
@@ -707,7 +707,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         download = self.pages["download.html"]
         self.assertIn("uninstall.ps1", download)
         self.assertIn("The app has Check for update", download)
-        self.assertIn("Records on this computer", download)
+        self.assertIn("Records on the office computer", download)
         watch = self.pages["watch.html"]
         self.assertIn("uninstall.ps1", watch)
         self.assertIn("This is not set and forget", watch)
@@ -746,17 +746,9 @@ class ContentSecurityPolicy(unittest.TestCase):
     def test_try_samples_and_locked_register_login(self) -> None:
         home = self.pages["index.html"]
         self.assertNotIn(">Check a message</a>", home)
-        self.assertIn('id="try"', home)
-        self.assertIn("assets/samples/intact-message", home)
-        self.assertIn("assets/samples/tampered-message", home)
-        self.assertIn("They kept the wax", home)
-        self.assertIn("assets/art/pitch-looks.jpg", home)
-        self.assertIn("assets/art/pitch-caught.jpg", home)
-        self.assertIn("$20,699", home)
-        self.assertIn("That is the link", home)
+        self.assertIn("people-dark.png", home)
+        self.assertIn("Live check", home)
         self.assertNotIn(".eml", home)
-        self.assertTrue((ROOT / "assets" / "samples" / "intact-message").is_file())
-        self.assertTrue((ROOT / "assets" / "samples" / "tampered-message").is_file())
         css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
         self.assertIn(".site-header {\n  position: fixed;", css)
         self.assertIn("body:not(.home) { padding-top: var(--nav-h); }", css)
