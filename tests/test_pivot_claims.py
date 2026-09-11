@@ -324,8 +324,13 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         paths = root_html_pages() + list((ROOT / "outlook").glob("*.html")) + [ROOT / "assets" / "motion.js"]
         for path in paths:
             with self.subTest(path=path.name):
-                self.assertNotIn("money mailbox", path.read_text(encoding="utf-8").lower())
-                self.assertNotIn("money inbox", path.read_text(encoding="utf-8").lower())
+                text = path.read_text(encoding="utf-8")
+                self.assertNotIn("money mailbox", text.lower())
+                self.assertNotIn("money inbox", text.lower())
+                self.assertNotIn("Inbox Watch", text)
+                self.assertNotIn("Recipients never install Watch", text)
+                self.assertNotIn("Account is not the Watch app", text)
+                self.assertNotIn("qual.signet7.io", text.lower())
 
     def test_feedback_page_posts_send_without_mailto(self) -> None:
         html = self.pages["feedback.html"]
@@ -448,7 +453,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 self.assertNotIn(">About</button>", nav)
                 self.assertNotIn('<p class="drop-head">Product</p>', nav)
                 self.assertNotIn(">About Signet7</a>", nav)
-        self.assertIn("Inbox Watch", self.pages["index.html"])
+        self.assertIn("It watches incoming on named company inboxes", self.pages["index.html"])
+        self.assertNotIn("Inbox Watch", self.pages["index.html"])
         self.assertIn("Team", self.pages["about.html"])
 
     def test_public_copy_does_not_overclaim(self) -> None:
@@ -517,8 +523,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("Send &amp; seal. The check. One desktop.", home)
         self.assertIn("Not a thousand installs", home)
         self.assertIn("vanity seats", home)
-        self.assertIn("What Watch does", self.pages["download.html"])
-        self.assertIn("What does Watch do?", self.pages["faq.html"])
+        self.assertIn("What Signet7 desktop does", self.pages["download.html"])
+        self.assertIn("What does Signet7 desktop do?", self.pages["faq.html"])
         self.assertIn("the no-install door", self.pages["faq.html"])
         self.assertIn("Recipients still never install", self.pages["faq.html"])
         self.assertNotIn("going to the factory", self.pages["faq.html"])
@@ -526,7 +532,9 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("id=\"status-chips\"", self.pages["faq.html"])
         self.assertIn("People and agents use the same check", self.pages["faq.html"])
         self.assertIn("only between you and them", self.pages["faq.html"])
-        self.assertIn("Sideload is not Watch", self.pages["faq.html"])
+        self.assertIn("Sideload is not the desktop app", self.pages["faq.html"])
+        self.assertNotIn("Inbox Watch", self.pages["faq.html"])
+        self.assertNotIn("Recipients never install Watch", self.pages["faq.html"])
         self.assertIn("more than one work email", self.pages["faq.html"])
         self.assertIn("own key", self.pages["faq.html"])
         self.assertNotIn("One listing covers every mailbox", self.pages["faq.html"])
@@ -937,7 +945,8 @@ class ContentSecurityPolicy(unittest.TestCase):
     def test_faq_status_still_names_pay_visible_and_off(self) -> None:
         faq = self.pages["faq.html"]
         self.assertIn("Pay: visible and off", faq)
-        self.assertIn("Inbox Watch: Preview (unsigned)", faq)
+        self.assertIn("Signet7 desktop: Preview (unsigned)", faq)
+        self.assertNotIn("Inbox Watch", faq)
 
 
 if __name__ == "__main__":

@@ -22,7 +22,7 @@ show_help() {
   echo
   echo "This script is for one company computer. Unsigned preview. Not a store listing."
   echo "Set SIGNET7_SETUP then re-run:"
-  echo "  watch     download Watch zip for this OS (one company inbox)"
+  echo "  watch     download Signet7 desktop zip for this OS (one company inbox)"
   echo "  desktop   same as watch: unsigned zip for this OS"
   echo "  outlook   save Outlook manifest (Add from File, not AppSource)"
   echo "  help      this list (default)"
@@ -34,7 +34,7 @@ show_help() {
 install_watch() {
   mkdir -p "$ROOT"
   zip="$ROOT/signet7-watch.zip"
-  echo "Downloading unsigned Watch. Gatekeeper may warn. Recipients should not install."
+  echo "Downloading unsigned Signet7 desktop. Gatekeeper may warn. Recipients should not install."
   curl -fsSL "$(watch_url)" -o "$zip"
   mkdir -p "$ROOT/watch"
   unzip -o "$zip" -d "$ROOT/watch" >/dev/null
