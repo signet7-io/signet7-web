@@ -76,6 +76,28 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertNotIn("is safe to pay", html)
         self.assertNotIn("How it works", html)
 
+    def test_docs_and_download_name_helper_instruction_card(self) -> None:
+        docs = (ROOT / "docs.html").read_text(encoding="utf-8")
+        download = self.download
+        self.assertIn('id="docs-agent-card"', docs)
+        self.assertIn('id="agent-card"', docs)
+        self.assertIn("Do not train a model on company mail", docs)
+        self.assertIn("not a plugin", docs)
+        self.assertIn('id="company-agent-card"', download)
+        self.assertIn("Do not train a model on company mail", download)
+        self.assertIn("AGENT-CHECK.md", download)
+        self.assertNotIn("pip install", docs)
+        self.assertNotIn("pip install", download)
+        self.assertNotIn("Qual", docs)
+        self.assertNotIn("Qual", download)
+        self.assertNotIn("VSN", docs)
+        self.assertNotIn("VSN", download)
+        self.assertNotIn("is safe to pay", docs)
+        self.assertNotIn("is safe to pay", download)
+        self.assertNotIn("How it works", docs)
+        hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
+        self.assertIn("High-stakes email, finally", hero)
+
     def test_latest_json_is_unsigned_preview_not_pip(self) -> None:
         meta = json.loads((ROOT / "files" / "latest.json").read_text(encoding="utf-8"))
         self.assertIs(meta["signed"], False)
