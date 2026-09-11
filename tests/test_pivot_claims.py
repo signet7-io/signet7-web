@@ -796,6 +796,8 @@ class ContentSecurityPolicy(unittest.TestCase):
             "scenarios.html",
             "smtp.html",
             "trust.html",
+            "product.html",
+            "programs.html",
             "vsn.html",
         ):
             with self.subTest(page=name):
