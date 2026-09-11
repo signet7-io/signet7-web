@@ -5,7 +5,18 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-INNER = ("about.html", "docs.html", "terms.html", "privacy.html")
+INNER = (
+    "about.html",
+    "docs.html",
+    "terms.html",
+    "privacy.html",
+    "ai.html",
+    "cancel.html",
+    "disclaimer.html",
+    "pilot.html",
+    "providers.html",
+    "safety.html",
+)
 
 
 class InnerPagesPaperChromeTests(unittest.TestCase):
