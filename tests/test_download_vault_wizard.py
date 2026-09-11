@@ -30,8 +30,8 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertNotIn("VSN", html)
         self.assertNotIn("is safe to pay", html)
         hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
-        self.assertIn("High-stakes email, finally", hero)
-        self.assertIn("provable", hero)
+        self.assertIn("Check an important email before you act", hero)
+        self.assertIn("before you act", hero)
 
     def test_watch_product_docs_name_optional_vault(self) -> None:
         pages = {
@@ -59,7 +59,7 @@ class DownloadVaultWizardTests(unittest.TestCase):
                 self.assertNotIn("is safe to pay", html)
                 self.assertNotIn("How it works", html)
         hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
-        self.assertIn("High-stakes email, finally", hero)
+        self.assertIn("Check an important email before you act", hero)
 
     def test_faq_names_optional_vault_cap(self) -> None:
         html = (ROOT / "faq.html").read_text(encoding="utf-8")
@@ -92,8 +92,8 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertNotIn("is safe to pay", html)
         self.assertNotIn("How it works", html)
         hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
-        self.assertIn("High-stakes email, finally", hero)
-        self.assertIn("provable", hero)
+        self.assertIn("Check an important email before you act", hero)
+        self.assertIn("before you act", hero)
 
     def test_docs_and_download_name_helper_instruction_card(self) -> None:
         docs = (ROOT / "docs.html").read_text(encoding="utf-8")
@@ -115,7 +115,7 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertNotIn("is safe to pay", download)
         self.assertNotIn("How it works", docs)
         hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
-        self.assertIn("High-stakes email, finally", hero)
+        self.assertIn("Check an important email before you act", hero)
 
     def test_latest_json_is_unsigned_preview_not_pip(self) -> None:
         meta = json.loads((ROOT / "files" / "latest.json").read_text(encoding="utf-8"))

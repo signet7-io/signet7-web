@@ -50,8 +50,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for banned in ("compliant", "certified", "soc 2", "eidas", "five stars", "aggregateRating"):
             self.assertNotIn(banned, combined)
         self.assertEqual(payload["@graph"][0]["description"], (
-            "High-stakes email, finally provable. Signet7 is the cryptographic "
-            "seal and check for high-stakes email."
+            "Signet7 checks whether the words in an important email still match the seal, and whether that sender is listed."
         ))
 
     def test_bing_indexnow_key_file_matches_its_name(self) -> None:
@@ -80,10 +79,10 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_front_door_owns_consequential_email(self) -> None:
         home = self.pages["index.html"].lower()
         for phrase in (
-            "trust layer for consequential email",
-            "check the seal before you act.",
-            "nobody else puts the whole check together",
-            "businesses that move money or change accounts",
+            "check an important email before you act",
+            "recipients never install",
+            "checkout is not live",
+            "named work emails",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, home)
@@ -308,7 +307,6 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("is-off", download)
         self.assertNotIn("Not open yet", download)
         self.assertIn("unlock-form", download)
-        self.assertIn("Step 1", download)
         self.assertIn("Recipients never install", download)
         self.assertIn("not code-signed yet", download)
         self.assertIn("Checkout is not live", download)
@@ -356,17 +354,16 @@ class AgentActionGatingPivotTests(unittest.TestCase):
 
     def test_homepage_situation_chooser_and_terminal_install(self) -> None:
         home = self.pages["index.html"]
-        self.assertIn("From one person checking a message to a company of a thousand.", home)
+        self.assertIn("If you received one email, check it. If you run a company, register.", home)
         self.assertIn("Most people do not download anything", home)
         self.assertIn("I received one email", home)
-        self.assertIn("Many people, one company", home)
+        self.assertIn("I run the company", home)
         self.assertNotIn("data-install-chooser", home)
         self.assertNotIn("irm https://signet7.io/install.ps1 | iex", home)
         self.assertNotIn("Show options", home)
         self.assertNotIn("pip install signet7", home)
         download = self.pages["download.html"]
         self.assertIn("data-install-chooser", download)
-        self.assertIn("one company download", download.lower())
         self.assertNotIn("Show options", download)
         self.assertNotIn("Chrome Web Store", home)
         self.assertNotIn("Play Store", home)
@@ -520,9 +517,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("isolated qualification", low)
         self.assertNotIn("api/mcp-first", low)
         self.assertNotIn("executewire", low)
-        self.assertIn("Send &amp; seal. The check. One desktop.", home)
-        self.assertIn("Not a thousand installs", home)
-        self.assertIn("vanity seats", home)
+        self.assertIn("Four things. That is the product.", home)
+        self.assertIn("Recipients never install", home)
         self.assertIn("What Signet7 desktop does", self.pages["download.html"])
         self.assertIn("What does Signet7 desktop do?", self.pages["faq.html"])
         self.assertIn("the no-install door", self.pages["faq.html"])
@@ -626,8 +622,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("Next · Look up a company", motion)
         self.assertIn("demoStep === 4", motion)
         home = self.pages["index.html"]
-        self.assertIn("High-stakes email, finally", home)
-        self.assertIn("provable", home)
+        self.assertIn("Check an important email before you act", home)
+        self.assertIn("before you act", home)
         self.assertNotIn("Make email something you can prove", home)
         self.assertNotIn("not just trust", home)
         self.assertIn("cryptographic seal and check for high-stakes email", home.lower())
@@ -689,16 +685,9 @@ class ContentSecurityPolicy(unittest.TestCase):
     def test_marketing_kit_honest_watch_and_frozen_h1(self) -> None:
         home = self.pages["index.html"]
         self.assertIn('id="hero-title"', home)
-        self.assertIn("High-stakes email, finally", home)
-        self.assertIn("Signet7 can seal the email and verify the seal.", home)
-        self.assertIn("Signet7 cryptographically seals the email.", home)
+        self.assertIn("Check an important email before you act", home)
         self.assertIn("Save the original.", home)
-        self.assertIn(
-            "Verify on "
-            "<a href=\"https://verify.signet7.io/email/verify\">Signet7</a>. "
-            "No install or account required to verify emails.",
-            home,
-        )
+        self.assertIn("https://verify.signet7.io/email/verify", home)
         how = self.pages["how.html"]
         self.assertIn("https://verify.signet7.io/email/verify", how)
         self.assertIn("Signet7 can seal the email. Then anyone can verify.", how)
@@ -734,7 +723,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("Send &amp; seal", nav)
         self.assertIn('href="watch"', self.pages["product.html"])
         self.assertIn('href="smtp"', self.pages["product.html"])
-        self.assertIn("Seal the email. Then verify.", self.pages["product.html"])
+        self.assertIn("What Signet7 does", self.pages["product.html"])
         self.assertIn("Optional stamp", self.pages["product.html"])
         self.assertNotIn("one company inbox", self.pages["docs.html"].lower())
         self.assertNotIn("one company inbox", self.pages["it.html"].lower())
@@ -906,7 +895,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn('name === "vsn"', motion)
         self.assertIn('name === "listing"', motion)
         self.assertNotIn(".vsn-section", css)
-        self.assertIn("High-stakes email, finally", home)
+        self.assertIn("Check an important email before you act", home)
 
     def test_public_copy_does_not_say_one_listing_covers_every_mailbox(self) -> None:
         for name, html in self.pages.items():
