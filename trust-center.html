@@ -6,10 +6,10 @@
  <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
  <title>Trust Center | Signet7</title>
- <meta name="description" content="Signet7 trust center: privacy, security, and retention as the product works today. Not a certification.">
+ <meta name="description" content="Signet7 Trust Center: what happens to a message, what stays with you, who else can see a scrap of it.">
  <meta name="theme-color" content="#05080d">
  <meta property="og:title" content="Trust Center | Signet7">
- <meta property="og:description" content="Privacy, security, and retention for Signet7. Draft legal. No certification claimed.">
+ <meta property="og:description" content="What happens to a message. What stays with you. What Signet7 does not have yet.">
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://signet7.io/trust-center">
  <meta property="og:image" content="https://signet7.io/assets/og-image.png">
@@ -55,61 +55,98 @@
  <main id="main">
  <section class="page-hero">
  <div class="container">
- <p class="eyebrow">Trust center</p>
- <div class="badge-row"><span class="badge gold">DRAFT — NON-OPERATIVE legal</span><span class="badge">Not a certification</span></div>
- <h1>What Signet7 holds, what it does not, and for how long.</h1>
- <p class="hero-copy">This page is the public desk for privacy, security, and retention. It matches the running product. It is not SOC 2, ISO, FedRAMP, a penetration-test report, or a formed-company privacy notice. <a href="privacy">Privacy</a> and <a href="terms">Terms</a> stay marked draft until counsel signs them.</p>
+ <p class="eyebrow">Trust Center</p>
+ <h1>What happens to a message.</h1>
+ <p class="hero-copy">Send this page to a buyer, a lawyer, or IT. It is the desk for privacy, security, and retention — as the product runs today. A pass on the check is still not a blessing. See <a href="trust">what a result means</a>.</p>
  <p class="hero-actions">
- <a class="button button-primary" href="privacy">Privacy</a>
- <a class="button button-secondary" href="security">Security</a>
- <a class="button button-secondary" href="terms">Terms</a>
+ <a class="button button-primary" href="#data">Data</a>
+ <a class="button button-secondary" href="#security">Security</a>
+ <a class="button button-secondary" href="#keep">Retention</a>
+ <a class="button button-secondary" href="#others">Who else</a>
  </p>
  </div>
  </section>
 
- <section class="section">
+ <section class="section" id="status">
  <div class="container">
- <p class="eyebrow">Privacy</p>
- <h2>What we collect</h2>
- <div class="grid-3">
- <article class="card"><h3>Public check</h3><p>You submit a saved message so Signet7 can hash and check it in memory. Default public check does not keep the raw letter.</p></article>
- <article class="card"><h3>Company desk</h3><p>Work email, company legal name you type, people you add, named work emails, listing keys you publish. No Signet7 password. We email a one-time link.</p></article>
- <article class="card"><h3>Desktop on your computer</h3><p>The app reads named work emails on that computer. Status lines can go to the company desk. Message bodies are not the dashboard. Optional vault stays on that computer. You hold the recovery key.</p></article>
- </div>
- <p>We do not sell personal data. We do not use it for ads. We do not train a generative model on company mail. Live billing is off, so Stripe is not a live subprocessor. See <a href="providers">Data providers</a> and <a href="ai">AI use</a>.</p>
+ <p class="eyebrow">Today</p>
+ <h2>Live, off, or not this.</h2>
+ <table class="data-table" tabindex="0" aria-label="Trust controls">
+ <thead><tr><th>Control</th><th>Today</th></tr></thead>
+ <tbody>
+ <tr><td>Public check keeps the letter</td><td>Off. The letter is hashed in memory. Default check does not keep it.</td></tr>
+ <tr><td>Evidence ledger</td><td>Off unless an authorized operator turns it on. Then hashes and check facts — not the readable email.</td></tr>
+ <tr><td>Company desk</td><td>Live. Work email, people, named work emails. No Signet7 password. We email a one-time link.</td></tr>
+ <tr><td>Desktop app</td><td>Unsigned preview. Named work emails on the office computer that runs it. The desk can show last-seen. Not message bodies.</td></tr>
+ <tr><td>Optional records vault</td><td>Off unless they turn it on. They hold the recovery key. Cap 10 GB. Recipients never use it.</td></tr>
+ <tr><td>Checkout / Stripe</td><td>Off. Stripe is not a live subprocessor.</td></tr>
+ <tr><td>Ads, pixels, model training</td><td>Off. We do not sell personal data. We do not train a generative model on company mail.</td></tr>
+ <tr><td>SOC 2, ISO, FedRAMP</td><td>Not this. No certification, no pen-test report on this page.</td></tr>
+ </tbody>
+ </table>
  </div>
  </section>
 
- <section class="section">
+ <section class="section" id="data">
  <div class="container">
- <p class="eyebrow">Retention</p>
- <h2>How long it stays</h2>
+ <p class="eyebrow">Data</p>
+ <h2>Three doors. Three different piles.</h2>
  <div class="grid-3">
- <article class="card"><h3>Raw letters</h3><p>Not retained by default. Transient uploads are deleted after the check. A deletion request purges those transients. It does not silently rewrite historical hash rows.</p></article>
- <article class="card"><h3>Evidence rows</h3><p>Only if an authorized operator turns evidence on. Those rows are hashes, keys, and status — not the readable email.</p></article>
- <article class="card"><h3>Ask us to delete</h3><p>Email <a href="mailto:justin.daines@signet7.io">justin.daines@signet7.io</a> with the word Delete, or call <code>POST /api/v1/privacy/deletion-request</code> on an operated instance. Identity checks apply.</p></article>
+ <article class="card"><h3>Live check</h3><p>Anyone drops a saved message. Signet7 hashes it, reads the seal and the listing, and returns a result. The default path does not keep the raw letter. Recipients never install.</p></article>
+ <article class="card"><h3>Company desk</h3><p>The company names work emails, people, and listing keys. Signet7 does not keep a password for that account. Status lines from the app can show last-seen. Bodies do not.</p></article>
+ <article class="card"><h3>Company app</h3><p>Runs on the office computer that they set up. It sits on named work emails. Optional vault, if they turn it on, stays on that office computer. Signet7 cannot read those letters.</p></article>
  </div>
- <p>There is no seven-year default. US or EU record-keeping talk does not make Signet7 an archive. Counsel still decides what you must keep. Optional vault cap is 10 GB on that company computer.</p>
  </div>
  </section>
 
- <section class="section">
+ <section class="section" id="security">
  <div class="container">
  <p class="eyebrow">Security</p>
- <h2>What is in the product today</h2>
+ <h2>How the product is built to fail closed.</h2>
  <div class="grid-3">
- <article class="card"><h3>Seals</h3><p>Ed25519 signatures on supported mail. A pass means the protected words still match that key. It is not a blessing that the email is wise or safe. See <a href="trust">what a result means</a>.</p></article>
- <article class="card"><h3>Desktop download</h3><p>Unsigned preview zips. Windows SmartScreen and Mac Gatekeeper will ask extra clicks. Code-signing is not done. The files are public; using named work emails still needs a company account.</p></article>
- <article class="card"><h3>What this is not</h3><p>Not SOC 2. Not ISO 27001. Not FedRAMP. Not a penetration test. Not an SLA. Object stores are configured with public-access blocks. That is not a live-account audit.</p></article>
+ <article class="card"><h3>Seals</h3><p>Supported mail uses Ed25519. A torn seal fails the check. A pass means the protected words still match that key — not that the email is wise or safe to pay.</p></article>
+ <article class="card"><h3>Unknown actions</h3><p>The decision surface fails closed on an unknown action. Signet7 returns allow or block. The caller still has to enforce it.</p></article>
+ <article class="card"><h3>Download</h3><p>The zip is an unsigned preview. Windows SmartScreen and Mac Gatekeeper will warn. Using named work emails still needs a company account. Recipients should not download it.</p></article>
  </div>
  </div>
  </section>
 
- <section class="section">
+ <section class="section" id="keep">
  <div class="container">
- <p class="eyebrow">Also on this site</p>
- <h2>Legal and safety doors</h2>
- <p><a href="privacy">Privacy</a> · <a href="terms">Terms</a> · <a href="disclaimer">Disclaimer</a> · <a href="safety">Safety</a> · <a href="cancel">Cancel</a> · <a href="contact">Contact</a> · <a href="security">Security notes</a></p>
+ <p class="eyebrow">Retention</p>
+ <h2>How long it stays.</h2>
+ <div class="grid-3">
+ <article class="card"><h3>Letters</h3><p>Not kept by default. Transient uploads are deleted after the check. There is no seven-year default. Counsel still decides what the company must keep.</p></article>
+ <article class="card"><h3>Ask us to delete</h3><p>Email <a href="mailto:justin.daines@signet7.io">justin.daines@signet7.io</a> with the word Delete. Or call <code>POST /api/v1/privacy/deletion-request</code> on an operated instance. That purges transients. It does not silently rewrite historical hash rows.</p></article>
+ <article class="card"><h3>Cancel</h3><p>Checkout is not live. There is no converting trial. See <a href="cancel">Cancel</a>.</p></article>
+ </div>
+ </div>
+ </section>
+
+ <section class="section" id="others">
+ <div class="container">
+ <p class="eyebrow">Who else</p>
+ <h2>Who can see a scrap of this.</h2>
+ <table class="data-table" tabindex="0" aria-label="Providers">
+ <thead><tr><th>Who</th><th>Why</th><th>Today</th></tr></thead>
+ <tbody>
+ <tr><td>GitHub Pages</td><td>This website</td><td>Live. Ordinary request logs.</td></tr>
+ <tr><td>Amazon Web Services</td><td>Optional private deploy</td><td>Not claimed as a live production account on this page.</td></tr>
+ <tr><td>Stripe</td><td>Checkout adapter</td><td>Not a live subprocessor.</td></tr>
+ <tr><td>Their mail host</td><td>IMAP or Microsoft Graph if they connect it</td><td>They control that. Signet7 does not become their mail host.</td></tr>
+ </tbody>
+ </table>
+ <p>Full list: <a href="providers">Data providers</a>. AI use: <a href="ai">AI</a>.</p>
+ </div>
+ </section>
+
+ <section class="section" id="papers">
+ <div class="container">
+ <p class="eyebrow">Papers</p>
+ <h2>The long documents.</h2>
+ <p class="section-intro">Privacy and Terms are still draft until counsel signs them. This Trust Center is how the product behaves now. It is not those contracts.</p>
+ <p><a href="privacy">Privacy</a> · <a href="terms">Terms</a> · <a href="providers">Providers</a> · <a href="safety">Safety</a> · <a href="disclaimer">Disclaimer</a> · <a href="contact">Contact</a></p>
+ <p>Security reports: <a href="mailto:justin.daines@signet7.io">justin.daines@signet7.io</a>.</p>
  </div>
  </section>
  </main>
