@@ -657,7 +657,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .bad { border-color: #c45c66; }
 .walkthrough-note { font-size: 12px; color: #4a433a; }
 
-.section, .urgency-band, .vsn-section, .final-cta, .action-flow-section, .evidence-section, .page-hero, .action-hero {
+.section, .urgency-band, .listing-section, .final-cta, .action-flow-section, .evidence-section, .page-hero, .action-hero {
   position: relative; z-index: 4; padding: 88px 0;
 }
 .page-hero, .action-hero {
@@ -689,7 +689,7 @@ html[data-theme="dark"] .action-hero::before {
   margin-top: 16px;
 }
 .section-light { background: transparent; }
-.section-night, .vsn-section, .final-cta, .action-flow-section { background: transparent; }
+.section-night, .listing-section, .final-cta, .action-flow-section { background: transparent; }
 .section-line { border-top: none; }
 .urgency-band {
   background: transparent;
