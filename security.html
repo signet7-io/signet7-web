@@ -5,18 +5,17 @@
  <script src="assets/theme.js?v=3"></script>
  <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
- <title>Registration | Signet7</title>
- <meta name="description" content="Register your company. Recipients still check for free. Download is always available.">
+ <title>Security | Signet7</title>
+ <meta name="description" content="Signet7 security notes for the running product. Not a certification or SLA.">
  <meta name="theme-color" content="#f7f4ee">
- <meta property="og:title" content="Registration | Signet7">
- <meta property="og:description" content="Register your company. Recipients still check for free.">
+ <link rel="canonical" href="https://signet7.io/security">
+ <meta property="og:title" content="Security | Signet7">
+ <meta property="og:description" content="What Signet7 encrypts, signs, and does not claim.">
  <meta property="og:type" content="website">
- <meta property="og:url" content="https://signet7.io/register">
- <meta property="og:image" content="https://signet7.io/assets/og-link-two.png">
- <link rel="canonical" href="https://signet7.io/register">
+ <meta property="og:url" content="https://signet7.io/security">
+ <meta property="og:image" content="https://signet7.io/assets/og-image.png">
  <link rel="icon" type="image/png" href="assets/favicon.png">
  <link rel="stylesheet" href="assets/site.css?v=20260906a">
- <link rel="stylesheet" href="assets/register.css">
 </head>
 <body>
  <a class="skip-link" href="#main">Skip to content</a>
@@ -54,37 +53,35 @@
  </div>
  </header>
  <main id="main">
-<section class="page-hero"><div class="container">
-<p class="eyebrow">Company setup</p>
-<h1>Register</h1>
-<p class="hero-copy">Three moves. No password. Recipients never register to check a message. Checkout is not live.</p>
-</div></section>
-<section class="section">
-<div class="container">
-<ol class="setup-steps">
-<li>
-<p class="step-kicker">Step 1</p>
-<h2>Work email</h2>
-<p>We send a one-time link to that mailbox. There is no Signet7 password. Tick draft Terms and Privacy on the next page — those notices are still draft until counsel signs them.</p>
-</li>
-<li>
-<p class="step-kicker">Step 2</p>
-<h2>Download anytime</h2>
-<p>The Windows, Mac, and Linux zips are on the download page whether you have an account or not. Using named work emails inside the app still needs that company link.</p>
-</li>
-<li>
-<p class="step-kicker">Step 3</p>
-<h2>Leave it running</h2>
-<p>On first save, Signet7 starts when you sign in to this computer. Close the window and it stays in the background. The company desk shows the same last-seen status the app posts.</p>
-</li>
-</ol>
-<p class="hero-actions">
-<a class="button button-primary" href="https://account.signet7.io/account">Email me a link</a>
-<a class="button button-secondary" href="download">Download Signet7 desktop</a>
-<a class="button button-secondary" href="https://verify.signet7.io/email/verify">I only need to check a message</a>
-</p>
-</div>
-</section>
+ <section class="page-hero">
+ <div class="container">
+ <p class="eyebrow">Security notes</p>
+ <div class="badge-row"><span class="badge gold">Not a certification</span></div>
+ <h1>How Signet7 is built to fail closed, not look certified.</h1>
+ <p class="hero-copy">Full desk: <a href="trust-center">Trust center</a>. This page is the short security list. No SLA. No SOC 2. No ISO. No FedRAMP.</p>
+ </div>
+ </section>
+ <section class="section">
+ <div class="container legal-document">
+ <h2>In the running product</h2>
+ <ul>
+ <li>Supported mail uses Ed25519 seals. A torn seal fails the check.</li>
+ <li>Unknown actions on the decision surface fail closed. The caller still has to enforce.</li>
+ <li>Public check does not keep the raw letter by default.</li>
+ <li>Company desk uses a one-time email link, not a Signet7 password.</li>
+ <li>Desktop can start when you sign in to this computer and keep running in the background after you close the window, once named work emails are saved.</li>
+ <li>Download zips are unsigned previews. SmartScreen and Gatekeeper will warn.</li>
+ </ul>
+ <h2>Not claimed</h2>
+ <ul>
+ <li>Independent crypto review is not closed.</li>
+ <li>Operated customer key custody in a cloud KMS is not the live download.</li>
+ <li>A managed public listing network is planned, not live.</li>
+ <li>This is not a penetration-test report.</li>
+ </ul>
+ <p><a href="trust-center">Trust center</a> · <a href="privacy">Privacy</a> · <a href="safety">Safety</a></p>
+ </div>
+ </section>
  </main>
  <footer class="site-footer">
  <div class="container footer-grid">

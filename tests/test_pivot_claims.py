@@ -312,9 +312,9 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("Recipients never install", download)
         self.assertIn("not code-signed yet", download)
         self.assertIn("Checkout is not live", download)
-        self.assertNotIn("href=\"files/signet7-watch-windows.zip\"", download)
-        self.assertNotIn("href=\"files/signet7-watch-macos.zip\"", download)
-        self.assertNotIn("href=\"files/signet7-watch-linux.zip\"", download)
+        self.assertIn("href=\"files/signet7-watch-windows.zip\"", download)
+        self.assertIn("href=\"files/signet7-watch-macos.zip\"", download)
+        self.assertIn("href=\"files/signet7-watch-linux.zip\"", download)
         self.assertTrue((ROOT / "files" / "signet7-watch-windows.zip").is_file())
         self.assertTrue((ROOT / "files" / "signet7-watch-macos.zip").is_file())
         self.assertTrue((ROOT / "files" / "signet7-watch-linux.zip").is_file())
@@ -706,7 +706,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("never check them again", how.lower())
         download = self.pages["download.html"]
         self.assertIn("uninstall.ps1", download)
-        self.assertIn("There is no Check for update", download)
+        self.assertIn("The app has Check for update", download)
         self.assertIn("Records on this computer", download)
         watch = self.pages["watch.html"]
         self.assertIn("uninstall.ps1", watch)
