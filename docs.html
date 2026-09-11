@@ -99,7 +99,7 @@
  <section class="section" id="start">
  <div class="container">
  <h2>Start here</h2>
- <p class="section-intro">Signet7 can cryptographically seal outgoing email. Recipients then drop a message on the live check (or Watch, inside Signet7 desktop, checks the named inboxes). Signet7 answers: words match or not, key listed or not, time of the check. You get a signed file. That file is the record. Recipients never install. Companies start at <a href="register">Registration</a>.</p>
+ <p class="section-intro">Signet7 can cryptographically seal outgoing email. Recipients then drop a message on the live check (or Signet7 desktop checks the named inboxes). Signet7 answers: words match or not, key listed or not, time of the check. You get a signed file. That file is the record. Recipients never install. Companies start at <a href="register">Registration</a>.</p>
  <div class="scope-list">
  <div class="scope-row"><b>You send from a company inbox</b><span><a href="register">Registration</a>, then <a href="docs#seal">sealing</a> from your mail app (unsigned preview — not Authenticode). Follow setup 3 below, start to finish.</span></div>
  <div class="scope-row"><b>You received an important email</b><span>Skip to <a href="docs#verify">Check a message</a>. No account. No install. Setup 1 below.</span></div>
@@ -126,7 +126,7 @@
  <p>Same computer as the mail app. Browser Gmail cannot seal. You do not create a Google Cloud app. Unsigned preview — not Authenticode.</p>
  <ol>
  <li><a href="docs#signup">Create or open a company account</a> and copy the Signet7 token.</li>
- <li><a href="docs#install">Install Signet7 desktop</a> from <a href="download">Download</a>. Watch is the incoming job in that same app, not a second download.</li>
+ <li><a href="docs#install">Install Signet7 desktop</a> from <a href="download">Download</a>. Incoming checks live in that same app, not a second download.</li>
  <li>If this mailbox is Gmail, create a 16-letter <a href="docs#gmail-gcp">Google app password</a>.</li>
  <li><a href="docs#desktop">Fill Signet7 desktop</a>. Click Save and watch. Footer must read Listening on 127.0.0.1:2525.</li>
  <li>Point that mail app’s outgoing SMTP at 127.0.0.1 port 2525: <a href="docs#clients">Outlook or Thunderbird</a>, or <a href="docs#apple-mail">Apple Mail</a>.</li>
@@ -222,7 +222,7 @@
  <section class="section section-line" id="install">
  <div class="container">
  <h2>Install Signet7 desktop</h2>
- <p class="section-intro">One company download. That zip is Signet7 desktop. Watch is the incoming job inside it — not a second app. Recipients never install. They use the <a href="https://verify.signet7.io/email/verify">live check</a>.</p>
+ <p class="section-intro">One company download. That zip is Signet7 desktop. Incoming checks live inside it — not a second app. Recipients never install. They use the <a href="https://verify.signet7.io/email/verify">live check</a>.</p>
  <p id="docs-records-vault">Optional: after Signet7 desktop is running, you can keep money and account mail in an encrypted vault on this computer. You hold the recovery key. Cap is 10 GB. Warning at 50%. Export a zip before 90%. The public website check does not keep the letter. Recipients never use the vault. Not a court stamp.</p>
  <ol>
  <li>Finish <a href="docs#signup">company account</a> first.</li>
@@ -262,7 +262,7 @@
  <section class="section section-line" id="desktop">
  <div class="container">
  <h2>Signet7 desktop</h2>
- <p class="section-intro">The desktop helper is this window: Signet7 desktop. Same on Windows, Mac, and Linux. Watch is the incoming job on the right: it watches the named work emails on this computer and stays quiet unless a named sender arrives unsealed or a seal is broken. Optional sealing stamps outgoing mail when your mail app sends through <strong>127.0.0.1:2525</strong>. Signet7 is not a mail app. You still write and send in Outlook, Apple Mail, or Thunderbird. Recipients never install it.</p>
+ <p class="section-intro">The desktop helper is this window: Signet7 desktop. Same on Windows, Mac, and Linux. Status on the right: it watches the named work emails on this computer and stays quiet unless a named sender arrives unsealed or a seal is broken. Optional sealing stamps outgoing mail when your mail app sends through <strong>127.0.0.1:2525</strong>. Signet7 is not a mail app. You still write and send in Outlook, Apple Mail, or Thunderbird. Recipients never install it.</p>
  <p class="docs-note">Unsigned preview. After <a href="register">Registration</a>, open <a href="download">Download</a>. Windows may warn; this is not Authenticode. Signed builds stay later. The footer must read <strong>Listening on 127.0.0.1:2525</strong> before a mail app can seal through it.</p>
  <h3>Fill Mailbox, then Save and watch</h3>
  <ol>
@@ -278,14 +278,14 @@
  <li>Click <strong>Save and watch</strong>. Confirm the footer: Listening on 127.0.0.1:2525.</li>
  </ol>
  <div class="scope-list">
- <div class="scope-row"><b>Header</b><span>Signet7 desktop. The window title also says Mailbox helper. Watch is the incoming job on the right. <strong>Help</strong> (top right) opens Mail app SMTP steps and Send feedback. Those are not tabs.</span></div>
+ <div class="scope-row"><b>Header</b><span>Signet7 desktop. The window title also says Mailbox helper. Status is on the right. <strong>Help</strong> (top right) opens Mail app SMTP steps and Send feedback. Those are not tabs.</span></div>
  <div class="scope-row"><b>Left — Mailbox</b><span>Provider, email, app password, Signet7 token, and who must seal. Outgoing: auto-seal and the real SMTP host (for Gmail, <code>smtp.gmail.com</code>, not 127.0.0.1). <strong>Save and watch</strong> starts the listener.</span></div>
- <div class="scope-row"><b>Right — Status</b><span>Always visible. Watch counts, last warning, <strong>Check now</strong>, <strong>Open last warning</strong>, and <strong>History</strong> (warnings only; quiet checks stay off that list).</span></div>
+ <div class="scope-row"><b>Right — Status</b><span>Always visible. Incoming counts, last warning, <strong>Check now</strong>, <strong>Open last warning</strong>, and <strong>History</strong> (warnings only; quiet checks stay off that list).</span></div>
  <div class="scope-row"><b>Footer</b><span>Green dot and Listening on 127.0.0.1:2525. Closing the window hides it. Signet7 desktop keeps listening until you quit.</span></div>
  </div>
  <figure class="docs-figure">
  <img src="assets/docs-signet7-mailbox-helper.png" width="903" height="1024" alt="Signet7 Mailbox helper: Gmail on the left, Status rail on the right with Check now, Open last warning, and History, Save and watch, listening on 127.0.0.1 port 2525">
- <figcaption>Signet7 desktop. Mailbox on the left, Watch status on the right. SMTP host stays your provider. The same app listens on 127.0.0.1:2525 for the mail app.</figcaption>
+ <figcaption>Signet7 desktop. Mailbox on the left, status on the right. SMTP host stays your provider. The same app listens on 127.0.0.1:2525 for the mail app.</figcaption>
  </figure>
  <p>Next: point the mail app at 127.0.0.1:2525. <a href="docs#clients">Outlook or Thunderbird</a>, or <a href="docs#apple-mail">Apple Mail</a>.</p>
  </div>
@@ -294,7 +294,7 @@
  <section class="section" id="seal">
  <div class="container">
  <h2>How sealing works</h2>
- <p class="section-intro">Optional. Same computer as the mail app. Leave Signet7 desktop running or port 2525 goes quiet. Watch keeps watching incoming in that same window. The app posts seals to <a href="https://seal.signet7.io">seal.signet7.io</a>. The token still comes from <a href="https://account.signet7.io/account">account</a>. <a href="https://verify.signet7.io/email/verify">Recipients still check at the live check</a>. They do not install.</p>
+ <p class="section-intro">Optional. Same computer as the mail app. Leave Signet7 desktop running or port 2525 goes quiet. It keeps watching incoming in that same window. The app posts seals to <a href="https://seal.signet7.io">seal.signet7.io</a>. The token still comes from <a href="https://account.signet7.io/account">account</a>. <a href="https://verify.signet7.io/email/verify">Recipients still check at the live check</a>. They do not install.</p>
  <p class="docs-note">Unsigned preview. After <a href="register">Registration</a>, open <a href="download">Download</a>. Windows may warn; this is not Authenticode. Signed builds stay later. Do not point a mail app at 127.0.0.1:2525 until the footer says it is listening.</p>
  <div class="scope-list">
  <div class="scope-row"><b>Mail app → 127.0.0.1</b><span>Your email address. Authentication None on this hop. TLS off. Port 2525. Host 127.0.0.1, not localhost.</span></div>
@@ -346,7 +346,7 @@
  <div class="container">
  <h2>Seal from Apple Mail</h2>
  <p class="section-intro">Complete <a href="docs#signup">account</a>, <a href="docs#install">install</a>, Gmail <a href="docs#gmail-gcp">app password</a>, and <a href="docs#desktop">fill Signet7 desktop</a> first. The footer must read <strong>Listening on 127.0.0.1:2525</strong>. Then add an Other IMAP account in Mail. Do not set outgoing SMTP to 127.0.0.1 on a Google-type account (Internet Accounts → Google). Mail will list that server as Offline and will not send. To check a message, see <a href="docs#verify">Check a message</a>.</p>
- <p class="docs-note">Unsigned preview. Get Signet7 desktop from <a href="download">Download</a> after Registration. Watch is already inside that app. Windows and Mac may warn; this is not Authenticode.</p>
+ <p class="docs-note">Unsigned preview. Get Signet7 desktop from <a href="download">Download</a> after Registration. Incoming checks are already inside that app. Windows and Mac may warn; this is not Authenticode.</p>
 
  <h3>Add an Other IMAP account in Mail</h3>
  <ol>

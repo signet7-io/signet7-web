@@ -16,7 +16,7 @@ class WatchZipNotIphoneTests(unittest.TestCase):
     def test_watch_page_says_unsigned_zip_not_iphone(self) -> None:
         watch = self.watch
         self.assertIn('id="watch-not-iphone"', watch)
-        self.assertIn("Not Watch on iPhone.", watch)
+        self.assertIn("Not the desktop app on iPhone.", watch)
         self.assertIn("Windows or Mac", watch)
         self.assertIn("unsigned zip", watch)
         self.assertIn("On a phone, use the live check.", watch)
@@ -25,7 +25,7 @@ class WatchZipNotIphoneTests(unittest.TestCase):
     def test_download_page_says_unsigned_zip_not_iphone(self) -> None:
         download = self.download
         self.assertIn('id="watch-not-iphone"', download)
-        self.assertIn("Not Watch on iPhone.", download)
+        self.assertIn("Not the desktop app on iPhone.", download)
         self.assertIn("Windows or Mac", download)
         self.assertIn("On a phone, use the live check.", download)
         self.assertIn("https://verify.signet7.io/email/verify", download)

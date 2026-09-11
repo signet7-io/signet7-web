@@ -16,12 +16,12 @@ function Show-Help {
   Write-Host ""
   Write-Host "This script is for one company computer. Unsigned preview. Not a store listing."
   Write-Host "Set SIGNET7_SETUP then re-run:"
-  Write-Host "  watch     download Watch zip for this PC (one company inbox)"
+  Write-Host "  watch     download Signet7 desktop zip for this PC (one company inbox)"
   Write-Host "  desktop   same as watch: unsigned zip for this PC"
   Write-Host "  outlook   save Outlook manifest (Add from File, not AppSource)"
   Write-Host "  help      this list (default)"
   Write-Host ""
-  Write-Host "There is no Uninstall command and no Check for update. To remove Watch, delete $root by hand."
+  Write-Host "There is no Uninstall command and no Check for update. To remove Signet7 desktop, delete $root by hand."
   Write-Host "files/latest.json names the current unsigned preview. This script does not upgrade you."
   Write-Host ""
   Write-Host "Example:"
@@ -31,7 +31,7 @@ function Show-Help {
 function Install-Watch {
   New-Item -ItemType Directory -Force -Path $root | Out-Null
   $zip = Join-Path $root "signet7-watch-windows.zip"
-  Write-Host "Downloading unsigned Watch. SmartScreen may warn. Recipients should not install."
+  Write-Host "Downloading unsigned Signet7 desktop. SmartScreen may warn. Recipients should not install."
   Invoke-WebRequest -Uri $watchUrl -OutFile $zip -UseBasicParsing
   $dest = Join-Path $root "watch"
   Expand-Archive -Path $zip -DestinationPath $dest -Force
