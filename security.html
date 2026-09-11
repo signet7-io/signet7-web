@@ -6,11 +6,11 @@
  <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
  <title>Security | Signet7</title>
- <meta name="description" content="Signet7 security notes for the running product. Not a certification or SLA.">
+ <meta name="description" content="Signet7 security is on the Trust Center. Seals, fail-closed actions, unsigned preview.">
  <meta name="theme-color" content="#05080d">
  <link rel="canonical" href="https://signet7.io/security">
  <meta property="og:title" content="Security | Signet7">
- <meta property="og:description" content="What Signet7 encrypts, signs, and does not claim.">
+ <meta property="og:description" content="Security lives on the Trust Center.">
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://signet7.io/security">
  <meta property="og:image" content="https://signet7.io/assets/og-image.png">
@@ -55,31 +55,13 @@
  <main id="main">
  <section class="page-hero">
  <div class="container">
- <p class="eyebrow">Security notes</p>
- <div class="badge-row"><span class="badge gold">Not a certification</span></div>
- <h1>How Signet7 is built to fail closed, not look certified.</h1>
- <p class="hero-copy">Full desk: <a href="trust-center">Trust center</a>. This page is the short security list. No SLA. No SOC 2. No ISO. No FedRAMP.</p>
- </div>
- </section>
- <section class="section">
- <div class="container legal-document">
- <h2>In the running product</h2>
- <ul>
- <li>Supported mail uses Ed25519 seals. A torn seal fails the check.</li>
- <li>Unknown actions on the decision surface fail closed. The caller still has to enforce.</li>
- <li>Public check does not keep the raw letter by default.</li>
- <li>Company desk uses a one-time email link, not a Signet7 password.</li>
- <li>After setup, Signet7 starts at login on the office computer that runs it. Closing the window leaves it running.</li>
- <li>Download zips are unsigned previews. SmartScreen and Gatekeeper will warn.</li>
- </ul>
- <h2>Not claimed</h2>
- <ul>
- <li>Independent crypto review is not closed.</li>
- <li>Operated customer key custody in a cloud KMS is not the live download.</li>
- <li>A managed public listing network is planned, not live.</li>
- <li>This is not a penetration-test report.</li>
- </ul>
- <p><a href="trust-center">Trust center</a> · <a href="privacy">Privacy</a> · <a href="safety">Safety</a></p>
+ <p class="eyebrow">Security</p>
+ <h1>Security lives on the Trust Center.</h1>
+ <p class="hero-copy">Seals, fail-closed actions, unsigned preview, and what is not a certification. One desk for a buyer or IT.</p>
+ <p class="hero-actions">
+ <a class="button button-primary" href="trust-center#security">Open Trust Center</a>
+ <a class="button button-secondary" href="trust">What a result means</a>
+ </p>
  </div>
  </section>
  </main>
