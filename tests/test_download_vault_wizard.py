@@ -1,0 +1,63 @@
+from __future__ import annotations
+
+import json
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+class DownloadVaultWizardTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.download = (ROOT / "download.html").read_text(encoding="utf-8")
+        cls.home = (ROOT / "index.html").read_text(encoding="utf-8")
+
+    def test_download_names_optional_vault_and_one_file_wizard(self) -> None:
+        html = self.download
+        self.assertIn('id="company-records-vault"', html)
+        self.assertIn("Optional encrypted records vault", html)
+        self.assertIn("The public website check does not keep the letter", html)
+        self.assertIn('id="company-setup-wizard"', html)
+        self.assertIn("One-file wizard", html)
+        self.assertIn("Recipients never run it", html)
+        self.assertNotIn("pip install", html)
+        self.assertNotIn("Qual", html)
+        self.assertNotIn("is safe to pay", html)
+        hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
+        self.assertIn("High-stakes email, finally", hero)
+        self.assertIn("provable", hero)
+
+    def test_latest_json_is_unsigned_preview_not_pip(self) -> None:
+        meta = json.loads((ROOT / "files" / "latest.json").read_text(encoding="utf-8"))
+        self.assertIs(meta["signed"], False)
+        self.assertEqual(meta["channel"], "preview")
+        self.assertEqual(meta["source"]["repo"], "signet7-io/signet7")
+        self.assertIn("windows", meta["files"])
+        self.assertIn("macos", meta["files"])
+        self.assertIn("linux", meta["files"])
+        self.assertEqual(
+            meta["source"]["sha"],
+            "1abff622824e5fd87b112fe44c908ba64ecc9097",
+        )
+        self.assertEqual(meta["source"]["run"], 34545060794)
+        for key in ("windows", "macos", "linux"):
+            href = meta["files"][key]["href"]
+            self.assertEqual(href, f"files/signet7-watch-{key}.zip")
+            path = ROOT / href
+            self.assertTrue(path.is_file(), path)
+            self.assertEqual(path.stat().st_size, meta["files"][key]["bytes"])
+
+    def test_windows_zip_includes_one_file_wizard(self) -> None:
+        import zipfile
+
+        path = ROOT / "files" / "signet7-watch-windows.zip"
+        with zipfile.ZipFile(path) as zf:
+            names = zf.namelist()
+        self.assertIn("payload/signet7-setup.exe", names)
+        self.assertIn("AGENT-CHECK.md", names)
+        self.assertNotIn("Qual", " ".join(names))
+
+
+if __name__ == "__main__":
+    unittest.main()
