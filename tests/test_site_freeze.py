@@ -19,8 +19,8 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertIn("people-light.png", self.home)
         self.assertIn("people-scene", self.home)
         self.assertNotIn("zoom/01.jpg", self.home)
-        self.assertIn("High-stakes email, finally", self.home)
-        self.assertIn("provable", self.home)
+        self.assertIn("Check an important email before you act", self.home)
+        self.assertIn("before you act", self.home)
         self.assertNotIn("Make email something you can prove", self.home)
         self.assertNotIn("not just trust", self.home)
         self.assertIn("Signet7 is the cryptographic seal and check for high-stakes email", self.home)
@@ -63,13 +63,13 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertIn("assets/studies/network.mp4", self.home)
         self.assertIn("assets/studies/stamp.mp4", self.home)
         self.assertIn("autoplay muted loop playsinline", self.home)
-        self.assertIn("High-stakes email, finally", self.home)
+        self.assertIn("Check an important email before you act", self.home)
         self.assertIn('id="created"', self.home)
         self.assertIn("That file is the record.", self.home)
-        self.assertIn("Looks ordinary", self.home)
+        self.assertIn("A vendor asks you to change wiring details", self.home)
 
     def test_footer_rights_and_wrongs(self) -> None:
-        line = "All rights reserved, All wrongs revenged."
+        line = "All rights reserved."
         for path in root_html_pages():
             with self.subTest(page=path.name):
                 self.assertIn(line, path.read_text(encoding="utf-8"))

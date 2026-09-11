@@ -36,8 +36,8 @@ class InnerPagesPaperChromeTests(unittest.TestCase):
     def test_check_and_home_keep_paper_chrome(self) -> None:
         self.assertIn('data-theme="dark"', self.check)
         self.assertIn('content="#05080d"', self.check)
-        self.assertIn("High-stakes email, finally", self.home)
-        self.assertIn("provable", self.home)
+        self.assertIn("Check an important email before you act", self.home)
+        self.assertIn("before you act", self.home)
         self.assertIn('content="#05080d"', self.home)
 
     def test_inner_pages_match_check_paper_chrome(self) -> None:
@@ -62,7 +62,7 @@ class InnerPagesPaperChromeTests(unittest.TestCase):
             with self.subTest(page=name):
                 self.assertNotIn("VSN", html)
                 self.assertIn('href="vsn"', html)
-                self.assertIn("High-stakes email, finally", self.home)
+                self.assertIn("Check an important email before you act", self.home)
                 self.assertNotIn("Qual", html)
         self.assertIn("Listing lookup is", product)
         self.assertNotIn("VSN lookup", product)
@@ -77,7 +77,7 @@ class InnerPagesPaperChromeTests(unittest.TestCase):
             with self.subTest(page=name):
                 self.assertNotIn("VSN", html)
                 self.assertIn('href="vsn"', html)
-                self.assertIn("High-stakes email, finally", self.home)
+                self.assertIn("Check an important email before you act", self.home)
                 self.assertNotIn("Qual", html)
                 self.assertIn("Each of those emails gets its own listing.", html)
                 self.assertNotIn("VSN identity", html)
