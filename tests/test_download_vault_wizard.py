@@ -84,7 +84,7 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertIn("company zip", html)
         self.assertIn("Recipients never run it", html)
         self.assertIn("not pip", html)
-        self.assertIn("There is no Check for update", html)
+        self.assertIn("The app has Check for update", html)
         self.assertIn("Unsigned Preview", html)
         self.assertNotIn("pip install", html)
         self.assertNotIn("Qual", html)
