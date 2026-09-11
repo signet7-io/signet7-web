@@ -18,7 +18,7 @@
  <meta property="og:image" content="https://signet7.io/assets/og-image.png">
  <link rel="canonical" href="https://signet7.io/download">
  <link rel="icon" type="image/png" href="assets/favicon.png">
- <link rel="stylesheet" href="assets/site.css?v=20260911f">
+ <link rel="stylesheet" href="assets/site.css?v=20260911g">
  <link rel="stylesheet" href="assets/download.css">
  <link rel="stylesheet" href="assets/install-chooser.css?v=20260831c">
 </head>
@@ -75,14 +75,7 @@
 <section class="section">
  <div class="container">
  <div class="warn-box">Windows, Mac, and Linux. Recipients should not download this. Windows SmartScreen and Mac Gatekeeper will ask extra clicks because this build is not code-signed yet.</div>
- <form id="unlock-form" class="scope-list">
- <p>Need a setup note mailed to a work email? Optional.</p>
- <p><label>Work email <input id="unlock-mailbox" type="email" required autocomplete="email"></label>
- <button class="button button-primary" type="submit">Email my unlock code</button></p>
- <p><label>Code <input id="unlock-code" maxlength="12" autocomplete="one-time-code"></label>
- <button class="button" type="button" id="unlock-redeem">Email me the setup note</button></p>
- <p id="unlock-status" class="section-intro" role="status"></p>
- </form>
+ <p class="section-intro">The zip is public. No login for the file. Using named work emails needs a company account.</p>
  <div class="os-grid" id="watch-files">
  <article class="os-card" data-os="windows">
  <span class="you-flag" data-you hidden>Your computer</span>
@@ -103,6 +96,14 @@
  <a class="button button-primary" href="files/signet7-watch-linux.zip" data-watch-file="linux">Download for Linux</a>
  </article>
  </div>
+ <form id="unlock-form" class="scope-list">
+ <p>Need a setup note mailed to a work email? Optional.</p>
+ <p><label>Work email <input id="unlock-mailbox" type="email" required autocomplete="email"></label>
+ <button class="button button-primary" type="submit">Email a setup code</button></p>
+ <p><label>Code <input id="unlock-code" maxlength="12" autocomplete="one-time-code"></label>
+ <button class="button" type="button" id="unlock-redeem">Email me the setup note</button></p>
+ <p id="unlock-status" class="section-intro" role="status"></p>
+ </form>
  <p class="section-intro">You only need the file for the computer that will run Signet7 desktop on named company inboxes. Recipients never install. The app can check for a new download.</p>
  <div class="scope-list">
  <div class="scope-row"><b>What Signet7 desktop does</b><span>Signet7 desktop sits on named work emails. Ordinary mail stays quiet. It shouts if a seal is torn, or if a named vendor arrives unsealed. Signet7 desktop does not send. Optional sealing is the other job in that same app. It is not Exchange.</span></div>
