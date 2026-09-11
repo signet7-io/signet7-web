@@ -610,7 +610,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("zoom/01.jpg", home)
         self.assertIn("data-demo-next", home)
         self.assertIn("Step 1 of 4", home)
-        self.assertIn('data-panel="vsn"', home)
+        self.assertIn('data-panel="listing"', home)
+        self.assertNotIn('data-panel="vsn"', home)
         self.assertIn('data-panel="decide"', home)
         motion = (ROOT / "assets" / "motion.js").read_text(encoding="utf-8")
         self.assertNotIn("Next · Verifiable Sender Network (VSN)", motion)
@@ -816,6 +817,15 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("DNS key lookup is live; a managed company directory is not", page)
         self.assertNotIn("VSN lookup", page)
 
+    def test_docs_page_visible_copy_does_not_name_vsn(self) -> None:
+        """Recipients never need the word VSN. Keep the /vsn lookup URL."""
+        page = self.pages["docs.html"]
+        visible = re.sub(r"<[^>]+>", " ", page)
+        self.assertIsNone(re.search(r"vsn", visible, re.I))
+        self.assertIn('href="https://verify.signet7.io/vsn"', page)
+        self.assertIn("Look up a company", page)
+        self.assertIn("Listing lookup", page)
+
     def test_docs_page_does_not_whisper_then_you_decide(self) -> None:
         page = self.pages["docs.html"]
         self.assertIn("Matched, unmatched, or unknown.", page)
@@ -834,6 +844,15 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("you still decide", check.lower())
         self.assertNotIn("permission to pay", check.lower())
         self.assertNotIn("Verified is not safe", check)
+
+    def test_check_page_visible_copy_does_not_name_vsn(self) -> None:
+        """Recipients never need the word VSN. Keep the /vsn lookup URL."""
+        check = self.pages["check.html"]
+        visible = re.sub(r"<[^>]+>", " ", check)
+        self.assertIsNone(re.search(r"vsn", visible, re.I))
+        self.assertIn('href="https://verify.signet7.io/vsn"', check)
+        self.assertIn("Look up a company", check)
+        self.assertIn("Listed for this address", check)
 
     def test_how_page_does_not_whisper_permission_to_pay(self) -> None:
         how = self.pages["how.html"]
@@ -879,8 +898,14 @@ class ContentSecurityPolicy(unittest.TestCase):
         home = self.pages["index.html"]
         self._assert_page_does_not_name_vsn(home)
         motion = (ROOT / "assets" / "motion.js").read_text(encoding="utf-8")
+        css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
         self.assertNotIn("Verifiable Sender Network (VSN)", motion)
         self.assertNotIn("VSN (Verifiable Sender Network)", motion)
+        self.assertNotIn('data-panel="vsn"', home)
+        self.assertIn('data-panel="listing"', home)
+        self.assertNotIn('name === "vsn"', motion)
+        self.assertIn('name === "listing"', motion)
+        self.assertNotIn(".vsn-section", css)
         self.assertIn("High-stakes email, finally", home)
 
     def test_public_copy_does_not_say_one_listing_covers_every_mailbox(self) -> None:

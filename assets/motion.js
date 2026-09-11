@@ -72,7 +72,7 @@
     if (label) label.textContent = `Step ${demoStep} of 4`;
     panels.forEach((panel) => {
       const name = panel.getAttribute("data-panel");
-      const on = (demoStep === 2 && name === "inspect") || (demoStep === 3 && name === "vsn") || (demoStep === 4 && name === "decide");
+      const on = (demoStep === 2 && name === "inspect") || (demoStep === 3 && name === "listing") || (demoStep === 4 && name === "decide");
       panel.classList.toggle("is-on", on);
     });
     if (backBtn) backBtn.hidden = demoStep === 1;
