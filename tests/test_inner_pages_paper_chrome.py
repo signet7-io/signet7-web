@@ -18,13 +18,20 @@ INNER = (
     "safety.html",
 )
 
+PAPER = INNER + (
+    "product.html",
+    "programs.html",
+    "integrations.html",
+    "trust.html",
+)
+
 
 class InnerPagesPaperChromeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.check = (ROOT / "check.html").read_text(encoding="utf-8")
         cls.home = (ROOT / "index.html").read_text(encoding="utf-8")
-        cls.pages = {name: (ROOT / name).read_text(encoding="utf-8") for name in INNER}
+        cls.pages = {name: (ROOT / name).read_text(encoding="utf-8") for name in PAPER}
 
     def test_check_and_home_keep_paper_chrome(self) -> None:
         self.assertIn('data-theme="light"', self.check)
@@ -40,5 +47,10 @@ class InnerPagesPaperChromeTests(unittest.TestCase):
                 self.assertIn('content="#f7f4ee"', html)
                 self.assertNotIn('content="#030609"', html)
                 self.assertIn('href="vsn"', html)
-                self.assertNotIn("VSN", html)
                 self.assertNotIn("How it works", html)
+
+    def test_prior_inner_pages_do_not_name_vsn(self) -> None:
+        for name in INNER:
+            html = self.pages[name]
+            with self.subTest(page=name):
+                self.assertNotIn("VSN", html)
