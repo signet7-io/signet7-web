@@ -51,7 +51,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in root_html_pages():
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                self.assertIn("assets/site.css?v=20260911e", html)
+                self.assertIn("assets/site.css?v=20260911f", html)
                 self.assertIn('data-theme="dark"', html)
                 self.assertNotIn("door-loop.mp4", html)
                 self.assertNotIn("signet7-circuit.jpg", html)
@@ -92,3 +92,4 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertIn("minmax(14rem, 22rem)", self.css)
         self.assertIn("#unlock-form input", self.css)
         self.assertIn(".header-register,", self.css)
+        self.assertIn(".docs-content .scope-row", self.css)

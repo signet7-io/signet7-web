@@ -724,6 +724,12 @@ html[data-theme="dark"] .action-hero::before {
   border-bottom: 1px solid var(--line);
 }
 .scope-row b { line-height: 1.35; }
+.docs-content .scope-row {
+  grid-template-columns: 1fr;
+  row-gap: 4px;
+  padding: 14px 0;
+}
+.docs-content .scope-row b { display: block; }
 .truth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .fine-print, .fine-print.dark-text { color: var(--night-mute); font-size: 13px; }
 
