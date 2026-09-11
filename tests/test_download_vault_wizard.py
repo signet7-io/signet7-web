@@ -18,15 +18,48 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertIn('id="company-records-vault"', html)
         self.assertIn("Optional encrypted records vault", html)
         self.assertIn("The public website check does not keep the letter", html)
+        self.assertIn("Cap is 10 GB", html)
+        self.assertIn("50%", html)
+        self.assertIn("90%", html)
+        self.assertIn("Recipients never use the vault", html)
         self.assertIn('id="company-setup-wizard"', html)
         self.assertIn("One-file wizard", html)
         self.assertIn("Recipients never run it", html)
         self.assertNotIn("pip install", html)
         self.assertNotIn("Qual", html)
+        self.assertNotIn("VSN", html)
         self.assertNotIn("is safe to pay", html)
         hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
         self.assertIn("High-stakes email, finally", hero)
         self.assertIn("provable", hero)
+
+    def test_watch_product_docs_name_optional_vault(self) -> None:
+        pages = {
+            "watch.html": (ROOT / "watch.html").read_text(encoding="utf-8"),
+            "product.html": (ROOT / "product.html").read_text(encoding="utf-8"),
+            "docs.html": (ROOT / "docs.html").read_text(encoding="utf-8"),
+        }
+        ids = {
+            "watch.html": "watch-records-vault",
+            "product.html": "product-records-vault",
+            "docs.html": "docs-records-vault",
+        }
+        for name, html in pages.items():
+            with self.subTest(page=name):
+                self.assertIn(f'id="{ids[name]}"', html)
+                self.assertIn("recovery key", html.lower())
+                self.assertIn("Cap is 10 GB", html)
+                self.assertIn("50%", html)
+                self.assertIn("90%", html)
+                self.assertIn("The public website check does not keep the letter", html)
+                self.assertIn("Recipients never use the vault", html)
+                self.assertNotIn("pip install", html)
+                self.assertNotIn("Qual", html)
+                self.assertNotIn("VSN", html)
+                self.assertNotIn("is safe to pay", html)
+                self.assertNotIn("How it works", html)
+        hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
+        self.assertIn("High-stakes email, finally", hero)
 
     def test_latest_json_is_unsigned_preview_not_pip(self) -> None:
         meta = json.loads((ROOT / "files" / "latest.json").read_text(encoding="utf-8"))
