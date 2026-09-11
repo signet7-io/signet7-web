@@ -69,3 +69,15 @@ class InnerPagesPaperChromeTests(unittest.TestCase):
         self.assertIn("https://verify.signet7.io/vsn", product)
         self.assertIn("Each of those emails gets its own listing.", programs)
         self.assertNotIn("VSN identity", programs)
+
+    def test_watch_and_download_do_not_name_vsn(self) -> None:
+        watch = (ROOT / "watch.html").read_text(encoding="utf-8")
+        download = (ROOT / "download.html").read_text(encoding="utf-8")
+        for name, html in (("watch.html", watch), ("download.html", download)):
+            with self.subTest(page=name):
+                self.assertNotIn("VSN", html)
+                self.assertIn('href="vsn"', html)
+                self.assertIn("High-stakes email, finally", self.home)
+                self.assertNotIn("Qual", html)
+                self.assertIn("Each of those emails gets its own listing.", html)
+                self.assertNotIn("VSN identity", html)

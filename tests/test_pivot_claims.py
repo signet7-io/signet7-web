@@ -799,6 +799,8 @@ class ContentSecurityPolicy(unittest.TestCase):
             "product.html",
             "programs.html",
             "vsn.html",
+            "watch.html",
+            "download.html",
         ):
             with self.subTest(page=name):
                 self._assert_page_does_not_name_vsn(self.pages[name])
@@ -858,12 +860,20 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("Signet7 can seal the email. Then check it here.", page)
         self.assertIn("Listed, Not listed, or Listing doesn’t match this address", page)
 
-    def test_watch_page_names_vsn_identity(self) -> None:
-        page = self.pages["watch.html"]
-        self.assertIn("Each of those emails gets its own VSN identity.", page)
-        self.assertIn("Not every staff laptop", page)
-        self.assertIn("Recipients never install it", page)
-        self.assertIn("Named work emails. Company computers only.", page)
+    def test_watch_and_download_do_not_name_vsn(self) -> None:
+        watch = self.pages["watch.html"]
+        download = self.pages["download.html"]
+        self._assert_page_does_not_name_vsn(watch)
+        self._assert_page_does_not_name_vsn(download)
+        self.assertIn("Each of those emails gets its own listing.", watch)
+        self.assertIn("Each of those emails gets its own listing.", download)
+        self.assertIn("Not every staff laptop", watch)
+        self.assertIn("Recipients never install it", watch)
+        self.assertIn("Named work emails. Company computers only.", watch)
+        self.assertIn('href="vsn"', watch)
+        self.assertIn('href="vsn"', download)
+        self.assertNotIn("Qual", watch)
+        self.assertNotIn("Qual", download)
 
     def test_homepage_does_not_name_vsn(self) -> None:
         home = self.pages["index.html"]

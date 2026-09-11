@@ -34,7 +34,9 @@ class WatchZipNotIphoneTests(unittest.TestCase):
         for name, html in (("watch", self.watch), ("download", self.download)):
             with self.subTest(page=name):
                 self.assertNotIn("Qual", html)
-                self.assertIn("VSN identity", html)
+                self.assertNotIn("VSN identity", html)
+                self.assertNotIn("VSN", html)
+                self.assertIn("Each of those emails gets its own listing.", html)
                 self.assertNotIn("is safe to pay", html)
                 self.assertNotIn("you’re safe", html)
                 self.assertNotIn("you're safe", html)
