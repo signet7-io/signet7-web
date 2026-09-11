@@ -76,6 +76,25 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertNotIn("is safe to pay", html)
         self.assertNotIn("How it works", html)
 
+    def test_faq_names_one_file_wizard(self) -> None:
+        html = (ROOT / "faq.html").read_text(encoding="utf-8")
+        self.assertIn('id="faq-setup-wizard"', html)
+        self.assertIn('id="faq-one-file-wizard"', html)
+        self.assertIn("One-file wizard", html)
+        self.assertIn("company zip", html)
+        self.assertIn("Recipients never run it", html)
+        self.assertIn("not pip", html)
+        self.assertIn("There is no Check for update", html)
+        self.assertIn("Unsigned Preview", html)
+        self.assertNotIn("pip install", html)
+        self.assertNotIn("Qual", html)
+        self.assertNotIn("VSN", html)
+        self.assertNotIn("is safe to pay", html)
+        self.assertNotIn("How it works", html)
+        hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
+        self.assertIn("High-stakes email, finally", hero)
+        self.assertIn("provable", hero)
+
     def test_docs_and_download_name_helper_instruction_card(self) -> None:
         docs = (ROOT / "docs.html").read_text(encoding="utf-8")
         download = self.download
