@@ -803,7 +803,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("Listing lookup", page)
         self.assertIn("https://verify.signet7.io/vsn", page)
         self.assertIn("Listed, Not listed, or Listing doesn’t match this address", page)
-        self.assertIn("DNS key lookup is live; a managed company directory is not", page)
+        self.assertIn("DNS keys if they published TXT. Hosted listings after they enroll", page)
+        self.assertNotIn("a managed company directory is not", page)
         self.assertNotIn("VSN lookup", page)
 
     def test_docs_page_visible_copy_does_not_name_vsn(self) -> None:
