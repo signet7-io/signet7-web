@@ -1852,4 +1852,19 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
   0%, 18% { opacity: 0.25; }
   22%, 100% { opacity: 1; }
 }
+.sell-hero .people-loop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 38%;
+  z-index: 1;
+}
+.sell-hero .people-plate { z-index: 0; }
+.page-hero {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(110,231,245,.06), transparent 55%),
+    #05080d;
+}
 

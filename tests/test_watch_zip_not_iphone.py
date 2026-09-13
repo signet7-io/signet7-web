@@ -44,7 +44,7 @@ class WatchZipNotIphoneTests(unittest.TestCase):
                 self.assertNotIn("Play Store", html)
         self.assertIn("Check an important email before you act", self.home)
         hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
-        self.assertIn("before you act", hero)
+        self.assertIn("Signet7 is the cryptographic seal and check for high-stakes email", hero)
         self.assertNotIn("Watch on iPhone", hero)
 
 
