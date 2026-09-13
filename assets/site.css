@@ -735,8 +735,8 @@ html[data-theme="dark"] .action-hero::before {
 
 .site-footer, .footer {
   position: relative; z-index: 4;
-  padding: 220px 0 28px; border-top: 0;
-  background: #eef6fb url("tech-scene.jpg?v=12") no-repeat center bottom / min(1600px, 140%) auto;
+  padding: 28px 0 40px; border-top: 1px solid rgba(255,255,255,.08);
+  background: #050505;
 }
 .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 20px; color: var(--night-mute); }
 .footer .brand, .site-footer .brand { font-size: 22px; }
@@ -1516,7 +1516,7 @@ body.docs-manual .docs-figure figcaption {
   .film-grid { grid-template-columns: 1fr; }
   .film-copy h1 { font-size: clamp(32px, 8vw, 44px); max-width: none; }
   .page-hero h1 { font-size: clamp(32px, 8vw, 44px); max-width: none; }
-  .site-footer, .footer { padding: 120px 0 24px; background-size: 180% auto; }
+  .site-footer, .footer { padding: 28px 0 32px; }
   .tech-scene { width: 180%; margin-left: -40%; }
   .scene-wrap { overflow: hidden; }
 }
@@ -1606,7 +1606,7 @@ html[data-theme="dark"] body.nav-open .drop-btn {
 }
 html[data-theme="dark"] .site-footer,
 html[data-theme="dark"] .footer {
-  background: #071018 url("tech-scene-dark.jpg?v=12") no-repeat center bottom / min(1600px, 140%) auto;
+  background: #050505;
 }
 html[data-theme="dark"] .footer-grid a,
 html[data-theme="dark"] .site-footer a,

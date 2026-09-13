@@ -585,7 +585,9 @@ class ContentSecurityPolicy(unittest.TestCase):
                     self.assertEqual(body.strip(), "")
 
     def test_every_page_has_theme_switch_and_dark_scene_asset(self) -> None:
-        self.assertTrue((ROOT / "assets" / "tech-scene-dark.jpg").is_file())
+        css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
+        self.assertNotIn("tech-scene.jpg", css)
+        self.assertNotIn("tech-scene-dark.jpg", css)
         self.assertTrue((ROOT / "assets" / "theme.js").is_file())
         for name, html in self.pages.items():
             with self.subTest(page=name):
