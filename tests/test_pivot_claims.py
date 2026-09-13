@@ -224,7 +224,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for phrase in (
             "Seal outgoing email. Check for free. Signet7 desktop for several work emails.",
             "Checkout not live yet",
-            "Amounts not set",
+            "$0 now",
             "Inactive catalog",
             "Team is not a catalog SKU",
             "vanity seats",
@@ -398,12 +398,12 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_pay_page_stays_closed(self) -> None:
         self.assertIn("pay.html", self.pages)
         pay = self.pages["pay.html"]
-        self.assertIn("Amount not set", pay)
+        self.assertIn("$0", pay)
         self.assertNotIn("Placeholder $", pay)
         self.assertNotIn("Placeholder $12", pay)
         self.assertNotIn("Placeholder $29", pay)
         self.assertNotIn("Placeholder $99", pay)
-        self.assertIn("is-off", pay)
+        self.assertIn("Register — $0", pay)
         self.assertIn("Checkout is not live", pay)
         self.assertNotIn("free forever", pay.lower())
         self.assertNotRegex(pay, r"<form\b")
@@ -505,7 +505,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("Verifiable Sender Network (VSN)", home)
         self.assertNotIn("Verifiable Sender Network", home)
         self.assertNotIn("$12 / $29 / $99", home)
-        self.assertIn("Amount not set", self.pages["pay.html"])
+        self.assertIn("$0", self.pages["pay.html"])
         self.assertNotIn("Placeholder $12", self.pages["pay.html"])
         self.assertIn("https://account.signet7.io/account", home)
         self.assertIn("Login to Signet7", home)
