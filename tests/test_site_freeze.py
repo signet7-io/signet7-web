@@ -21,6 +21,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertNotIn("zoom/01.jpg", self.home)
         self.assertIn("Check an important email before you act", self.home)
         self.assertIn("before you act", self.home)
+        self.assertIn("<h1 id=\"hero-title\" class=\"billboard\">Signet7 is the cryptographic seal and check for high-stakes email.</h1>", self.home)
         self.assertNotIn("Make email something you can prove", self.home)
         self.assertNotIn("not just trust", self.home)
         self.assertIn("Signet7 is the cryptographic seal and check for high-stakes email", self.home)
@@ -51,7 +52,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in root_html_pages():
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                self.assertIn("assets/site.css?v=20260911g", html)
+                self.assertIn("assets/site.css?v=20260913a", html)
                 self.assertIn('data-theme="dark"', html)
                 self.assertNotIn("door-loop.mp4", html)
                 self.assertNotIn("signet7-circuit.jpg", html)
