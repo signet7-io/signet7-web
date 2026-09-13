@@ -1211,9 +1211,9 @@ html[data-theme="dark"] .action-hero::before {
   display: flex;
   align-items: flex-end;
   overflow: hidden;
-  min-height: 100vh;
-  min-height: 100dvh;
-  padding: calc(var(--nav-h) + 24px) 0 10vh;
+  min-height: 86vh;
+  min-height: 86dvh;
+  padding: calc(var(--nav-h) + 12px) 0 7vh;
   background: #050505;
 }
 .sell-hero .people-scene {
