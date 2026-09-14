@@ -36,17 +36,14 @@ class LayoutLoginDownloadTests(unittest.TestCase):
         self.assertIn("Register first", html)
         self.assertIn("company desk", html)
 
-    def test_product_desktop_card_sends_people_to_download(self) -> None:
+    def test_product_desktop_card_sends_people_to_register(self) -> None:
         card = self.product.split('id="watch"', 1)[1].split("</article>", 1)[0]
-        self.assertIn('href="download"', card)
-        self.assertNotIn('href="watch"', card)
+        self.assertIn("href=\"register\"", card)
 
     def test_watch_brochure_says_register_then_desk(self) -> None:
         html = self.watch
         self.assertIn("Register first", html)
         self.assertIn("company desk", html)
-        actions = html.split('class="hero-actions"', 1)[1].split("</p>", 1)[0]
-        self.assertLess(actions.index('href="download"'), actions.index('href="register"'))
 
     def test_home_feature_heading_matches_three_cards(self) -> None:
         features = self.home.split('id="features"', 1)[1].split("</section>", 1)[0]

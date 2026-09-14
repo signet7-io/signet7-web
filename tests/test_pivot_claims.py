@@ -411,7 +411,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotRegex(pay, r"<form\b")
         for name, html in self.pages.items():
             with self.subTest(page=name):
-                self.assertRegex(html, r'href="(\.\./)?download"')
+                self.assertRegex(html, r'href="(\.\./)?register"')
                 self.assertNotIn("pypi.org", html)
                 if name in {"index.html", "product.html", "about.html", "enterprise.html"}:
                     self.assertIn('class="facts"', html)
@@ -439,7 +439,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 self.assertRegex(nav, r'href="(\.\./)?about">About</a>')
                 self.assertRegex(nav, r'href="(\.\./)?register">Register</a>')
                 self.assertRegex(nav, r'href="(\.\./)?faq">FAQ</a>')
-                self.assertRegex(nav, r'href="(\.\./)?download">Download</a>')
+                self.assertNotRegex(nav, r'href="(\.\./)?download">Download</a>')
                 product_menu = nav.split(">Product</button>", 1)[1].split("</div>", 1)[0]
                 self.assertNotIn("Docs", product_menu)
                 self.assertRegex(
@@ -725,7 +725,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("What it is", nav)
         self.assertNotIn(">Watch</a>", nav)
         self.assertNotIn("Send &amp; seal", nav)
-        self.assertIn('href="download"', self.pages["product.html"])
+        self.assertIn('href="register"', self.pages["product.html"])
         self.assertIn('href="smtp"', self.pages["product.html"])
         self.assertIn("What Signet7 does", self.pages["product.html"])
         self.assertIn("Optional stamp", self.pages["product.html"])
