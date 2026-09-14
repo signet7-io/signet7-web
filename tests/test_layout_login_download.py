@@ -23,29 +23,28 @@ class LayoutLoginDownloadTests(unittest.TestCase):
         self.assertIn('id="watch-files"', html)
         self.assertIn('id="unlock-form"', html)
         self.assertLess(html.index('id="watch-files"'), html.index('id="unlock-form"'))
-        self.assertIn("The zip is public.", html)
-        self.assertIn("No login for the file.", html)
+        self.assertIn("No zip until you register", html)
+        self.assertIn("company desk anytime", html)
         self.assertNotIn("Email my unlock code", html)
         self.assertNotIn("$12", html)
         self.assertNotIn("$29", html)
         self.assertNotIn("$99", html)
         self.assertNotIn("Placeholder $", html)
 
-    def test_docs_do_not_require_registration_before_the_zip(self) -> None:
+    def test_docs_require_registration_before_the_zip(self) -> None:
         html = self.docs
-        self.assertNotIn("after Registration", html)
-        self.assertIn("The zip is public.", html)
-        self.assertIn("No login for the file.", html)
+        self.assertIn("Register first", html)
+        self.assertIn("company desk", html)
 
     def test_product_desktop_card_sends_people_to_download(self) -> None:
         card = self.product.split('id="watch"', 1)[1].split("</article>", 1)[0]
         self.assertIn('href="download"', card)
         self.assertNotIn('href="watch"', card)
 
-    def test_watch_brochure_says_the_zip_is_public(self) -> None:
+    def test_watch_brochure_says_register_then_desk(self) -> None:
         html = self.watch
-        self.assertIn("The zip is public.", html)
-        self.assertIn("No login for the file.", html)
+        self.assertIn("Register first", html)
+        self.assertIn("company desk", html)
         actions = html.split('class="hero-actions"', 1)[1].split("</p>", 1)[0]
         self.assertLess(actions.index('href="download"'), actions.index('href="register"'))
 
