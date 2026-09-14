@@ -291,7 +291,7 @@ a:hover { color: #2a6f86; }
   flex-shrink: 0;
 }
 .header-cta {
-  margin-left: 8px;
+  margin-left: auto;
   min-height: 36px;
   padding: 0 16px;
   font-size: 14px;

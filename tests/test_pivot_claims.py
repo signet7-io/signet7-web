@@ -519,7 +519,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("isolated qualification", low)
         self.assertNotIn("api/mcp-first", low)
         self.assertNotIn("executewire", low)
-        self.assertIn("Three things. That is the product.", home)
+        self.assertIn("Check a message. List the work email. Keep the file.", home)
         self.assertIn("Recipients never install", home)
         self.assertIn("What Signet7 desktop does", self.pages["download.html"])
         self.assertIn("What does Signet7 desktop do?", self.pages["faq.html"])
