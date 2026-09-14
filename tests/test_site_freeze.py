@@ -28,10 +28,10 @@ class SiteFreeze20260822Tests(unittest.TestCase):
 
     def test_name_story_lives_on_about_and_homepage_studies(self) -> None:
         about = (ROOT / "about.html").read_text(encoding="utf-8")
-        self.assertIn("A signet is a seal. The 7 is the long memory.", about)
+        self.assertIn("The seal is on the message. You can show later that the words still matched.", about)
         self.assertIn('id="play"', self.home)
         play = self.home.split('id="play"', 1)[1].split('id="demo"', 1)[0]
-        self.assertIn("A signet is a seal. The 7 is the long memory.", play)
+        self.assertIn("The seal is on the message", play)
         hero = self.home.split("<h1", 1)[1].split("</section>", 1)[0]
         self.assertNotIn("A signet is a seal. The 7 is the long memory.", hero)
 
@@ -52,7 +52,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in root_html_pages():
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                self.assertIn("assets/site.css?v=20260913g", html)
+                self.assertIn("assets/site.css?v=20260914a", html)
                 self.assertIn('data-theme="dark"', html)
                 self.assertNotIn("door-loop.mp4", html)
                 self.assertNotIn("signet7-circuit.jpg", html)
