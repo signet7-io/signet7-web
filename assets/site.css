@@ -28,22 +28,22 @@
 }
 
 :root {
-  --paper: #f6f0e4;
-  --page: #f7fbfe;
-  --header: #ffffff;
-  --card: #ffffff;
-  --ink: #12141d;
-  --ink-soft: #3a4050;
-  --mute: #5c6270;
-  --line: #e6ebf0;
-  --cyan: #4298b4;
+  --paper: #071428;
+  --page: #071428;
+  --header: #071428;
+  --card: #0a1c38;
+  --ink: #e8f4fc;
+  --ink-soft: #c5d2dc;
+  --mute: #9bb8c9;
+  --line: rgba(126, 214, 240, 0.32);
+  --cyan: #7ed6f0;
   --gold: #e4ae3a;
-  --night: #f7fbfe;
-  --night-ink: #12141d;
-  --night-mute: #3a4050;
-  --purple: #88619a;
-  --green: #33a474;
-  --max: 1220px;
+  --night: #071428;
+  --night-ink: #e8f4fc;
+  --night-mute: #9bb8c9;
+  --purple: #7ed6f0;
+  --green: #8fd4a8;
+  --max: 1280px;
   --nav-h: 72px;
   --nav-type: 16px;
   --nav-word: 20px;
@@ -66,7 +66,7 @@ html[data-theme="dark"] {
 }
 
 * { box-sizing: border-box; }
-html { color-scheme: light; scroll-behavior: smooth; }
+html { color-scheme: dark; scroll-behavior: smooth; }
 html[data-theme="dark"] { color-scheme: dark; }
 body {
   margin: 0;
@@ -118,11 +118,12 @@ body {
   background: radial-gradient(420px 420px at var(--mx, 70%) var(--my, 40%), rgba(88, 222, 248, 0.14), transparent 55%);
 }
 
-a { color: #4298b4; }
-a:hover { color: #2a6f86; }
+a { color: var(--cyan); }
+a:hover { color: #c5f3ff; }
 .skip-link {
   position: fixed; z-index: 2000; top: 10px; left: 10px;
-  padding: 10px 14px; border-radius: 999px; background: var(--cyan); color: #041018;
+  padding: 10px 14px; border-radius: 0; border: 1px solid var(--cyan);
+  background: var(--navy, #071428); color: var(--cyan);
   transform: translateY(-160%);
 }
 .skip-link:focus { transform: none; }
@@ -161,7 +162,8 @@ a:hover { color: #2a6f86; }
   text-transform: uppercase; font-size: var(--nav-word);
   line-height: 1;
 }
-.brand img {
+.brand img,
+.brand .cad-mark {
   width: var(--nav-seal); height: var(--nav-seal); border-radius: 0;
   object-fit: cover; object-position: 50% 46%;
   background: transparent;
@@ -388,7 +390,7 @@ main + .site-footer::before {
 .only-line {
   margin: 0 0 10px;
   max-width: 58rem;
-  font-family: "Instrument Serif", Georgia, serif;
+  font-family: Outfit, "Segoe UI", sans-serif;
   font-size: clamp(26px, 3vw, 38px);
   line-height: 1.15;
   color: var(--night-ink);
@@ -438,7 +440,7 @@ main + .site-footer::before {
 .banner-hook {
   margin: 0;
   max-width: 58rem;
-  font-family: "Instrument Serif", Georgia, serif;
+  font-family: Outfit, "Segoe UI", sans-serif;
   font-size: clamp(26px, 3vw, 38px);
   line-height: 1.15;
   color: var(--night-ink);
@@ -486,7 +488,7 @@ main + .site-footer::before {
 .eyebrow.dark { color: var(--cyan); }
 
 h1, h2 {
-  font-family: "Instrument Serif", Georgia, serif;
+  font-family: Outfit, "Segoe UI", sans-serif;
   font-weight: 400; letter-spacing: -0.03em; line-height: 0.98;
 }
 h1 {
@@ -518,24 +520,25 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .hero-actions, .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
 .button, a.button, .button-primary, .button-secondary, .button-dark {
   display: inline-flex; align-items: center; justify-content: center;
-  min-height: 46px; padding: 0 18px; border-radius: 999px; text-decoration: none;
-  font-weight: 650; font-size: 14px; border: 1px solid transparent; cursor: pointer;
+  min-height: 44px; padding: 0 18px; border-radius: 0; text-decoration: none;
+  font-weight: 700; font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+  border: 1px solid var(--cyan); cursor: pointer; font-family: Outfit, "Segoe UI", sans-serif;
 }
 .button-primary, a.button.primary, a.button-primary {
-  background: #88619a;
-  color: #fff;
+  background: var(--cyan);
+  color: #071428;
   box-shadow: none;
 }
 .button-secondary, a.button.secondary, a.button-secondary, button.ghost {
-  background: #fff; color: #12141d; border-color: #dce3ea;
+  background: transparent; color: var(--cyan); border-color: var(--cyan);
 }
-.button-dark { background: var(--paper); color: var(--ink); }
+.button-dark { background: transparent; color: var(--cyan); }
 .button:hover, a.button:hover { transform: translateY(-2px); }
 
 .maturity-strip, .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
 .maturity-strip span, .badge {
-  padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line);
-  font-size: 12px; color: var(--night-mute);
+  padding: 5px 10px; border-radius: 0; border: 1px solid var(--line);
+  font-size: 12px; color: var(--night-mute); letter-spacing: .08em; text-transform: uppercase;
 }
 .badge a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .badge a:hover { color: var(--cyan); }
@@ -601,7 +604,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .mail-body { padding: 18px 18px 16px; }
 .row { display: grid; grid-template-columns: 72px 1fr; gap: 8px; margin-bottom: 8px; font-size: 14px; color: #2b261f; }
 .row b { color: #7a7266; font-weight: 500; }
-.subject { font-size: 22px; margin: 10px 0 14px; font-family: "Instrument Serif", Georgia, serif; color: #171410; }
+.subject { font-size: 22px; margin: 10px 0 14px; font-family: Outfit, "Segoe UI", sans-serif; color: #171410; }
 .mail p { margin: 0 0 10px; color: #3c372f; }
 .hot {
   display: inline-block; padding: 2px 6px; border-radius: 6px;
@@ -658,18 +661,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   overflow: hidden;
 }
 .page-hero::before, .action-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("people-light.png") 50% 32% / cover no-repeat;
-  opacity: 0.22;
-  pointer-events: none;
-  z-index: 0;
-}
-html[data-theme="dark"] .page-hero::before,
-html[data-theme="dark"] .action-hero::before {
-  background-image: url("people-dark.png");
-  opacity: 0.3;
+  content: none;
 }
 .page-hero > *, .action-hero > * { position: relative; z-index: 1; }
 .section + .section,
@@ -687,7 +679,7 @@ html[data-theme="dark"] .action-hero::before {
   padding: 40px 0;
 }
 .urgency-lead {
-  font-family: "Instrument Serif", Georgia, serif;
+  font-family: Outfit, "Segoe UI", sans-serif;
   font-size: clamp(28px, 4vw, 46px); margin: 0 0 8px;
 }
 
@@ -913,7 +905,7 @@ html[data-theme="dark"] .action-hero::before {
   margin: 0 auto 12px;
   max-width: 16ch;
   color: var(--ink);
-  font-family: "Instrument Serif", Georgia, serif;
+  font-family: Outfit, "Segoe UI", sans-serif;
   font-size: clamp(40px, 6vw, 68px);
   font-weight: 400;
   line-height: 1.05;
@@ -1022,7 +1014,7 @@ html[data-theme="dark"] .action-hero::before {
 .t-teal { background: #33a474; }
 .t-green { background: #1b8f6a; }
 .t-ink { background: #12141d; }
-.quest-result h2 { max-width: 16ch; font-size: clamp(32px, 5vw, 52px); font-family: "Instrument Serif", Georgia, serif; font-weight: 400; }
+.quest-result h2 { max-width: 16ch; font-size: clamp(32px, 5vw, 52px); font-family: Outfit, "Segoe UI", sans-serif; font-weight: 400; }
 .quest-result p[data-result-body] { margin: 0 auto 28px; max-width: 34rem; color: var(--mute); font-size: 18px; }
 .quest-cta {
   display: inline-flex;
@@ -1147,7 +1139,7 @@ html[data-theme="dark"] .action-hero::before {
 .reel { color: var(--ink); }
 .page-hero h1, .section h1, .section h2, .reel h2 { color: var(--ink); }
 .page-hero h1 {
-  font-family: "Instrument Serif", Georgia, serif;
+  font-family: Outfit, "Segoe UI", sans-serif;
   font-weight: 400;
   font-size: clamp(40px, 5.6vw, 64px);
   line-height: 1.05;
@@ -1299,7 +1291,7 @@ html[data-theme="dark"] .action-hero::before {
 .nutshell .billboard {
   display: block;
   text-align: left;
-  font-family: "Instrument Serif", Georgia, serif;
+  font-family: Outfit, "Segoe UI", sans-serif;
   font-weight: 400;
   font-size: clamp(34px, 5.2vw, 68px);
   line-height: 0.95;
@@ -1345,7 +1337,7 @@ html[data-theme="dark"] .action-hero::before {
   font-size: clamp(19px, 1.7vw, 26px);
   line-height: 1.25;
   color: var(--ink);
-  font-family: "Instrument Serif", Georgia, serif;
+  font-family: Outfit, "Segoe UI", sans-serif;
 }
 .nutshell h1 {
   max-width: none;
@@ -1735,7 +1727,7 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 }
 .name-bridge h2 {
   margin: 0 0 10px;
-  font-family: "Instrument Serif", Georgia, serif;
+  font-family: Outfit, "Segoe UI", sans-serif;
   font-size: clamp(22px, 2.4vw, 30px);
   font-weight: 400;
   line-height: 1.2;
@@ -1814,7 +1806,7 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 .study .eyebrow { margin: 12px 0 6px; }
 .study h3 {
   margin: 0 0 8px;
-  font-family: "Instrument Serif", Georgia, serif;
+  font-family: Outfit, "Segoe UI", sans-serif;
   font-size: 22px;
   font-weight: 400;
   line-height: 1.25;
