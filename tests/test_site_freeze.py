@@ -17,6 +17,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertIn("sell-hero", self.home)
         self.assertIn("cad-scene", self.home)
         self.assertIn("cad-envelope", self.home)
+        self.assertIn("assets/blueprint/homepage.jpg", self.home)
         self.assertNotIn("people-dark.png", self.home)
         self.assertNotIn("people-light.png", self.home)
         self.assertNotIn("people-scene", self.home)
@@ -54,7 +55,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in root_html_pages():
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                self.assertIn("assets/site.css?v=20260915b", html)
+                self.assertIn("assets/site.css?v=20260915c", html)
                 self.assertIn('data-theme="dark"', html)
                 self.assertNotIn("door-loop.mp4", html)
                 self.assertNotIn("signet7-circuit.jpg", html)

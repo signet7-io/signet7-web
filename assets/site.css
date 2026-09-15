@@ -1235,6 +1235,35 @@ html[data-theme="dark"] .action-hero::before {
   height: auto;
   opacity: 0.42;
 }
+.sell-hero .blueprint-hero {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 12%;
+  opacity: 0.92;
+}
+.blueprint-sheet {
+  margin: 0;
+  padding: 18px 18px 28px;
+  background: #071428;
+  border-block: 1px solid rgba(126, 214, 240, 0.35);
+}
+.blueprint-sheet .blueprint-plate {
+  display: block;
+  width: min(1280px, 100%);
+  height: auto;
+  margin: 0 auto;
+  border: 1px solid rgba(126, 214, 240, 0.4);
+  background: #071428;
+}
+.blueprint-sheet figcaption {
+  width: min(1280px, 100%);
+  margin: 12px auto 0;
+  color: var(--mute);
+  font-size: 14px;
+}
 .sell-hero .people-plate {
   position: absolute;
   inset: 0;
@@ -1263,7 +1292,7 @@ html[data-theme="dark"] .action-hero::before {
   z-index: 2;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(7,20,40,.28) 0%, rgba(7,20,40,.12) 42%, rgba(7,20,40,.88) 100%);
+    linear-gradient(180deg, rgba(7,20,40,.18) 0%, rgba(7,20,40,.08) 38%, rgba(7,20,40,.78) 100%);
 }
 .sell-hero > .container.nutshell {
   position: relative;
