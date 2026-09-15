@@ -17,6 +17,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertIn("sell-hero", self.home)
         self.assertIn("cad-scene", self.home)
         self.assertIn("cad-envelope", self.home)
+        self.assertIn("assets/blueprint/homepage.jpg", self.home)
         self.assertNotIn("people-dark.png", self.home)
         self.assertNotIn("people-light.png", self.home)
         self.assertNotIn("people-scene", self.home)
@@ -54,7 +55,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in root_html_pages():
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                self.assertIn("assets/site.css?v=20260915b", html)
+                self.assertIn("assets/site.css?v=20260915d", html)
                 self.assertIn('data-theme="dark"', html)
                 self.assertNotIn("door-loop.mp4", html)
                 self.assertNotIn("signet7-circuit.jpg", html)
@@ -62,10 +63,10 @@ class SiteFreeze20260822Tests(unittest.TestCase):
     def test_homepage_mute_study_films(self) -> None:
         self.assertIn("media-src 'self'", self.home)
         self.assertIn('id="play"', self.home)
-        self.assertIn("assets/studies/seal.mp4", self.home)
-        self.assertIn("assets/studies/network.mp4", self.home)
-        self.assertIn("assets/studies/stamp.mp4", self.home)
-        self.assertIn("autoplay muted loop playsinline", self.home)
+        self.assertIn("assets/blueprint/check.jpg", self.home)
+        self.assertIn("assets/blueprint/evidence.jpg", self.home)
+        self.assertIn("assets/blueprint/how.jpg", self.home)
+        self.assertNotIn("assets/studies/seal.mp4", self.home)
         self.assertIn("Check an important email before you act", self.home)
         self.assertIn('id="created"', self.home)
         self.assertIn("That file is the record.", self.home)

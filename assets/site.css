@@ -1213,27 +1213,59 @@ html[data-theme="dark"] .action-hero::before {
   position: relative;
   z-index: 5;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: stretch;
   overflow: hidden;
   min-height: 86vh;
   min-height: 86dvh;
-  padding: calc(var(--nav-h) + 12px) 0 7vh;
+  padding: calc(var(--nav-h) + 8px) 0 0;
   background: #071428;
   border-bottom: 1px solid rgba(126, 214, 240, 0.35);
 }
 .sell-hero .cad-scene,
 .sell-hero .people-scene {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  inset: auto;
   margin: 0;
   z-index: 0;
   display: grid;
   place-items: center;
+  width: 100%;
 }
 .sell-hero .cad-envelope {
-  width: min(720px, 78vw);
+  width: min(1280px, 96vw);
   height: auto;
-  opacity: 0.42;
+  opacity: 1;
+}
+.sell-hero .blueprint-hero {
+  position: relative;
+  inset: auto;
+  width: min(1280px, 96vw);
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center top;
+  opacity: 1;
+}
+.blueprint-sheet {
+  margin: 0;
+  padding: 18px 18px 28px;
+  background: #071428;
+  border-block: 1px solid rgba(126, 214, 240, 0.35);
+}
+.blueprint-sheet .blueprint-plate {
+  display: block;
+  width: min(1280px, 100%);
+  height: auto;
+  margin: 0 auto;
+  border: 1px solid rgba(126, 214, 240, 0.4);
+  background: #071428;
+}
+.blueprint-sheet figcaption {
+  width: min(1280px, 100%);
+  margin: 12px auto 0;
+  color: var(--mute);
+  font-size: 14px;
 }
 .sell-hero .people-plate {
   position: absolute;
@@ -1257,13 +1289,7 @@ html[data-theme="dark"] .action-hero::before {
   transform: scale(1.04);
 }
 .sell-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(7,20,40,.28) 0%, rgba(7,20,40,.12) 42%, rgba(7,20,40,.88) 100%);
+  content: none;
 }
 .sell-hero > .container.nutshell {
   position: relative;
