@@ -889,9 +889,9 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .home .site-header .brand span { color: var(--ink); }
 .home .site-nav a { color: var(--mute); }
 .home .header-cta {
-  background: #88619a;
-  color: #fff;
-  border-color: #88619a;
+  background: var(--cyan);
+  color: #071428;
+  border-color: var(--cyan);
 }
 .quest-inner { width: min(1080px, calc(100% - 36px)); position: relative; z-index: 2; }
 .quest-kicker {
