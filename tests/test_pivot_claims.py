@@ -615,7 +615,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("signet7-circuit.jpg", home)
         self.assertNotIn("seasons-scene", home)
         self.assertNotIn("door-loop.mp4", home)
-        self.assertIn("people-dark.png", home)
+        self.assertIn("cad-envelope", home)
+        self.assertNotIn("people-dark.png", home)
         self.assertIn("data-demo-next", home)
         self.assertIn("Step 1 of 4", home)
         self.assertIn('data-panel="listing"', home)
@@ -739,7 +740,8 @@ class ContentSecurityPolicy(unittest.TestCase):
     def test_try_samples_and_locked_register_login(self) -> None:
         home = self.pages["index.html"]
         self.assertNotIn(">Check a message</a>", home)
-        self.assertIn("people-dark.png", home)
+        self.assertIn("cad-envelope", home)
+        self.assertNotIn("people-dark.png", home)
         self.assertIn("Live check", home)
         self.assertNotIn(".eml", home)
         css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")

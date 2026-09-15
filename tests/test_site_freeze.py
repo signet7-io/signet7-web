@@ -6,7 +6,7 @@ from tests.site_html import ROOT, root_html_pages
 
 
 class SiteFreeze20260822Tests(unittest.TestCase):
-    """Door unlocked 2026-09-11: restore last live dark Pages chrome (people plates)."""
+    """Door unlocked 2026-09-15: CAD blueprint envelope, same H1 and nav chrome."""
 
     @classmethod
     def setUpClass(cls) -> None:
@@ -15,9 +15,11 @@ class SiteFreeze20260822Tests(unittest.TestCase):
 
     def test_door_keeps_people_behind_type(self) -> None:
         self.assertIn("sell-hero", self.home)
-        self.assertIn("people-dark.png", self.home)
-        self.assertIn("people-light.png", self.home)
-        self.assertIn("people-scene", self.home)
+        self.assertIn("cad-scene", self.home)
+        self.assertIn("cad-envelope", self.home)
+        self.assertNotIn("people-dark.png", self.home)
+        self.assertNotIn("people-light.png", self.home)
+        self.assertNotIn("people-scene", self.home)
         self.assertNotIn("zoom/01.jpg", self.home)
         self.assertIn("Check an important email before you act", self.home)
         self.assertIn("before you act", self.home)
@@ -52,7 +54,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in root_html_pages():
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                self.assertIn("assets/site.css?v=20260914a", html)
+                self.assertIn("assets/site.css?v=20260915b", html)
                 self.assertIn('data-theme="dark"', html)
                 self.assertNotIn("door-loop.mp4", html)
                 self.assertNotIn("signet7-circuit.jpg", html)
@@ -77,11 +79,10 @@ class SiteFreeze20260822Tests(unittest.TestCase):
 
     def test_people_panorama_only_once_and_new_art(self) -> None:
         home = (ROOT / "index.html").read_text(encoding="utf-8")
-        self.assertGreaterEqual(home.count("people-dark.png"), 1)
-        self.assertGreaterEqual(home.count("people-light.png"), 1)
+        self.assertIn("cad-envelope", home)
+        self.assertNotIn("people-dark.png", home)
+        self.assertNotIn("people-light.png", home)
         for path in root_html_pages():
-            if path.name == "index.html":
-                continue
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
                 self.assertNotIn("people-once.jpg", html)
