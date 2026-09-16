@@ -1570,7 +1570,7 @@ body.docs-manual .docs-figure figcaption {
 }
 
 @media (max-width: 600px) {
-  .facts-grid { grid-template-columns: 1fr; }
+  .facts-grid, .price-grid { grid-template-columns: 1fr; }
   .fact strong { font-size: clamp(36px, 12vw, 52px); }
 }
 
@@ -2084,7 +2084,16 @@ body.docs-manual .docs-nav a { border-radius: 0; }
     max-width: none;
     line-height: 1.18;
     overflow: visible;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+  }
+  .sell-hero .blueprint-hero,
+  .sell-hero .cad-envelope {
+    max-height: min(220px, 32vh);
+    width: min(1440px, 94vw);
+    object-fit: contain;
+  }
+  .price-grid {
+    grid-template-columns: 1fr;
   }
   .hero-actions,
   .actions {
