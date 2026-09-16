@@ -259,6 +259,30 @@
     }
   }
 
+  if (typeof HTMLDialogElement !== "undefined") {
+    const dlg = document.createElement("dialog");
+    dlg.className = "drawing-dialog";
+    dlg.setAttribute("aria-label", "Drawing");
+    const big = document.createElement("img");
+    const close = document.createElement("button");
+    close.type = "button";
+    close.className = "drawing-dialog-close";
+    close.textContent = "Close";
+    close.addEventListener("click", () => dlg.close());
+    dlg.appendChild(close);
+    dlg.appendChild(big);
+    document.body.appendChild(dlg);
+    document.addEventListener("click", (e) => {
+      const img = e.target.closest("img.blueprint-plate, .feat img, img.blueprint-hero");
+      if (!img) return;
+      e.preventDefault();
+      e.stopPropagation();
+      big.src = img.currentSrc || img.src;
+      big.alt = img.alt || "Signet7 drawing";
+      dlg.showModal();
+    });
+  }
+
   const canvas = document.getElementById("dust");
   if (true || !canvas || reduce || !canvas.getContext) return;
   const ctx = canvas.getContext("2d");
