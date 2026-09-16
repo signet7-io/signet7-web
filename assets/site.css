@@ -753,6 +753,10 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   .drop-menu { position: static; box-shadow: none; border: 0; padding: 0 0 8px 8px; min-width: 0; }
   .drop-btn { text-align: left; min-height: 44px; }
 }
+@media (max-width: 720px) {
+  .header-register { display: none; }
+  .header-cta { margin-left: 8px; padding: 0 12px; }
+}
 @media (max-width: 900px) {
   :root { --nav-type: 15px; }
   .site-header .brand { font-size: var(--nav-word); }

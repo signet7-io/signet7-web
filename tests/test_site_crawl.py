@@ -158,6 +158,8 @@ class SiteCrawlHardeningTests(unittest.TestCase):
         self.assertIn("drawing-dialog", motion)
         css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
         self.assertIn(".art-hero img", css)
+        self.assertIn("@media (max-width: 720px)", css)
+        self.assertIn(".header-register { display: none; }", css)
         billboard = re.search(r"\.nutshell \.billboard\s*\{[^}]+\}", css)
         self.assertIsNotNone(billboard)
         self.assertNotIn("line-height: 0.95", billboard.group(0))
