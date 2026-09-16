@@ -1957,5 +1957,40 @@ body.docs-manual .docs-nav a { border-radius: 0; }
 .home .sell-hero .lede {
   color: #c5d4e0;
 }
+.drawing-dialog {
+  max-width: 96vw;
+  max-height: 96vh;
+  margin: auto;
+  padding: 16px;
+  border: 1px solid rgba(126, 214, 240, 0.4);
+  background: #071428;
+  color: #eef4f8;
+}
+.drawing-dialog::backdrop {
+  background: rgba(5, 8, 13, 0.88);
+}
+.drawing-dialog img {
+  display: block;
+  max-width: 94vw;
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.drawing-dialog-close {
+  display: block;
+  margin: 0 0 12px auto;
+  font: inherit;
+  color: #071428;
+  background: #7ed6f0;
+  border: 0;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+.feat img,
+.blueprint-plate,
+.blueprint-hero {
+  cursor: zoom-in;
+}
 
 
