@@ -33,8 +33,8 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         about = (ROOT / "about.html").read_text(encoding="utf-8")
         self.assertIn("The seal is on the message. You can show later that the words still matched.", about)
         self.assertIn('id="play"', self.home)
-        play = self.home.split('id="play"', 1)[1].split('id="demo"', 1)[0]
-        self.assertIn("The seal is on the message", play)
+        play = self.home.split('id="play"', 1)[1]
+        self.assertIn("The drawings", play)
         hero = self.home.split("<h1", 1)[1].split("</section>", 1)[0]
         self.assertNotIn("A signet is a seal. The 7 is the long memory.", hero)
 
@@ -55,7 +55,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in root_html_pages():
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                self.assertIn("assets/site.css?v=20260915g", html)
+                self.assertIn("assets/site.css?v=20260915h", html)
                 self.assertIn('data-theme="dark"', html)
                 self.assertNotIn("door-loop.mp4", html)
                 self.assertNotIn("signet7-circuit.jpg", html)
@@ -65,12 +65,13 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertIn('id="play"', self.home)
         self.assertIn("assets/blueprint/check.jpg", self.home)
         self.assertIn("assets/blueprint/evidence.jpg", self.home)
-        self.assertIn("assets/blueprint/how.jpg", self.home)
+        self.assertIn("assets/blueprint/howto.jpg", self.home)
         self.assertNotIn("assets/studies/seal.mp4", self.home)
         self.assertIn("Check an important email before you act", self.home)
-        self.assertIn('id="created"', self.home)
-        self.assertIn("That file is the record.", self.home)
-        self.assertIn("A vendor asks you to change wiring details", self.home)
+        self.assertNotIn("Who uses it", self.home)
+        self.assertNotIn("Law, title, construction, payroll, finance.", self.home)
+        self.assertNotIn("You keep the result.", self.home)
+        self.assertNotIn("If you received one email, check it.", self.home)
 
     def test_footer_rights_and_wrongs(self) -> None:
         line = "All rights reserved."

@@ -356,10 +356,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
 
     def test_homepage_situation_chooser_and_terminal_install(self) -> None:
         home = self.pages["index.html"]
-        self.assertIn("If you received one email, check it. If you run a company, register.", home)
-        self.assertIn("Most people do not download anything", home)
-        self.assertIn("I received one email", home)
-        self.assertIn("I run the company", home)
+        self.assertNotIn("If you received one email, check it. If you run a company, register.", home)
         self.assertNotIn("data-install-chooser", home)
         self.assertNotIn("irm https://signet7.io/install.ps1 | iex", home)
         self.assertNotIn("Show options", home)
@@ -413,7 +410,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             with self.subTest(page=name):
                 self.assertRegex(html, r'href="(\.\./)?register"')
                 self.assertNotIn("pypi.org", html)
-                if name in {"index.html", "product.html", "about.html", "enterprise.html"}:
+                if name in {"product.html", "about.html", "enterprise.html"}:
                     self.assertIn('class="facts"', html)
                 else:
                     self.assertNotIn('class="facts"', html)
@@ -452,7 +449,6 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 self.assertNotIn(">About</button>", nav)
                 self.assertNotIn('<p class="drop-head">Product</p>', nav)
                 self.assertNotIn(">About Signet7</a>", nav)
-        self.assertIn("It watches incoming on named company inboxes", self.pages["index.html"])
         self.assertNotIn("Inbox Watch", self.pages["index.html"])
         self.assertIn("Team", self.pages["about.html"])
 
@@ -489,18 +485,9 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_homepage_is_a_customer_front_door(self) -> None:
         home = self.pages["index.html"]
         low = home.lower()
-        self.assertIn("$3.05B", home)
-        self.assertIn("24,768", home)
-        self.assertIn("$20.9B", home)
-        self.assertIn("191K+", home)
-        self.assertIn("Business Email Compromise", home)
-        self.assertNotIn("BEC ", home)
-        self.assertNotIn(">BEC", home)
-        self.assertIn("Law office", home)
-        self.assertIn("A record you can produce", home)
-        self.assertIn("You hand them the check", home)
+        self.assertNotIn("Law, title, construction, payroll, finance.", home)
+        self.assertNotIn("Who uses it", home)
         self.assertIn("That file is the record.", home)
-        self.assertIn("fbi ic3", low)
         self.assertNotIn("pip install signet7", home)
         self.assertNotIn("pip install signet7", self.pages["download.html"])
         self.assertIn("href=\"download\"", home)
@@ -617,11 +604,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("door-loop.mp4", home)
         self.assertIn("cad-envelope", home)
         self.assertNotIn("people-dark.png", home)
-        self.assertIn("data-demo-next", home)
-        self.assertIn("Step 1 of 4", home)
-        self.assertIn('data-panel="listing"', home)
-        self.assertNotIn('data-panel="vsn"', home)
-        self.assertIn('data-panel="decide"', home)
+        self.assertNotIn("data-demo-next", home)
+        self.assertNotIn("Step 1 of 4", home)
         motion = (ROOT / "assets" / "motion.js").read_text(encoding="utf-8")
         self.assertNotIn("Next · Verifiable Sender Network (VSN)", motion)
         self.assertIn("Next · Look up a company", motion)
@@ -898,7 +882,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("Verifiable Sender Network (VSN)", motion)
         self.assertNotIn("VSN (Verifiable Sender Network)", motion)
         self.assertNotIn('data-panel="vsn"', home)
-        self.assertIn('data-panel="listing"', home)
+        self.assertNotIn('data-panel="listing"', home)
         self.assertNotIn('name === "vsn"', motion)
         self.assertIn('name === "listing"', motion)
         self.assertNotIn(".vsn-section", css)

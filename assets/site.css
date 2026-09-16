@@ -1944,9 +1944,13 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 .study:nth-child(2) .study-card,
 .study:nth-child(3) .study-card { background-image: none; }
 body.docs-manual .docs-nav a { border-radius: 0; }
-.site-footer {
-  border-top: 1px solid rgba(126, 214, 240, 0.32);
-  background: #071428;
+.feat img { max-width: 100%; height: auto; display: block; margin-bottom: 12px; border: 1px solid rgba(126, 214, 240, 0.32); }
+.kicker, .dim {
+  font-family: Outfit, "Segoe UI", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cyan);
 }
 
 
