@@ -17,7 +17,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertIn("sell-hero", self.home)
         self.assertIn("cad-scene", self.home)
         self.assertIn("cad-envelope", self.home)
-        self.assertIn("assets/blueprint/homepage.jpg?v=20260916l", self.home)
+        self.assertIn("assets/blueprint/homepage.jpg?v=20260916p", self.home)
         self.assertNotIn("people-dark.png", self.home)
         self.assertNotIn("people-light.png", self.home)
         self.assertNotIn("people-scene", self.home)
