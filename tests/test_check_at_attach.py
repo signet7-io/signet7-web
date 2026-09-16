@@ -22,5 +22,9 @@ class CheckAtAttachTests(unittest.TestCase):
 
     def test_vsn_page_hosted_listings_not_planned_directory(self) -> None:
         html = (ROOT / "vsn.html").read_text(encoding="utf-8")
-        self.assertIn("Hosted listings after they enroll", html)
+        self.assertIn(
+            "Hosted listings on the company desk after they enroll, not a public directory",
+            html,
+        )
+        self.assertNotIn("Hosted listings after they enroll.", html)
         self.assertNotIn("a managed company directory is not", html)
