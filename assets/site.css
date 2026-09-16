@@ -127,6 +127,29 @@ a:hover { color: #c5f3ff; }
   transform: translateY(-160%);
 }
 .skip-link:focus { transform: none; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.sell-hero > .container.nutshell.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 .container { width: min(var(--max), calc(100% - 36px)); margin-inline: auto; position: relative; z-index: 4; }
 
 .site-header {
@@ -2088,7 +2111,7 @@ body.docs-manual .docs-nav a { border-radius: 0; }
   }
   .sell-hero .blueprint-hero,
   .sell-hero .cad-envelope {
-    max-height: min(160px, 28vh);
+    max-height: none;
     width: min(1440px, 94vw);
     object-fit: contain;
   }
@@ -2207,7 +2230,7 @@ body.docs-manual .docs-nav a { border-radius: 0; }
   }
   .sell-hero .blueprint-hero,
   .sell-hero .cad-envelope {
-    max-height: 120px;
+    max-height: none;
   }
   .drawing-dialog {
     height: 100dvh;
