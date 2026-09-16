@@ -1208,11 +1208,11 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   flex-direction: column;
   align-items: stretch;
   overflow: hidden;
-  min-height: 86vh;
-  min-height: 86dvh;
+  min-height: 92vh;
+  min-height: 92dvh;
   padding: calc(var(--nav-h) + 8px) 0 0;
-  background: #071428;
-  border-bottom: 1px solid rgba(126, 214, 240, 0.35);
+  background: #e7f1f8;
+  border-bottom: 1px solid rgba(12, 42, 86, 0.18);
 }
 .sell-hero .cad-scene,
 .sell-hero .people-scene {
@@ -1225,19 +1225,20 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   width: 100%;
 }
 .sell-hero .cad-envelope {
-  width: min(1280px, 96vw);
+  width: min(1680px, 99vw);
   height: auto;
   opacity: 1;
 }
 .sell-hero .blueprint-hero {
   position: relative;
   inset: auto;
-  width: min(1280px, 96vw);
+  width: min(1680px, 99vw);
   height: auto;
   max-height: none;
   object-fit: contain;
   object-position: center top;
   opacity: 1;
+  background: #e7f1f8;
 }
 .blueprint-sheet {
   margin: 0;
@@ -1297,11 +1298,11 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   line-height: 0.95;
   letter-spacing: -0.03em;
   max-width: min(42rem, 92vw);
-  color: #f4f6fa;
+  color: #0c2a56;
   background: none;
   -webkit-background-clip: unset;
   background-clip: unset;
-  -webkit-text-fill-color: #f4f6fa;
+  -webkit-text-fill-color: #0c2a56;
   animation: none;
   margin: 8px 0 22px;
   overflow: visible;
@@ -1951,6 +1952,10 @@ body.docs-manual .docs-nav a { border-radius: 0; }
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--cyan);
+}
+.home .sell-hero .hero-steps,
+.home .sell-hero .lede {
+  color: #123a5c;
 }
 
 
