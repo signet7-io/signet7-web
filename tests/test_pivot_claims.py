@@ -735,6 +735,9 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("body:not(.home) { padding-top: var(--nav-h); }", css)
         header = home.split("<header", 1)[1].split("</header>", 1)[0]
         self.assertLess(header.index("header-register"), header.index("account-login"))
+        self.assertLess(header.index("header-cta"), header.index("header-register"))
+        self.assertIn(".nav-wrap > .header-cta {\n  margin-left: auto;", css)
+        self.assertNotIn(".header-cta { margin-left: 0; }", css)
 
     def test_outlook_sideload_does_not_whisper_hedge(self) -> None:
         manifest = (ROOT / "outlook" / "manifest.xml").read_text(encoding="utf-8")
