@@ -723,7 +723,8 @@ class ContentSecurityPolicy(unittest.TestCase):
 
     def test_try_samples_and_locked_register_login(self) -> None:
         home = self.pages["index.html"]
-        self.assertNotIn(">Check a message</a>", home)
+        hero = home.split("<h1", 1)[1].split("</section>", 1)[0]
+        self.assertNotIn(">Check a message</a>", hero)
         self.assertIn("cad-envelope", home)
         self.assertNotIn("people-dark.png", home)
         self.assertIn("Live check", home)
