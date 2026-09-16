@@ -339,7 +339,9 @@ a:hover { color: #c5f3ff; }
 }
 .header-register:hover,
 .account-login:hover { color: var(--night-ink); }
-.nav-wrap > .header-cta,
+.nav-wrap > .header-cta {
+  margin-left: auto;
+}
 .nav-wrap > .theme-toggle { margin-left: 12px; }
 [hidden] { display: none !important; }
 .nav-marks {
@@ -1203,7 +1205,6 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 .data-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 32px rgba(18,20,29,.06); }
 .data-table th, .data-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #e6ebf0; }
 .truth-grid > div { background: var(--card); color: var(--ink); border-radius: 16px; padding: 22px; box-shadow: 0 12px 32px rgba(18,20,29,.06); }
-.header-cta { margin-left: 0; }
 .site-nav a[href*="email/verify"] { display: none; }
 .quest h1 { max-width: 12ch; }
 .nav-wrap { min-height: 0; }
