@@ -1207,10 +1207,9 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  overflow: hidden;
-  min-height: 92vh;
-  min-height: 92dvh;
-  padding: calc(var(--nav-h) + 8px) 0 0;
+  overflow: visible;
+  min-height: 0;
+  padding: calc(var(--nav-h) + 16px) 0 0;
   background: #071428;
   border-bottom: 1px solid rgba(126, 214, 240, 0.35);
 }
@@ -1225,16 +1224,20 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   width: 100%;
 }
 .sell-hero .cad-envelope {
-  width: min(1680px, 99vw);
+  display: block;
+  width: min(1440px, 94vw);
   height: auto;
+  margin: 0 auto;
   opacity: 1;
 }
 .sell-hero .blueprint-hero {
   position: relative;
   inset: auto;
-  width: min(1680px, 99vw);
+  display: block;
+  width: min(1440px, 94vw);
   height: auto;
   max-height: none;
+  margin: 0 auto;
   object-fit: contain;
   object-position: center top;
   opacity: 1;
@@ -1288,6 +1291,8 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   position: relative;
   z-index: 3;
   width: min(1120px, calc(100% - 40px));
+  margin: 28px auto 40px;
+  padding-top: 8px;
 }
 .nutshell .billboard {
   display: block;
