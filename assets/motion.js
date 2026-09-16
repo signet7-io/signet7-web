@@ -13,10 +13,32 @@
   }
 
   const toggle = document.querySelector(".nav-toggle");
+  const nav = document.querySelector("#site-nav, .site-nav, .nav-links");
+  const headerLogin = document.querySelector(".account-login");
+  if (nav && headerLogin && !nav.querySelector(".nav-account-login")) {
+    const mobileLogin = headerLogin.cloneNode(true);
+    mobileLogin.classList.remove("account-login");
+    mobileLogin.classList.add("nav-account-login");
+    nav.appendChild(mobileLogin);
+  }
+  const setNavOpen = (open) => {
+    document.body.classList.toggle("nav-open", open);
+    if (!toggle) return;
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    const label = toggle.getAttribute("aria-label");
+    if (label === "Open menu" || label === "Close menu") {
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    }
+  };
   if (toggle) {
     toggle.addEventListener("click", () => {
-      const open = document.body.classList.toggle("nav-open");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      setNavOpen(!document.body.classList.contains("nav-open"));
+    });
+  }
+  if (nav) {
+    nav.addEventListener("click", (event) => {
+      if (!event.target.closest("a")) return;
+      setNavOpen(false);
     });
   }
 
