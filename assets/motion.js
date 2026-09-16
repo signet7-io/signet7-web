@@ -272,14 +272,18 @@
     dlg.appendChild(close);
     dlg.appendChild(big);
     document.body.appendChild(dlg);
+    dlg.addEventListener("click", (e) => {
+      if (e.target === dlg) dlg.close();
+    });
     document.addEventListener("click", (e) => {
-      const img = e.target.closest("img.blueprint-plate, .feat img, img.blueprint-hero");
-      if (!img) return;
+      const img = e.target.closest("img.blueprint-plate, .feat img, img.blueprint-hero, .art-trio img, .art-hero img");
+      if (!img || dlg.contains(img)) return;
       e.preventDefault();
       e.stopPropagation();
       big.src = img.currentSrc || img.src;
       big.alt = img.alt || "Signet7 drawing";
       dlg.showModal();
+      close.focus();
     });
   }
 
