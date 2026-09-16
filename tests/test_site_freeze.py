@@ -74,10 +74,11 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertNotIn("If you received one email, check it.", self.home)
 
     def test_footer_rights_and_wrongs(self) -> None:
-        line = "All rights reserved."
         for path in root_html_pages():
+            html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                self.assertIn(line, path.read_text(encoding="utf-8"))
+                self.assertIn("Signet7™, 2026 All rights reserved, All wrongs revenged.", html)
+                self.assertNotIn("© 2026 Signet7. All rights reserved.", html)
 
     def test_people_panorama_only_once_and_new_art(self) -> None:
         home = (ROOT / "index.html").read_text(encoding="utf-8")
