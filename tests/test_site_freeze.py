@@ -15,9 +15,11 @@ class SiteFreeze20260822Tests(unittest.TestCase):
 
     def test_door_keeps_people_behind_type(self) -> None:
         self.assertIn("sell-hero", self.home)
-        self.assertIn("cad-scene", self.home)
-        self.assertIn("cad-envelope", self.home)
-        self.assertIn("assets/blueprint/homepage.jpg?v=20260916p", self.home)
+        self.assertNotIn("cad-scene", self.home)
+        self.assertNotIn("cad-envelope", self.home)
+        self.assertNotIn("DWG S7-HOME", self.home)
+        self.assertNotIn("SCALE NTS", self.home)
+        self.assertNotIn("SHEET INDEX", self.home)
         self.assertNotIn("people-dark.png", self.home)
         self.assertNotIn("people-light.png", self.home)
         self.assertNotIn("people-scene", self.home)
@@ -34,7 +36,8 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertIn("The seal is on the message. You can show later that the words still matched.", about)
         self.assertIn('id="play"', self.home)
         play = self.home.split('id="play"', 1)[1]
-        self.assertIn("The drawings", play)
+        self.assertNotIn("The drawings", play)
+        self.assertNotIn("SHEET INDEX", play)
         hero = self.home.split("<h1", 1)[1].split("</section>", 1)[0]
         self.assertNotIn("A signet is a seal. The 7 is the long memory.", hero)
 
@@ -82,7 +85,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
 
     def test_people_panorama_only_once_and_new_art(self) -> None:
         home = (ROOT / "index.html").read_text(encoding="utf-8")
-        self.assertIn("cad-envelope", home)
+        self.assertNotIn("cad-envelope", home)
         self.assertNotIn("people-dark.png", home)
         self.assertNotIn("people-light.png", home)
         for path in root_html_pages():
