@@ -602,7 +602,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("signet7-circuit.jpg", home)
         self.assertNotIn("seasons-scene", home)
         self.assertNotIn("door-loop.mp4", home)
-        self.assertNotIn("cad-envelope", home)
+        self.assertIn("cad-envelope", home)
         self.assertNotIn("DWG S7-HOME", home)
         self.assertNotIn("people-dark.png", home)
         self.assertNotIn("data-demo-next", home)
@@ -726,7 +726,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         home = self.pages["index.html"]
         hero = home.split("<h1", 1)[1].split("</section>", 1)[0]
         self.assertNotIn(">Check a message</a>", hero)
-        self.assertNotIn("cad-envelope", home)
+        self.assertIn("cad-envelope", home)
         self.assertNotIn("people-dark.png", home)
         self.assertIn("Live check", home)
         self.assertNotIn(".eml", home)
