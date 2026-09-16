@@ -8,10 +8,25 @@ from pathlib import Path
 from PIL import Image, ImageOps
 from playwright.sync_api import sync_playwright
 
-PAGES = ("index.html", "product.html", "trust.html", "integrations.html", "programs.html", "pilot.html")
+PAGES = (
+    "index.html",
+    "product.html",
+    "docs.html",
+    "about.html",
+    "download.html",
+    "pay.html",
+    "record.html",
+    "register.html",
+    "trust.html",
+    "integrations.html",
+    "programs.html",
+    "pilot.html",
+)
 VIEWPORTS = {
     "desktop": {"width": 1440, "height": 1000},
     "mobile": {"width": 390, "height": 844},
+    "mobile_430": {"width": 430, "height": 932},
+    "mobile_short": {"width": 390, "height": 667},
 }
 CHROME = Path(os.environ.get("CHROME_PATH", "C:/Program Files/Google/Chrome/Application/chrome.exe"))
 
