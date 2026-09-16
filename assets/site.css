@@ -2088,10 +2088,22 @@ body.docs-manual .docs-nav a { border-radius: 0; }
   }
   .sell-hero .blueprint-hero,
   .sell-hero .cad-envelope {
-    max-height: min(220px, 32vh);
+    max-height: min(160px, 28vh);
     width: min(1440px, 94vw);
     object-fit: contain;
   }
+  .sell-hero > .container.nutshell {
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+    margin-bottom: 20px;
+  }
+  .nutshell .kicker { order: 0; }
+  .nutshell .billboard,
+  .nutshell h1 { order: 1; margin-bottom: 12px; }
+  .nutshell .hero-actions { order: 2; margin: 0 0 16px; }
+  .nutshell .hero-steps { order: 3; }
+  .nutshell .lede { order: 4; }
   .price-grid {
     grid-template-columns: 1fr;
   }
@@ -2192,6 +2204,10 @@ body.docs-manual .docs-nav a { border-radius: 0; }
   }
   .sell-hero {
     padding-top: calc(var(--nav-h) + 8px);
+  }
+  .sell-hero .blueprint-hero,
+  .sell-hero .cad-envelope {
+    max-height: 120px;
   }
   .drawing-dialog {
     height: 100dvh;
