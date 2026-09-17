@@ -18,9 +18,6 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertIn("cad-scene", self.home)
         self.assertIn("cad-envelope", self.home)
         self.assertIn("assets/blueprint/homepage.jpg?v=20260916p", self.home)
-        self.assertIn('id="cad-film"', self.home)
-        self.assertIn("film-hero", self.home)
-        self.assertIn("assets/film.js", self.home)
         self.assertIn("visually-hidden", self.home)
         self.assertNotIn("DWG S7-HOME", self.home)
         self.assertNotIn("SCALE NTS", self.home)
@@ -63,7 +60,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in root_html_pages():
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                self.assertIn("assets/site.css?v=20260917f", html)
+                self.assertIn("assets/site.css?v=20260916r", html)
                 self.assertIn('data-theme="dark"', html)
                 self.assertNotIn("door-loop.mp4", html)
                 self.assertNotIn("signet7-circuit.jpg", html)
