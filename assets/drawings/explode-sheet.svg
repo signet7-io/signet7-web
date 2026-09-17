@@ -3,25 +3,25 @@
 
   <defs>
     <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M32 0 H0 V32" fill="none" stroke="#47b1dc" stroke-width="0.45" opacity="0.22"/>
+      <path d="M32 0 H0 V32" fill="none" stroke="#47b1dc" stroke-width="0.85" opacity="0.22"/>
     </pattern>
     <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-      <line x1="0" y1="0" x2="0" y2="8" stroke="#47b1dc" stroke-width="0.8" opacity="0.55"/>
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#47b1dc" stroke-width="1.52" opacity="0.55"/>
     </pattern>
-    <marker id="arr" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+    <marker id="arr" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto">
       <path d="M0 0 L8 4 L0 8 Z" fill="#5cb9e9"/>
     </marker>
   </defs>
 
 <rect width="1920" height="1080" fill="#010d1d"/>
 <rect width="1920" height="1080" fill="url(#grid)"/>
-<rect x="18" y="18" width="1884" height="1044" fill="none" stroke="#47b1dc" stroke-width="1.6"/>
-<rect x="28" y="28" width="1864" height="1024" fill="none" stroke="#47b1dc" stroke-width="0.8"/>
-<path d="M6 18 H30 M18 6 V30" stroke="#5cb9e9" stroke-width="1.4"/>
-<path d="M1890 18 H1914 M1902 6 V30" stroke="#5cb9e9" stroke-width="1.4"/>
-<path d="M6 1062 H30 M18 1050 V1074" stroke="#5cb9e9" stroke-width="1.4"/>
-<path d="M1890 1062 H1914 M1902 1050 V1074" stroke="#5cb9e9" stroke-width="1.4"/>
-<rect x="40" y="40" width="1840" height="88" fill="none" stroke="#47b1dc" stroke-width="1"/>
+<rect x="18" y="18" width="1884" height="1044" fill="none" stroke="#47b1dc" stroke-width="3.04"/>
+<rect x="28" y="28" width="1864" height="1024" fill="none" stroke="#47b1dc" stroke-width="1.52"/>
+<path d="M6 18 H30 M18 6 V30" stroke="#5cb9e9" stroke-width="2.66"/>
+<path d="M1890 18 H1914 M1902 6 V30" stroke="#5cb9e9" stroke-width="2.66"/>
+<path d="M6 1062 H30 M18 1050 V1074" stroke="#5cb9e9" stroke-width="2.66"/>
+<path d="M1890 1062 H1914 M1902 1050 V1074" stroke="#5cb9e9" stroke-width="2.66"/>
+<rect x="40" y="40" width="1840" height="88" fill="none" stroke="#47b1dc" stroke-width="1.9"/>
 <image href="../img/signet7-circle-logo-official-v2.png" x="52" y="52" width="64" height="64"/>
 <text x="128" y="78" fill="#eef4f8" font-size="22" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="3" font-weight="600">SIGNET7.IO</text>
 <text x="128" y="102" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2.4" font-weight="400">VERIFY  ·  SEAL  ·  TRUST</text>
@@ -29,39 +29,39 @@
 <text x="1100" y="70" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DRAWING  S7-XP-001</text>
 <text x="1100" y="88" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DATE  17 SEP 26   REV D   SCALE NTS</text>
 <text x="1100" y="106" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DRAWN  S7 SYSTEMS</text>
-<a href="https://verify.signet7.io/email/verify"><rect x="1480" y="58" width="160" height="52" fill="none" stroke="#5cb9e9" stroke-width="1.4"/><text x="1560" y="90" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">LIVE CHECK</text></a>
-<a href="https://signet7.io/register"><rect x="1660" y="58" width="160" height="52" fill="#5cb9e9" stroke="#5cb9e9" stroke-width="1.4"/><text x="1740" y="90" fill="#010d1d" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">REGISTER</text></a>
+<a href="https://verify.signet7.io/email/verify"><rect x="1480" y="58" width="160" height="52" fill="none" stroke="#5cb9e9" stroke-width="2.66"/><text x="1560" y="90" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">LIVE CHECK</text></a>
+<a href="https://signet7.io/register"><rect x="1660" y="58" width="160" height="52" fill="#5cb9e9" stroke="#5cb9e9" stroke-width="2.66"/><text x="1740" y="90" fill="#010d1d" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">REGISTER</text></a>
 
 
-<path d="M520 280 L960 140 L1400 280" fill="none" stroke="#5cb9e9" stroke-width="2.4"/>
-<line x1="520" y1="280" x2="1400" y2="280" stroke="#47b1dc" stroke-width="1" stroke-dasharray="8 5"/>
-<circle cx="960" cy="360" r="70" fill="none" stroke="#5cb9e9" stroke-width="2"/>
-<circle cx="960" cy="360" r="52" fill="none" stroke="#47b1dc" stroke-width="1.2"/>
-<rect x="936" y="348" width="48" height="40" rx="3" fill="#010d1d" stroke="#5cb9e9" stroke-width="2"/>
-<path d="M948 348 V332 A12 12 0 0 1 972 332 V348" fill="none" stroke="#5cb9e9" stroke-width="2"/>
-<rect x="520" y="480" width="880" height="360" fill="none" stroke="#5cb9e9" stroke-width="2.4"/>
-<path d="M520 480 L960 660 L1400 480" fill="none" stroke="#47b1dc" stroke-width="1.4" opacity="0.5"/>
+<path d="M520 280 L960 140 L1400 280" fill="none" stroke="#5cb9e9" stroke-width="4.56"/>
+<line x1="520" y1="280" x2="1400" y2="280" stroke="#47b1dc" stroke-width="1.9" stroke-dasharray="8 5"/>
+<circle cx="960" cy="360" r="70" fill="none" stroke="#5cb9e9" stroke-width="3.8"/>
+<circle cx="960" cy="360" r="52" fill="none" stroke="#47b1dc" stroke-width="2.28"/>
+<rect x="936" y="348" width="48" height="40" rx="3" fill="#010d1d" stroke="#5cb9e9" stroke-width="3.8"/>
+<path d="M948 348 V332 A12 12 0 0 1 972 332 V348" fill="none" stroke="#5cb9e9" stroke-width="3.8"/>
+<rect x="520" y="480" width="880" height="360" fill="none" stroke="#5cb9e9" stroke-width="4.56"/>
+<path d="M520 480 L960 660 L1400 480" fill="none" stroke="#47b1dc" stroke-width="2.66" opacity="0.5"/>
 <text x="1480" y="180" fill="#5cb9e9" font-size="13" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">ITEM 02  FLAP</text>
 <text x="1480" y="360" fill="#5cb9e9" font-size="13" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">ITEM 03  SEAL</text>
 <text x="1480" y="660" fill="#5cb9e9" font-size="13" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">ITEM 01  BODY</text>
-<line x1="1400" y1="210" x2="1470" y2="174" stroke="#5cb9e9" stroke-width="1"/>
-<line x1="1030" y1="360" x2="1470" y2="360" stroke="#5cb9e9" stroke-width="1"/>
-<line x1="1400" y1="660" x2="1470" y2="654" stroke="#5cb9e9" stroke-width="1"/>
-<line x1="520" y1="860" x2="1400" y2="860" stroke="#5cb9e9" stroke-width="1"/>
+<line x1="1400" y1="210" x2="1470" y2="174" stroke="#5cb9e9" stroke-width="1.9"/>
+<line x1="1030" y1="360" x2="1470" y2="360" stroke="#5cb9e9" stroke-width="1.9"/>
+<line x1="1400" y1="660" x2="1470" y2="654" stroke="#5cb9e9" stroke-width="1.9"/>
+<line x1="520" y1="860" x2="1400" y2="860" stroke="#5cb9e9" stroke-width="1.9"/>
 <text x="960" y="884" fill="#5cb9e9" font-size="13" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">210.0</text>
 <text x="490" y="660" fill="#5cb9e9" font-size="13" font-family="Consolas, monospace" text-anchor="end" letter-spacing="1.4" font-weight="400">148.0</text>
 <text x="80" y="200" fill="#9ec9dc" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">The flap lifts. The seal is a separate item.</text>
 <text x="80" y="228" fill="#9ec9dc" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">Words stay bound. Recipients never install.</text>
-<rect x="40" y="930" width="1840" height="110" fill="none" stroke="#47b1dc" stroke-width="1"/>
+<rect x="40" y="930" width="1840" height="110" fill="none" stroke="#47b1dc" stroke-width="1.9"/>
 <text x="60" y="970" fill="#9ec9dc" font-size="12" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">SCALE 1:1 NTS</text>
-<line x1="240" y1="966" x2="520" y2="966" stroke="#5cb9e9" stroke-width="2"/>
-<line x1="240" y1="958" x2="240" y2="974" stroke="#5cb9e9" stroke-width="1"/>
+<line x1="240" y1="966" x2="520" y2="966" stroke="#5cb9e9" stroke-width="3.8"/>
+<line x1="240" y1="958" x2="240" y2="974" stroke="#5cb9e9" stroke-width="1.9"/>
 <text x="240" y="992" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">0</text>
-<line x1="333" y1="958" x2="333" y2="974" stroke="#5cb9e9" stroke-width="1"/>
+<line x1="333" y1="958" x2="333" y2="974" stroke="#5cb9e9" stroke-width="1.9"/>
 <text x="333" y="992" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">50</text>
-<line x1="426" y1="958" x2="426" y2="974" stroke="#5cb9e9" stroke-width="1"/>
+<line x1="426" y1="958" x2="426" y2="974" stroke="#5cb9e9" stroke-width="1.9"/>
 <text x="426" y="992" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">100</text>
-<line x1="519" y1="958" x2="519" y2="974" stroke="#5cb9e9" stroke-width="1"/>
+<line x1="519" y1="958" x2="519" y2="974" stroke="#5cb9e9" stroke-width="1.9"/>
 <text x="519" y="992" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">150</text>
 <text x="560" y="970" fill="#9ec9dc" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.2" font-weight="400">GRID ON · SNAP ON · ORTHO ON · UNITS mm · THIRD ANGLE · DO NOT SCALE PRINT</text>
 <text x="560" y="996" fill="#eef4f8" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.8" font-weight="600">EXPLODED  ·  FLAP / SEAL / BODY</text>

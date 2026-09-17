@@ -6,28 +6,28 @@
   <desc id="desc">Drawn from scratch. Cryptographic seal on high-stakes email. Two facts at check. Recipients never install.</desc>
   <defs>
     <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M32 0 H0 V32" fill="none" stroke="#47b1dc" stroke-width="0.45" opacity="0.22"/>
+      <path d="M32 0 H0 V32" fill="none" stroke="#47b1dc" stroke-width="0.85" opacity="0.22"/>
     </pattern>
     <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-      <line x1="0" y1="0" x2="0" y2="8" stroke="#47b1dc" stroke-width="0.8" opacity="0.55"/>
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#47b1dc" stroke-width="1.52" opacity="0.55"/>
     </pattern>
-    <marker id="arr" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+    <marker id="arr" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto">
       <path d="M0 0 L8 4 L0 8 Z" fill="#5cb9e9"/>
     </marker>
-    <marker id="arr2" markerWidth="8" markerHeight="8" refX="0" refY="4" orient="auto">
+    <marker id="arr2" markerWidth="12" markerHeight="12" refX="0" refY="4" orient="auto">
       <path d="M8 0 L0 4 L8 8 Z" fill="#5cb9e9"/>
     </marker>
   </defs>
   <rect width="1920" height="1080" fill="#010d1d"/>
   <rect width="1920" height="1080" fill="url(#grid)"/>
-  <rect x="18" y="18" width="1884" height="1044" fill="none" stroke="#47b1dc" stroke-width="1.6"/>
-  <rect x="28" y="28" width="1864" height="1024" fill="none" stroke="#47b1dc" stroke-width="0.8"/>
+  <rect x="18" y="18" width="1884" height="1044" fill="none" stroke="#47b1dc" stroke-width="3.04"/>
+  <rect x="28" y="28" width="1864" height="1024" fill="none" stroke="#47b1dc" stroke-width="1.52"/>
 
-<path d="M6 18 H30 M18 6 V30" stroke="#5cb9e9" stroke-width="1.4"/>
-<path d="M1890 18 H1914 M1902 6 V30" stroke="#5cb9e9" stroke-width="1.4"/>
-<path d="M6 1062 H30 M18 1050 V1074" stroke="#5cb9e9" stroke-width="1.4"/>
-<path d="M1890 1062 H1914 M1902 1050 V1074" stroke="#5cb9e9" stroke-width="1.4"/>
-<rect x="40" y="40" width="1840" height="88" fill="none" stroke="#47b1dc" stroke-width="1"/>
+<path d="M6 18 H30 M18 6 V30" stroke="#5cb9e9" stroke-width="2.66"/>
+<path d="M1890 18 H1914 M1902 6 V30" stroke="#5cb9e9" stroke-width="2.66"/>
+<path d="M6 1062 H30 M18 1050 V1074" stroke="#5cb9e9" stroke-width="2.66"/>
+<path d="M1890 1062 H1914 M1902 1050 V1074" stroke="#5cb9e9" stroke-width="2.66"/>
+<rect x="40" y="40" width="1840" height="88" fill="none" stroke="#47b1dc" stroke-width="1.9"/>
 <image href="../img/signet7-circle-logo-official-v2.png" x="52" y="52" width="64" height="64"/>
 <text x="128" y="78" fill="#eef4f8" font-size="22" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="3" font-weight="600">SIGNET7.IO</text>
 <text x="128" y="102" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2.4" font-weight="400">VERIFY  ·  SEAL  ·  TRUST</text>
@@ -53,96 +53,96 @@
 <text x="1120" y="70" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">REV  D</text>
 <text x="1120" y="88" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">SCALE  NTS</text>
 <text x="1120" y="106" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DRAWN  S7 SYSTEMS</text>
-<a href="https://verify.signet7.io/email/verify"><rect x="1480" y="58" width="160" height="52" fill="none" stroke="#5cb9e9" stroke-width="1.4"/><text x="1560" y="90" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">LIVE CHECK</text></a>
-<a href="https://signet7.io/register"><rect x="1660" y="58" width="160" height="52" fill="#5cb9e9" stroke="#5cb9e9" stroke-width="1.4"/><text x="1740" y="90" fill="#010d1d" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">REGISTER</text></a>
+<a href="https://verify.signet7.io/email/verify"><rect x="1480" y="58" width="160" height="52" fill="none" stroke="#5cb9e9" stroke-width="2.66"/><text x="1560" y="90" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">LIVE CHECK</text></a>
+<a href="https://signet7.io/register"><rect x="1660" y="58" width="160" height="52" fill="#5cb9e9" stroke="#5cb9e9" stroke-width="2.66"/><text x="1740" y="90" fill="#010d1d" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">REGISTER</text></a>
 <text x="56" y="180" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2.2" font-weight="400">SIGNET7  ·  HIGH-STAKES EMAIL</text>
 <text x="56" y="250" fill="#eef4f8" font-size="48" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="-0.5" font-weight="600">Decisions you</text>
 <text x="56" y="308" fill="#eef4f8" font-size="48" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="-0.5" font-weight="600">can prove.</text>
 <text x="56" y="360" fill="#9ec9dc" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">A cryptographic seal on the email that can</text>
 <text x="56" y="384" fill="#9ec9dc" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">move money, a job, or a client. Two facts at</text>
 <text x="56" y="408" fill="#9ec9dc" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">check. A signed file you keep.</text>
-<a href="https://verify.signet7.io/email/verify"><rect x="56" y="440" width="220" height="52" fill="#5cb9e9" stroke="#5cb9e9" stroke-width="1.5"/><text x="166" y="472" fill="#010d1d" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.2" font-weight="400">OPEN THE LIVE CHECK</text></a>
-<a href="https://signet7.io/register"><rect x="290" y="440" width="220" height="52" fill="none" stroke="#5cb9e9" stroke-width="1.5"/><text x="400" y="472" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.2" font-weight="400">REGISTER THE COMPANY</text></a>
+<a href="https://verify.signet7.io/email/verify"><rect x="56" y="440" width="220" height="52" fill="#5cb9e9" stroke="#5cb9e9" stroke-width="2.85"/><text x="166" y="472" fill="#010d1d" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.2" font-weight="400">OPEN THE LIVE CHECK</text></a>
+<a href="https://signet7.io/register"><rect x="290" y="440" width="220" height="52" fill="none" stroke="#5cb9e9" stroke-width="2.85"/><text x="400" y="472" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.2" font-weight="400">REGISTER THE COMPANY</text></a>
 <text x="56" y="530" fill="#9ec9dc" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.3" font-weight="400">Recipients never install. Match is not advice to pay.</text>
 <g id="envelope-plan" fill="none" stroke="#5cb9e9">
-<rect x="620" y="170" width="620" height="430" stroke-width="2.4"/>
-<path d="M620 170 L930.0 380 L1240 170" stroke-width="2"/>
-<path d="M620 600 L790 380" stroke="#47b1dc" stroke-width="1.2" opacity="0.7"/>
-<path d="M1240 600 L1070 380" stroke="#47b1dc" stroke-width="1.2" opacity="0.7"/>
-<line x1="930.0" y1="170" x2="930.0" y2="600" stroke="#47b1dc" stroke-width="0.8" stroke-dasharray="6 5" opacity="0.55"/>
-<line x1="620" y1="385.0" x2="1240" y2="385.0" stroke="#47b1dc" stroke-width="0.8" stroke-dasharray="6 5" opacity="0.4"/>
-<rect x="894.0" y="375.0" width="72" height="58" rx="4" fill="#010d1d" stroke="#5cb9e9" stroke-width="2.2"/>
-<path d="M910.0 375.0 V353.0 A20 20 0 0 1 950.0 353.0 V375.0" stroke-width="2.4"/>
-<circle cx="930.0" cy="403.0" r="8" stroke-width="1.8"/>
+<rect x="620" y="170" width="620" height="430" stroke-width="4.56"/>
+<path d="M620 170 L930.0 380 L1240 170" stroke-width="3.8"/>
+<path d="M620 600 L790 380" stroke="#47b1dc" stroke-width="2.28" opacity="0.7"/>
+<path d="M1240 600 L1070 380" stroke="#47b1dc" stroke-width="2.28" opacity="0.7"/>
+<line x1="930.0" y1="170" x2="930.0" y2="600" stroke="#47b1dc" stroke-width="1.52" stroke-dasharray="6 5" opacity="0.55"/>
+<line x1="620" y1="385.0" x2="1240" y2="385.0" stroke="#47b1dc" stroke-width="1.52" stroke-dasharray="6 5" opacity="0.4"/>
+<rect x="894.0" y="375.0" width="72" height="58" rx="4" fill="#010d1d" stroke="#5cb9e9" stroke-width="4.18"/>
+<path d="M910.0 375.0 V353.0 A20 20 0 0 1 950.0 353.0 V375.0" stroke-width="4.56"/>
+<circle cx="930.0" cy="403.0" r="8" stroke-width="3.42"/>
 <rect x="927.0" y="403.0" width="6" height="14" fill="#5cb9e9" stroke="none"/>
-<circle cx="930.0" cy="399.0" r="52" stroke="#47b1dc" stroke-width="1.2"/>
-<circle cx="930.0" cy="399.0" r="62" stroke="#47b1dc" stroke-width="0.6" opacity="0.5"/>
+<circle cx="930.0" cy="399.0" r="52" stroke="#47b1dc" stroke-width="2.28"/>
+<circle cx="930.0" cy="399.0" r="62" stroke="#47b1dc" stroke-width="1.14" opacity="0.5"/>
 </g>
-<line x1="620" y1="152" x2="1240" y2="152" stroke="#47b1dc" stroke-width="0.9" stroke-dasharray="7 4"/>
+<line x1="620" y1="152" x2="1240" y2="152" stroke="#47b1dc" stroke-width="1.71" stroke-dasharray="7 4"/>
 <text x="602" y="158" fill="#5cb9e9" font-size="13" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">A</text>
 <text x="1258" y="158" fill="#5cb9e9" font-size="13" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">A</text>
-<line x1="620" y1="134" x2="1240" y2="134" stroke="#5cb9e9" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr)"/><line x1="620" y1="127" x2="620" y2="141" stroke="#5cb9e9" stroke-width="1"/><line x1="1240" y1="127" x2="1240" y2="141" stroke="#5cb9e9" stroke-width="1"/><text x="930.0" y="126" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">210.0</text>
-<line x1="592" y1="170" x2="592" y2="600" stroke="#5cb9e9" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr)"/><line x1="585" y1="170" x2="599" y2="170" stroke="#5cb9e9" stroke-width="1"/><line x1="585" y1="600" x2="599" y2="600" stroke="#5cb9e9" stroke-width="1"/><text x="576" y="389.0" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="end" letter-spacing="1.4" font-weight="400">148.0</text>
-<line x1="878.0" y1="465.0" x2="982.0" y2="465.0" stroke="#5cb9e9" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr)"/><line x1="878.0" y1="458.0" x2="878.0" y2="472.0" stroke="#5cb9e9" stroke-width="1"/><line x1="982.0" y1="458.0" x2="982.0" y2="472.0" stroke="#5cb9e9" stroke-width="1"/><text x="930.0" y="457.0" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">Ø 32.0</text>
-<line x1="1264" y1="170" x2="1264" y2="380" stroke="#5cb9e9" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr)"/><line x1="1257" y1="170" x2="1271" y2="170" stroke="#5cb9e9" stroke-width="1"/><line x1="1257" y1="380" x2="1271" y2="380" stroke="#5cb9e9" stroke-width="1"/><text x="1280" y="279.0" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">52.0</text>
-<line x1="1160" y1="210" x2="1280" y2="190" stroke="#5cb9e9" stroke-width="1"/><circle cx="1160" cy="210" r="3.2" fill="none" stroke="#5cb9e9" stroke-width="1"/><text x="1288" y="194" fill="#5cb9e9" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">FLAP ANGLE  41.5°</text>
-<line x1="992.0" y1="385.0" x2="1280" y2="375.0" stroke="#5cb9e9" stroke-width="1"/><circle cx="992.0" cy="385.0" r="3.2" fill="none" stroke="#5cb9e9" stroke-width="1"/><text x="1288" y="379.0" fill="#5cb9e9" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">SEAL ZONE</text>
-<line x1="966.0" y1="425.0" x2="1280" y2="435.0" stroke="#5cb9e9" stroke-width="1"/><circle cx="966.0" cy="425.0" r="3.2" fill="none" stroke="#5cb9e9" stroke-width="1"/><text x="1288" y="439.0" fill="#5cb9e9" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">LOCK INTERFACE</text>
-<line x1="1200" y1="570" x2="1280" y2="590" stroke="#5cb9e9" stroke-width="1"/><circle cx="1200" cy="570" r="3.2" fill="none" stroke="#5cb9e9" stroke-width="1"/><text x="1288" y="594" fill="#5cb9e9" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">FIBER  ·  NTS</text>
+<line x1="620" y1="134" x2="1240" y2="134" stroke="#5cb9e9" stroke-width="1.9" marker-start="url(#arr2)" marker-end="url(#arr)"/><line x1="620" y1="127" x2="620" y2="141" stroke="#5cb9e9" stroke-width="1.9"/><line x1="1240" y1="127" x2="1240" y2="141" stroke="#5cb9e9" stroke-width="1.9"/><text x="930.0" y="126" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">210.0</text>
+<line x1="592" y1="170" x2="592" y2="600" stroke="#5cb9e9" stroke-width="1.9" marker-start="url(#arr2)" marker-end="url(#arr)"/><line x1="585" y1="170" x2="599" y2="170" stroke="#5cb9e9" stroke-width="1.9"/><line x1="585" y1="600" x2="599" y2="600" stroke="#5cb9e9" stroke-width="1.9"/><text x="576" y="389.0" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="end" letter-spacing="1.4" font-weight="400">148.0</text>
+<line x1="878.0" y1="465.0" x2="982.0" y2="465.0" stroke="#5cb9e9" stroke-width="1.9" marker-start="url(#arr2)" marker-end="url(#arr)"/><line x1="878.0" y1="458.0" x2="878.0" y2="472.0" stroke="#5cb9e9" stroke-width="1.9"/><line x1="982.0" y1="458.0" x2="982.0" y2="472.0" stroke="#5cb9e9" stroke-width="1.9"/><text x="930.0" y="457.0" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">Ø 32.0</text>
+<line x1="1264" y1="170" x2="1264" y2="380" stroke="#5cb9e9" stroke-width="1.9" marker-start="url(#arr2)" marker-end="url(#arr)"/><line x1="1257" y1="170" x2="1271" y2="170" stroke="#5cb9e9" stroke-width="1.9"/><line x1="1257" y1="380" x2="1271" y2="380" stroke="#5cb9e9" stroke-width="1.9"/><text x="1280" y="279.0" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">52.0</text>
+<line x1="1160" y1="210" x2="1280" y2="190" stroke="#5cb9e9" stroke-width="1.9"/><circle cx="1160" cy="210" r="3.2" fill="none" stroke="#5cb9e9" stroke-width="1.9"/><text x="1288" y="194" fill="#5cb9e9" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">FLAP ANGLE  41.5°</text>
+<line x1="992.0" y1="385.0" x2="1280" y2="375.0" stroke="#5cb9e9" stroke-width="1.9"/><circle cx="992.0" cy="385.0" r="3.2" fill="none" stroke="#5cb9e9" stroke-width="1.9"/><text x="1288" y="379.0" fill="#5cb9e9" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">SEAL ZONE</text>
+<line x1="966.0" y1="425.0" x2="1280" y2="435.0" stroke="#5cb9e9" stroke-width="1.9"/><circle cx="966.0" cy="425.0" r="3.2" fill="none" stroke="#5cb9e9" stroke-width="1.9"/><text x="1288" y="439.0" fill="#5cb9e9" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">LOCK INTERFACE</text>
+<line x1="1200" y1="570" x2="1280" y2="590" stroke="#5cb9e9" stroke-width="1.9"/><circle cx="1200" cy="570" r="3.2" fill="none" stroke="#5cb9e9" stroke-width="1.9"/><text x="1288" y="594" fill="#5cb9e9" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">FIBER  ·  NTS</text>
 <text x="620" y="640" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">SECTION A–A</text>
-<path d="M620 700 L620 668 L930.0 688 L1240 668 L1240 700 L930.0 720 Z" fill="url(#hatch)" stroke="#5cb9e9" stroke-width="1.8"/>
-<path d="M620 668 L930.0 688 L1240 668" fill="none" stroke="#eef4f8" stroke-width="1.2"/>
-<line x1="592" y1="668" x2="592" y2="700" stroke="#5cb9e9" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr)"/><line x1="585" y1="668" x2="599" y2="668" stroke="#5cb9e9" stroke-width="1"/><line x1="585" y1="700" x2="599" y2="700" stroke="#5cb9e9" stroke-width="1"/><text x="576" y="688.0" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="end" letter-spacing="1.4" font-weight="400">8.2</text>
-<line x1="1264" y1="668" x2="1264" y2="700" stroke="#5cb9e9" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr)"/><line x1="1257" y1="668" x2="1271" y2="668" stroke="#5cb9e9" stroke-width="1"/><line x1="1257" y1="700" x2="1271" y2="700" stroke="#5cb9e9" stroke-width="1"/><text x="1280" y="688.0" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">4.7</text>
+<path d="M620 700 L620 668 L930.0 688 L1240 668 L1240 700 L930.0 720 Z" fill="url(#hatch)" stroke="#5cb9e9" stroke-width="3.42"/>
+<path d="M620 668 L930.0 688 L1240 668" fill="none" stroke="#eef4f8" stroke-width="2.28"/>
+<line x1="592" y1="668" x2="592" y2="700" stroke="#5cb9e9" stroke-width="1.9" marker-start="url(#arr2)" marker-end="url(#arr)"/><line x1="585" y1="668" x2="599" y2="668" stroke="#5cb9e9" stroke-width="1.9"/><line x1="585" y1="700" x2="599" y2="700" stroke="#5cb9e9" stroke-width="1.9"/><text x="576" y="688.0" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="end" letter-spacing="1.4" font-weight="400">8.2</text>
+<line x1="1264" y1="668" x2="1264" y2="700" stroke="#5cb9e9" stroke-width="1.9" marker-start="url(#arr2)" marker-end="url(#arr)"/><line x1="1257" y1="668" x2="1271" y2="668" stroke="#5cb9e9" stroke-width="1.9"/><line x1="1257" y1="700" x2="1271" y2="700" stroke="#5cb9e9" stroke-width="1.9"/><text x="1280" y="688.0" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">4.7</text>
 <text x="930.0" y="748" fill="#9ec9dc" font-size="11" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.6" font-weight="400">ALL DIMENSIONS IN MILLIMETRES  ·  TOL ±0.5 UNLESS NOTED</text>
-<rect x="1400" y="170" width="480" height="108" fill="none" stroke="#47b1dc" stroke-width="1"/>
+<rect x="1400" y="170" width="480" height="108" fill="none" stroke="#47b1dc" stroke-width="1.9"/>
 <text x="1420" y="198" fill="#9ec9dc" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">S7-F-01</text>
 <text x="1420" y="222" fill="#eef4f8" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.5" font-weight="600">SEAL</text>
 <text x="1420" y="244" fill="#9ec9dc" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">Cryptographic seal on the outgoing message.</text>
 <text x="1420" y="260" fill="#9ec9dc" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">Words on the page are bound to the seal.</text>
-<rect x="1400" y="292" width="480" height="108" fill="none" stroke="#47b1dc" stroke-width="1"/>
+<rect x="1400" y="292" width="480" height="108" fill="none" stroke="#47b1dc" stroke-width="1.9"/>
 <text x="1420" y="320" fill="#9ec9dc" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">S7-F-02</text>
 <text x="1420" y="344" fill="#eef4f8" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.5" font-weight="600">LISTING</text>
 <text x="1420" y="366" fill="#9ec9dc" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">The sender is listed for this address, or is</text>
 <text x="1420" y="382" fill="#9ec9dc" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">not. That is the second fact.</text>
-<rect x="1400" y="414" width="480" height="108" fill="none" stroke="#47b1dc" stroke-width="1"/>
+<rect x="1400" y="414" width="480" height="108" fill="none" stroke="#47b1dc" stroke-width="1.9"/>
 <text x="1420" y="442" fill="#9ec9dc" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">S7-F-03</text>
 <text x="1420" y="466" fill="#eef4f8" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.5" font-weight="600">RECORD</text>
 <text x="1420" y="488" fill="#9ec9dc" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">A signed file you keep. Not a screenshot. Not a</text>
 <text x="1420" y="504" fill="#9ec9dc" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">dashboard claim.</text>
-<rect x="1400" y="536" width="480" height="108" fill="none" stroke="#47b1dc" stroke-width="1"/>
+<rect x="1400" y="536" width="480" height="108" fill="none" stroke="#47b1dc" stroke-width="1.9"/>
 <text x="1420" y="564" fill="#9ec9dc" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">S7-F-04</text>
 <text x="1420" y="588" fill="#eef4f8" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.5" font-weight="600">NO INSTALL</text>
 <text x="1420" y="610" fill="#9ec9dc" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">Recipients never install. They open the live</text>
 <text x="1420" y="626" fill="#9ec9dc" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">check on the website.</text>
-<rect x="40" y="900" width="1840" height="140" fill="none" stroke="#47b1dc" stroke-width="1"/>
-<rect x="40" y="900" width="220" height="140" fill="none" stroke="#47b1dc" stroke-width="1"/>
+<rect x="40" y="900" width="1840" height="140" fill="none" stroke="#47b1dc" stroke-width="1.9"/>
+<rect x="40" y="900" width="220" height="140" fill="none" stroke="#47b1dc" stroke-width="1.9"/>
 <text x="150" y="940" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">SCALE</text>
 <text x="150" y="972" fill="#eef4f8" font-size="22" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="2" font-weight="400">1 : 1</text>
 <text x="150" y="1000" fill="#9ec9dc" font-size="11" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">NTS</text>
 <text x="300" y="936" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">SCALE BAR</text>
-<line x1="300" y1="960" x2="620" y2="960" stroke="#5cb9e9" stroke-width="2"/>
-<line x1="300" y1="952" x2="300" y2="968" stroke="#5cb9e9" stroke-width="1.2"/>
+<line x1="300" y1="960" x2="620" y2="960" stroke="#5cb9e9" stroke-width="3.8"/>
+<line x1="300" y1="952" x2="300" y2="968" stroke="#5cb9e9" stroke-width="2.28"/>
 <text x="300" y="984" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">0</text>
-<line x1="364" y1="952" x2="364" y2="968" stroke="#5cb9e9" stroke-width="1.2"/>
+<line x1="364" y1="952" x2="364" y2="968" stroke="#5cb9e9" stroke-width="2.28"/>
 <text x="364" y="984" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">25</text>
-<line x1="428" y1="952" x2="428" y2="968" stroke="#5cb9e9" stroke-width="1.2"/>
+<line x1="428" y1="952" x2="428" y2="968" stroke="#5cb9e9" stroke-width="2.28"/>
 <text x="428" y="984" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">50</text>
-<line x1="492" y1="952" x2="492" y2="968" stroke="#5cb9e9" stroke-width="1.2"/>
+<line x1="492" y1="952" x2="492" y2="968" stroke="#5cb9e9" stroke-width="2.28"/>
 <text x="492" y="984" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">75</text>
-<line x1="556" y1="952" x2="556" y2="968" stroke="#5cb9e9" stroke-width="1.2"/>
+<line x1="556" y1="952" x2="556" y2="968" stroke="#5cb9e9" stroke-width="2.28"/>
 <text x="556" y="984" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">100</text>
-<line x1="620" y1="952" x2="620" y2="968" stroke="#5cb9e9" stroke-width="1.2"/>
+<line x1="620" y1="952" x2="620" y2="968" stroke="#5cb9e9" stroke-width="2.28"/>
 <text x="620" y="984" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">125</text>
-<circle cx="680" cy="968" r="22" fill="none" stroke="#5cb9e9" stroke-width="1.2"/>
-<line x1="658" y1="968" x2="702" y2="968" stroke="#5cb9e9" stroke-width="1"/>
-<line x1="680" y1="946" x2="680" y2="990" stroke="#5cb9e9" stroke-width="1"/>
+<circle cx="680" cy="968" r="22" fill="none" stroke="#5cb9e9" stroke-width="2.28"/>
+<line x1="658" y1="968" x2="702" y2="968" stroke="#5cb9e9" stroke-width="1.9"/>
+<line x1="680" y1="946" x2="680" y2="990" stroke="#5cb9e9" stroke-width="1.9"/>
 <text x="760" y="936" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">NOTES</text>
 <text x="760" y="960" fill="#eef4f8" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">1. Recipients never install.</text>
 <text x="760" y="980" fill="#eef4f8" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">2. Two facts: words match the seal; that sender is listed.</text>
 <text x="760" y="1000" fill="#eef4f8" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">3. Match is not advice to pay. Unsealed mail is ordinary mail.</text>
 <text x="760" y="1020" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.2" font-weight="400">GRID ON  ·  SNAP ON  ·  ORTHO ON  ·  UNITS mm  ·  THIRD ANGLE</text>
-<rect x="1400" y="900" width="480" height="140" fill="none" stroke="#47b1dc" stroke-width="1"/>
+<rect x="1400" y="900" width="480" height="140" fill="none" stroke="#47b1dc" stroke-width="1.9"/>
 <text x="1420" y="932" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">TITLE</text>
 <text x="1420" y="960" fill="#eef4f8" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1" font-weight="600">SEALED MESSAGE  ·  HOMEPAGE</text>
 <text x="1420" y="986" fill="#9ec9dc" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DWG  S7-HP-001   REV D   17 SEP 26</text>
@@ -154,7 +154,7 @@
 <text x="56" y="640" fill="#5cb9e9" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">2.5°</text>
 <text x="56" y="660" fill="#5cb9e9" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">7 : 1</text>
 <text x="56" y="680" fill="#5cb9e9" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">ISO 5457</text>
-<circle cx="90" cy="760" r="28" fill="none" stroke="#47b1dc" stroke-width="1"/>
-<line x1="90" y1="732" x2="90" y2="788" stroke="#47b1dc" stroke-width="0.8"/>
-<line x1="62" y1="760" x2="118" y2="760" stroke="#47b1dc" stroke-width="0.8"/>
+<circle cx="90" cy="760" r="28" fill="none" stroke="#47b1dc" stroke-width="1.9"/>
+<line x1="90" y1="732" x2="90" y2="788" stroke="#47b1dc" stroke-width="1.52"/>
+<line x1="62" y1="760" x2="118" y2="760" stroke="#47b1dc" stroke-width="1.52"/>
 </svg>
