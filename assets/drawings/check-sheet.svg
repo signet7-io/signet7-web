@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0 H0 V32" fill="none" stroke="#47b1dc" stroke-width="0.45" opacity="0.22"/>
+    </pattern>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#47b1dc" stroke-width="0.8" opacity="0.55"/>
+    </pattern>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#5cb9e9"/>
+    </marker>
+  </defs>
+
+<rect width="1920" height="1080" fill="#010d1d"/>
+<rect width="1920" height="1080" fill="url(#grid)"/>
+<rect x="18" y="18" width="1884" height="1044" fill="none" stroke="#47b1dc" stroke-width="1.6"/>
+<rect x="28" y="28" width="1864" height="1024" fill="none" stroke="#47b1dc" stroke-width="0.8"/>
+<path d="M6 18 H30 M18 6 V30" stroke="#5cb9e9" stroke-width="1.4"/>
+<path d="M1890 18 H1914 M1902 6 V30" stroke="#5cb9e9" stroke-width="1.4"/>
+<path d="M6 1062 H30 M18 1050 V1074" stroke="#5cb9e9" stroke-width="1.4"/>
+<path d="M1890 1062 H1914 M1902 1050 V1074" stroke="#5cb9e9" stroke-width="1.4"/>
+<rect x="40" y="40" width="1840" height="88" fill="none" stroke="#47b1dc" stroke-width="1"/>
+<image href="../img/signet7-circle-logo-official-v2.png" x="52" y="52" width="64" height="64"/>
+<text x="128" y="78" fill="#eef4f8" font-size="22" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="3" font-weight="600">SIGNET7.IO</text>
+<text x="128" y="102" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2.4" font-weight="400">VERIFY  ·  SEAL  ·  TRUST</text>
+<text x="430" y="90" fill="#eef4f8" font-size="18" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.5" font-weight="600">LIVE CHECK  ·  TWO FACTS</text>
+<text x="1100" y="70" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DRAWING  S7-CK-001</text>
+<text x="1100" y="88" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DATE  17 SEP 26   REV D   SCALE NTS</text>
+<text x="1100" y="106" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DRAWN  S7 SYSTEMS</text>
+<a href="https://verify.signet7.io/email/verify"><rect x="1480" y="58" width="160" height="52" fill="none" stroke="#5cb9e9" stroke-width="1.4"/><text x="1560" y="90" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">LIVE CHECK</text></a>
+<a href="https://signet7.io/register"><rect x="1660" y="58" width="160" height="52" fill="#5cb9e9" stroke="#5cb9e9" stroke-width="1.4"/><text x="1740" y="90" fill="#010d1d" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">REGISTER</text></a>
+
+
+<text x="80" y="200" fill="#eef4f8" font-size="36" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="-0.3" font-weight="600">Anyone can run the check.</text>
+<text x="80" y="240" fill="#9ec9dc" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">No account. Recipients never install.</text>
+<g fill="none" stroke="#5cb9e9" stroke-width="2" transform="translate(620,180)">
+  <polygon points="80,360 520,360 700,220 260,220"/>
+  <polygon points="260,220 700,220 700,60 260,60"/>
+  <polygon points="520,360 700,220 700,60 520,200"/>
+  <path d="M260 60 L480 150 L700 60" stroke-width="1.8"/>
+  <rect x="448" y="110" width="64" height="50" rx="3" fill="#010d1d"/>
+  <path d="M462 110 V94 A16 16 0 0 1 498 94 V110"/>
+  <circle cx="480" cy="135" r="40" stroke-width="1.2"/>
+</g>
+<text x="1280" y="250" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">LOCK STATUS</text>
+<text x="1280" y="360" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">ORIGIN  ·  SHA-256</text>
+<text x="1280" y="470" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">CHECK ZONE</text>
+<line x1="1140" y1="240" x2="1260" y2="240" stroke="#5cb9e9"/>
+<line x1="1140" y1="350" x2="1260" y2="350" stroke="#5cb9e9"/>
+<line x1="1140" y1="460" x2="1260" y2="460" stroke="#5cb9e9"/>
+<rect x="80" y="640" width="540" height="120" fill="none" stroke="#47b1dc" stroke-width="1.2"/>
+<text x="104" y="690" fill="#eef4f8" font-size="18" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.2" font-weight="600">1  WORDS MATCH</text>
+<text x="104" y="722" fill="#9ec9dc" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">or do not match, or there is no seal</text>
+<rect x="680" y="640" width="540" height="120" fill="none" stroke="#47b1dc" stroke-width="1.2"/>
+<text x="704" y="690" fill="#eef4f8" font-size="18" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.2" font-weight="600">2  SENDER LISTED</text>
+<text x="704" y="722" fill="#9ec9dc" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">for this address, or is not</text>
+<rect x="1280" y="640" width="540" height="120" fill="none" stroke="#47b1dc" stroke-width="1.2"/>
+<text x="1304" y="690" fill="#eef4f8" font-size="18" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.2" font-weight="600">NO SEAL</text>
+<text x="1304" y="722" fill="#9ec9dc" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">ordinary mail  ·  not fraud</text>
+<a href="https://verify.signet7.io/email/verify"><rect x="80" y="790" width="280" height="56" fill="#5cb9e9" stroke="#5cb9e9" stroke-width="1.5"/><text x="220" y="824" fill="#010d1d" font-size="13" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">OPEN THE LIVE CHECK</text></a>
+<text x="380" y="824" fill="#9ec9dc" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.3" font-weight="400">verify.signet7.io/email/verify</text>
+<rect x="40" y="930" width="1840" height="110" fill="none" stroke="#47b1dc" stroke-width="1"/>
+<text x="60" y="970" fill="#9ec9dc" font-size="12" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">SCALE 1:1 NTS</text>
+<line x1="240" y1="966" x2="520" y2="966" stroke="#5cb9e9" stroke-width="2"/>
+<line x1="240" y1="958" x2="240" y2="974" stroke="#5cb9e9" stroke-width="1"/>
+<text x="240" y="992" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">0</text>
+<line x1="333" y1="958" x2="333" y2="974" stroke="#5cb9e9" stroke-width="1"/>
+<text x="333" y="992" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">50</text>
+<line x1="426" y1="958" x2="426" y2="974" stroke="#5cb9e9" stroke-width="1"/>
+<text x="426" y="992" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">100</text>
+<line x1="519" y1="958" x2="519" y2="974" stroke="#5cb9e9" stroke-width="1"/>
+<text x="519" y="992" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">150</text>
+<text x="560" y="970" fill="#9ec9dc" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.2" font-weight="400">GRID ON · SNAP ON · ORTHO ON · UNITS mm · THIRD ANGLE · DO NOT SCALE PRINT</text>
+<text x="560" y="996" fill="#eef4f8" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.8" font-weight="600">LIVE CHECK  ·  ENVELOPE ON PLATEN</text>
+<image href="../img/signet7-circle-logo-official-v2.png" x="1788" y="948" width="72" height="72"/>
+</svg>
