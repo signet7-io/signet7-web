@@ -129,15 +129,19 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertIn("linux", meta["files"])
         self.assertEqual(
             meta["source"]["sha"],
-            "7a3554fd3c91893bf137e1a8b7b9ce216dbddce9",
+            "8c52b56394eb2ad2e6e5219145cd9345c93b3ab4",
         )
-        self.assertEqual(meta["source"]["run"], 34635483135)
+        self.assertEqual(meta["source"]["run"], 35350148576)
         for key in ("windows", "macos", "linux"):
             href = meta["files"][key]["href"]
             self.assertEqual(href, f"files/signet7-watch-{key}.zip")
             path = ROOT / href
             self.assertTrue(path.is_file(), path)
             self.assertEqual(path.stat().st_size, meta["files"][key]["bytes"])
+        dmg = meta["files"]["macos_dmg"]
+        self.assertEqual(dmg["href"], "files/signet7-macos.dmg")
+        self.assertTrue((ROOT / "files" / "signet7-macos.dmg").is_file())
+        self.assertEqual((ROOT / "files" / "signet7-macos.dmg").stat().st_size, dmg["bytes"])
 
     def test_windows_zip_includes_one_file_wizard(self) -> None:
         import zipfile

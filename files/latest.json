@@ -1,27 +1,32 @@
 {
-  "version": "2026-09-11-unsigned",
+  "version": "2026-09-18-unsigned",
   "channel": "preview",
   "signed": false,
   "source": {
     "repo": "signet7-io/signet7",
-    "sha": "7a3554fd3c91893bf137e1a8b7b9ce216dbddce9",
-    "run": 34635483135
+    "sha": "8c52b56394eb2ad2e6e5219145cd9345c93b3ab4",
+    "run": 35350148576
   },
   "files": {
     "windows": {
       "href": "files/signet7-watch-windows.zip",
-      "sha256": "576bcd00d915d7f171584e66a8163f82081c098f199725649c8d557330585159",
-      "bytes": 42308033
+      "sha256": "54c6f90b7d75a7ef0d8941859f10b191a4745feddd1ce5c27e787b570097ea58",
+      "bytes": 42334835
     },
     "macos": {
       "href": "files/signet7-watch-macos.zip",
-      "sha256": "0d64db9e8c014dd3313d3f5fa90043ca72dde44449b69508c4379ca0d6d03f0a",
-      "bytes": 68179459
+      "sha256": "8466251ec319e27d34a6430ac38e1878c5fbace996ced3c6fdb02e1b00a7d470",
+      "bytes": 68202209
     },
     "linux": {
       "href": "files/signet7-watch-linux.zip",
-      "sha256": "b72406d86175605b45e0483536889e4b6d8768ae29fbf870abe4d5a7155aad8b",
-      "bytes": 73932639
+      "sha256": "5563b1746277a528deadedd0cf652c01b7cae679373c16e6568160aa4fa8a556",
+      "bytes": 73959120
+    },
+    "macos_dmg": {
+      "href": "files/signet7-macos.dmg",
+      "sha256": "ec01e8451ec4120041319c63c4693920301072254a6af24ec0c16cd3aef9dadf",
+      "bytes": 52338421
     }
   }
 }
