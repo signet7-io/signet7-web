@@ -297,16 +297,28 @@
     dlg.addEventListener("click", (e) => {
       if (e.target === dlg) dlg.close();
     });
-    document.addEventListener("click", (e) => {
-      const img = e.target.closest("img.blueprint-plate, .feat img, img.blueprint-hero, .art-trio img, .art-hero img");
-      if (!img || dlg.contains(img)) return;
-      e.preventDefault();
-      e.stopPropagation();
+    const openDrawing = (img) => {
       big.src = img.currentSrc || img.src;
       big.alt = img.alt || "Signet7 drawing";
       dlg.showModal();
       close.focus();
+    };
+    document.addEventListener("click", (e) => {
+      const link = e.target.closest("a.open-drawing");
+      const img = e.target.closest("img.blueprint-plate, .feat img, img.blueprint-hero, .art-trio img, .art-hero img, a.open-drawing img");
+      if (!img || dlg.contains(img)) return;
+      if (link || img.closest("a.open-drawing") || img.matches("img.blueprint-plate, .feat img, img.blueprint-hero, .art-trio img, .art-hero img")) {
+        e.preventDefault();
+        e.stopPropagation();
+        openDrawing(img);
+      }
     });
+    const hash = (window.location.hash || "").replace("#", "");
+    if (hash) {
+      const target = document.getElementById(hash);
+      const hashed = target && target.querySelector("img");
+      if (hashed) openDrawing(hashed);
+    }
   }
 
   const canvas = document.getElementById("dust");
