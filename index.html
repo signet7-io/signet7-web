@@ -19,11 +19,12 @@
   <link rel="alternate" type="application/ld+json" href="assets/ld-website.json">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/site.css?v=20260918env">
+  <link rel="stylesheet" href="assets/site.css?v=20260918pre">
   <script type="application/ld+json" src="assets/ld-website.json"></script>
 </head>
 <body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" data-progress aria-hidden="true"></div>
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="/" aria-label="Signet7 home">
@@ -59,40 +60,15 @@
   </header>
 
   <main id="main">
-    <section class="sell-hero film-hero" id="film-pin" aria-labelledby="hero-title">
-      <div class="film-sticky">
-        <div class="film-stage">
-          <canvas id="cad-film" class="cad-film cad-envelope" aria-hidden="true"></canvas>
-          <video class="film-still" src="assets/studies/seal.mp4" poster="assets/studies/seal.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
-          <div class="film-copy">
-            <article class="film-chapter is-on" data-chapter="0">
-              <p class="kicker">Signet7</p>
-              <p class="film-line">The message is the object.</p>
-              <p>A cryptographic seal on high-stakes email. Scroll to open it.</p>
-            </article>
-            <article class="film-chapter" data-chapter="1">
-              <p class="kicker">Two facts</p>
-              <p class="film-line">Words, then listing.</p>
-              <p>Do the words still match the seal. Is that sender listed for this address.</p>
-            </article>
-            <article class="film-chapter" data-chapter="2">
-              <p class="kicker">What you keep</p>
-              <p class="film-line">A signed file.</p>
-              <p>You can produce it later. It does not mean the email is safe to pay.</p>
-            </article>
-            <article class="film-chapter" data-chapter="3">
-              <p class="kicker">Company</p>
-              <p class="film-line">Name the work emails.</p>
-              <p>Recipients never install. Register the company. Checkout is not live.</p>
-              <div class="hero-actions">
-                <a class="button button-primary" href="https://verify.signet7.io/email/verify">Live check</a>
-                <a class="button button-secondary" href="register">Register</a>
-              </div>
-            </article>
-          </div>
-        </div>
+    <section class="sell-hero" aria-labelledby="hero-title">
+      <div class="scene-wrap hero-scene people-scene" aria-hidden="true">
+        <img class="people-plate people-light" src="assets/people-light.png" width="1344" height="768" alt="Night office">
+        <img class="people-plate people-dark" src="assets/people-dark.png" width="1344" height="768" alt="Night office">
+        <video class="people-loop" poster="assets/people-dark.png" autoplay muted loop playsinline preload="auto">
+          <source src="assets/people-work-loop.mp4" type="video/mp4">
+        </video>
       </div>
-      <div class="container nutshell visually-hidden">
+      <div class="container nutshell">
         <h1 id="hero-title" class="billboard">Signet7 is the cryptographic seal and check for high-stakes email.</h1>
         <p class="hero-steps" id="check-123">Check an important email before you act. Signet7 checks two facts: whether the words still match the seal, and whether that sender is listed. Recipients never install. Checkout is not live.</p>
         <p class="lede">Save the original. Open the live check. You get a signed file you can produce later. It does not mean the email is safe to pay. The same evidence can gate actions proposed by people or AI agents before irreversible steps.</p>
@@ -124,15 +100,76 @@
       </div>
     </section>
 
-    <section class="section" id="play">
+    <section class="section studies" id="play" aria-labelledby="studies-title">
       <div class="container">
-        <p class="eyebrow">On the site</p>
-        <h2>Product, programs, and docs</h2>
-        <div class="feature-grid">
-          <article class="feat"><h3><a href="product">Product</a></h3><p>Seal, check, desktop.</p></article>
-          <article class="feat"><h3><a href="programs">Programs</a></h3><p>Checkout is not live. Amounts are not set.</p></article>
-          <article class="feat"><h3><a href="docs.html">Docs</a></h3><p>How to check. How to install after register. <a href="drawings.html">Engineering drawings</a>.</p></article>
+        <h2 id="studies-title">What a check shows</h2>
+        <div class="study-grid">
+          <article class="study">
+            <div class="study-card">
+              <video src="assets/studies/seal.mp4" poster="assets/studies/seal.jpg" autoplay muted loop playsinline preload="metadata"></video>
+            </div>
+            <p class="eyebrow">Seal</p>
+            <h3>The seal is on the message</h3>
+            <p>The seal is how you can show later that the protected words still matched.</p>
+          </article>
+          <article class="study">
+            <div class="study-card">
+              <video src="assets/studies/network.mp4" poster="assets/studies/network.jpg" autoplay muted loop playsinline preload="metadata"></video>
+            </div>
+            <p class="eyebrow">Listing</p>
+            <h3>Is that sender listed?</h3>
+            <p>The listing looks up whether a company's signing key is still listed as theirs.</p>
+          </article>
+          <article class="study">
+            <div class="study-card">
+              <video src="assets/studies/stamp.mp4" poster="assets/studies/stamp.jpg" autoplay muted loop playsinline preload="metadata"></video>
+            </div>
+            <p class="eyebrow">Record</p>
+            <h3>Keep the result</h3>
+            <p>You get a signed file. That file is the record.</p>
+          </article>
         </div>
+        <p class="section-intro"><a href="drawings.html">Engineering drawings</a> — CAD plates live there, not on this brochure.</p>
+      </div>
+    </section>
+
+    <section class="section demo" id="demo" aria-labelledby="demo-title">
+      <div class="container demo-wrap">
+        <p class="eyebrow">Example</p>
+        <h2 id="demo-title">A vendor asks you to change wiring details.</h2>
+        <p class="section-intro">Four steps: the email, the seal, the listing, the record. Scroll and step through the letter.</p>
+        <ol class="demo-fallback">
+          <li><strong>Step 1 — The email:</strong> A vendor asks you to change wiring details.</li>
+          <li><strong>Step 2 — The seal:</strong> Check whether the words still match.</li>
+          <li><strong>Step 3 — Listing:</strong> Check whether that sender is listed.</li>
+          <li><strong>Step 4 — The record:</strong> Save the result. You decide whether to act.</li>
+        </ol>
+        <aside class="mail" id="letter" data-mail aria-label="Example. Four steps.">
+          <div class="mail-top">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="demo-flag">Example</span>
+            <span data-demo-label>Step 1 of 4</span>
+          </div>
+          <div class="mail-body">
+            <div class="row"><b>From</b><span>ap@vendor.example</span></div>
+            <div class="row"><b>Subject</b><span>Updated wiring instructions</span></div>
+            <p class="subject">Please use the new account on the attached sheet.</p>
+            <div class="mail-actions">
+              <button type="button" class="button button-primary" data-demo-next>Next</button>
+            </div>
+          </div>
+          <div class="panel" data-panel="inspect">
+            <div class="state ok"><div><small>The words</small><strong>Still match what was sealed</strong></div></div>
+            <div class="state warn"><div><small>The sender</small><strong>Not tied to that company</strong></div></div>
+          </div>
+          <div class="panel" data-panel="listing">
+            <div class="state warn"><div><small>Listing</small><strong>That company's key is not listed as still theirs</strong></div></div>
+            <p>We look up whether the signing key is still listed for that company. Customer companies show after they enroll.</p>
+          </div>
+          <div class="panel" data-panel="decide">
+            <p>Keep the file. Call a number you already have. Do not pay from this email alone.</p>
+          </div>
+        </aside>
       </div>
     </section>
   </main>
@@ -144,8 +181,6 @@
       <div><p>Live check and company accounts are available.</p></div>
     </div>
   </footer>
-  <script src="assets/vendor/three.min.js"></script>
-  <script src="assets/film.js?v=20260918env"></script>
-  <script src="assets/motion.js?v=20260918c" defer></script>
+  <script src="assets/motion.js?v=20260918pre" defer></script>
 </body>
 </html>
