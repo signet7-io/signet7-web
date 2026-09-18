@@ -2239,4 +2239,103 @@ body.docs-manual .docs-nav a { border-radius: 0; }
   }
 }
 
+.film-hero {
+  display: block;
+  min-height: 280vh;
+  padding: 0;
+  background: #010d1d;
+  border-bottom: 1px solid rgba(71, 177, 220, 0.28);
+}
+.film-sticky {
+  position: sticky;
+  top: var(--nav-h);
+  height: calc(100vh - var(--nav-h));
+  overflow: hidden;
+  background: #010d1d;
+}
+.film-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#cad-film {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: default;
+}
+.film-still {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.has-film .film-still {
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.no-film #cad-film,
+html.no-film #cad-film {
+  display: none;
+}
+.film-copy {
+  position: absolute;
+  left: clamp(20px, 5vw, 64px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: min(34ch, 88vw);
+  min-height: 240px;
+  pointer-events: none;
+}
+.film-chapter {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.film-chapter.is-on {
+  opacity: 1;
+  pointer-events: auto;
+}
+.film-chapter .kicker {
+  margin: 0 0 12px;
+}
+.film-chapter .film-line {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  color: var(--ink);
+  max-width: 12ch;
+}
+.film-chapter p {
+  margin: 0;
+  color: #c5d4e0;
+  font-size: 17px;
+  line-height: 1.45;
+}
+.film-chapter .hero-actions {
+  margin-top: 18px;
+  pointer-events: auto;
+}
+@media (max-width: 900px) {
+  .film-copy {
+    top: auto;
+    bottom: 18px;
+    transform: none;
+    max-width: 90vw;
+  }
+  .film-chapter .film-line { max-width: none; }
+}
+
 

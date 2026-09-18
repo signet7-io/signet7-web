@@ -178,19 +178,16 @@ class SiteCrawlHardeningTests(unittest.TestCase):
 
     def test_homepage_below_fold_plates_lazy_load(self) -> None:
         home = (ROOT / "index.html").read_text(encoding="utf-8")
-        hero = home.split('id="features"', 1)[0]
-        self.assertIn("fetchpriority=\"high\"", hero)
-        self.assertNotIn("loading=\"lazy\"", hero)
-        below = home.split('id="features"', 1)[1]
-        self.assertGreaterEqual(below.count('loading="lazy"'), 6)
+        self.assertIn("film-hero", home)
+        self.assertIn("cad-film", home)
+        self.assertNotIn("assets/blueprint/", home.split("<main", 1)[-1].split("</main>", 1)[0])
 
     def test_homepage_drawings_open_instead_of_navigating(self) -> None:
         home = (ROOT / "index.html").read_text(encoding="utf-8")
         features = home.split('id="features"', 1)[1].split("</section>", 1)[0]
-        self.assertIn('class="open-drawing"', features)
-        self.assertNotIn('<a href="check"><img', features)
-        self.assertNotIn('<a href="download"><img', features)
-        self.assertNotIn('<a href="record"><img', features)
+        self.assertNotIn("open-drawing", features)
+        self.assertNotIn("assets/blueprint/", features)
+        self.assertIn('<h3><a href="check">Check a message</a></h3>', features)
 
     def test_homepage_drawing_cards_keep_text_links(self) -> None:
         home = (ROOT / "index.html").read_text(encoding="utf-8")
