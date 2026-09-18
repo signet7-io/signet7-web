@@ -165,6 +165,25 @@ class SiteCrawlHardeningTests(unittest.TestCase):
         self.assertNotIn("line-height: 0.95", billboard.group(0))
         self.assertIn("line-height: 1.12", billboard.group(0))
 
+    def test_indexable_brochure_pages_have_og_image(self) -> None:
+        skip = {"404.html"}
+        missing = []
+        for path in root_html_pages():
+            if path.name in skip:
+                continue
+            html = path.read_text(encoding="utf-8")
+            if 'property="og:image"' not in html:
+                missing.append(path.name)
+        self.assertEqual(missing, [])
+
+    def test_homepage_below_fold_plates_lazy_load(self) -> None:
+        home = (ROOT / "index.html").read_text(encoding="utf-8")
+        hero = home.split('id="features"', 1)[0]
+        self.assertIn("fetchpriority=\"high\"", hero)
+        self.assertNotIn("loading=\"lazy\"", hero)
+        below = home.split('id="features"', 1)[1]
+        self.assertGreaterEqual(below.count('loading="lazy"'), 6)
+
     def test_homepage_drawing_cards_keep_text_links(self) -> None:
         home = (ROOT / "index.html").read_text(encoding="utf-8")
         features = home.split('id="features"', 1)[1].split("</section>", 1)[0]
