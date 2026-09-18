@@ -184,6 +184,14 @@ class SiteCrawlHardeningTests(unittest.TestCase):
         below = home.split('id="features"', 1)[1]
         self.assertGreaterEqual(below.count('loading="lazy"'), 6)
 
+    def test_homepage_drawings_open_instead_of_navigating(self) -> None:
+        home = (ROOT / "index.html").read_text(encoding="utf-8")
+        features = home.split('id="features"', 1)[1].split("</section>", 1)[0]
+        self.assertIn('class="open-drawing"', features)
+        self.assertNotIn('<a href="check"><img', features)
+        self.assertNotIn('<a href="download"><img', features)
+        self.assertNotIn('<a href="record"><img', features)
+
     def test_homepage_drawing_cards_keep_text_links(self) -> None:
         home = (ROOT / "index.html").read_text(encoding="utf-8")
         features = home.split('id="features"', 1)[1].split("</section>", 1)[0]
