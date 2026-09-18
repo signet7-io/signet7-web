@@ -26,10 +26,19 @@ function submitFeedback() {
   const subject = (document.getElementById("feedback-subject").value || "").trim();
   const content = (document.getElementById("feedback-content").value || "").trim();
   const replyTo = (document.getElementById("feedback-reply") && document.getElementById("feedback-reply").value || "").trim();
+  const trap = (document.getElementById("feedback-company") && document.getElementById("feedback-company").value || "").trim();
   const status = document.getElementById("feedback-status");
   const button = document.getElementById("feedback-submit");
+  if (trap) {
+    status.textContent = "Sent. Thank you.";
+    return;
+  }
   if (!content) {
     status.textContent = "Write a few words in Content first.";
+    return;
+  }
+  if (replyTo && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(replyTo)) {
+    status.textContent = "Reply email does not look like an email.";
     return;
   }
   button.disabled = true;
