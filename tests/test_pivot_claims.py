@@ -318,6 +318,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertTrue((ROOT / "files" / "signet7-watch-windows.zip").is_file())
         self.assertTrue((ROOT / "files" / "signet7-watch-macos.zip").is_file())
         self.assertTrue((ROOT / "files" / "signet7-watch-linux.zip").is_file())
+        self.assertTrue((ROOT / "files" / "signet7-macos.dmg").is_file())
         self.assertTrue((ROOT / "files" / "latest.json").is_file())
 
     def test_customer_copy_never_says_money_mailbox(self) -> None:
