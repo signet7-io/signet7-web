@@ -178,10 +178,8 @@ class SiteCrawlHardeningTests(unittest.TestCase):
 
     def test_homepage_below_fold_plates_lazy_load(self) -> None:
         home = (ROOT / "index.html").read_text(encoding="utf-8")
-        self.assertIn("people-work-loop.mp4", home)
-        self.assertIn("people-scene", home)
-        self.assertNotIn("film-hero", home)
-        self.assertNotIn("cad-film", home)
+        self.assertIn("film-hero", home)
+        self.assertIn("cad-film", home)
         self.assertNotIn("assets/blueprint/", home.split("<main", 1)[-1].split("</main>", 1)[0])
 
     def test_homepage_drawings_open_instead_of_navigating(self) -> None:
@@ -198,10 +196,9 @@ class SiteCrawlHardeningTests(unittest.TestCase):
         self.assertIn('<h3><a href="download">List the work email</a></h3>', features)
         self.assertIn('<h3><a href="record">Keep the file</a></h3>', features)
         play = home.split('id="play"', 1)[1].split("</section>", 1)[0]
-        self.assertIn("assets/studies/seal.mp4", play)
-        self.assertIn("assets/studies/network.mp4", play)
-        self.assertIn("assets/studies/stamp.mp4", play)
-        self.assertIn("drawings.html", play)
+        self.assertIn('<h3><a href="product">Product</a></h3>', play)
+        self.assertIn('<h3><a href="programs">Programs</a></h3>', play)
+        self.assertIn('<h3><a href="docs.html">Docs</a></h3>', play)
 
 
 if __name__ == "__main__":
