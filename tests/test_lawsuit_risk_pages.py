@@ -22,11 +22,22 @@ class LawsuitRiskPages(unittest.TestCase):
         self.assertIn("Privacy Policy", privacy)
         self.assertIn("Data we collect", privacy)
         self.assertIn("raw email", privacy.lower())
-        self.assertIn("justin.daines@signet7.io", privacy)
+        self.assertIn("samuel.sanderson@signet7.io", privacy)
+        self.assertNotIn("justin.daines@signet7.io", privacy)
+        self.assertNotIn("Justin D. Daines", privacy)
         self.assertIn("We do not sell personal data", privacy)
         self.assertEqual(privacy.count("DRAFT — NON-OPERATIVE"), 1)
         self.assertNotIn("Not a final privacy policy", privacy)
         self.assertNotIn("[DECISION]", privacy)
+
+    def test_public_pages_do_not_name_private_team_contacts(self) -> None:
+        combined = "\n".join(self.pages.values())
+        self.assertNotIn("Justin D. Daines", combined)
+        self.assertNotIn("justin.daines@signet7.io", combined)
+        self.assertNotIn("george@eaglevisionseo.com", combined)
+        about = self.pages["about.html"]
+        self.assertIn("George Terris II", about)
+        self.assertNotIn("Justin", about)
 
     def test_ai_page_does_not_invent_a_chatbot(self) -> None:
         ai = self.pages["ai.html"].lower()
