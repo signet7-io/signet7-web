@@ -7,9 +7,8 @@ application code, credentials, or customer data.
 ## Reporting a Vulnerability
 
 Please **do not open public issues** for security vulnerabilities.
-Report them privately by email to the engineering & security contact
-listed on the site's about page:
+Report them privately by email:
 
-- justin.daines@signet7.io (engineering, infrastructure, security, and evidence)
+- samuel.sanderson@signet7.io
 
 We will acknowledge receipt and follow up as quickly as we can.
