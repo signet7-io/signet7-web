@@ -6,7 +6,7 @@ from tests.site_html import ROOT, root_html_pages
 
 
 class SiteFreeze20260822Tests(unittest.TestCase):
-    """Brochure door: scroll envelope film. CAD plates live on drawings.html only."""
+    """Door unlocked 2026-09-15: CAD blueprint envelope, same H1 and nav chrome."""
 
     @classmethod
     def setUpClass(cls) -> None:
@@ -15,11 +15,9 @@ class SiteFreeze20260822Tests(unittest.TestCase):
 
     def test_door_keeps_people_behind_type(self) -> None:
         self.assertIn("sell-hero", self.home)
-        self.assertIn("film-hero", self.home)
+        self.assertIn("cad-scene", self.home)
         self.assertIn("cad-envelope", self.home)
-        self.assertIn("cad-film", self.home)
-        self.assertIn("assets/film.js", self.home)
-        self.assertNotIn("assets/blueprint/homepage.jpg", self.home)
+        self.assertIn("assets/blueprint/homepage.jpg?v=20260918c", self.home)
         self.assertIn("visually-hidden", self.home)
         self.assertNotIn("DWG S7-HOME", self.home)
         self.assertNotIn("SCALE NTS", self.home)
@@ -62,7 +60,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in root_html_pages():
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                self.assertIn("assets/site.css?v=20260918env", html)
+                self.assertIn("assets/site.css?v=20260916r", html)
                 self.assertIn('data-theme="dark"', html)
                 self.assertNotIn("door-loop.mp4", html)
                 self.assertNotIn("signet7-circuit.jpg", html)
@@ -70,10 +68,10 @@ class SiteFreeze20260822Tests(unittest.TestCase):
     def test_homepage_mute_study_films(self) -> None:
         self.assertIn("media-src 'self'", self.home)
         self.assertIn('id="play"', self.home)
-        self.assertIn("assets/studies/seal.mp4", self.home)
-        self.assertNotIn("assets/blueprint/check.jpg", self.home)
-        drawings = (ROOT / "drawings.html").read_text(encoding="utf-8")
-        self.assertIn("assets/blueprint/check.jpg", drawings)
+        self.assertIn("assets/blueprint/check.jpg?v=20260918c", self.home)
+        self.assertIn("assets/blueprint/evidence.jpg?v=20260918c", self.home)
+        self.assertIn("assets/blueprint/howto.jpg?v=20260918c", self.home)
+        self.assertNotIn("assets/studies/seal.mp4", self.home)
         self.assertIn("Check an important email before you act", self.home)
         self.assertNotIn("Who uses it", self.home)
         self.assertNotIn("Law, title, construction, payroll, finance.", self.home)
