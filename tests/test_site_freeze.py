@@ -6,7 +6,7 @@ from tests.site_html import ROOT, root_html_pages
 
 
 class SiteFreeze20260822Tests(unittest.TestCase):
-    """Brochure door: last pre-CAD people-work-loop + seal studies + letter demo. CAD plates on drawings.html only. Not the failed 3D blueprint film."""
+    """Door unlocked 2026-09-15: CAD blueprint envelope, same H1 and nav chrome."""
 
     @classmethod
     def setUpClass(cls) -> None:
@@ -15,20 +15,16 @@ class SiteFreeze20260822Tests(unittest.TestCase):
 
     def test_door_keeps_people_behind_type(self) -> None:
         self.assertIn("sell-hero", self.home)
-        self.assertIn("people-scene", self.home)
-        self.assertIn("people-work-loop.mp4", self.home)
-        self.assertIn("people-dark.png", self.home)
-        self.assertIn("people-light.png", self.home)
-        self.assertIn("assets/studies/seal.mp4", self.home)
-        self.assertIn('id="letter"', self.home)
-        self.assertNotIn("film-hero", self.home)
-        self.assertNotIn("cad-film", self.home)
-        self.assertNotIn("assets/film.js", self.home)
-        self.assertNotIn("three.min.js", self.home)
-        self.assertNotIn("assets/blueprint/homepage.jpg", self.home)
+        self.assertIn("cad-scene", self.home)
+        self.assertIn("cad-envelope", self.home)
+        self.assertIn("assets/blueprint/homepage.jpg?v=20260918c", self.home)
+        self.assertIn("visually-hidden", self.home)
         self.assertNotIn("DWG S7-HOME", self.home)
         self.assertNotIn("SCALE NTS", self.home)
         self.assertNotIn("SHEET INDEX", self.home)
+        self.assertNotIn("people-dark.png", self.home)
+        self.assertNotIn("people-light.png", self.home)
+        self.assertNotIn("people-scene", self.home)
         self.assertNotIn("zoom/01.jpg", self.home)
         self.assertIn("Check an important email before you act", self.home)
         self.assertIn("before you act", self.home)
@@ -64,7 +60,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in root_html_pages():
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                self.assertIn("assets/site.css?v=20260918pre", html)
+                self.assertIn("assets/site.css?v=20260916r", html)
                 self.assertIn('data-theme="dark"', html)
                 self.assertNotIn("door-loop.mp4", html)
                 self.assertNotIn("signet7-circuit.jpg", html)
@@ -72,10 +68,10 @@ class SiteFreeze20260822Tests(unittest.TestCase):
     def test_homepage_mute_study_films(self) -> None:
         self.assertIn("media-src 'self'", self.home)
         self.assertIn('id="play"', self.home)
-        self.assertIn("assets/studies/seal.mp4", self.home)
-        self.assertNotIn("assets/blueprint/check.jpg", self.home)
-        drawings = (ROOT / "drawings.html").read_text(encoding="utf-8")
-        self.assertIn("assets/blueprint/check.jpg", drawings)
+        self.assertIn("assets/blueprint/check.jpg?v=20260918c", self.home)
+        self.assertIn("assets/blueprint/evidence.jpg?v=20260918c", self.home)
+        self.assertIn("assets/blueprint/howto.jpg?v=20260918c", self.home)
+        self.assertNotIn("assets/studies/seal.mp4", self.home)
         self.assertIn("Check an important email before you act", self.home)
         self.assertNotIn("Who uses it", self.home)
         self.assertNotIn("Law, title, construction, payroll, finance.", self.home)
@@ -91,17 +87,15 @@ class SiteFreeze20260822Tests(unittest.TestCase):
 
     def test_people_panorama_only_once_and_new_art(self) -> None:
         home = (ROOT / "index.html").read_text(encoding="utf-8")
-        self.assertIn("people-work-loop.mp4", home)
-        self.assertIn("people-dark.png", home)
-        self.assertIn("people-light.png", home)
-        self.assertNotIn("cad-envelope", home)
+        self.assertIn("cad-envelope", home)
+        self.assertNotIn("people-dark.png", home)
+        self.assertNotIn("people-light.png", home)
         for path in root_html_pages():
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
                 self.assertNotIn("people-once.jpg", html)
-                if path.name != "index.html":
-                    self.assertNotIn("people-light.png", html)
-                    self.assertNotIn("people-dark.png", html)
+                self.assertNotIn("people-light.png", html)
+                self.assertNotIn("people-dark.png", html)
 
     def test_header_is_full_width_and_docs_rows_have_room(self) -> None:
         self.assertIn("top: 0; left: 0; right: 0;", self.css)

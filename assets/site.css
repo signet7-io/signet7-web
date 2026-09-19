@@ -1243,19 +1243,23 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   position: relative;
   z-index: 5;
   display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-  min-height: 86vh;
-  min-height: 86dvh;
-  padding: calc(var(--nav-h) + 12px) 0 7vh;
-  background: #050505;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: visible;
+  min-height: 0;
+  padding: calc(var(--nav-h) + 16px) 0 0;
+  background: #071428;
+  border-bottom: 1px solid rgba(126, 214, 240, 0.35);
 }
 .sell-hero .cad-scene,
 .sell-hero .people-scene {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  inset: auto;
   margin: 0;
   z-index: 0;
+  display: grid;
+  place-items: center;
+  width: 100%;
 }
 .sell-hero .cad-envelope {
   display: block;
@@ -1319,16 +1323,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   transform: scale(1.04);
 }
 .sell-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background:
-    radial-gradient(rgba(0,0,0,.58) 1.1px, transparent 1.28px),
-    linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.16) 38%, rgba(5,5,5,.94) 100%),
-    linear-gradient(90deg, rgba(5,5,5,.55) 0%, transparent 52%);
-  background-size: 3.6px 3.6px, auto, auto;
+  content: none;
 }
 .sell-hero > .container.nutshell {
   position: relative;
@@ -1988,7 +1983,7 @@ html[data-theme="dark"] .people-plate.people-dark { display: block; }
 .row b { color: var(--mute); }
 .study-card { border: 1px solid rgba(126, 214, 240, 0.32); background: #071428; border-radius: 0; }
 .study-card img { display: block; width: 100%; height: auto; }
-
+.people-plate, .people-loop, .sell-hero .people-loop, .sell-hero .people-plate { display: none !important; }
 .study:nth-child(1) .study-card,
 .study:nth-child(2) .study-card,
 .study:nth-child(3) .study-card { background-image: none; }
@@ -2243,6 +2238,5 @@ body.docs-manual .docs-nav a { border-radius: 0; }
     max-height: 100dvh;
   }
 }
-
 
 
