@@ -1247,9 +1247,9 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   align-items: stretch;
   overflow: visible;
   min-height: 0;
-  padding: calc(var(--nav-h) + 16px) 0 0;
-  background: #071428;
-  border-bottom: 1px solid rgba(126, 214, 240, 0.35);
+  padding: calc(var(--nav-h) + 8px) 0 0;
+  background: #e7f1f8;
+  border-bottom: 1px solid rgba(12, 42, 86, 0.18);
 }
 .sell-hero .cad-scene,
 .sell-hero .people-scene {
@@ -1263,7 +1263,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
 }
 .sell-hero .cad-envelope {
   display: block;
-  width: min(1440px, 94vw);
+  width: min(1680px, 99vw);
   height: auto;
   margin: 0 auto;
   opacity: 1;
@@ -1272,28 +1272,28 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   position: relative;
   inset: auto;
   display: block;
-  width: min(1440px, 94vw);
+  width: min(1680px, 99vw);
   height: auto;
   max-height: none;
   margin: 0 auto;
   object-fit: contain;
   object-position: center top;
   opacity: 1;
-  background: #071428;
+  background: #e7f1f8;
 }
 .blueprint-sheet {
   margin: 0;
   padding: 18px 18px 28px;
-  background: #071428;
-  border-block: 1px solid rgba(126, 214, 240, 0.35);
+  background: #e7f1f8;
+  border-block: 1px solid rgba(12, 42, 86, 0.18);
 }
 .blueprint-sheet .blueprint-plate {
   display: block;
-  width: min(1280px, 100%);
+  width: min(1680px, 100%);
   height: auto;
   margin: 0 auto;
-  border: 1px solid rgba(126, 214, 240, 0.4);
-  background: #071428;
+  border: 1px solid rgba(12, 42, 86, 0.18);
+  background: #e7f1f8;
 }
 .blueprint-sheet figcaption {
   width: min(1280px, 100%);
@@ -2113,7 +2113,7 @@ body.docs-manual .docs-nav a { border-radius: 0; }
   .sell-hero .blueprint-hero,
   .sell-hero .cad-envelope {
     max-height: none;
-    width: min(1440px, 94vw);
+    width: min(1680px, 99vw);
     object-fit: contain;
   }
   .sell-hero > .container.nutshell {
