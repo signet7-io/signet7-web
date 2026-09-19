@@ -129,9 +129,9 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertIn("linux", meta["files"])
         self.assertEqual(
             meta["source"]["sha"],
-            "8c52b56394eb2ad2e6e5219145cd9345c93b3ab4",
+            "811d17304ed2f96db4f904c66f553b8e8576d77d",
         )
-        self.assertEqual(meta["source"]["run"], 35350148576)
+        self.assertEqual(meta["source"]["run"], 35472832687)
         for key in ("windows", "macos", "linux"):
             href = meta["files"][key]["href"]
             self.assertEqual(href, f"files/signet7-watch-{key}.zip")
