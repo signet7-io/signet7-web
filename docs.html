@@ -10,18 +10,18 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
  <link rel="canonical" href="https://signet7.io/docs">
  <meta property="og:title" content="Documentation | Signet7">
- <meta property="og:description" content="How to seal outgoing email, then verify a message, and use Outlook, Apple Mail, Gmail, or Thunderbird with Signet7.">
+ <meta property="og:description" content="How to seal outgoing email, then verify a message, and use Outlook, Microsoft Entra, Apple Mail, Gmail, or Thunderbird with Signet7.">
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://signet7.io/docs">
  <meta property="og:image" content="https://signet7.io/assets/blueprint/homepage.jpg?v=20260919pkg">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="description" content="How to seal outgoing email, then verify a message, and use Outlook, Apple Mail, Gmail, or Thunderbird with Signet7.">
+ <meta name="description" content="How to seal outgoing email, then verify a message, and use Outlook, Microsoft Entra, Apple Mail, Gmail, or Thunderbird with Signet7.">
  <meta name="theme-color" content="#05080d">
  <title>Documentation | Signet7</title>
  <link rel="icon" type="image/png" href="assets/favicon.png">
  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
  <link rel="stylesheet" href="assets/site.css?v=20260919pkg">
- <link rel="stylesheet" href="assets/docs.css?v=20260916o">
+ <link rel="stylesheet" href="assets/docs.css?v=20260919entra">
 </head>
 <body class="docs-manual">
  <a class="skip-link" href="#main">Skip to content</a>
@@ -77,6 +77,12 @@
  <a href="#install">Install Signet7 desktop</a>
  <a href="#agent-card">Helper instruction card</a>
  <a href="#gmail-gcp">Gmail app password</a>
+ <p class="docs-nav-group">Microsoft Entra</p>
+ <a href="#entra">Entra and Graph</a>
+ <a href="#entra-install">Register the Entra app</a>
+ <a href="#entra-push">IT push to laptops</a>
+ <a href="#entra-troubleshoot">Entra troubleshooting</a>
+ <a href="#entra-integrations">Other systems</a>
  <a href="#desktop">Fill Signet7 desktop</a>
  <a href="#seal">How sealing works</a>
  <a href="#clients">Outlook, Thunderbird, Gmail</a>
@@ -107,7 +113,8 @@
  <h2>Start here</h2>
  <p class="section-intro">Signet7 checks whether the words still match the seal, and whether that sender is listed. Recipients never install. Companies start at <a href="register">Register</a>.</p>
  <div class="scope-list">
- <div class="scope-row"><b>You send from a company inbox</b><span><a href="register">Registration</a>, then <a href="docs#seal">sealing</a> from your mail app (unsigned preview — not Authenticode). Follow setup 3 below, start to finish.</span></div>
+ <div class="scope-row"><b>You send from a company inbox</b><span><a href="register">Registration</a>, then seal from Outlook. Microsoft 365: IT pushes the add-in (setup 2). Named desks that must auto-seal also run Signet7 desktop (setup 3). Not every laptop.</span></div>
+ <div class="scope-row"><b>You are IT</b><span>Push the Outlook add-in. Do not push Signet7 desktop to every laptop. Steps: <a href="docs#entra-push">IT push to laptops</a>.</span></div>
  <div class="scope-row"><b>You received an important email</b><span>Skip to <a href="docs#verify">Check a message</a>. No account. No install. Setup 1 below.</span></div>
  </div>
 
@@ -120,20 +127,22 @@
  </ol>
  <p>Details: <a href="docs#verify">Check a message</a>.</p>
 
- <h3>2. Check inside Outlook (optional)</h3>
- <p>This add-in checks an open message. It does not seal outgoing mail. Recipients still never install.</p>
+ <h3>2. Outlook add-in (IT push, or sideload)</h3>
+ <p>This is what IT pushes. One person can sideload. Check an open message. Seal outgoing mail with <strong>Seal this draft</strong>. Ordinary Send is not sealed. Recipients never install. Not AppSource.</p>
  <ol>
  <li>Save <a href="outlook/manifest.xml">signet7.io/outlook/manifest.xml</a>.</li>
- <li>Sideload it in Outlook (not AppSource). Steps: <a href="docs#outlook">Outlook add-in</a>.</li>
- <li>Open a message. Home ribbon → Signet7 → Check this message.</li>
+ <li>IT: Microsoft 365 admin → Settings → Integrated apps → upload that file. Assign a group. <a href="docs#entra-push">IT push to laptops</a>.</li>
+ <li>One desk: open <a href="https://aka.ms/olksideload">aka.ms/olksideload</a>, then <strong>My add-ins</strong> → <strong>Add a custom add-in</strong> → <strong>Add from File</strong>. The new Apps store cannot upload XML. Steps: <a href="docs#outlook">Outlook add-in</a>.</li>
+ <li>Read: open a message → <strong>Apps</strong> or <strong>More apps</strong> → Signet7. Compose: <strong>New mail</strong> → <strong>Message</strong> tab → <strong>Seal</strong> or <strong>Apps</strong> → Seal. Then <strong>Seal this draft</strong>. Ordinary Send is not sealed.</li>
  </ol>
 
- <h3>3. Seal outgoing mail (Outlook, Apple Mail, or Thunderbird)</h3>
- <p>Same computer as the mail app. Browser Gmail cannot seal. You do not create a Google Cloud app. Unsigned preview — not Authenticode.</p>
+ <h3>3. Auto-seal from a mail app (named desks only)</h3>
+ <p>Same computer as the mail app. Not every laptop. Browser Gmail cannot seal. You do not create a Google Cloud app. Unsigned preview — not Authenticode.</p>
  <ol>
  <li><a href="docs#signup">Create or open a company account</a> and copy the Signet7 token.</li>
  <li><a href="docs#install">Install Signet7 desktop</a> from <a href="download">Download</a>. Incoming checks live in that same app, not a second download.</li>
  <li>If this mailbox is Gmail, create a 16-letter <a href="docs#gmail-gcp">Google app password</a>.</li>
+ <li>If this mailbox is Microsoft 365, IT registers an <a href="docs#entra">Entra app</a>, then Graph or the laptop helper.</li>
  <li><a href="docs#desktop">Fill Signet7 desktop</a>. Click Save and watch. Footer must read Listening on 127.0.0.1:2525.</li>
  <li>Point that mail app’s outgoing SMTP at 127.0.0.1 port 2525: <a href="docs#clients">Outlook or Thunderbird</a>, or <a href="docs#apple-mail">Apple Mail</a>.</li>
  <li>Send a test. Recipients use the <a href="https://verify.signet7.io/email/verify">live check</a>. They do not install.</li>
@@ -162,7 +171,7 @@
  <h3>Outlook, after the add-in is installed</h3>
  <ol>
  <li>Open the message.</li>
- <li>Home ribbon → Signet7 → Check this message. No file.</li>
+ <li><strong>Apps</strong> or <strong>More apps</strong> on that message → Signet7. No file.</li>
  <li>On Outlook on the web: open the Signet7 pane → Check this message.</li>
  </ol>
  <p><a href="docs#outlook">Sideload steps are below.</a></p>
@@ -196,15 +205,16 @@
  <section class="section" id="outlook">
  <div class="container">
  <h2>Sideload the Outlook add-in</h2>
- <p class="section-intro">This setup checks an open message in Outlook. It does not seal outgoing mail. Sideload the manifest. Not AppSource. Org-wide push is a Microsoft 365 admin task. Not Exchange. Unsigned mail stays quiet.</p>
+ <p class="section-intro">Check an open message, or seal with <strong>Seal this draft</strong>. Ordinary Send is not sealed. Sideload the manifest through Microsoft’s Add-Ins for Outlook dialog, or IT pushes it from Integrated apps. The new Apps store cannot upload XML. Not AppSource. Not Exchange. Recipients never install.</p>
  <ol>
- <li>Save <a href="outlook/manifest.xml">signet7.io/outlook/manifest.xml</a> on the PC that runs Outlook.</li>
- <li>Classic Outlook on Windows: Home → Get Add-ins, or File → Manage Add-ins.</li>
- <li>My add-ins → Custom add-ins → Add from file. Choose the saved <code>manifest.xml</code>.</li>
- <li>Outlook on the web: Settings → Add-ins → My add-ins → Add from file. Same file.</li>
- <li>Open a message. Home ribbon → Signet7 → Check this message. No file.</li>
+ <li>Save <a href="outlook/manifest.xml">signet7.io/outlook/manifest.xml</a>.</li>
+ <li>In the same browser session as Outlook, open <a href="https://aka.ms/olksideload">aka.ms/olksideload</a>. The <strong>Add-Ins for Outlook</strong> dialog should appear after a few seconds. This is not Settings, and it is not Apps → Add apps.</li>
+ <li>Select <strong>My add-ins</strong>. Scroll to <strong>Custom Addins</strong> → <strong>Add a custom add-in</strong> → <strong>Add from File</strong>. Choose the saved <code>manifest.xml</code>. Install. Microsoft no longer offers Add from URL.</li>
+ <li>Classic Outlook on Windows can also open that same dialog: File → Info → Manage Add-ins.</li>
+ <li>Reload Outlook. To check: open a message → <strong>Apps</strong> or <strong>More apps</strong> → Signet7. To seal: <strong>New mail</strong> → <strong>Message</strong> tab → <strong>Seal</strong> (or <strong>Apps</strong> → Seal) → paste the sender token → <strong>Seal this draft</strong>. Then Send. The inbox Home bar is not the compose ribbon.</li>
  </ol>
- <p>Done. To seal outgoing mail from Outlook, continue with setup 3: <a href="docs#signup">company account</a>, then Signet7 desktop.</p>
+ <p class="docs-note">Microsoft’s current sideload steps: <a href="https://learn.microsoft.com/en-us/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing">Sideload Outlook add-ins for testing</a>. If the dialog never opens, or Custom Addins is missing, this mailbox cannot sideload. If Install fails, use the current <code>manifest.xml</code> (version 1.0.0.0 or later). The live site file can still be the older copy. Ordinary Send is not sealed by a send event. Use the <a href="https://verify.signet7.io/email/verify">live check</a> if sideload is blocked.</p>
+ <p>IT should push this add-in, not Signet7 desktop, to Outlook users: <a href="docs#entra-push">IT push to laptops</a>. Auto-seal from a mail app is setup 3: <a href="docs#signup">company account</a>, then Signet7 desktop on named desks only.</p>
  <p class="docs-note">Hosted panes: <a href="outlook/taskpane.html">taskpane</a> and <a href="outlook/compose.html">compose</a>. Write mail in Outlook, not in those panes.</p>
  </div>
  </section>
@@ -264,6 +274,110 @@
  </div>
  </section>
 
+ <section class="section section-line" id="entra">
+ <div class="container">
+ <h2>Microsoft Entra and Graph</h2>
+ <p class="section-intro">IT registers an app in the Entra admin center. Signet7 runs on a computer the company already owns. Entra consents Graph access. Entra does not sign mail. This is not an Entra server install. Recipients never install. Not Exchange.</p>
+ <div class="scope-list">
+ <div class="scope-row"><b>Backend verify</b><span>A Signet7 process watches named work emails through Graph. Default cap 20 named work emails, not 20 people. A signed order form can raise that number (<code>SIGNET7_MAX_WATCHED_INBOXES</code>). Ordinary Outlook Send is not sealed by this watcher.</span></div>
+ <div class="scope-row"><b>Seal without a second app</b><span>IT pushes the Outlook add-in (not AppSource). The sender uses <strong>Seal this draft</strong>.</span></div>
+ <div class="scope-row"><b>Automatic seal</b><span>Signet7 desktop on that laptop. Outlook SMTP to <strong>127.0.0.1:2525</strong>, then Graph send. Not every laptop.</span></div>
+ </div>
+ <figure class="docs-figure">
+ <img src="assets/docs-entra-flow.png" width="960" height="420" alt="Outlook writes mail. Seal this draft or Signet7 desktop on 127.0.0.1 port 2525. Entra grants consent only. Graph watch verifies named mail. Hosted Signet7 seals and checks.">
+ <figcaption>Entra grants Graph permission. The seal and the check are Signet7. Ordinary Send is not sealed on the backend.</figcaption>
+ </figure>
+ <p>Next: <a href="docs#entra-install">register the Entra app</a>.</p>
+ </div>
+ </section>
+
+ <section class="section" id="entra-install">
+ <div class="container">
+ <h2>Register the Entra app</h2>
+ <p class="section-intro">Single-tenant public client. Device-code login. Do not put a client secret in Signet7. Checking a message does not need this. Recipients do not need this.</p>
+ <ol>
+ <li>In the Entra admin center, register a single-tenant application.</li>
+ <li>Treat it as a public client. Allow device-code flow.</li>
+ <li>Delegated permissions: <code>offline_access</code>, <code>Mail.Read</code>, <code>Mail.Send</code>. Admin-consent once.</li>
+ <li>Copy the Application (client) ID. On the computer that runs Signet7, set <code>SIGNET7_GRAPH_CLIENT_ID</code> to that id. Example: <code>11111111-2222-3333-4444-555555555555</code>.</li>
+ <li>Sign in, then check. Tokens stay in the OS store, never in agent.json.</li>
+ </ol>
+ <pre><code>export SIGNET7_GRAPH_CLIENT_ID=11111111-2222-3333-4444-555555555555
+python -m signet7_agent --login-entra
+python -m signet7_agent --check-entra</code></pre>
+ <figure class="docs-figure">
+ <img src="assets/docs-entra-permissions.png" width="720" height="360" alt="Entra app permissions: offline_access, Mail.Read, Mail.Send, and admin consent once per tenant">
+ <figcaption>Delegated Graph permissions. Admin consent is a human step. IMAP still works if this app is not ready.</figcaption>
+ </figure>
+ <p class="docs-note">Name the work emails in Graph mailboxes. Cap 20 unless a signed order form says otherwise. Then set <code>SIGNET7_MAX_WATCHED_INBOXES</code> to that number. GCC High is not this path.</p>
+ <p>Next: <a href="docs#entra-push">IT push to laptops</a>, or <a href="docs#desktop">fill Signet7 desktop</a> on a named desk.</p>
+ </div>
+ </section>
+
+ <section class="section" id="entra-push">
+ <div class="container">
+ <h2>IT push to laptops</h2>
+ <p class="section-intro">Push the Outlook add-in. Do not push Signet7 desktop to every laptop. Recipients never install. People who only check mail use the <a href="https://verify.signet7.io/email/verify">live check</a> or the add-in. Named work emails that must auto-seal use the desktop zip on those desks only.</p>
+ <div class="scope-list">
+ <div class="scope-row"><b>Recipients</b><span>Nothing. <a href="https://verify.signet7.io/email/verify">Live check</a>.</span></div>
+ <div class="scope-row"><b>Outlook users who check or seal a draft</b><span>IT pushes the add-in. Not the desktop.</span></div>
+ <div class="scope-row"><b>Named work emails that must auto-seal</b><span>Desktop zip on that desk only. No Intune fleet.</span></div>
+ </div>
+
+ <h3>1. Push the Outlook add-in (today)</h3>
+ <p>This is a Microsoft 365 admin task. Not AppSource. It works in Outlook on the web, Outlook on Windows, and New Outlook. Some GoDaddy Email Essentials tenants have no Integrated apps page; those users sideload or stay on the web check.</p>
+ <ol>
+ <li>Save <a href="outlook/manifest.xml">signet7.io/outlook/manifest.xml</a>.</li>
+ <li>Open the <a href="https://admin.microsoft.com">Microsoft 365 admin center</a> → Settings → <strong>Integrated apps</strong> → Upload custom apps → Upload the manifest.</li>
+ <li>Assign a group, not the whole company, unless you mean it. Recipients do not need it.</li>
+ <li>Deployment: <strong>Available</strong>, <strong>Optional</strong>, or <strong>Fixed</strong>. Fixed pins it. Available lets people add it.</li>
+ <li>Users open Outlook (or Outlook on the web). The Signet7 pane checks a message. <strong>Seal this draft</strong> stamps outgoing mail. Ordinary Send without that step is not sealed.</li>
+ </ol>
+
+ <h3>2. Do not fleet-install the desktop yet</h3>
+ <p>There is no Intune MSI and the zip is unsigned. Windows SmartScreen and Mac Gatekeeper will stop a silent push. <code>install.ps1</code> copies to <code>%LOCALAPPDATA%\Signet7</code> and starts the app. That is a person at that desk, not a company-wide assignment.</p>
+ <ol>
+ <li>Register. Download the zip from the <a href="download">company desk</a> on each named seal laptop only.</li>
+ <li>Windows: run <code>install.ps1</code> from the unzipped folder. Mac/Linux: <code>install.sh</code>.</li>
+ <li>Fill Signet7 desktop. Footer must read Listening on 127.0.0.1:2525 before anyone points SMTP at that hop.</li>
+ <li>Keep Exchange as the normal Outlook outbound server. The 2525 hop fail-closes if Signet7 is down.</li>
+ </ol>
+ <p class="docs-note">A signed Win32 / Intune package is not this preview. Until then, tell IT: add-in to Outlook users who seal or check in-place; desktop only on named work-email desks.</p>
+ </div>
+ </section>
+
+ <section class="section" id="entra-troubleshoot">
+ <div class="container">
+ <h2>Entra troubleshooting</h2>
+ <div class="scope-list">
+ <div class="scope-row"><b>Missing app id</b><span>Set <code>SIGNET7_GRAPH_CLIENT_ID</code>. IMAP still works without it.</span></div>
+ <div class="scope-row"><b>AADSTS or consent</b><span>Admin consent <code>Mail.Read</code> and <code>Mail.Send</code> once.</span></div>
+ <div class="scope-row"><b>Token expired</b><span>Run <code>--login-entra</code> again. Refresh is stored and reused.</span></div>
+ <div class="scope-row"><b>2525 not listening</b><span>Open Signet7 desktop. Footer must read Listening on 127.0.0.1:2525.</span></div>
+ <div class="scope-row"><b>Add-in missing</b><span>Open <a href="https://aka.ms/olksideload">aka.ms/olksideload</a>. The new Apps store cannot upload XML. Or IT pushes from Integrated apps. Not AppSource. <a href="docs#entra-push">IT push to laptops</a>.</span></div>
+ <div class="scope-row"><b>Installation failed</b><span>Exchange rejected the file. Use manifest version 1.0.0.0 or later. The live <code>signet7.io/outlook/manifest.xml</code> is current only after that file is published. A compose <code>RequestedHeight</code>, a version below 1.0, a 404 support URL, or a send-event block fails install with no extra text.</span></div>
+ <div class="scope-row"><b>Send was not sealed</b><span>Ordinary Outlook Send is not sealed by the backend watcher. Use Seal this draft or the laptop helper.</span></div>
+ <div class="scope-row"><b>Program entitlement</b><span>Sign and send email needs the sender token from <a href="https://account.signet7.io/account">account.signet7.io/account</a>, on an active 90-day intro. Paid Outlook sealing is the Business program. Checkout is not live. A marketing-site string is not a sender token.</span></div>
+ <div class="scope-row"><b>Unauthorized</b><span>The bearer string is not in <code>accounts.sqlite3</code> on the seal host. G3 Fargate replaces <code>/app/data</code>. Register again at <a href="https://account.signet7.io/account">account</a> and paste the new sender token.</span></div>
+ <div class="scope-row"><b>Email signing is not provisioned</b><span>Signup companies are <code>s7-</code> plus a mailbox hash. Production email, ledger, and identity KMS keys exist only for Terraform <code>tenant_ids</code> (usually <code>default</code>). Opening the full company for a signup id fails before the email key is used. Lasting fix: add that company to <code>tenant_ids</code> and apply. Until then the seal host should sign with the default tenant email key only.</span></div>
+ <div class="scope-row"><b>Limits</b><span>Not Exchange. Not a mail-flow gateway. GCC High is not this path.</span></div>
+ </div>
+ </div>
+ </section>
+
+ <section class="section" id="entra-integrations">
+ <div class="container">
+ <h2>Entra and other systems</h2>
+ <p class="section-intro">Microsoft 365 uses Entra + Graph. Other mail still uses the handbook paths below. Recipients use the <a href="https://verify.signet7.io/email/verify">live check</a>.</p>
+ <div class="scope-list">
+ <div class="scope-row"><b>Outlook add-in</b><span><a href="docs#outlook">Sideload</a> or <a href="docs#entra-push">IT push</a>. Seal this draft on compose. Read pane checks. Recipients never install.</span></div>
+ <div class="scope-row"><b>Gmail</b><span>16-letter <a href="docs#gmail-gcp">app password</a>. Not Google Cloud.</span></div>
+ <div class="scope-row"><b>Apple Mail / Thunderbird</b><span>After the desktop footer is listening, point SMTP at 127.0.0.1 port 2525. <a href="docs#clients">Outlook or Thunderbird</a>, <a href="docs#apple-mail">Apple Mail</a>.</span></div>
+ <div class="scope-row"><b>IMAP fallback</b><span>Provider Microsoft 365 / Outlook still works with an app password if Graph is not consented.</span></div>
+ </div>
+ </div>
+ </section>
+
  <section class="section section-line" id="desktop">
  <div class="container">
  <h2>Signet7 desktop</h2>
@@ -315,7 +429,7 @@
  <p class="section-intro">To check a message, see <a href="docs#verify">Check a message</a>. Sealing only changes the outgoing SMTP hop on the office computer that runs Signet7, after the Signet7 desktop footer reads Listening on 127.0.0.1:2525. Host <strong>127.0.0.1</strong>, not localhost. Port <strong>2525</strong>. TLS/SSL <strong>off</strong> on that hop. Real TLS is Signet7 to your provider after the seal.</p>
 
  <h3>Seal from Outlook</h3>
- <p>Complete <a href="docs#signup">account</a>, <a href="docs#install">install</a>, and <a href="docs#desktop">fill Signet7 desktop</a> first. The Outlook add-in is a separate check path. It does not seal.</p>
+ <p>Complete <a href="docs#signup">account</a>, <a href="docs#install">install</a>, and <a href="docs#desktop">fill Signet7 desktop</a> first. The Outlook read pane is a check path. <strong>Seal this draft</strong> is the no-desktop seal path. See <a href="docs#entra">Microsoft Entra</a>.</p>
  <ol>
  <li>Confirm the Signet7 desktop footer: Listening on 127.0.0.1:2525.</li>
  <li>File → Account Settings → more settings → outgoing server.</li>

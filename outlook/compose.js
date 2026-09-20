@@ -197,6 +197,10 @@ function sealDraft() {
           setOut("Outlook sealing needs an active intro or a Business program. Use the sender token from account.signet7.io/account.");
           return;
         }
+        if (pack.body.code === "email_signing_unprovisioned") {
+          setOut("Email signing is not provisioned for this company. Signup companies need a Terraform tenant_ids row, or the default email KMS fallback. See signet7.io/docs#entra-troubleshoot.");
+          return;
+        }
         setOut(pack.body.error || "Seal failed. Sender programs are not free.");
         return;
       }
