@@ -7,19 +7,19 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <title>Signet7 | Cryptographic seal and check for high-stakes email</title>
-  <meta name="description" content="Signet7 checks whether the words in an important email still match the seal, and whether that sender is listed. Recipients are not required to install. Checkout is not live.">
+  <title>Signet7 | Prove an email is unchanged before you pay</title>
+  <meta name="description" content="Signet7 adds a tamper-evident digital signature to important email. Anyone can confirm in seconds that not one word has changed since it was sent. No account and nothing for recipients to install.">
   <meta name="theme-color" content="#05080d">
   <meta property="og:title" content="Signet7">
-  <meta property="og:description" content="Check whether an important email still matches the seal, and whether that sender is listed.">
+  <meta property="og:description" content="The last look before money moves. Confirm that an important email has not been altered, and that the sender's address is on record.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://signet7.io/">
-  <meta property="og:image" content="https://signet7.io/assets/blueprint/homepage.jpg?v=20260919pkg">
+  <meta property="og:image" content="https://signet7.io/assets/og-image.png?v=20260920d">
   <link rel="canonical" href="https://signet7.io/">
   <link rel="alternate" type="application/ld+json" href="assets/ld-website.json">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/site.css?v=20260919pkg">
+  <link rel="stylesheet" href="assets/site.css?v=20260920f">
   <script type="application/ld+json" src="assets/ld-website.json"></script>
 </head>
 <body class="home">
@@ -31,28 +31,41 @@
         <span>Signet7</span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
-      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-        <div class="drop">
-          <button type="button" class="drop-btn" aria-expanded="false">Product</button>
-          <div class="drop-menu">
-            <a href="product">What it is</a>
-            <a href="record">Keep the file</a>
-            <a href="vsn">Look up a company</a>
-            <a href="faq">FAQ</a>
-          </div>
-        </div>
-        <a href="docs.html">Docs</a>
-        <div class="drop">
-          <button type="button" class="drop-btn" aria-expanded="false">Company</button>
-          <div class="drop-menu">
-            <a href="register">Register</a>
-            <a href="trust-center">Trust center</a>
-            <a href="pay">Pay</a>
-          </div>
-        </div>
-        <a href="about">About</a>
-      </nav>
-      <a class="button button-primary header-cta" href="https://verify.signet7.io/email/verify">Live check</a>
+       <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+ <div class="drop">
+ <button type="button" class="drop-btn" aria-expanded="false">Product</button>
+ <div class="drop-menu">
+ <a href="product">Overview</a>
+ <a href="check">Verify an email</a>
+ <a href="record">Keep the proof</a>
+ <a href="vsn">Look up a company</a>
+ <a href="download">Download the app</a>
+ <a href="faq">FAQ</a>
+ </div>
+ </div>
+ <div class="drop">
+ <button type="button" class="drop-btn" aria-expanded="false">Solutions</button>
+ <div class="drop-menu">
+ <a href="public-sector">Public sector</a>
+ <a href="enterprise">Larger organizations</a>
+ <a href="pilot">Run an evaluation</a>
+ <a href="scenarios">Worked examples</a>
+ </div>
+ </div>
+ <a href="programs">Pricing</a>
+ <a href="docs.html">Docs</a>
+ <div class="drop">
+ <button type="button" class="drop-btn" aria-expanded="false">Company</button>
+ <div class="drop-menu">
+ <a href="about">About</a>
+ <a href="contact">Contact</a>
+ <a href="trust-center">Trust center</a>
+ <a href="security">Security</a>
+ <a href="status">Status</a>
+ </div>
+ </div>
+ </nav>
+      <a class="button button-primary header-cta" href="https://verify.signet7.io/email/verify">Verify an email</a>
       <a class="header-register" href="register">Register</a>
       <a class="account-login" href="https://account.signet7.io/account">Login to Signet7</a>
     </div>
@@ -60,52 +73,83 @@
 
   <main id="main">
     <section class="sell-hero" aria-labelledby="hero-title">
-      <div class="scene-wrap hero-scene cad-scene">
-        <a class="open-drawing" href="drawings.html#home" aria-label="Open homepage drawing"><img class="cad-envelope blueprint-hero" src="assets/blueprint/homepage.jpg?v=20260919pkg" width="1792" height="1008" alt="Signet7 is the cryptographic seal and check for high-stakes email." fetchpriority="high"></a>
-      </div>
-      <div class="container nutshell visually-hidden">
-        <h1 id="hero-title" class="billboard">Signet7 is the cryptographic seal and check for high-stakes email.</h1>
-        <p class="hero-steps" id="check-123">Check an important email before you act. Signet7 checks two facts: whether the words still match the seal, and whether that sender is listed. Recipients are not required to install. Checkout is not live.</p>
-        <p class="lede">Save the original. Open the live check. You get a signed file you can produce later. It does not mean the email is safe to pay. The same evidence can gate actions proposed by people or AI agents before irreversible steps.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="https://verify.signet7.io/email/verify">Live check</a>
-          <a class="button button-secondary" href="register">Register</a>
+      <div class="container nutshell">
+        <p class="eyebrow">Payment fraud and sender impersonation</p>
+        <h1 id="hero-title" class="billboard">The last look before money moves.</h1>
+        <p class="product-line">Signet7 adds a tamper-evident digital signature to important email. Anyone who receives that email can confirm, in seconds, that not one word has changed since it was sent.</p>
+        <p class="hero-cost" id="why-it-matters">One fake payment email costs an organization <strong>$123,005</strong> on average, and the FBI logged <strong>$3.05 billion</strong> of these losses in 2025. The usual defence is to train people to spot a clumsy fake — and that defence is closing, because generative AI can quickly produce a convincing impersonation of your finance director. Signet7 never asks how an email reads. It checks the wording against a signature, which a convincing forgery does not have.</p>
+        <p class="hero-steps" id="check-123">Check an important email before you act. Signet7 answers two questions: has the wording been altered since it was signed, and is the sender's address one Signet7 has on record? Recipients need no account and install nothing.</p>
+        <p class="lede">Save the original. Open the Live check. You get a signed file you can produce later as proof. A clean result does not mean the email is safe to pay — it means the wording is unchanged and the sender's address is on record. The same evidence can gate actions proposed by people or AI agents before irreversible steps.</p>
+        <div class="badge-row">
+          <span class="badge cyan">Nothing for recipients to install</span>
+          <span class="badge gold">Free while in preview — <a href="status">see what is live today</a></span>
         </div>
+      </div>
+      <div class="scene-wrap hero-scene cad-scene">
+        <a class="open-drawing" href="drawings.html#home" aria-label="Open the full homepage drawing"><img class="cad-envelope blueprint-hero" src="assets/blueprint/homepage-hero.jpg?v=20260920g" width="375" height="565" alt="The Signet7 seal above a Live check panel: the sender is listed or not listed, and recipients are not required to install anything." fetchpriority="high"></a>
+      </div>
+    </section>
+
+    <section class="facts" data-facts aria-label="Reported fraud losses">
+      <div class="container facts-grid">
+        <article class="fact f-blue"><strong>$3.05B</strong><span>Losses from business email compromise reported to the FBI in 2025.</span></article>
+        <article class="fact f-gold"><strong>$123,005</strong><span>Average loss per business email compromise complaint reported in 2025.</span></article>
+        <article class="fact f-green"><strong>22,364</strong><span>Complaints referencing AI in the FBI's 2025 report.</span></article>
+        <article class="fact f-purple"><strong>$893M</strong><span>Losses reported in those AI-related complaints in 2025.</span></article>
+      </div>
+      <p class="facts-cite">Source: FBI Internet Crime Complaint Center, 2025 Annual Report. The average is those reported losses divided by the 24,768 complaints in the same report. These are reported losses across all organizations, not Signet7 results. <a href="https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf">Read the FBI report</a>.</p>
+    </section>
+
+    <section class="section section-line" id="why-worse">
+      <div class="container">
+        <p class="eyebrow">Why this is getting harder</p>
+        <h2>The warning signs people were taught to look for are disappearing.</h2>
+        <p class="section-intro">Staff training for payment fraud has always rested on the fake being imperfect: odd phrasing, poor grammar, a tone that did not sound like the person. Generative AI removes every one of those tells. The FBI's 2025 report says AI-enabled synthetic content is "becoming increasingly difficult to detect and easier to make", and that chat generators "can quickly create official-sounding emails mimicking a company's CEO or other officials".</p>
+        <div class="grid-3">
+          <article class="card"><h3>The fakes now read perfectly</h3><p>An attacker no longer needs to write good English or know how your finance director phrases things. They can produce a message that reads exactly right, then send thousands of variations of it.</p></article>
+          <article class="card"><h3>The FBI now counts it separately</h3><p>Its 2025 report gives AI a section of its own: 22,364 complaints and $893 million in losses, including over $30 million lost to business email compromise specifically involving AI. The FBI notes many victims never realise AI was used, so the true figure is higher.</p></article>
+          <article class="card hot"><h3>A signature does not care how convincing it is</h3><p>Signet7 does not score how an email reads, so a better-written fake does not get past it. Either the wording matches what the sender signed, or it does not. A forgery, however perfect, cannot produce a signature it never had.</p></article>
+        </div>
+        <p class="section-intro">To be clear about the limit: most email carries no signature at all, and Signet7 reports that honestly as "no seal" rather than treating it as suspicious. The protection is strongest between organizations that have both registered, which is why the check and the invitation are free. <a href="vsn">How listings work</a> · <a href="check">Verify an email now</a></p>
       </div>
     </section>
 
     <section class="section" id="features">
       <div class="container">
         <p class="eyebrow">What you do</p>
-        <h2>Check a message. List the work email. Keep the file.</h2>
+        <h2>Verify an email you received. Sign the email you send. Keep the proof.</h2>
         <div class="feature-grid">
           <article class="feat">
-            <a class="open-drawing" href="drawings.html#check" aria-label="Open live-check drawing"><img src="assets/blueprint/check.jpg?v=20260919pkg" width="1792" height="1008" alt="Live-check drawing. Click to open the drawing." loading="lazy" decoding="async"></a>
-            <h3><a href="check">Check a message</a></h3>
-            <p>Free. No account. Save the original message and drop it on the live check. Recipients are not required to install.</p>
+            <a class="open-drawing" href="drawings.html#check" aria-label="Open the drawing of the verification page"><img src="assets/blueprint/check.jpg?v=20260919pkg" width="1792" height="1008" alt="Drawing of the page where an email is uploaded and checked." loading="lazy" decoding="async"></a>
+            <h3><a href="check">Verify an email you received</a></h3>
+            <p>Free, with no account and nothing to install. Save the original email, upload it to the Live check, and read the answer before you pay or change any account details.</p>
           </article>
           <article class="feat">
-            <a class="open-drawing" href="drawings.html#download" aria-label="Open download drawing"><img src="assets/blueprint/download.jpg?v=20260919pkg" width="1792" height="1008" alt="Desktop download drawing. Click to open the drawing." loading="lazy" decoding="async"></a>
-            <h3><a href="download">List the work email</a></h3>
-            <p>Register first. Signet7 desktop on named work emails. Not every laptop. Recipients are not required to install.</p>
+            <a class="open-drawing" href="drawings.html#download" aria-label="Open the drawing of the desktop app download"><img src="assets/blueprint/download.jpg?v=20260919pkg" width="1792" height="1008" alt="Drawing of the Signet7 desktop download page." loading="lazy" decoding="async"></a>
+            <h3><a href="download">Sign the email you send</a></h3>
+            <p>Register your organization, then run Signet7 desktop on the named work emails that move money — accounts payable, payroll, legal. One office computer, not every laptop. Recipients are not required to install anything to check what you send them.</p>
           </article>
           <article class="feat">
-            <a class="open-drawing" href="drawings.html#evidence" aria-label="Open evidence drawing"><img src="assets/blueprint/evidence.jpg?v=20260919pkg" width="1792" height="1008" alt="Evidence-record drawing. Click to open the drawing." loading="lazy" decoding="async"></a>
-            <h3><a href="record">Keep the file</a></h3>
-            <p>The seal is on the message. That file is the record. You can show later that the words still matched.</p>
+            <a class="open-drawing" href="drawings.html#evidence" aria-label="Open the drawing of a saved proof file"><img src="assets/blueprint/evidence.jpg?v=20260919pkg" width="1792" height="1008" alt="Drawing of a signed email saved as a proof file." loading="lazy" decoding="async"></a>
+            <h3><a href="record">Keep the proof</a></h3>
+            <p>The signature travels with the email. That file is the record. Download it and you can show months later that the wording never changed.</p>
           </article>
         </div>
       </div>
     </section>
 
+    
+
+
     <section class="section" id="play">
       <div class="container">
-        <p class="eyebrow">On the site</p>
-        <h2>Product, programs, and docs</h2>
+        <p class="eyebrow">Where to go next</p>
+        <h2>Read more before you decide</h2>
+        <p class="section-intro">Unsure about a word on this page? <a href="faq#plain-words">See what the words on this site mean</a>.</p>
         <div class="feature-grid">
-          <article class="feat"><a class="open-drawing" href="drawings.html#product" aria-label="Open product drawing"><img src="assets/blueprint/product.jpg?v=20260919pkg" width="1792" height="1008" alt="Product drawing. Click to open the drawing." loading="lazy" decoding="async"></a><h3><a href="product">Product</a></h3><p>Seal, check, desktop.</p></article>
-          <article class="feat"><a class="open-drawing" href="drawings.html#programs" aria-label="Open programs drawing"><img src="assets/blueprint/programs.jpg?v=20260919pkg" width="1792" height="1008" alt="Programs drawing. Click to open the drawing." loading="lazy" decoding="async"></a><h3><a href="programs">Programs</a></h3><p>Checkout is not live. Amounts are not set.</p></article>
-          <article class="feat"><a class="open-drawing" href="drawings.html#how" aria-label="Open how-to drawing"><img src="assets/blueprint/howto.jpg?v=20260919pkg" width="1792" height="1008" alt="How-to drawing. Click to open the drawing." loading="lazy" decoding="async"></a><h3><a href="docs.html">Docs</a></h3><p>How to check. How to install after register.</p></article>
+          <article class="feat"><a class="open-drawing" href="drawings.html#product" aria-label="Open the product drawing"><img src="assets/blueprint/product.jpg?v=20260919pkg" width="1792" height="1008" alt="Drawing of the three parts of Signet7." loading="lazy" decoding="async"></a><h3><a href="product">Overview</a></h3><p>The three parts: signing email you send, verifying email you receive, and the desktop app for named work emails.</p></article>
+          <article class="feat"><a class="open-drawing" href="drawings.html#programs" aria-label="Open the drawing of the public-sector page"><img src="assets/blueprint/programs.jpg?v=20260919pkg" width="1792" height="1008" alt="Drawing of departments that approve payments." loading="lazy" decoding="async"></a><h3><a href="public-sector">For government and public agencies</a></h3><p>Which departments use it, what your IT reviewer will ask for, and how to put Signet7 on a purchase order.</p></article>
+          <article class="feat"><a class="open-drawing" href="drawings.html#how" aria-label="Open the how-to drawing"><img src="assets/blueprint/howto.jpg?v=20260919pkg" width="1792" height="1008" alt="Drawing of the step-by-step instructions." loading="lazy" decoding="async"></a><h3><a href="docs.html">Set-up instructions</a></h3><p>How to verify an email, and how to install the desktop app once your organization has registered.</p></article>
         </div>
       </div>
     </section>
@@ -113,11 +157,11 @@
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div><strong>Signet7</strong><p>Signet7 is the cryptographic seal and check for high-stakes email.</p><p>Signet7™, 2026 All rights reserved, All wrongs revenged.</p></div>
-      <div><a href="privacy">Privacy</a><a href="trust-center">Trust center</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div>
+      <div><strong>Signet7</strong><p>Signet7 proves an important email has not been altered before anyone acts on it.</p><p>Signet7™ 2026. All rights reserved.</p></div>
+      <div><a href="privacy">Privacy</a><a href="trust-center">Trust center</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="drawings">Drawings</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div>
       <div><p>Live check and company accounts are available.</p></div>
     </div>
   </footer>
-  <script src="assets/motion.js?v=20260919pkg" defer></script>
+  <script src="assets/motion.js?v=20260920c" defer></script>
 </body>
 </html>

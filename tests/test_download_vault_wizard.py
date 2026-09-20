@@ -30,17 +30,17 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertNotIn("VSN", html)
         self.assertNotIn("is safe to pay", html)
         hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
-        self.assertIn("Signet7 is the cryptographic seal and check for high-stakes email", hero)
+        self.assertIn("The last look before money moves.", hero)
         self.assertIn("Check an important email before you act", self.home)
 
     def test_watch_product_docs_name_optional_vault(self) -> None:
         pages = {
-            "watch.html": (ROOT / "watch.html").read_text(encoding="utf-8"),
+            "download.html": (ROOT / "download.html").read_text(encoding="utf-8"),
             "product.html": (ROOT / "product.html").read_text(encoding="utf-8"),
             "docs.html": (ROOT / "docs.html").read_text(encoding="utf-8"),
         }
         ids = {
-            "watch.html": "watch-records-vault",
+            "download.html": "company-records-vault",
             "product.html": "product-records-vault",
             "docs.html": "docs-records-vault",
         }
@@ -62,7 +62,7 @@ class DownloadVaultWizardTests(unittest.TestCase):
                 self.assertNotIn("is safe to pay", html)
                 self.assertNotIn("How it works", html)
         hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
-        self.assertIn("Signet7 is the cryptographic seal and check for high-stakes email", hero)
+        self.assertIn("The last look before money moves.", hero)
         self.assertIn("Check an important email before you act", self.home)
 
     def test_faq_names_optional_vault_cap(self) -> None:
@@ -96,7 +96,7 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertNotIn("is safe to pay", html)
         self.assertNotIn("How it works", html)
         hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
-        self.assertIn("Signet7 is the cryptographic seal and check for high-stakes email", hero)
+        self.assertIn("The last look before money moves.", hero)
         self.assertIn("Check an important email before you act", self.home)
 
     def test_docs_and_download_name_helper_instruction_card(self) -> None:
@@ -119,7 +119,7 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertNotIn("is safe to pay", download)
         self.assertNotIn("How it works", docs)
         hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
-        self.assertIn("Signet7 is the cryptographic seal and check for high-stakes email", hero)
+        self.assertIn("The last look before money moves.", hero)
         self.assertIn("Check an important email before you act", self.home)
 
     def test_latest_json_is_unsigned_preview_not_pip(self) -> None:

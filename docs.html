@@ -13,14 +13,14 @@
  <meta property="og:description" content="How to seal outgoing email, then verify a message, and use Outlook, Microsoft Entra, Apple Mail, Gmail, or Thunderbird with Signet7.">
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://signet7.io/docs">
- <meta property="og:image" content="https://signet7.io/assets/blueprint/homepage.jpg?v=20260919pkg">
+ <meta property="og:image" content="https://signet7.io/assets/og-image.png?v=20260920d">
  <meta name="twitter:card" content="summary_large_image">
  <meta name="description" content="How to seal outgoing email, then verify a message, and use Outlook, Microsoft Entra, Apple Mail, Gmail, or Thunderbird with Signet7.">
  <meta name="theme-color" content="#05080d">
  <title>Documentation | Signet7</title>
  <link rel="icon" type="image/png" href="assets/favicon.png">
  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
- <link rel="stylesheet" href="assets/site.css?v=20260919pkg">
+ <link rel="stylesheet" href="assets/site.css?v=20260920f">
  <link rel="stylesheet" href="assets/docs.css?v=20260919entra">
 </head>
 <body class="docs-manual">
@@ -32,28 +32,41 @@
  <span>Signet7</span>
  </a>
  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
- <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+  <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
  <div class="drop">
  <button type="button" class="drop-btn" aria-expanded="false">Product</button>
  <div class="drop-menu">
- <a href="product">What it is</a>
- <a href="record">Keep the file</a>
+ <a href="product">Overview</a>
+ <a href="check">Verify an email</a>
+ <a href="record">Keep the proof</a>
  <a href="vsn">Look up a company</a>
+ <a href="download">Download the app</a>
  <a href="faq">FAQ</a>
  </div>
  </div>
+ <div class="drop">
+ <button type="button" class="drop-btn" aria-expanded="false">Solutions</button>
+ <div class="drop-menu">
+ <a href="public-sector">Public sector</a>
+ <a href="enterprise">Larger organizations</a>
+ <a href="pilot">Run an evaluation</a>
+ <a href="scenarios">Worked examples</a>
+ </div>
+ </div>
+ <a href="programs">Pricing</a>
  <a href="docs.html">Docs</a>
  <div class="drop">
  <button type="button" class="drop-btn" aria-expanded="false">Company</button>
  <div class="drop-menu">
- <a href="register">Register</a>
- <a href="trust-center">Trust center</a>
- <a href="pay">Pay</a>
- </div>
- </div>
  <a href="about">About</a>
+ <a href="contact">Contact</a>
+ <a href="trust-center">Trust center</a>
+ <a href="security">Security</a>
+ <a href="status">Status</a>
+ </div>
+ </div>
  </nav>
- <a class="button button-primary header-cta" href="https://verify.signet7.io/email/verify">Live check</a>
+ <a class="button button-primary header-cta" href="https://verify.signet7.io/email/verify">Verify an email</a>
  <a class="header-register" href="register">Register</a>
  <a class="account-login" href="https://account.signet7.io/account">Login to Signet7</a>
  </div>
@@ -90,8 +103,8 @@
  <a href="#apple-mail">Seal from Apple Mail</a>
  <p class="docs-nav-group">For engineers</p>
  <a href="#spec">Engineer contract</a>
- <a class="docs-nav-ext" href="it">IT one-pager</a>
- <a class="docs-nav-ext" href="smtp">Outbound seal</a>
+ <a class="docs-nav-ext" href="download#it">IT one-pager</a>
+ <a class="docs-nav-ext" href="docs#seal">Outbound seal</a>
  <a class="docs-nav-ext" href="check">Recipient check</a>
  </nav>
  </aside>
@@ -199,7 +212,7 @@
  </table>
  </div>
  <div class="scope-list">
- <div class="scope-row"><b>Listing lookup</b><span><a href="https://verify.signet7.io/vsn">Look up a company</a>. Whether this address is listed with that key. A listing is for the addresses assigned to it. Domain-wide is a choice, not the default. Recipients see Listed, Not listed, or Listing doesn’t match this address. Listed needs a matching stamp. DNS keys if they published TXT. Hosted listings on the company desk after they enroll, not a public directory. Not a phone book of every company. Not a check of one message.</span></div>
+ <div class="scope-row"><b>Listing lookup</b><span><a href="https://verify.signet7.io/vsn">Look up a company</a>. Whether this address is listed with that key. A listing is for the addresses assigned to it. Domain-wide is a choice, not the default. Recipients see Listed, Not listed, or Listing doesn’t match this address. Listed needs a matching stamp. DNS keys if they published TXT. Hosted listings on the company desk after they enroll, not a public directory. It is not a phone book of every company. Not a check of one message.</span></div>
  </div>
  </div>
  </section>
@@ -494,6 +507,7 @@ python -m signet7_agent --check-entra</code></pre>
  <h2>How sealing works</h2>
  <p class="section-intro">Optional. Same computer as the mail app. Leave Signet7 desktop running or port 2525 goes quiet. It keeps watching incoming in that same window. The app posts seals to <a href="https://seal.signet7.io">seal.signet7.io</a>. The token still comes from <a href="https://account.signet7.io/account">account</a>. <a href="https://verify.signet7.io/email/verify">Recipients still check at the live check</a>. They are not required to install.</p>
  <p class="docs-note">Unsigned preview. After <a href="register">Registration</a>, open <a href="download">Download</a>. Windows may warn; this is not Authenticode. Signed builds stay later. Do not point a mail app at 127.0.0.1:2525 until the footer says it is listening.</p>
+ <p class="docs-note">The same recipe works on Windows, macOS, and Linux: the mail app hands the message to 127.0.0.1 on port 2525, and the app running there signs it before it leaves. The unsigned helper cryptographically seals that exact message — the wording you actually sent, not a reconstruction of it — and attaches <code>Signet7-sealed.eml</code> so the recipient has something to check.</p>
  <div class="scope-list">
  <div class="scope-row"><b>Mail app → 127.0.0.1</b><span>Your email address. Authentication None on this hop. TLS off. Port 2525. Host 127.0.0.1, not localhost.</span></div>
  <div class="scope-row"><b>Signet7 → your provider</b><span>Provider app password (Gmail: 16 letters). Not the Google login. Not a Signet7 token.</span></div>
@@ -567,14 +581,14 @@ python -m signet7_agent --check-entra</code></pre>
  <section class="section section-line" id="spec">
  <div class="container">
  <h2>Engineer contract</h2>
- <p class="section-intro">The public product definition is on <a href="product">Product</a>. Trust language is on <a href="trust">Trust</a>. Privacy, security, and retention sit on <a href="trust-center">Trust center</a>. Action-bound signatures. Fail-closed unknown actions. no separate inbound/outbound direction field. HTTP and MCP decision surfaces. The caller refuses or performs. Email candidate <code>s7-email-1</code> covers text and HTML alternatives plus attachment bytes plus declared metadata.</p>
+ <p class="section-intro">The public product definition is on <a href="product">Product</a>. Trust language is on <a href="trust-center#result">Trust</a>. Privacy, security, and retention sit on <a href="trust-center">Trust center</a>. Action-bound signatures. Fail-closed unknown actions. no separate inbound/outbound direction field. HTTP and MCP decision surfaces. The caller refuses or performs. Email candidate <code>s7-email-1</code> covers text and HTML alternatives plus attachment bytes plus declared metadata.</p>
  <div class="scope-list">
  <div class="scope-row"><b>Financial actions</b><span><code>EXECUTEWIRE</code>, <code>PAY</code>, <code>PURCHASE</code>, <code>REFUND</code>, <code>TRANSFER</code></span></div>
  <div class="scope-row"><b>API/MCP-first</b><span>No replacement mailbox. No traditional SEG. No endpoint agent. Integration still required. Caller enforces. treating the response as advisory while executing anyway defeats the control.</span></div>
  <div class="scope-row"><b>Identity</b><span>Signature-bound sender identity. Self-signed and Unresolved are possible. Bind a signing key to a domain. Check whether that binding still holds.</span></div>
  <div class="scope-row"><b>Limits</b><span>does not block every phishing technique. Evidence support is not certification. No universal legal duration or seven-year default. US and EU rules create demand for records. They do not certify Signet7.</span></div>
  </div>
- <p class="docs-note">Short sheets: <a href="it">IT</a> · <a href="smtp">outbound seal</a> · <a href="check">recipient check</a>.</p>
+ <p class="docs-note">Short sheets: <a href="download#it">IT</a> · <a href="docs#seal">outbound seal</a> · <a href="check">recipient check</a>.</p>
  </div>
  </section>
 
@@ -584,12 +598,12 @@ python -m signet7_agent --check-entra</code></pre>
 
  <footer class="site-footer">
  <div class="container footer-grid">
- <div><strong>Signet7</strong><p>Signet7 is the cryptographic seal and check for high-stakes email.</p><p>Signet7™, 2026 All rights reserved, All wrongs revenged.</p></div>
- <div><a href="privacy">Privacy</a><a href="trust-center">Trust center</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div>
+ <div><strong>Signet7</strong><p>Signet7 proves an important email has not been altered before anyone acts on it.</p><p>Signet7™ 2026. All rights reserved.</p></div>
+ <div><a href="privacy">Privacy</a><a href="trust-center">Trust center</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="drawings">Drawings</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div>
  <div><p>Live check and company accounts are available.</p></div>
  </div>
  </footer>
- <script src="assets/motion.js?v=20260919pkg" defer></script>
+ <script src="assets/motion.js?v=20260920c" defer></script>
  <script src="assets/docs-nav.js?v=20260830a" defer></script>
 </body>
 </html>

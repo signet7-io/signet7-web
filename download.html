@@ -15,10 +15,10 @@
  <meta property="og:description" content="Download Signet7 desktop for several work emails. Recipients use the live check.">
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://signet7.io/download">
- <meta property="og:image" content="https://signet7.io/assets/blueprint/homepage.jpg?v=20260919pkg">
+ <meta property="og:image" content="https://signet7.io/assets/og-image.png?v=20260920d">
  <link rel="canonical" href="https://signet7.io/download">
  <link rel="icon" type="image/png" href="assets/favicon.png">
- <link rel="stylesheet" href="assets/site.css?v=20260919pkg">
+ <link rel="stylesheet" href="assets/site.css?v=20260920f">
  <link rel="stylesheet" href="assets/download.css">
  <link rel="stylesheet" href="assets/install-chooser.css?v=20260831c">
 </head>
@@ -31,28 +31,41 @@
  <span>Signet7</span>
  </a>
  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
- <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+  <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
  <div class="drop">
  <button type="button" class="drop-btn" aria-expanded="false">Product</button>
  <div class="drop-menu">
- <a href="product">What it is</a>
- <a href="record">Keep the file</a>
+ <a href="product">Overview</a>
+ <a href="check">Verify an email</a>
+ <a href="record">Keep the proof</a>
  <a href="vsn">Look up a company</a>
+ <a href="download">Download the app</a>
  <a href="faq">FAQ</a>
  </div>
  </div>
+ <div class="drop">
+ <button type="button" class="drop-btn" aria-expanded="false">Solutions</button>
+ <div class="drop-menu">
+ <a href="public-sector">Public sector</a>
+ <a href="enterprise">Larger organizations</a>
+ <a href="pilot">Run an evaluation</a>
+ <a href="scenarios">Worked examples</a>
+ </div>
+ </div>
+ <a href="programs">Pricing</a>
  <a href="docs.html">Docs</a>
  <div class="drop">
  <button type="button" class="drop-btn" aria-expanded="false">Company</button>
  <div class="drop-menu">
- <a href="register">Register</a>
- <a href="trust-center">Trust center</a>
- <a href="pay">Pay</a>
- </div>
- </div>
  <a href="about">About</a>
+ <a href="contact">Contact</a>
+ <a href="trust-center">Trust center</a>
+ <a href="security">Security</a>
+ <a href="status">Status</a>
+ </div>
+ </div>
  </nav>
- <a class="button button-primary header-cta" href="https://verify.signet7.io/email/verify">Live check</a>
+ <a class="button button-primary header-cta" href="https://verify.signet7.io/email/verify">Verify an email</a>
  <a class="header-register" href="register">Register</a>
  <a class="account-login" href="https://account.signet7.io/account">Login to Signet7</a>
  </div>
@@ -62,8 +75,9 @@
  <div class="container">
  <p class="eyebrow">Download</p>
  <h1>Signet7 desktop</h1>
- <p class="hero-copy">Register first. After you sign in, the zip is on your company desk anytime. Recipients are not required to install. Checkout is not live. Each of those emails gets its own listing. Company Signet7 is free for 3 months.</p>
- <p class="hero-copy" id="watch-not-iphone">Unsigned zip for Windows or Mac. Not the desktop app on iPhone. On a phone, use the live check.</p>
+ <p class="hero-copy">This is the only piece of software anyone installs, and only the organization that wants to sign its own email installs it. Register first; after you sign in, the zip is on your company desk at any time. It runs on the office computers that handle several named emails — purchasing, billing, payroll, intake, up to 20 of them. Each of those emails gets its own listing. Not every staff laptop. Ordinary mail stays quiet. This is not set and forget — someone has to keep the app running and take the updates.</p>
+ <p class="hero-copy">People you email are not required to install it. They use the free check in a browser. See <a href="status">what is live today</a> for pricing and availability.</p>
+ <p class="hero-copy" id="watch-not-iphone">This is an unsigned zip for Windows or Mac. Not the desktop app on iPhone. On a phone, use the live check.</p>
  <p class="hero-actions"><a class="button button-primary" href="https://account.signet7.io/account">Register, then download</a> <a class="button button-secondary" href="register">How register works</a> <a class="button button-secondary" href="https://verify.signet7.io/email/verify">Live check</a></p>
  <div class="badge-row">
  <span class="badge cyan">Unsigned preview</span>
@@ -132,19 +146,50 @@
  </div>
  <p class="install-note" id="install-note">Downloads unsigned Signet7 desktop. Not a store listing.</p>
  </div>
- <p><a href="it">IT one-pager</a> · <a href="smtp">Outbound seal</a></p>
+ <p><a href="docs#seal">Set up outbound signing</a> · <a href="docs#entra">Microsoft Entra notes</a></p>
+ </div>
+ </section>
+
+ <section class="section section-light" id="routes">
+ <div class="container">
+ <p class="eyebrow">Do you need a download?</p>
+ <h2>Usually not. Here is every route.</h2>
+ <p class="section-intro">The people receiving your email are not required to install anything — a thousand of them are covered because they can open the check in a browser. Signet7 desktop only ever covers the work addresses you name, on office computers.</p>
+ <div class="grid-3">
+ <article class="card"><h3>Browser check — nothing to install</h3><p>The route for everyone on the other side. <a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a>, no account. Upload the <code>Signet7-sealed.eml</code> attachment if there is one, otherwise the saved email. Or attach the saved original to <a href="mailto:check@signet7.io">check@signet7.io</a> and the answer comes back by email.</p></article>
+ <article class="card"><h3>Signet7 pane for Outlook — optional</h3><p>Files are hosted at <a href="outlook/">signet7.io/outlook</a>. Save the manifest, open <a href="https://aka.ms/olksideload">aka.ms/olksideload</a>, and choose Add from File. It is not an AppSource listing, and the newer Apps area cannot upload XML. The <strong>Sign and send email</strong> button attaches <code>Signet7-sealed.eml</code>.</p></article>
+ <article class="card"><h3>Signet7 desktop — this page</h3><p>One Windows, Mac, or Linux computer per set of named addresses. Unsigned preview. Both jobs live in this app: checking what arrives, and optionally signing what you send through 127.0.0.1 port 2525. That hop seals the email itself.</p></article>
+ <article class="card"><h3>Company account — no download</h3><p>Sign in by email link at <a href="https://account.signet7.io/account">account.signet7.io/account</a>. Registering is free.</p></article>
+ <article class="card"><h3>Lab builds</h3><p>A browser extension, a Gmail add-on, and an Android build exist as unpacked sideloads in the client tree. None of them is the product, and none is in a store.</p></article>
+ <article class="card"><h3>Not in any app store</h3><p>Signet7 is not published in any consumer or enterprise app marketplace. If you find something claiming to be Signet7 in one, it is not us. The zip on this page and the pane files at signet7.io/outlook are the only distributions.</p></article>
+ </div>
+ </div>
+ </section>
+
+ <section class="section" id="it">
+ <div class="container">
+ <p class="eyebrow">For IT</p>
+ <h2>Rolling this out</h2>
+ <ol>
+ <li>Push the Signet7 pane for Outlook from Microsoft 365 admin → Settings → Integrated apps, assigning it to a group as Available, Optional, or Fixed. The pane files live at <a href="outlook/">signet7.io/outlook</a>. Steps: <a href="docs#entra-push">IT push to laptops</a>.</li>
+ <li>Do not push Signet7 desktop to every laptop. The zip is unsigned, there is no Intune MSI, and both Windows and Mac will warn. Install it only on the computers handling named addresses.</li>
+ <li>Choose which work addresses can move money, jobs, or clients. Not every inbox. Register the app in <a href="docs#entra">Microsoft Entra</a>; Graph consent still requires a person.</li>
+ <li>Ordinary mail stays quiet, and quiet means it is working. On a named address, signing happens automatically over SMTP at 127.0.0.1 port 2525. See <a href="docs#seal-where">where the signature lives</a>.</li>
+ <li>Tell everyone else the one thing they need: if an email asks you to move money, upload it at <a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a> before acting.</li>
+ </ol>
+ <p>It is the same on Windows, Mac, and Linux. It is not Exchange, not a mail app, and not a spam filter — Outlook stays Outlook and Apple Mail stays Apple Mail. Worked examples: <a href="scenarios">what a clerk actually does</a>.</p>
  </div>
  </section>
 
  </main>
  <footer class="site-footer">
  <div class="container footer-grid">
- <div><strong>Signet7</strong><p>Signet7 is the cryptographic seal and check for high-stakes email.</p><p>Signet7™, 2026 All rights reserved, All wrongs revenged.</p></div>
- <div><a href="privacy">Privacy</a><a href="trust-center">Trust center</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div>
+ <div><strong>Signet7</strong><p>Signet7 proves an important email has not been altered before anyone acts on it.</p><p>Signet7™ 2026. All rights reserved.</p></div>
+ <div><a href="privacy">Privacy</a><a href="trust-center">Trust center</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="drawings">Drawings</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div>
  <div><p>Live check and company accounts are available.</p></div>
  </div>
  </footer>
- <script src="assets/motion.js?v=20260919pkg" defer></script>
+ <script src="assets/motion.js?v=20260920c" defer></script>
  <script src="assets/download.js" defer></script>
  <script src="assets/install-chooser.js?v=20260831c" defer></script>
 </body>

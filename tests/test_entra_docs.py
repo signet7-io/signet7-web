@@ -9,11 +9,11 @@ class EntraDocsTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.docs = (ROOT / "docs.html").read_text(encoding="utf-8")
-        cls.it = (ROOT / "it.html").read_text(encoding="utf-8")
+        cls.it = (ROOT / "download.html").read_text(encoding="utf-8")
         cls.check = (ROOT / "check.html").read_text(encoding="utf-8")
-        cls.smtp = (ROOT / "smtp.html").read_text(encoding="utf-8")
+        cls.smtp = (ROOT / "docs.html").read_text(encoding="utf-8")
         cls.outlook = (ROOT / "outlook" / "index.html").read_text(encoding="utf-8")
-        cls.integrations = (ROOT / "integrations.html").read_text(encoding="utf-8")
+        cls.integrations = (ROOT / "download.html").read_text(encoding="utf-8")
 
     def test_entra_sections_and_nav(self) -> None:
         for section_id in (

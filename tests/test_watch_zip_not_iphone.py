@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class WatchZipNotIphoneTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        cls.watch = (ROOT / "watch.html").read_text(encoding="utf-8")
+        cls.watch = (ROOT / "download.html").read_text(encoding="utf-8")
         cls.download = (ROOT / "download.html").read_text(encoding="utf-8")
         cls.home = (ROOT / "index.html").read_text(encoding="utf-8")
 
@@ -44,7 +44,7 @@ class WatchZipNotIphoneTests(unittest.TestCase):
                 self.assertNotIn("Play Store", html)
         self.assertIn("Check an important email before you act", self.home)
         hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
-        self.assertIn("Signet7 is the cryptographic seal and check for high-stakes email", hero)
+        self.assertIn("The last look before money moves.", hero)
         self.assertNotIn("Watch on iPhone", hero)
 
 

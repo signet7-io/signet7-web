@@ -180,22 +180,28 @@
     const cards = [...factsRoot.querySelectorAll(".fact")];
     const feeds = [
       [
-        ["$3.05B", "Business Email Compromise losses reported to FBI IC3 in 2025."],
-        ["24,768", "Business Email Compromise complaints reported to FBI IC3 in 2025."],
-        ["$20.9B", "Internet-crime losses reported to IC3 in 2025."],
-        ["191K+", "Phishing/spoofing complaints reported to FBI IC3 in 2025."],
+        ["$3.05B", "Losses from business email compromise reported to the FBI in 2025."],
+        ["$123,005", "Average loss per business email compromise complaint reported in 2025."],
+        ["22,364", "Complaints referencing AI in the FBI's 2025 report."],
+        ["$893M", "Losses reported in those AI-related complaints in 2025."],
       ],
       [
-        ["1,008,597", "Internet-crime complaints reported to FBI IC3 in 2025."],
-        ["26%", "Increase in losses reported to IC3 from 2024 to 2025."],
-        ["$20,699", "Average loss reported to FBI IC3 in 2025."],
-        ["$17.7B", "Cyber-enabled fraud losses reported to IC3 in 2025."],
+        ["24,768", "Business email compromise complaints reported to the FBI in 2025."],
+        ["$30M+", "Losses to business email compromise involving AI, reported in 2025."],
+        ["$20.9B", "Total internet-crime losses reported to the FBI in 2025."],
+        ["191K+", "Phishing and spoofing complaints reported to the FBI in 2025."],
       ],
       [
-        ["$3.05B", "Business Email Compromise losses reported to FBI IC3 in 2025."],
-        ["$275M", "Real estate fraud losses reported to FBI IC3 in 2025."],
-        ["12,368", "Real estate fraud complaints reported to FBI IC3 in 2025."],
-        ["85%", "Share of 2025 IC3 losses that were cyber-enabled fraud."],
+        ["1,008,597", "Internet-crime complaints reported to the FBI in 2025."],
+        ["26%", "Rise in total reported losses between 2024 and 2025."],
+        ["10%", "Rise in reported business email compromise losses between 2024 and 2025."],
+        ["$17.7B", "Losses from cyber-enabled fraud reported to the FBI in 2025."],
+      ],
+      [
+        ["$3.05B", "Losses from business email compromise reported to the FBI in 2025."],
+        ["$275M", "Real-estate fraud losses reported to the FBI in 2025."],
+        ["12,368", "Real-estate fraud complaints reported to the FBI in 2025."],
+        ["85%", "Share of 2025 reported losses the FBI classed as cyber-enabled fraud."],
       ],
     ];
     let i = 0;

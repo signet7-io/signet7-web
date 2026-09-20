@@ -1248,8 +1248,8 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   overflow: visible;
   min-height: 0;
   padding: calc(var(--nav-h) + 8px) 0 0;
-  background: #e7f1f8;
-  border-bottom: 1px solid rgba(12, 42, 86, 0.18);
+  background: var(--page);
+  border-bottom: 1px solid var(--line);
 }
 .sell-hero .cad-scene,
 .sell-hero .people-scene {
@@ -1268,32 +1268,34 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   margin: 0 auto;
   opacity: 1;
 }
+/* The plate is the seal and the Live check panel only. The headline and the
+   fraud figures are page copy, so the art must not repeat them. */
 .sell-hero .blueprint-hero {
   position: relative;
   inset: auto;
   display: block;
-  width: min(1680px, 99vw);
+  width: min(340px, 62vw);
   height: auto;
   max-height: none;
-  margin: 0 auto;
+  margin: 4px auto 36px;
   object-fit: contain;
   object-position: center top;
   opacity: 1;
-  background: #e7f1f8;
+  background: var(--page);
 }
 .blueprint-sheet {
   margin: 0;
   padding: 18px 18px 28px;
-  background: #e7f1f8;
-  border-block: 1px solid rgba(12, 42, 86, 0.18);
+  background: var(--page);
+  border-block: 1px solid var(--line);
 }
 .blueprint-sheet .blueprint-plate {
   display: block;
   width: min(1680px, 100%);
   height: auto;
   margin: 0 auto;
-  border: 1px solid rgba(12, 42, 86, 0.18);
-  background: #e7f1f8;
+  border: 1px solid var(--line);
+  background: var(--page);
 }
 .blueprint-sheet figcaption {
   width: min(1280px, 100%);
@@ -2113,7 +2115,7 @@ body.docs-manual .docs-nav a { border-radius: 0; }
   .sell-hero .blueprint-hero,
   .sell-hero .cad-envelope {
     max-height: none;
-    width: min(1680px, 99vw);
+    width: min(300px, 62vw);
     object-fit: contain;
   }
   .sell-hero > .container.nutshell {
@@ -2220,6 +2222,30 @@ body.docs-manual .docs-nav a { border-radius: 0; }
   }
 }
 
+/* The header button is the only call to action on the homepage, so it keeps
+   its full label and the wordmark gives up the space instead. */
+.header-cta,
+.home .header-cta {
+  flex-shrink: 0;
+}
+.site-header .nav-wrap > .brand {
+  min-width: 0;
+}
+.site-header .nav-wrap > .brand span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 360px) {
+  .header-cta,
+  .home .header-cta {
+    padding: 0 8px;
+    font-size: 11px;
+    letter-spacing: 0.03em;
+  }
+}
+
 @media (max-height: 700px) {
   body.nav-open .site-nav,
   body.nav-open .nav-links {
@@ -2239,4 +2265,64 @@ body.docs-manual .docs-nav a { border-radius: 0; }
   }
 }
 
+/* The homepage hero sits on the same dark band as every other page hero, so
+   it takes the shared ink tokens rather than a light-panel palette. */
+.home .sell-hero .eyebrow { color: var(--cyan); }
+.home .sell-hero .billboard,
+.home .sell-hero h1 {
+  color: var(--ink);
+  -webkit-text-fill-color: var(--ink);
+}
+.home .sell-hero .product-line { color: var(--ink-soft); }
+.home .sell-hero .hero-steps,
+.home .sell-hero .lede { color: var(--ink-soft); }
+.home .sell-hero .badge {
+  color: var(--ink-soft);
+  border-color: var(--line);
+}
+.home .sell-hero .badge.cyan { color: var(--cyan); }
+.home .sell-hero .badge.gold { color: var(--gold); }
+.home .sell-hero .button-secondary {
+  color: var(--cyan);
+  background: transparent;
+  border-color: var(--line);
+}
+
+/* The fraud figures sit on dark cards, so they need light ink and keep the
+   per-figure accent that the dark .fact border would otherwise flatten. */
+html[data-theme="dark"] .fact strong { color: #eaf3fa; }
+html[data-theme="dark"] .fact span { color: #b9c9d8; }
+html[data-theme="dark"] .facts-cite { color: #b9c9d8; }
+html[data-theme="dark"] .fact.f-blue { border-top: 4px solid #4298b4; }
+html[data-theme="dark"] .fact.f-gold { border-top: 4px solid #e4ae3a; }
+html[data-theme="dark"] .fact.f-green { border-top: 4px solid #33a474; }
+html[data-theme="dark"] .fact.f-purple { border-top: 4px solid #7ed6f0; }
+
+/* The cost-and-AI paragraph is the reason-to-care, so it gets a rule and a
+   slightly larger size than the supporting copy beneath it. */
+.nutshell .hero-cost {
+  margin: 0 0 18px;
+  padding-left: 16px;
+  border-left: 4px solid var(--gold, #b8860b);
+  max-width: 62ch;
+  font-size: clamp(16px, 1.15vw, 18px);
+  line-height: 1.55;
+}
+.nutshell .hero-cost strong {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.home .sell-hero .hero-cost { color: var(--ink-soft); }
+.home .sell-hero .hero-cost strong { color: var(--ink); }
+
+@media (max-width: 900px) {
+  .home .sell-hero > .container.nutshell .eyebrow { order: 0; }
+  .home .sell-hero > .container.nutshell .billboard { order: 1; }
+  .home .sell-hero > .container.nutshell .product-line { order: 2; }
+  .home .sell-hero > .container.nutshell .hero-cost { order: 3; }
+  .home .sell-hero > .container.nutshell .hero-actions { order: 4; }
+  .home .sell-hero > .container.nutshell .hero-steps { order: 5; }
+  .home .sell-hero > .container.nutshell .lede { order: 6; }
+  .home .sell-hero > .container.nutshell .badge-row { order: 7; }
+}
 

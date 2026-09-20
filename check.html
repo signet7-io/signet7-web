@@ -8,17 +8,17 @@
  real clickjacking protection requires a header layer (Cloudflare/CloudFront) and
  is required before any verification surface is hosted on this domain. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
- <title>Check a message | Signet7</title>
- <meta name="description" content="Check the email that asks you to act. Save the original, open the live check, read the words and the listing. This brochure does not run the check.">
+ <title>Verify an email | Signet7</title>
+ <meta name="description" content="Check the email that asks you to act. Save the original, upload it, and read two answers: has the wording changed, and is the sender's address listed. Free, no account.">
  <meta name="theme-color" content="#05080d">
- <meta property="og:title" content="Check a message | Signet7">
- <meta property="og:description" content="How a recipient checks a Signet7-sealed email without installing software.">
+ <meta property="og:title" content="Verify an email | Signet7">
+ <meta property="og:description" content="Save the email, upload it, read the answer. Free, no account, and nothing to install.">
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://signet7.io/check">
- <meta property="og:image" content="https://signet7.io/assets/blueprint/homepage.jpg?v=20260919pkg">
+ <meta property="og:image" content="https://signet7.io/assets/og-image.png?v=20260920d">
  <link rel="canonical" href="https://signet7.io/check">
  <link rel="icon" type="image/png" href="assets/favicon.png">
- <link rel="stylesheet" href="assets/site.css?v=20260919pkg">
+ <link rel="stylesheet" href="assets/site.css?v=20260920f">
 </head>
 <body>
  <a class="skip-link" href="#main">Skip to content</a>
@@ -29,28 +29,41 @@
  <span>Signet7</span>
  </a>
  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
- <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+  <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
  <div class="drop">
  <button type="button" class="drop-btn" aria-expanded="false">Product</button>
  <div class="drop-menu">
- <a href="product">What it is</a>
- <a href="record">Keep the file</a>
+ <a href="product">Overview</a>
+ <a href="check">Verify an email</a>
+ <a href="record">Keep the proof</a>
  <a href="vsn">Look up a company</a>
+ <a href="download">Download the app</a>
  <a href="faq">FAQ</a>
  </div>
  </div>
+ <div class="drop">
+ <button type="button" class="drop-btn" aria-expanded="false">Solutions</button>
+ <div class="drop-menu">
+ <a href="public-sector">Public sector</a>
+ <a href="enterprise">Larger organizations</a>
+ <a href="pilot">Run an evaluation</a>
+ <a href="scenarios">Worked examples</a>
+ </div>
+ </div>
+ <a href="programs">Pricing</a>
  <a href="docs.html">Docs</a>
  <div class="drop">
  <button type="button" class="drop-btn" aria-expanded="false">Company</button>
  <div class="drop-menu">
- <a href="register">Register</a>
- <a href="trust-center">Trust center</a>
- <a href="pay">Pay</a>
- </div>
- </div>
  <a href="about">About</a>
+ <a href="contact">Contact</a>
+ <a href="trust-center">Trust center</a>
+ <a href="security">Security</a>
+ <a href="status">Status</a>
+ </div>
+ </div>
  </nav>
- <a class="button button-primary header-cta" href="https://verify.signet7.io/email/verify">Live check</a>
+ <a class="button button-primary header-cta" href="https://verify.signet7.io/email/verify">Verify an email</a>
  <a class="header-register" href="register">Register</a>
  <a class="account-login" href="https://account.signet7.io/account">Login to Signet7</a>
  </div>
@@ -58,11 +71,12 @@
  <main id="main">
  <section class="page-hero">
  <div class="container">
- <p class="eyebrow">Recipient check</p>
+ <p class="eyebrow">Under 60 seconds</p>
  <h1>Check the email that asks you to act.</h1>
- <p class="hero-copy">A recipient opens a page, drops in the message, and sees what Signet7 can prove. If the email has Signet7-sealed.eml, drop that attachment. If it does not, drop the saved email. No account. No install. Recipients are not required to install. Or attach the saved original to check@signet7.io. You get the same receipt back by email. That address is not a mailbox.</p>
- <p class="hero-actions"><a class="button button-primary" href="https://verify.signet7.io/email/verify">Open the live check</a> <a class="button button-secondary" href="mailto:check@signet7.io">Email check@signet7.io</a></p>
- <p class="section-intro">This brochure does not run the check. This brochure site cannot run that check.</p>
+ <p class="hero-copy">Save the email, upload it, and read the answer. That is the whole process — no account, no login, and nothing to install. Recipients are not required to install anything in order to check an email you sent them.</p>
+ <p class="hero-copy">If the email arrived with a <code>Signet7-sealed.eml</code> attachment, upload that attachment. If it did not, upload the saved email. You can also attach the saved original to <a href="mailto:check@signet7.io">check@signet7.io</a> and the same result comes back to you by email. That address only answers checks; it is not a mailbox anyone reads.</p>
+ <p class="hero-actions"><a class="button button-primary" href="https://verify.signet7.io/email/verify">Verify an email now</a> <a class="button button-secondary" href="mailto:check@signet7.io">Email check@signet7.io</a></p>
+ <p class="section-intro">The check itself runs at verify.signet7.io. This brochure does not run the check. This brochure site cannot run that check.</p>
  </div>
  </section>
 <figure class="blueprint-sheet">
@@ -76,11 +90,34 @@
  <div class="eyebrow">What you do</div>
  <h2>Four steps.</h2>
  <div class="grid-4">
- <article class="card"><h3>1. Keep the email</h3><p>Save the original. If the email has Signet7-sealed.eml, keep that attachment. A forward can drop what the check needs. A phone often cannot export it. Use a computer if you have to. Table: <a href="docs#seal-where">Where the seal lives</a>.</p></article>
- <article class="card"><h3>2. Open the live check</h3><p>Website: no account. Drop Signet7-sealed.eml when that file is attached. Otherwise drop the saved email. Or attach the saved original to check@signet7.io. Outlook can check the open message if the pane is already there. You do not check junk. You check the email that asks you to move money or change an account.</p></article>
- <article class="card"><h3>3. Read the words</h3><p>Match, do not match, or no seal. No seal is ordinary mail. Checking does not create a seal.</p></article>
- <article class="card"><h3>4. Read the listing</h3><p>Listed for this address, not listed, or listing does not match. Call a number you already have.</p></article>
+ <article class="card"><h3>1. Save the email</h3><p>Save the original out of your mail app. If it came with a <code>Signet7-sealed.eml</code> attachment, keep that attachment instead. Do not forward it — forwarding can strip what the check needs, and most phones cannot export it, so use a computer. See <a href="docs#seal-where">where the signature lives</a>.</p></article>
+ <article class="card"><h3>2. Upload it</h3><p>Open the Live check in any browser. No account. Upload the file you just saved. If you have the Signet7 pane in Outlook, you can check the open message instead. You would not do this for junk mail — you do it for the email asking you to move money or change an account.</p></article>
+ <article class="card"><h3>3. Read the wording answer</h3><p>Words match, words do not match, or no seal. No seal is ordinary mail — it simply means there is no signature to compare against. Checking does not create a seal.</p></article>
+ <article class="card"><h3>4. Read the sender answer</h3><p>Listed for this address, not listed, or the listing does not match. If anything looks wrong, telephone the sender on a number you already have, not one from the email.</p></article>
  </div>
+ </div>
+ </section>
+
+ <section class="section section-light" id="situations">
+ <div class="container">
+ <p class="eyebrow">When it is worth doing</p>
+ <h2>The emails that are worth 60 seconds</h2>
+ <p class="section-intro">The pattern is the same everywhere: someone asks you to send money somewhere new, or to change where money already goes.</p>
+ <div class="grid-4">
+ <article class="card"><h3>Accounts payable</h3><p>A supplier writes in with new bank details for an invoice. Check the wording before you update the vendor record.</p></article>
+ <article class="card"><h3>Legal and settlements</h3><p>The other side changes settlement or disbursement instructions late in the process.</p></article>
+ <article class="card"><h3>Property and title</h3><p>A payoff or closing statement arrives by email, with figures that must not have moved.</p></article>
+ <article class="card"><h3>Payroll</h3><p>An employee asks to redirect a direct deposit. A listing covering payroll does not cover accounts payable — each address is separate.</p></article>
+ </div>
+ </div>
+ </section>
+
+ <section class="section" id="after">
+ <div class="container">
+ <p class="eyebrow">Afterwards</p>
+ <h2>What you keep</h2>
+ <p class="section-intro">The answer is not just something you read and forget. Signet7 gives you a signed file recording what was checked, what the wording answer was, whether the address was listed, and when you asked. That file is the record. Signet7 does not keep a copy of your email for you.</p>
+ <p><a href="record">More about the proof file</a> · <a href="vsn">How listings work</a> · <a href="faq">Common questions</a></p>
  </div>
  </section>
  <section class="section section-line">
@@ -102,11 +139,11 @@
  </main>
  <footer class="site-footer">
  <div class="container footer-grid">
- <div><strong>Signet7</strong><p>Signet7 is the cryptographic seal and check for high-stakes email.</p><p>Signet7™, 2026 All rights reserved, All wrongs revenged.</p></div>
- <div><a href="privacy">Privacy</a><a href="trust-center">Trust center</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div>
+ <div><strong>Signet7</strong><p>Signet7 proves an important email has not been altered before anyone acts on it.</p><p>Signet7™ 2026. All rights reserved.</p></div>
+ <div><a href="privacy">Privacy</a><a href="trust-center">Trust center</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="drawings">Drawings</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div>
  <div><p>Live check and company accounts are available.</p></div>
  </div>
  </footer>
- <script src="assets/motion.js?v=20260919pkg" defer></script>
+ <script src="assets/motion.js?v=20260920c" defer></script>
 </body>
 </html>

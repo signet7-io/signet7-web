@@ -14,7 +14,7 @@ class LayoutLoginDownloadTests(unittest.TestCase):
         cls.download = (ROOT / "download.html").read_text(encoding="utf-8")
         cls.docs = (ROOT / "docs.html").read_text(encoding="utf-8")
         cls.product = (ROOT / "product.html").read_text(encoding="utf-8")
-        cls.watch = (ROOT / "watch.html").read_text(encoding="utf-8")
+        cls.watch = (ROOT / "download.html").read_text(encoding="utf-8")
         cls.home = (ROOT / "index.html").read_text(encoding="utf-8")
         cls.css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
 
@@ -47,7 +47,7 @@ class LayoutLoginDownloadTests(unittest.TestCase):
 
     def test_home_feature_heading_matches_three_cards(self) -> None:
         features = self.home.split('id="features"', 1)[1].split("</section>", 1)[0]
-        self.assertIn("Check a message. List the work email. Keep the file.", features)
+        self.assertIn("Verify an email you received. Sign the email you send. Keep the proof.", features)
         self.assertNotIn("Four things. That is the product.", features)
         self.assertEqual(features.count("<article class=\"feat\">"), 3)
 

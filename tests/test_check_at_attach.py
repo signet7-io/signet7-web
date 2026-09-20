@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class CheckAtAttachTests(unittest.TestCase):
     def test_integrations_and_contact_attach_not_forward(self) -> None:
-        for name in ("integrations.html", "contact.html", "check.html"):
+        for name in ("download.html", "contact.html", "check.html"):
             html = (ROOT / name).read_text(encoding="utf-8")
             with self.subTest(page=name):
                 self.assertIn("check@signet7.io", html)
@@ -26,5 +26,6 @@ class CheckAtAttachTests(unittest.TestCase):
             "Hosted listings on the company desk after they enroll, not a public directory",
             html,
         )
+        self.assertIn("It is not a public directory of companies", html)
         self.assertNotIn("Hosted listings after they enroll.", html)
         self.assertNotIn("a managed company directory is not", html)

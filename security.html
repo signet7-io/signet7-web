@@ -13,9 +13,9 @@
  <meta property="og:description" content="Security lives on the Trust Center.">
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://signet7.io/security">
- <meta property="og:image" content="https://signet7.io/assets/blueprint/homepage.jpg?v=20260919pkg">
+ <meta property="og:image" content="https://signet7.io/assets/og-image.png?v=20260920d">
  <link rel="icon" type="image/png" href="assets/favicon.png">
- <link rel="stylesheet" href="assets/site.css?v=20260919pkg">
+ <link rel="stylesheet" href="assets/site.css?v=20260920f">
 </head>
 <body>
  <a class="skip-link" href="#main">Skip to content</a>
@@ -26,28 +26,41 @@
  <span>Signet7</span>
  </a>
  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
- <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+  <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
  <div class="drop">
  <button type="button" class="drop-btn" aria-expanded="false">Product</button>
  <div class="drop-menu">
- <a href="product">What it is</a>
- <a href="record">Keep the file</a>
+ <a href="product">Overview</a>
+ <a href="check">Verify an email</a>
+ <a href="record">Keep the proof</a>
  <a href="vsn">Look up a company</a>
+ <a href="download">Download the app</a>
  <a href="faq">FAQ</a>
  </div>
  </div>
+ <div class="drop">
+ <button type="button" class="drop-btn" aria-expanded="false">Solutions</button>
+ <div class="drop-menu">
+ <a href="public-sector">Public sector</a>
+ <a href="enterprise">Larger organizations</a>
+ <a href="pilot">Run an evaluation</a>
+ <a href="scenarios">Worked examples</a>
+ </div>
+ </div>
+ <a href="programs">Pricing</a>
  <a href="docs.html">Docs</a>
  <div class="drop">
  <button type="button" class="drop-btn" aria-expanded="false">Company</button>
  <div class="drop-menu">
- <a href="register">Register</a>
- <a href="trust-center">Trust center</a>
- <a href="pay">Pay</a>
- </div>
- </div>
  <a href="about">About</a>
+ <a href="contact">Contact</a>
+ <a href="trust-center">Trust center</a>
+ <a href="security">Security</a>
+ <a href="status">Status</a>
+ </div>
+ </div>
  </nav>
- <a class="button button-primary header-cta" href="https://verify.signet7.io/email/verify">Live check</a>
+ <a class="button button-primary header-cta" href="https://verify.signet7.io/email/verify">Verify an email</a>
  <a class="header-register" href="register">Register</a>
  <a class="account-login" href="https://account.signet7.io/account">Login to Signet7</a>
  </div>
@@ -56,22 +69,38 @@
  <section class="page-hero">
  <div class="container">
  <p class="eyebrow">Security</p>
- <h1>Security lives on the Trust Center.</h1>
- <p class="hero-copy">Seals, fail-closed actions, unsigned preview, and what is not a certification. One desk for a buyer or IT.</p>
+ <h1>Security, in short.</h1>
+ <p class="hero-copy">Signet7 signs an email so any change to its wording can be detected, and lets the recipient check that signature without installing anything. Below is the short version for a reviewer. The long version is the <a href="trust-center">Trust Center</a>.</p>
  <p class="hero-actions">
- <a class="button button-primary" href="trust-center#security">Open Trust Center</a>
- <a class="button button-secondary" href="trust">What a result means</a>
+ <a class="button button-primary" href="trust-center#security">Read the full Trust Center</a>
+ <a class="button button-secondary" href="status">See what is live today</a>
  </p>
+ </div>
+ </section>
+
+ <section class="section" id="summary">
+ <div class="container">
+ <p class="eyebrow">The short version</p>
+ <h2>Six things a reviewer usually wants first</h2>
+ <div class="grid-3">
+ <article class="card"><h3>What we store</h3><p>Verifying an email does not keep the email. The upload is fingerprinted in memory and deleted after the check. There is no default multi-year archive.</p></article>
+ <article class="card"><h3>What signs the email</h3><p>Supported email is signed with Ed25519. Change one character and the signature no longer matches, so the check fails.</p></article>
+ <article class="card"><h3>What happens on an unknown request</h3><p>The decision interface refuses anything it does not recognise rather than guessing. Whatever calls it still has to honour that refusal.</p></article>
+ <article class="card"><h3>Where we sit</h3><p>Nowhere in your mail flow. Signet7 is not a mail gateway and does not filter, hold, or rewrite messages. Your email keeps working if Signet7 is down.</p></article>
+ <article class="card"><h3>Certifications</h3><p>None held today. No SOC 2, ISO 27001, FedRAMP, or StateRAMP, and no published penetration test. We would rather say so than imply otherwise.</p></article>
+ <article class="card"><h3>The installer</h3><p>The desktop app is an unsigned preview, so Windows SmartScreen and macOS Gatekeeper will warn on it. Recipients are not required to install it.</p></article>
+ </div>
+ <p class="section-intro">Report a vulnerability to <a href="mailto:samuel.sanderson@signet7.io">samuel.sanderson@signet7.io</a>, or see <a href=".well-known/security.txt">security.txt</a>. Please do not attach exploits or live resident or customer data. What a result does and does not mean is on <a href="trust-center#result">Reading a result</a>. Subprocessors are on <a href="providers">Data providers</a>.</p>
  </div>
  </section>
  </main>
  <footer class="site-footer">
  <div class="container footer-grid">
- <div><strong>Signet7</strong><p>Signet7 is the cryptographic seal and check for high-stakes email.</p><p>Signet7™, 2026 All rights reserved, All wrongs revenged.</p></div>
- <div><a href="privacy">Privacy</a><a href="trust-center">Trust center</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div>
+ <div><strong>Signet7</strong><p>Signet7 proves an important email has not been altered before anyone acts on it.</p><p>Signet7™ 2026. All rights reserved.</p></div>
+ <div><a href="privacy">Privacy</a><a href="trust-center">Trust center</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="drawings">Drawings</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div>
  <div><p>Live check and company accounts are available.</p></div>
  </div>
  </footer>
- <script src="assets/motion.js?v=20260919pkg" defer></script>
+ <script src="assets/motion.js?v=20260920c" defer></script>
 </body>
 </html>
