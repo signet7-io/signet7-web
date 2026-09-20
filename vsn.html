@@ -8,17 +8,17 @@
  real clickjacking protection requires a header layer (Cloudflare/CloudFront) and
  is required before any verification surface is hosted on this domain. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
- <title>Link the company you pay | Signet7</title>
- <meta name="description" content="You list your address. They list theirs. Recipients see Listed, Not listed, or Listing doesn’t match this address.">
+ <title>Confirm an organization's email address | Signet7</title>
+ <meta name="description" content="You add your work addresses. The organization you pay adds theirs. Recipients then see Listed, Not listed, or Listing doesn’t match this address.">
  <meta name="theme-color" content="#05080d">
- <meta property="og:title" content="Link the company you pay | Signet7">
- <meta property="og:description" content="You list your address. They list theirs. Recipients see Listed, Not listed, or Listing doesn’t match this address.">
+ <meta property="og:title" content="Confirm an organization's email address | Signet7">
+ <meta property="og:description" content="You add your work addresses. The organization you pay adds theirs. Recipients then see Listed, Not listed, or Listing doesn’t match this address.">
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://signet7.io/vsn">
  <meta property="og:image" content="https://signet7.io/assets/og-link-two.png">
  <link rel="canonical" href="https://signet7.io/vsn">
  <link rel="icon" type="image/png" href="assets/favicon.png">
- <link rel="stylesheet" href="assets/site.css?v=20260919pkg">
+ <link rel="stylesheet" href="assets/site.css?v=20260920f">
 </head>
 <body>
  <a class="skip-link" href="#main">Skip to content</a>
@@ -29,28 +29,41 @@
  <span>Signet7</span>
  </a>
  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
- <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+  <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
  <div class="drop">
  <button type="button" class="drop-btn" aria-expanded="false">Product</button>
  <div class="drop-menu">
- <a href="product">What it is</a>
- <a href="record">Keep the file</a>
+ <a href="product">Overview</a>
+ <a href="check">Verify an email</a>
+ <a href="record">Keep the proof</a>
  <a href="vsn">Look up a company</a>
+ <a href="download">Download the app</a>
  <a href="faq">FAQ</a>
  </div>
  </div>
+ <div class="drop">
+ <button type="button" class="drop-btn" aria-expanded="false">Solutions</button>
+ <div class="drop-menu">
+ <a href="public-sector">Public sector</a>
+ <a href="enterprise">Larger organizations</a>
+ <a href="pilot">Run an evaluation</a>
+ <a href="scenarios">Worked examples</a>
+ </div>
+ </div>
+ <a href="programs">Pricing</a>
  <a href="docs.html">Docs</a>
  <div class="drop">
  <button type="button" class="drop-btn" aria-expanded="false">Company</button>
  <div class="drop-menu">
- <a href="register">Register</a>
- <a href="trust-center">Trust center</a>
- <a href="pay">Pay</a>
- </div>
- </div>
  <a href="about">About</a>
+ <a href="contact">Contact</a>
+ <a href="trust-center">Trust center</a>
+ <a href="security">Security</a>
+ <a href="status">Status</a>
+ </div>
+ </div>
  </nav>
- <a class="button button-primary header-cta" href="https://verify.signet7.io/email/verify">Live check</a>
+ <a class="button button-primary header-cta" href="https://verify.signet7.io/email/verify">Verify an email</a>
  <a class="header-register" href="register">Register</a>
  <a class="account-login" href="https://account.signet7.io/account">Login to Signet7</a>
  </div>
@@ -58,23 +71,55 @@
  <main id="main">
 
 <section class="page-hero"><div class="container">
-<p class="eyebrow">Not a phone book</p>
-<h1>Link the company you pay.</h1>
-<p class="hero-copy">Mail between those two addresses can be checked. Recipients see Listed, Not listed, or Listing doesn’t match this address. DNS keys if they published TXT. Hosted listings on the company desk after they enroll, not a public directory. Not a phone book of every company. If you are using Signet7, the other company gets the free check and an invite — they do not install Signet7 desktop unless they want to. If they also run Signet7, listing and the stamp happen when you send. Invite once per recipient. Mail comes from Signet7, not inside the business letter.</p>
-<p class="hero-actions"><a class="button button-primary" href="https://verify.signet7.io/invite">Invite landing</a>
-<a class="button button-secondary" href="https://verify.signet7.io/email/verify">Live check</a></p>
-<figure class="art-hero"><a class="open-drawing" href="drawings.html#architecture" aria-label="Open drawing: Signet7 surface-map blueprint drawing."><img src="assets/blueprint/architecture.jpg?v=20260919pkg" width="1792" height="1008" alt="Signet7 surface-map blueprint drawing."></a></figure>
+<p class="eyebrow">Look up a company</p>
+<h1>Confirm the address of an organization you pay.</h1>
+<p class="hero-copy">You add the work addresses your organization sends from, which creates your listing. The organization you pay adds theirs. Once both sides have done that, email between those addresses can be checked against a listing rather than taken on trust.</p>
+<p class="hero-actions"><a class="button button-primary" href="https://verify.signet7.io/email/verify">Verify an email now</a>
+<a class="button button-secondary" href="https://verify.signet7.io/invite">Invite an organization</a></p>
+<div class="link-loop" aria-hidden="true">
+ <div class="co"><strong>Your organization</strong><span>You list your address</span></div>
+ <div class="co"><strong>The organization you pay</strong><span>They list theirs</span></div>
+ <div class="wire"><span class="pulse"></span></div>
+ <div class="chips">
+ <span class="chip">Words match</span>
+ <span class="chip">Words do not match</span>
+ <span class="chip">No seal</span>
+ <span class="chip">Listed / not listed</span>
+ </div>
+</div>
+<p class="section-intro">You list your address. They list theirs. Email in between can then be checked against both listings. If they ignore the invitation, they can still use the free check — it costs them nothing and requires no account.</p>
+</div></section>
 
+<section class="section"><div class="container">
+<p class="eyebrow">What you see</p>
+<h2>Three possible answers</h2>
+<div class="scope-list">
+<div class="scope-row"><b>Listed</b><span>This address appears in that organization's listing.</span></div>
+<div class="scope-row"><b>Not listed</b><span>Signet7 has no listing covering this address. Very common, and not an accusation.</span></div>
+<div class="scope-row"><b>Listing doesn’t match this address</b><span>The organization has a listing, but this address is not in it. Worth a telephone call before you act.</span></div>
+</div>
+</div></section>
+
+<section class="section section-line"><div class="container">
+<p class="eyebrow">What this is not</p>
+<h2>It is not a public directory of companies</h2>
+<p class="section-intro">You cannot browse a list of every business. Hosted listings on the company desk after they enroll, not a public directory — they exist only for organizations that have registered, and they are visible to the parties actually corresponding. Signet7 can also read a signing key an organization has published in its own DNS records, if it has chosen to do that.</p>
+<div class="grid-3">
+<article class="card"><h3>The other organization installs nothing</h3><p>If you use Signet7, they get the free check and an invitation. They only install Signet7 desktop if they decide they want to sign their own email.</p></article>
+<article class="card"><h3>If they use Signet7 too</h3><p>Then signing and the listing both happen automatically when you send. That is the two-way link, and it is where the checking gets easy.</p></article>
+<article class="card"><h3>Nothing is added to your email</h3><p>Signet7 does not insert a badge, footer, or check link into the message you write. Invitations come from Signet7 separately, once per recipient.</p></article>
+</div>
+<figure class="art-hero"><a class="open-drawing" href="drawings.html#architecture" aria-label="Open the drawing of how the Signet7 pieces fit together"><img src="assets/blueprint/architecture.jpg?v=20260919pkg" width="1792" height="1008" alt="Drawing showing how the Signet7 pieces fit together."></a></figure>
 </div></section>
 
  </main>
  <footer class="site-footer">
  <div class="container footer-grid">
- <div><strong>Signet7</strong><p>Signet7 is the cryptographic seal and check for high-stakes email.</p><p>Signet7™, 2026 All rights reserved, All wrongs revenged.</p></div>
- <div><a href="privacy">Privacy</a><a href="trust-center">Trust center</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div>
+ <div><strong>Signet7</strong><p>Signet7 proves an important email has not been altered before anyone acts on it.</p><p>Signet7™ 2026. All rights reserved.</p></div>
+ <div><a href="privacy">Privacy</a><a href="trust-center">Trust center</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="drawings">Drawings</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div>
  <div><p>Live check and company accounts are available.</p></div>
  </div>
  </footer>
- <script src="assets/motion.js?v=20260919pkg" defer></script>
+ <script src="assets/motion.js?v=20260920c" defer></script>
 </body>
 </html>

@@ -21,8 +21,8 @@ INNER = (
 PAPER = INNER + (
     "product.html",
     "programs.html",
-    "integrations.html",
-    "trust.html",
+    "download.html",
+    "trust-center.html",
 )
 
 
@@ -71,9 +71,9 @@ class InnerPagesPaperChromeTests(unittest.TestCase):
         self.assertNotIn("VSN identity", programs)
 
     def test_watch_and_download_do_not_name_vsn(self) -> None:
-        watch = (ROOT / "watch.html").read_text(encoding="utf-8")
+        watch = (ROOT / "download.html").read_text(encoding="utf-8")
         download = (ROOT / "download.html").read_text(encoding="utf-8")
-        for name, html in (("watch.html", watch), ("download.html", download)):
+        for name, html in (("download.html", watch), ("download.html", download)):
             with self.subTest(page=name):
                 self.assertNotIn("VSN", html)
                 self.assertIn('href="vsn"', html)

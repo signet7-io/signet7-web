@@ -17,8 +17,10 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertIn("sell-hero", self.home)
         self.assertIn("cad-scene", self.home)
         self.assertIn("cad-envelope", self.home)
-        self.assertIn("assets/blueprint/homepage.jpg?v=20260919pkg", self.home)
-        self.assertIn("visually-hidden", self.home)
+        self.assertIn("assets/blueprint/homepage-hero.jpg?v=20260920g", self.home)
+        self.assertNotIn("nutshell visually-hidden", self.home)
+        hero = self.home.split('class="sell-hero"', 1)[1]
+        self.assertLess(hero.index("<h1"), hero.index("blueprint-hero"))
         self.assertNotIn("DWG S7-HOME", self.home)
         self.assertNotIn("SCALE NTS", self.home)
         self.assertNotIn("SHEET INDEX", self.home)
@@ -28,10 +30,10 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertNotIn("zoom/01.jpg", self.home)
         self.assertIn("Check an important email before you act", self.home)
         self.assertIn("before you act", self.home)
-        self.assertIn("<h1 id=\"hero-title\" class=\"billboard\">Signet7 is the cryptographic seal and check for high-stakes email.</h1>", self.home)
+        self.assertIn("<h1 id=\"hero-title\" class=\"billboard\">The last look before money moves.</h1>", self.home)
         self.assertNotIn("Make email something you can prove", self.home)
         self.assertNotIn("not just trust", self.home)
-        self.assertIn("Signet7 is the cryptographic seal and check for high-stakes email", self.home)
+        self.assertNotIn("cryptographic seal and check for high-stakes email", self.home)
 
     def test_name_story_lives_on_about_and_homepage_studies(self) -> None:
         about = (ROOT / "about.html").read_text(encoding="utf-8")
@@ -60,7 +62,7 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in root_html_pages():
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                self.assertIn("assets/site.css?v=20260919pkg", html)
+                self.assertIn("assets/site.css?v=20260920f", html)
                 self.assertIn('data-theme="dark"', html)
                 self.assertNotIn("door-loop.mp4", html)
                 self.assertNotIn("signet7-circuit.jpg", html)
@@ -82,8 +84,8 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         for path in root_html_pages():
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                self.assertIn("Signet7™, 2026 All rights reserved, All wrongs revenged.", html)
-                self.assertNotIn("© 2026 Signet7. All rights reserved.", html)
+                self.assertIn("Signet7™ 2026. All rights reserved.", html)
+                self.assertNotIn("All wrongs revenged", html)
 
     def test_people_panorama_only_once_and_new_art(self) -> None:
         home = (ROOT / "index.html").read_text(encoding="utf-8")

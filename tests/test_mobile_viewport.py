@@ -19,7 +19,7 @@ MOBILE_CRITICAL = (
     "docs.html",
     "about.html",
     "download.html",
-    "pay.html",
+    "programs.html",
     "record.html",
     "register.html",
 )
@@ -82,8 +82,8 @@ class MobileViewportContractTests(unittest.TestCase):
                 self.assertIn("nav-toggle", html)
                 self.assertIn("header-cta", html)
                 self.assertIn("https://verify.signet7.io/email/verify", html)
-        pay = (ROOT / "pay.html").read_text(encoding="utf-8")
-        self.assertIn("Checkout is not live", pay)
+        pay = (ROOT / "programs.html").read_text(encoding="utf-8")
+        self.assertIn("nothing can be billed today", pay)
 
     def test_mobile_critical_links_and_assets_resolve(self) -> None:
         documents: dict[Path, _Doc] = {}
@@ -140,7 +140,7 @@ class OptionalPhoneRuntimeTests(unittest.TestCase):
         launch = {"headless": True}
         if chrome and chrome.exists():
             launch["executable_path"] = str(chrome)
-        pages = ["index.html", "product.html", "record.html", "pay.html", "register.html"]
+        pages = ["index.html", "product.html", "record.html", "programs.html", "register.html"]
         viewports = [{"width": 390, "height": 844}, {"width": 430, "height": 932}, {"width": 390, "height": 667}]
         with sync_playwright() as playwright:
             browser = playwright.chromium.launch(**launch)
