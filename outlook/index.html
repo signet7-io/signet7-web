@@ -8,10 +8,10 @@
  real clickjacking protection requires a header layer (Cloudflare/CloudFront) and
  is required before any verification surface is hosted on this domain. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
- <title>Outlook add-in | Signet7</title>
+ <title>Signet7 Outlook pane | Signet7</title>
  <meta name="description" content="Sideload Signet7 in Outlook. Passive check. Unsigned mail stays quiet. Recipients can also use the live check with no install.">
  <meta name="theme-color" content="#05080d">
- <meta property="og:title" content="Outlook add-in | Signet7">
+ <meta property="og:title" content="Signet7 Outlook pane | Signet7">
  <meta property="og:description" content="Sideload Signet7 in Outlook. Passive check. Unsigned mail stays quiet.">
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://signet7.io/outlook">
@@ -59,11 +59,11 @@
  <section class="page-hero">
  <div class="container">
  <p class="eyebrow">Outlook</p>
- <h1>Sideload the add-in. Keep writing in Outlook.</h1>
- <p class="hero-copy">Check an open message. Seal outgoing mail with Sign and send email. That step attaches Signet7-sealed.eml. Ordinary Send is not sealed. This pane is not a composer. Checkout is not live. Recipients who never sideload still use the live check. </p>
+ <h1>Sideload the hosted Outlook pane. Keep writing in Outlook.</h1>
+ <p class="hero-copy">These files live on signet7.io/outlook. Outlook on the web opens the pane in the browser. Outlook on Windows and New Outlook can load the same files. This is not Signet7 desktop. Check an open message. Seal outgoing mail with Sign and send email. That step attaches Signet7-sealed.eml. The Send button in Outlook on the web and the Send button in Outlook desktop do not seal. This pane is not a composer. Checkout is not live. Recipients who never sideload still use the live check. </p>
  <div class="badge-row">
  <span class="badge cyan">Not AppSource</span>
- <span class="badge">IT pushes this add-in, not the desktop</span>
+ <span class="badge">IT pushes this pane, not the desktop</span>
  </div>
  </div>
  </section>
@@ -72,7 +72,7 @@
  <ol>
  <li>Save <a href="manifest.xml">manifest.xml</a>.</li>
  <li>Open <a href="https://aka.ms/olksideload">aka.ms/olksideload</a>. My add-ins → Add a custom add-in → Add from File. The new Apps store cannot upload XML. Not AppSource. IT can also push this add-in from Integrated apps. Do not push Signet7 desktop to every laptop. Steps: <a href="../docs#entra-push">IT push to laptops</a>.</li>
- <li>Read mail as usual. Ordinary mail stays quiet. Compose: Sign and send email. Wait until the pane says a signed copy is attached, then use Outlook Send.</li>
+ <li>Read mail as usual. Unsealed mail stays quiet. Compose: Sign and send email. Wait until the pane says a signed copy is attached, then press the Send button in Outlook.</li>
  <li>Anyone else: open Signet7-sealed.eml and drop that file on <a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a>. No account. No install. Table: <a href="../docs#seal-where">Where the seal lives</a>.</li>
  </ol>
  <p>Files on this host: <a href="taskpane.html">taskpane.html</a> · <a href="compose.html">compose.html</a> · <a href="manifest.xml">manifest.xml</a>. Handbook: <a href="../docs#outlook">docs</a>.</p>

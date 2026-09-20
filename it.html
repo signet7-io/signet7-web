@@ -77,11 +77,11 @@
 <section class="section">
  <div class="container">
  <ol>
- <li>Push the Outlook add-in from Microsoft 365 admin → Settings → Integrated apps. Assign a group. Available, Optional, or Fixed. Not AppSource. Recipients do not need it. Steps: <a href="docs#entra-push">IT push to laptops</a>.</li>
+ <li>Push the Signet7 Outlook pane from Microsoft 365 admin → Settings → Integrated apps. The pane files live at <a href="outlook/">signet7.io/outlook</a>. Assign a group. Available, Optional, or Fixed. Not AppSource. Recipients do not need it. Steps: <a href="docs#entra-push">IT push to laptops</a>.</li>
  <li>Do not push Signet7 desktop to every laptop. The zip is unsigned. There is no Intune MSI. Windows and Mac will warn. Named seal desks only: <a href="download">download page</a>.</li>
  <li>Pick the company inbox. Graph consent is still a human. Entra does not sign mail. Register the app: <a href="docs#entra">Microsoft Entra</a>.</li>
- <li>Ordinary mail stays quiet. Quiet is working. The add-in button <strong>Sign and send email</strong> attaches <code>Signet7-sealed.eml</code>. Auto-seal on a named desk: SMTP at 127.0.0.1 port 2525 seals the letter itself. Table: <a href="docs#seal-where">Where the seal lives</a>. Recipes: <a href="smtp">SMTP page</a>.</li>
- <li>Everyone else: if the letter has <code>Signet7-sealed.eml</code>, drop that file on <a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a>. If it does not, drop the saved letter.</li>
+ <li>Ordinary mail stays quiet. Quiet is working. The add-in button <strong>Sign and send email</strong> attaches <code>Signet7-sealed.eml</code>. Auto-seal on a named desk: SMTP at 127.0.0.1 port 2525 seals the email itself. Table: <a href="docs#seal-where">Where the seal lives</a>. Recipes: <a href="smtp">SMTP page</a>.</li>
+ <li>Everyone else: if the email has <code>Signet7-sealed.eml</code>, drop that file on <a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a>. If it does not, drop the saved email.</li>
  </ol>
  <p>Stories: <a href="scenarios">send and receive</a>. List this address when the company is ready to seal outbound.</p>
  </div>

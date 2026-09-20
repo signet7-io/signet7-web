@@ -51,7 +51,10 @@ class DownloadVaultWizardTests(unittest.TestCase):
                 self.assertIn("Cap is 10 GB", html)
                 self.assertIn("50%", html)
                 self.assertIn("90%", html)
-                self.assertIn("The public website check does not keep the letter", html)
+                if name == "docs.html":
+                    self.assertIn("The public website check does not keep the email", html)
+                else:
+                    self.assertIn("The public website check does not keep the letter", html)
                 self.assertIn("Recipients never use the vault", html)
                 self.assertNotIn("pip install", html)
                 self.assertNotIn("Qual", html)
