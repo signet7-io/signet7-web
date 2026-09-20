@@ -14,6 +14,55 @@ function setOut(text) {
 }
 
 var ASKED_KEY = "signet7-invite-asked-v1";
+var TOKEN_KEY = "signet7-sender-token-v1";
+
+function roaming() {
+  try {
+    return Office.context && Office.context.roamingSettings;
+  } catch (err) {
+    return null;
+  }
+}
+
+function readSavedToken() {
+  var settings = roaming();
+  if (settings && settings.get) {
+    var fromRoam = settings.get(TOKEN_KEY);
+    if (fromRoam) return String(fromRoam);
+  }
+  try {
+    return localStorage.getItem(TOKEN_KEY) || "";
+  } catch (err) {
+    return "";
+  }
+}
+
+function writeSavedToken(token) {
+  var value = String(token || "").trim();
+  var settings = roaming();
+  if (settings && settings.set) {
+    if (value) settings.set(TOKEN_KEY, value);
+    else if (settings.remove) settings.remove(TOKEN_KEY);
+    if (settings.saveAsync) settings.saveAsync(function () {});
+  }
+  try {
+    if (value) localStorage.setItem(TOKEN_KEY, value);
+    else localStorage.removeItem(TOKEN_KEY);
+  } catch (err) {}
+}
+
+function fillTokenField() {
+  var tokenEl = document.getElementById("token");
+  if (!tokenEl || tokenEl.value) return;
+  var saved = readSavedToken();
+  if (saved) tokenEl.value = saved;
+}
+
+function currentToken() {
+  var tokenEl = document.getElementById("token");
+  var typed = tokenEl && tokenEl.value ? tokenEl.value.trim() : "";
+  return typed || readSavedToken();
+}
 
 function askedMap() {
   try {
@@ -102,12 +151,12 @@ function fromAddress(item) {
 
 function sealDraft() {
   var item = Office.context.mailbox.item;
-  var tokenEl = document.getElementById("token");
-  var token = tokenEl && tokenEl.value ? tokenEl.value.trim() : "";
+  var token = currentToken();
   if (!token) {
     setOut("A sender API token is required to seal. Incoming checks stay free.");
     return;
   }
+  writeSavedToken(token);
   setOut("Reading this draft…");
   Promise.all([fromAddress(item), field(item, "to"), field(item, "subject"), bodyText(item)])
     .then(function (parts) {
@@ -140,6 +189,14 @@ function sealDraft() {
     .then(function (pack) {
       if (!pack) return;
       if (!pack.ok) {
+        if (pack.body.entitlement_state === "intro_expired") {
+          setOut("This sender intro has ended. Checking stays free. Sealing needs a paid program when checkout is live.");
+          return;
+        }
+        if (pack.body.required_capability === "integration.outlook") {
+          setOut("Outlook sealing needs an active intro or a Business program. Use the sender token from account.signet7.io/account.");
+          return;
+        }
         setOut(pack.body.error || "Seal failed. Sender programs are not free.");
         return;
       }
@@ -149,7 +206,12 @@ function sealDraft() {
         if (toAddr) showInvitePrompt(toAddr);
       }
       if (item.addFileAttachmentFromBase64Async && pack.body.eml_base64) {
-        item.addFileAttachmentFromBase64Async(pack.body.eml_base64, "Signet7-sealed.eml", function () {
+        item.addFileAttachmentFromBase64Async(pack.body.eml_base64, "Signet7-sealed.eml", function (result) {
+          if (result && result.status && result.status !== Office.AsyncResultStatus.Succeeded) {
+            var detail = result.error && result.error.message ? result.error.message : "attach failed";
+            setOut("Sealed on the server, but Outlook did not attach Signet7-sealed.eml. " + detail);
+            return;
+          }
           afterAttach();
         });
         return;
@@ -158,11 +220,23 @@ function sealDraft() {
       if (toAddr) showInvitePrompt(toAddr);
     })
     .catch(function (error) {
-      setOut(String(error));
+      var text = String(error);
+      if (/networkerror|failed to fetch/i.test(text)) {
+        setOut("Seal host blocked this browser call. Need From/To/Subject/body, then retry after the seal API allows https://signet7.io.");
+        return;
+      }
+      setOut(text);
     });
 }
 
 Office.onReady(function () {
+  fillTokenField();
+  var tokenEl = document.getElementById("token");
+  if (tokenEl) {
+    tokenEl.addEventListener("change", function () {
+      writeSavedToken(tokenEl.value);
+    });
+  }
   var button = document.getElementById("sealBtn");
   if (button) button.onclick = sealDraft;
   var inviteBtn = document.getElementById("inviteBtn");
