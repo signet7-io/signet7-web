@@ -47,7 +47,7 @@ def contact_sheet(paths: list[Path], destination: Path, thumb_width: int) -> Non
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--base-url", default="http://127.0.0.1:8765")
+    parser.add_argument("--base-url", default="http://127.0.0.1:8080")
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
     output = Path(args.output).resolve()
