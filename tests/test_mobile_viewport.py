@@ -116,7 +116,7 @@ class OptionalPhoneRuntimeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.chrome = shutil.which("google-chrome") or shutil.which("chromium")
-        cls.base = os.environ.get("SITE_BASE_URL", "http://127.0.0.1:8765/")
+        cls.base = os.environ.get("SITE_BASE_URL", "http://127.0.0.1:8080/")
         cls.server_up = False
         try:
             with urlopen(urljoin(cls.base, "index.html"), timeout=2) as response:

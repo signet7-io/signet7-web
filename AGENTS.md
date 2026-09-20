@@ -19,16 +19,27 @@ public export only. A commit or push is not deployment.
 
 ```bash
 python3 -m unittest discover -s tests -p 'test_*.py'
-python3 -m http.server 8765 --bind 127.0.0.1
+python3 tests/serve_site.py
 ```
 
-The site is then at `http://127.0.0.1:8765`. Visual QA helper:
-`tests/render_site_qa.py` (needs Playwright, Pillow, and Chrome). CI only
-runs the unittest suite.
+The site is then at `http://127.0.0.1:8080`. Use 8080 every session. If
+another process already holds 8080, fall back to 8000
+(`python3 tests/serve_site.py --port 8000`) and set
+`SITE_BASE_URL=http://127.0.0.1:8000/`. Do not walk to a third port. If a
+preview is already serving this export, reuse it instead of starting a
+second one.
+
+Use `tests/serve_site.py`, not `python3 -m http.server`. Site links are
+extensionless (`href="product"`). GitHub Pages resolves those to
+`product.html`; the plain module does not, so every nav link 404s and local
+link checks are meaningless.
+
+Visual QA helper: `tests/render_site_qa.py` (needs Playwright, Pillow, and
+Chrome). CI only runs the unittest suite.
 
 ## Cursor Cloud specific instructions
 
-Cloud agents clone this repository and start a static server on port 8765.
+Cloud agents clone this repository and start a static server on port 8080.
 Use that origin to inspect pages. After HTML/CSS/JS changes, re-run:
 
 ```bash
