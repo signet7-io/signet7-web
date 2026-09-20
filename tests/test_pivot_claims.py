@@ -80,7 +80,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         home = self.pages["index.html"].lower()
         for phrase in (
             "check an important email before you act",
-            "recipients never install",
+            "recipients are not required to install",
             "checkout is not live",
             "named work emails",
         ):
@@ -184,6 +184,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertLess(docs.find('id="outlook"'), docs.find('id="signup"'))
         self.assertLess(docs.find('id="signup"'), docs.find('id="install"'))
         self.assertLess(docs.find('id="install"'), docs.find('id="desktop"'))
+        self.assertLess(docs.find('id="gmail-gcp"'), docs.find('id="entra"'))
+        self.assertLess(docs.find('id="entra"'), docs.find('id="desktop"'))
         self.assertLess(docs.find('id="desktop"'), docs.find('id="seal"'))
         self.assertLess(docs.find('id="seal"'), docs.find('id="clients"'))
         self.assertIn("id=\"desktop\"", docs)
@@ -307,7 +309,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("is-off", download)
         self.assertNotIn("Not open yet", download)
         self.assertIn("unlock-form", download)
-        self.assertIn("Recipients never install", download)
+        self.assertIn("Recipients are not required to install", download)
         self.assertIn("not code-signed yet", download)
         self.assertIn("Checkout is not live", download)
         self.assertIn("Register to download", download)
@@ -329,7 +331,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 self.assertNotIn("money mailbox", text.lower())
                 self.assertNotIn("money inbox", text.lower())
                 self.assertNotIn("Inbox Watch", text)
-                self.assertNotIn("Recipients never install Watch", text)
+                self.assertNotIn("Recipients are not required to install Watch", text)
                 self.assertNotIn("Account is not the Watch app", text)
                 self.assertNotIn("qual.signet7.io", text.lower())
 
@@ -508,11 +510,11 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("api/mcp-first", low)
         self.assertNotIn("executewire", low)
         self.assertIn("Check a message. List the work email. Keep the file.", home)
-        self.assertIn("Recipients never install", home)
+        self.assertIn("Recipients are not required to install", home)
         self.assertIn("What Signet7 desktop does", self.pages["download.html"])
         self.assertIn("What does Signet7 desktop do?", self.pages["faq.html"])
         self.assertIn("the no-install door", self.pages["faq.html"])
-        self.assertIn("Recipients still never install", self.pages["faq.html"])
+        self.assertIn("Recipients are still not required to install", self.pages["faq.html"])
         self.assertNotIn("going to the factory", self.pages["faq.html"])
         self.assertIn("id=\"three-jobs\"", self.pages["faq.html"])
         self.assertIn("id=\"status-chips\"", self.pages["faq.html"])
@@ -520,7 +522,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("only between you and them", self.pages["faq.html"])
         self.assertIn("Sideload is not the desktop app", self.pages["faq.html"])
         self.assertNotIn("Inbox Watch", self.pages["faq.html"])
-        self.assertNotIn("Recipients never install Watch", self.pages["faq.html"])
+        self.assertNotIn("Recipients are not required to install Watch", self.pages["faq.html"])
         self.assertIn("more than one work email", self.pages["faq.html"])
         self.assertIn("own key", self.pages["faq.html"])
         self.assertNotIn("One listing covers every mailbox", self.pages["faq.html"])
@@ -633,7 +635,14 @@ class ContentSecurityPolicy(unittest.TestCase):
     def test_outlook_stay_in_mail(self) -> None:
         manifest = (ROOT / "outlook" / "manifest.xml").read_text(encoding="utf-8")
         self.assertIn("<SupportsPinning>true</SupportsPinning>", manifest)
-        self.assertIn("OnMessageSend", manifest)
+        self.assertIn("MessageComposeCommandSurface", manifest)
+        self.assertIn("https://signet7.io/contact", manifest)
+        self.assertIn("<Version>1.0.2.0</Version>", manifest)
+        self.assertNotIn("OnMessageSend", manifest)
+        self.assertNotIn("LaunchEvent", manifest)
+        self.assertNotIn("signet7.io/support", manifest)
+        edit = manifest.split('xsi:type="ItemEdit"', 1)[1].split("</Form>", 1)[0]
+        self.assertNotIn("RequestedHeight", edit)
         pane = (ROOT / "outlook" / "taskpane.html").read_text(encoding="utf-8")
         self.assertIn("inviteBtn", pane)
         js = (ROOT / "outlook" / "taskpane.js").read_text(encoding="utf-8")
@@ -642,6 +651,8 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("This message was sealed with Signet7", js)
         compose = (ROOT / "outlook" / "compose.js").read_text(encoding="utf-8")
         self.assertIn("signet7-invite-asked-v1", compose)
+        self.assertIn("signet7-sender-token-v1", compose)
+        self.assertIn("roamingSettings", compose)
         self.assertIn("invitePrompt", compose)
         self.assertNotIn("item.body.setAsync", compose)
         self.assertNotIn("verify.signet7.io/email/verify", compose)
@@ -750,7 +761,7 @@ class ContentSecurityPolicy(unittest.TestCase):
             self.assertNotIn("listed is not trusted", lower)
             self.assertNotIn("you still decide", lower)
             self.assertNotIn("safe to pay", lower)
-        self.assertIn("Passive incoming check. Keep writing in Outlook.", manifest)
+        self.assertIn("Sign and verify email using Signet7", manifest)
         self.assertIn("Not Exchange.", readme)
         self.assertIn("Sideload `manifest.xml`.", readme)
 
@@ -876,7 +887,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("Each of those emails gets its own listing.", watch)
         self.assertIn("Each of those emails gets its own listing.", download)
         self.assertIn("Not every staff laptop", watch)
-        self.assertIn("Recipients never install it", watch)
+        self.assertIn("Recipients are not required to install it", watch)
         self.assertIn("Named work emails. Company computers only.", watch)
         self.assertIn('href="vsn"', watch)
         self.assertIn('href="vsn"', download)

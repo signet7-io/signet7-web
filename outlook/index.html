@@ -60,27 +60,27 @@
  <div class="container">
  <p class="eyebrow">Outlook</p>
  <h1>Sideload the add-in. Keep writing in Outlook.</h1>
- <p class="hero-copy">Passive check. Unsigned mail stays quiet. A warning pops only when a seal is broken, replayed, or revoked. This pane is not a composer. Checkout is not live. Recipients who never sideload still use the live check. </p>
+ <p class="hero-copy">Check an open message. Seal outgoing mail with Sign and send email. That step attaches Signet7-sealed.eml. Ordinary Send is not sealed. This pane is not a composer. Checkout is not live. Recipients who never sideload still use the live check. </p>
  <div class="badge-row">
  <span class="badge cyan">Not AppSource</span>
- <span class="badge">Signet7 desktop on named work emails</span>
+ <span class="badge">IT pushes this add-in, not the desktop</span>
  </div>
  </div>
  </section>
  <section class="section">
  <div class="container">
  <ol>
- <li>Save <a href="manifest.xml">manifest.xml</a>, then add it in Outlook.</li>
- <li>In Outlook, sideload that manifest. Not AppSource. Org-wide push is a Microsoft 365 admin task.</li>
- <li>Read mail as usual. Ordinary mail stays quiet.</li>
- <li>Anyone else: <a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a>. No account. No install.</li>
+ <li>Save <a href="manifest.xml">manifest.xml</a>.</li>
+ <li>Open <a href="https://aka.ms/olksideload">aka.ms/olksideload</a>. My add-ins → Add a custom add-in → Add from File. The new Apps store cannot upload XML. Not AppSource. IT can also push this add-in from Integrated apps. Do not push Signet7 desktop to every laptop. Steps: <a href="../docs#entra-push">IT push to laptops</a>.</li>
+ <li>Read mail as usual. Ordinary mail stays quiet. Compose: Sign and send email. Wait until the pane says a signed copy is attached, then use Outlook Send.</li>
+ <li>Anyone else: open Signet7-sealed.eml and drop that file on <a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a>. No account. No install. Table: <a href="../docs#seal-where">Where the seal lives</a>.</li>
  </ol>
  <p>Files on this host: <a href="taskpane.html">taskpane.html</a> · <a href="compose.html">compose.html</a> · <a href="manifest.xml">manifest.xml</a>. Handbook: <a href="../docs#outlook">docs</a>.</p>
  </div>
  </section>
  <figure class="blueprint-sheet">
-<a class="open-drawing" href="../drawings.html#mobile" aria-label="Open mobile drawing"><img class="blueprint-plate" src="../assets/blueprint/mobile.jpg?v=20260919pkg" width="1008" height="1792" alt="Phone live-check drawing. Recipients never install."></a>
-<figcaption>Phone live check. Recipients never install.</figcaption>
+<a class="open-drawing" href="../drawings.html#mobile" aria-label="Open mobile drawing"><img class="blueprint-plate" src="../assets/blueprint/mobile.jpg?v=20260919pkg" width="1008" height="1792" alt="Phone live-check drawing. Recipients are not required to install."></a>
+<figcaption>Phone live check. Recipients are not required to install.</figcaption>
 </figure>
 </main>
  <footer class="site-footer">

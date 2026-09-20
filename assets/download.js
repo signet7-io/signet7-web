@@ -53,7 +53,7 @@
       })
         .then(function (r) { return r.json(); })
         .then(function () {
-          setStatus("If that mailbox can register, the code is on its way. Recipients never install Signet7 desktop. The zip buttons above do not wait for this.");
+          setStatus("If that mailbox can register, the code is on its way. Recipients are not required to install Signet7 desktop. The zip buttons above do not wait for this.");
         })
         .catch(function () {
           setStatus("Could not reach Signet7. The zip buttons above still work.");

@@ -10,6 +10,10 @@ class EntraDocsTests(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.docs = (ROOT / "docs.html").read_text(encoding="utf-8")
         cls.it = (ROOT / "it.html").read_text(encoding="utf-8")
+        cls.check = (ROOT / "check.html").read_text(encoding="utf-8")
+        cls.smtp = (ROOT / "smtp.html").read_text(encoding="utf-8")
+        cls.outlook = (ROOT / "outlook" / "index.html").read_text(encoding="utf-8")
+        cls.integrations = (ROOT / "integrations.html").read_text(encoding="utf-8")
 
     def test_entra_sections_and_nav(self) -> None:
         for section_id in (
@@ -18,6 +22,7 @@ class EntraDocsTests(unittest.TestCase):
             "entra-push",
             "entra-troubleshoot",
             "entra-integrations",
+            "seal-where",
         ):
             self.assertIn(f'id="{section_id}"', self.docs)
             self.assertIn(f'href="#{section_id}"', self.docs)
@@ -30,8 +35,12 @@ class EntraDocsTests(unittest.TestCase):
         self.assertIn("Mail.Read", docs)
         self.assertIn("Mail.Send", docs)
         self.assertIn("Seal this draft", docs)
+        self.assertIn("Sign and send email", docs)
+        self.assertIn("Signet7-sealed.eml", docs)
+        self.assertIn("The letter itself is sealed", docs)
+        self.assertIn("Where the seal lives", docs)
         self.assertIn("127.0.0.1:2525", docs)
-        self.assertIn("Recipients never install", docs)
+        self.assertIn("Recipients are not required to install", docs)
         self.assertIn("Not Exchange", docs)
         self.assertIn("ordinary outlook send is not sealed by the backend watcher", docs.lower())
         self.assertIn("sign and send email needs the sender token", docs.lower())
@@ -73,9 +82,30 @@ class EntraDocsTests(unittest.TestCase):
         self.assertLess(docs.find('id="entra-push"'), docs.find('id="entra-troubleshoot"'))
         self.assertLess(docs.find('id="entra-troubleshoot"'), docs.find('id="entra-integrations"'))
         self.assertLess(docs.find('id="entra-integrations"'), docs.find('id="desktop"'))
+        self.assertLess(docs.find('id="outlook"'), docs.find('id="seal-where"'))
+        self.assertLess(docs.find('id="seal-where"'), docs.find('id="signup"'))
 
     def test_figures_exist(self) -> None:
         self.assertIn("docs-entra-flow.png", self.docs)
         self.assertIn("docs-entra-permissions.png", self.docs)
         self.assertTrue((ROOT / "assets" / "docs-entra-flow.png").is_file())
         self.assertTrue((ROOT / "assets" / "docs-entra-permissions.png").is_file())
+
+    def test_seal_where_table_and_satellite_pages(self) -> None:
+        docs = self.docs
+        self.assertIn('id="seal-where"', docs)
+        self.assertIn('aria-label="Where the Signet7 seal lives"', docs)
+        self.assertIn("How the sender seals", docs)
+        self.assertIn("What the recipient gets", docs)
+        self.assertIn("What to drop on the live check", docs)
+        self.assertIn("the letter gmail or outlook saves is the unsigned carrier", docs.lower())
+        self.assertIn("Signet7-sealed.eml", self.check)
+        self.assertIn("docs#seal-where", self.check)
+        self.assertIn("The letter itself is sealed", self.smtp)
+        self.assertIn("Signet7-sealed.eml", self.smtp)
+        self.assertIn("Sign and send email", self.outlook)
+        self.assertIn("Signet7-sealed.eml", self.outlook)
+        self.assertIn("Signet7-sealed.eml", self.it)
+        self.assertIn("docs#seal-where", self.it)
+        self.assertIn("Signet7-sealed.eml", self.integrations)
+        self.assertIn("That hop seals the letter itself", self.integrations)

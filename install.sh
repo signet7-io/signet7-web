@@ -43,7 +43,7 @@ install_watch() {
 }
 
 install_desktop() {
-  echo "Company desktop is the unsigned zip, not pip. Recipients do not install."
+  echo "Company desktop is the unsigned zip, not pip. Recipients are not required to install."
   install_watch
 }
 

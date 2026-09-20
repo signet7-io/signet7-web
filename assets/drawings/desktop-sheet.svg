@@ -29,7 +29,7 @@
 <rect x="1660" y="58" width="200" height="52" fill="#5cb9e9" stroke="#5cb9e9" stroke-width="2.6"/><text x="1760" y="90" fill="#010d1d" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">LIVE CHECK</text>
 
 <text x="80" y="200" fill="#eef4f8" font-size="32" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="-0.2" font-weight="600">Named work emails. Company computers only.</text>
-<text x="80" y="248" fill="#9ec9dc" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">Not the desktop app on every staff laptop. Recipients never install.</text>
+<text x="80" y="248" fill="#9ec9dc" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">Not the desktop app on every staff laptop. Recipients are not required to install.</text>
 <rect x="120" y="300" width="1680" height="520" fill="none" stroke="#47b1dc" stroke-width="3.4"/>
 <rect x="160" y="340" width="520" height="440" fill="none" stroke="#47b1dc" stroke-width="2.8"/>
 <text x="180" y="390" fill="#9ec9dc" font-size="14" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">INBOX A</text>

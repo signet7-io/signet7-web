@@ -31,7 +31,7 @@
 <rect x="80" y="170" width="860" height="220" fill="none" stroke="#47b1dc" stroke-width="2.8"/>
 <text x="110" y="220" fill="#9ec9dc" font-size="12" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">FAQ-001</text>
 <text x="110" y="260" fill="#eef4f8" font-size="18" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.4" font-weight="600">I got an important email. What do I do?</text>
-<text x="110" y="300" fill="#9ec9dc" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.4" font-weight="400">Keep the original. Open the live check. Recipients never install.</text>
+<text x="110" y="300" fill="#9ec9dc" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.4" font-weight="400">Keep the original. Open the live check. Recipients are not required to install.</text>
 <rect x="980" y="170" width="860" height="220" fill="none" stroke="#47b1dc" stroke-width="2.8"/>
 <text x="1010" y="220" fill="#9ec9dc" font-size="12" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">FAQ-002</text>
 <text x="1010" y="260" fill="#eef4f8" font-size="18" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.4" font-weight="600">Do recipients install?</text>

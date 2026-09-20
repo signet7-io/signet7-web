@@ -147,3 +147,34 @@ body.docs-manual .docs-nav-mask {
     padding-right: 20px;
   }
 }
+
+body.docs-manual .docs-content pre {
+  max-width: 44rem;
+  overflow-x: auto;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+}
+
+body.docs-manual .docs-content pre code {
+  background: none;
+}
+
+body.docs-manual .docs-content .container.docs-wide {
+  max-width: 56rem;
+}
+
+body.docs-manual .docs-table-wrap {
+  overflow-x: auto;
+  margin: 16px 0 20px;
+}
+
+body.docs-manual .docs-table-wrap .data-table {
+  min-width: 36rem;
+}
+
+body.docs-manual .docs-table-wrap .data-table th,
+body.docs-manual .docs-table-wrap .data-table td {
+  vertical-align: top;
+}

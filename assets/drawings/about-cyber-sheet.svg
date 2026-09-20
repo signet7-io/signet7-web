@@ -29,7 +29,7 @@
 <rect x="1660" y="58" width="200" height="52" fill="#5cb9e9" stroke="#5cb9e9" stroke-width="2.6"/><text x="1760" y="90" fill="#010d1d" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">LIVE CHECK</text>
 
 <text x="80" y="200" fill="#eef4f8" font-size="36" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="-0.3" font-weight="600">Same facts. Different sheet.</text>
-<text x="80" y="240" fill="#9ec9dc" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">Recipients never install. Company Signet7 is free for 3 months.</text>
+<text x="80" y="240" fill="#9ec9dc" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">Recipients are not required to install. Company Signet7 is free for 3 months.</text>
 <g fill="none" stroke="#5cb9e9" stroke-width="4" transform="translate(520,260)">
   <polygon points="80,360 560,360 760,200 280,200"/>
   <polygon points="280,200 760,200 760,40 280,40"/>

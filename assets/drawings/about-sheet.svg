@@ -54,7 +54,7 @@
   <path d="M940 560 V538 A16 16 0 0 1 980 538 V560"/>
   <circle cx="960" cy="588" r="54" stroke="#47b1dc" stroke-width="2.4"/>
 </g>
-<text x="80" y="390" fill="#eef4f8" font-size="28" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="-0.2" font-weight="600">Important mail should be sealed.</text><text x="80" y="430" fill="#9ec9dc" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">Pre-formation project. Checkout is not live. Recipients never install.</text>
+<text x="80" y="390" fill="#eef4f8" font-size="28" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="-0.2" font-weight="600">Important mail should be sealed.</text><text x="80" y="430" fill="#9ec9dc" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">Pre-formation project. Checkout is not live. Recipients are not required to install.</text>
 <rect x="40" y="930" width="1840" height="110" fill="none" stroke="#47b1dc" stroke-width="2.4"/>
 <text x="60" y="972" fill="#9ec9dc" font-size="12" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">SCALE 1:1 NTS</text>
 <line x1="240" y1="968" x2="560" y2="968" stroke="#5cb9e9" stroke-width="3.6"/>
