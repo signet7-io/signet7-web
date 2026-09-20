@@ -34,7 +34,7 @@
 
 
 <text x="80" y="200" fill="#eef4f8" font-size="36" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="-0.3" font-weight="600">Anyone can run the check.</text>
-<text x="80" y="240" fill="#9ec9dc" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">No account. Recipients never install.</text>
+<text x="80" y="240" fill="#9ec9dc" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">No account. Recipients are not required to install.</text>
 <g fill="none" stroke="#5cb9e9" stroke-width="3.8" transform="translate(620,180)">
   <polygon points="80,360 520,360 700,220 260,220"/>
   <polygon points="260,220 700,220 700,60 260,60"/>

@@ -3,7 +3,7 @@
      viewBox="0 0 1920 1080" width="1920" height="1080" role="img"
      aria-labelledby="title desc">
   <title id="title">Signet7 — original technical drawing, homepage sheet</title>
-  <desc id="desc">Drawn from scratch. Cryptographic seal on high-stakes email. Two facts at check. Recipients never install.</desc>
+  <desc id="desc">Drawn from scratch. Cryptographic seal on high-stakes email. Two facts at check. Recipients are not required to install.</desc>
   <defs>
     <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
       <path d="M32 0 H0 V32" fill="none" stroke="#47b1dc" stroke-width="0.85" opacity="0.22"/>
@@ -63,7 +63,7 @@
 <text x="56" y="408" fill="#9ec9dc" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">check. A signed file you keep.</text>
 <a href="https://verify.signet7.io/email/verify"><rect x="56" y="440" width="220" height="52" fill="#5cb9e9" stroke="#5cb9e9" stroke-width="2.85"/><text x="166" y="472" fill="#010d1d" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.2" font-weight="400">OPEN THE LIVE CHECK</text></a>
 <a href="https://signet7.io/register"><rect x="290" y="440" width="220" height="52" fill="none" stroke="#5cb9e9" stroke-width="2.85"/><text x="400" y="472" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.2" font-weight="400">REGISTER THE COMPANY</text></a>
-<text x="56" y="530" fill="#9ec9dc" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.3" font-weight="400">Recipients never install. Match is not advice to pay.</text>
+<text x="56" y="530" fill="#9ec9dc" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.3" font-weight="400">Recipients are not required to install. Match is not advice to pay.</text>
 <g id="envelope-plan" fill="none" stroke="#5cb9e9">
 <rect x="620" y="170" width="620" height="430" stroke-width="4.56"/>
 <path d="M620 170 L930.0 380 L1240 170" stroke-width="3.8"/>
@@ -113,7 +113,7 @@
 <rect x="1400" y="536" width="480" height="108" fill="none" stroke="#47b1dc" stroke-width="1.9"/>
 <text x="1420" y="564" fill="#9ec9dc" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">S7-F-04</text>
 <text x="1420" y="588" fill="#eef4f8" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.5" font-weight="600">NO INSTALL</text>
-<text x="1420" y="610" fill="#9ec9dc" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">Recipients never install. They open the live</text>
+<text x="1420" y="610" fill="#9ec9dc" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">Recipients are not required to install. They open the live</text>
 <text x="1420" y="626" fill="#9ec9dc" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">check on the website.</text>
 <rect x="40" y="900" width="1840" height="140" fill="none" stroke="#47b1dc" stroke-width="1.9"/>
 <rect x="40" y="900" width="220" height="140" fill="none" stroke="#47b1dc" stroke-width="1.9"/>
@@ -138,7 +138,7 @@
 <line x1="658" y1="968" x2="702" y2="968" stroke="#5cb9e9" stroke-width="1.9"/>
 <line x1="680" y1="946" x2="680" y2="990" stroke="#5cb9e9" stroke-width="1.9"/>
 <text x="760" y="936" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">NOTES</text>
-<text x="760" y="960" fill="#eef4f8" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">1. Recipients never install.</text>
+<text x="760" y="960" fill="#eef4f8" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">1. Recipients are not required to install.</text>
 <text x="760" y="980" fill="#eef4f8" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">2. Two facts: words match the seal; that sender is listed.</text>
 <text x="760" y="1000" fill="#eef4f8" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">3. Match is not advice to pay. Unsealed mail is ordinary mail.</text>
 <text x="760" y="1020" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.2" font-weight="400">GRID ON  ·  SNAP ON  ·  ORTHO ON  ·  UNITS mm  ·  THIRD ANGLE</text>

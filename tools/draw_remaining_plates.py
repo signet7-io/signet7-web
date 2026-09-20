@@ -128,7 +128,7 @@ wrap(
     "\n".join(boxes)
     + env
     + t(80, 390, "Important mail should be sealed.", 28, INK, family="Segoe UI, Arial, sans-serif", ls="-0.2", weight="600")
-    + t(80, 430, "Pre-formation project. Checkout is not live. Recipients never install.", 14, MUTED, family="Segoe UI, Arial, sans-serif", ls="0.2"),
+    + t(80, 430, "Pre-formation project. Checkout is not live. Recipients are not required to install.", 14, MUTED, family="Segoe UI, Arial, sans-serif", ls="0.2"),
     "ABOUT  ·  FOUNDING TEAM  ·  NOT OFFICER TITLES",
 )
 
@@ -139,7 +139,7 @@ wrap(
     "S7-AB-002",
     f'''
 {t(80, 200, "Same facts. Different sheet.", 36, INK, family="Segoe UI, Arial, sans-serif", ls="-0.3", weight="600")}
-{t(80, 240, "Recipients never install. Company Signet7 is free for 3 months.", 16, MUTED, family="Segoe UI, Arial, sans-serif", ls="0.2")}
+{t(80, 240, "Recipients are not required to install. Company Signet7 is free for 3 months.", 16, MUTED, family="Segoe UI, Arial, sans-serif", ls="0.2")}
 <g fill="none" stroke="{C2}" stroke-width="4" transform="translate(520,260)">
   <polygon points="80,360 560,360 760,200 280,200"/>
   <polygon points="280,200 760,200 760,40 280,40"/>
@@ -188,7 +188,7 @@ wrap(
     "S7-DK-001",
     f'''
 {t(80, 200, "Register the company.", 40, INK, family="Segoe UI, Arial, sans-serif", ls="-0.3", weight="600")}
-{t(80, 250, "Then name the work emails in Signet7 desktop. Recipients never install.", 16, MUTED, family="Segoe UI, Arial, sans-serif", ls="0.2")}
+{t(80, 250, "Then name the work emails in Signet7 desktop. Recipients are not required to install.", 16, MUTED, family="Segoe UI, Arial, sans-serif", ls="0.2")}
 {rect(120, 320, 780, 480, 3.2)}
 {t(160, 380, "ITEM 01  ACCOUNT", 14, MUTED, ls="2")}
 {t(160, 430, "Company login", 28, INK, family="Segoe UI, Arial, sans-serif", ls="0.4", weight="600")}
@@ -210,7 +210,7 @@ wrap(
     "S7-DT-001",
     f'''
 {t(80, 200, "Named work emails. Company computers only.", 32, INK, family="Segoe UI, Arial, sans-serif", ls="-0.2", weight="600")}
-{t(80, 248, "Not the desktop app on every staff laptop. Recipients never install.", 16, MUTED, family="Segoe UI, Arial, sans-serif", ls="0.2")}
+{t(80, 248, "Not the desktop app on every staff laptop. Recipients are not required to install.", 16, MUTED, family="Segoe UI, Arial, sans-serif", ls="0.2")}
 {rect(120, 300, 1680, 520, 3.4)}
 {rect(160, 340, 520, 440, 2.8)}
 {t(180, 390, "INBOX A", 14, MUTED, ls="2")}
@@ -252,7 +252,7 @@ wrap(
 {rect(80, 170, 860, 220, 2.8)}
 {t(110, 220, "FAQ-001", 12, MUTED, ls="2")}
 {t(110, 260, "I got an important email. What do I do?", 18, INK, family="Segoe UI, Arial, sans-serif", weight="600")}
-{t(110, 300, "Keep the original. Open the live check. Recipients never install.", 14, MUTED, family="Segoe UI, Arial, sans-serif")}
+{t(110, 300, "Keep the original. Open the live check. Recipients are not required to install.", 14, MUTED, family="Segoe UI, Arial, sans-serif")}
 {rect(980, 170, 860, 220, 2.8)}
 {t(1010, 220, "FAQ-002", 12, MUTED, ls="2")}
 {t(1010, 260, "Do recipients install?", 18, INK, family="Segoe UI, Arial, sans-serif", weight="600")}
@@ -294,7 +294,7 @@ wrap(
 {t(1330, 340, "03", 14, MUTED, ls="2")}
 {t(1330, 400, "CHECK", 26, INK, family="Segoe UI, Arial, sans-serif", weight="600")}
 {t(1330, 450, "Two facts. Signed file you keep.", 15, MUTED, family="Segoe UI, Arial, sans-serif")}
-{t(1330, 490, "Recipients never install.", 15, MUTED, family="Segoe UI, Arial, sans-serif")}
+{t(1330, 490, "Recipients are not required to install.", 15, MUTED, family="Segoe UI, Arial, sans-serif")}
 ''',
     "HOW  ·  WRITE / SEAL / CHECK",
 )
@@ -306,7 +306,7 @@ wrap(
     "S7-OL-001",
     f'''
 {t(80, 200, "Name the work emails that can move money.", 30, INK, family="Segoe UI, Arial, sans-serif", ls="-0.2", weight="600")}
-{t(80, 246, "Outlook XML is optional. Recipients never install. The website check is the door.", 16, MUTED, family="Segoe UI, Arial, sans-serif", ls="0.2")}
+{t(80, 246, "Outlook XML is optional. Recipients are not required to install. The website check is the door.", 16, MUTED, family="Segoe UI, Arial, sans-serif", ls="0.2")}
 {rect(120, 300, 1000, 520, 3.4)}
 {t(160, 360, "MESSAGE", 14, MUTED, ls="2")}
 {rect(160, 390, 920, 380, 2.6, "none", C2)}

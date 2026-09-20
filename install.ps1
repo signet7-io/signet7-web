@@ -40,7 +40,7 @@ function Install-Watch {
 }
 
 function Install-Desktop {
-  Write-Host "Company desktop is the unsigned zip, not pip. Recipients do not install."
+  Write-Host "Company desktop is the unsigned zip, not pip. Recipients are not required to install."
   Install-Watch
 }
 

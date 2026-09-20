@@ -136,7 +136,7 @@
       build: [
         "Construction",
         "Draws, change orders, and sub pay-apps often look ordinary. That is the trap. The person who got the email opens the live check.",
-        "Do not put Signet7 desktop on every jobsite laptop. Run Signet7 desktop on the named inbox that pays vendors. Recipients never install. Keep writing in your mail app."
+        "Do not put Signet7 desktop on every jobsite laptop. Run Signet7 desktop on the named inbox that pays vendors. Recipients are not required to install. Keep writing in your mail app."
       ],
       pay: [
         "Payroll",

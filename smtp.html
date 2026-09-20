@@ -60,7 +60,7 @@
  <div class="container">
  <p class="eyebrow">Keep your inbox</p>
  <h1>Stay in your mail app. We cryptographically seal the email.</h1>
- <p class="hero-copy">Write the way you already write. Bold, centering, Send. Outlook, Apple Mail, or Thunderbird. On the office computer that runs Signet7, outgoing mail goes through 127.0.0.1 port 2525. Same on Windows, macOS, and Linux. The unsigned helper cryptographically seals that exact message, then forwards it. If it cannot stamp the message, it does not send unsigned unless you choose that once. That helper is Signet7 desktop. Incoming checks are the other job in the same window. Windows may warn; this is not Authenticode. Checking stays free. </p>
+ <p class="hero-copy">Write the way you already write. Bold, centering, Send. Outlook, Apple Mail, or Thunderbird. On the office computer that runs Signet7, outgoing mail goes through 127.0.0.1 port 2525. Same on Windows, macOS, and Linux. The unsigned helper cryptographically seals that exact message, then forwards it. The letter itself is sealed. This hop does not attach Signet7-sealed.eml. That attachment is the Outlook add-in path. If it cannot stamp the message, it does not send unsigned unless you choose that once. That helper is Signet7 desktop. Incoming checks are the other job in the same window. Windows may warn; this is not Authenticode. Checking stays free. </p>
  <div class="badge-row">
  <span class="badge cyan">Live service</span>
  <span class="badge">Preview · unsigned</span>
@@ -81,7 +81,7 @@
  </section>
  <section class="section section-line">
  <div class="container">
- <p>This hop never leaves the computer. Real TLS is to your provider after Signet7 forwards. Leave the unsigned helper running or port 2525 goes quiet. Not Exchange. Not a mail vendor. Not Authenticode. Living stories: <a href="scenarios">send and receive</a>.</p>
+ <p>This hop never leaves the computer. Real TLS is to your provider after Signet7 forwards. Leave the unsigned helper running or port 2525 goes quiet. Not Exchange. Not a mail vendor. Not Authenticode. Compare the Outlook add-in attachment path: <a href="docs#seal-where">Where the seal lives</a>. Living stories: <a href="scenarios">send and receive</a>.</p>
  </div>
  </section>
  

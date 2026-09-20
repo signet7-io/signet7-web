@@ -43,7 +43,7 @@
 <text x="1330" y="340" fill="#9ec9dc" font-size="14" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">03</text>
 <text x="1330" y="400" fill="#eef4f8" font-size="26" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.4" font-weight="600">CHECK</text>
 <text x="1330" y="450" fill="#9ec9dc" font-size="15" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.4" font-weight="400">Two facts. Signed file you keep.</text>
-<text x="1330" y="490" fill="#9ec9dc" font-size="15" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.4" font-weight="400">Recipients never install.</text>
+<text x="1330" y="490" fill="#9ec9dc" font-size="15" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.4" font-weight="400">Recipients are not required to install.</text>
 
 <rect x="40" y="930" width="1840" height="110" fill="none" stroke="#47b1dc" stroke-width="2.4"/>
 <text x="60" y="972" fill="#9ec9dc" font-size="12" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">SCALE 1:1 NTS</text>

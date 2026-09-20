@@ -29,7 +29,7 @@
 <rect x="1660" y="58" width="200" height="52" fill="#5cb9e9" stroke="#5cb9e9" stroke-width="2.6"/><text x="1760" y="90" fill="#010d1d" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">LIVE CHECK</text>
 
 <text x="80" y="200" fill="#eef4f8" font-size="40" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="-0.3" font-weight="600">Register the company.</text>
-<text x="80" y="250" fill="#9ec9dc" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">Then name the work emails in Signet7 desktop. Recipients never install.</text>
+<text x="80" y="250" fill="#9ec9dc" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">Then name the work emails in Signet7 desktop. Recipients are not required to install.</text>
 <rect x="120" y="320" width="780" height="480" fill="none" stroke="#47b1dc" stroke-width="3.2"/>
 <text x="160" y="380" fill="#9ec9dc" font-size="14" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">ITEM 01  ACCOUNT</text>
 <text x="160" y="430" fill="#eef4f8" font-size="28" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.4" font-weight="600">Company login</text>
