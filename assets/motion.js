@@ -126,7 +126,7 @@
       law: [
         "Law office",
         "When a settlement, retainer, or “updated wiring” email arrives, the person who got it opens the live check. No account. No install.",
-        "If the seal does not match, they keep the record and call a number they already have. Signet7 desktop belongs on the office inbox that would send the money, not on every lawyer’s laptop. "
+        "If the seal does not match, they keep the record. Signet7 desktop belongs on the office inbox that would send the money, not on every lawyer’s laptop. "
       ],
       title: [
         "Title / closing",

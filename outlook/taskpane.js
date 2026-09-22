@@ -35,14 +35,14 @@ function classifyAlert(result, subject, body) {
     return {
       level: "alert",
       title: "Signet7: protected parts do not match",
-      body: "This message has a Signet7 seal, but the protected parts no longer match or the signature is not valid. Do not change payment details from this email. Call the person you already know."
+      body: "This message has a Signet7 seal, but the protected parts no longer match or the signature is not valid. Do not change payment details from this email."
     };
   }
   if (replay === "SUSPECTED_REPLAY") {
     return {
       level: "alert",
       title: "Signet7: suspected replay",
-      body: "This sealed message looks like a reuse. Do not treat it as a fresh instruction. Call the person you already know."
+      body: "This sealed message looks like a reuse. Do not treat it as a fresh instruction."
     };
   }
   if (status === "revoked" || status === "compromised" || status === "terminated") {
@@ -56,14 +56,14 @@ function classifyAlert(result, subject, body) {
     return {
       level: "warn",
       title: "Signet7: sender binding is " + status,
-      body: "The sender/key binding is recorded as " + status + ". Use a known callback before you act."
+      body: "The sender/key binding is recorded as " + status + ". Do not act on this message."
     };
   }
   if (CONSEQUENTIAL.test(String(subject || "") + "\n" + String(body || "")) && !looksSealed(result)) {
     return {
       level: "warn",
       title: "Signet7: payment or account change, no seal",
-      body: "This looks like a payment or account-change instruction and it is not sealed. Do not use a number from this email."
+      body: "This looks like a payment or account-change instruction and it is not sealed."
     };
   }
   return null;
@@ -148,7 +148,7 @@ function formatRecipientResult(result, listing) {
   if (words === "Words match") {
     note = "The words still match the seal.";
   } else if (words === "Words do not match") {
-    note = "Do not pay. Call a number you already have.";
+    note = "Do not pay.";
   }
   return words + "\n" + listed + "\n" + note;
 }
