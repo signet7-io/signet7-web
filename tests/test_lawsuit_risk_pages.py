@@ -36,7 +36,7 @@ class LawsuitRiskPages(unittest.TestCase):
         self.assertNotIn("justin.daines@signet7.io", combined)
         self.assertNotIn("george@eaglevisionseo.com", combined)
         about = self.pages["about.html"]
-        self.assertIn("George Terris II", about)
+        self.assertIn("George T. Terris II", about)
         self.assertNotIn("Justin", about)
 
     def test_ai_page_does_not_invent_a_chatbot(self) -> None:
