@@ -7,3 +7,9 @@ This repository and its contents are proprietary and confidential. No
 part of this repository may be reproduced or distributed without written
 permission. No license, express or implied, is granted to any person by
 the presence of this file or by access to this repository.
+
+Font files in assets/fonts/ are not covered by the proprietary notice above.
+Outfit is Copyright 2021 The Outfit Project Authors.
+Instrument Serif is Copyright 2022 The Instrument Serif Project Authors.
+Both are used under the SIL Open Font License, Version 1.1.
+See assets/fonts/OFL-Outfit.txt and assets/fonts/OFL-InstrumentSerif.txt.

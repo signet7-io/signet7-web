@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from tests.site_html import root_html_pages
+from tests.site_html import ROOT, root_html_pages
 
 
 class LawsuitRiskPages(unittest.TestCase):
@@ -67,6 +67,35 @@ class LawsuitRiskPages(unittest.TestCase):
         self.assertNotIn("what our customers say", combined)
         self.assertNotIn("five stars", combined)
         self.assertNotIn('"acme corp"', combined)
+
+    def test_privacy_says_no_tracking_cookies_and_no_banner(self) -> None:
+        privacy = self.pages["privacy.html"]
+        self.assertIn("does not set tracking or advertising cookies", privacy)
+        self.assertIn("no cookie consent banner", privacy)
+        self.assertEqual(privacy.count("DRAFT — NON-OPERATIVE"), 1)
+        combined = "\n".join(self.pages.values()).lower()
+        self.assertNotIn("googletagmanager", combined)
+        self.assertNotIn("gtag(", combined)
+        self.assertNotIn('id="cookie-banner"', combined)
+
+    def test_feedback_send_states_what_is_posted(self) -> None:
+        feedback = self.pages["feedback.html"]
+        self.assertIn("posts this note to Signet7 so we can read it", feedback)
+        self.assertIn("used only to answer you", feedback)
+        self.assertIn('href="privacy"', feedback)
+
+    def test_self_hosted_fonts_keep_their_license(self) -> None:
+        fonts = ROOT / "assets" / "fonts"
+        outfit = (fonts / "OFL-Outfit.txt").read_text(encoding="utf-8")
+        serif = (fonts / "OFL-InstrumentSerif.txt").read_text(encoding="utf-8")
+        self.assertIn("The Outfit Project Authors", outfit)
+        self.assertIn("SIL Open Font License", outfit)
+        self.assertIn("The Instrument Serif Project Authors", serif)
+        self.assertIn("SIL Open Font License", serif)
+        notice = (ROOT / "LICENSE").read_text(encoding="utf-8")
+        self.assertIn("assets/fonts/", notice)
+        self.assertIn("SIL Open Font License", notice)
+        self.assertIn("not covered by the proprietary notice", notice)
 
 
 if __name__ == "__main__":
