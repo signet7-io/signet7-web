@@ -75,4 +75,6 @@
   font-weight: 800;
   cursor: pointer;
 }
+.feedback-consent { margin: 12px 0 0; color: #c5d4de; font-size: 14px; line-height: 1.45; }
+.feedback-consent a { color: #7ed6f0; }
 .feedback-status { margin-top: 12px; color: #9bb0bd; font-size: 13px; }
