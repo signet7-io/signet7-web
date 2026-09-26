@@ -21,7 +21,7 @@
  <link rel="icon" type="image/png" href="assets/favicon.png">
  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
  <link rel="stylesheet" href="assets/site.css?v=20260920f">
- <link rel="stylesheet" href="assets/docs.css?v=20260919entra">
+ <link rel="stylesheet" href="assets/docs.css?v=20260926nav">
 </head>
 <body class="docs-manual">
  <a class="skip-link" href="#main">Skip to content</a>
@@ -78,34 +78,59 @@
  <aside class="docs-sidebar" id="docs-sidebar">
  <nav class="docs-nav" id="on-this-page" aria-label="Contents">
  <p class="docs-nav-title">Contents</p>
- <p class="docs-nav-group">Start</p>
+ <details class="docs-nav-cat" open>
+ <summary>Start</summary>
+ <div class="docs-nav-pages">
  <a href="#start">Start here</a>
- <p class="docs-nav-group">Check a message</p>
+ </div>
+ </details>
+ <details class="docs-nav-cat">
+ <summary>Check a message</summary>
+ <div class="docs-nav-pages">
  <a href="#hosts">Where each product lives</a>
  <a href="#verify">Check a message</a>
  <a href="#limits">What a result means</a>
  <a href="#outlook">Outlook pane</a>
  <a href="#seal-where">Where the seal lives</a>
- <p class="docs-nav-group">Seal outgoing mail</p>
+ </div>
+ </details>
+ <details class="docs-nav-cat">
+ <summary>Seal outgoing mail</summary>
+ <div class="docs-nav-pages">
  <a href="#signup">Company account</a>
  <a href="#install">Install Signet7 desktop</a>
  <a href="#agent-card">Helper instruction card</a>
  <a href="#gmail-gcp">Gmail app password</a>
- <p class="docs-nav-group">Microsoft Entra</p>
+ </div>
+ </details>
+ <details class="docs-nav-cat">
+ <summary>Microsoft Entra</summary>
+ <div class="docs-nav-pages">
  <a href="#entra">Entra and Graph</a>
  <a href="#entra-install">Register the Entra app</a>
  <a href="#entra-push">IT push to laptops</a>
  <a href="#entra-troubleshoot">Entra troubleshooting</a>
  <a href="#entra-integrations">Other systems</a>
+ </div>
+ </details>
+ <details class="docs-nav-cat">
+ <summary>Signet7 desktop</summary>
+ <div class="docs-nav-pages">
  <a href="#desktop">Fill Signet7 desktop</a>
  <a href="#seal">How sealing works</a>
  <a href="#clients">Outlook, Thunderbird, Gmail</a>
  <a href="#apple-mail">Seal from Apple Mail</a>
- <p class="docs-nav-group">For engineers</p>
+ </div>
+ </details>
+ <details class="docs-nav-cat">
+ <summary>For engineers</summary>
+ <div class="docs-nav-pages">
  <a href="#spec">Engineer contract</a>
  <a class="docs-nav-ext" href="download#it">IT one-pager</a>
  <a class="docs-nav-ext" href="docs#seal">Outbound seal</a>
  <a class="docs-nav-ext" href="check">Recipient check</a>
+ </div>
+ </details>
  </nav>
  </aside>
  <div class="docs-content">
@@ -603,6 +628,6 @@ python -m signet7_agent --check-entra</code></pre>
  </div>
  </footer>
  <script src="assets/motion.js?v=20260920c" defer></script>
- <script src="assets/docs-nav.js?v=20260830a" defer></script>
+ <script src="assets/docs-nav.js?v=20260926nav" defer></script>
 </body>
 </html>
