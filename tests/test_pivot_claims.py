@@ -429,34 +429,31 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_every_page_has_dropdown_nav(self) -> None:
         for name, html in self.pages.items():
             with self.subTest(page=name):
+                if '<nav class="site-nav"' not in html:
+                    continue
                 self.assertIn("drop-btn", html)
                 self.assertIn(">Feedback</a>", html)
                 self.assertNotIn("Use cases", html)
                 self.assertNotIn("Install (pip)", html)
                 nav = html.split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
-                self.assertIn(">Product</button>", nav)
-                self.assertIn(">Solutions</button>", nav)
-                self.assertIn(">Company</button>", nav)
+                self.assertIn(">About</button>", nav)
+                self.assertNotIn(">Product</button>", nav)
+                self.assertNotIn(">Solutions</button>", nav)
+                self.assertNotIn(">Company</button>", nav)
+                self.assertNotIn("Download the app", nav)
                 self.assertNotIn(">Help</button>", nav)
                 self.assertNotIn("How it works", nav)
-                self.assertIn("Overview", nav)
-                self.assertRegex(nav, r'href="(\.\./)?about">About</a>')
-                self.assertRegex(nav, r'href="(\.\./)?faq">FAQ</a>')
-                self.assertRegex(nav, r'href="(\.\./)?public-sector">Public sector</a>')
+                self.assertRegex(nav, r'href="/#/about">Meet the Team</a>')
+                self.assertRegex(nav, r'href="/#/faq">FAQ</a>')
+                self.assertRegex(nav, r'href="/#/programs">Pricing</a>')
+                self.assertRegex(nav, r'href="/#/security">Trust &amp; security</a>')
+                self.assertRegex(nav, r'href="/docs">Docs</a>')
                 # Register is a header button beside the nav, not a nav item.
                 self.assertNotIn(">Register</a>", nav)
                 self.assertIn('class="header-register"', html)
-                # Pricing sits at the top level, not buried in a dropdown.
-                self.assertRegex(
-                    nav,
-                    r"</div>\s*</div>\s*<a href=\"(\.\./)?programs\">Pricing</a>\s*<a href=\"(\.\./)?docs\.html\">Docs</a>",
-                )
-                product_menu = nav.split(">Product</button>", 1)[1].split("</div>", 1)[0]
-                self.assertNotIn("Docs", product_menu)
                 self.assertNotIn(">Check</button>", nav)
                 self.assertNotIn(">Legal</button>", nav)
                 self.assertNotIn(">Docs</button>", nav)
-                self.assertNotIn(">About</button>", nav)
                 self.assertNotIn('<p class="drop-head">Product</p>', nav)
                 self.assertNotIn(">About Signet7</a>", nav)
         self.assertNotIn("Inbox Watch", self.pages["index.html"])

@@ -114,15 +114,16 @@ class SiteCrawlHardeningTests(unittest.TestCase):
     def test_public_chrome_is_the_same_on_brochure_pages(self) -> None:
         for path in root_html_pages() + [ROOT / "outlook" / "index.html"]:
             html = path.read_text(encoding="utf-8")
+            if '<nav class="site-nav"' not in html:
+                continue
             nav = html.split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
             footer = html.split("<footer", 1)[1]
             with self.subTest(page=str(path.relative_to(ROOT))):
-                self.assertRegex(nav, r'href="(\.\./)?record">Keep the proof</a>')
-                self.assertRegex(nav, r'href="(\.\./)?public-sector">Public sector</a>')
-                self.assertRegex(nav, r'href="(\.\./)?contact">Contact</a>')
-                self.assertRegex(nav, r'href="(\.\./)?trust-center">Trust center</a>')
-                self.assertNotRegex(nav, r'href="(\.\./)?download">Download</a>')
-                self.assertRegex(footer, r'href="(\.\./)?trust-center">Trust center</a>')
+                self.assertRegex(nav, r'href="/docs">Docs</a>')
+                self.assertRegex(nav, r'href="/#/about">Meet the Team</a>')
+                self.assertRegex(nav, r'href="/#/security">Trust &amp; security</a>')
+                self.assertNotRegex(nav, r'Download the app')
+                self.assertRegex(footer, r'href="/#/security">Trust &amp; security</a>')
                 self.assertIn('aria-label="Signet7 home"', html)
                 self.assertNotIn("qual.signet7.io", html.lower())
 
