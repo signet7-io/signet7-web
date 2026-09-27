@@ -1,13 +1,13 @@
 "use strict";
 
 const COMMANDS = {
-  windows: "$env:SIGNET7_SETUP='watch'; irm https://signet7.io/install.ps1 | iex",
-  macos: "curl -fsSL https://signet7.io/install.sh | SIGNET7_SETUP=watch bash",
+  windows: "https://account.signet7.io/account",
+  macos: "https://account.signet7.io/account",
 };
 
 const NOTES = {
-  windows: "Downloads unsigned Signet7 desktop for Windows. Recipients should not run this. SmartScreen will warn.",
-  macos: "Downloads unsigned Signet7 desktop for this Mac or Linux PC. Recipients should not run this. Gatekeeper may warn.",
+  windows: "Sign in first. The file is on the company desk, not on this page.",
+  macos: "Sign in first. The file is on the company desk, not on this page.",
 };
 
 function selectedOs() {

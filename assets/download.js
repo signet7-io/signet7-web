@@ -18,6 +18,7 @@
     if (el && meta.version) el.textContent = meta.version;
     var files = (meta.files) || {};
     document.querySelectorAll("[data-watch-file]").forEach(function (link) {
+      if (link.getAttribute("href") && link.getAttribute("href").indexOf("account.signet7.io") !== -1) return;
       var key = link.getAttribute("data-watch-file");
       var row = files[key];
       if (row && row.href) link.href = row.href;
@@ -53,10 +54,10 @@
       })
         .then(function (r) { return r.json(); })
         .then(function () {
-          setStatus("If that mailbox can register, the code is on its way. Recipients are not required to install Signet7 desktop. The zip buttons above do not wait for this.");
+          setStatus("If that mailbox can register, the code is on its way. Recipients are not required to install Signet7 desktop. The file is on the company desk after you sign in.");
         })
         .catch(function () {
-          setStatus("Could not reach Signet7. The zip buttons above still work.");
+          setStatus("Could not reach Signet7. Sign in at the company desk when it is back.");
         });
     });
   }
@@ -74,14 +75,14 @@
         .then(function (r) { return r.json().then(function (body) { return { ok: r.ok, body: body }; }); })
         .then(function (result) {
           if (!result.ok) {
-            setStatus((result.body && result.body.error) || "That code did not work. The zip buttons above still work.");
+            setStatus((result.body && result.body.error) || "That code did not work. Sign in at the company desk.");
             return;
           }
           applyFiles({ files: result.body.files, version: result.body.version });
           setStatus("Setup note accepted. Recipients still use the live check.");
         })
         .catch(function () {
-          setStatus("Could not reach Signet7. The zip buttons above still work.");
+          setStatus("Could not reach Signet7. Sign in at the company desk when it is back.");
         });
     });
   }
