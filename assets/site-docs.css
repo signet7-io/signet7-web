@@ -28,17 +28,17 @@
 }
 
 :root {
-  --paper: #071428;
-  --page: #071428;
-  --header: #071428;
-  --card: #0a1c38;
+  --paper: #050608;
+  --page: #050608;
+  --header: #050608;
+  --card: #0c1016;
   --ink: #e8f4fc;
   --ink-soft: #c5d2dc;
   --mute: #9bb8c9;
   --line: rgba(126, 214, 240, 0.32);
   --cyan: #7ed6f0;
   --gold: #e4ae3a;
-  --night: #071428;
+  --night: #050608;
   --night-ink: #e8f4fc;
   --night-mute: #9bb8c9;
   --purple: #7ed6f0;
@@ -51,16 +51,16 @@
 }
 html[data-theme="dark"] {
   color-scheme: dark;
-  --paper: #efe6d4;
-  --page: #071428;
-  --header: #0a1c38;
-  --card: #102448;
+  --paper: #050608;
+  --page: #050608;
+  --header: #050608;
+  --card: #0c1016;
   --ink: #eef4f8;
   --ink-soft: #d4dde6;
   --mute: #c5d2dc;
   --line: rgba(126, 214, 240, 0.28);
   --cyan: #7ed6f0;
-  --night: #071428;
+  --night: #050608;
   --night-ink: #eef4f8;
   --night-mute: #c5d2dc;
 }
@@ -73,9 +73,6 @@ body {
   min-height: 100vh;
   color: var(--ink);
   background-color: var(--page);
-  background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(126,214,240,.07) 39px, rgba(126,214,240,.07) 40px),
-    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(126,214,240,.07) 39px, rgba(126,214,240,.07) 40px);
   font-family: Outfit, "Segoe UI", sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
