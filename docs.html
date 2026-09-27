@@ -91,6 +91,7 @@
  <a href="#verify">Check a message</a>
  <a href="#limits">What a result means</a>
  <a href="#outlook">Outlook pane</a>
+ <a href="#outlook-pane-usage">Using the Signet7 Outlook pane</a>
  <a href="#seal-where">Where the seal lives</a>
  </div>
  </details>
@@ -141,12 +142,6 @@
  <p class="hero-copy">Signet7 can cryptographically seal outgoing email, then anyone can verify a message. Pick a setup below to configure and install. Recipients are not required to install anything. Signet7 is not a mail app. You still write and send in Outlook, Apple Mail, or Thunderbird.</p>
  </div>
  </section>
-<figure class="blueprint-sheet">
-<a class="open-drawing" href="drawings.html#how" aria-label="Open drawing: Sixty-second check drawing"><img class="blueprint-plate" src="assets/blueprint/howto.jpg?v=20260919pkg" width="1792" height="1008" alt="Sixty-second check drawing"></a>
-<figcaption>Sixty-second check drawing. Register first for the company zip.</figcaption>
-</figure>
-
-
  <section class="section" id="start">
  <div class="container">
  <h2>Start here</h2>
@@ -288,10 +283,68 @@
  <ol>
  <li>Save <a href="outlook/manifest.xml">signet7.io/outlook/manifest.xml</a>.</li>
  <li>In the same browser session as Outlook, open <a href="https://aka.ms/olksideload">aka.ms/olksideload</a>. The <strong>Add-Ins for Outlook</strong> dialog should appear after a few seconds. This is not Settings, and it is not Apps → Add apps.</li>
- <li>Select <strong>My add-ins</strong>. Scroll to <strong>Custom Addins</strong> → <strong>Add a custom add-in</strong> → <strong>Add from File</strong>. Choose the saved <code>manifest.xml</code>. Install. Microsoft no longer offers Add from URL.</li>
- <li>Classic Outlook on Windows can also open that same dialog: File → Info → Manage Add-ins.</li>
- <li>Reload Outlook. To check: open a message → <strong>Apps</strong> or <strong>More apps</strong> → Signet7. To seal: <strong>New mail</strong> → <strong>Message</strong> tab → <strong>Seal</strong> (or <strong>Apps</strong> → Seal) → paste the sender token → <strong>Sign and send email</strong>. Wait until the pane says a signed copy is attached. Then press the <strong>Send</strong> button in Outlook. The inbox Home bar is not the compose ribbon.</li>
  </ol>
+
+ <figure class="docs-figure">
+ <img src="assets/docs-outlook-my-addins-page.png" alt="My add-ins page showing Custom Addins section">
+ <figcaption><strong>Correct page:</strong> The "My add-ins" page with the "Custom Addins" section where you can add from file.</figcaption>
+ </figure>
+
+ <ol start="3">
+ <li>Select <strong>My add-ins</strong>. Scroll to <strong>Custom Addins</strong> → <strong>Add a custom add-in</strong> → <strong>Add from File</strong>. Choose the saved <code>manifest.xml</code>. Install. Microsoft no longer offers Add from URL.</li>
+ </ol>
+
+ <figure class="docs-figure">
+ <img src="assets/docs-outlook-add-custom-addin.png" alt="Custom Addins section showing Add a custom add-in button">
+ <figcaption>Click <strong>"+ Add a custom add-in"</strong> then choose <strong>"Add from File"</strong>.</figcaption>
+ </figure>
+
+ <figure class="docs-figure">
+ <img src="assets/docs-outlook-install-warning.png" alt="Security warning dialog for installing custom add-in">
+ <figcaption><strong>Security warning:</strong> Click <strong>"Install"</strong> to proceed with the Signet7 add-in installation.</figcaption>
+ </figure>
+
+ <figure class="docs-figure">
+ <img src="assets/docs-outlook-addin-installed.png" alt="My add-ins page showing successfully installed Signet7 add-in">
+ <figcaption><strong>Installation success:</strong> Signet7 now appears in your Custom Addins with the description "Passive incoming check. Keep writing in Outlook."</figcaption>
+ </figure>
+
+ <ol start="4">
+ <li>Reload Outlook. See <a href="#outlook-pane-usage">Using the Signet7 Outlook pane</a> for how to sign and send emails.</li>
+ </ol>
+
+ <h3 id="outlook-pane-usage">Using the Signet7 Outlook pane</h3>
+ 
+ <p>After installation, you can check messages and seal outgoing emails using the Signet7 pane.</p>
+ 
+ <p><strong>To check a message:</strong> Open a message → <strong>Apps</strong> or <strong>More apps</strong> → Signet7.</p>
+ 
+ <p><strong>To seal an email:</strong> <strong>New mail</strong> → <strong>Message</strong> tab → <strong>Seal</strong> (or <strong>Apps</strong> → Seal) → paste the sender token → <strong>Sign and send email</strong>. Wait until the pane says a signed copy is attached. Then press the <strong>Send</strong> button in Outlook. The inbox Home bar is not the compose ribbon.</p>
+
+ <figure class="docs-figure">
+ <img src="assets/docs-outlook-enhance-with-apps.png" alt="Outlook compose toolbar showing Enhance Outlook with apps button">
+ <figcaption><strong>Compose toolbar:</strong> Look for the <strong>"Enhance Outlook with apps"</strong> button in the compose ribbon.</figcaption>
+ </figure>
+
+ <figure class="docs-figure">
+ <img src="assets/docs-outlook-apps-dialog.png" alt="Apps selection dialog showing Signet7 among available apps">
+ <figcaption><strong>Apps dialog:</strong> Select <strong>Signet7</strong> from the available apps to open the sealing pane.</figcaption>
+ </figure>
+
+ <figure class="docs-figure">
+ <img src="assets/docs-outlook-signet7-pane.png" alt="Signet7 pane opened in Outlook compose sidebar">
+ <figcaption><strong>Signet7 pane opened:</strong> The pane appears in the sidebar with sender token field and seal button.</figcaption>
+ </figure>
+
+ <figure class="docs-figure">
+ <img src="assets/docs-outlook-signet7-interface.png" alt="Clean view of Signet7 interface with token field and buttons">
+ <figcaption><strong>Signet7 interface:</strong> Enter your sender token and use <strong>"Sign and send email"</strong> to seal your message.</figcaption>
+ </figure>
+
+ <figure class="docs-figure">
+ <img src="assets/docs-outlook-seal-success.png" alt="Signet7 showing successful seal with confirmation message">
+ <figcaption><strong>Sealing complete:</strong> After sealing, you'll see "Sealed. A signed copy is attached. Send from Outlook as usual. The email does not contain a check link."</figcaption>
+ </figure>
  <p class="docs-note">Microsoft’s current sideload steps: <a href="https://learn.microsoft.com/en-us/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing">Sideload Outlook add-ins for testing</a>. If the dialog never opens, or Custom Addins is missing, this mailbox cannot sideload. If Install fails, use the current <code>manifest.xml</code> (version 1.0.0.0 or later). The live site file can still be the older copy. The <strong>Send</strong> button in Outlook is not sealed by a send event. Use the <a href="https://verify.signet7.io/email/verify">live check</a> if sideload is blocked.</p>
  <p>IT should push the Signet7 Outlook pane, not Signet7 desktop, to Outlook users: <a href="docs#entra-push">IT push to laptops</a>. Auto-seal from a mail app is setup 3: <a href="docs#signup">company account</a>, then Signet7 desktop on named desks only.</p>
  <p class="docs-note">Hosted panes: <a href="outlook/taskpane.html">taskpane</a> and <a href="outlook/compose.html">compose</a>. Write mail in Outlook, not in those panes.</p>
