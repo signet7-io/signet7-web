@@ -261,3 +261,66 @@ body.docs-manual .docs-table-wrap .data-table th,
 body.docs-manual .docs-table-wrap .data-table td {
   vertical-align: top;
 }
+
+/* Additional styles for improved documentation */
+.deployment-grid, .tech-grid, .troubleshoot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.deployment-card, .tech-card, .trouble-card, .method-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.setup-time {
+  margin: 16px 0;
+}
+
+.time-badge {
+  background: var(--accent);
+  color: var(--bg);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.success-check {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 32px 0;
+}
+
+.success-check h3 {
+  color: #22c55e;
+  margin-top: 0;
+}
+
+.enterprise-note, .support-note {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 32px 0;
+  text-align: center;
+}
+
+.method-comparison {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin: 24px 0;
+}
+
+@media (max-width: 768px) {
+  .deployment-grid, .tech-grid, .troubleshoot-grid {
+    grid-template-columns: 1fr;
+  }
+}
