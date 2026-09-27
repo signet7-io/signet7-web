@@ -358,9 +358,10 @@
  <ol>
  <li>Open <a href="download">Download</a>. Register first. The zip is on the company desk after you sign in. Recipients should not download it.</li>
  <li>Download the zip for Windows, Mac, or Linux from the desk.</li>
- <li>Unzip it. Open Signet7. Windows SmartScreen and Mac Gatekeeper will ask extra clicks.</li>
+ <li>Unzip it. On Windows, open PowerShell in that folder and run <code>powershell -ExecutionPolicy Bypass -File .\install.ps1</code>. That copies to <code>%LOCALAPPDATA%\Signet7</code> and starts the app. Mac/Linux: <code>sh ./install.sh</code>. Windows SmartScreen and Mac Gatekeeper will ask extra clicks.</li>
  <li>A <a href="docs#signup">company account</a> names the work emails. Optional on Download: email a setup note to a work mailbox.</li>
  </ol>
+ <p class="docs-note">If Windows says running scripts is disabled, the Bypass line above is the one-time install. Do not change the machine execution policy for this.</p>
  <p>Next: if this mailbox is Gmail, get an <a href="docs#gmail-gcp">app password</a>. Then <a href="docs#desktop">fill Signet7 desktop</a>.</p>
  <p class="docs-note">Unsigned preview. This is not Authenticode. The signed app is not open yet. Signed builds stay later. It is not a composer.</p>
  </div>
@@ -453,7 +454,7 @@ python -m signet7_agent --check-entra</code></pre>
  <p>There is no Intune MSI and the zip is unsigned. Windows SmartScreen and Mac Gatekeeper will stop a silent push. <code>install.ps1</code> copies to <code>%LOCALAPPDATA%\Signet7</code> and starts the app. That is a person at that desk, not a company-wide assignment.</p>
  <ol>
  <li>Register. Download the zip from the <a href="download">company desk</a> on each named seal laptop only.</li>
- <li>Windows: run <code>install.ps1</code> from the unzipped folder. Mac/Linux: <code>install.sh</code>.</li>
+ <li>Windows: from the unzipped folder run <code>powershell -ExecutionPolicy Bypass -File .\install.ps1</code>. Mac/Linux: <code>sh ./install.sh</code>.</li>
  <li>Fill Signet7 desktop. Footer must read Listening on 127.0.0.1:2525 before anyone points SMTP at that hop.</li>
  <li>Keep Exchange as the normal Outlook outbound server. The 2525 hop fail-closes if Signet7 is down.</li>
  </ol>
