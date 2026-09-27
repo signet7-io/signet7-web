@@ -1,0 +1,32 @@
+---
+description: Post to #github-activity after a commit, pull request, or merge
+alwaysApply: true
+---
+
+# Slack updates for GitHub activity
+
+After a commit is pushed, a pull request is opened, or a pull request is merged, post one short update to Slack `#github-activity` (`C0C4SPGR8AV`).
+
+Covered repositories:
+
+- `signet7-io/signet7`
+- `signet7-io/signet7-core`
+- `signet7-io/signet7-web`
+- `signet7-io/signet7-active`
+- `signet7-io/team-skills`
+
+Do not post activity from `signet7-io/signet7-history` or `ClubSanderson/Cardwise`.
+
+Post only after that GitHub action succeeds. Skip the post if that same commit, pull request, or merge was already announced. A squash merge that also updates `main` is one merge post, not a second commit post.
+
+Lead with the event. Include the repository, the pull request number or commit subject, the title, the link, and the author. Do not include secrets, tokens, or credentials.
+
+```text
+**Pull request merged** — signet7-web #214
+
+site: use collapsible categories in the handbook navigation
+https://github.com/signet7-io/signet7-web/pull/214
+Justin
+```
+
+Channel: https://signet7-team.slack.com/archives/C0C4SPGR8AV

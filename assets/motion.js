@@ -261,12 +261,10 @@
     const panels = [...pitch.querySelectorAll("[data-pitch-panel]")];
     const art = pitch.querySelector("[data-pitch-art]");
     const arts = [
-      "assets/blueprint/homepage.jpg",
-      "assets/blueprint/product.jpg",
-      "assets/blueprint/check.jpg",
-      "assets/blueprint/evidence.jpg",
-      "assets/blueprint/desk.jpg",
-      "assets/blueprint/download.jpg",
+      "assets/blueprint/homepage-hero.jpg",
+      "assets/blueprint/product-p02.jpg",
+      "assets/blueprint/programs-p02.jpg",
+      "assets/blueprint/brand.jpg",
     ];
     const showPitch = (i) => {
       acts.forEach((btn, n) => btn.setAttribute("aria-selected", n === i ? "true" : "false"));

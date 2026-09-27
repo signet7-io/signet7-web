@@ -264,6 +264,7 @@
  <summary>Technical Reference</summary>
  <div class="docs-nav-pages">
  <a href="#how-it-works">How It Works</a>
+ <a href="#spec">Engineer Contract</a>
  <a href="#technical-details">Technical Details</a>
  <a href="#legacy-setup">Legacy Setup Guides</a>
  </div>
@@ -421,6 +422,7 @@
 
  <section class="section" id="outlook-web">
  <div class="container">
+ <span id="outlook"></span>
  <h2>Setup: Outlook on the Web</h2>
  <p class="section-intro">Add digital signing to Outlook on the web. Perfect for Microsoft 365 users who want browser-based email security.</p>
  
@@ -479,6 +481,7 @@
 
  <section class="section" id="desktop-apps">
  <div class="container">
+ <span id="seal"></span>
  <h2>Setup: Desktop Email Apps</h2>
  <p class="section-intro">Automatically sign all your outgoing emails from Outlook Desktop, Apple Mail, or Thunderbird.</p>
  
@@ -574,6 +577,8 @@
 
  <section class="section" id="enterprise">
  <div class="container">
+ <span id="entra"></span>
+ <span id="entra-push"></span>
  <h2>Enterprise Deployment</h2>
  <p class="section-intro">Deploy Signet7 across your organization with centralized management and Microsoft Entra integration.</p>
 
@@ -604,6 +609,14 @@
  <div class="enterprise-note">
  <p><strong>Planning your deployment?</strong> Contact our team at <a href="mailto:support@signet7.io">support@signet7.io</a> for assistance with large-scale rollouts and custom configurations.</p>
  </div>
+
+ <span id="entra-setup"></span>
+ <h3>Microsoft Entra Setup</h3>
+ <p>For detailed Microsoft Entra integration instructions, contact our support team.</p>
+
+ <span id="deployment-options"></span>
+ <h3>Deployment Options</h3>
+ <p>Choose from manual rollouts, group-based deployments, or organization-wide installations.</p>
  </div>
  </section>
 
@@ -630,6 +643,7 @@
  </div>
 
  <h3>Two signing methods:</h3>
+ <span id="seal-where"></span>
  <div class="method-comparison">
  <div class="method-card">
  <h4>Outlook Pane Method</h4>
@@ -656,6 +670,7 @@
 
  <section class="section" id="troubleshooting">
  <div class="container">
+ <span id="entra-troubleshoot"></span>
  <h2>Troubleshooting</h2>
  <p class="section-intro">Common issues and solutions for Signet7 setup and usage.</p>
 
@@ -707,9 +722,44 @@
  </div>
  </section>
 
+ <section class="section section-line" id="spec">
+ <div class="container">
+ <h2>Engineer contract</h2>
+ <p class="section-intro">The public product definition is on <a href="product">Product</a>. Trust language is on <a href="trust-center#result">Trust</a>. Privacy, security, and retention sit on <a href="trust-center">Trust center</a>. Action-bound signatures. Fail-closed unknown actions. no separate inbound/outbound direction field. HTTP and MCP decision surfaces. The caller refuses or performs. Email candidate <code>s7-email-1</code> covers text and HTML alternatives plus attachment bytes plus declared metadata.</p>
+ <div class="scope-list">
+ <div class="scope-row"><b>Financial actions</b><span><code>EXECUTEWIRE</code>, <code>PAY</code>, <code>PURCHASE</code>, <code>REFUND</code>, <code>TRANSFER</code></span></div>
+ <div class="scope-row"><b>API/MCP-first</b><span>No replacement mailbox. No traditional SEG. No endpoint agent. Integration still required. Caller enforces. treating the response as advisory while executing anyway defeats the control.</span></div>
+ <div class="scope-row"><b>Identity</b><span>Signature-bound sender identity. Self-signed and Unresolved are possible. Bind a signing key to a domain. Check whether that binding still holds.</span></div>
+ <div class="scope-row"><b>Limits</b><span>does not block every phishing technique. Evidence support is not certification. No universal legal duration or seven-year default. US and EU rules create demand for records. They do not certify Signet7.</span></div>
+ </div>
+ <p class="docs-note">Short sheets: <a href="download#it">IT</a> · <a href="docs#seal">outbound seal</a> · <a href="check">recipient check</a>.</p>
+
+ <span id="technical-details"></span>
+ <h3>Technical Details</h3>
+ <p>For in-depth technical specifications and implementation details, see the engineer contract above.</p>
+
+ <span id="legacy-setup"></span>
+ <h3>Legacy Setup Guides</h3>
+ <p>Older setup instructions are available on request. Contact support for legacy configurations.</p>
+
+ <span id="docs-agent-card"></span>
+ <span id="agent-card"></span>
+ <h3>Helper instruction card</h3>
+ <p>Do not train a model on company mail. Do not rebuild From, To, Subject, or body. Save the original message file. Submit those bytes to the live check. Read two facts: seal, and listing. If the check is down, do not act. Recipients are not required to install. Company computers use the desktop zip, not pip. This card is instructions, not a plugin.</p>
+ </div>
+ </section>
+
  </main>
  </div>
  </div>
+
+ <footer class="site-footer">
+ <div class="container footer-grid">
+ <div><strong>Signet7</strong><p>Signet7 proves an important email has not been altered before anyone acts on it.</p><p>Signet7™ 2026. All rights reserved.</p></div>
+ <div><a href="privacy">Privacy</a><a href="trust-center">Trust center</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="drawings">Drawings</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div>
+ <div><p>Live check and company accounts are available.</p></div>
+ </div>
+ </footer>
 
  <script src="assets/motion.js?v=20260920c"></script>
  <script src="assets/docs-nav.js?v=20260926nav"></script>

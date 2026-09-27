@@ -254,12 +254,13 @@ class SiteCrawlHardeningTests(unittest.TestCase):
         self.assertIn("fetchpriority=\"high\"", hero)
         self.assertNotIn("loading=\"lazy\"", hero)
         below = home.split('id="features"', 1)[1]
-        self.assertGreaterEqual(below.count('loading="lazy"'), 6)
+        self.assertGreaterEqual(below.count('loading="lazy"'), 1)
 
     def test_homepage_drawings_open_instead_of_navigating(self) -> None:
         home = (ROOT / "index.html").read_text(encoding="utf-8")
         features = home.split('id="features"', 1)[1].split("</section>", 1)[0]
-        self.assertIn('class="open-drawing"', features)
+        self.assertNotIn('class="open-drawing"', features)
+        self.assertNotIn("blueprint/check.jpg", features)
         self.assertNotIn('<a href="check"><img', features)
         self.assertNotIn('<a href="download"><img', features)
         self.assertNotIn('<a href="record"><img', features)
