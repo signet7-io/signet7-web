@@ -3,6 +3,39 @@ html:has(body.docs-manual) {
   scroll-padding-top: calc(var(--nav-h) + 12px);
 }
 
+body.docs-manual {
+  --header: #050608;
+  --nav-h: 5.5rem;
+}
+
+body.docs-manual .site-header {
+  background: color-mix(in oklab, #050608 90%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #1c2430;
+}
+
+body.docs-manual .brand {
+  gap: 0;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+body.docs-manual .brand .home-mark {
+  width: auto;
+  height: 48px;
+  margin: 0;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0;
+  background: transparent;
+}
+
+@media (min-width: 768px) {
+  body.docs-manual .brand .home-mark {
+    height: 56px;
+  }
+}
+
 body.docs-manual .docs-shell {
   display: grid;
   grid-template-columns: 248px minmax(0, 1fr);

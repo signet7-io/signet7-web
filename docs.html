@@ -12,56 +12,34 @@
  <meta property="og:description" content="Email security made simple. Add digital signatures to your emails and verify messages for authenticity.">
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://signet7.io/docs">
- <meta property="og:image" content="https://signet7.io/assets/og-image.png?v=20260920d">
+ <meta property="og:image" content="https://signet7.io/og.jpg">
  <meta name="twitter:card" content="summary_large_image">
  <meta name="description" content="Email security made simple. Add digital signatures to your emails and verify messages for authenticity.">
- <meta name="theme-color" content="#05080d">
+ <meta name="theme-color" content="#050608">
  <title>Documentation | Signet7</title>
- <link rel="icon" type="image/png" href="assets/favicon.png">
+ <link rel="icon" type="image/svg+xml" href="/favicon.svg">
  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
- <link rel="stylesheet" href="assets/site-docs.css?v=20260927docs">
- <link rel="stylesheet" href="assets/docs.css?v=20260926nav">
+ <link rel="stylesheet" href="assets/site-docs.css?v=20260927mark">
+ <link rel="stylesheet" href="assets/docs.css?v=20260927mark">
 </head>
 <body class="docs-manual">
  <a class="skip-link" href="#main">Skip to content</a>
  <header class="site-header">
  <div class="container nav-wrap">
  <a class="brand" href="/" aria-label="Signet7 home">
- <svg class="cad-mark" viewBox="0 0 64 64" width="46" height="46" aria-hidden="true" focusable="false"><g fill="none" stroke="#7ed6f0" stroke-width="2.2"><path d="M12 22 L32 12 L52 22 L52 42 L32 52 L12 42 Z"/><path d="M32 12 L32 32 L12 42"/><path d="M32 32 L52 42"/></g></svg>
- <span>Signet7</span>
+ <img class="home-mark" src="/s7-mark.png" alt="Signet7">
  </a>
+ <span class="cad-mark" hidden></span>
  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
   <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+ <a href="/docs">Docs</a>
  <div class="drop">
- <button type="button" class="drop-btn" aria-expanded="false">Product</button>
+ <button type="button" class="drop-btn" aria-expanded="false">About</button>
  <div class="drop-menu">
- <a href="product">Overview</a>
- <a href="check">Verify an email</a>
- <a href="record">Keep the proof</a>
- <a href="vsn">Look up a company</a>
- <a href="download">Download the app</a>
- <a href="faq">FAQ</a>
- </div>
- </div>
- <div class="drop">
- <button type="button" class="drop-btn" aria-expanded="false">Solutions</button>
- <div class="drop-menu">
- <a href="public-sector">Public sector</a>
- <a href="enterprise">Larger organizations</a>
- <a href="pilot">Run an evaluation</a>
- <a href="scenarios">Worked examples</a>
- </div>
- </div>
- <a href="programs">Pricing</a>
- <a href="docs.html">Docs</a>
- <div class="drop">
- <button type="button" class="drop-btn" aria-expanded="false">Company</button>
- <div class="drop-menu">
- <a href="about">About</a>
- <a href="contact">Contact</a>
- <a href="trust-center">Trust center</a>
- <a href="security">Security</a>
- <a href="status">Status</a>
+ <a href="/#/about">Meet the Team</a>
+ <a href="/#/faq">FAQ</a>
+ <a href="/#/programs">Pricing</a>
+ <a href="/#/security">Trust &amp; security</a>
  </div>
  </div>
  </nav>
@@ -287,29 +265,64 @@
  <ol>
  <li>Download the manifest file: <a href="outlook/manifest.xml">signet7.io/outlook/manifest.xml</a></li>
  <li>In the same browser as Outlook, go to <a href="https://aka.ms/olksideload">aka.ms/olksideload</a></li>
- <li>Click <strong>"My add-ins"</strong> → <strong>"Custom Addins"</strong> → <strong>"Add a custom add-in"</strong> → <strong>"Add from File"</strong></li>
- <li>Select the downloaded manifest.xml file and click <strong>"Install"</strong></li>
- <li>Reload Outlook on the web</li>
+ <li>Click <strong>My add-ins</strong> → <strong>Custom Addins</strong> → <strong>Add a custom add-in</strong> → <strong>Add from File</strong></li>
+ <li>Select the downloaded <code>manifest.xml</code> file and click <strong>Install</strong></li>
+ <li>Reload Outlook on the web, then see <a href="#outlook-pane-usage">Step 3</a> to sign an email</li>
  </ol>
 
  <figure class="docs-figure">
- <img src="assets/docs-outlook-my-addins-page.png" alt="My add-ins page showing Custom Addins section">
- <figcaption>Look for the "Custom Addins" section to upload the manifest file.</figcaption>
+ <img src="assets/docs-outlook-my-addins-page.png" alt="My add-ins page showing the Custom Addins section">
+ <figcaption>The <strong>My add-ins</strong> page with the <strong>Custom Addins</strong> section, where you add the manifest from a file.</figcaption>
  </figure>
 
- <h3>Step 3: Use Signet7 to sign emails</h3>
+ <figure class="docs-figure">
+ <img src="assets/docs-outlook-add-custom-addin.png" alt="Custom Addins section showing Add a custom add-in">
+ <figcaption>Click <strong>+ Add a custom add-in</strong>, then choose <strong>Add from File</strong>.</figcaption>
+ </figure>
+
+ <figure class="docs-figure">
+ <img src="assets/docs-outlook-install-warning.png" alt="Microsoft warning dialog with Install and Cancel">
+ <figcaption>Microsoft’s warning still says add-in. Click <strong>Install</strong> to load the Signet7 Outlook pane.</figcaption>
+ </figure>
+
+ <figure class="docs-figure">
+ <img src="assets/docs-outlook-addin-installed.png" alt="My add-ins page showing Signet7 in Custom Addins">
+ <figcaption>After install, Signet7 appears under <strong>Custom Addins</strong>.</figcaption>
+ </figure>
+
+ <h3 id="outlook-pane-usage">Step 3: Use Signet7 to sign emails</h3>
  <ol>
  <li>Compose a new email in Outlook on the web</li>
- <li>Click the <strong>"Enhance Outlook with apps"</strong> button in the toolbar</li>
- <li>Select <strong>"Signet7"</strong> from the apps list</li>
+ <li>Click <strong>Enhance Outlook with apps</strong> in the compose toolbar</li>
+ <li>Select <strong>Signet7</strong> from the apps list</li>
  <li>Paste your Signet7 token in the pane (this saves for future use)</li>
- <li>Click <strong>"Sign and send email"</strong></li>
- <li>Wait for confirmation, then click Outlook's <strong>"Send"</strong> button</li>
+ <li>Click <strong>Sign and send email</strong></li>
+ <li>Wait until the pane says a signed copy is attached, then click the <strong>Send</strong> button in Outlook on the web</li>
  </ol>
 
  <figure class="docs-figure">
- <img src="assets/docs-outlook-signet7-interface.png" alt="Signet7 interface showing token field and sign button">
- <figcaption>The Signet7 pane with token field and "Sign and send email" button.</figcaption>
+ <img src="assets/docs-outlook-enhance-with-apps.png" alt="Outlook compose toolbar showing Enhance Outlook with apps">
+ <figcaption>In the compose ribbon, open <strong>Enhance Outlook with apps</strong>.</figcaption>
+ </figure>
+
+ <figure class="docs-figure">
+ <img src="assets/docs-outlook-apps-dialog.png" alt="Apps picker showing Signet7 among available apps">
+ <figcaption>Select <strong>Signet7</strong> to open the Signet7 Outlook pane.</figcaption>
+ </figure>
+
+ <figure class="docs-figure">
+ <img src="assets/docs-outlook-signet7-pane.png" alt="Outlook compose window with the Signet7 pane open on the right">
+ <figcaption>The Signet7 Outlook pane opens beside the email you are writing. Keep writing in Outlook.</figcaption>
+ </figure>
+
+ <figure class="docs-figure">
+ <img src="assets/docs-outlook-signet7-interface.png" alt="Signet7 pane with sender token field and Sign and send email">
+ <figcaption>Paste the sender token, then click <strong>Sign and send email</strong>.</figcaption>
+ </figure>
+
+ <figure class="docs-figure">
+ <img src="assets/docs-outlook-seal-success.png" alt="Signet7 pane showing Sealed. A signed copy is attached">
+ <figcaption>When you see <strong>Sealed. A signed copy is attached</strong>, click the <strong>Send</strong> button in Outlook on the web.</figcaption>
  </figure>
 
  <div class="success-check">
@@ -609,7 +622,7 @@
  </div>
  </footer>
 
- <script src="assets/motion.js?v=20260920c"></script>
- <script src="assets/docs-nav.js?v=20260926nav"></script>
+ <script src="assets/motion.js?v=20260927nav"></script>
+ <script src="assets/docs-nav.js?v=20260927nav"></script>
 </body>
 </html>
