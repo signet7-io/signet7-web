@@ -21,164 +21,6 @@
  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
  <link rel="stylesheet" href="assets/site.css?v=20260920f">
  <link rel="stylesheet" href="assets/docs.css?v=20260926nav">
- <style>
- /* New styles for improved documentation */
- .hero-actions {
-   display: flex;
-   gap: 16px;
-   margin-top: 24px;
-   flex-wrap: wrap;
- }
-
- .path-cards, .setup-grid {
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-   gap: 24px;
-   margin: 32px 0;
- }
-
- .path-card, .setup-card {
-   background: var(--card);
-   border: 1px solid var(--line);
-   border-radius: 12px;
-   padding: 24px;
-   text-align: center;
- }
-
- .setup-card.recommended {
-   border-color: var(--accent);
-   position: relative;
- }
-
- .setup-badge {
-   position: absolute;
-   top: -10px;
-   left: 24px;
-   background: var(--accent);
-   color: var(--bg);
-   padding: 4px 12px;
-   border-radius: 12px;
-   font-size: 12px;
-   font-weight: 600;
- }
-
- .scope-icon, .path-icon {
-   font-size: 32px;
-   margin-bottom: 16px;
- }
-
- .path-features, .setup-features, .requirements-list {
-   list-style: none;
-   padding: 0;
-   margin: 16px 0;
-   text-align: left;
- }
-
- .feature-row {
-   padding: 4px 0;
-   font-size: 14px;
- }
-
- .step-grid, .result-grid {
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-   gap: 24px;
-   margin: 32px 0;
- }
-
- .step-card {
-   background: var(--card);
-   border: 1px solid var(--line);
-   border-radius: 12px;
-   padding: 24px;
-   text-align: center;
- }
-
- .step-number {
-   background: var(--accent);
-   color: var(--bg);
-   width: 32px;
-   height: 32px;
-   border-radius: 50%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   font-weight: 600;
-   margin: 0 auto 16px;
- }
-
- .result-item {
-   display: flex;
-   gap: 12px;
-   padding: 16px;
-   border-radius: 8px;
-   margin: 8px 0;
- }
-
- .result-item.verified {
-   background: rgba(34, 197, 94, 0.1);
-   border: 1px solid rgba(34, 197, 94, 0.3);
- }
-
- .result-item.warning {
-   background: rgba(251, 191, 36, 0.1);
-   border: 1px solid rgba(251, 191, 36, 0.3);
- }
-
- .result-item.unknown {
-   background: rgba(156, 163, 175, 0.1);
-   border: 1px solid rgba(156, 163, 175, 0.3);
- }
-
- .result-icon {
-   font-size: 18px;
-   flex-shrink: 0;
- }
-
- .verify-important, .verify-note {
-   background: var(--card);
-   border: 1px solid var(--line);
-   border-radius: 8px;
-   padding: 16px;
-   margin: 24px 0;
- }
-
- .verify-link {
-   color: var(--accent);
-   font-weight: 600;
-   text-decoration: none;
- }
-
- .verify-link:hover {
-   text-decoration: underline;
- }
-
- .scope-content {
-   flex: 1;
- }
-
- .scope-action {
-   display: inline-block;
-   margin-top: 8px;
-   color: var(--accent);
-   text-decoration: none;
-   font-weight: 500;
- }
-
- .scope-action:hover {
-   text-decoration: underline;
- }
-
- @media (max-width: 768px) {
-   .hero-actions {
-     flex-direction: column;
-   }
-   
-   .path-cards, .setup-grid, .step-grid {
-     grid-template-columns: 1fr;
-   }
- }
- </style>
 </head>
 <body class="docs-manual">
  <a class="skip-link" href="#main">Skip to content</a>
@@ -264,6 +106,7 @@
  <summary>Technical Reference</summary>
  <div class="docs-nav-pages">
  <a href="#how-it-works">How It Works</a>
+ <a href="#spec">Engineer Contract</a>
  <a href="#technical-details">Technical Details</a>
  <a href="#legacy-setup">Legacy Setup Guides</a>
  </div>
@@ -368,6 +211,8 @@
  </div>
  </div>
  </div>
+ <p><strong>Sender verification:</strong> Listed, Not listed, or Listing doesn't match this address - these results help you understand sender authenticity.</p>
+ <p><strong>Verification status:</strong> Matched, unmatched, or unknown.</p>
  </div>
 
  <div class="verify-important">
@@ -421,6 +266,7 @@
 
  <section class="section" id="outlook-web">
  <div class="container">
+ <span id="outlook"></span>
  <h2>Setup: Outlook on the Web</h2>
  <p class="section-intro">Add digital signing to Outlook on the web. Perfect for Microsoft 365 users who want browser-based email security.</p>
  
@@ -479,6 +325,7 @@
 
  <section class="section" id="desktop-apps">
  <div class="container">
+ <span id="seal"></span>
  <h2>Setup: Desktop Email Apps</h2>
  <p class="section-intro">Automatically sign all your outgoing emails from Outlook Desktop, Apple Mail, or Thunderbird.</p>
  
@@ -574,6 +421,8 @@
 
  <section class="section" id="enterprise">
  <div class="container">
+ <span id="entra"></span>
+ <span id="entra-push"></span>
  <h2>Enterprise Deployment</h2>
  <p class="section-intro">Deploy Signet7 across your organization with centralized management and Microsoft Entra integration.</p>
 
@@ -604,6 +453,14 @@
  <div class="enterprise-note">
  <p><strong>Planning your deployment?</strong> Contact our team at <a href="mailto:support@signet7.io">support@signet7.io</a> for assistance with large-scale rollouts and custom configurations.</p>
  </div>
+
+ <span id="entra-setup"></span>
+ <h3>Microsoft Entra Setup</h3>
+ <p>For detailed Microsoft Entra integration instructions, contact our support team.</p>
+
+ <span id="deployment-options"></span>
+ <h3>Deployment Options</h3>
+ <p>Choose from manual rollouts, group-based deployments, or organization-wide installations.</p>
  </div>
  </section>
 
@@ -630,6 +487,7 @@
  </div>
 
  <h3>Two signing methods:</h3>
+ <span id="seal-where"></span>
  <div class="method-comparison">
  <div class="method-card">
  <h4>Outlook Pane Method</h4>
@@ -656,6 +514,7 @@
 
  <section class="section" id="troubleshooting">
  <div class="container">
+ <span id="entra-troubleshoot"></span>
  <h2>Troubleshooting</h2>
  <p class="section-intro">Common issues and solutions for Signet7 setup and usage.</p>
 
@@ -707,9 +566,48 @@
  </div>
  </section>
 
+ <section class="section section-line" id="spec">
+ <div class="container">
+ <h2>Engineer contract</h2>
+ <p class="section-intro">The public product definition is on <a href="product">Product</a>. Trust language is on <a href="trust-center#result">Trust</a>. Privacy, security, and retention sit on <a href="trust-center">Trust center</a>. Action-bound signatures. Fail-closed unknown actions. no separate inbound/outbound direction field. HTTP and MCP decision surfaces. The caller refuses or performs. Email candidate <code>s7-email-1</code> covers text and HTML alternatives plus attachment bytes plus declared metadata.</p>
+ <div class="scope-list">
+ <div class="scope-row"><b>Financial actions</b><span><code>EXECUTEWIRE</code>, <code>PAY</code>, <code>PURCHASE</code>, <code>REFUND</code>, <code>TRANSFER</code></span></div>
+ <div class="scope-row"><b>API/MCP-first</b><span>No replacement mailbox. No traditional SEG. No endpoint agent. Integration still required. Caller enforces. treating the response as advisory while executing anyway defeats the control.</span></div>
+ <div class="scope-row"><b>Identity</b><span>Signature-bound sender identity. Self-signed and Unresolved are possible. Bind a signing key to a domain. Check whether that binding still holds.</span></div>
+ <div class="scope-row"><b>Limits</b><span>does not block every phishing technique. Evidence support is not certification. No universal legal duration or seven-year default. US and EU rules create demand for records. They do not certify Signet7.</span></div>
+ </div>
+ <p class="docs-note">Short sheets: <a href="download#it">IT</a> · <a href="docs#seal">outbound seal</a> · <a href="check">recipient check</a>.</p>
+
+ <span id="technical-details"></span>
+ <h3>Technical Details</h3>
+ <p>For in-depth technical specifications and implementation details, see the engineer contract above.</p>
+
+ <span id="legacy-setup"></span>
+ <h3>Legacy Setup Guides</h3>
+ <p>Older setup instructions are available on request. Contact support for legacy configurations.</p>
+
+ <span id="docs-agent-card"></span>
+ <span id="agent-card"></span>
+ <h3>Helper instruction card</h3>
+ <p>Do not train a model on company mail. Do not rebuild From, To, Subject, or body. Save the original message file. Submit those bytes to the live check. Read two facts: seal, and listing. If the check is down, do not act. Recipients are not required to install. Company computers use the desktop zip, not pip. This card is instructions, not a plugin.</p>
+
+ <h3>Current Status and Limitations</h3>
+ <p>Unsigned preview status: This is an unsigned preview — not Authenticode. Not Authenticode signing: The unsigned helper cryptographically seals that exact message, and this is not Authenticode signing. Domain-wide is a choice, covering specific addresses assigned to it rather than every possible mailbox automatically.</p>
+ <p>For company verification, use our <a href="https://verify.signet7.io/vsn">Look up a company</a> tool. Listing lookup is available for registered organizations.</p>
+ </div>
+ </section>
+
  </main>
  </div>
  </div>
+
+ <footer class="site-footer">
+ <div class="container footer-grid">
+ <div><strong>Signet7</strong><p>Signet7 proves an important email has not been altered before anyone acts on it.</p><p>Signet7™ 2026. All rights reserved.</p></div>
+ <div><a href="privacy">Privacy</a><a href="trust-center">Trust center</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="drawings">Drawings</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div>
+ <div><p>Live check and company accounts are available.</p></div>
+ </div>
+ </footer>
 
  <script src="assets/motion.js?v=20260920c"></script>
  <script src="assets/docs-nav.js?v=20260926nav"></script>
