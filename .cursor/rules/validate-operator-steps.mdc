@@ -1,0 +1,14 @@
+---
+description: Verify live UI, email, and labels before sending operator or customer steps
+alwaysApply: true
+---
+
+# Validate steps before sending them
+
+Do not invent Outlook, Entra, account, or mail labels. Before a click path or “search your inbox for…”, confirm the live page, the live mail template for that mail kind, or a screenshot the user just sent.
+
+- Quote only text that is on that surface now.
+- Handbook and local source are not live until the hosted file matches.
+- If the control is missing, say it is missing. Do not guess the next click.
+- Account sign-in mail is a link and a 6-digit code. The sender token is not on the live account desk. It is emailed only when a new intro token is issued, and only in that mail.
+- Do not write “this” or “that” when the noun is unclear. Name the file, URL, button, host, or repo.

@@ -70,9 +70,9 @@ class SiteFreeze20260822Tests(unittest.TestCase):
     def test_homepage_mute_study_films(self) -> None:
         self.assertIn("media-src 'self'", self.home)
         self.assertIn('id="play"', self.home)
-        self.assertIn("assets/blueprint/check.jpg?v=20260919pkg", self.home)
-        self.assertIn("assets/blueprint/evidence.jpg?v=20260919pkg", self.home)
-        self.assertIn("assets/blueprint/howto.jpg?v=20260919pkg", self.home)
+        self.assertNotIn("assets/blueprint/check.jpg", self.home)
+        self.assertNotIn("assets/blueprint/evidence.jpg", self.home)
+        self.assertNotIn("assets/blueprint/howto.jpg", self.home)
         self.assertNotIn("assets/studies/seal.mp4", self.home)
         self.assertIn("Check an important email before you act", self.home)
         self.assertNotIn("Who uses it", self.home)

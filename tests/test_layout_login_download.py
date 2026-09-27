@@ -55,7 +55,7 @@ class LayoutLoginDownloadTests(unittest.TestCase):
         self.assertIn(".art-trio", self.css)
         self.assertIn(".art-trio img", self.css)
         self.assertRegex(self.css, r"\.art-trio img\s*\{[^}]*max-width:\s*100%")
-        self.assertIn("art-trio", self.product)
+        self.assertNotIn("art-trio", self.product)
 
     def test_live_h1_billboard_is_not_sixteen_ch(self) -> None:
         block = re.search(r"\.nutshell \.billboard\s*\{[^}]+\}", self.css)
