@@ -38,10 +38,9 @@
   <rect x="488" y="100" width="64" height="50" rx="3" fill="#010d1d"/>
   <circle cx="520" cy="124" r="42" stroke="#47b1dc" stroke-width="2.6"/>
 </g>
-<rect x="80" y="640" width="400" height="120" fill="none" stroke="#47b1dc" stroke-width="2.6"/><text x="100" y="690" fill="#eef4f8" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.8" font-weight="600">SANDERSON  ·  FOUNDER</text>
-<rect x="520" y="640" width="400" height="120" fill="none" stroke="#47b1dc" stroke-width="2.6"/><text x="540" y="690" fill="#eef4f8" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.8" font-weight="600">DAINES  ·  CO-FOUNDER</text>
-<rect x="960" y="640" width="400" height="120" fill="none" stroke="#47b1dc" stroke-width="2.6"/><text x="980" y="690" fill="#eef4f8" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.8" font-weight="600">RILEY  ·  FOUNDING TEAM</text>
-<rect x="1400" y="640" width="400" height="120" fill="none" stroke="#47b1dc" stroke-width="2.6"/><text x="1420" y="690" fill="#eef4f8" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.8" font-weight="600">TERRIS  ·  MARKETING</text>
+<rect x="240" y="640" width="400" height="120" fill="none" stroke="#47b1dc" stroke-width="2.6"/><text x="260" y="690" fill="#eef4f8" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.8" font-weight="600">SANDERSON  ·  FOUNDER</text>
+<rect x="760" y="640" width="400" height="120" fill="none" stroke="#47b1dc" stroke-width="2.6"/><text x="780" y="690" fill="#eef4f8" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.8" font-weight="600">RILEY  ·  FOUNDING TEAM</text>
+<rect x="1280" y="640" width="400" height="120" fill="none" stroke="#47b1dc" stroke-width="2.6"/><text x="1300" y="690" fill="#eef4f8" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.8" font-weight="600">TERRIS  ·  MARKETING</text>
 
 <rect x="40" y="930" width="1840" height="110" fill="none" stroke="#47b1dc" stroke-width="2.4"/>
 <text x="60" y="972" fill="#9ec9dc" font-size="12" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">SCALE 1:1 NTS</text>

@@ -2,7 +2,16 @@ from __future__ import annotations
 
 import unittest
 
-from tests.site_html import ROOT, root_html_pages
+from tests.site_html import ROOT, public_text_assets, root_html_pages
+
+_FORBIDDEN_PUBLIC_NAME_MARKERS = (
+    "justin d. daines",
+    "justin daines",
+    "justin.daines",
+    "justin.daines@signet7.io",
+    "daines  ·  co-founder",
+    "daines · co-founder",
+)
 
 
 class LawsuitRiskPages(unittest.TestCase):
@@ -38,6 +47,19 @@ class LawsuitRiskPages(unittest.TestCase):
         about = self.pages["about.html"]
         self.assertIn("George T. Terris II", about)
         self.assertNotIn("Justin", about)
+
+    def test_public_text_assets_do_not_name_justin_daines(self) -> None:
+        generator = ROOT / "tools" / "draw_remaining_plates.py"
+        blobs = {path: path.read_text(encoding="utf-8", errors="replace") for path in public_text_assets()}
+        blobs[generator] = generator.read_text(encoding="utf-8")
+        for path, text in blobs.items():
+            lowered = text.lower()
+            for marker in _FORBIDDEN_PUBLIC_NAME_MARKERS:
+                with self.subTest(asset=str(path.relative_to(ROOT)), marker=marker):
+                    self.assertNotIn(marker, lowered)
+            with self.subTest(asset=str(path.relative_to(ROOT)), marker="justin"):
+                if path.suffix.lower() == ".svg" or path.name.endswith(".html"):
+                    self.assertNotIn("justin", lowered)
 
     def test_ai_page_does_not_invent_a_chatbot(self) -> None:
         ai = self.pages["ai.html"].lower()

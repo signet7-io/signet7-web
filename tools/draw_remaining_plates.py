@@ -98,12 +98,21 @@ def wrap(name, title, dwg, body, footer):
     print("wrote", path.name, path.stat().st_size)
 
 
-# ABOUT — founding team
+# ABOUT — founding team (three public names; centered row)
+_ABOUT_BOX_W = 400
+_ABOUT_GAP = 120
+_ABOUT_ROW_W = 3 * _ABOUT_BOX_W + 2 * _ABOUT_GAP
+_ABOUT_ROW_X0 = (1920 - _ABOUT_ROW_W) // 2
+
+
+def _about_row_x(index: int) -> int:
+    return _ABOUT_ROW_X0 + index * (_ABOUT_BOX_W + _ABOUT_GAP)
+
+
 people = [
-    (80, 180, "S7-P-01", "SAMUEL J. SANDERSON", "Founder"),
-    (520, 180, "S7-P-02", "JUSTIN D. DAINES", "CO-Founder"),
-    (960, 180, "S7-P-03", "JOSH S. RILEY", "Founding Team Member"),
-    (1400, 180, "S7-P-04", "GEORGE TERRIS", "Founding Team Member · marketing"),
+    (_about_row_x(0), 180, "S7-P-01", "SAMUEL J. SANDERSON", "Founder"),
+    (_about_row_x(1), 180, "S7-P-02", "JOSH S. RILEY", "Founding Team Member"),
+    (_about_row_x(2), 180, "S7-P-03", "GEORGE TERRIS", "Founding Team Member · marketing"),
 ]
 boxes = []
 for x, y, pid, name, role in people:
@@ -132,7 +141,18 @@ wrap(
     "ABOUT  ·  FOUNDING TEAM  ·  NOT OFFICER TITLES",
 )
 
-# ABOUT cyber variant — isometric envelope + same four names as callouts
+# ABOUT cyber variant — isometric envelope + same three names as callouts
+_cyber_y = 640
+_cyber_labels = [
+    (_about_row_x(0), "SANDERSON  ·  FOUNDER"),
+    (_about_row_x(1), "RILEY  ·  FOUNDING TEAM"),
+    (_about_row_x(2), "TERRIS  ·  MARKETING"),
+]
+_cyber_callouts = "\n".join(
+    f'{rect(x, _cyber_y, _ABOUT_BOX_W, 120, 2.6)}'
+    f'{t(x + 20, _cyber_y + 50, label, 14, INK, family="Segoe UI, Arial, sans-serif", ls="0.8", weight="600")}'
+    for x, label in _cyber_labels
+)
 wrap(
     "about-cyber-sheet.svg",
     "ABOUT  ·  CYBER VARIANT",
@@ -148,10 +168,7 @@ wrap(
   <rect x="488" y="100" width="64" height="50" rx="3" fill="{BG}"/>
   <circle cx="520" cy="124" r="42" stroke="{C}" stroke-width="2.6"/>
 </g>
-{rect(80, 640, 400, 120, 2.6)}{t(100, 690, "SANDERSON  ·  FOUNDER", 14, INK, family="Segoe UI, Arial, sans-serif", ls="0.8", weight="600")}
-{rect(520, 640, 400, 120, 2.6)}{t(540, 690, "DAINES  ·  CO-FOUNDER", 14, INK, family="Segoe UI, Arial, sans-serif", ls="0.8", weight="600")}
-{rect(960, 640, 400, 120, 2.6)}{t(980, 690, "RILEY  ·  FOUNDING TEAM", 14, INK, family="Segoe UI, Arial, sans-serif", ls="0.8", weight="600")}
-{rect(1400, 640, 400, 120, 2.6)}{t(1420, 690, "TERRIS  ·  MARKETING", 14, INK, family="Segoe UI, Arial, sans-serif", ls="0.8", weight="600")}
+{_cyber_callouts}
 ''',
     "ABOUT  ·  CYBER VARIANT  ·  SAME FACTS",
 )
