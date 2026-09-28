@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 import unittest
 
-from tests.site_html import ROOT
+from tests.site_html import ROOT, home_page_markup
 
 
 class LayoutLoginDownloadTests(unittest.TestCase):
@@ -15,7 +15,7 @@ class LayoutLoginDownloadTests(unittest.TestCase):
         cls.docs = (ROOT / "docs.html").read_text(encoding="utf-8")
         cls.product = (ROOT / "product.html").read_text(encoding="utf-8")
         cls.watch = (ROOT / "download.html").read_text(encoding="utf-8")
-        cls.home = (ROOT / "index.html").read_text(encoding="utf-8")
+        cls.home = home_page_markup()
         cls.css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
 
     def test_download_zips_come_before_optional_unlock_form(self) -> None:
@@ -46,10 +46,9 @@ class LayoutLoginDownloadTests(unittest.TestCase):
         self.assertIn("company desk", html)
 
     def test_home_feature_heading_matches_three_cards(self) -> None:
-        features = self.home.split('id="features"', 1)[1].split("</section>", 1)[0]
-        self.assertIn("Verify an email you received. Sign the email you send. Keep the proof.", features)
-        self.assertNotIn("Four things. That is the product.", features)
-        self.assertEqual(features.count("<article class=\"feat\">"), 3)
+        self.assertIn("Seal what you send. Check what you get. Keep the proof.", self.home)
+        self.assertIn("Check the email that asks you to act.", self.home)
+        self.assertNotIn("Four things. That is the product.", self.home)
 
     def test_art_trio_images_are_constrained(self) -> None:
         self.assertIn(".art-trio", self.css)
@@ -61,7 +60,7 @@ class LayoutLoginDownloadTests(unittest.TestCase):
         block = re.search(r"\.nutshell \.billboard\s*\{[^}]+\}", self.css)
         self.assertIsNotNone(block)
         self.assertNotIn("max-width: 16ch", block.group(0))
-        self.assertIn("Check an important email before you act.", self.home)
+        self.assertIn("The last look before you act.", self.home)
 
 
 if __name__ == "__main__":

@@ -29,7 +29,7 @@
 <text x="1100" y="70" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DRAWING  S7-XP-001</text>
 <text x="1100" y="88" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DATE  17 SEP 26   REV D   SCALE NTS</text>
 <text x="1100" y="106" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DRAWN  S7 SYSTEMS</text>
-<a href="https://verify.signet7.io/email/verify"><rect x="1480" y="58" width="160" height="52" fill="none" stroke="#5cb9e9" stroke-width="2.66"/><text x="1560" y="90" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">LIVE CHECK</text></a>
+<a href="https://verify.signet7.io/email/verify"><rect x="1480" y="58" width="160" height="52" fill="none" stroke="#5cb9e9" stroke-width="2.66"/><text x="1560" y="90" fill="#5cb9e9" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">CHECK EMAIL</text></a>
 <a href="https://signet7.io/register"><rect x="1660" y="58" width="160" height="52" fill="#5cb9e9" stroke="#5cb9e9" stroke-width="2.66"/><text x="1740" y="90" fill="#010d1d" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">REGISTER</text></a>
 
 

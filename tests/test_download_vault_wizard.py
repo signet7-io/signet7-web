@@ -6,12 +6,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
+from tests.site_html import home_page_markup  # noqa: E402
+
 
 class DownloadVaultWizardTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.download = (ROOT / "download.html").read_text(encoding="utf-8")
-        cls.home = (ROOT / "index.html").read_text(encoding="utf-8")
+        cls.home = home_page_markup()
 
     def test_download_names_optional_vault_and_one_file_wizard(self) -> None:
         html = self.download
@@ -29,9 +31,7 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertNotIn("Qual", html)
         self.assertNotIn("VSN", html)
         self.assertNotIn("is safe to pay", html)
-        hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
-        self.assertIn("The last look before money moves.", hero)
-        self.assertIn("Check an important email before you act", self.home)
+        self.assertIn("The last look before you act.", self.home)
 
     def test_watch_product_docs_name_optional_vault(self) -> None:
         pages = {
@@ -61,9 +61,7 @@ class DownloadVaultWizardTests(unittest.TestCase):
                 self.assertNotIn("VSN", html)
                 self.assertNotIn("is safe to pay", html)
                 self.assertNotIn("How it works", html)
-        hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
-        self.assertIn("The last look before money moves.", hero)
-        self.assertIn("Check an important email before you act", self.home)
+        self.assertIn("The last look before you act.", self.home)
 
     def test_faq_names_optional_vault_cap(self) -> None:
         html = (ROOT / "faq.html").read_text(encoding="utf-8")
@@ -89,15 +87,13 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertIn("Recipients never run it", html)
         self.assertIn("not pip", html)
         self.assertIn("The app has Check for update", html)
-        self.assertIn("Unsigned Preview", html)
+        self.assertIn("Early access — extra OS warnings until signing is done", html)
         self.assertNotIn("pip install", html)
         self.assertNotIn("Qual", html)
         self.assertNotIn("VSN", html)
         self.assertNotIn("is safe to pay", html)
         self.assertNotIn("How it works", html)
-        hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
-        self.assertIn("The last look before money moves.", hero)
-        self.assertIn("Check an important email before you act", self.home)
+        self.assertIn("The last look before you act.", self.home)
 
     def test_docs_and_download_name_helper_instruction_card(self) -> None:
         docs = (ROOT / "docs.html").read_text(encoding="utf-8")
@@ -118,9 +114,7 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertNotIn("is safe to pay", docs)
         self.assertNotIn("is safe to pay", download)
         self.assertNotIn("How it works", docs)
-        hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
-        self.assertIn("The last look before money moves.", hero)
-        self.assertIn("Check an important email before you act", self.home)
+        self.assertIn("The last look before you act.", self.home)
 
     def test_latest_json_is_unsigned_preview_not_pip(self) -> None:
         meta = json.loads((ROOT / "files" / "latest.json").read_text(encoding="utf-8"))

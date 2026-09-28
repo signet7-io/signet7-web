@@ -79,7 +79,7 @@
             return;
           }
           applyFiles({ files: result.body.files, version: result.body.version });
-          setStatus("Setup note accepted. Recipients still use the live check.");
+          setStatus("Setup note accepted. Recipients still use the check page.");
         })
         .catch(function () {
           setStatus("Could not reach Signet7. Sign in at the company desk when it is back.");

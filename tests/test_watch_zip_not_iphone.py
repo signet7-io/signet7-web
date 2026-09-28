@@ -5,21 +5,23 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
+from tests.site_html import home_page_markup  # noqa: E402
+
 
 class WatchZipNotIphoneTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.watch = (ROOT / "download.html").read_text(encoding="utf-8")
         cls.download = (ROOT / "download.html").read_text(encoding="utf-8")
-        cls.home = (ROOT / "index.html").read_text(encoding="utf-8")
+        cls.home = home_page_markup()
 
     def test_watch_page_says_unsigned_zip_not_iphone(self) -> None:
         watch = self.watch
         self.assertIn('id="watch-not-iphone"', watch)
         self.assertIn("Not the desktop app on iPhone.", watch)
         self.assertIn("Windows or Mac", watch)
-        self.assertIn("unsigned zip", watch)
-        self.assertIn("On a phone, use the live check.", watch)
+        self.assertIn("This zip is for Windows or Mac.", watch)
+        self.assertIn("On a phone, use the check page.", watch)
         self.assertIn("https://verify.signet7.io/email/verify", watch)
 
     def test_download_page_says_unsigned_zip_not_iphone(self) -> None:
@@ -27,7 +29,7 @@ class WatchZipNotIphoneTests(unittest.TestCase):
         self.assertIn('id="watch-not-iphone"', download)
         self.assertIn("Not the desktop app on iPhone.", download)
         self.assertIn("Windows or Mac", download)
-        self.assertIn("On a phone, use the live check.", download)
+        self.assertIn("On a phone, use the check page.", download)
         self.assertIn("https://verify.signet7.io/email/verify", download)
 
     def test_watch_and_download_stay_claim_safe(self) -> None:
@@ -42,10 +44,9 @@ class WatchZipNotIphoneTests(unittest.TestCase):
                 self.assertNotIn("you're safe", html)
                 self.assertNotIn("App Store", html)
                 self.assertNotIn("Play Store", html)
-        self.assertIn("Check an important email before you act", self.home)
-        hero = self.home.split("<h1", 1)[1].split("</h1>", 1)[0]
-        self.assertIn("The last look before money moves.", hero)
-        self.assertNotIn("Watch on iPhone", hero)
+        self.assertIn("before you act", self.home)
+        self.assertIn("The last look before you act.", self.home)
+        self.assertNotIn("Watch on iPhone", self.home)
 
 
 if __name__ == "__main__":

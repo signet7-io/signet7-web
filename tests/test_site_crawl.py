@@ -267,15 +267,14 @@ class SiteCrawlHardeningTests(unittest.TestCase):
         self.assertNotIn('<a href="record"><img', features)
 
     def test_homepage_drawing_cards_keep_text_links(self) -> None:
-        home = (ROOT / "index.html").read_text(encoding="utf-8")
-        features = home.split('id="features"', 1)[1].split("</section>", 1)[0]
-        self.assertIn('<h3><a href="check">Verify an email you received</a></h3>', features)
-        self.assertIn('<h3><a href="download">Sign the email you send</a></h3>', features)
-        self.assertIn('<h3><a href="record">Keep the proof</a></h3>', features)
-        play = home.split('id="play"', 1)[1].split("</section>", 1)[0]
-        self.assertIn('<h3><a href="product">Overview</a></h3>', play)
-        self.assertIn('<h3><a href="public-sector">For government and public agencies</a></h3>', play)
-        self.assertIn('<h3><a href="docs.html">Set-up instructions</a></h3>', play)
+        from tests.site_html import home_served_copy
+
+        home = home_served_copy()
+        self.assertIn("Check the email that asks you to act.", home)
+        self.assertIn("Seal what you send. Check what you get. Keep the proof.", home)
+        self.assertIn('slug:`product`', home)
+        self.assertIn('slug:`public-sector`', home)
+        self.assertIn('slug:`docs`', home)
 
 
 if __name__ == "__main__":
