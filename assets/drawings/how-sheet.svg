@@ -26,7 +26,7 @@
 <text x="1180" y="70" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DRAWING  S7-HW-001</text>
 <text x="1180" y="88" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DATE  17 SEP 26   REV E   SCALE NTS</text>
 <text x="1180" y="106" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DRAWN  S7 SYSTEMS</text>
-<rect x="1660" y="58" width="200" height="52" fill="#5cb9e9" stroke="#5cb9e9" stroke-width="2.6"/><text x="1760" y="90" fill="#010d1d" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">LIVE CHECK</text>
+<rect x="1660" y="58" width="200" height="52" fill="#5cb9e9" stroke="#5cb9e9" stroke-width="2.6"/><text x="1760" y="90" fill="#010d1d" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">CHECK EMAIL</text>
 
 <text x="80" y="200" fill="#eef4f8" font-size="32" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="-0.2" font-weight="600">Seal the email. Then anyone can verify.</text>
 <rect x="80" y="280" width="540" height="520" fill="none" stroke="#47b1dc" stroke-width="3.2"/>

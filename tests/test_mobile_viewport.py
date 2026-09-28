@@ -208,6 +208,6 @@ class OptionalPhoneRuntimeTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr[-500:])
         html = result.stdout
         self.assertIn("header-cta", html)
-        self.assertIn("Live check", html)
+        self.assertIn("Check an email", html)
         self.assertIn("nav-toggle", html)
         self.assertNotIn("Phase 6", html)

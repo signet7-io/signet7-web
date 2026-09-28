@@ -26,7 +26,7 @@
 <text x="1180" y="70" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DRAWING  S7-DL-001</text>
 <text x="1180" y="88" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DATE  17 SEP 26   REV E   SCALE NTS</text>
 <text x="1180" y="106" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DRAWN  S7 SYSTEMS</text>
-<rect x="1660" y="58" width="200" height="52" fill="#5cb9e9" stroke="#5cb9e9" stroke-width="2.6"/><text x="1760" y="90" fill="#010d1d" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">LIVE CHECK</text>
+<rect x="1660" y="58" width="200" height="52" fill="#5cb9e9" stroke="#5cb9e9" stroke-width="2.6"/><text x="1760" y="90" fill="#010d1d" font-size="12" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.8" font-weight="400">CHECK EMAIL</text>
 
 <text x="80" y="200" fill="#eef4f8" font-size="40" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="-0.3" font-weight="600">Register first. Then the zip.</text>
 <text x="80" y="250" fill="#9ec9dc" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.2" font-weight="400">Windows, Mac, and Linux. Recipients never download this.</text>
@@ -43,6 +43,6 @@
 <line x1="480" y1="958" x2="480" y2="978" stroke="#5cb9e9" stroke-width="2.2"/><text x="480" y="1000" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">150</text>
 <line x1="560" y1="958" x2="560" y2="978" stroke="#5cb9e9" stroke-width="2.2"/><text x="560" y="1000" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">200</text>
 <text x="620" y="968" fill="#9ec9dc" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.1" font-weight="400">GRID ON · SNAP ON · ORTHO ON · UNITS mm · THIRD ANGLE</text>
-<text x="620" y="996" fill="#eef4f8" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.6" font-weight="600">DOWNLOAD  ·  REGISTER FIRST  ·  UNSIGNED PREVIEW</text>
+<text x="620" y="996" fill="#eef4f8" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.6" font-weight="600">DOWNLOAD  ·  REGISTER FIRST  ·  EARLY ACCESS</text>
 <image href="../signet7-circle-logo-official-v2.png" x="1788" y="948" width="72" height="72"/>
 </svg>

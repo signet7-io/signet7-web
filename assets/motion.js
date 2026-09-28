@@ -125,17 +125,17 @@
     const copy = {
       law: [
         "Law office",
-        "When a settlement, retainer, or “updated wiring” email arrives, the person who got it opens the live check. No account. No install.",
+        "When a settlement, retainer, or “updated wiring” email arrives, the person who got it opens the check page. No account. No install.",
         "If the seal does not match, they keep the record. Signet7 desktop belongs on the office inbox that would send the money, not on every lawyer’s laptop. "
       ],
       title: [
         "Title / closing",
         "The irreversible step is the account number. Whoever received the email checks it on the website before anyone changes where money goes.",
-        "Closing staff do not each install Signet7. Recipients use the live check. Signet7 desktop, if you use it, sits on the inbox that would wire funds. "
+        "Closing staff do not each install Signet7. Recipients use the check page. Signet7 desktop, if you use it, sits on the inbox that would wire funds. "
       ],
       build: [
         "Construction",
-        "Draws, change orders, and sub pay-apps often look ordinary. That is the trap. The person who got the email opens the live check.",
+        "Draws, change orders, and sub pay-apps often look ordinary. That is the trap. The person who got the email opens the check page.",
         "Do not put Signet7 desktop on every jobsite laptop. Run Signet7 desktop on the named inbox that pays vendors. Recipients are not required to install. Keep writing in your mail app."
       ],
       pay: [
@@ -145,12 +145,12 @@
       ],
       finance: [
         "Finance / AP",
-        "Invoice plus new routing. The person who must pay opens the live check. They do not download Signet7 to do that.",
+        "Invoice plus new routing. The person who must pay opens the check page. They do not download Signet7 to do that.",
         "Run Signet7 desktop on the AP inbox on one company PC if you want a quiet alarm when a seal is torn. Recipients still use the website. Stay in your mail app."
       ],
       bank: [
         "Bank / credit union ops",
-        "Internal or vendor instructions that move accounts still get a last look on the live check. Staff do not install a new mail app.",
+        "Internal or vendor instructions that move accounts still get a last look on the check page. Staff do not install a new mail app.",
         "Signet7 desktop is optional and still named inboxes.  Signet7 is the check and the record you can produce later."
       ]
     };

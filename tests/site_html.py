@@ -5,6 +5,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def home_served_copy() -> str:
+    """User-visible homepage strings live in the committed React bundle."""
+    return (ROOT / "assets" / "home-app.js").read_text(encoding="utf-8")
+
+
+def home_page_markup() -> str:
+    """Shell HTML plus bundle — use when tests need homepage copy or chrome."""
+    return (ROOT / "index.html").read_text(encoding="utf-8") + home_served_copy()
+
+
 def root_html_pages() -> list[Path]:
     """Public brochure pages. Skip Google Search Console verification files."""
     return [path for path in sorted(ROOT.glob("*.html")) if not path.name.startswith("google")]

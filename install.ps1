@@ -1,5 +1,5 @@
 # Signet7 company-computer setup. Recipients should not run this.
-# Live check (no install): https://verify.signet7.io/email/verify
+# Email check (no install): https://verify.signet7.io/email/verify
 $ErrorActionPreference = "Stop"
 $setup = [string]$env:SIGNET7_SETUP
 if ([string]::IsNullOrWhiteSpace($setup)) { $setup = "help" }
@@ -14,15 +14,15 @@ function Show-Help {
   Write-Host "Signet7 setup (Windows)"
   Write-Host "Recipients install nothing. $verify"
   Write-Host ""
-  Write-Host "This script is for one company computer. Unsigned preview. Not a store listing."
+  Write-Host "This script is for one company computer. Early access. Not a store listing."
   Write-Host "Set SIGNET7_SETUP then re-run:"
   Write-Host "  watch     download Signet7 desktop zip for this PC (one company inbox)"
-  Write-Host "  desktop   same as watch: unsigned zip for this PC"
+  Write-Host "  desktop   same as watch: early-access zip for this PC"
   Write-Host "  outlook   save Outlook manifest (Add from File, not AppSource)"
   Write-Host "  help      this list (default)"
   Write-Host ""
   Write-Host "There is no Uninstall command and no Check for update. To remove Signet7 desktop, delete $root by hand."
-  Write-Host "files/latest.json names the current unsigned preview. This script does not upgrade you."
+  Write-Host "files/latest.json names the current early access. This script does not upgrade you."
   Write-Host ""
   Write-Host "Example:"
   Write-Host "  `$env:SIGNET7_SETUP='watch'; irm https://signet7.io/install.ps1 | iex"
@@ -31,7 +31,7 @@ function Show-Help {
 function Install-Watch {
   New-Item -ItemType Directory -Force -Path $root | Out-Null
   $zip = Join-Path $root "signet7-watch-windows.zip"
-  Write-Host "Downloading unsigned Signet7 desktop. SmartScreen may warn. Recipients should not install."
+  Write-Host "Downloading Signet7 desktop. SmartScreen may warn until signing is finished. Recipients should not install."
   Invoke-WebRequest -Uri $watchUrl -OutFile $zip -UseBasicParsing
   $dest = Join-Path $root "watch"
   Expand-Archive -Path $zip -DestinationPath $dest -Force

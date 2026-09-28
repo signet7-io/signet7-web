@@ -49,7 +49,7 @@ def chrome(title, dwg):
             t(1180, 88, "DATE  17 SEP 26   REV E   SCALE NTS", 10, MUTED),
             t(1180, 106, "DRAWN  S7 SYSTEMS", 10, MUTED),
             f'<rect x="1660" y="58" width="200" height="52" fill="{C2}" stroke="{C2}" stroke-width="2.6"/>'
-            + t(1760, 90, "LIVE CHECK", 12, BG, "middle", ls="1.8"),
+            + t(1760, 90, "CHECK EMAIL", 12, BG, "middle", ls="1.8"),
         ]
     )
 
@@ -193,7 +193,7 @@ wrap(
 <polygon points="1200,530 1178,518 1178,542" fill="{C2}"/>
 <polygon points="720,530 742,518 742,542" fill="{C2}"/>
 {t(960, 510, "CHECKED MAIL", 13, C2, "middle", ls="2")}
-{t(960, 580, "Live check  ·  two facts", 14, MUTED, "middle", family="Segoe UI, Arial, sans-serif")}
+{t(960, 580, "Email check  ·  two facts", 14, MUTED, "middle", family="Segoe UI, Arial, sans-serif")}
 ''',
     "ARCHITECTURE  ·  TWO LISTINGS  ·  NOT A DIRECTORY",
 )
@@ -214,7 +214,7 @@ wrap(
 {t(1060, 380, "ITEM 02  DESK", 14, MUTED, ls="2")}
 {t(1060, 430, "Download after sign-in", 22, INK, family="Segoe UI, Arial, sans-serif", ls="0.3", weight="600")}
 {rect(1020, 580, 780, 220, 3.2)}
-{t(1060, 640, "ITEM 03  LIVE CHECK", 14, MUTED, ls="2")}
+{t(1060, 640, "ITEM 03  EMAIL CHECK", 14, MUTED, ls="2")}
 {t(1060, 690, "Anyone. No account.", 22, INK, family="Segoe UI, Arial, sans-serif", ls="0.3", weight="600")}
 ''',
     "REGISTER  ·  COMPANY DESK  ·  ZIP AFTER SIGN-IN",
@@ -257,7 +257,7 @@ wrap(
 {rect(700, 320, 520, 480, 3.2)}{t(960, 520, "MAC", 22, INK, "middle", family="Segoe UI, Arial, sans-serif", weight="600")}{t(960, 560, "Office computer", 14, MUTED, "middle", family="Segoe UI, Arial, sans-serif")}
 {rect(1280, 320, 520, 480, 3.2)}{t(1540, 520, "LINUX", 22, INK, "middle", family="Segoe UI, Arial, sans-serif", weight="600")}{t(1540, 560, "Office computer", 14, MUTED, "middle", family="Segoe UI, Arial, sans-serif")}
 ''',
-    "DOWNLOAD  ·  REGISTER FIRST  ·  UNSIGNED PREVIEW",
+    "DOWNLOAD  ·  REGISTER FIRST  ·  EARLY ACCESS",
 )
 
 # FAQ
@@ -269,7 +269,7 @@ wrap(
 {rect(80, 170, 860, 220, 2.8)}
 {t(110, 220, "FAQ-001", 12, MUTED, ls="2")}
 {t(110, 260, "I got an important email. What do I do?", 18, INK, family="Segoe UI, Arial, sans-serif", weight="600")}
-{t(110, 300, "Keep the original. Open the live check. Recipients are not required to install.", 14, MUTED, family="Segoe UI, Arial, sans-serif")}
+{t(110, 300, "Keep the original. Open the check page. Recipients are not required to install.", 14, MUTED, family="Segoe UI, Arial, sans-serif")}
 {rect(980, 170, 860, 220, 2.8)}
 {t(1010, 220, "FAQ-002", 12, MUTED, ls="2")}
 {t(1010, 260, "Do recipients install?", 18, INK, family="Segoe UI, Arial, sans-serif", weight="600")}
@@ -283,8 +283,8 @@ wrap(
 {t(1010, 520, "Does a match mean pay?", 18, INK, family="Segoe UI, Arial, sans-serif", weight="600")}
 {t(1010, 560, "No. Match is not advice to pay. Checkout is not live.", 14, MUTED, family="Segoe UI, Arial, sans-serif")}
 {rect(80, 690, 1760, 180, 2.8)}
-{t(110, 750, "READY  ·  live check", 16, INK, family="Segoe UI, Arial, sans-serif", weight="600")}
-{t(620, 750, "PREVIEW  ·  desktop unsigned", 16, INK, family="Segoe UI, Arial, sans-serif", weight="600")}
+{t(110, 750, "READY  ·  email check", 16, INK, family="Segoe UI, Arial, sans-serif", weight="600")}
+{t(620, 750, "EARLY ACCESS  ·  signing in progress", 16, INK, family="Segoe UI, Arial, sans-serif", weight="600")}
 {t(1180, 750, "NOT YET  ·  checkout not live", 16, INK, family="Segoe UI, Arial, sans-serif", weight="600")}
 ''',
     "FAQ  ·  SHORT ANSWERS  ·  MATCH IS NOT PAY",

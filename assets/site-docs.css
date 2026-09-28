@@ -1265,7 +1265,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   margin: 0 auto;
   opacity: 1;
 }
-/* The plate is the seal and the Live check panel only. The headline and the
+/* The plate is the seal and the Email check panel only. The headline and the
    fraud figures are page copy, so the art must not repeat them. */
 .sell-hero .blueprint-hero {
   position: relative;
@@ -2034,7 +2034,7 @@ body.docs-manual .docs-nav a { border-radius: 0; }
   cursor: zoom-in;
 }
 
-/* Phone chrome: Live check stays tappable; hamburger scrolls; CAD lightbox is usable. */
+/* Phone chrome: Email check stays tappable; hamburger scrolls; CAD lightbox is usable. */
 @media (max-width: 980px) {
   .header-cta,
   .home .header-cta {
