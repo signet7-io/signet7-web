@@ -86,8 +86,6 @@
  <div class="docs-nav-pages">
  <a href="#how-it-works">How It Works</a>
  <a href="#spec">Engineer Contract</a>
- <a href="#technical-details">Technical Details</a>
- <a href="#legacy-setup">Legacy Setup Guides</a>
  </div>
  </details>
  </nav>
@@ -633,23 +631,20 @@
 
  <section class="section section-line" id="spec">
  <div class="container">
- <h2>Engineer contract</h2>
- <p class="section-intro">The public product definition is on <a href="product">Product</a>. Trust language is on <a href="trust-center#result">Trust</a>. Privacy, security, and retention sit on <a href="trust-center">Trust center</a>. Action-bound signatures. Fail-closed unknown actions. no separate inbound/outbound direction field. HTTP and MCP decision surfaces. The caller refuses or performs. Email candidate <code>s7-email-1</code> covers text and HTML alternatives plus attachment bytes plus declared metadata.</p>
+ <h2>Engineer contract (agents &amp; integrations)</h2>
+ <p class="section-intro"><strong>Who this is for:</strong> builders connecting Signet7 to agents, workflows, or APIs — not end users sealing or checking mail in Outlook.</p>
+ <p><strong>What it’s for:</strong> before your system acts on an email (especially money moves), call Signet7’s API, get allow or refuse, and honor that answer.</p>
+ <p>Public product shape lives on <a href="product">Product</a>. Trust language is on <a href="trust-center#result">Trust</a>. Privacy, security, and retention are on <a href="trust-center">Trust center</a>.</p>
+ <p>Signatures cover both authenticity and the action the email is asking for (for example pay or transfer). If Signet7 doesn’t recognize that action, it says do not proceed. There is no separate inbound/outbound direction field.</p>
+ <p>Your systems call Signet7’s API over HTTP or MCP. Signet7 returns allow or refuse; your system must follow that. Treating the answer as a hint and executing anyway defeats the point.</p>
+ <p>To check an email, submit the original message bytes (text and HTML parts, attachments, and headers) as email candidate <code>s7-email-1</code> — don’t rebuild From, To, Subject, or body.</p>
  <div class="scope-list">
  <div class="scope-row"><b>Financial actions</b><span><code>EXECUTEWIRE</code>, <code>PAY</code>, <code>PURCHASE</code>, <code>REFUND</code>, <code>TRANSFER</code></span></div>
- <div class="scope-row"><b>API/MCP-first</b><span>No replacement mailbox. No traditional SEG. No endpoint agent. Integration still required. Caller enforces. treating the response as advisory while executing anyway defeats the control.</span></div>
- <div class="scope-row"><b>Identity</b><span>Signature-bound sender identity. Self-signed and Unresolved are possible. Bind a signing key to a domain. Check whether that binding still holds.</span></div>
- <div class="scope-row"><b>Limits</b><span>does not block every phishing technique. Evidence support is not certification. No universal legal duration or seven-year default. US and EU rules create demand for records. They do not certify Signet7.</span></div>
+ <div class="scope-row"><b>API / MCP-first</b><span>Not a replacement mailbox, traditional SEG, or endpoint agent. Integration is still required. The caller enforces the decision.</span></div>
+ <div class="scope-row"><b>Identity</b><span>Sender identity is signature-bound. Self-signed and Unresolved are possible outcomes. Bind a signing key to a domain, then check whether that binding still holds.</span></div>
+ <div class="scope-row"><b>Limits</b><span>Does not block every phishing technique. Evidence support is not certification. There is no universal legal retention period or seven-year default. US and EU rules create demand for records; they do not certify Signet7.</span></div>
  </div>
  <p class="docs-note">Short sheets: <a href="download#it">IT</a> · <a href="docs#seal">outbound seal</a> · <a href="check">recipient check</a>.</p>
-
- <span id="technical-details"></span>
- <h3>Technical Details</h3>
- <p>For in-depth technical specifications and implementation details, see the engineer contract above.</p>
-
- <span id="legacy-setup"></span>
- <h3>Legacy Setup Guides</h3>
- <p>Older setup instructions are available on request. Contact support for legacy configurations.</p>
 
  <span id="docs-agent-card"></span>
  <span id="agent-card"></span>
