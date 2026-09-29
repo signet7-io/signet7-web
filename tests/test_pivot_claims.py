@@ -821,7 +821,7 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertIn("https://verify.signet7.io/vsn", page)
         self.assertIn("Listed, Not listed, or Listing doesn’t match this address", page)
         self.assertIn(
-            "DNS keys if they published TXT. Hosted listings on the company desk after they enroll, not a public directory",
+            "DNS keys if they published TXT. Hosted listings on the company account after they enroll, not a public directory",
             page,
         )
         self.assertNotIn("a managed company directory is not", page)

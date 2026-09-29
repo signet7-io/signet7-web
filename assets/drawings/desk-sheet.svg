@@ -22,7 +22,7 @@
 <image href="../signet7-circle-logo-official-v2.png" x="52" y="52" width="64" height="64"/>
 <text x="128" y="78" fill="#eef4f8" font-size="22" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="3" font-weight="600">SIGNET7.IO</text>
 <text x="128" y="102" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2.4" font-weight="400">VERIFY  ·  SEAL  ·  TRUST</text>
-<text x="430" y="90" fill="#eef4f8" font-size="18" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.4" font-weight="600">COMPANY DESK  ·  REGISTER</text>
+<text x="430" y="90" fill="#eef4f8" font-size="18" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.4" font-weight="600">COMPANY ACCOUNT  ·  REGISTER</text>
 <text x="1180" y="70" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DRAWING  S7-DK-001</text>
 <text x="1180" y="88" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DATE  17 SEP 26   REV E   SCALE NTS</text>
 <text x="1180" y="106" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.4" font-weight="400">DRAWN  S7 SYSTEMS</text>
@@ -35,7 +35,7 @@
 <text x="160" y="430" fill="#eef4f8" font-size="28" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.4" font-weight="600">Company login</text>
 <text x="160" y="480" fill="#9ec9dc" font-size="16" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="1.4" font-weight="400">Not the desktop app. Not every laptop.</text>
 <rect x="1020" y="320" width="780" height="220" fill="none" stroke="#47b1dc" stroke-width="3.2"/>
-<text x="1060" y="380" fill="#9ec9dc" font-size="14" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">ITEM 02  DESK</text>
+<text x="1060" y="380" fill="#9ec9dc" font-size="14" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">ITEM 02  DOWNLOAD</text>
 <text x="1060" y="430" fill="#eef4f8" font-size="22" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.3" font-weight="600">Download after sign-in</text>
 <rect x="1020" y="580" width="780" height="220" fill="none" stroke="#47b1dc" stroke-width="3.2"/>
 <text x="1060" y="640" fill="#9ec9dc" font-size="14" font-family="Consolas, monospace" text-anchor="start" letter-spacing="2" font-weight="400">ITEM 03  EMAIL CHECK</text>
@@ -50,6 +50,6 @@
 <line x1="480" y1="958" x2="480" y2="978" stroke="#5cb9e9" stroke-width="2.2"/><text x="480" y="1000" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">150</text>
 <line x1="560" y1="958" x2="560" y2="978" stroke="#5cb9e9" stroke-width="2.2"/><text x="560" y="1000" fill="#9ec9dc" font-size="10" font-family="Consolas, monospace" text-anchor="middle" letter-spacing="1.4" font-weight="400">200</text>
 <text x="620" y="968" fill="#9ec9dc" font-size="11" font-family="Consolas, monospace" text-anchor="start" letter-spacing="1.1" font-weight="400">GRID ON · SNAP ON · ORTHO ON · UNITS mm · THIRD ANGLE</text>
-<text x="620" y="996" fill="#eef4f8" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.6" font-weight="600">REGISTER  ·  COMPANY DESK  ·  ZIP AFTER SIGN-IN</text>
+<text x="620" y="996" fill="#eef4f8" font-size="14" font-family="Segoe UI, Arial, sans-serif" text-anchor="start" letter-spacing="0.6" font-weight="600">REGISTER  ·  COMPANY ACCOUNT  ·  ZIP AFTER SIGN-IN</text>
 <image href="../signet7-circle-logo-official-v2.png" x="1788" y="948" width="72" height="72"/>
 </svg>
