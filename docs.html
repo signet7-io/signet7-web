@@ -69,6 +69,7 @@
  <a href="#outlook-web">Outlook on the Web</a>
  <a href="#desktop-apps">Desktop Email Apps</a>
  <a href="#setup-account">Create Account</a>
+ <a href="#manage-sender-tokens">Manage Sender Tokens</a>
  </div>
  </details>
  <details class="docs-nav-cat">
@@ -422,7 +423,63 @@
  </div>
 
  <div class="verify-note">
- <p><strong>Important:</strong> Keep your Signet7 token secure. This is what signs your emails. If you lose it, you can get a new one from the account page.</p>
+ <p><strong>Important:</strong> Keep your Signet7 token secure. This is what signs your emails. If you lose it, create a new sender token from the account desk (see <a href="#manage-sender-tokens">Manage sender tokens</a>). The desk never shows a token value again after it is created.</p>
+ </div>
+ </div>
+ </section>
+
+ <section class="section" id="manage-sender-tokens">
+ <div class="container">
+ <h2>Manage sender tokens</h2>
+ <p class="section-intro">Sender tokens are the secrets that sign your outgoing mail. Each Signet7 account can hold multiple tokens so different people or devices can seal without sharing one password-like string.</p>
+
+ <div class="verify-note">
+ <p><strong>Account owner only:</strong> Only the account owner can create sender tokens, mark a token for deactivation, or permanently delete a deactivated token. Other users on the account can still paste an active token into the Signet7 Outlook pane or desktop app if the owner shared it with them through your normal internal process.</p>
+ </div>
+
+ <h3>How many tokens you can have</h3>
+ <p>By default up to five sender tokens are allowed per account. If you need more, email <a href="mailto:support@signet7.io">support@signet7.io</a> and Signet7 can raise the limit for your account.</p>
+
+ <h3>Create a sender token</h3>
+ <div class="step-grid">
+ <div class="step-card">
+ <div class="step-number">1</div>
+ <h3>Open the account desk</h3>
+ <p>Sign in at <a href="https://account.signet7.io/account">account.signet7.io/account</a> as the account owner. Open <strong>Account overview</strong> (or the <strong>Tokens</strong> area on that page).</p>
+ </div>
+ <div class="step-card">
+ <div class="step-number">2</div>
+ <h3>Create and label</h3>
+ <p>Choose to create a new sender token. Add an optional label (for example <em>Outlook laptop — Alex</em>). If you skip a label, the desk shows a short fingerprint so you can tell tokens apart later.</p>
+ </div>
+ <div class="step-card">
+ <div class="step-number">3</div>
+ <h3>Save the token from email</h3>
+ <p>Signet7 emails the raw token <strong>once</strong> to the owner. Copy it from that message and store it somewhere safe. The account desk never displays the full token again.</p>
+ </div>
+ </div>
+
+ <h3>Use the token in Outlook or desktop</h3>
+ <ol>
+ <li><strong>Outlook on the web:</strong> Open the Signet7 Outlook pane while you compose mail and paste the token into the token field. The pane saves it for later messages on that browser.</li>
+ <li><strong>Desktop Signet7:</strong> Paste the same token into the <strong>Signet7 Token</strong> field in the desktop app on each computer that should seal with that token.</li>
+ </ol>
+ <p>Every active token can seal mail until you mark it for deactivation. You can run more than one active token at the same time (for example one per device or team member).</p>
+
+ <h3>Mark a token for deactivation</h3>
+ <p>When a token should stop signing, the owner marks it for deactivation in the account desk. Sealing with that token stops <strong>immediately</strong>—there is no grace period where old copies still work.</p>
+ <div class="verify-important">
+ <p><strong>Before you mark a token:</strong> Update every Outlook pane and desktop install that still uses that token. Point them at another active token, or create a new one first. Any device still holding the old token will no longer seal until you paste a different active token.</p>
+ </div>
+
+ <h3>Permanently delete a token</h3>
+ <p>After a token is marked for deactivation, the owner must wait <strong>seven days</strong>. Then the desk lets the owner permanently delete that token record. Deletion is final; you cannot recover the token value or reuse the same secret.</p>
+
+ <h3>Audit</h3>
+ <p>Signet7 records when sender tokens are created, marked for deactivation, and deleted. That history supports security review on your side. It is not a separate product you configure in these docs—your account activity reflects those events.</p>
+
+ <div class="support-note">
+ <p><strong>Need a higher token limit?</strong> Contact <a href="mailto:support@signet7.io">support@signet7.io</a> from the account owner address.</p>
  </div>
  </div>
  </section>
