@@ -6,8 +6,8 @@ const COMMANDS = {
 };
 
 const NOTES = {
-  windows: "Sign in first. The file is on the company desk, not on this page.",
-  macos: "Sign in first. The file is on the company desk, not on this page.",
+  windows: "Sign in first at the account page. The zip is on your company account, not on this brochure page.",
+  macos: "Sign in first at the account page. The zip is on your company account, not on this brochure page.",
 };
 
 function selectedOs() {

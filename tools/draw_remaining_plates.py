@@ -201,7 +201,7 @@ wrap(
 # DESK — register
 wrap(
     "desk-sheet.svg",
-    "COMPANY DESK  ·  REGISTER",
+    "COMPANY ACCOUNT  ·  REGISTER",
     "S7-DK-001",
     f'''
 {t(80, 200, "Register the company.", 40, INK, family="Segoe UI, Arial, sans-serif", ls="-0.3", weight="600")}
@@ -211,13 +211,13 @@ wrap(
 {t(160, 430, "Company login", 28, INK, family="Segoe UI, Arial, sans-serif", ls="0.4", weight="600")}
 {t(160, 480, "Not the desktop app. Not every laptop.", 16, MUTED, family="Segoe UI, Arial, sans-serif")}
 {rect(1020, 320, 780, 220, 3.2)}
-{t(1060, 380, "ITEM 02  DESK", 14, MUTED, ls="2")}
+{t(1060, 380, "ITEM 02  ACCOUNT", 14, MUTED, ls="2")}
 {t(1060, 430, "Download after sign-in", 22, INK, family="Segoe UI, Arial, sans-serif", ls="0.3", weight="600")}
 {rect(1020, 580, 780, 220, 3.2)}
 {t(1060, 640, "ITEM 03  EMAIL CHECK", 14, MUTED, ls="2")}
 {t(1060, 690, "Anyone. No account.", 22, INK, family="Segoe UI, Arial, sans-serif", ls="0.3", weight="600")}
 ''',
-    "REGISTER  ·  COMPANY DESK  ·  ZIP AFTER SIGN-IN",
+    "REGISTER  ·  COMPANY ACCOUNT  ·  ZIP AFTER SIGN-IN",
 )
 
 # DESKTOP
