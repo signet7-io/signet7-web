@@ -17,7 +17,7 @@ class SenderTokensDocsTests(unittest.TestCase):
     def test_locked_product_copy(self) -> None:
         docs = self.docs
         self.assertIn("Account owner only", docs)
-        self.assertIn("up to <strong>five</strong>", docs)
+        self.assertIn("By default up to five sender tokens are allowed per account.", docs)
         self.assertIn("emails the raw token <strong>once</strong>", docs)
         self.assertIn("never displays the full token again", docs)
         self.assertIn("Signet7 Outlook pane", docs)
