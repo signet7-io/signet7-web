@@ -24,7 +24,7 @@ class LayoutLoginDownloadTests(unittest.TestCase):
         self.assertIn('id="unlock-form"', html)
         self.assertLess(html.index('id="watch-files"'), html.index('id="unlock-form"'))
         self.assertIn("No zip until you register", html)
-        self.assertIn("company desk anytime", html)
+        self.assertIn("company account anytime", html)
         self.assertNotIn("Email my unlock code", html)
         self.assertNotIn("$12", html)
         self.assertNotIn("$29", html)
@@ -34,7 +34,7 @@ class LayoutLoginDownloadTests(unittest.TestCase):
     def test_docs_require_registration_before_the_zip(self) -> None:
         html = self.docs
         self.assertIn("Register first", html)
-        self.assertIn("company desk", html)
+        self.assertIn("company account", html)
 
     def test_product_desktop_card_sends_people_to_register(self) -> None:
         card = self.product.split('id="watch"', 1)[1].split("</article>", 1)[0]
@@ -43,7 +43,7 @@ class LayoutLoginDownloadTests(unittest.TestCase):
     def test_watch_brochure_says_register_then_desk(self) -> None:
         html = self.watch
         self.assertIn("Register first", html)
-        self.assertIn("company desk", html)
+        self.assertIn("company account", html)
 
     def test_home_feature_heading_matches_three_cards(self) -> None:
         self.assertIn("Seal what you send. Check what you get. Keep the proof.", self.home)

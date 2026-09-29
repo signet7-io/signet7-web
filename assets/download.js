@@ -54,10 +54,10 @@
       })
         .then(function (r) { return r.json(); })
         .then(function () {
-          setStatus("If that mailbox can register, the code is on its way. Recipients are not required to install Signet7 desktop. The file is on the company desk after you sign in.");
+          setStatus("If that mailbox can register, the code is on its way. Recipients are not required to install Signet7 desktop. The file is on your company account after you sign in.");
         })
         .catch(function () {
-          setStatus("Could not reach Signet7. Sign in at the company desk when it is back.");
+          setStatus("Could not reach Signet7. Sign in on the account page when it is back.");
         });
     });
   }
@@ -75,14 +75,14 @@
         .then(function (r) { return r.json().then(function (body) { return { ok: r.ok, body: body }; }); })
         .then(function (result) {
           if (!result.ok) {
-            setStatus((result.body && result.body.error) || "That code did not work. Sign in at the company desk.");
+            setStatus((result.body && result.body.error) || "That code did not work. Sign in on the account page.");
             return;
           }
           applyFiles({ files: result.body.files, version: result.body.version });
           setStatus("Setup note accepted. Recipients still use the check page.");
         })
         .catch(function () {
-          setStatus("Could not reach Signet7. Sign in at the company desk when it is back.");
+          setStatus("Could not reach Signet7. Sign in on the account page when it is back.");
         });
     });
   }
