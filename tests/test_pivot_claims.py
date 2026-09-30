@@ -225,6 +225,23 @@ class AgentActionGatingPivotTests(unittest.TestCase):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, spec)
 
+    def test_spec_documents_builder_http_apis(self) -> None:
+        spec = self.pages["docs.html"]
+        self.assertIn('id="http-apis"', spec)
+        self.assertIn("https://verify.signet7.io/openapi.json", spec)
+        self.assertIn("https://api.signet7.io", spec)
+        self.assertIn("not live yet", spec.lower())
+        self.assertIn("Authorization: Bearer", spec)
+        self.assertIn("company-account machine credential", spec)
+        self.assertIn("POST /api/v1/email/verify", spec)
+        self.assertIn("POST /api/v1/decisions", spec)
+        self.assertIn("GET /api/v1/verify", spec)
+        self.assertIn("ledger integrity", spec.lower())
+        self.assertIn("SIGNET7_MCP_BASE_URL", spec)
+        self.assertIn("stdio FastMCP", spec)
+        self.assertIn("Public Docs do not catalog admin", spec)
+        self.assertNotIn("GET /api/v1/admin", spec)
+
     def test_program_page_retires_old_public_prices(self) -> None:
         programs = self.pages["programs.html"]
         for phrase in (

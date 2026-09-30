@@ -86,6 +86,7 @@
  <div class="docs-nav-pages">
  <a href="#how-it-works">How It Works</a>
  <a href="#spec">Agents &amp; API integration</a>
+ <a href="#http-apis">HTTP APIs</a>
  </div>
  </details>
  </nav>
@@ -645,6 +646,31 @@
  <div class="scope-row"><b>Limits</b><span>Does not block every phishing technique. Evidence support is not certification. There is no universal legal retention period or seven-year default. US and EU rules create demand for records; they do not certify Signet7.</span></div>
  </div>
  <p class="docs-note">Short sheets: <a href="download#it">IT</a> · <a href="docs#seal">outbound seal</a> · <a href="check">recipient check</a>.</p>
+
+ <span id="http-apis"></span>
+ <h3>HTTP APIs</h3>
+ <p>Machine-facing routes for agents and workflows. The live OpenAPI contract is version <strong>0.2.0rc1</strong>; this page lists the builder-facing subset only.</p>
+
+ <h4>Base URL</h4>
+ <p>The planned integrator host is <code>https://api.signet7.io</code> (customer API door shipping in signet7-core; DNS and environment cutover may still be pending). That host is <strong>not live yet</strong> — call the same customer API routes on <a href="https://verify.signet7.io"><code>https://verify.signet7.io</code></a> until cutover.</p>
+ <p>OpenAPI document: <a href="https://verify.signet7.io/openapi.json"><code>https://verify.signet7.io/openapi.json</code></a>. After the api host is live, the same document will be served on <code>https://api.signet7.io/openapi.json</code> as well.</p>
+
+ <h4>Auth</h4>
+ <p>Send HTTP Bearer credentials on each request: <code>Authorization: Bearer …</code> with a company-account machine credential (opaque API token). Issue and rotate tokens through your company account and its control-plane keys — the same model OpenAPI describes when authentication is configured. Browser session cookies from account sign-in are for humans, not for agents calling Signet7’s API.</p>
+
+ <h4>Primary endpoints for agents</h4>
+ <div class="scope-list">
+ <div class="scope-row"><b><code>POST /api/v1/email/verify</code></b><span>Verify an <code>s7-email-1</code> .eml (component-level email integrity). Independent of ledger verify.</span></div>
+ <div class="scope-row"><b><code>POST /api/v1/decisions</code></b><span>Evaluate policy and seal a decision — the allow/refuse path when your workflow acts on email after calling Signet7’s API.</span></div>
+ </div>
+ <p class="docs-note">OpenAPI includes additional routes (send, sign, account session, and others). Public Docs do not catalog admin, billing, legal-hold, retention governance, or staff <code>/api/v1/admin*</code> paths.</p>
+
+ <div class="verify-important">
+ <p><strong>Ledger verify is not email verify:</strong> <code>GET /api/v1/verify</code> returns a <strong>ledger integrity</strong> report (optional WORM anchor). It does not check an .eml. For message integrity use <code>POST /api/v1/email/verify</code>. People checking mail in a browser use the human check page at <a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a> — not these API routes alone.</p>
+ </div>
+
+ <h4>MCP</h4>
+ <p>Today, MCP is a <strong>stdio FastMCP</strong> server that calls the HTTPS API. Set <code>SIGNET7_MCP_BASE_URL</code> to <code>https://verify.signet7.io</code> for now; after api-door cutover, point it at <code>https://api.signet7.io</code>. There is no separate <code>mcp.signet7.io</code> HTTP or SSE MCP endpoint yet — reuse the API host.</p>
 
  <span id="docs-agent-card"></span>
  <span id="agent-card"></span>
