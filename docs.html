@@ -68,6 +68,7 @@
  <a href="#setup-sender">Setup Options</a>
  <a href="#outlook-web">Outlook on the Web</a>
  <a href="#desktop-apps">Desktop Email Apps</a>
+ <a href="#apple-mail">Apple Mail</a>
  <a href="#setup-account">Create Account</a>
  <a href="#manage-sender-tokens">Manage Sender Tokens</a>
  </div>
@@ -354,9 +355,9 @@
  <li>Go to the <a href="download">Download page</a> and get the desktop app</li>
  <li>Extract the zip file and run the Signet7 application</li>
  <li>Configure your email settings in the left panel</li>
- <li>Paste your Signet7 token and email credentials</li>
- <li>Click <strong>"Save and watch"</strong></li>
- <li>Verify the footer shows "Listening on 127.0.0.1:2525"</li>
+ <li>Paste your Signet7 token and email credentials for the company inbox</li>
+ <li>Click <strong>Save this company inbox</strong></li>
+ <li>Verify the footer shows <strong>Listening on 127.0.0.1:2525</strong> (see <a href="#apple-mail">Apple Mail</a> for a screenshot)</li>
  </ol>
 
  <h3>Step 3: Configure your email client</h3>
@@ -370,12 +371,7 @@
  </ol>
 
  <h4>For Apple Mail:</h4>
- <ol>
- <li>Add a new "Other Mail Account" (not Google account type)</li>
- <li>Set incoming to your normal email settings</li>
- <li>Set outgoing SMTP to <code>127.0.0.1:2525</code> with TLS off</li>
- <li>Send a test email from this account</li>
- </ol>
+ <p>Full steps with screenshots: <a href="#apple-mail">Seal from Apple Mail</a>.</p>
 
  <h4>For Thunderbird:</h4>
  <ol>
@@ -393,6 +389,45 @@
  <li>Recipients can verify your emails by saving and dropping them on the verification tool</li>
  </ul>
  </div>
+ </div>
+ </section>
+
+ <section class="section section-line" id="apple-mail">
+ <div class="container">
+ <h2>Seal from Apple Mail</h2>
+ <p class="section-intro">Use this after your <a href="#setup-account">company account</a> is ready, <a href="#desktop-apps">Signet7 desktop</a> is installed, and you have a Gmail <a href="https://myaccount.google.com/apppasswords">16-letter app password</a> if the company inbox is Gmail. Save the company inbox in Signet7 desktop first — the footer must read <strong>Listening on 127.0.0.1:2525</strong> before Mail can seal through it. Do not point outgoing SMTP at <code>127.0.0.1</code> on a Google-type account (Internet Accounts → Google); Mail lists that server as Offline and will not send.</p>
+
+ <h3>Step 1: Add an Other Mail Account</h3>
+ <ol>
+ <li>Mail → Settings → Accounts → <strong>+</strong>.</li>
+ <li>Choose <strong>Other Mail Account</strong> (not Google, iCloud, or Exchange shortcuts).</li>
+ <li>Enter your company inbox email and the provider app password (Gmail: the same 16-letter app password).</li>
+ </ol>
+ <figure class="docs-figure">
+ <img src="assets/docs-apple-mail-add-account.png" width="1554" height="1398" alt="macOS Mail Add Account dialog with Other Mail Account selected among provider choices">
+ <figcaption>In Add Account, choose <strong>Other Mail Account</strong> — not the Google or iCloud shortcuts.</figcaption>
+ </figure>
+
+ <h3>Step 2: Set Server Settings for Signet7 routing</h3>
+ <ol>
+ <li>Open the new account → <strong>Server Settings</strong>. Uncheck <strong>Automatically manage connection settings</strong> on incoming and outgoing if Mail checked it.</li>
+ <li><strong>Incoming Mail Server (IMAP):</strong> keep your normal provider (for Gmail: Host Name <code>imap.gmail.com</code>, Port <strong>993</strong>, Use TLS/SSL <strong>on</strong>, Authentication <strong>Password</strong>).</li>
+ <li><strong>Outgoing Mail Server (SMTP):</strong> Host Name <code>127.0.0.1</code>, Port <strong>2525</strong>, Use TLS/SSL <strong>off</strong>, Authentication <strong>None</strong>. User Name can stay your full email address; password is not used on this hop.</li>
+ <li>Save. Compose with <strong>From:</strong> this Other account (not the Google-type account). You can keep the Google account for reading only.</li>
+ <li>Send a test. Recipients check at <a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a>; they are not required to install Signet7.</li>
+ </ol>
+ <figure class="docs-figure">
+ <img src="assets/docs-apple-mail-server-settings.png" width="1542" height="1398" alt="Apple Mail Server Settings: incoming IMAP to the provider, outgoing SMTP host 127.0.0.1 port 2525 with TLS off and authentication None">
+ <figcaption>Mail → Server Settings. Incoming stays your provider. Outgoing is <code>127.0.0.1</code> port <strong>2525</strong>, TLS off, Authentication <strong>None</strong>.</figcaption>
+ </figure>
+ <p class="docs-note">Mail may show “Unable to verify account name or password” while saving outgoing <code>127.0.0.1</code>. If incoming IMAP is correct, dismiss it and send a test. Connection Doctor lists Gmail IMAP first — search the log for <code>127.0.0.1</code> or <code>2525</code>.</p>
+
+ <h3>Step 3: Confirm Signet7 desktop is listening</h3>
+ <p>In Signet7 desktop, open <strong>Company Inbox</strong>, fill the company inbox fields, and click <strong>Save this company inbox</strong>. The sidebar footer must show <strong>Listening on 127.0.0.1:2525</strong> before you send from Mail.</p>
+ <figure class="docs-figure">
+ <img src="assets/docs-signet7-mailbox-helper.png" width="1718" height="1584" alt="Signet7 Desktop Company Inbox screen with footer Listening on 127.0.0.1:2525">
+ <figcaption>After <strong>Save this company inbox</strong>, confirm the footer: <strong>Listening on 127.0.0.1:2525</strong>. Mail sends through that listener on this computer.</figcaption>
+ </figure>
  </div>
  </section>
 
