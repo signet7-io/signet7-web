@@ -78,13 +78,28 @@ def _label_in_band(
     draw.text((x0 + 4, ty), text, fill=SIDEBAR_TITLE, font=font)
 
 
+def _repaint_selected_company_inbox(im: Image.Image, draw: ImageDraw.ImageDraw) -> None:
+    """Wipe the full title band on the selected row; leave the IMAP subtitle intact."""
+    x0, x1 = 122, 299
+    y0, y1 = 642, 677
+    # Sample solid selection fill beside the IMAP subtitle (never the title glyphs).
+    blue = im.getpixel((250, 694))[:3]
+    draw.rectangle([x0, y0, x1, y1], fill=blue)
+    text = "Company inbox"
+    font = _font(15)
+    bbox = draw.textbbox((0, 0), text, font=font)
+    th = bbox[3] - bbox[1]
+    tx = 128
+    ty = y0 + (y1 - y0 - th) // 2
+    draw.text((tx, ty), text, fill=SIDEBAR_TITLE, font=font)
+
+
 def _sanitize_sidebar(im: Image.Image) -> None:
     draw = ImageDraw.Draw(im)
-    select_blue = im.getpixel((200, 650))[:3]
     _label_in_band(draw, (128, 407, 276, 433), "Personal", fill=SIDEBAR_BG)
     _label_in_band(draw, (128, 486, 276, 512), "Personal", fill=SIDEBAR_BG)
     _label_in_band(draw, (128, 566, 276, 592), "Personal", fill=SIDEBAR_BG)
-    _label_in_band(draw, (126, 641, 298, 668), "Company inbox", fill=select_blue)
+    _repaint_selected_company_inbox(im, draw)
 
 
 def sanitize_server_settings(path: Path) -> None:
