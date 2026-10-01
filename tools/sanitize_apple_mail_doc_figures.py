@@ -16,6 +16,12 @@ _CAPTURE_COMMIT = "e2213ca"
 
 SIDEBAR_BG = (37, 38, 39)
 SIDEBAR_TITLE = (255, 255, 255)
+# Text column in the accounts sidebar (full width through trailing name glyphs).
+SIDEBAR_TEXT_X0 = 118
+SIDEBAR_TEXT_X1 = 320
+# Selected-row blue fill spans the full selection bar (see capture at y≈655).
+SELECTED_TEXT_X0 = 47
+SELECTED_TEXT_X1 = 320
 
 FONT_PATHS = (
     "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
@@ -80,11 +86,9 @@ def _label_in_band(
 
 def _repaint_selected_company_inbox(im: Image.Image, draw: ImageDraw.ImageDraw) -> None:
     """Wipe the full title band on the selected row; leave the IMAP subtitle intact."""
-    x0, x1 = 122, 299
     y0, y1 = 642, 677
-    # Sample solid selection fill beside the IMAP subtitle (never the title glyphs).
     blue = im.getpixel((250, 694))[:3]
-    draw.rectangle([x0, y0, x1, y1], fill=blue)
+    draw.rectangle([SELECTED_TEXT_X0, y0, SELECTED_TEXT_X1, y1], fill=blue)
     text = "Company inbox"
     font = _font(15)
     bbox = draw.textbbox((0, 0), text, font=font)
@@ -94,11 +98,38 @@ def _repaint_selected_company_inbox(im: Image.Image, draw: ImageDraw.ImageDraw) 
     draw.text((tx, ty), text, fill=SIDEBAR_TITLE, font=font)
 
 
+def _repaint_personal_account(
+    draw: ImageDraw.ImageDraw,
+    im: Image.Image,
+    *,
+    wipe_y0: int,
+    wipe_y1: int,
+    label_y0: int,
+    label_y1: int,
+) -> None:
+    """Clear title + leftover name smudges; redraw Personal; keep IMAP subtitle."""
+    bg = im.getpixel((240, wipe_y0 + 2))[:3]
+    draw.rectangle([SIDEBAR_TEXT_X0, wipe_y0, SIDEBAR_TEXT_X1, wipe_y1], fill=bg)
+    _label_in_band(
+        draw,
+        (128, label_y0, SIDEBAR_TEXT_X1 - 4, label_y1),
+        "Personal",
+        fill=bg,
+        font_size=17,
+    )
+
+
 def _sanitize_sidebar(im: Image.Image) -> None:
     draw = ImageDraw.Draw(im)
-    _label_in_band(draw, (128, 407, 276, 433), "Personal", fill=SIDEBAR_BG)
-    _label_in_band(draw, (128, 486, 276, 512), "Personal", fill=SIDEBAR_BG)
-    _label_in_band(draw, (128, 566, 276, 592), "Personal", fill=SIDEBAR_BG)
+    _repaint_personal_account(
+        draw, im, wipe_y0=407, wipe_y1=449, label_y0=407, label_y1=433
+    )
+    _repaint_personal_account(
+        draw, im, wipe_y0=486, wipe_y1=529, label_y0=486, label_y1=512
+    )
+    _repaint_personal_account(
+        draw, im, wipe_y0=566, wipe_y1=609, label_y0=566, label_y1=592
+    )
     _repaint_selected_company_inbox(im, draw)
 
 
