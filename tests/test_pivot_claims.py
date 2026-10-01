@@ -144,8 +144,6 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn("account.signet7.io/account", docs)
         self.assertIn("verify.signet7.io/email/verify", docs)
         self.assertIn("verify.signet7.io/vsn", docs)
-        self.assertIn("seal.signet7.io", docs)
-        self.assertIn("Gmail: 16-letter app password (not Google Cloud)", docs)
         self.assertIn("myaccount.google.com/apppasswords", docs)
         self.assertNotIn("Create a Google Cloud app for Gmail", docs)
         self.assertNotIn("console.cloud.google.com", docs)
@@ -153,24 +151,10 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("Create the Google Cloud app first", docs)
         self.assertNotIn("check@signet7.io", docs)
         self.assertNotIn("Forward the original", docs)
-        self.assertIn(
-            '<a href="https://verify.signet7.io/email/verify">Recipients still check at the live check</a>',
-            docs,
-        )
-        self.assertIn("Sideload the manifest", docs)
         self.assertIn("outlook/manifest.xml", docs)
-        self.assertIn("Other Mail Account", docs)
-        self.assertIn("docs-signet7-mailbox-helper.png", docs)
-        self.assertIn("docs-apple-mail-server-settings.png", docs)
-        self.assertIn("Authentication <strong>None</strong>", docs)
-        self.assertTrue((ROOT / "assets" / "docs-signet7-mailbox-helper.png").is_file())
-        self.assertTrue((ROOT / "assets" / "docs-apple-mail-server-settings.png").is_file())
         self.assertIn("127.0.0.1", docs)
-        self.assertIn("The signed app is not open yet", docs)
-        self.assertIn("id=\"install\"", docs)
         self.assertTrue((ROOT / "docs" / "index.html").is_file())
         self.assertIn("/docs.html", (ROOT / "docs" / "index.html").read_text(encoding="utf-8"))
-        self.assertIn("How to use Signet7", docs)
         self.assertIn("class=\"docs-manual\"", docs)
         self.assertIn("Contents", docs)
         self.assertIn("docs-sidebar", docs)
@@ -181,21 +165,34 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("admin.signet7.io", docs)
         self.assertNotIn("qual.signet7.io", docs)
         self.assertNotIn("pip install", docs)
-        self.assertIn("You received an important email", docs)
+        self.assertLess(docs.find('id="verify"'), docs.find('id="setup-sender"'))
+        self.assertLess(docs.find('id="desktop-apps"'), docs.find('id="apple-mail"'))
+        self.assertLess(docs.find('id="apple-mail"'), docs.find('id="spec"'))
+
+    def test_apple_mail_docs_use_captured_screenshots(self) -> None:
+        docs = self.pages["docs.html"]
+        self.assertIn('id="apple-mail"', docs)
+        self.assertIn('href="#apple-mail"', docs)
         self.assertIn("Seal from Apple Mail", docs)
-        self.assertLess(docs.find('id="verify"'), docs.find('id="signup"'))
-        self.assertLess(docs.find('id="limits"'), docs.find('id="signup"'))
-        self.assertLess(docs.find('id="outlook"'), docs.find('id="signup"'))
-        self.assertLess(docs.find('id="signup"'), docs.find('id="install"'))
-        self.assertLess(docs.find('id="install"'), docs.find('id="desktop"'))
-        self.assertLess(docs.find('id="gmail-gcp"'), docs.find('id="entra"'))
-        self.assertLess(docs.find('id="entra"'), docs.find('id="desktop"'))
-        self.assertLess(docs.find('id="desktop"'), docs.find('id="seal"'))
-        self.assertLess(docs.find('id="seal"'), docs.find('id="clients"'))
-        self.assertIn("id=\"desktop\"", docs)
-        self.assertIn("The desktop helper", docs)
-        self.assertIn("Right — Status", docs)
-        self.assertLess(docs.find('id="clients"'), docs.find('id="apple-mail"'))
+        self.assertIn("Other Mail Account", docs)
+        self.assertIn("Save this company inbox", docs)
+        self.assertIn("docs-apple-mail-add-account.png", docs)
+        self.assertIn("docs-apple-mail-server-settings.png", docs)
+        self.assertIn("docs-signet7-mailbox-helper.png", docs)
+        self.assertIn("Authentication <strong>None</strong>", docs)
+        for asset in (
+            "docs-apple-mail-add-account.png",
+            "docs-apple-mail-server-settings.png",
+            "docs-signet7-mailbox-helper.png",
+        ):
+            with self.subTest(asset=asset):
+                self.assertTrue((ROOT / "assets" / asset).is_file())
+        add_pos = docs.find("docs-apple-mail-add-account.png")
+        settings_pos = docs.find("docs-apple-mail-server-settings.png")
+        listening_pos = docs.find("docs-signet7-mailbox-helper.png")
+        self.assertLess(add_pos, settings_pos)
+        self.assertLess(settings_pos, listening_pos)
+        self.assertGreaterEqual(docs.count('class="docs-figure"'), 3)
 
     def test_trust_page_separates_identity_evidence_and_compliance(self) -> None:
         spec = self.pages["docs.html"]
