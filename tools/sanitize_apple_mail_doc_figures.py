@@ -16,11 +16,10 @@ _CAPTURE_COMMIT = "e2213ca"
 
 SIDEBAR_BG = (37, 38, 39)
 SIDEBAR_TITLE = (255, 255, 255)
-# Text column in the accounts sidebar (full width through trailing name glyphs).
-SIDEBAR_TEXT_X0 = 118
+# Text column only — left edge aligns with Mail account titles (right of icon tiles).
+SIDEBAR_TEXT_X0 = 128
 SIDEBAR_TEXT_X1 = 320
-# Selected-row blue fill spans the full selection bar (see capture at y≈655).
-SELECTED_TEXT_X0 = 47
+SELECTED_TEXT_X0 = 128
 SELECTED_TEXT_X1 = 320
 
 FONT_PATHS = (
