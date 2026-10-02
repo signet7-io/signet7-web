@@ -19,8 +19,12 @@ SIDEBAR_TITLE = (255, 255, 255)
 # Text column only — left edge aligns with Mail account titles (right of icon tiles).
 SIDEBAR_TEXT_X0 = 128
 SIDEBAR_TEXT_X1 = 320
+# Leftover capture redaction blocks sit just right of the title column.
+SIDEBAR_TAIL_X0 = SIDEBAR_TEXT_X1
+SIDEBAR_TAIL_X1 = 440
 SELECTED_TEXT_X0 = 128
 SELECTED_TEXT_X1 = 320
+SELECTED_TAIL_X1 = SIDEBAR_TAIL_X1
 
 FONT_PATHS = (
     "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
@@ -87,7 +91,7 @@ def _repaint_selected_company_inbox(im: Image.Image, draw: ImageDraw.ImageDraw) 
     """Wipe the full title band on the selected row; leave the IMAP subtitle intact."""
     y0, y1 = 642, 677
     blue = im.getpixel((250, 694))[:3]
-    draw.rectangle([SELECTED_TEXT_X0, y0, SELECTED_TEXT_X1, y1], fill=blue)
+    draw.rectangle([SELECTED_TEXT_X0, y0, SELECTED_TAIL_X1, y1], fill=blue)
     text = "Company inbox"
     font = _font(15)
     bbox = draw.textbbox((0, 0), text, font=font)
@@ -108,7 +112,7 @@ def _repaint_personal_account(
 ) -> None:
     """Clear title + leftover name smudges; redraw Personal; keep IMAP subtitle."""
     bg = im.getpixel((240, wipe_y0 + 2))[:3]
-    draw.rectangle([SIDEBAR_TEXT_X0, wipe_y0, SIDEBAR_TEXT_X1, wipe_y1], fill=bg)
+    draw.rectangle([SIDEBAR_TEXT_X0, wipe_y0, SIDEBAR_TAIL_X1, wipe_y1], fill=bg)
     _label_in_band(
         draw,
         (128, label_y0, SIDEBAR_TEXT_X1 - 4, label_y1),
