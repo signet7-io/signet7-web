@@ -16,11 +16,19 @@ _CAPTURE_COMMIT = "e2213ca"
 
 SIDEBAR_BG = (37, 38, 39)
 SIDEBAR_TITLE = (255, 255, 255)
-# Text column only — left edge aligns with Mail account titles (right of icon tiles).
+# Text column — left edge aligns with Mail account titles (right of icon tiles).
 SIDEBAR_TEXT_X0 = 128
 SIDEBAR_TEXT_X1 = 320
+# Accounts sidebar ends before the Add Account modal (1554×1398 capture).
+SIDEBAR_DIVIDER_X = 301
+SIDEBAR_TAIL_X0 = SIDEBAR_TEXT_X0
+SIDEBAR_TAIL_X1 = SIDEBAR_DIVIDER_X - 1
+# Empty sidebar strip between Signet7 and the first Personal row (chrome reference).
+SIDEBAR_CHROME_REF_Y = 390
 SELECTED_TEXT_X0 = 128
-SELECTED_TEXT_X1 = 320
+SELECTED_TITLE_Y0 = 642
+SELECTED_TITLE_Y1 = 677
+SELECTED_BLUE_REF_Y = 658
 
 FONT_PATHS = (
     "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
@@ -66,6 +74,21 @@ def _paint_field(
     draw.text((x0 + 10, y0 + (y1 - y0 - font_size) // 2 - 2), text, fill=(220, 222, 228), font=font)
 
 
+def _sidebar_chrome_strip(im: Image.Image) -> Image.Image:
+    """One scanline of sidebar chrome, one pixel per column (no redaction in ref row)."""
+    return im.crop((SIDEBAR_TAIL_X0, SIDEBAR_CHROME_REF_Y, SIDEBAR_DIVIDER_X, SIDEBAR_CHROME_REF_Y + 1))
+
+
+def _selection_blue_strip(im: Image.Image) -> Image.Image:
+    """One scanline of the selected-row blue through the sidebar text column."""
+    return im.crop((SIDEBAR_TAIL_X0, SELECTED_BLUE_REF_Y, SIDEBAR_DIVIDER_X, SELECTED_BLUE_REF_Y + 1))
+
+
+def _paste_strip_band(im: Image.Image, strip: Image.Image, y0: int, y1: int) -> None:
+    band = strip.resize((strip.width, y1 - y0 + 1), Image.Resampling.NEAREST)
+    im.paste(band, (SIDEBAR_TAIL_X0, y0))
+
+
 def _label_in_band(
     draw: ImageDraw.ImageDraw,
     box: tuple[int, int, int, int],
@@ -84,10 +107,10 @@ def _label_in_band(
 
 
 def _repaint_selected_company_inbox(im: Image.Image, draw: ImageDraw.ImageDraw) -> None:
-    """Wipe the full title band on the selected row; leave the IMAP subtitle intact."""
-    y0, y1 = 642, 677
-    blue = im.getpixel((250, 694))[:3]
-    draw.rectangle([SELECTED_TEXT_X0, y0, SELECTED_TEXT_X1, y1], fill=blue)
+    """Wipe the title band on the selected row; leave the IMAP subtitle intact."""
+    y0, y1 = SELECTED_TITLE_Y0, SELECTED_TITLE_Y1
+    _paste_strip_band(im, _selection_blue_strip(im), y0, y1)
+    draw = ImageDraw.Draw(im)
     text = "Company inbox"
     font = _font(15)
     bbox = draw.textbbox((0, 0), text, font=font)
@@ -100,18 +123,18 @@ def _repaint_selected_company_inbox(im: Image.Image, draw: ImageDraw.ImageDraw) 
 def _repaint_personal_account(
     draw: ImageDraw.ImageDraw,
     im: Image.Image,
+    chrome_strip: Image.Image,
     *,
-    wipe_y0: int,
-    wipe_y1: int,
     label_y0: int,
     label_y1: int,
 ) -> None:
-    """Clear title + leftover name smudges; redraw Personal; keep IMAP subtitle."""
-    bg = im.getpixel((240, wipe_y0 + 2))[:3]
-    draw.rectangle([SIDEBAR_TEXT_X0, wipe_y0, SIDEBAR_TEXT_X1, wipe_y1], fill=bg)
+    """Clear title-band smudges through the sidebar edge; redraw Personal; keep IMAP subtitle."""
+    _paste_strip_band(im, chrome_strip, label_y0, label_y1)
+    draw = ImageDraw.Draw(im)
+    bg = im.getpixel((200, SIDEBAR_CHROME_REF_Y))[:3]
     _label_in_band(
         draw,
-        (128, label_y0, SIDEBAR_TEXT_X1 - 4, label_y1),
+        (128, label_y0, SIDEBAR_TAIL_X1, label_y1),
         "Personal",
         fill=bg,
         font_size=17,
@@ -119,16 +142,11 @@ def _repaint_personal_account(
 
 
 def _sanitize_sidebar(im: Image.Image) -> None:
+    chrome_strip = _sidebar_chrome_strip(im)
     draw = ImageDraw.Draw(im)
-    _repaint_personal_account(
-        draw, im, wipe_y0=407, wipe_y1=449, label_y0=407, label_y1=433
-    )
-    _repaint_personal_account(
-        draw, im, wipe_y0=486, wipe_y1=529, label_y0=486, label_y1=512
-    )
-    _repaint_personal_account(
-        draw, im, wipe_y0=566, wipe_y1=609, label_y0=566, label_y1=592
-    )
+    _repaint_personal_account(draw, im, chrome_strip, label_y0=407, label_y1=433)
+    _repaint_personal_account(draw, im, chrome_strip, label_y0=486, label_y1=512)
+    _repaint_personal_account(draw, im, chrome_strip, label_y0=566, label_y1=592)
     _repaint_selected_company_inbox(im, draw)
 
 
