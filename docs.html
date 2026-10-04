@@ -346,7 +346,7 @@
  <ol>
  <li>Create your Signet7 account at <a href="https://account.signet7.io/account">account.signet7.io/account</a></li>
  <li>Copy your sender token from the one-time email Signet7 sends after sign-in (not from the company account page)</li>
- <li>Name the work email in the Signet7 app. The mailbox password never leaves that app. Do not type it on this website.</li>
+ <li><strong>For a Google Workspace company inbox:</strong> Create a 16-letter app password at <a href="https://myaccount.google.com/apppasswords">myaccount.google.com/apppasswords</a>. signet7.io and <a href="https://account.signet7.io/account">account.signet7.io</a> never ask for a mailbox password — enter it only in Signet7 desktop and your mail app.</li>
  <li><strong>For Microsoft 365 users:</strong> Your IT team may need to set up Microsoft Entra integration</li>
  </ol>
 
@@ -355,7 +355,7 @@
  <li>Go to the <a href="download">Download page</a> and get the desktop app</li>
  <li>Extract the zip file and run the Signet7 application</li>
  <li>Configure your email settings in the left panel</li>
- <li>Paste your Signet7 token. Do not paste a mailbox password.</li>
+ <li>Paste your Signet7 token and email credentials for the company inbox (Google Workspace: the 16-letter app password) into Signet7 desktop.</li>
  <li>Click <strong>Save this company inbox</strong></li>
  <li>Verify the footer shows <strong>Listening on 127.0.0.1:2525</strong> (see <a href="#apple-mail">Apple Mail</a> for a screenshot)</li>
  </ol>
@@ -395,13 +395,13 @@
  <section class="section section-line" id="apple-mail">
  <div class="container">
  <h2>Seal from Apple Mail</h2>
- <p class="section-intro">Use this after your <a href="#setup-account">company account</a> is ready and <a href="#desktop-apps">Signet7 desktop</a> is installed. Name the work email in the app. The mailbox password never leaves that app. Save the company inbox in Signet7 desktop first — the footer must read <strong>Listening on 127.0.0.1:2525</strong> before Mail can seal through it. Do not point outgoing SMTP at <code>127.0.0.1</code> on a Google-type account (Internet Accounts → Google); Mail lists that server as Offline and will not send.</p>
+ <p class="section-intro">Use this after your <a href="#setup-account">company account</a> is ready, <a href="#desktop-apps">Signet7 desktop</a> is installed, and you have a <a href="https://myaccount.google.com/apppasswords">16-letter app password</a> if the company inbox is Google Workspace (work Google mail—not a personal Gmail address). signet7.io and account.signet7.io do not collect mailbox passwords; the app password stays in Signet7 desktop and Mail. Save the company inbox in Signet7 desktop first — the footer must read <strong>Listening on 127.0.0.1:2525</strong> before Mail can seal through it. Do not point outgoing SMTP at <code>127.0.0.1</code> on a Google-type account (Internet Accounts → Google); Mail lists that server as Offline and will not send.</p>
 
  <h3>Step 1: Add an Other Mail Account</h3>
  <ol>
  <li>Mail → Settings → Accounts → <strong>+</strong>.</li>
  <li>Choose <strong>Other Mail Account</strong> (not Google, iCloud, or Exchange shortcuts).</li>
- <li>Enter the company inbox email. Do not type a mailbox password on this page.</li>
+ <li>Enter the company inbox email and the provider app password (Google Workspace: the same 16-letter app password).</li>
  </ol>
  <figure class="docs-figure">
  <img src="assets/docs-apple-mail-add-account.png" width="1554" height="1398" alt="macOS Mail Add Account dialog with Other Mail Account selected among provider choices">
@@ -411,7 +411,7 @@
  <h3>Step 2: Set Server Settings for Signet7 routing</h3>
  <ol>
  <li>Open the new account → <strong>Server Settings</strong>. Uncheck <strong>Automatically manage connection settings</strong> on incoming and outgoing if Mail checked it.</li>
- <li><strong>Incoming mail:</strong> leave it with the mail provider. Do not type that password here.</li>
+ <li><strong>Incoming Mail Server (IMAP):</strong> keep your normal provider (for Gmail: Host Name <code>imap.gmail.com</code>, Port <strong>993</strong>, Use TLS/SSL <strong>on</strong>, Authentication <strong>Password</strong>).</li>
  <li><strong>Outgoing Mail Server (SMTP):</strong> Host Name <code>127.0.0.1</code>, Port <strong>2525</strong>, Use TLS/SSL <strong>off</strong>, Authentication <strong>None</strong>. User Name can stay your full email address; password is not used on this hop.</li>
  <li>Save. Compose with <strong>From:</strong> this Other account (not the Google-type account). You can keep the Google account for reading only.</li>
  <li>Send a test. Recipients check at <a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a>; they are not required to install Signet7.</li>
