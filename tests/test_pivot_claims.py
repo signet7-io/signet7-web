@@ -244,13 +244,13 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         for phrase in (
             "Checking email is free. Signing the email you send is the paid part.",
             "Free while in preview",
-            "$0 now",
             "Why there is no price on this page.",
             "Pricing will not be per employee",
             "no card can be charged",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, programs)
+        self.assertNotIn("$0 now", programs)
         for stale_price in (
             "$12 / $29 / $99 / from $1,000",
             "$12/month",
