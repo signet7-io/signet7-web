@@ -31,8 +31,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 canonical = "https://signet7.io/" if name == "index.html" else f"https://signet7.io/{name.removesuffix('.html')}"
                 self.assertIn(f'<link rel="canonical" href="{canonical}">', html)
                 self.assertIn(f'<meta property="og:url" content="{canonical}">', html)
-                if name in {"terms.html", "disclaimer.html", "404.html"}:
-                    if name in {"terms.html", "disclaimer.html"}:
+                if name in {"terms.html", "disclaimer.html", "preview-agreement.html", "404.html"}:
+                    if name in {"terms.html", "disclaimer.html", "preview-agreement.html"}:
                         self.assertIn('<meta name="robots" content="noindex, nofollow">', html)
                     self.assertNotIn(f"<loc>{canonical}</loc>", sitemap)
                 else:
