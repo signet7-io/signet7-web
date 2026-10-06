@@ -710,6 +710,16 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("safe to pay", pane.lower())
         self.assertNotIn("VSN", pane)
 
+    def test_outlook_check_stays_on_the_signet7_host(self) -> None:
+        pane = (ROOT / "outlook" / "taskpane.html").read_text(encoding="utf-8")
+        js = (ROOT / "outlook" / "taskpane.js").read_text(encoding="utf-8")
+        compose = (ROOT / "outlook" / "compose.js").read_text(encoding="utf-8")
+        self.assertNotIn('id="baseUrl"', pane)
+        self.assertNotIn('getElementById("baseUrl")', js)
+        self.assertNotIn('getElementById("baseUrl")', compose)
+        self.assertIn("https://verify.signet7.io", js)
+        self.assertIn("https://seal.signet7.io", compose)
+
     def test_marketing_kit_honest_watch_and_frozen_h1(self) -> None:
         home = self.pages["index.html"]
         self.assertIn('id="hero-title"', home)

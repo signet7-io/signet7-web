@@ -3,9 +3,7 @@ var ACK = "terms-disclaimer-2026-08-15";
 var DEFAULT_BASE = "https://seal.signet7.io";
 
 function apiBase() {
-  var el = document.getElementById("baseUrl");
-  var base = (el && el.value ? el.value : DEFAULT_BASE).replace(/\/$/, "");
-  return base || DEFAULT_BASE;
+  return DEFAULT_BASE;
 }
 
 function setOut(text) {

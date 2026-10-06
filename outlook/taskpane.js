@@ -13,9 +13,7 @@ function bytesToBase64(bytes) {
 }
 
 function apiBase() {
-  var el = document.getElementById("baseUrl");
-  var base = (el && el.value ? el.value : DEFAULT_BASE).replace(/\/$/, "");
-  return base || DEFAULT_BASE;
+  return DEFAULT_BASE;
 }
 
 function looksSealed(result) {
@@ -227,8 +225,6 @@ Office.onReady(function () {
   if (verifyBtn) verifyBtn.onclick = function () { verifyCurrentMessage({ silent: false }); };
   var inviteBtn = document.getElementById("inviteBtn");
   if (inviteBtn) inviteBtn.onclick = inviteSender;
-  var base = document.getElementById("baseUrl");
-  if (base && !base.value) base.value = DEFAULT_BASE;
   var fbBtn = document.getElementById("feedbackBtn");
   if (fbBtn) {
     fbBtn.onclick = function () {
