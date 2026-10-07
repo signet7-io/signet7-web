@@ -84,11 +84,32 @@ function showPopup(alert) {
   Office.context.ui.displayDialogAsync(url, { height: 40, width: 36, displayInIframe: true });
 }
 
+function markFile(label) {
+  if (label === "Wording changed") return "wording-changed.jpg";
+  if (label === "Wording same") return "wording-same.jpg";
+  if (label === "Not sealed" || label === "Ordinary mail") return "wording-quiet.jpg";
+  if (label === "Address listed") return "address-listed.jpg";
+  if (label === "Address mismatch") return "address-mismatch.jpg";
+  if (label === "Address not listed") return "address-not-listed.jpg";
+  return "";
+}
+
 function setOut(text) {
   var out = document.getElementById("out");
   if (out) out.textContent = text;
-  var mark = document.getElementById("changed-mark");
-  if (mark) mark.hidden = String(text || "").indexOf("Wording changed") !== 0;
+  var lines = String(text || "").split("\n");
+  var words = document.getElementById("mark-words");
+  var list = document.getElementById("mark-list");
+  var wordFile = markFile((lines[0] || "").trim());
+  var listFile = markFile((lines[1] || "").trim());
+  if (words) {
+    words.hidden = !wordFile;
+    if (wordFile) words.src = wordFile;
+  }
+  if (list) {
+    list.hidden = !listFile;
+    if (listFile) list.src = listFile;
+  }
 }
 
 function ackHeader() {
