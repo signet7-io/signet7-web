@@ -85,9 +85,9 @@ function showPopup(alert) {
 }
 
 function markFile(label) {
-  if (label === "Wording changed") return "wording-changed.jpg";
-  if (label === "Wording same") return "wording-same.jpg";
-  if (label === "Not sealed" || label === "Ordinary mail") return "wording-quiet.jpg";
+  if (label === "Changed since sealed") return "sealed-changed.jpg";
+  if (label === "Unchanged since sealed") return "sealed-unchanged.jpg";
+  if (label === "Not sealed" || label === "Ordinary mail") return "not-sealed.jpg";
   if (label === "Address listed") return "address-listed.jpg";
   if (label === "Address mismatch") return "address-mismatch.jpg";
   if (label === "Address not listed") return "address-not-listed.jpg";
@@ -150,9 +150,9 @@ function wordsLine(result) {
     adverse.indexOf(currentStatus) >= 0 ||
     adverse.indexOf(statusAtSigning) >= 0
   ) {
-    return "Wording changed";
+    return "Changed since sealed";
   }
-  return "Wording same";
+  return "Unchanged since sealed";
 }
 
 function listingLine(listing) {
@@ -170,10 +170,10 @@ function formatRecipientResult(result, listing) {
   var words = wordsLine(result);
   var listed = listingLine(listing);
   var note = "Ordinary mail.";
-  if (words === "Wording same") {
-    note = "The sealed wording is still the same.";
-  } else if (words === "Wording changed") {
-    note = "Sealed wording changed. Do not pay from this email. Call a number you already have.";
+  if (words === "Unchanged since sealed") {
+    note = "The email has not changed since it was sealed.";
+  } else if (words === "Changed since sealed") {
+    note = "The email changed after it was sealed. Do not pay from this email. Call a number you already have.";
   }
   return words + "\n" + listed + "\n" + note;
 }

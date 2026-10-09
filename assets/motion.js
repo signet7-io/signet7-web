@@ -76,8 +76,8 @@
   let demoStep = 1;
   const hints = {
     1: "This looks like a real vendor. It isn't enough.",
-    2: "The words still match. The sender is not tied to that company.",
-    3: "Not listed. Customer companies are not in this lookup yet.",
+    2: "Unchanged since sealed. The sender is not tied to that company.",
+    3: "Address not listed. Customer companies are not in this lookup yet.",
     4: "You can keep this result as a file. ",
   };
   const nextLabel = {

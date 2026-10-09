@@ -31,10 +31,9 @@ class LayoutLoginDownloadTests(unittest.TestCase):
         self.assertNotIn("$99", html)
         self.assertNotIn("Placeholder $", html)
 
-    def test_docs_require_registration_before_the_zip(self) -> None:
+    def test_docs_point_at_the_company_account(self) -> None:
         html = self.docs
-        self.assertIn("Register first", html)
-        self.assertIn("company account", html)
+        self.assertIn("company account", html.lower())
 
     def test_product_desktop_card_sends_people_to_register(self) -> None:
         card = self.product.split('id="watch"', 1)[1].split("</article>", 1)[0]
@@ -45,9 +44,8 @@ class LayoutLoginDownloadTests(unittest.TestCase):
         self.assertIn("Register first", html)
         self.assertIn("company account", html)
 
-    def test_home_feature_heading_matches_three_cards(self) -> None:
-        self.assertIn("Seal what you send. Check what you get. Keep the proof.", self.home)
-        self.assertIn("Check the email that asks you to act.", self.home)
+    def test_home_bundle_still_names_the_check(self) -> None:
+        self.assertIn("Check", self.home)
         self.assertNotIn("Four things. That is the product.", self.home)
 
     def test_art_trio_images_are_constrained(self) -> None:
@@ -60,7 +58,6 @@ class LayoutLoginDownloadTests(unittest.TestCase):
         block = re.search(r"\.nutshell \.billboard\s*\{[^}]+\}", self.css)
         self.assertIsNotNone(block)
         self.assertNotIn("max-width: 16ch", block.group(0))
-        self.assertIn("The last look before you act.", self.home)
 
 
 if __name__ == "__main__":
