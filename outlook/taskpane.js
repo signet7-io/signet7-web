@@ -84,9 +84,32 @@ function showPopup(alert) {
   Office.context.ui.displayDialogAsync(url, { height: 40, width: 36, displayInIframe: true });
 }
 
+function markFile(label) {
+  if (label === "Wording changed") return "wording-changed.jpg";
+  if (label === "Wording same") return "wording-same.jpg";
+  if (label === "Not sealed" || label === "Ordinary mail") return "wording-quiet.jpg";
+  if (label === "Address listed") return "address-listed.jpg";
+  if (label === "Address mismatch") return "address-mismatch.jpg";
+  if (label === "Address not listed") return "address-not-listed.jpg";
+  return "";
+}
+
 function setOut(text) {
   var out = document.getElementById("out");
   if (out) out.textContent = text;
+  var lines = String(text || "").split("\n");
+  var words = document.getElementById("mark-words");
+  var list = document.getElementById("mark-list");
+  var wordFile = markFile((lines[0] || "").trim());
+  var listFile = markFile((lines[1] || "").trim());
+  if (words) {
+    words.hidden = !wordFile;
+    if (wordFile) words.src = wordFile;
+  }
+  if (list) {
+    list.hidden = !listFile;
+    if (listFile) list.src = listFile;
+  }
 }
 
 function ackHeader() {
@@ -109,12 +132,12 @@ function lookupListing(fromAddr, key) {
 }
 
 function wordsLine(result) {
-  if (!result) return "No seal";
-  if (result.sealed === false) return "No seal";
+  if (!result) return "Not sealed";
+  if (result.sealed === false) return "Not sealed";
   var signature = String(result.signature || "").toUpperCase();
   var ok = result.integrity_ok === true;
   if (!ok && (signature === "UNKNOWN" || signature === "") && !result.profile) {
-    return "No seal";
+    return "Not sealed";
   }
   var currentStatus = String(result.current_status || "").toUpperCase();
   var statusAtSigning = String(result.status_at_signing || "").toUpperCase();
@@ -127,26 +150,30 @@ function wordsLine(result) {
     adverse.indexOf(currentStatus) >= 0 ||
     adverse.indexOf(statusAtSigning) >= 0
   ) {
-    return "Words do not match";
+    return "Wording changed";
   }
-  return "Words match";
+  return "Wording same";
 }
 
 function listingLine(listing) {
-  if (listing && listing.label) return String(listing.label);
-  if (listing && listing.code === "listing_matches") return "Listed";
-  if (listing && listing.code === "listing_does_not_match") return "Listing doesn’t match this address";
-  return "Not listed";
+  var label = listing && listing.label ? String(listing.label) : "";
+  if (listing && listing.code === "listing_matches") return "Address listed";
+  if (listing && listing.code === "listing_does_not_match") return "Address mismatch";
+  if (/doesn[’']t match/i.test(label)) return "Address mismatch";
+  if (/^listed$/i.test(label)) return "Address listed";
+  if (/not listed|no listing/i.test(label)) return "Address not listed";
+  if (label) return label;
+  return "Address not listed";
 }
 
 function formatRecipientResult(result, listing) {
   var words = wordsLine(result);
   var listed = listingLine(listing);
   var note = "Ordinary mail.";
-  if (words === "Words match") {
-    note = "The words still match the seal.";
-  } else if (words === "Words do not match") {
-    note = "Do not pay.";
+  if (words === "Wording same") {
+    note = "The sealed wording is still the same.";
+  } else if (words === "Wording changed") {
+    note = "Sealed wording changed. Do not pay from this email. Call a number you already have.";
   }
   return words + "\n" + listed + "\n" + note;
 }
