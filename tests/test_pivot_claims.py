@@ -139,6 +139,19 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("EXECUTEWIRE", product)
         self.assertNotIn("EXECUTEWIRE", self.pages["index.html"])
 
+    def test_docs_name_desktop_largest_email(self) -> None:
+        docs = self.pages["docs.html"]
+        self.assertIn('id="misc"', docs)
+        self.assertIn("Miscellaneous", docs)
+        self.assertIn('href="#misc"', docs)
+        self.assertIn("3,932,100 bytes", docs)
+        self.assertIn("3.75 MB", docs)
+        self.assertNotIn("3.75 MiB", docs)
+        self.assertIn("signet7 desktop can seal an email up to", docs.lower())
+        self.assertIn('id="largest-email"', docs)
+        self.assertEqual(docs.count("3,932,100 bytes"), 1)
+        self.assertLess(docs.find('id="spec"'), docs.find('id="misc"'))
+
     def test_docs_page_is_a_customer_handbook(self) -> None:
         docs = self.pages["docs.html"]
         self.assertIn("account.signet7.io/account", docs)
