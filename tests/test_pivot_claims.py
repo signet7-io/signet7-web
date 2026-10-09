@@ -144,13 +144,12 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertIn('id="misc"', docs)
         self.assertIn("Miscellaneous", docs)
         self.assertIn('href="#misc"', docs)
-        self.assertIn("3,932,100 bytes", docs)
         self.assertIn("3.75 MB", docs)
         self.assertNotIn("3.75 MiB", docs)
+        self.assertNotIn("3,932,100", docs)
         self.assertIn("signet7 desktop can seal an email up to", docs.lower())
         self.assertIn('<li id="largest-email">', docs)
         self.assertNotIn("Product limits that are not part of a setup guide.", docs)
-        self.assertEqual(docs.count("3,932,100 bytes"), 1)
         self.assertLess(docs.find('id="spec"'), docs.find('id="misc"'))
 
     def test_docs_page_is_a_customer_handbook(self) -> None:
