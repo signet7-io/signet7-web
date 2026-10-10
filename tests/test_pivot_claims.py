@@ -462,7 +462,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
                 self.assertNotIn("Download the app", nav)
                 self.assertNotIn(">Help</button>", nav)
                 self.assertNotIn("How it works", nav)
-                self.assertRegex(nav, r'href="/#/about">Meet the Team</a>')
+                self.assertRegex(nav, r'href="/about">Meet the Team</a>')
                 self.assertRegex(nav, r'href="/#/faq">FAQ</a>')
                 self.assertRegex(nav, r'href="/#/programs">Pricing</a>')
                 self.assertRegex(nav, r'href="/#/security">Trust &amp; security</a>')

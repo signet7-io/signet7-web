@@ -120,7 +120,7 @@ class SiteCrawlHardeningTests(unittest.TestCase):
             footer = html.split("<footer", 1)[1]
             with self.subTest(page=str(path.relative_to(ROOT))):
                 self.assertRegex(nav, r'href="/docs">Docs</a>')
-                self.assertRegex(nav, r'href="/#/about">Meet the Team</a>')
+                self.assertRegex(nav, r'href="/about">Meet the Team</a>')
                 self.assertRegex(nav, r'href="/#/security">Trust &amp; security</a>')
                 self.assertNotRegex(nav, r'Download the app')
                 self.assertRegex(footer, r'href="/#/security">Trust &amp; security</a>')
