@@ -9,7 +9,7 @@
  is required before any verification surface is hosted on this domain. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self' https://verify.signet7.io; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
  <title>Download | Signet7</title>
- <meta name="description" content="Download Signet7 desktop for several work emails on Windows, Mac, or Linux. Recipients are not required to install. They use the check page.">
+ <meta name="description" content="Download Signet7 desktop for several work emails on Windows or Mac. Recipients are not required to install. They use the check page.">
  <meta name="theme-color" content="#050608">
  <meta property="og:title" content="Download | Signet7">
  <meta property="og:description" content="Download Signet7 desktop for several work emails. Recipients use the check page.">
@@ -64,7 +64,7 @@
  </section>
 <section class="section">
  <div class="container">
- <div class="warn-box">Windows, Mac, and Linux. Recipients should not download this. Windows SmartScreen and Mac Gatekeeper will ask extra clicks because we have not finished signing the app yet.</div>
+ <div class="warn-box">Windows and Mac. Recipients should not download this. Windows SmartScreen and Mac Gatekeeper will ask extra clicks because we have not finished signing the app yet.</div>
  <p class="section-intro">No zip until you register. After you sign in, download is on your company account anytime. Recipients are not required to install.</p>
  <div class="os-grid" id="watch-files">
  <article class="os-card" data-os="windows">
@@ -77,12 +77,6 @@
  <span class="you-flag" data-you hidden>Your computer</span>
  <h2>Mac</h2>
  <p>Same Signet7 desktop on Mac. Recipients still use the check page. No extra app for them.</p>
- <a class="button button-primary" href="https://account.signet7.io/account">Register to download</a>
- </article>
- <article class="os-card" data-os="linux">
- <span class="you-flag" data-you hidden>Your computer</span>
- <h2>Linux</h2>
- <p>Same Signet7 desktop on Linux. If something fails after install, use the check page until we send a new build.</p>
  <a class="button button-primary" href="https://account.signet7.io/account">Register to download</a>
  </article>
  </div>
@@ -99,15 +93,15 @@
  <div class="scope-row"><b>What Signet7 desktop does</b><span>Signet7 desktop sits on named work emails. Ordinary mail stays quiet. It shouts if a seal is torn, or if a named vendor arrives unsealed. Signet7 desktop does not send. Optional sealing is the other job in that same app. It is not Exchange.</span></div>
  <div class="scope-row"><b>What Signet7 desktop does not do</b><span>It does not check every employee mailbox. It does not replace the check page for staff. Recipients are not required to install it.</span></div>
  <div class="scope-row" id="company-records-vault"><b>Records on the office computer</b><span>Optional encrypted records vault for money and account mail. You hold the recovery key. Signet7 cannot read those letters. Cap is 10 GB. Warning at 50%. Export a zip before 90%. Seal and listing stay two facts. The public website check does not keep the letter. Recipients never use the vault. Not a court stamp.</span></div>
- <div class="scope-row" id="company-setup-wizard"><b>Company setup</b><span>One-file wizard in the zip. Windows: <code>powershell -ExecutionPolicy Bypass -File .\install.ps1</code> from the unzipped folder (also uninstall.ps1). Recipients never run it. The app has Check for update. After setup, it starts at login on the office computer that runs it.</span></div>
- <div class="scope-row" id="company-agent-card"><b>Helper instruction card</b><span>Do not train a model on company mail. Do not rebuild From, To, Subject, or body. Save the original message file. Submit those bytes to the check page. Read two facts: seal, and listing. If the check is down, do not act. Recipients are not required to install. Company computers use the desktop zip, not pip. This card is instructions, not a plugin. Same words as AGENT-CHECK.md in the zip.</span></div>
- <div class="scope-row"><b>Uninstall / update</b><span>Windows: run uninstall.ps1, or delete %LOCALAPPDATA%\Signet7. Mac/Linux: uninstall.sh. files/latest.json names this early access. Outlook is removed in My add-ins — that is Microsoft, not Signet7. Recipients are not required to install, so they have nothing to uninstall.</span></div>
+ <div class="scope-row" id="company-setup-wizard"><b>Company setup</b><span>Unzip, then run install. The program files are in the Signet7 folder. Windows: <code>install.ps1</code>. Mac: <code>install.sh</code>. Uninstall is <code>uninstall.ps1</code> inside that folder on Windows. Recipients never run it. The app has Check for update. After setup, it starts at login on the office computer that runs it.</span></div>
+ <div class="scope-row" id="company-agent-card"><b>Helper instruction card</b><span>Do not train a model on company mail. Do not rebuild From, To, Subject, or body. Save the original message file. Submit those bytes to the check page. Read two facts: seal, and listing. If the check is down, do not act. Recipients are not required to install. Company computers use the desktop install, not pip. This card is instructions, not a plugin.</span></div>
+ <div class="scope-row"><b>Uninstall / update</b><span>Windows: run uninstall.ps1 from the Signet7 folder, or delete %LOCALAPPDATA%\Signet7. Mac: uninstall.sh in that same folder. files/latest.json names this early access. Outlook is removed in My add-ins — that is Microsoft, not Signet7. Recipients are not required to install, so they have nothing to uninstall.</span></div>
  </div>
  <div class="install-chooser" data-install-chooser id="install-chooser">
  <p class="install-kicker">Install via terminal</p>
  <p class="install-lead">Register first. Then download from your company account. Recipients skip this.</p>
  <div class="install-os" role="group" aria-label="Operating system">
- <button type="button" data-os-tab="macos" aria-pressed="false">macOS / Linux</button>
+ <button type="button" data-os-tab="macos" aria-pressed="false">Mac</button>
  <button type="button" data-os-tab="windows" aria-pressed="true">Windows</button>
  </div>
  <div class="install-cmd">
@@ -128,7 +122,7 @@
  <div class="grid-3">
  <article class="card"><h3>Browser check — nothing to install</h3><p>The route for everyone on the other side. <a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a>, no account. Upload the <code>Signet7-sealed.eml</code> attachment if there is one, otherwise the saved email. Or attach the saved original to <a href="mailto:check@signet7.io">check@signet7.io</a> and the answer comes back by email.</p></article>
  <article class="card"><h3>Signet7 pane for Outlook — optional</h3><p>Files are hosted at <a href="outlook/">signet7.io/outlook</a>. Save the manifest, open <a href="https://aka.ms/olksideload">aka.ms/olksideload</a>, and choose Add from File. It is not an AppSource listing, and the newer Apps area cannot upload XML. The <strong>Sign and send email</strong> button attaches <code>Signet7-sealed.eml</code>.</p></article>
- <article class="card"><h3>Signet7 desktop — this page</h3><p>One Windows, Mac, or Linux computer per set of named addresses. Early access. Both jobs live in this app: checking what arrives, and optionally signing what you send through 127.0.0.1 port 2525. That hop seals the email itself.</p></article>
+ <article class="card"><h3>Signet7 desktop — this page</h3><p>One Windows or Mac computer per set of named addresses. Early access. Both jobs live in this app: checking what arrives, and optionally signing what you send through 127.0.0.1 port 2525. That hop seals the email itself.</p></article>
  <article class="card"><h3>Company account — no download</h3><p>Sign in by email link at <a href="https://account.signet7.io/account">account.signet7.io/account</a>. Registering is free.</p></article>
  <article class="card"><h3>Lab builds</h3><p>A browser extension, a Gmail add-on, and an Android build exist as unpacked sideloads in the client tree. None of them is the product, and none is in a store.</p></article>
  <article class="card"><h3>Not in any app store</h3><p>Signet7 is not published in any consumer or enterprise app marketplace. If you find something claiming to be Signet7 in one, it is not us. After you sign in, the file is on your company account. The pane files at signet7.io/outlook are the Outlook add-in.</p></article>
@@ -147,7 +141,7 @@
  <li>Ordinary mail stays quiet, and quiet means it is working. On a named address, signing happens automatically over SMTP at 127.0.0.1 port 2525. See <a href="docs#seal-where">where the signature lives</a>.</li>
  <li>Tell everyone else the one thing they need: if an email asks you to move money, upload it at <a href="https://verify.signet7.io/email/verify">verify.signet7.io/email/verify</a> before acting.</li>
  </ol>
- <p>It is the same on Windows, Mac, and Linux. It is not Exchange, not a mail app, and not a spam filter — Outlook stays Outlook and Apple Mail stays Apple Mail. Worked examples: <a href="scenarios">what a clerk actually does</a>.</p>
+ <p>It is the same on Windows and Mac. It is not Exchange, not a mail app, and not a spam filter — Outlook stays Outlook and Apple Mail stays Apple Mail. Worked examples: <a href="scenarios">what a clerk actually does</a>.</p>
  </div>
  </section>
 

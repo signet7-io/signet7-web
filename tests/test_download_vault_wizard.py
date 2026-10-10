@@ -25,7 +25,7 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertIn("90%", html)
         self.assertIn("Recipients never use the vault", html)
         self.assertIn('id="company-setup-wizard"', html)
-        self.assertIn("One-file wizard", html)
+        self.assertIn("install.ps1", html)
         self.assertIn("Recipients never run it", html)
         self.assertNotIn("pip install", html)
         self.assertNotIn("Qual", html)
@@ -104,7 +104,8 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertIn("not a plugin", docs)
         self.assertIn('id="company-agent-card"', download)
         self.assertIn("Do not train a model on company mail", download)
-        self.assertIn("AGENT-CHECK.md", download)
+        self.assertIn("not a plugin", download)
+        self.assertNotIn("AGENT-CHECK.md", download)
         self.assertNotIn("pip install", docs)
         self.assertNotIn("pip install", download)
         self.assertNotIn("Qual", docs)
@@ -123,31 +124,34 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertEqual(meta["source"]["repo"], "signet7-io/signet7")
         self.assertIn("windows", meta["files"])
         self.assertIn("macos", meta["files"])
-        self.assertIn("linux", meta["files"])
+        self.assertNotIn("linux", meta["files"])
+        self.assertNotIn("macos_dmg", meta["files"])
         self.assertEqual(
-            meta["source"]["sha"],
-            "48dee39568ff45597c1b461db04d768d9dd152dd",
+            meta["files"]["windows"]["href"],
+            "files/Signet7-Windows.zip",
         )
-        self.assertEqual(meta["source"]["run"], 35927843964)
-        for key in ("windows", "macos", "linux"):
+        self.assertEqual(
+            meta["files"]["macos"]["href"],
+            "files/Signet7-Mac.zip",
+        )
+        for key in ("windows", "macos"):
             href = meta["files"][key]["href"]
-            self.assertEqual(href, f"files/signet7-watch-{key}.zip")
             path = ROOT / href
             self.assertTrue(path.is_file(), path)
             self.assertEqual(path.stat().st_size, meta["files"][key]["bytes"])
-        dmg = meta["files"]["macos_dmg"]
-        self.assertEqual(dmg["href"], "files/signet7-macos.dmg")
-        self.assertTrue((ROOT / "files" / "signet7-macos.dmg").is_file())
-        self.assertEqual((ROOT / "files" / "signet7-macos.dmg").stat().st_size, dmg["bytes"])
 
     def test_windows_zip_includes_one_file_wizard(self) -> None:
         import zipfile
 
-        path = ROOT / "files" / "signet7-watch-windows.zip"
+        path = ROOT / "files" / "Signet7-Windows.zip"
         with zipfile.ZipFile(path) as zf:
             names = zf.namelist()
-        self.assertIn("payload/signet7-setup.exe", names)
-        self.assertIn("AGENT-CHECK.md", names)
+        self.assertIn("README.txt", names)
+        self.assertIn("install.ps1", names)
+        self.assertIn("Signet7/Signet7.exe", names)
+        self.assertIn("Signet7/signet7-setup.exe", names)
+        self.assertNotIn("AGENT-CHECK.md", names)
+        self.assertNotIn("NOT-A-PUBLIC-RELEASE.txt", names)
         self.assertNotIn("Qual", " ".join(names))
 
 

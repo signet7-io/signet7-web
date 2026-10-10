@@ -316,7 +316,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
     def test_it_one_pager_exists(self) -> None:
         self.assertIn("download.html", self.pages)
         page = self.pages["download.html"].lower()
-        for phrase in ("several named emails", "windows, mac, and linux", "127.0.0.1"):
+        for phrase in ("several named emails", "windows and mac", "127.0.0.1"):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, page)
 
@@ -337,10 +337,10 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("href=\"files/signet7-watch-windows.zip\"", download)
         self.assertNotIn("href=\"files/signet7-watch-macos.zip\"", download)
         self.assertNotIn("href=\"files/signet7-watch-linux.zip\"", download)
-        self.assertTrue((ROOT / "files" / "signet7-watch-windows.zip").is_file())
-        self.assertTrue((ROOT / "files" / "signet7-watch-macos.zip").is_file())
-        self.assertTrue((ROOT / "files" / "signet7-watch-linux.zip").is_file())
-        self.assertTrue((ROOT / "files" / "signet7-macos.dmg").is_file())
+        self.assertTrue((ROOT / "files" / "Signet7-Windows.zip").is_file())
+        self.assertTrue((ROOT / "files" / "Signet7-Mac.zip").is_file())
+        self.assertFalse((ROOT / "files" / "signet7-watch-linux.zip").exists())
+        self.assertFalse((ROOT / "files" / "signet7-macos.dmg").exists())
         self.assertTrue((ROOT / "files" / "latest.json").is_file())
 
     def test_customer_copy_never_says_money_mailbox(self) -> None:
@@ -393,14 +393,8 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("install.sh", js)
         self.assertNotIn("install.ps1", js)
         self.assertNotIn("pip install signet7", js)
-        ps1 = (ROOT / "install.ps1").read_text(encoding="utf-8")
-        sh = (ROOT / "install.sh").read_text(encoding="utf-8")
-        self.assertIn("SIGNET7_SETUP", ps1)
-        self.assertIn("verify.signet7.io/email/verify", ps1)
-        self.assertIn("Recipients should not run this", ps1)
-        self.assertNotIn("qual", ps1.lower())
-        self.assertIn("SIGNET7_SETUP", sh)
-        self.assertNotIn("qual", sh.lower())
+        self.assertFalse((ROOT / "install.ps1").exists())
+        self.assertFalse((ROOT / "install.sh").exists())
         integrations = self.pages["download.html"]
         self.assertIn("Do you need a download?", integrations)
         self.assertIn("Browser check — nothing to install", integrations)
