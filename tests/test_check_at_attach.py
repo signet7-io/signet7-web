@@ -13,10 +13,10 @@ class CheckAtAttachTests(unittest.TestCase):
                 self.assertIn("attach the saved original", html.lower())
                 self.assertNotIn("forward a saved message to", html)
 
-    def test_register_names_vsn_bind(self) -> None:
+    def test_register_goes_to_the_account_form(self) -> None:
         html = (ROOT / "register.html").read_text(encoding="utf-8")
-        self.assertIn("Now with VSN.", html)
-        self.assertIn("lasting listed identity", html)
+        self.assertIn("https://account.signet7.io/account", html)
+        self.assertIn('http-equiv="refresh"', html)
         home = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertNotIn("Now with VSN.", home)
 
