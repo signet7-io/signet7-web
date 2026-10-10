@@ -2320,3 +2320,35 @@ html[data-theme="dark"] .fact.f-purple { border-top: 4px solid #2f7dff; }
   .home .sell-hero > .container.nutshell .badge-row { order: 7; }
 }
 
+/* Homepage header: the S7 mark at its own width, and an outline verify pill. */
+.site-header .brand .site-mark {
+  width: auto;
+  height: 56px;
+  max-width: none;
+  object-fit: contain;
+  object-position: left center;
+  border-radius: 0;
+  background: transparent;
+  margin: 0;
+}
+.header-verify {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid rgba(47, 125, 255, 0.7);
+  border-radius: 999px;
+  background: transparent;
+  color: #8eb6ff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.header-verify:hover { color: #d7e6ff; }
+
