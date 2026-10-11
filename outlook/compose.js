@@ -204,9 +204,16 @@ function sealDraft() {
       }
       var toAddr = window.__signet7LastTo || firstRecipient(pack.body.to_address || "");
       function afterAttach() {
-        setOut("Sealed. A signed copy is attached. Send from Outlook as usual. The letter does not contain a check link.");
-        if (toAddr) showInvitePrompt(toAddr);
-      }
+              if (item.body && item.body.setAsync) {
+                item.body.setAsync(
+                  "The sealed letter is the attached Signet7-sealed.eml file. Do not send this draft.",
+                  { coercionType: Office.CoercionType.Text },
+                  function () {}
+                );
+              }
+              setOut("The sealed letter is the attached file. This draft is not the letter. Do not send this draft.");
+              if (toAddr) showInvitePrompt(toAddr);
+            }
       if (item.addFileAttachmentFromBase64Async && pack.body.eml_base64) {
         item.addFileAttachmentFromBase64Async(pack.body.eml_base64, "Signet7-sealed.eml", function (result) {
           if (result && result.status && result.status !== Office.AsyncResultStatus.Succeeded) {

@@ -2,8 +2,7 @@
 
 Read: passive check. Unsigned mail stays quiet.
 
-Write in Outlook. This pane is not a composer. Seal outgoing mail with
-**Sign and send email**. That step attaches `Signet7-sealed.eml`. The
+Write in Outlook. This pane is not a composer. Seal this draft. The attached file is the letter. Do not send the Outlook draft. The
 sender token is saved on this mailbox after the first paste. Ordinary
 Send is not sealed. Auto-seal, if they opt in, is the localhost SMTP
 helper on named desks only. That hop seals the email itself. Table:

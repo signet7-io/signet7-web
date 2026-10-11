@@ -120,7 +120,7 @@
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="VerifyButtonTooltip" DefaultValue="Passive check. Pops only when a seal is broken."/>
-        <bt:String id="SealButtonTooltip" DefaultValue="Seal this draft. No .eml file. Needs a sender token."/>
+        <bt:String id="SealButtonTooltip" DefaultValue="Seal this draft. The attached file is the letter. Needs a sender token."/>
       </bt:LongStrings>
     </Resources>
     <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
@@ -197,7 +197,7 @@
         </bt:ShortStrings>
         <bt:LongStrings>
           <bt:String id="VerifyButtonTooltip" DefaultValue="Pin this pane. Changing mail re-checks. Quiet on ordinary unsigned mail."/>
-          <bt:String id="SealButtonTooltip" DefaultValue="Seal this draft. No .eml file. Needs a sender token."/>
+          <bt:String id="SealButtonTooltip" DefaultValue="Seal this draft. The attached file is the letter. Needs a sender token."/>
         </bt:LongStrings>
       </Resources>
     </VersionOverrides>
