@@ -11,13 +11,13 @@
   "files": {
     "windows": {
       "href": "files/Signet7-Windows.zip",
-      "sha256": "d376e36a773c6ada33755d121045be8e34d6a1418189ff9a332b0851de9c9e5e",
-      "bytes": 42378870
+      "sha256": "2e937ff6c1403a58433676c5948cdbb2336b91eabe1398e77c3ff63ae94f77f4",
+      "bytes": 42416525
     },
     "macos": {
       "href": "files/Signet7-Mac.zip",
-      "sha256": "fdca688cabc70f0dd79c95da636da53f89b5553817c54450bbca3806b0dfa9a2",
-      "bytes": 68210622
+      "sha256": "c2b3dd209153c034884b2137fa8f64e60f396a2edb72681e28d9f73c4f039bf3",
+      "bytes": 69068828
     }
   }
 }

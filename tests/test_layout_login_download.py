@@ -21,8 +21,8 @@ class LayoutLoginDownloadTests(unittest.TestCase):
     def test_download_zips_come_before_optional_unlock_form(self) -> None:
         html = self.download
         self.assertIn('id="watch-files"', html)
-        self.assertIn('id="unlock-form"', html)
-        self.assertLess(html.index('id="watch-files"'), html.index('id="unlock-form"'))
+        self.assertIn('id="company-setup-wizard"', html)
+        self.assertNotIn('id="unlock-form"', html)
         self.assertIn("No zip until you register", html)
         self.assertIn("company account anytime", html)
         self.assertNotIn("Email my unlock code", html)

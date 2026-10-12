@@ -80,35 +80,14 @@
  <a class="button button-primary" href="https://account.signet7.io/account">Register to download</a>
  </article>
  </div>
- <form id="unlock-form" class="scope-list">
- <p>Need a setup note mailed to a work email? Optional.</p>
- <p><label>Work email <input id="unlock-mailbox" type="email" required autocomplete="email"></label>
- <button class="button button-primary" type="submit">Email a setup code</button></p>
- <p><label>Code <input id="unlock-code" maxlength="12" autocomplete="one-time-code"></label>
- <button class="button" type="button" id="unlock-redeem">Email me the setup note</button></p>
- <p id="unlock-status" class="section-intro" role="status"></p>
- </form>
- <p class="section-intro">You only need the file for the computer that will run Signet7 desktop on named company inboxes. Recipients are not required to install. The app can check for a new download.</p>
+ <p class="section-intro">You only need the file for the computer that will run Signet7. Recipients are not required to install. The app can check for a new download. Uninstall is a button in the app.</p>
  <div class="scope-list">
  <div class="scope-row"><b>What Signet7 desktop does</b><span>Signet7 desktop sits on named work emails. Ordinary mail stays quiet. It shouts if a seal is torn, or if a named vendor arrives unsealed. Signet7 desktop does not send. Optional sealing is the other job in that same app. It is not Exchange.</span></div>
  <div class="scope-row"><b>What Signet7 desktop does not do</b><span>It does not check every employee mailbox. It does not replace the check page for staff. Recipients are not required to install it.</span></div>
  <div class="scope-row" id="company-records-vault"><b>Records on the office computer</b><span>Optional encrypted records vault for money and account mail. You hold the recovery key. Signet7 cannot read those letters. Cap is 10 GB. Warning at 50%. Export a zip before 90%. Seal and listing stay two facts. The public website check does not keep the letter. Recipients never use the vault. Not a court stamp.</span></div>
- <div class="scope-row" id="company-setup-wizard"><b>Company setup</b><span>Unzip, then run install. The program files are in the Signet7 folder. Windows: <code>install.ps1</code>. Mac: <code>install.sh</code>. Uninstall is <code>uninstall.ps1</code> inside that folder on Windows. Recipients never run it. The app has Check for update. After setup, it starts at login on the office computer that runs it.</span></div>
+ <div class="scope-row" id="company-setup-wizard"><b>Company setup</b><span>The desk gives one file. Double-click the setup. Windows may say the publisher is unknown. On a Mac, the only choices may be Move to Trash and Done until a certificate is finished. There is no unlock code and no script. Uninstall is a button in the app.</span></div>
  <div class="scope-row" id="company-agent-card"><b>Helper instruction card</b><span>Do not train a model on company mail. Do not rebuild From, To, Subject, or body. Save the original message file. Submit those bytes to the check page. Read two facts: seal, and listing. If the check is down, do not act. Recipients are not required to install. Company computers use the desktop install, not pip. This card is instructions, not a plugin.</span></div>
- <div class="scope-row"><b>Uninstall / update</b><span>Windows: run uninstall.ps1 from the Signet7 folder, or delete %LOCALAPPDATA%\Signet7. Mac: uninstall.sh in that same folder. files/latest.json names this early access. Outlook is removed in My add-ins — that is Microsoft, not Signet7. Recipients are not required to install, so they have nothing to uninstall.</span></div>
- </div>
- <div class="install-chooser" data-install-chooser id="install-chooser">
- <p class="install-kicker">Install via terminal</p>
- <p class="install-lead">Register first. Then download from your company account. Recipients skip this.</p>
- <div class="install-os" role="group" aria-label="Operating system">
- <button type="button" data-os-tab="macos" aria-pressed="false">Mac</button>
- <button type="button" data-os-tab="windows" aria-pressed="true">Windows</button>
- </div>
- <div class="install-cmd">
- <code id="install-command">https://account.signet7.io/account</code>
- <button type="button" class="install-copy" data-install-copy aria-label="Copy command">Copy</button>
- </div>
- <p class="install-note" id="install-note">Sign in first. The file is on your company account, not on this page.</p>
+ <div class="scope-row"><b>Uninstall / update</b><span>Uninstall is a button in the app. It clears local settings only. The app has Check for update. Outlook is removed in My add-ins. That is Microsoft, not Signet7. Recipients are not required to install, so they have nothing to uninstall.</span></div>
  </div>
  <p><a href="docs#seal">Set up outbound signing</a> · <a href="docs#entra">Microsoft Entra notes</a></p>
  </div>
@@ -155,6 +134,5 @@
  </footer>
  <script src="assets/motion.js?v=20260920c" defer></script>
  <script src="assets/download.js" defer></script>
- <script src="assets/install-chooser.js?v=20260831c" defer></script>
 </body>
 </html>
