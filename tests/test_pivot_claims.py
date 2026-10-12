@@ -328,7 +328,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("money mailbox", download.lower())
         self.assertNotIn("is-off", download)
         self.assertNotIn("Not open yet", download)
-        self.assertIn("unlock-form", download)
+        self.assertNotIn("unlock-form", download)
         self.assertIn("Recipients are not required to install", download)
         self.assertIn("not finished signing the app yet", download)
         self.assertIn('href="status"', download)
@@ -384,7 +384,7 @@ class AgentActionGatingPivotTests(unittest.TestCase):
         self.assertNotIn("Show options", home)
         self.assertNotIn("pip install signet7", home)
         download = self.pages["download.html"]
-        self.assertIn("data-install-chooser", download)
+        self.assertNotIn("data-install-chooser", download)
         self.assertNotIn("Show options", download)
         self.assertNotIn("Chrome Web Store", home)
         self.assertNotIn("Play Store", home)
@@ -729,11 +729,11 @@ class ContentSecurityPolicy(unittest.TestCase):
         self.assertNotIn("never check this", how.lower())
         self.assertNotIn("never check them again", how.lower())
         download = self.pages["download.html"]
-        self.assertIn("uninstall.ps1", download)
+        self.assertNotIn("uninstall.ps1", download)
         self.assertIn("The app has Check for update", download)
         self.assertIn("Records on the office computer", download)
         watch = self.pages["download.html"]
-        self.assertIn("uninstall.ps1", watch)
+        self.assertNotIn("uninstall.ps1", watch)
         self.assertIn("This is not set and forget", watch)
         vsn = self.pages["vsn.html"]
         self.assertIn("You list your address", vsn)
