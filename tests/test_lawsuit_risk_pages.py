@@ -47,6 +47,10 @@ class LawsuitRiskPages(unittest.TestCase):
         about = self.pages["about.html"]
         self.assertIn("George T. Terris II", about)
         self.assertIn("George.Terris@signet7.io", about)
+        self.assertNotIn("Josh S. Riley", about)
+        self.assertNotIn("josh.riley@signet7.io", about)
+        self.assertNotIn("Josh S. Riley", self.pages["privacy.html"])
+        self.assertNotIn("josh.riley@signet7.io", self.pages["privacy.html"])
         self.assertNotIn("Justin", about)
 
     def test_public_text_assets_do_not_name_justin_daines(self) -> None:

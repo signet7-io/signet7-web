@@ -98,10 +98,10 @@ def wrap(name, title, dwg, body, footer):
     print("wrote", path.name, path.stat().st_size)
 
 
-# ABOUT — founding team (three public names; centered row)
+# ABOUT — founding team (two public names; centered row)
 _ABOUT_BOX_W = 400
 _ABOUT_GAP = 120
-_ABOUT_ROW_W = 3 * _ABOUT_BOX_W + 2 * _ABOUT_GAP
+_ABOUT_ROW_W = 2 * _ABOUT_BOX_W + 1 * _ABOUT_GAP
 _ABOUT_ROW_X0 = (1920 - _ABOUT_ROW_W) // 2
 
 
@@ -111,8 +111,7 @@ def _about_row_x(index: int) -> int:
 
 people = [
     (_about_row_x(0), 180, "S7-P-01", "SAMUEL J. SANDERSON", "Founder"),
-    (_about_row_x(1), 180, "S7-P-02", "JOSH S. RILEY", "Founding Team Member"),
-    (_about_row_x(2), 180, "S7-P-03", "GEORGE TERRIS", "Founding Team Member · marketing"),
+    (_about_row_x(1), 180, "S7-P-02", "GEORGE TERRIS", "Founding Team Member · marketing"),
 ]
 boxes = []
 for x, y, pid, name, role in people:
@@ -141,12 +140,11 @@ wrap(
     "ABOUT  ·  FOUNDING TEAM  ·  NOT OFFICER TITLES",
 )
 
-# ABOUT cyber variant — isometric envelope + same three names as callouts
+# ABOUT cyber variant — isometric envelope + same two names as callouts
 _cyber_y = 640
 _cyber_labels = [
     (_about_row_x(0), "SANDERSON  ·  FOUNDER"),
-    (_about_row_x(1), "RILEY  ·  FOUNDING TEAM"),
-    (_about_row_x(2), "TERRIS  ·  MARKETING"),
+    (_about_row_x(1), "TERRIS  ·  MARKETING"),
 ]
 _cyber_callouts = "\n".join(
     f'{rect(x, _cyber_y, _ABOUT_BOX_W, 120, 2.6)}'
