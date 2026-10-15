@@ -18,8 +18,8 @@ class FaqWordsMatchNotSafeQuestionTests(unittest.TestCase):
 
     def test_faq_says_what_words_match_means(self) -> None:
         faq = self.faq
-        self.assertIn("What does words match mean?", faq)
-        self.assertIn("The protected words still match the seal.", faq)
+        self.assertIn("What does wording same mean?", faq)
+        self.assertIn("The sealed wording is still the same.", faq)
         self.assertIn("does not approve payment", faq)
 
     def test_faq_words_match_stays_claim_safe(self) -> None:
