@@ -190,8 +190,8 @@
  </div>
  </div>
  </div>
- <p><strong>Sender verification:</strong> Listed, Not listed, or Listing doesn't match this address - these results help you understand sender authenticity.</p>
- <p><strong>Verification status:</strong> Matched, unmatched, or unknown.</p>
+ <p><strong>Seal answer:</strong> Unchanged since sealed, Changed since sealed, or Not sealed.</p>
+ <p><strong>Address answer:</strong> Address listed, Address not listed, or Address mismatch.</p>
  </div>
 
  <div class="verify-important">
@@ -389,6 +389,7 @@
  <li>Recipients can verify your emails by saving and dropping them on the verification tool</li>
  </ul>
  </div>
+ <p class="docs-note" id="largest-email"><strong>Largest email:</strong> Signet7 desktop can seal an email up to <strong>3,932,100 bytes</strong> (about 3.75 MiB). A larger email is refused.</p>
  </div>
  </section>
 
@@ -634,6 +635,7 @@
  <li>Confirm you clicked "Sign and send email" before Send</li>
  <li>Check that your Signet7 token is valid</li>
  <li>For desktop: verify "Listening on 127.0.0.1:2525" appears</li>
+ <li>For desktop: keep the email at or under 3,932,100 bytes (about 3.75 MiB)</li>
  <li>Make sure SMTP is configured correctly</li>
  </ul>
  </div>
@@ -714,6 +716,7 @@
 
  <h3>Current Status and Limitations</h3>
  <p>Early access status: App signing is not finished yet — not Authenticode. The desktop helper cryptographically seals that exact message, and this is not Authenticode signing. Domain-wide is a choice, covering specific addresses assigned to it rather than every possible mailbox automatically.</p>
+ <p>The largest email Signet7 desktop can seal is 3,932,100 bytes (about 3.75 MiB). A larger email is refused.</p>
  <p>For company verification, use our <a href="https://verify.signet7.io/vsn">Look up a company</a> tool. Listing lookup is available for registered organizations.</p>
  </div>
  </section>

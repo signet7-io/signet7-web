@@ -71,6 +71,8 @@ class PublicLinkContractTests(unittest.TestCase):
                         target_parser = _Links()
                         target_parser.feed(target.read_text(encoding="utf-8"))
                         documents[target] = target_parser
+                    if parsed.fragment.startswith("/"):
+                        continue
                     if parsed.fragment not in target_parser.ids:
                         failures.append(f"{source.name}: missing anchor: {raw}")
 

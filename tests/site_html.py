@@ -15,9 +15,18 @@ def home_page_markup() -> str:
     return (ROOT / "index.html").read_text(encoding="utf-8") + home_served_copy()
 
 
+NOINDEX_PAGES = frozenset({"terms.html", "disclaimer.html", "preview-agreement.html", "404.html"})
+SPA_HOME = "index.html"
+
+
 def root_html_pages() -> list[Path]:
     """Public brochure pages. Skip Google Search Console verification files."""
     return [path for path in sorted(ROOT.glob("*.html")) if not path.name.startswith("google")]
+
+
+def brochure_html_pages() -> list[Path]:
+    """Static brochure pages with shared chrome. The homepage is a React shell."""
+    return [path for path in root_html_pages() if path.name != SPA_HOME]
 
 
 _PUBLIC_TEXT_SUFFIXES = {

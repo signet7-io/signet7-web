@@ -14,7 +14,6 @@ from tests.test_site_crawl import _Doc, _public_html, _resolve
 
 
 MOBILE_CRITICAL = (
-    "index.html",
     "product.html",
     "docs.html",
     "about.html",

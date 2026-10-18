@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from tests.site_html import ROOT, public_text_assets, root_html_pages
+from tests.site_html import ROOT, brochure_html_pages, public_text_assets, root_html_pages
 
 _FORBIDDEN_PUBLIC_NAME_MARKERS = (
     "justin d. daines",
@@ -22,9 +22,9 @@ class LawsuitRiskPages(unittest.TestCase):
     def test_ten_item_pages_exist_and_are_linked(self) -> None:
         for target in ("privacy", "ai", "providers", "cancel", "safety"):
             self.assertIn(f"{target}.html", self.pages)
-            for name, html in self.pages.items():
-                with self.subTest(page=name, target=target):
-                    self.assertIn(f'href="{target}"', html)
+            for path in brochure_html_pages():
+                with self.subTest(page=path.name, target=target):
+                    self.assertIn(f'href="{target}"', path.read_text(encoding="utf-8"))
 
     def test_privacy_is_a_filled_policy(self) -> None:
         privacy = self.pages["privacy.html"]
