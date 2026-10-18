@@ -26,7 +26,7 @@ class DownloadVaultWizardTests(unittest.TestCase):
         self.assertIn("Recipients never use the vault", html)
         self.assertIn('id="company-setup-wizard"', html)
         self.assertNotIn("install.ps1", html)
-        self.assertIn("no script", html)
+        self.assertIn('href="#mac-first-open"', html)
         self.assertNotIn("pip install", html)
         self.assertNotIn("Qual", html)
         self.assertNotIn("VSN", html)

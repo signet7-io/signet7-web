@@ -21,6 +21,31 @@
   margin-bottom: 8px;
 }
 .os-card .button { display: inline-flex; }
+.mac-download-hint {
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: var(--mute);
+}
+.mac-download-hint a { color: var(--cyan); }
+.mac-first-open {
+  margin: 32px 0 8px;
+  padding: 24px 22px;
+  border: 1px solid var(--line);
+  background: var(--card);
+}
+.mac-first-open h2 { margin: 0 0 12px; font-size: 22px; }
+.mac-first-open h3 { margin: 24px 0 10px; font-size: 17px; }
+.mac-first-open ol,
+.mac-first-open ul { margin: 0 0 12px; padding-left: 1.25rem; color: var(--ink-soft); }
+.mac-first-open li + li { margin-top: 8px; }
+.mac-first-open code {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 2px 6px;
+  font-size: 13px;
+  word-break: break-all;
+}
 .warn-box {
   border: 1px solid var(--gold);
   padding: 14px 16px;
