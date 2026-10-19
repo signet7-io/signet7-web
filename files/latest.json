@@ -1,23 +1,23 @@
 {
-  "version": "2026-10-12-unsigned",
+  "version": "2026-10-18-unsigned",
   "channel": "preview",
   "signed": false,
   "source": {
     "repo": "signet7-io/signet7",
-    "sha": "a6999ad63de33d94c807c51047a0467eb74737cb",
-    "run": "38280377731",
-    "note": "Settings can check for an update, unregister by the email link, and uninstall local settings only."
+    "sha": "b9b86de1b597ddaa8078abc068f75b1b77e4db19",
+    "run": "39235511770",
+    "note": "Desktop build from signet7 b9b86de (publish-desktop-release run 39235511770)."
   },
   "files": {
     "windows": {
       "href": "files/Signet7-Windows.zip",
-      "sha256": "2e937ff6c1403a58433676c5948cdbb2336b91eabe1398e77c3ff63ae94f77f4",
-      "bytes": 42416525
+      "sha256": "aaa72e155f27752bd5d1887b9d0e7ba69438ed35c22f953038512d3baee04016",
+      "bytes": 61123181
     },
     "macos": {
       "href": "files/Signet7-Mac.zip",
-      "sha256": "c2b3dd209153c034884b2137fa8f64e60f396a2edb72681e28d9f73c4f039bf3",
-      "bytes": 69068828
+      "sha256": "4094d9374f3cf5d02d581cf5fef10333b343da1bdaaf1fc7f06f691e01609cd2",
+      "bytes": 70116017
     }
   }
 }
