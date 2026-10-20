@@ -1,23 +1,23 @@
 {
-  "version": "2026-10-20-unsigned",
+  "version": "2026-10-20-unsigned-2",
   "channel": "preview",
   "signed": false,
   "source": {
     "repo": "signet7-io/signet7",
-    "sha": "766b01e5294d1d2d2a464fda64da442c9a3d43cc",
-    "run": "39413227230",
-    "note": "Desktop build from signet7 766b01e (publish-desktop-release run 39413227230)."
+    "sha": "ffab4017315344ed11589db79d4005735f6436ab",
+    "run": "39420653100",
+    "note": "Desktop build from signet7 ffab401 (publish-desktop-release run 39420653100)."
   },
   "files": {
     "windows": {
       "href": "files/Signet7-Windows.zip",
-      "sha256": "f203023c9b1e55ff0a87bfc12aeaa69139089f5e1b8a9512f03e72ef00f11285",
-      "bytes": 61142501
+      "sha256": "b2112cf37a42fe7fedbddb34258655a4de8b02c2e0a9bcdbca5d58042f881436",
+      "bytes": 61146658
     },
     "macos": {
       "href": "files/Signet7-Mac.zip",
-      "sha256": "618d6835df6127f9371e802c5db071cdbdd9a3c71f36a01df63139c4b59bc19b",
-      "bytes": 72182680
+      "sha256": "d20e827aa73f2beefaf8b45a5f70932bcac23dd85e6c3c46353ff4691e27ee2f",
+      "bytes": 72183477
     }
   }
 }
