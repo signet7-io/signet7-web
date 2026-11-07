@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from tests.site_html import ROOT, root_html_pages
+from tests.site_html import ROOT, home_served_copy, root_html_pages
 
 
 class SiteFreeze20260822Tests(unittest.TestCase):
@@ -81,10 +81,22 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         self.assertNotIn("If you received one email, check it.", self.home)
 
     def test_footer_rights_and_wrongs(self) -> None:
+        home_reserved = "© 2026 Signet7 All rights reserved."
+        brochure_reserved = (
+            "© 2026 Signet7 All rights reserved, All wrongs revenged."
+        )
+        home_bundle = home_served_copy()
+        self.assertIn(home_reserved, home_bundle)
+        self.assertNotIn("All wrongs revenged.", home_bundle)
+        index = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn("© 2026 Signet7. All rights reserved.", index)
+        self.assertNotIn("All wrongs revenged.", index)
         for path in root_html_pages():
+            if path.name == "index.html":
+                continue
             html = path.read_text(encoding="utf-8")
             with self.subTest(page=path.name):
-                self.assertIn("© 2026 Signet7 All rights reserved, All wrongs revenged.", html)
+                self.assertIn(brochure_reserved, html)
                 self.assertNotIn("Signet7™ 2026. All rights reserved.", html)
 
     def test_people_panorama_only_once_and_new_art(self) -> None:
