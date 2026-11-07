@@ -1,31 +1,73 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <title>Signet7 — You’re one bad email away from a step you cannot undo</title>
-    <meta
-      name="description"
-      content="The trust layer that secures consequential email before you act."
-    />
-    <meta
-      property="og:title"
-      content="Signet7 — You’re one bad email away from a step you cannot undo"
-    />
-    <meta
-      property="og:description"
-      content="The trust layer that secures consequential email before you act."
-    />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="theme-color" content="#0c1018" />
+    <title>Akasha by Signet7</title>
+    <meta name="description" content="A cryptographic seal on the letter. Two facts. You keep the file." />
+    <meta property="og:title" content="Akasha by Signet7" />
+    <meta property="og:description" content="A cryptographic seal on the letter. Two facts. You keep the file." />
     <meta property="og:image" content="https://signet7.io/og.jpg" />
     <meta property="og:type" content="website" />
-    <script type="module" crossorigin src="assets/home-app.js?v=20261015roster"></script>
-    <link rel="stylesheet" crossorigin href="assets/home-index.css?v=20261015roster">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/assets/akasha/akasha.css?v=20261105a" />
   </head>
   <body>
-    <div id="root"></div><span class="cad-mark" hidden></span>
-  <script src="assets/theme.js?v=4"></script></body>
+    <a class="skip" href="#akasha-door">Skip to Akasha</a>
+    <div class="sky" aria-hidden="true"></div>
+    <div class="veil" aria-hidden="true"></div>
+    <canvas id="petals" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="bar">
+      <a class="mark" href="#akasha-door" aria-label="Akasha by Signet7">
+        <img src="/s7-mark.png" alt="Signet7" width="1062" height="492" />
+      </a>
+      <nav class="desk" aria-label="Primary">
+        <a href="/product.html">Product</a>
+        <a href="/scenarios.html">Solutions</a>
+        <a href="/programs.html">Pricing</a>
+        <a href="/docs.html">Docs</a>
+        <a href="/about.html">Company</a>
+      </nav>
+      <div class="actions">
+        <a class="verify" href="https://verify.signet7.io/email/verify">Verify an email</a>
+        <a class="register" href="https://account.signet7.io/account">Register</a>
+        <a class="login" href="https://account.signet7.io/login">Login</a>
+        <button type="button" class="menu" aria-expanded="false" aria-controls="site-menu">Menu</button>
+      </div>
+    </header>
+    <nav id="site-menu" class="sheet" hidden aria-label="Primary">
+      <a href="/product.html">Product</a>
+      <a href="/scenarios.html">Solutions</a>
+      <a href="/programs.html">Pricing</a>
+      <a href="/docs.html">Docs</a>
+      <a href="/about.html">Company</a>
+      <a href="https://verify.signet7.io/email/verify">Verify an email</a>
+      <a href="https://account.signet7.io/account">Register</a>
+      <a href="https://account.signet7.io/login">Login</a>
+    </nav>
+    <main>
+      <section class="hero" id="akasha-door">
+        <div class="hero-copy">
+          <h1>Akasha</h1>
+          <p class="by">by Signet7</p>
+          <p class="lede">A cryptographic seal on the letter. Two facts. You keep the file.</p>
+          <ul class="quiet">
+            <li>The other person checks on the website. They install nothing.</li>
+            <li>Bound to the claimed sender, or not. The protected details still match the seal, or they do not.</li>
+            <li>You keep the file. Nobody else can open the upload. It is checked, then deleted. Signet7 does not keep a copy.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>© 2026 Signet7. All rights reserved, All wrongs revenged.</p>
+      <p><a href="/privacy.html">Privacy</a></p>
+    </footer>
+    <script src="/assets/akasha/akasha.js?v=20261105a"></script>
+  </body>
 </html>
