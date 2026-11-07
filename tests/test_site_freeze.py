@@ -88,6 +88,9 @@ class SiteFreeze20260822Tests(unittest.TestCase):
         home_bundle = home_served_copy()
         self.assertIn(home_reserved, home_bundle)
         self.assertNotIn("All wrongs revenged.", home_bundle)
+        index = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn("© 2026 Signet7. All rights reserved.", index)
+        self.assertNotIn("All wrongs revenged.", index)
         for path in root_html_pages():
             if path.name == "index.html":
                 continue
