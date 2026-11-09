@@ -5,12 +5,14 @@ import unittest
 from tests.site_html import ROOT, public_text_assets, root_html_pages
 
 _FORBIDDEN_PUBLIC_NAME_MARKERS = (
-    "justin d. daines",
-    "justin daines",
-    "justin.daines",
+    "george t. terris",
+    "george terris",
+    "george.terris",
+    "george@eaglevisionseo.com",
+    "justin.daines@",
     "justin.daines@signet7.io",
-    "daines  ·  co-founder",
-    "daines · co-founder",
+    "terris  ·  marketing",
+    "terris · marketing",
 )
 
 
@@ -32,8 +34,9 @@ class LawsuitRiskPages(unittest.TestCase):
         self.assertIn("Data we collect", privacy)
         self.assertIn("raw email", privacy.lower())
         self.assertIn("samuel.sanderson@signet7.io", privacy)
+        self.assertIn("Justin D. Daines", privacy)
         self.assertNotIn("justin.daines@signet7.io", privacy)
-        self.assertNotIn("Justin D. Daines", privacy)
+        self.assertNotIn("George T. Terris II", privacy)
         self.assertIn("We do not sell personal data", privacy)
         self.assertEqual(privacy.count("DRAFT — NON-OPERATIVE"), 1)
         self.assertNotIn("Not a final privacy policy", privacy)
@@ -41,17 +44,18 @@ class LawsuitRiskPages(unittest.TestCase):
 
     def test_public_pages_do_not_name_private_team_contacts(self) -> None:
         combined = "\n".join(self.pages.values())
-        self.assertNotIn("Justin D. Daines", combined)
+        self.assertIn("Justin D. Daines", self.pages["about.html"])
         self.assertNotIn("justin.daines@signet7.io", combined)
         self.assertNotIn("george@eaglevisionseo.com", combined)
+        self.assertNotIn("George T. Terris II", combined)
+        self.assertNotIn("George.Terris@signet7.io", combined)
         about = self.pages["about.html"]
-        self.assertIn("George T. Terris II", about)
-        self.assertIn("George.Terris@signet7.io", about)
+        self.assertIn("CO-Founder", about)
         self.assertNotIn("Josh S. Riley", about)
         self.assertNotIn("josh.riley@signet7.io", about)
         self.assertNotIn("Josh S. Riley", self.pages["privacy.html"])
         self.assertNotIn("josh.riley@signet7.io", self.pages["privacy.html"])
-        self.assertNotIn("Justin", about)
+        self.assertNotIn("Terris", about)
 
     def test_public_text_assets_do_not_name_justin_daines(self) -> None:
         generator = ROOT / "tools" / "draw_remaining_plates.py"
@@ -62,9 +66,9 @@ class LawsuitRiskPages(unittest.TestCase):
             for marker in _FORBIDDEN_PUBLIC_NAME_MARKERS:
                 with self.subTest(asset=str(path.relative_to(ROOT)), marker=marker):
                     self.assertNotIn(marker, lowered)
-            with self.subTest(asset=str(path.relative_to(ROOT)), marker="justin"):
+            with self.subTest(asset=str(path.relative_to(ROOT)), marker="terris"):
                 if path.suffix.lower() == ".svg" or path.name.endswith(".html"):
-                    self.assertNotIn("justin", lowered)
+                    self.assertNotIn("terris", lowered)
 
     def test_ai_page_does_not_invent_a_chatbot(self) -> None:
         ai = self.pages["ai.html"].lower()

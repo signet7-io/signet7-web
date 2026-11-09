@@ -111,7 +111,7 @@ def _about_row_x(index: int) -> int:
 
 people = [
     (_about_row_x(0), 180, "S7-P-01", "SAMUEL J. SANDERSON", "Founder"),
-    (_about_row_x(1), 180, "S7-P-02", "GEORGE TERRIS", "Founding Team Member · marketing"),
+    (_about_row_x(1), 180, "S7-P-02", "JUSTIN D. DAINES", "CO-Founder"),
 ]
 boxes = []
 for x, y, pid, name, role in people:
@@ -144,7 +144,7 @@ wrap(
 _cyber_y = 640
 _cyber_labels = [
     (_about_row_x(0), "SANDERSON  ·  FOUNDER"),
-    (_about_row_x(1), "TERRIS  ·  MARKETING"),
+    (_about_row_x(1), "DAINES  ·  CO-FOUNDER"),
 ]
 _cyber_callouts = "\n".join(
     f'{rect(x, _cyber_y, _ABOUT_BOX_W, 120, 2.6)}'
