@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://signet7.io/sitemap.xml
+
+# https://signet7.io/llms.txt

@@ -1,0 +1,28 @@
+# Signet7
+
+> A cryptographic seal on the letter. Two facts. You keep the file.
+
+Akasha is the name on the front door. The company is Signet7.
+
+- Home: https://signet7.io/
+- Check an email: https://verify.signet7.io/email/verify
+- Product: https://signet7.io/product
+- FAQ: https://signet7.io/faq
+- Docs: https://signet7.io/docs
+- Team: https://signet7.io/about
+- Privacy: https://signet7.io/privacy
+- What is live: https://signet7.io/status
+
+## What a check answers
+Signet7 checks whether the words in an important email still match the seal, and whether that sender is listed.
+The other person checks on the website. They install nothing.
+You keep the file. Nobody else can open the upload. It is checked, then deleted. Signet7 does not keep a copy.
+
+## Words on a result
+Words match: what you are reading is exactly what the sender signed.
+Words do not match: the wording changed after it was signed. A forward or a mailing-list footer can do that. It is not a verdict.
+No seal: ordinary email with no signature to compare against. Not an accusation by itself.
+Listed: the sender's address is one Signet7 has on record for that organization.
+
+## What is not claimed
+Checking an email is free and needs no account. Checkout is not live. The company price is not published. Signet7 does not approve a payment, scan for viruses, or name the person at the keyboard. Windows and Mac. Recipients are not required to install.
