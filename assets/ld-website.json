@@ -6,6 +6,7 @@
       "@id": "https://signet7.io/#website",
       "url": "https://signet7.io/",
       "name": "Signet7",
+      "alternateName": "Akasha",
       "description": "Signet7 checks whether the words in an important email still match the seal, and whether that sender is listed.",
       "inLanguage": "en",
       "publisher": {
