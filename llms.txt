@@ -1,28 +1,49 @@
 # Signet7
 
-> A cryptographic seal on the letter. Two facts. You keep the file.
+> Signet7 cryptographically seals email. It does not encrypt mail. Agents and people verify the original message bytes before acting on money-moving instructions.
 
 Akasha is the name on the front door. The company is Signet7.
 
+## Start here
+
 - Home: https://signet7.io/
-- Check an email: https://verify.signet7.io/email/verify
+- Signet7 for agents: https://signet7.io/agents
+- Agent MCP quickstart: https://signet7.io/docs#agent-quickstart
+- signet7.verify.v1 schema: https://signet7.io/docs#agent-verify-v1
+- Device-code connect: https://signet7.io/docs#agent-device-code
+- Extended guide: https://signet7.io/llms-full.txt
+- Check an email (human): https://verify.signet7.io/email/verify
+- OpenAPI: https://verify.signet7.io/openapi.json
 - Product: https://signet7.io/product
 - FAQ: https://signet7.io/faq
 - Docs: https://signet7.io/docs
-- Team: https://signet7.io/about
-- Privacy: https://signet7.io/privacy
-- What is live: https://signet7.io/status
+- Status: https://signet7.io/status
 
-## What a check answers
-Signet7 checks whether the words in an important email still match the seal, and whether that sender is listed.
-The other person checks on the website. They install nothing.
-You keep the file. Nobody else can open the upload. It is checked, then deleted. Signet7 does not keep a copy.
+## What Signet7 does
 
-## Words on a result
-Words match: what you are reading is exactly what the sender signed.
-Words do not match: the wording changed after it was signed. A forward or a mailing-list footer can do that. It is not a verdict.
-No seal: ordinary email with no signature to compare against. Not an accusation by itself.
-Listed: the sender's address is one Signet7 has on record for that organization.
+Signet7 answers whether the words in an important email still match a cryptographic seal, and whether the sender's address is listed for the organization. You keep the file. The public check uploads are checked then deleted.
+
+Signet7 seals; it does not encrypt. Do not rebuild From, To, Subject, or body for verify — submit original RFC 5322 bytes (`s7-email-1` / `.eml`).
+
+## Verify (agents)
+
+- HTTP: `POST https://verify.signet7.io/api/v1/email/verify` (Bearer token for automation). Planned integrator host: `https://api.signet7.io` (not live yet).
+- MCP stdio command: `signet7-mcp`
+- Shipped MCP tools: `signet7_check_email` (verify), `signet7_record_decision` (decision ledger). Upcoming names: `signet7_verify_email`, `signet7_seal_email` (see PLACEHOLDER on the agent docs page).
+- Agent JSON verdict: `signet7.verify.v1` — fields `sealed`, `verdict` (`sealed`|`unsealed`|`tampered`|`revoked`|`unknown`), `signer`, `delegation` (`agent_label`, `principal`) or null, `receipt_id`, `checked_at`.
+
+## Seal (outbound)
+
+Humans seal with Signet7 desktop and sender tokens today. Delegated agent tokens and MCP seal tools are upcoming. Until then, agents should verify inbound mail and refuse when `verdict` is not `sealed`.
+
+## Connect without leaking tokens
+
+Device-code flow on `account.signet7.io`: `POST /api/v1/account/device/start`, human approves on phone, poll `POST /api/v1/account/device/poll`. Store tokens only in the MCP process environment.
+
+## Caller enforces
+
+Signet7 returns facts and optional allow/refuse on decision routes. Your agent must refuse spoofed wires and tampered mail. Treating the answer as a hint and executing anyway defeats the control.
 
 ## What is not claimed
-Checking an email is free and needs no account. Checkout is not live. The company price is not published. Signet7 does not approve a payment, scan for viruses, or name the person at the keyboard. Windows and Mac. Recipients are not required to install.
+
+Free email check. No hidden generative model on verify. Not a virus scanner, not payment approval, not legal advice. No customer logos or production SLAs on this export.

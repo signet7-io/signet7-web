@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8">
+ <script src="assets/theme.js?v=4"></script>
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="X-Content-Type-Options" content="nosniff">
+ <title>Signet7 for agents | Signet7</title>
+ <meta name="description" content="Know which emails came from your people and which came from their agents. Signet7 seals email; it does not encrypt it. Verify before an agent acts.">
+ <meta name="theme-color" content="#050608">
+ <link rel="canonical" href="https://signet7.io/agents">
+ <meta property="og:title" content="Signet7 for agents | Signet7">
+ <meta property="og:description" content="Cryptographic seals on email so inbox agents can refuse spoofed wire requests and prompt injection.">
+ <meta property="og:site_name" content="Signet7">
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://signet7.io/agents">
+ <meta property="og:image" content="https://signet7.io/assets/og-image.png?v=20260920d">
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="Signet7 for agents | Signet7">
+ <meta name="twitter:description" content="Sealed mail for agents that act without a human gut check.">
+ <meta name="twitter:image" content="https://signet7.io/assets/og-image.png?v=20260920d">
+ <link rel="icon" type="image/png" href="assets/favicon.png">
+ <link rel="stylesheet" href="assets/site.css?v=20261010header">
+</head>
+<body>
+ <a class="skip-link" href="#main">Skip to content</a>
+ <header class="site-header">
+ <div class="container nav-wrap">
+ <a class="brand" href="/" aria-label="Signet7 home">
+ <img class="site-mark" src="/s7-mark.png" alt="Signet7">
+ </a>
+ <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
+ <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+ <a href="/docs">Docs</a>
+ <a href="/agents" aria-current="page">Agents</a>
+ <div class="drop">
+ <button type="button" class="drop-btn" aria-expanded="false">About</button>
+ <div class="drop-menu">
+ <a href="/about">Meet the Team</a>
+ <a href="/#/faq">FAQ</a>
+ <a href="https://account.signet7.io/pricing">Pricing</a>
+ <a href="/#/security">Trust &amp; security</a>
+ </div>
+ </div>
+ </nav>
+ <a class="header-verify" href="https://verify.signet7.io/email/verify">Verify an email</a>
+ <a class="header-register" href="https://account.signet7.io/account">Register</a>
+ <a class="account-login" href="https://account.signet7.io/login">Login</a>
+ </div>
+ </header>
+ <main id="main">
+ <section class="page-hero">
+ <div class="container">
+ <p class="eyebrow">Agent developers</p>
+ <h1>Know which emails came from your people, and which came from their agents.</h1>
+ <p class="hero-copy">Signet7 puts a cryptographic <strong>seal</strong> on email. It does not encrypt the message. The seal binds the exact wording to a signing key. Before an agent pays, rebooks, or changes a bank account, it can ask Signet7 whether the instructions still match that seal and whether the sender is listed for your organization.</p>
+ <p class="hero-actions">
+ <a class="button button-primary" href="docs#agent-quickstart">MCP quickstart</a>
+ <a class="button button-secondary" href="https://verify.signet7.io/openapi.json">OpenAPI</a>
+ </p>
+ <div class="badge-row">
+ <span class="badge cyan">Seals, not encryption</span>
+ <span class="badge">Caller enforces the verdict</span>
+ <span class="badge gold">Works with Cursor, Claude Desktop, and other MCP clients</span>
+ </div>
+ </div>
+ </section>
+
+ <section class="section" id="why-agents">
+ <div class="container">
+ <p class="eyebrow">Why it matters</p>
+ <h2>Agents act without a human gut check.</h2>
+ <p class="section-intro">An inbox agent can draft replies, queue payments, and follow “urgent” instructions faster than a person can reread the thread. That is exactly where spoofed mail hurts: fake invoices, forged wire requests, and prompt-injection text that pretends to be the CEO. A seal does not stop every attack, but it gives the agent a machine-readable fact: <em>these bytes were signed by a listed key, or they were not.</em> Your integration must refuse when the verdict is not good enough.</p>
+ <div class="grid-3">
+ <article class="card"><h3>Spoofed instructions</h3><p>Prompt injection and look-alike domains land in the same inbox as real mail. Checking the seal first keeps the agent from treating unsigned wording as authority.</p></article>
+ <article class="card"><h3>Delegated agent tokens</h3><p><span class="badge gold">Upcoming</span> A person can issue a scoped, revocable credential so an agent may seal outbound mail on their behalf. The seal records delegation (<code>agent_label</code>, <code>principal</code>) when that ships in signet7-core. Until then, sealing stays on Signet7 desktop with a sender token.</p></article>
+ <article class="card"><h3>Same check, two surfaces</h3><p>People use the free check page. Agents call <code>POST /api/v1/email/verify</code> or the MCP verify tool with the original <code>.eml</code> bytes. Do not rebuild headers or body.</p></article>
+ </div>
+ </div>
+ </section>
+
+ <section class="section section-light" id="mcp">
+ <div class="container">
+ <p class="eyebrow">MCP</p>
+ <h2>Signet7 MCP server</h2>
+ <p class="section-intro">Production MCP is a <strong>stdio</strong> process. It calls the same HTTPS API you would use from your own service. Set <code>SIGNET7_MCP_BASE_URL</code> to <code>https://verify.signet7.io</code> until <code>https://api.signet7.io</code> is live. There is no public HTTP or SSE MCP listener on <code>mcp.signet7.io</code>.</p>
+ <div class="scope-list">
+ <div class="scope-row"><b>Install</b><span>Console command: <code>signet7-mcp</code> (Windows operator kit: <code>Signet7-MCP.exe</code>). Shipped with the Signet7 operator distribution, not the public customer zip. <code>PLACEHOLDER:signet7-mcp-install</code> for a standalone installer story.</span></div>
+ <div class="scope-row"><b><code>signet7_verify_email</code></b><span>MCP tool name in parallel SDK work. Shipped today: <code>signet7_check_email</code> — same semantics as email verify. Returns a compact fact card; agents map it to <code>signet7.verify.v1</code>.</span></div>
+ <div class="scope-row"><b><code>signet7_seal_email</code></b><span><span class="badge gold">Upcoming</span> Outbound seal over MCP. Today, humans seal with Signet7 desktop. <code>PLACEHOLDER:signet7_seal_email</code> tracks the MCP seal tool in signet7 / signet7-core.</span></div>
+ <div class="scope-row"><b>Also shipped</b><span><code>signet7_record_decision</code> — records an allow/refuse decision after verify when your workflow needs a signed chronology row.</span></div>
+ <div class="scope-row"><b>Clients</b><span>Cursor, Claude Desktop, Grok Bot, and any MCP host that can spawn stdio. Signet7 does not sell those clients; you configure them.</span></div>
+ </div>
+ <p><a href="docs#agent-quickstart">Full quickstart and config snippets</a></p>
+ </div>
+ </section>
+
+ <section class="section" id="device-code">
+ <div class="container">
+ <p class="eyebrow">Headless connect</p>
+ <h2>Device code — the human approves on their phone.</h2>
+ <p class="section-intro">Agents and MCP harnesses should not paste long-lived tokens into chat logs. Use the account device-code flow: the process calls <code>POST /api/v1/account/device/start</code>, shows a short code and browser URL, the person approves on <code>account.signet7.io</code>, and the harness polls <code>POST /api/v1/account/device/poll</code> until a sender token arrives in the secure environment — never in the model context.</p>
+ <p><a href="docs#agent-device-code">Device-code steps in Docs</a></p>
+ </div>
+ </section>
+
+ <section class="section section-line" id="scenario-wire">
+ <div class="container">
+ <p class="eyebrow">Scenario</p>
+ <h2>Inbox agent refuses an unsealed wire request.</h2>
+ <ol>
+ <li>Finance runs an inbox agent with permission to queue wires from email.</li>
+ <li>Mail arrives: subject “URGENT wire transfer today,” body names a new account and amount. There is <strong>no Signet7 seal</strong> on the message file.</li>
+ <li>The agent saves the original <code>.eml</code> and calls verify (MCP or API). The verdict is <code>unsealed</code> (or <code>unknown</code> if the check errored).</li>
+ <li>Policy: no seal, no wire. The agent refuses, surfaces the thread to a human, and does not pass the instruction to the payment system.</li>
+ <li>If the same wording later arrives sealed and listed from a known treasury address, verify returns <code>sealed</code>; the agent may still require human approval — Signet7 proves wording and listing, not business wisdom.</li>
+ </ol>
+ <p class="docs-note">Signet7 does not move money. It returns evidence. The agent — your code — enforces the decision.</p>
+ </div>
+ </section>
+
+ <section class="section">
+ <div class="container">
+ <p class="eyebrow">Builders</p>
+ <h2>Next steps</h2>
+ <ul>
+ <li><a href="docs#agent-verify-v1"><code>signet7.verify.v1</code> JSON verdict</a></li>
+ <li><a href="docs#spec">HTTP APIs and limits</a></li>
+ <li><a href="/llms.txt"><code>llms.txt</code></a> for tool discovery</li>
+ <li><a href="safety">Crisis hold</a> — Signet7 may block seal/verify on crisis language and return 988 resources instead.</li>
+ </ul>
+ </div>
+ </section>
+ </main>
+ <footer class="site-footer">
+ <div class="container footer-grid">
+ <div><strong>Signet7</strong><p>Signet7 proves an important email has not been altered before anyone acts on it.</p><p>© 2026 Signet7 All rights reserved, All wrongs revenged.</p></div>
+ <div><a href="privacy">Privacy</a><a href="/#/security">Trust &amp; security</a><a href="ai">AI use</a><a href="providers">Data providers</a><a href="drawings">Drawings</a><a href="cancel">Cancel</a><a href="safety">Safety</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a><a href="contact">Contact</a><a href="feedback">Feedback</a></div>
+ <div><p>Email check and company accounts are available.</p></div>
+ </div>
+ </footer>
+ <script src="assets/motion.js?v=20260920c" defer></script>
+</body>
+</html>
