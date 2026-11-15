@@ -1,89 +1,120 @@
 # Signet7 — full guide for AI tools and agent developers
 
-> Last aligned with signet7-web agent docs. Signet7 seals email; it does not encrypt it.
+> Signet7 seals email; it does not encrypt it. **Nothing in the agent sections is live on production** until signet7-core PR #315 and signet7 PR #126 merge and deploy.
 
 ## Pages
 
 | Topic | URL |
 |-------|-----|
 | Agents landing | https://signet7.io/agents |
-| Docs (handbook) | https://signet7.io/docs |
 | MCP quickstart | https://signet7.io/docs#agent-quickstart |
-| verify.v1 schema | https://signet7.io/docs#agent-verify-v1 |
-| Device code | https://signet7.io/docs#agent-device-code |
-| HTTP / MCP overview | https://signet7.io/docs#spec |
+| verify.v1 / verdict_v1 | https://signet7.io/docs#agent-verify-v1 |
+| Device code (agents) | https://signet7.io/docs#agent-device-code |
+| Agent tokens | https://signet7.io/docs#agent-tokens |
 | Human verify UI | https://verify.signet7.io/email/verify |
-| OpenAPI 0.2.0rc1 | https://verify.signet7.io/openapi.json |
-| Account | https://account.signet7.io/account |
-| Safety / crisis hold | https://signet7.io/safety |
-| AI use policy | https://signet7.io/ai |
+| Agent OpenAPI (upcoming) | https://verify.signet7.io/openapi-agent.json |
+| Integrator OpenAPI | https://verify.signet7.io/openapi.json |
 
-## MCP install and config
+## MCP install (signet7 PR #126, upcoming)
 
-1. Install `signet7-mcp` from the Signet7 operator distribution (Windows: `Signet7-MCP.exe`). Public standalone install: PLACEHOLDER:signet7-mcp-install
-2. Set environment:
-   - `SIGNET7_MODE=production`
-   - `SIGNET7_MCP_BASE_URL=https://verify.signet7.io` (use `https://api.signet7.io` after api-door cutover)
-   - `SIGNET7_MCP_TENANT_ID` — tenant scope for remote mode
-   - `SIGNET7_MCP_API_TOKEN` — inject via host secret store only
-3. Cursor: add stdio server in `.cursor/mcp.json` with command `signet7-mcp`.
-4. Claude Desktop: same command in `claude_desktop_config.json`.
-5. Grok Bot and other MCP clients: stdio spawn of `signet7-mcp` with the same env keys.
+```bash
+pip install "signet7[mcp]"
+```
 
-Reference implementation and examples live in signet7-core `docs/apps/mcp/README.md` (not cloned on this site).
+MCP host config (stdio):
 
-### Tools
+```json
+{
+  "mcpServers": {
+    "signet7": {
+      "type": "stdio",
+      "command": "signet7-mcp",
+      "args": []
+    }
+  }
+}
+```
 
-| Tool (shipped) | Purpose |
-|----------------|---------|
-| `signet7_check_email` | Verify original `.eml` bytes (base64 in MCP). |
-| `signet7_record_decision` | Record allow/refuse after verify when ledger row needed. |
+### MCP tools
 
-Upcoming (parallel SDK): `signet7_verify_email`, `signet7_seal_email` — PLACEHOLDER until released.
+| Tool | Purpose |
+|------|---------|
+| `verify_email` | Verify `.eml` bytes; `signet7.verify.v1` fields |
+| `seal_email` | Outbound seal with connected agent/sender bearer |
+| `connect` | Agent device-code flow; token in OS secret store |
+| `status` | Connection identity and expiry |
 
-## signet7.verify.v1
+## HTTP verify — machine verdict (signet7-core PR #315, upcoming)
+
+`POST /api/v1/email/verify` — same body as human verify, plus any of:
+
+- `"machine_verdict": true`
+- `"response_format": "signet7.verify.v1"`
+- `Accept: application/vnd.signet7.verify.v1+json`
+
+Response adds top-level `verdict_v1`:
 
 ```json
 {
   "schema": "signet7.verify.v1",
   "sealed": true,
   "verdict": "sealed",
-  "signer": "treasury@example.com",
-  "delegation": null,
-  "receipt_id": "rcpt_example",
-  "checked_at": "2026-11-15T12:00:00Z"
+  "signer_identity": {
+    "sender": "alice@example.com",
+    "key_fingerprint": "…"
+  },
+  "delegation": {
+    "agent_label": "Inbox assistant",
+    "principal": "owner@example.com",
+    "agent_token_fingerprint": "abcd1234efgh"
+  },
+  "receipt_id": "…",
+  "checked_at": "2026-11-15T22:00:00Z",
+  "summary": "Sealed and intact. Sent by Inbox assistant on behalf of owner@example.com."
 }
 ```
 
-- `verdict=unsealed`: ordinary unsigned mail — refuse wire/autopay actions.
-- `verdict=tampered`: wording changed after seal.
-- `verdict=revoked`: signing key revoked.
-- `verdict=unknown`: check failed or inconclusive — fail closed.
-- `delegation`: `{ "agent_label", "principal" }` when delegated agent token signed — upcoming.
+`verdict=unsealed` → refuse wire/autopay. Fail closed on `tampered`, `revoked`, `unknown`.
 
-Media type placeholder: `application/vnd.signet7.verify.v1+json` (PLACEHOLDER:signet7.verify.v1-media-type).
+## Agent device-code (signet7-core PR #315, upcoming)
 
-## Device-code connect
+| Step | Method | Path |
+|------|--------|------|
+| Start | POST | `/api/v1/agent/device/start` |
+| Human approve | POST | `/api/v1/account/device/approve` (includes `session_kind`) |
+| Poll | POST | `/api/v1/agent/device/poll` |
 
-1. `POST https://account.signet7.io/api/v1/account/device/start` with device metadata.
-2. Human visits `verification_url` or account link page and approves.
-3. Harness polls `POST …/device/poll` with `device_code`.
-4. On success, `sender_token` stays in secure env — never in chat logs.
+Success returns one-time `agent_token`. Poll errors: `authorization_pending`, `slow_down`, `expired_token`, `access_denied`.
+
+Office desktop sender link remains `/api/v1/account/device/start` and `…/poll` for `sender_token`.
+
+## Agent token management (upcoming)
+
+| Method | Path |
+|--------|------|
+| POST | `/api/v1/agent/tokens` — mint (secret once) |
+| GET | `/api/v1/agent/tokens` — list metadata |
+| POST | `/api/v1/agent/tokens/{token_id}/revoke` |
+
+Agent bearer: `POST /api/v1/email/sign` only. Header `X-Signet7-Ack: terms-disclaimer-2026-08-15` on customer seal.
 
 ## Scenario: refuse unsealed wire
 
-Inbox agent receives urgent wire instructions with no seal → verify → `verdict=unsealed` → agent refuses and escalates to human. Signet7 does not block payment rails; your code does.
+Inbox agent → `verify_email` or verify with `machine_verdict` → `verdict_v1.verdict=unsealed` → refuse and escalate. Caller enforces.
 
-## Parallel repos (placeholders)
+## Reconcile when PRs land
 
-Reconcile when these PRs merge:
+| PR | Repo | Notes |
+|----|------|-------|
+| #315 | signet7-core | Authoritative API paths and `verdict_v1`; deploy before docs claim “live” |
+| #126 | signet7 | MCP server; ensure client HTTP paths match `/api/v1/agent/*` (reconcile any drift from early client constants) |
 
-- signet7-core PR #313 — sealed action objects beside email (`POST /api/v1/action/verify`)
-- signet7-core `docs/apps/mcp/README.md` — authoritative MCP contract
-- PLACEHOLDER:signet7_seal_email — MCP outbound seal
-- PLACEHOLDER:delegated-agent-tokens — scoped agent sealing on behalf of a principal
-- PLACEHOLDER:signet7.verify.v1-media-type — HTTP content negotiation
+**PLACEHOLDER:signet7-126-agent-paths** — if signet7 #126 still references `/api/v1/account/agent/*` until rebased onto #315, treat signet7-core OpenAPI as source of truth.
+
+## Legacy MCP (already on some hosts)
+
+Older operator stdio servers used `signet7_check_email` / `signet7_record_decision` and `SIGNET7_MCP_*` env vars. New agent integrations should use signet7 #126 tools above.
 
 ## Limits
 
-No encryption of message bodies. Not DMARC/SPF replacement. Not fraud scoring. Crisis language may trigger safety hold (see /safety). Caller enforces all decisions.
+No message encryption. Not payment approval. Crisis hold may block verify/seal — see https://signet7.io/safety .

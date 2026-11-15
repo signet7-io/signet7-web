@@ -1,8 +1,10 @@
 # Signet7
 
-> Signet7 cryptographically seals email. It does not encrypt mail. Agents and people verify the original message bytes before acting on money-moving instructions.
+> Signet7 cryptographically seals email. It does not encrypt mail. Agents verify original message bytes before acting on money-moving instructions.
 
 Akasha is the name on the front door. The company is Signet7.
+
+**Upcoming:** Agent API (signet7-core #315) and MCP package (signet7 #126) are open PRs — not live on production until merge and deploy.
 
 ## Start here
 
@@ -11,39 +13,42 @@ Akasha is the name on the front door. The company is Signet7.
 - Agent MCP quickstart: https://signet7.io/docs#agent-quickstart
 - signet7.verify.v1 schema: https://signet7.io/docs#agent-verify-v1
 - Device-code connect: https://signet7.io/docs#agent-device-code
+- Agent tokens: https://signet7.io/docs#agent-tokens
 - Extended guide: https://signet7.io/llms-full.txt
 - Check an email (human): https://verify.signet7.io/email/verify
-- OpenAPI: https://verify.signet7.io/openapi.json
+- Agent OpenAPI (upcoming): https://verify.signet7.io/openapi-agent.json
+- Integrator OpenAPI: https://verify.signet7.io/openapi.json
 - Product: https://signet7.io/product
-- FAQ: https://signet7.io/faq
 - Docs: https://signet7.io/docs
 - Status: https://signet7.io/status
 
 ## What Signet7 does
 
-Signet7 answers whether the words in an important email still match a cryptographic seal, and whether the sender's address is listed for the organization. You keep the file. The public check uploads are checked then deleted.
+Signet7 answers whether the words in an important email still match a cryptographic seal, and whether the sender is listed. Signet7 seals; it does not encrypt. Submit original RFC 5322 bytes; do not rebuild headers or body.
 
-Signet7 seals; it does not encrypt. Do not rebuild From, To, Subject, or body for verify — submit original RFC 5322 bytes (`s7-email-1` / `.eml`).
+## Verify (agents, upcoming)
 
-## Verify (agents)
+- HTTP: `POST /api/v1/email/verify` with `machine_verdict: true` (or `Accept: application/vnd.signet7.verify.v1+json`) → response includes `verdict_v1` (`signet7.verify.v1` schema).
+- MCP (signet7 #126): `pip install "signet7[mcp]"`, console `signet7-mcp`, tools `verify_email`, `seal_email`, `connect`, `status`.
+- Verdict fields: `schema`, `sealed`, `verdict` (`sealed`|`unsealed`|`tampered`|`revoked`|`unknown`), `signer_identity` (`sender`, `key_fingerprint`), `delegation` (`agent_label`, `principal`, `agent_token_fingerprint`) or null, `receipt_id`, `checked_at`, `summary`.
 
-- HTTP: `POST https://verify.signet7.io/api/v1/email/verify` (Bearer token for automation). Planned integrator host: `https://api.signet7.io` (not live yet).
-- MCP stdio command: `signet7-mcp`
-- Shipped MCP tools: `signet7_check_email` (verify), `signet7_record_decision` (decision ledger). Upcoming names: `signet7_verify_email`, `signet7_seal_email` (see PLACEHOLDER on the agent docs page).
-- Agent JSON verdict: `signet7.verify.v1` — fields `sealed`, `verdict` (`sealed`|`unsealed`|`tampered`|`revoked`|`unknown`), `signer`, `delegation` (`agent_label`, `principal`) or null, `receipt_id`, `checked_at`.
+## Seal (agents, upcoming)
 
-## Seal (outbound)
+Agent bearer: `POST /api/v1/email/sign` with `Authorization: Bearer <agent_token>` (scoped). Also requires `X-Signet7-Ack: terms-disclaimer-2026-08-15`. MCP `seal_email` after `connect`.
 
-Humans seal with Signet7 desktop and sender tokens today. Delegated agent tokens and MCP seal tools are upcoming. Until then, agents should verify inbound mail and refuse when `verdict` is not `sealed`.
+## Device-code (agents, upcoming)
 
-## Connect without leaking tokens
+- `POST /api/v1/agent/device/start` → human approves via account → `POST /api/v1/agent/device/poll` → one-time `agent_token`.
+- Human step uses existing `POST /api/v1/account/device/approve` (`session_kind` `agent`).
 
-Device-code flow on `account.signet7.io`: `POST /api/v1/account/device/start`, human approves on phone, poll `POST /api/v1/account/device/poll`. Store tokens only in the MCP process environment.
+## Agent token management (upcoming)
+
+- `POST /api/v1/agent/tokens`, `GET /api/v1/agent/tokens`, `POST /api/v1/agent/tokens/{token_id}/revoke`
 
 ## Caller enforces
 
-Signet7 returns facts and optional allow/refuse on decision routes. Your agent must refuse spoofed wires and tampered mail. Treating the answer as a hint and executing anyway defeats the control.
+Refuse consequential actions when `verdict` is not `sealed`. Signet7 returns evidence, not payment approval.
 
 ## What is not claimed
 
-Free email check. No hidden generative model on verify. Not a virus scanner, not payment approval, not legal advice. No customer logos or production SLAs on this export.
+No encryption of bodies. Free human check. Not live until the agent PRs deploy.

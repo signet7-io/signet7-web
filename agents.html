@@ -56,12 +56,13 @@
  <p class="hero-copy">Signet7 puts a cryptographic <strong>seal</strong> on email. It does not encrypt the message. The seal binds the exact wording to a signing key. Before an agent pays, rebooks, or changes a bank account, it can ask Signet7 whether the instructions still match that seal and whether the sender is listed for your organization.</p>
  <p class="hero-actions">
  <a class="button button-primary" href="docs#agent-quickstart">MCP quickstart</a>
- <a class="button button-secondary" href="https://verify.signet7.io/openapi.json">OpenAPI</a>
+ <a class="button button-secondary" href="https://verify.signet7.io/openapi-agent.json">Agent OpenAPI</a>
  </p>
  <div class="badge-row">
+ <span class="badge gold">Upcoming — not live until PRs merge</span>
  <span class="badge cyan">Seals, not encryption</span>
  <span class="badge">Caller enforces the verdict</span>
- <span class="badge gold">Works with Cursor, Claude Desktop, and other MCP clients</span>
+ <span class="badge">Cursor, Claude Desktop, Grok Bot, other MCP hosts</span>
  </div>
  </div>
  </section>
@@ -73,8 +74,8 @@
  <p class="section-intro">An inbox agent can draft replies, queue payments, and follow “urgent” instructions faster than a person can reread the thread. That is exactly where spoofed mail hurts: fake invoices, forged wire requests, and prompt-injection text that pretends to be the CEO. A seal does not stop every attack, but it gives the agent a machine-readable fact: <em>these bytes were signed by a listed key, or they were not.</em> Your integration must refuse when the verdict is not good enough.</p>
  <div class="grid-3">
  <article class="card"><h3>Spoofed instructions</h3><p>Prompt injection and look-alike domains land in the same inbox as real mail. Checking the seal first keeps the agent from treating unsigned wording as authority.</p></article>
- <article class="card"><h3>Delegated agent tokens</h3><p><span class="badge gold">Upcoming</span> A person can issue a scoped, revocable credential so an agent may seal outbound mail on their behalf. The seal records delegation (<code>agent_label</code>, <code>principal</code>) when that ships in signet7-core. Until then, sealing stays on Signet7 desktop with a sender token.</p></article>
- <article class="card"><h3>Same check, two surfaces</h3><p>People use the free check page. Agents call <code>POST /api/v1/email/verify</code> or the MCP verify tool with the original <code>.eml</code> bytes. Do not rebuild headers or body.</p></article>
+ <article class="card"><h3>Delegated agent tokens</h3><p><span class="badge gold">Upcoming</span> <code>POST /api/v1/agent/tokens</code> mints scoped, revocable credentials (signet7-core #315). An agent bearer can seal via <code>POST /api/v1/email/sign</code>; the envelope and <code>verdict_v1</code> record <code>agent_label</code>, <code>principal</code>, and <code>agent_token_fingerprint</code>.</p></article>
+ <article class="card"><h3>Same check, two surfaces</h3><p>People use the free check page. Agents call <code>POST /api/v1/email/verify</code> with <code>machine_verdict: true</code> or MCP <code>verify_email</code> with the original <code>.eml</code> bytes. Do not rebuild headers or body.</p></article>
  </div>
  </div>
  </section>
@@ -83,13 +84,14 @@
  <div class="container">
  <p class="eyebrow">MCP</p>
  <h2>Signet7 MCP server</h2>
- <p class="section-intro">Production MCP is a <strong>stdio</strong> process. It calls the same HTTPS API you would use from your own service. Set <code>SIGNET7_MCP_BASE_URL</code> to <code>https://verify.signet7.io</code> until <code>https://api.signet7.io</code> is live. There is no public HTTP or SSE MCP listener on <code>mcp.signet7.io</code>.</p>
+ <p class="section-intro"><span class="badge gold">Upcoming</span> signet7 #126 adds a stdio MCP server: <code>pip install "signet7[mcp]"</code> then <code>signet7-mcp</code>. Tools: <code>verify_email</code>, <code>seal_email</code>, <code>connect</code>, <code>status</code>. No public HTTP/SSE MCP endpoint — stdio only.</p>
  <div class="scope-list">
- <div class="scope-row"><b>Install</b><span>Console command: <code>signet7-mcp</code> (Windows operator kit: <code>Signet7-MCP.exe</code>). Shipped with the Signet7 operator distribution, not the public customer zip. <code>PLACEHOLDER:signet7-mcp-install</code> for a standalone installer story.</span></div>
- <div class="scope-row"><b><code>signet7_verify_email</code></b><span>MCP tool name in parallel SDK work. Shipped today: <code>signet7_check_email</code> — same semantics as email verify. Returns a compact fact card; agents map it to <code>signet7.verify.v1</code>.</span></div>
- <div class="scope-row"><b><code>signet7_seal_email</code></b><span><span class="badge gold">Upcoming</span> Outbound seal over MCP. Today, humans seal with Signet7 desktop. <code>PLACEHOLDER:signet7_seal_email</code> tracks the MCP seal tool in signet7 / signet7-core.</span></div>
- <div class="scope-row"><b>Also shipped</b><span><code>signet7_record_decision</code> — records an allow/refuse decision after verify when your workflow needs a signed chronology row.</span></div>
- <div class="scope-row"><b>Clients</b><span>Cursor, Claude Desktop, Grok Bot, and any MCP host that can spawn stdio. Signet7 does not sell those clients; you configure them.</span></div>
+ <div class="scope-row"><b>Install</b><span><code>pip install "signet7[mcp]"</code> then run <code>signet7-mcp</code> from your MCP host config.</span></div>
+ <div class="scope-row"><b><code>verify_email</code></b><span>Verify original bytes; surfaces <code>signet7.verify.v1</code> / <code>verdict_v1</code> fields.</span></div>
+ <div class="scope-row"><b><code>seal_email</code></b><span>Outbound seal when an agent or sender bearer is connected.</span></div>
+ <div class="scope-row"><b><code>connect</code></b><span>Device-code approval on the phone; token stored in the OS secret store, redacted from tool output.</span></div>
+ <div class="scope-row"><b><code>status</code></b><span>Connected agent identity and expiry.</span></div>
+ <div class="scope-row"><b>Clients</b><span>Cursor, Claude Desktop, Grok Bot, and any MCP host that can spawn stdio.</span></div>
  </div>
  <p><a href="docs#agent-quickstart">Full quickstart and config snippets</a></p>
  </div>
@@ -99,7 +101,7 @@
  <div class="container">
  <p class="eyebrow">Headless connect</p>
  <h2>Device code — the human approves on their phone.</h2>
- <p class="section-intro">Agents and MCP harnesses should not paste long-lived tokens into chat logs. Use the account device-code flow: the process calls <code>POST /api/v1/account/device/start</code>, shows a short code and browser URL, the person approves on <code>account.signet7.io</code>, and the harness polls <code>POST /api/v1/account/device/poll</code> until a sender token arrives in the secure environment — never in the model context.</p>
+ <p class="section-intro"><span class="badge gold">Upcoming</span> Agents call <code>POST /api/v1/agent/device/start</code> and <code>POST /api/v1/agent/device/poll</code> on the API host (signet7-core #315). The human approves on <code>account.signet7.io</code>; MCP <code>connect</code> wraps the same flow. One-time <code>agent_token</code> stays in the secret store — never in the model context.</p>
  <p><a href="docs#agent-device-code">Device-code steps in Docs</a></p>
  </div>
  </section>

@@ -16,7 +16,7 @@ class AgentDeveloperSurfaceTests(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.agents = AGENTS.read_text(encoding="utf-8")
         cls.docs = DOCS.read_text(encoding="utf-8")
-        cls.llms = LLMS.read_text(encoding="utf-8")
+        cls.llms = LLMS.read_text(encoding='utf-8')
         cls.llms_full = LLMS_FULL.read_text(encoding="utf-8")
         cls.home = (ROOT / "index.html").read_text(encoding="utf-8")
         cls.product = (ROOT / "product.html").read_text(encoding="utf-8")
@@ -32,41 +32,52 @@ class AgentDeveloperSurfaceTests(unittest.TestCase):
             "signet7-mcp",
             "unsealed",
             "wire transfer",
+            "Upcoming",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, self.agents.lower() if phrase == "unsealed" else self.agents)
 
     def test_docs_agent_sections_exist(self) -> None:
-        for anchor in ("agent-quickstart", "agent-verify-v1", "agent-device-code"):
+        for anchor in (
+            "agent-quickstart",
+            "agent-verify-v1",
+            "agent-device-code",
+            "agent-tokens",
+        ):
             with self.subTest(anchor=anchor):
                 self.assertIn(f'id="{anchor}"', self.docs)
         self.assertIn("signet7.verify.v1", self.docs)
-        self.assertIn("signet7-mcp", self.docs)
-        self.assertIn("claude_desktop_config.json", self.docs)
-        self.assertIn("/api/v1/account/device/start", self.docs)
+        self.assertIn('pip install "signet7[mcp]"', self.docs)
+        self.assertIn("verify_email", self.docs)
+        self.assertIn("/api/v1/agent/device/start", self.docs)
+        self.assertIn("/api/v1/agent/tokens", self.docs)
+        self.assertIn("machine_verdict", self.docs)
+        self.assertIn("verdict_v1", self.docs)
 
     def test_verify_v1_fields_documented(self) -> None:
         for field in (
-            '"verdict"',
+            "signer_identity",
             "unsealed",
             "tampered",
             "revoked",
             "unknown",
-            "agent_label",
-            "principal",
+            "agent_token_fingerprint",
             "receipt_id",
             "checked_at",
+            '"summary"',
         ):
             with self.subTest(field=field):
                 self.assertIn(field, self.docs)
 
-    def test_llms_files_point_at_agent_docs_and_openapi(self) -> None:
+    def test_llms_files_point_at_agent_contract(self) -> None:
         self.assertIn("https://signet7.io/agents", self.llms)
-        self.assertIn("https://signet7.io/docs#agent-quickstart", self.llms)
-        self.assertIn("https://verify.signet7.io/openapi.json", self.llms)
-        self.assertIn("signet7.verify.v1", self.llms)
-        self.assertIn("llms-full.txt", self.llms)
-        self.assertIn("PLACEHOLDER:signet7_seal_email", self.llms_full)
+        self.assertIn("openapi-agent.json", self.llms)
+        self.assertIn("verify_email", self.llms)
+        self.assertIn("/api/v1/agent/device/start", self.llms_full)
+        self.assertIn("Upcoming", self.llms)
+        self.assertIn("signet7-core PR #315", self.llms_full)
+        self.assertIn("signet7 PR #126", self.llms_full)
+        self.assertNotIn("PLACEHOLDER:signet7_seal_email", self.llms_full)
 
 
 if __name__ == "__main__":

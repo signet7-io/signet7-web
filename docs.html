@@ -95,6 +95,7 @@
  <a href="#agent-quickstart">Agent MCP quickstart</a>
  <a href="#agent-verify-v1">signet7.verify.v1</a>
  <a href="#agent-device-code">Device-code connect</a>
+ <a href="#agent-tokens">Agent tokens</a>
  <a href="#http-apis">HTTP APIs</a>
  <a href="#misc">Miscellaneous</a>
  </div>
@@ -729,21 +730,22 @@
 
  <span id="agent-quickstart"></span>
  <h3>Agent MCP quickstart</h3>
- <p class="section-intro">Install the stdio server, point it at the verify host, inject secrets from the MCP host — never from committed config.</p>
+ <p class="docs-note"><span class="badge gold">Upcoming</span> The agent API and MCP package are defined in open PRs <a href="https://github.com/signet7-io/signet7-core/pull/315">signet7-core #315</a> and <a href="https://github.com/signet7-io/signet7/pull/126">signet7 #126</a>. Nothing here is live on production until those PRs merge and deploy.</p>
+ <p class="section-intro">Install the stdio server, use the <code>connect</code> tool (or the agent device-code API) for credentials, and never commit tokens.</p>
  <h4>Install</h4>
- <p>Run the console command <code>signet7-mcp</code> (Windows operator kit: <code>Signet7-MCP.exe</code>). It ships with the Signet7 operator distribution documented in signet7-core (<code>docs/apps/mcp/README.md</code>). There is no public <code>pip install</code> line on this site yet — track <code>PLACEHOLDER:signet7-mcp-install</code> until packaging matches the desktop zip story.</p>
- <p>Sanity check: the process should stay on stdio and exit when stdin closes.</p>
+ <p>After signet7 #126 merges:</p>
+<pre><code>pip install "signet7[mcp]"
+signet7-mcp</code></pre>
+ <p>The process speaks MCP over stdio and exits when stdin closes. Legacy operator builds may still ship <code>Signet7-MCP.exe</code>; new integrations should prefer the pip entry point.</p>
 
- <h4>Environment</h4>
+ <h4>MCP tools (signet7 #126)</h4>
  <div class="scope-list">
- <div class="scope-row"><b><code>SIGNET7_MCP_BASE_URL</code></b><span><code>https://verify.signet7.io</code> until <code>https://api.signet7.io</code> is live.</span></div>
- <div class="scope-row"><b><code>SIGNET7_MCP_API_TOKEN</code></b><span>Tenant-scoped bearer for remote mode. Inject via the MCP host secret store; leave empty in copied JSON.</span></div>
- <div class="scope-row"><b><code>SIGNET7_MCP_TENANT_ID</code></b><span>Required in production remote mode.</span></div>
- <div class="scope-row"><b><code>SIGNET7_MODE</code></b><span><code>production</code> for deployed agents.</span></div>
+ <div class="scope-row"><b><code>verify_email</code></b><span>Check original <code>.eml</code> bytes; returns <code>signet7.verify.v1</code> fields.</span></div>
+ <div class="scope-row"><b><code>seal_email</code></b><span>Outbound seal with agent bearer (scoped) or sender authority.</span></div>
+ <div class="scope-row"><b><code>connect</code></b><span>Headless device-code flow; stores token in the OS secret store (not in chat).</span></div>
+ <div class="scope-row"><b><code>status</code></b><span>Whether an agent token is connected and its label.</span></div>
  </div>
-
- <h4>MCP tools</h4>
- <p>Shipped tool names today (signet7-core): <code>signet7_check_email</code> (verify) and <code>signet7_record_decision</code> (ledger row after your workflow decides). Parallel SDK docs rename verify/seal to <code>signet7_verify_email</code> / <code>signet7_seal_email</code> — use <code>PLACEHOLDER:signet7_seal_email</code> until that tool ships. Check first; never treat <code>sealed=false</code> as permission to pay.</p>
+ <p>Check first. Never treat <code>verdict=unsealed</code> as permission to pay or wire.</p>
 
  <h4>Cursor (<code>.cursor/mcp.json</code>)</h4>
 <pre><code>{
@@ -751,70 +753,75 @@
     "signet7": {
       "type": "stdio",
       "command": "signet7-mcp",
-      "args": [],
-      "env": {
-        "SIGNET7_MODE": "production",
-        "SIGNET7_MCP_BASE_URL": "https://verify.signet7.io",
-        "SIGNET7_MCP_TENANT_ID": "",
-        "SIGNET7_MCP_API_TOKEN": ""
-      }
+      "args": []
     }
   }
 }</code></pre>
- <p>Reload the window after edit. Confirm the host lists both contract tools.</p>
+ <p>Reload the window after edit. Use <code>connect</code> once so the server can reach the API with a stored agent token.</p>
 
  <h4>Claude Desktop (<code>claude_desktop_config.json</code>)</h4>
 <pre><code>{
   "mcpServers": {
     "signet7": {
       "command": "signet7-mcp",
-      "env": {
-        "SIGNET7_MODE": "production",
-        "SIGNET7_MCP_BASE_URL": "https://verify.signet7.io",
-        "SIGNET7_MCP_TENANT_ID": "",
-        "SIGNET7_MCP_API_TOKEN": ""
-      }
+      "args": []
     }
   }
 }</code></pre>
 
  <span id="agent-verify-v1"></span>
  <h3>signet7.verify.v1</h3>
- <p>Agent-facing JSON shape for a single email verify. The HTTP response and MCP fact card are converging on this schema in signet7-core; field names below are the public contract for integrators. If your build returns legacy keys, map them locally until cutover.</p>
- <p>Content type: <code>application/vnd.signet7.verify.v1+json</code> (<code>PLACEHOLDER:signet7.verify.v1-media-type</code> until the API advertises it).</p>
+ <p>Machine verdict for agents. Call <code>POST /api/v1/email/verify</code> with the same body as today’s human verify, plus <code>machine_verdict: true</code>, or set <code>response_format: "signet7.verify.v1"</code>, or send <code>Accept: application/vnd.signet7.verify.v1+json</code>. The response includes a top-level <code>verdict_v1</code> object (human-oriented fields stay unchanged). <span class="badge gold">Upcoming</span> with signet7-core #315.</p>
 <pre><code>{
   "schema": "signet7.verify.v1",
   "sealed": true,
   "verdict": "sealed",
-  "signer": "treasury@example.com",
-  "delegation": {
-    "agent_label": "inbox-agent",
-    "principal": "alex@example.com"
+  "signer_identity": {
+    "sender": "alice@example.com",
+    "key_fingerprint": "…"
   },
-  "receipt_id": "rcpt_…",
-  "checked_at": "2026-11-15T12:00:00Z"
+  "delegation": {
+    "agent_label": "Inbox assistant",
+    "principal": "owner@example.com",
+    "agent_token_fingerprint": "abcd1234efgh"
+  },
+  "receipt_id": "…",
+  "checked_at": "2026-11-15T22:00:00Z",
+  "summary": "Sealed and intact. Sent by Inbox assistant on behalf of owner@example.com."
 }</code></pre>
  <div class="scope-list">
- <div class="scope-row"><b><code>sealed</code></b><span>Boolean convenience flag. <code>true</code> when a verifiable Signet7 seal was present and integrity checked.</span></div>
- <div class="scope-row"><b><code>verdict</code></b><span>One of <code>sealed</code>, <code>unsealed</code>, <code>tampered</code>, <code>revoked</code>, <code>unknown</code>. <code>unsealed</code> is ordinary mail, not an accusation. Refuse consequential actions on <code>unsealed</code>, <code>tampered</code>, <code>revoked</code>, and <code>unknown</code>.</span></div>
- <div class="scope-row"><b><code>signer</code></b><span>Claimed sending identity bound to the seal, when known.</span></div>
- <div class="scope-row"><b><code>delegation</code></b><span><code>{ "agent_label", "principal" }</code> when a delegated agent token signed, else <code>null</code>. <span class="badge gold">Upcoming</span> until delegated credentials ship.</span></div>
- <div class="scope-row"><b><code>receipt_id</code></b><span>Opaque receipt when the verify mints one.</span></div>
- <div class="scope-row"><b><code>checked_at</code></b><span>ISO-8601 UTC timestamp of the check.</span></div>
+ <div class="scope-row"><b><code>sealed</code></b><span>Boolean convenience flag.</span></div>
+ <div class="scope-row"><b><code>verdict</code></b><span><code>sealed</code> | <code>unsealed</code> | <code>tampered</code> | <code>revoked</code> | <code>unknown</code>.</span></div>
+ <div class="scope-row"><b><code>signer_identity</code></b><span><code>sender</code> and <code>key_fingerprint</code> when known.</span></div>
+ <div class="scope-row"><b><code>delegation</code></b><span><code>agent_label</code>, <code>principal</code>, <code>agent_token_fingerprint</code> when the seal used a delegated agent token; else <code>null</code>.</span></div>
+ <div class="scope-row"><b><code>receipt_id</code></b><span>Opaque receipt when minted.</span></div>
+ <div class="scope-row"><b><code>checked_at</code></b><span>ISO-8601 UTC.</span></div>
+ <div class="scope-row"><b><code>summary</code></b><span>Short plain-language line for logs (not a policy decision).</span></div>
  </div>
- <p>OpenAPI source of truth: <a href="https://verify.signet7.io/openapi.json">verify.signet7.io/openapi.json</a> (<code>POST /api/v1/email/verify</code>).</p>
+ <p>Agent OpenAPI (upcoming): <a href="https://verify.signet7.io/openapi-agent.json">GET /openapi-agent.json</a>. Full integrator spec: <a href="https://verify.signet7.io/openapi.json">openapi.json</a>.</p>
 
  <span id="agent-device-code"></span>
- <h3>Device-code connect</h3>
- <p>Headless MCP and agent hosts use the same device flow as Signet7 desktop (signet7 client <code>account_connect</code>). The human approves on their phone; the harness never prints a raw token into the model transcript.</p>
+ <h3>Device-code connect (agents)</h3>
+ <p>Headless agents use the agent device flow on the API host (signet7-core #315). The human approves on the account site; the harness stores the one-time <code>agent_token</code> in the secret store — never in the model transcript. The MCP <code>connect</code> tool wraps this flow in signet7 #126.</p>
  <ol>
- <li><code>POST https://account.signet7.io/api/v1/account/device/start</code> with JSON <code>{ "device_name", "platform", "app_version" }</code>.</li>
- <li>Show the returned <code>user_code</code> and open <code>verification_url</code> (or <code>account.signet7.io/account/link?c=…</code>).</li>
- <li>Poll <code>POST …/api/v1/account/device/poll</code> with <code>{ "device_code" }</code> until approved or expired.</li>
- <li>Store the returned <code>sender_token</code> only in the MCP process environment or OS secret store.</li>
+ <li><code>POST /api/v1/agent/device/start</code> on the verify/API host (body includes <code>device_name</code>, <code>platform</code>, <code>app_version</code>).</li>
+ <li>Show <code>user_code</code> and open <code>verification_url</code>.</li>
+ <li>Human approves with <code>POST /api/v1/account/device/approve</code> (existing office link; response includes <code>session_kind</code> <code>office</code> | <code>agent</code>).</li>
+ <li><code>POST /api/v1/agent/device/poll</code> with <code>{ "device_code" }</code> until approved, expired, or denied.</li>
+ <li>On success, store <code>agent_token</code> (shown once) in the MCP host secret store.</li>
  </ol>
- <p>Pending responses use <code>authorization_pending</code> or <code>slow_down</code> with a retry <code>interval</code>. Fail closed on <code>expired_token</code> or <code>access_denied</code>.</p>
- <p>Desk codes (six letters or numbers) redeem through <code>POST /api/v1/account/pair</code> for setups that still use short codes — not for long-lived automation; prefer device link for agents.</p>
+ <p>Poll errors: <code>authorization_pending</code>, <code>slow_down</code>, <code>expired_token</code>, <code>access_denied</code> — same semantics as the office device link.</p>
+ <p>Office-only desktop link still uses <code>/api/v1/account/device/start</code> and <code>…/poll</code> for <code>sender_token</code>. Agents must use the <code>/api/v1/agent/device/*</code> paths above.</p>
+
+ <span id="agent-tokens"></span>
+ <h3>Delegated agent tokens</h3>
+ <p><span class="badge gold">Upcoming</span> Principals mint scoped, revocable agent tokens (signet7-core #315). Sender bearer or account session with <code>sender_token.manage</code> can call:</p>
+ <div class="scope-list">
+ <div class="scope-row"><b><code>POST /api/v1/agent/tokens</code></b><span>Create token — raw secret returned once; optional domain allowlist and send rate limits.</span></div>
+ <div class="scope-row"><b><code>GET /api/v1/agent/tokens</code></b><span>List metadata (no secrets).</span></div>
+ <div class="scope-row"><b><code>POST /api/v1/agent/tokens/{token_id}/revoke</code></b><span>Immediate revocation.</span></div>
+ </div>
+ <p>Agent bearer may call <code>POST /api/v1/email/sign</code> only (scoped). Customer seal requests also require <code>X-Signet7-Ack: terms-disclaimer-2026-08-15</code>.</p>
 
  <span id="docs-agent-card"></span>
  <span id="agent-card"></span>
