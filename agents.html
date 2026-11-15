@@ -90,7 +90,7 @@
  <div class="scope-row"><b><code>verify_email</code></b><span>Verify original bytes; surfaces <code>signet7.verify.v1</code> / <code>verdict_v1</code> fields.</span></div>
  <div class="scope-row"><b><code>seal_email</code></b><span>Outbound seal when an agent or sender bearer is connected.</span></div>
  <div class="scope-row"><b><code>connect</code></b><span>Device-code approval on the phone; token stored in the OS secret store, redacted from tool output.</span></div>
- <div class="scope-row"><b><code>status</code></b><span>Connected agent identity and expiry.</span></div>
+ <div class="scope-row"><b><code>status</code></b><span>Calls <code>GET /api/v1/agent/status</code> when deployed; otherwise reports a locally stored token.</span></div>
  <div class="scope-row"><b>Clients</b><span>Cursor, Claude Desktop, Grok Bot, and any MCP host that can spawn stdio.</span></div>
  </div>
  <p><a href="docs#agent-quickstart">Full quickstart and config snippets</a></p>

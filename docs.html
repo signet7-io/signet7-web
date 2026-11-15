@@ -743,7 +743,7 @@ signet7-mcp</code></pre>
  <div class="scope-row"><b><code>verify_email</code></b><span>Check original <code>.eml</code> bytes; returns <code>signet7.verify.v1</code> fields.</span></div>
  <div class="scope-row"><b><code>seal_email</code></b><span>Outbound seal with agent bearer (scoped) or sender authority.</span></div>
  <div class="scope-row"><b><code>connect</code></b><span>Headless device-code flow; stores token in the OS secret store (not in chat).</span></div>
- <div class="scope-row"><b><code>status</code></b><span>Whether an agent token is connected and its label.</span></div>
+ <div class="scope-row"><b><code>status</code></b><span><code>GET /api/v1/agent/status</code> with agent bearer when live; local keychain fallback if the route is not deployed yet.</span></div>
  </div>
  <p>Check first. Never treat <code>verdict=unsealed</code> as permission to pay or wire.</p>
 
@@ -811,7 +811,8 @@ signet7-mcp</code></pre>
  <li>On success, store <code>agent_token</code> (shown once) in the MCP host secret store.</li>
  </ol>
  <p>Poll errors: <code>authorization_pending</code>, <code>slow_down</code>, <code>expired_token</code>, <code>access_denied</code> — same semantics as the office device link.</p>
- <p>Office-only desktop link still uses <code>/api/v1/account/device/start</code> and <code>…/poll</code> for <code>sender_token</code>. Agents must use the <code>/api/v1/agent/device/*</code> paths above.</p>
+ <p><code>GET /api/v1/agent/status</code> with <code>Authorization: Bearer &lt;agent_token&gt;</code> returns connection identity, label, and expiry when signet7-core #315 is deployed. <span class="badge gold">Upcoming</span> The route may return 404 until then; signet7 #126 MCP <code>status</code> still reports when a token is stored locally.</p>
+ <p>Office-only desktop link still uses <code>/api/v1/account/device/start</code> and <code>…/poll</code> for <code>sender_token</code>. Agents must use the <code>/api/v1/agent/device/*</code> and <code>/api/v1/agent/status</code> paths above (signet7 #126 and signet7-core #315 agree on these paths).</p>
 
  <span id="agent-tokens"></span>
  <h3>Delegated agent tokens</h3>

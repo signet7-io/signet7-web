@@ -83,8 +83,11 @@ Response adds top-level `verdict_v1`:
 | Start | POST | `/api/v1/agent/device/start` |
 | Human approve | POST | `/api/v1/account/device/approve` (includes `session_kind`) |
 | Poll | POST | `/api/v1/agent/device/poll` |
+| Status | GET | `/api/v1/agent/status` (bearer agent token) |
 
 Success returns one-time `agent_token`. Poll errors: `authorization_pending`, `slow_down`, `expired_token`, `access_denied`.
+
+`GET /api/v1/agent/status` returns connection identity and expiry when the API host runs signet7-core #315. Until deploy, the route may 404; signet7 #126 MCP `status` can still report a locally stored token.
 
 Office desktop sender link remains `/api/v1/account/device/start` and `…/poll` for `sender_token`.
 
@@ -106,10 +109,8 @@ Inbox agent → `verify_email` or verify with `machine_verdict` → `verdict_v1.
 
 | PR | Repo | Notes |
 |----|------|-------|
-| #315 | signet7-core | Authoritative API paths and `verdict_v1`; deploy before docs claim “live” |
-| #126 | signet7 | MCP server; ensure client HTTP paths match `/api/v1/agent/*` (reconcile any drift from early client constants) |
-
-**PLACEHOLDER:signet7-126-agent-paths** — if signet7 #126 still references `/api/v1/account/agent/*` until rebased onto #315, treat signet7-core OpenAPI as source of truth.
+| #315 | signet7-core | Authoritative API paths, `verdict_v1`, and `GET /api/v1/agent/status`; deploy before docs claim “live” |
+| #126 | signet7 | MCP server; HTTP paths aligned with `/api/v1/agent/device/*` and `/api/v1/agent/status` |
 
 ## Legacy MCP (already on some hosts)
 

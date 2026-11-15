@@ -40,6 +40,7 @@ Agent bearer: `POST /api/v1/email/sign` with `Authorization: Bearer <agent_token
 
 - `POST /api/v1/agent/device/start` → human approves via account → `POST /api/v1/agent/device/poll` → one-time `agent_token`.
 - Human step uses existing `POST /api/v1/account/device/approve` (`session_kind` `agent`).
+- `GET /api/v1/agent/status` with bearer agent token (MCP `status`; may 404 until deploy).
 
 ## Agent token management (upcoming)
 

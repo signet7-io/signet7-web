@@ -50,6 +50,7 @@ class AgentDeveloperSurfaceTests(unittest.TestCase):
         self.assertIn('pip install "signet7[mcp]"', self.docs)
         self.assertIn("verify_email", self.docs)
         self.assertIn("/api/v1/agent/device/start", self.docs)
+        self.assertIn("/api/v1/agent/status", self.docs)
         self.assertIn("/api/v1/agent/tokens", self.docs)
         self.assertIn("machine_verdict", self.docs)
         self.assertIn("verdict_v1", self.docs)
@@ -75,9 +76,10 @@ class AgentDeveloperSurfaceTests(unittest.TestCase):
         self.assertIn("verify_email", self.llms)
         self.assertIn("/api/v1/agent/device/start", self.llms_full)
         self.assertIn("Upcoming", self.llms)
+        self.assertIn("/api/v1/agent/status", self.llms_full)
         self.assertIn("signet7-core PR #315", self.llms_full)
         self.assertIn("signet7 PR #126", self.llms_full)
-        self.assertNotIn("PLACEHOLDER:signet7_seal_email", self.llms_full)
+        self.assertNotIn("PLACEHOLDER:", self.llms_full)
 
 
 if __name__ == "__main__":
