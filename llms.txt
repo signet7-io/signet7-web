@@ -1,28 +1,55 @@
 # Signet7
 
-> A cryptographic seal on the letter. Two facts. You keep the file.
+> Signet7 cryptographically seals email. It does not encrypt mail. Agents verify original message bytes before acting on money-moving instructions.
 
 Akasha is the name on the front door. The company is Signet7.
 
+**Upcoming:** Agent API (signet7-core #315) and MCP package (signet7 #126) are open PRs — not live on production until merge and deploy.
+
+## Start here
+
 - Home: https://signet7.io/
-- Check an email: https://verify.signet7.io/email/verify
+- Signet7 for agents: https://signet7.io/agents
+- Agent MCP quickstart: https://signet7.io/docs#agent-quickstart
+- signet7.verify.v1 schema: https://signet7.io/docs#agent-verify-v1
+- Device-code connect: https://signet7.io/docs#agent-device-code
+- Agent tokens: https://signet7.io/docs#agent-tokens
+- Extended guide: https://signet7.io/llms-full.txt
+- Check an email (human): https://verify.signet7.io/email/verify
+- Agent OpenAPI (upcoming): https://verify.signet7.io/openapi-agent.json
+- Integrator OpenAPI: https://verify.signet7.io/openapi.json
 - Product: https://signet7.io/product
-- FAQ: https://signet7.io/faq
 - Docs: https://signet7.io/docs
-- Team: https://signet7.io/about
-- Privacy: https://signet7.io/privacy
-- What is live: https://signet7.io/status
+- Status: https://signet7.io/status
 
-## What a check answers
-Signet7 checks whether the words in an important email still match the seal, and whether that sender is listed.
-The other person checks on the website. They install nothing.
-You keep the file. Nobody else can open the upload. It is checked, then deleted. Signet7 does not keep a copy.
+## What Signet7 does
 
-## Words on a result
-Words match: what you are reading is exactly what the sender signed.
-Words do not match: the wording changed after it was signed. A forward or a mailing-list footer can do that. It is not a verdict.
-No seal: ordinary email with no signature to compare against. Not an accusation by itself.
-Listed: the sender's address is one Signet7 has on record for that organization.
+Signet7 answers whether the words in an important email still match a cryptographic seal, and whether the sender is listed. Signet7 seals; it does not encrypt. Submit original RFC 5322 bytes; do not rebuild headers or body.
+
+## Verify (agents, upcoming)
+
+- HTTP: `POST /api/v1/email/verify` with `machine_verdict: true` (or `Accept: application/vnd.signet7.verify.v1+json`) → response includes `verdict_v1` (`signet7.verify.v1` schema).
+- MCP (signet7 #126): `pip install "signet7[mcp]"`, console `signet7-mcp`, tools `verify_email`, `seal_email`, `connect`, `status`.
+- Verdict fields: `schema`, `sealed`, `verdict` (`sealed`|`unsealed`|`tampered`|`revoked`|`unknown`), `signer_identity` (`sender`, `key_fingerprint`), `delegation` (`agent_label`, `principal`, `agent_token_fingerprint`) or null, `receipt_id`, `checked_at`, `summary`.
+
+## Seal (agents, upcoming)
+
+Agent bearer: `POST /api/v1/email/sign` with `Authorization: Bearer <agent_token>` (scoped). Also requires `X-Signet7-Ack: terms-disclaimer-2026-08-15`. MCP `seal_email` after `connect`.
+
+## Device-code (agents, upcoming)
+
+- `POST /api/v1/agent/device/start` → human approves via account → `POST /api/v1/agent/device/poll` → one-time `agent_token`.
+- Human step uses existing `POST /api/v1/account/device/approve` (`session_kind` `agent`).
+- `GET /api/v1/agent/status` with bearer agent token (MCP `status`; may 404 until deploy).
+
+## Agent token management (upcoming)
+
+- `POST /api/v1/agent/tokens`, `GET /api/v1/agent/tokens`, `POST /api/v1/agent/tokens/{token_id}/revoke`
+
+## Caller enforces
+
+Refuse consequential actions when `verdict` is not `sealed`. Signet7 returns evidence, not payment approval.
 
 ## What is not claimed
-Checking an email is free and needs no account. Checkout is not live. The company price is not published. Signet7 does not approve a payment, scan for viruses, or name the person at the keyboard. Windows and Mac. Recipients are not required to install.
+
+No encryption of bodies. Free human check. Not live until the agent PRs deploy.

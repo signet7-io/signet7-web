@@ -1,0 +1,121 @@
+# Signet7 — full guide for AI tools and agent developers
+
+> Signet7 seals email; it does not encrypt it. **Nothing in the agent sections is live on production** until signet7-core PR #315 and signet7 PR #126 merge and deploy.
+
+## Pages
+
+| Topic | URL |
+|-------|-----|
+| Agents landing | https://signet7.io/agents |
+| MCP quickstart | https://signet7.io/docs#agent-quickstart |
+| verify.v1 / verdict_v1 | https://signet7.io/docs#agent-verify-v1 |
+| Device code (agents) | https://signet7.io/docs#agent-device-code |
+| Agent tokens | https://signet7.io/docs#agent-tokens |
+| Human verify UI | https://verify.signet7.io/email/verify |
+| Agent OpenAPI (upcoming) | https://verify.signet7.io/openapi-agent.json |
+| Integrator OpenAPI | https://verify.signet7.io/openapi.json |
+
+## MCP install (signet7 PR #126, upcoming)
+
+```bash
+pip install "signet7[mcp]"
+```
+
+MCP host config (stdio):
+
+```json
+{
+  "mcpServers": {
+    "signet7": {
+      "type": "stdio",
+      "command": "signet7-mcp",
+      "args": []
+    }
+  }
+}
+```
+
+### MCP tools
+
+| Tool | Purpose |
+|------|---------|
+| `verify_email` | Verify `.eml` bytes; `signet7.verify.v1` fields |
+| `seal_email` | Outbound seal with connected agent/sender bearer |
+| `connect` | Agent device-code flow; token in OS secret store |
+| `status` | Connection identity and expiry |
+
+## HTTP verify — machine verdict (signet7-core PR #315, upcoming)
+
+`POST /api/v1/email/verify` — same body as human verify, plus any of:
+
+- `"machine_verdict": true`
+- `"response_format": "signet7.verify.v1"`
+- `Accept: application/vnd.signet7.verify.v1+json`
+
+Response adds top-level `verdict_v1`:
+
+```json
+{
+  "schema": "signet7.verify.v1",
+  "sealed": true,
+  "verdict": "sealed",
+  "signer_identity": {
+    "sender": "alice@example.com",
+    "key_fingerprint": "…"
+  },
+  "delegation": {
+    "agent_label": "Inbox assistant",
+    "principal": "owner@example.com",
+    "agent_token_fingerprint": "abcd1234efgh"
+  },
+  "receipt_id": "…",
+  "checked_at": "2026-11-15T22:00:00Z",
+  "summary": "Sealed and intact. Sent by Inbox assistant on behalf of owner@example.com."
+}
+```
+
+`verdict=unsealed` → refuse wire/autopay. Fail closed on `tampered`, `revoked`, `unknown`.
+
+## Agent device-code (signet7-core PR #315, upcoming)
+
+| Step | Method | Path |
+|------|--------|------|
+| Start | POST | `/api/v1/agent/device/start` |
+| Human approve | POST | `/api/v1/account/device/approve` (includes `session_kind`) |
+| Poll | POST | `/api/v1/agent/device/poll` |
+| Status | GET | `/api/v1/agent/status` (bearer agent token) |
+
+Success returns one-time `agent_token`. Poll errors: `authorization_pending`, `slow_down`, `expired_token`, `access_denied`.
+
+`GET /api/v1/agent/status` returns connection identity and expiry when the API host runs signet7-core #315. Until deploy, the route may 404; signet7 #126 MCP `status` can still report a locally stored token.
+
+Office desktop sender link remains `/api/v1/account/device/start` and `…/poll` for `sender_token`.
+
+## Agent token management (upcoming)
+
+| Method | Path |
+|--------|------|
+| POST | `/api/v1/agent/tokens` — mint (secret once) |
+| GET | `/api/v1/agent/tokens` — list metadata |
+| POST | `/api/v1/agent/tokens/{token_id}/revoke` |
+
+Agent bearer: `POST /api/v1/email/sign` only. Header `X-Signet7-Ack: terms-disclaimer-2026-08-15` on customer seal.
+
+## Scenario: refuse unsealed wire
+
+Inbox agent → `verify_email` or verify with `machine_verdict` → `verdict_v1.verdict=unsealed` → refuse and escalate. Caller enforces.
+
+## Reconcile when PRs land
+
+| PR | Repo | Notes |
+|----|------|-------|
+| #315 | signet7-core | Authoritative API paths, `verdict_v1`, and `GET /api/v1/agent/status`; deploy before docs claim “live” |
+| #126 | signet7 | MCP server; HTTP paths aligned with `/api/v1/agent/device/*` and `/api/v1/agent/status` |
+
+## Legacy MCP (already on some hosts)
+
+Older operator stdio servers used `signet7_check_email` / `signet7_record_decision` and `SIGNET7_MCP_*` env vars. New agent integrations should use signet7 #126 tools above.
+
+## Limits
+
+No message encryption. Not payment approval. Crisis hold may block verify/seal — see https://signet7.io/safety .
