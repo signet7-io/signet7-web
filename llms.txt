@@ -2,7 +2,7 @@
 
 > A cryptographic seal on the letter. Two facts. You keep the file.
 
-Akasha is the name on the front door. The company is Signet7.
+Akasha is not the company name. The company is Signet7.
 
 - Home: https://signet7.io/
 - Check an email: https://verify.signet7.io/email/verify
@@ -16,7 +16,7 @@ Akasha is the name on the front door. The company is Signet7.
 ## What a check answers
 Signet7 checks whether the words in an important email still match the seal, and whether that sender is listed.
 The other person checks on the website. They install nothing.
-You keep the file. Nobody else can open the upload. It is checked, then deleted. Signet7 does not keep a copy.
+You keep the file. Signet7 does not keep a copy of the file after the check.
 
 ## Words on a result
 Words match: what you are reading is exactly what the sender signed.
